@@ -38,7 +38,7 @@
 &lt;p&gt;&lt;em&gt;Note: You should test each of the release archives, for each target machine.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Follow the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Perform some verification tests (see below)&lt;/p&gt;

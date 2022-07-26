@@ -676,7 +676,7 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
 &lt;p&gt;&lt;em&gt;Note: You should test each of the release archives, for each target machine.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Follow the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Perform some verification tests (see below)&lt;/p&gt;
@@ -724,7 +724,7 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
 &lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Open terminal and execute one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts to execute the build&lt;/li&gt;
 &lt;li&gt;For later builds, it is advisable to run &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-env ../build-sdv-xxx &amp;amp;&amp;amp; bitbake core-image-minimal&lt;/code&gt; manually to reuse the build work directory&lt;/li&gt;
-&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
 &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
@@ -1186,7 +1186,7 @@ root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/c
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1237,7 +1237,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;variations-of-runqemu-command-line&#34;&gt;Variations of runqemu command line&lt;/h3&gt;
 &lt;ul&gt;
@@ -1247,7 +1247,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;All other options are now part of the default Leda distribution configuration (see &lt;em&gt;leda-qemu-settings.inc&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;running-qemu-in-the-background&#34;&gt;Running QEMU in the background&lt;/h2&gt;
 &lt;p&gt;To start QEMU in the background enter, use &lt;code&gt;nohup&lt;/code&gt; and bring the process into the background.&lt;/p&gt;
@@ -1290,7 +1290,7 @@ This will write a file qemu.pid in the current directory including the process I
       <description>
         
         
-        &lt;p&gt;&lt;img src=&#34;https://eclipse-leda.github.io/leda/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://eclipse-leda.github.io/leda/leda/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -1778,17 +1778,17 @@ bitbake sdv-databroker-cli
         
         
         &lt;ol&gt;
-&lt;li&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Run Eclipse Leda
 &lt;ul&gt;
-&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;emulated Qemu devices&lt;/a&gt; or&lt;/li&gt;
-&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/running-qemu/&#34;&gt;emulated Qemu devices&lt;/a&gt; or&lt;/li&gt;
+&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/raspberry-pi/&#34;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Configure device, e.g. &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;provision the device&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Explore the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/misc/tools/&#34;&gt;device tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Configure device, e.g. &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;provision the device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Explore the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/misc/tools/&#34;&gt;device tools&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Develop your first Vehicle App using &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Eclipse Velocitas template&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploy a Vehicle App to the device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/app-deployment/&#34;&gt;Deploy a Vehicle App to the device&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
       </description>

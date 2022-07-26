@@ -87,7 +87,7 @@ gh release download \
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On Windows:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gh release download --pattern &amp;#34;*.zip&amp;#34; --pattern &amp;#34;eclipse-leda-*&amp;#34; --repo eclipse-leda/leda-distro
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -117,7 +117,7 @@ sudo apt-get install -y qemu-system-x86-64
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the archive&lt;/p&gt;
@@ -149,7 +149,7 @@ sudo apt-get install -y qemu-system-x86-64
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;qemu-arm-64-bit&#34;&gt;QEMU ARM 64-Bit&lt;/h2&gt;
@@ -158,7 +158,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 64-Bit: &lt;code&gt;sudo apt install qemu-system-aarch64&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the archive&lt;/p&gt;
@@ -187,7 +187,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;qemu-arm-32-bit&#34;&gt;QEMU ARM 32-Bit&lt;/h2&gt;
@@ -196,7 +196,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 32-Bit: &lt;code&gt;sudo apt install qemu-system-arm&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the archive&lt;/p&gt;
@@ -225,7 +225,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -250,7 +250,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Steps:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Download the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the SD Card image:&lt;/p&gt;
@@ -308,7 +308,7 @@ bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 

@@ -332,8 +332,8 @@ This is the multi-page printable view of this section.
 <div class="content">
       <p>Running BitBake to build your own images requires some extra setup on the build machine. Please see the following chapters for more information about the build process itself and how to setup a development and build infrastructure.</p>
 <p><img src="build-terminal.png" alt=""></p>
-<p>If you are interested to contribute or to get in touch with us, please see our <a href="/docs/project-info/community/">Community</a> pages and <a href="/docs/project-info/contribution-guidelines/">Contribution Guidelines</a>.
-For reporting security vulnerabilities, please follow our <a href="/docs/project-info/security/">Security Policy</a>.</p>
+<p>If you are interested to contribute or to get in touch with us, please see our <a href="/leda/docs/project-info/community/">Community</a> pages and <a href="/leda/docs/project-info/contribution-guidelines/">Contribution Guidelines</a>.
+For reporting security vulnerabilities, please follow our <a href="/leda/docs/project-info/security/">Security Policy</a>.</p>
 
 </div>
 </div>
@@ -498,8 +498,8 @@ For reporting security vulnerabilities, please follow our <a href="/docs/project
     
 	<p>There are multiple variants on how to set up a build environment:</p>
 <ul>
-<li>with <a href="/docs/build/devenv/github-codespaces/">GitHub Codespaces</a> - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts</li>
-<li>with <a href="/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> - recommended for Linux hosts</li>
+<li>with <a href="/leda/docs/build/devenv/github-codespaces/">GitHub Codespaces</a> - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts</li>
+<li>with <a href="/leda/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> - recommended for Linux hosts</li>
 <li>Custom setup - for teams</li>
 </ul>
 
@@ -718,7 +718,7 @@ Congratulation, you are done!</p>
 <li>Adapt proxy configurations if necessary (<code>.devcontainer/proxy.sh</code>)</li>
 <li>Open terminal and execute one of the <code>build-xxx.sh</code> scripts to execute the build</li>
 <li>For later builds, it is advisable to run <code>cd poky &amp;&amp; source oe-init-env ../build-sdv-xxx &amp;&amp; bitbake core-image-minimal</code> manually to reuse the build work directory</li>
-<li>For a clean remote build machine, you may want to <a href="/docs/build/devenv/github-codespaces/">set up development environment on GitHub CodeSpaces</a></li>
+<li>For a clean remote build machine, you may want to <a href="/leda/docs/build/devenv/github-codespaces/">set up development environment on GitHub CodeSpaces</a></li>
 </ul>
 <h2 id="visual-studio-devcontainer-setup">Visual Studio DevContainer Setup</h2>
 <h2 id="authentication">Authentication</h2>
@@ -791,7 +791,7 @@ Congratulation, you are done!</p>
 <li>Login as <code>root</code> without password on login prompt, or use <code>ssh -p 2222 root@localhost</code> to login remotely to qemu instance</li>
 </ul>
 </li>
-<li>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+<li>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
 </ul>
 <h3 id="variations-of-runqemu-command-line">Variations of runqemu command line</h3>
 <ul>
@@ -801,7 +801,7 @@ Congratulation, you are done!</p>
 </ul>
 </li>
 <li>All other options are now part of the default Leda distribution configuration (see <em>leda-qemu-settings.inc</em>)</li>
-<li>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+<li>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
 </ul>
 <h2 id="running-qemu-in-the-background">Running QEMU in the background</h2>
 <p>To start QEMU in the background enter, use <code>nohup</code> and bring the process into the background.</p>
@@ -1273,7 +1273,7 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 <p><em>Note: You should test each of the release archives, for each target machine.</em></p>
 </li>
 <li>
-<p>Follow the <a href="/docs/device-provisioning/">Device Provisioning</a> guide</p>
+<p>Follow the <a href="/leda/docs/device-provisioning/">Device Provisioning</a> guide</p>
 </li>
 <li>
 <p>Perform some verification tests (see below)</p>

@@ -743,24 +743,24 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p><img src="/assets/eclipse-leda.png" alt="Eclipse Leda"></p>
+      <p><img src="/leda/assets/eclipse-leda.png" alt="Eclipse Leda"></p>
 <p>The Eclipse Leda project provides system image &ldquo;recipes&rdquo; to deliver a functional and always-available Linux-based image/distribution in the context of SDV (Software Defined Vehicle), by pulling together individual contributor pieces from <a href="https://sdv.eclipse.org/">Eclipse SDV</a> and the larger OSS community.</p>
 <p>The quickstart images help to learn how the SDV development, test and deployment lifecycle works from an E2E perspective, including the deployment of applications into the container runtimes on constrained embedded devices.</p>
 <p>The ready images are also useful for quickly setting up showcases with virtual or real hardware devices.</p>
 <p>Eclipse Leda provides a Poky-based reference build pipeline and an OpenEmbedded Metalayer <a href="https://github.com/eclipse-leda/meta-leda">meta-leda</a> for integration into existing Yocto-based projects.</p>
 <h1 id="usage">Usage</h1>
 <ol>
-<li>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
+<li>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
 <li>Run Eclipse Leda
 <ul>
-<li>on <a href="/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
-<li>on <a href="/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
+<li>on <a href="/leda/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
+<li>on <a href="/leda/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
 </ul>
 </li>
-<li>Configure device, e.g. <a href="/docs/device-provisioning/">provision the device</a></li>
-<li>Explore the <a href="/docs/build/misc/tools/">device tools</a></li>
+<li>Configure device, e.g. <a href="/leda/docs/device-provisioning/">provision the device</a></li>
+<li>Explore the <a href="/leda/docs/build/misc/tools/">device tools</a></li>
 <li>Develop your first Vehicle App using <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Eclipse Velocitas template</a></li>
-<li><a href="/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
+<li><a href="/leda/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
 </ol>
 <p>Supported Machines / Build Configurations</p>
 <ul>
@@ -768,7 +768,7 @@ This is the multi-page printable view of this section.
 <li>Raspberry Pi 4</li>
 </ul>
 <h1 id="overview">Overview</h1>
-<p><img src="/assets/eclipse-leda-arch-overview.png" alt="Eclipse Leda Component Overview"></p>
+<p><img src="/leda/assets/eclipse-leda-arch-overview.png" alt="Eclipse Leda Component Overview"></p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Publish/Subscribe infrastructure for <strong>local messaging and cloud connectivity</strong></li>
@@ -778,7 +778,7 @@ This is the multi-page printable view of this section.
 <li><strong>Example Vehicle Seat Service</strong> implementation</li>
 <li><strong>Metrics and logs collector</strong> for Vehicle Apps</li>
 </ul>
-<p>See <a href="/docs/about/features/">About - Features</a> for more details about current implementation and <a href="/docs/about/roadmap/">About - Roadmap</a> for our future work.</p>
+<p>See <a href="/leda/docs/about/features/">About - Features</a> for more details about current implementation and <a href="/leda/docs/about/roadmap/">About - Roadmap</a> for our future work.</p>
 <h1 id="license-and-copyright">License and Copyright</h1>
 <p>This program and the accompanying materials are made available under the
 terms of the Apache License 2.0 which is available at
@@ -990,7 +990,7 @@ terms of the Apache License 2.0 which is available at
     
 	<h1 id="pg-23c7f5c8a374f51bc942b91cd93c903c">1.4 - Architecture</h1>
     
-	<p><img src="/assets/leda-architecture-details.png" alt="Architecture Overview"></p>
+	<p><img src="/leda/assets/leda-architecture-details.png" alt="Architecture Overview"></p>
 
 </div>
 
@@ -1013,17 +1013,17 @@ terms of the Apache License 2.0 which is available at
 	<h1 id="pg-a7d93f0de2ee473f42138959371de2a6">2 - Getting Started</h1>
     
 	<ol>
-<li>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
+<li>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
 <li>Run Eclipse Leda
 <ul>
-<li>on <a href="/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
-<li>on <a href="/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
+<li>on <a href="/leda/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
+<li>on <a href="/leda/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
 </ul>
 </li>
-<li>Configure device, e.g. <a href="/docs/device-provisioning/">provision the device</a></li>
-<li>Explore the <a href="/docs/build/misc/tools/">device tools</a></li>
+<li>Configure device, e.g. <a href="/leda/docs/device-provisioning/">provision the device</a></li>
+<li>Explore the <a href="/leda/docs/build/misc/tools/">device tools</a></li>
 <li>Develop your first Vehicle App using <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Eclipse Velocitas template</a></li>
-<li><a href="/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
+<li><a href="/leda/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
 </ol>
 
 </div>
@@ -1114,7 +1114,7 @@ gh release download \
 </code></pre><p>On Windows:</p>
 <pre tabindex="0"><code>gh release download --pattern &#34;*.zip&#34; --pattern &#34;eclipse-leda-*&#34; --repo eclipse-leda/leda-distro
 </code></pre><ul>
-<li>Continue with <a href="/docs/general-usage/running-qemu/">Running Eclipse Leda on QEMU</a> or <a href="/docs/general-usage/raspberry-pi/">Running Eclipse Leda on Raspberry Pi 4</a></li>
+<li>Continue with <a href="/leda/docs/general-usage/running-qemu/">Running Eclipse Leda on QEMU</a> or <a href="/leda/docs/general-usage/raspberry-pi/">Running Eclipse Leda on Raspberry Pi 4</a></li>
 </ul>
 
 </div>
@@ -1160,7 +1160,7 @@ sudo apt-get install -y qemu-system-x86-64
 </code></pre>
 </li>
 <li>
-<p>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
+<p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
 </li>
 <li>
 <p>Uncompress the archive</p>
@@ -1192,7 +1192,7 @@ sudo apt-get install -y qemu-system-x86-64
 stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
-<p>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></p>
+<p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
 </li>
 </ul>
 <h2 id="qemu-arm-64-bit">QEMU ARM 64-Bit</h2>
@@ -1201,7 +1201,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 <p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 64-Bit: <code>sudo apt install qemu-system-aarch64</code></p>
 </li>
 <li>
-<p>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
+<p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
 </li>
 <li>
 <p>Uncompress the archive</p>
@@ -1230,7 +1230,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
-<p>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></p>
+<p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
 </li>
 </ul>
 <h2 id="qemu-arm-32-bit">QEMU ARM 32-Bit</h2>
@@ -1239,7 +1239,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 <p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 32-Bit: <code>sudo apt install qemu-system-arm</code></p>
 </li>
 <li>
-<p>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
+<p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
 </li>
 <li>
 <p>Uncompress the archive</p>
@@ -1268,7 +1268,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
-<p>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></p>
+<p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
 </li>
 </ul>
 
@@ -1480,7 +1480,7 @@ With <code>sshfs</code>, you can mount a local directory to a remote directory v
 <p>Steps:</p>
 <ul>
 <li>
-<p>Download the <a href="/docs/general-usage/download-releases/">latest released SD-Card Image</a>: <code>eclipse-leda-raspberrypi.tar.xz</code></p>
+<p>Download the <a href="/leda/docs/general-usage/download-releases/">latest released SD-Card Image</a>: <code>eclipse-leda-raspberrypi.tar.xz</code></p>
 </li>
 <li>
 <p>Uncompress the SD Card image:</p>
@@ -1538,7 +1538,7 @@ bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
 </li>
 <li>
-<p>Continue with <a href="/docs/device-provisioning/provisioning-raspi/">Provisioning Raspberry Pi</a></p>
+<p>Continue with <a href="/leda/docs/device-provisioning/provisioning-raspi/">Provisioning Raspberry Pi</a></p>
 </li>
 </ul>
 
@@ -1756,7 +1756,7 @@ or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu
 </li>
 </ul>
 <h2 id="script-on-host-system">Script on host system</h2>
-<p><em>Note: For Linux hosts only. Alternatively, you can perform the steps <a href="/docs/device-provisioning/manual-provisioning/">manually on command line</a>.</em></p>
+<p><em>Note: For Linux hosts only. Alternatively, you can perform the steps <a href="/leda/docs/device-provisioning/manual-provisioning/">manually on command line</a>.</em></p>
 <p>Pre-Requisite:</p>
 <ul>
 <li>
@@ -1784,8 +1784,8 @@ or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu
 <p><em>Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.</em></p>
 <p>When finished, continue with</p>
 <ul>
-<li><a href="/docs/app-deployment/">Deploying a Vehicle App</a></li>
-<li><a href="/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
+<li><a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></li>
+<li><a href="/leda/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
 </ul>
 <h2 id="script-on-guest-system">Script on guest system</h2>
 <p><em>Note: When running the device provisioning from the guest, you need to manually retrieve the device secrets first.</em></p>
@@ -1806,8 +1806,8 @@ or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu
 <p><em>Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.</em></p>
 <p>When finished, continue with</p>
 <ul>
-<li><a href="/docs/app-deployment/">Deploying a Vehicle App</a></li>
-<li><a href="/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
+<li><a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></li>
+<li><a href="/leda/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
 </ul>
 
 </div>
@@ -1978,7 +1978,7 @@ root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/c
 stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
-<p>Continue with <a href="/docs/app-deployment/">Deploying a Vehicle App</a></p>
+<p>Continue with <a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></p>
 </li>
 </ul>
 
@@ -2513,9 +2513,9 @@ state:
 <p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>
 <h2 id="pre-requisites">Pre-Requisites</h2>
 <ul>
-<li>Device is up and running, e.g by <a href="/docs/general-usage/running-qemu/">running in qemu</a></li>
+<li>Device is up and running, e.g by <a href="/leda/docs/general-usage/running-qemu/">running in qemu</a></li>
 <li>Eclipse Leda has successfully booted</li>
-<li>The device has been provisioned and configured, see <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+<li>The device has been provisioned and configured, see <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
 </ul>
 <h2 id="validating-configuration">Validating configuration</h2>
 <p>First, let&rsquo;s check that the cloud connection is active.</p>
@@ -2651,8 +2651,8 @@ mosquitto_sub -h ${MOSQUITTO_HOST} -t &#39;#&#39; --pretty -v
     
 	<p>Running BitBake to build your own images requires some extra setup on the build machine. Please see the following chapters for more information about the build process itself and how to setup a development and build infrastructure.</p>
 <p><img src="build-terminal.png" alt=""></p>
-<p>If you are interested to contribute or to get in touch with us, please see our <a href="/docs/project-info/community/">Community</a> pages and <a href="/docs/project-info/contribution-guidelines/">Contribution Guidelines</a>.
-For reporting security vulnerabilities, please follow our <a href="/docs/project-info/security/">Security Policy</a>.</p>
+<p>If you are interested to contribute or to get in touch with us, please see our <a href="/leda/docs/project-info/community/">Community</a> pages and <a href="/leda/docs/project-info/contribution-guidelines/">Contribution Guidelines</a>.
+For reporting security vulnerabilities, please follow our <a href="/leda/docs/project-info/security/">Security Policy</a>.</p>
 
 </div>
 
@@ -2819,8 +2819,8 @@ For reporting security vulnerabilities, please follow our <a href="/docs/project
     
 	<p>There are multiple variants on how to set up a build environment:</p>
 <ul>
-<li>with <a href="/docs/build/devenv/github-codespaces/">GitHub Codespaces</a> - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts</li>
-<li>with <a href="/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> - recommended for Linux hosts</li>
+<li>with <a href="/leda/docs/build/devenv/github-codespaces/">GitHub Codespaces</a> - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts</li>
+<li>with <a href="/leda/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> - recommended for Linux hosts</li>
 <li>Custom setup - for teams</li>
 </ul>
 
@@ -3039,7 +3039,7 @@ Congratulation, you are done!</p>
 <li>Adapt proxy configurations if necessary (<code>.devcontainer/proxy.sh</code>)</li>
 <li>Open terminal and execute one of the <code>build-xxx.sh</code> scripts to execute the build</li>
 <li>For later builds, it is advisable to run <code>cd poky &amp;&amp; source oe-init-env ../build-sdv-xxx &amp;&amp; bitbake core-image-minimal</code> manually to reuse the build work directory</li>
-<li>For a clean remote build machine, you may want to <a href="/docs/build/devenv/github-codespaces/">set up development environment on GitHub CodeSpaces</a></li>
+<li>For a clean remote build machine, you may want to <a href="/leda/docs/build/devenv/github-codespaces/">set up development environment on GitHub CodeSpaces</a></li>
 </ul>
 <h2 id="visual-studio-devcontainer-setup">Visual Studio DevContainer Setup</h2>
 <h2 id="authentication">Authentication</h2>
@@ -3112,7 +3112,7 @@ Congratulation, you are done!</p>
 <li>Login as <code>root</code> without password on login prompt, or use <code>ssh -p 2222 root@localhost</code> to login remotely to qemu instance</li>
 </ul>
 </li>
-<li>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+<li>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
 </ul>
 <h3 id="variations-of-runqemu-command-line">Variations of runqemu command line</h3>
 <ul>
@@ -3122,7 +3122,7 @@ Congratulation, you are done!</p>
 </ul>
 </li>
 <li>All other options are now part of the default Leda distribution configuration (see <em>leda-qemu-settings.inc</em>)</li>
-<li>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+<li>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
 </ul>
 <h2 id="running-qemu-in-the-background">Running QEMU in the background</h2>
 <p>To start QEMU in the background enter, use <code>nohup</code> and bring the process into the background.</p>
@@ -3594,7 +3594,7 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 <p><em>Note: You should test each of the release archives, for each target machine.</em></p>
 </li>
 <li>
-<p>Follow the <a href="/docs/device-provisioning/">Device Provisioning</a> guide</p>
+<p>Follow the <a href="/leda/docs/device-provisioning/">Device Provisioning</a> guide</p>
 </li>
 <li>
 <p>Perform some verification tests (see below)</p>
@@ -4167,17 +4167,17 @@ Contributor Agreement (ECA) on file.</p>
 	<h1 id="pg-5b9855a34132ffcc60b905616e0cf498">7 - </h1>
     
 	<ol>
-<li>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
+<li>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
 <li>Run Eclipse Leda
 <ul>
-<li>on <a href="/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
-<li>on <a href="/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
+<li>on <a href="/leda/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
+<li>on <a href="/leda/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
 </ul>
 </li>
-<li>Configure device, e.g. <a href="/docs/device-provisioning/">provision the device</a></li>
-<li>Explore the <a href="/docs/build/misc/tools/">device tools</a></li>
+<li>Configure device, e.g. <a href="/leda/docs/device-provisioning/">provision the device</a></li>
+<li>Explore the <a href="/leda/docs/build/misc/tools/">device tools</a></li>
 <li>Develop your first Vehicle App using <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Eclipse Velocitas template</a></li>
-<li><a href="/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
+<li><a href="/leda/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
 </ol>
 
 </div>

@@ -156,8 +156,8 @@
         
         &lt;p&gt;There are multiple variants on how to set up a build environment:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespaces&lt;/a&gt; - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts&lt;/li&gt;
-&lt;li&gt;with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; - recommended for Linux hosts&lt;/li&gt;
+&lt;li&gt;with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespaces&lt;/a&gt; - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts&lt;/li&gt;
+&lt;li&gt;with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; - recommended for Linux hosts&lt;/li&gt;
 &lt;li&gt;Custom setup - for teams&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -208,7 +208,7 @@
 &lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;variations-of-runqemu-command-line&#34;&gt;Variations of runqemu command line&lt;/h3&gt;
 &lt;ul&gt;
@@ -218,7 +218,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;All other options are now part of the default Leda distribution configuration (see &lt;em&gt;leda-qemu-settings.inc&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;running-qemu-in-the-background&#34;&gt;Running QEMU in the background&lt;/h2&gt;
 &lt;p&gt;To start QEMU in the background enter, use &lt;code&gt;nohup&lt;/code&gt; and bring the process into the background.&lt;/p&gt;

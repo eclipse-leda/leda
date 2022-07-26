@@ -27,9 +27,9 @@
 &lt;p&gt;In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.&lt;/p&gt;
 &lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Device is up and running, e.g by &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;running in qemu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Device is up and running, e.g by &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/running-qemu/&#34;&gt;running in qemu&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Eclipse Leda has successfully booted&lt;/li&gt;
-&lt;li&gt;The device has been provisioned and configured, see &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The device has been provisioned and configured, see &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;validating-configuration&#34;&gt;Validating configuration&lt;/h2&gt;
 &lt;p&gt;First, let&amp;rsquo;s check that the cloud connection is active.&lt;/p&gt;
