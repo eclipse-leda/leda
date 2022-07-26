@@ -17,7 +17,7 @@ If you want to execute the image without building first, grab the latest release
       sudo apt-get update -y
       sudo apt-get install -y qemu-system-x86-64
 
-- Download [latest Eclipse Leda release](/docs/general-usage/download-releases/)
+- Download [latest Eclipse Leda release](/leda/docs/general-usage/download-releases/)
 - Uncompress the archive
 
       tar xf eclipse-leda-qemu-x86_64.tar.xz
@@ -41,11 +41,11 @@ If you want to execute the image without building first, grab the latest release
   *Note: The status of some pods and the cloud connector are expected to
   stay in _**FAILED**_ status as long as the **Device Provisioning** steps are not completed.*
 
-- Continue with [Device Provisioning](/docs/device-provisioning/)
+- Continue with [Device Provisioning](/leda/docs/device-provisioning/)
 
 ## QEMU ARM 64-Bit
 - Install Qemu https://www.qemu.org/, e.g. for ARM 64-Bit: `sudo apt install qemu-system-aarch64`
-- Download [latest Eclipse Leda release](/docs/general-usage/download-releases/)
+- Download [latest Eclipse Leda release](/leda/docs/general-usage/download-releases/)
 - Uncompress the archive
 
       tar xf eclipse-leda-qemu-arm64.tar.xz
@@ -65,11 +65,11 @@ If you want to execute the image without building first, grab the latest release
   *Note: The status of some pods and the cloud connector are expected to
   stay in _**FAILED**_ status as long as the **Device Provisioning** steps are not completed.*
 
-- Continue with [Device Provisioning](/docs/device-provisioning/)
+- Continue with [Device Provisioning](/leda/docs/device-provisioning/)
 
 ## QEMU ARM 32-Bit
 - Install Qemu https://www.qemu.org/, e.g. for ARM 32-Bit: `sudo apt install qemu-system-arm`
-- Download [latest Eclipse Leda release](/docs/general-usage/download-releases/)
+- Download [latest Eclipse Leda release](/leda/docs/general-usage/download-releases/)
 - Uncompress the archive
 
       tar xf eclipse-leda-qemu-arm.tar.xz
@@ -89,4 +89,4 @@ If you want to execute the image without building first, grab the latest release
   *Note: The status of some pods and the cloud connector are expected to
   stay in _**FAILED**_ status as long as the **Device Provisioning** steps are not completed.*
 
-- Continue with [Device Provisioning](/docs/device-provisioning/)
+- Continue with [Device Provisioning](/leda/docs/device-provisioning/)

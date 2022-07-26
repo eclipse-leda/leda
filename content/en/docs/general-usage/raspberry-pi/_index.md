@@ -10,7 +10,7 @@ What you need:
 - Optional keyboard and display (makes it easier to troubleshoot)
 
 Steps:
-- Download the [latest released SD-Card Image](/docs/general-usage/download-releases/): `eclipse-leda-raspberrypi.tar.xz`
+- Download the [latest released SD-Card Image](/leda/docs/general-usage/download-releases/): `eclipse-leda-raspberrypi.tar.xz`
 - Uncompress the SD Card image:
 
       tar xf eclipse-leda-raspberrypi.tar.xz
@@ -36,4 +36,4 @@ Steps:
     *Note: Due to changes in the disk partition, the partition number (`6` in the example) may have changed.*
 - Verify and wait until k3s is started: `systemctl status k3s`
 - *Optional:* Check the system health: `sdv-health`
-- Continue with [Provisioning Raspberry Pi](/docs/device-provisioning/provisioning-raspi/)
+- Continue with [Provisioning Raspberry Pi](/leda/docs/device-provisioning/provisioning-raspi/)

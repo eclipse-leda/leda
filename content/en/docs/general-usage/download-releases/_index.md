@@ -47,4 +47,4 @@ On Windows:
 gh release download --pattern "*.zip" --pattern "eclipse-leda-*" --repo eclipse-leda/leda-distro
 ```
 
-- Continue with [Running Eclipse Leda on QEMU](/docs/general-usage/running-qemu/) or [Running Eclipse Leda on Raspberry Pi 4](/docs/general-usage/raspberry-pi/)
+- Continue with [Running Eclipse Leda on QEMU](/leda/docs/general-usage/running-qemu/) or [Running Eclipse Leda on Raspberry Pi 4](/leda/docs/general-usage/raspberry-pi/)

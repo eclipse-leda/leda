@@ -54,4 +54,4 @@ root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/c
   *Note: The status of some pods and the cloud connector are expected to
   stay in _**FAILED**_ status as long as the **Device Provisioning** steps are not completed.*
 
-- Continue with [Deploying a Vehicle App](/docs/app-deployment/)
+- Continue with [Deploying a Vehicle App](/leda/docs/app-deployment/)

@@ -4,7 +4,7 @@ date: 2022-05-09T14:24:56+05:30
 no_list: true
 ---
 
-![Eclipse Leda](/assets/eclipse-leda.png)
+![Eclipse Leda](/leda/assets/eclipse-leda.png)
 
 The Eclipse Leda project provides system image "recipes" to deliver a functional and always-available Linux-based image/distribution in the context of SDV (Software Defined Vehicle), by pulling together individual contributor pieces from [Eclipse SDV](https://sdv.eclipse.org/) and the larger OSS community.
 
@@ -24,7 +24,7 @@ Supported Machines / Build Configurations
 
 # Overview
 
-![Eclipse Leda Component Overview](/assets/eclipse-leda-arch-overview.png)
+![Eclipse Leda Component Overview](/leda/assets/eclipse-leda-arch-overview.png)
 
 ## Features
 
@@ -35,7 +35,7 @@ Supported Machines / Build Configurations
 - **Example Vehicle Seat Service** implementation
 - **Metrics and logs collector** for Vehicle Apps
 
-See [About - Features](/docs/about/features/) for more details about current implementation and [About - Roadmap](/docs/about/roadmap/) for our future work.
+See [About - Features](/leda/docs/about/features/) for more details about current implementation and [About - Roadmap](/leda/docs/about/roadmap/) for our future work.
 
 # License and Copyright
 

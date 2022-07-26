@@ -29,14 +29,14 @@ weight: 3
   - Login as `root` without password on login prompt, or use `ssh root@192.168.7.2` to login remotely to qemu instance
 - Using `slirp` networking
   - Login as `root` without password on login prompt, or use `ssh -p 2222 root@localhost` to login remotely to qemu instance
-- Continue with [Device Provisioning](/docs/device-provisioning/)
+- Continue with [Device Provisioning](/leda/docs/device-provisioning/)
 
 ### Variations of runqemu command line
 
 - Use `runqemu ovmf`
   - `ovmf` will enable the UEFI support for IA32 (x86) and X64 (x86-64) guests, for testing the dual-boot capabilities and SDV Self-Update mechanisms
 - All other options are now part of the default Leda distribution configuration (see *leda-qemu-settings.inc*)
-- Continue with [Device Provisioning](/docs/device-provisioning/)
+- Continue with [Device Provisioning](/leda/docs/device-provisioning/)
 
 ## Running QEMU in the background
 

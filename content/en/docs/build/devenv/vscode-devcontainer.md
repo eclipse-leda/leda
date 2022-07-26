@@ -12,7 +12,7 @@ weight: 1
 - Adapt proxy configurations if necessary (`.devcontainer/proxy.sh`)
 - Open terminal and execute one of the `build-xxx.sh` scripts to execute the build
 - For later builds, it is advisable to run `cd poky && source oe-init-env ../build-sdv-xxx && bitbake core-image-minimal` manually to reuse the build work directory
-- For a clean remote build machine, you may want to [set up development environment on GitHub CodeSpaces](/docs/build/devenv/github-codespaces/)
+- For a clean remote build machine, you may want to [set up development environment on GitHub CodeSpaces](/leda/docs/build/devenv/github-codespaces/)
 
 ## Visual Studio DevContainer Setup
 

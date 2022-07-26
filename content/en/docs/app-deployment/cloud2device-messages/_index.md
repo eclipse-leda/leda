@@ -10,9 +10,9 @@ In order to verify that the device and the cloud connector can successfully rece
 
 ## Pre-Requisites
 
-- Device is up and running, e.g by [running in qemu](/docs/general-usage/running-qemu/)
+- Device is up and running, e.g by [running in qemu](/leda/docs/general-usage/running-qemu/)
 - Eclipse Leda has successfully booted
-- The device has been provisioned and configured, see [Device Provisioning](/docs/device-provisioning/)
+- The device has been provisioned and configured, see [Device Provisioning](/leda/docs/device-provisioning/)
 
 ## Validating configuration
 

@@ -15,7 +15,7 @@ Steps to validate if a release is properly working:
 3. Run the `run-leda` scripts to execute Qemu
 
    *Note: You should test each of the release archives, for each target machine.*
-4. Follow the [Device Provisioning](/docs/device-provisioning/) guide
+4. Follow the [Device Provisioning](/leda/docs/device-provisioning/) guide
 5. Perform some verification tests (see below)
 6. Cleanup: Delete the pre-release and the git tag:
 

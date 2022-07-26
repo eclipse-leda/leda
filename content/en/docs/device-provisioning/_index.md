@@ -28,7 +28,7 @@ For the device to be connectable, it needs to be known to the cloud service firs
 
 ## Script on host system
 
-*Note: For Linux hosts only. Alternatively, you can perform the steps [manually on command line](/docs/device-provisioning/manual-provisioning/).*
+*Note: For Linux hosts only. Alternatively, you can perform the steps [manually on command line](/leda/docs/device-provisioning/manual-provisioning/).*
 
 Pre-Requisite:
 - Install `jq` and `dialog` on your host: 
@@ -53,8 +53,8 @@ The script will:
 *Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.*
 
 When finished, continue with
-- [Deploying a Vehicle App](/docs/app-deployment/)
-- [Performing a Self Update](/docs/device-provisioning/self-update/self-update-tutorial/)
+- [Deploying a Vehicle App](/leda/docs/app-deployment/)
+- [Performing a Self Update](/leda/docs/device-provisioning/self-update/self-update-tutorial/)
 
 ## Script on guest system
 
@@ -73,5 +73,5 @@ The script will:
 *Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.*
 
 When finished, continue with
-- [Deploying a Vehicle App](/docs/app-deployment/)
-- [Performing a Self Update](/docs/device-provisioning/self-update/self-update-tutorial/)
+- [Deploying a Vehicle App](/leda/docs/app-deployment/)
+- [Performing a Self Update](/leda/docs/device-provisioning/self-update/self-update-tutorial/)
