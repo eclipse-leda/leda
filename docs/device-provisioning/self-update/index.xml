@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Self Updates</title>
-    <link>/docs/device-provisioning/self-update/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/</link>
     <description>Recent content in Self Updates on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/device-provisioning/self-update/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Self Update Tutorial</title>
-      <link>/docs/device-provisioning/self-update/self-update-tutorial/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/self-update-tutorial/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/self-update/self-update-tutorial/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/self-update-tutorial/</guid>
       <description>
         
         
@@ -98,10 +98,10 @@
     
     <item>
       <title>Docs: RAUC Integration</title>
-      <link>/docs/device-provisioning/self-update/rauc-integration/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/rauc-integration/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/self-update/rauc-integration/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/rauc-integration/</guid>
       <description>
         
         
@@ -225,10 +225,10 @@ part /data --fixed-size 4G --fstype=ext4 --label data
     
     <item>
       <title>Docs: API Reference</title>
-      <link>/docs/device-provisioning/self-update/api/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/api/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/self-update/api/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/api/</guid>
       <description>
         
         

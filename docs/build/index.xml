@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Building Leda</title>
-    <link>/docs/build/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/build/</link>
     <description>Recent content in Building Leda on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/build/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/build/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Concepts</title>
-      <link>/docs/build/concepts/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/concepts/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/concepts/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/concepts/</guid>
       <description>
         
         
@@ -55,10 +55,10 @@
     
     <item>
       <title>Docs: Metalayer</title>
-      <link>/docs/build/metalayer/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/metalayer/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/metalayer/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/metalayer/</guid>
       <description>
         
         
@@ -147,17 +147,17 @@
     
     <item>
       <title>Docs: Setup development environment</title>
-      <link>/docs/build/devenv/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/devenv/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/</guid>
       <description>
         
         
         &lt;p&gt;There are multiple variants on how to set up a build environment:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;with &lt;a href=&#34;/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespaces&lt;/a&gt; - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts&lt;/li&gt;
-&lt;li&gt;with &lt;a href=&#34;/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; - recommended for Linux hosts&lt;/li&gt;
+&lt;li&gt;with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespaces&lt;/a&gt; - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts&lt;/li&gt;
+&lt;li&gt;with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; - recommended for Linux hosts&lt;/li&gt;
 &lt;li&gt;Custom setup - for teams&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -166,10 +166,10 @@
     
     <item>
       <title>Docs: Run the build</title>
-      <link>/docs/build/run-build/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/run-build/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/run-build/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/run-build/</guid>
       <description>
         
         
@@ -208,7 +208,7 @@
 &lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;variations-of-runqemu-command-line&#34;&gt;Variations of runqemu command line&lt;/h3&gt;
 &lt;ul&gt;
@@ -218,7 +218,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;All other options are now part of the default Leda distribution configuration (see &lt;em&gt;leda-qemu-settings.inc&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;running-qemu-in-the-background&#34;&gt;Running QEMU in the background&lt;/h2&gt;
 &lt;p&gt;To start QEMU in the background enter, use &lt;code&gt;nohup&lt;/code&gt; and bring the process into the background.&lt;/p&gt;
@@ -231,10 +231,10 @@ This will write a file qemu.pid in the current directory including the process I
     
     <item>
       <title>Docs: Building tests</title>
-      <link>/docs/build/build-tests/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/build-tests/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/build-tests/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/build-tests/</guid>
       <description>
         
         
@@ -254,10 +254,10 @@ This will write a file qemu.pid in the current directory including the process I
     
     <item>
       <title>Docs: Runqemu</title>
-      <link>/docs/build/runqemu/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/runqemu/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/runqemu/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/runqemu/</guid>
       <description>
         
         
@@ -285,10 +285,10 @@ Try running with:&lt;/p&gt;
     
     <item>
       <title>Docs: Miscellaneous</title>
-      <link>/docs/build/misc/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/</guid>
       <description>
         
         
@@ -298,10 +298,10 @@ Try running with:&lt;/p&gt;
     
     <item>
       <title>Docs: Incubation Components</title>
-      <link>/docs/build/sdv-private-components/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/sdv-private-components/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/sdv-private-components/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/sdv-private-components/</guid>
       <description>
         
         
@@ -360,10 +360,10 @@ bitbake sdv-databroker-cli
     
     <item>
       <title>Docs: Releasing</title>
-      <link>/docs/build/release/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/release/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/release/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/release/</guid>
       <description>
         
         

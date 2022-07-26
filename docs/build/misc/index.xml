@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Miscellaneous</title>
-    <link>/docs/build/misc/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/build/misc/</link>
     <description>Recent content in Miscellaneous on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/build/misc/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/build/misc/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: DAPR Installation</title>
-      <link>/docs/build/misc/dapr-init/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/dapr-init/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/</guid>
       <description>
         
         
@@ -56,10 +56,10 @@ Example for accessing GitHub Packages container registry at ghcr.io:&lt;/li&gt;
     
     <item>
       <title>Docs: Resource Consumptions</title>
-      <link>/docs/build/misc/diskusage/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/diskusage/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</guid>
       <description>
         
         
@@ -138,10 +138,10 @@ Swap:             0           0           0
     
     <item>
       <title>Docs: Utilities</title>
-      <link>/docs/build/misc/tools/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/tools/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/tools/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/tools/</guid>
       <description>
         
         

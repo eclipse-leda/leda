@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Setup development environment</title>
-    <link>/docs/build/devenv/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/build/devenv/</link>
     <description>Recent content in Setup development environment on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/build/devenv/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/build/devenv/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Codespaces</title>
-      <link>/docs/build/devenv/github-codespaces/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/devenv/github-codespaces/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/</guid>
       <description>
         
         
@@ -51,10 +51,10 @@ git-credential-manager-core configure
     
     <item>
       <title>Docs: GitHub Runner</title>
-      <link>/docs/build/devenv/github-runner/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-runner/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/devenv/github-runner/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/github-runner/</guid>
       <description>
         
         
@@ -92,10 +92,10 @@ Congratulation, you are done!&lt;/p&gt;
     
     <item>
       <title>Docs: VSCode DevContainer</title>
-      <link>/docs/build/devenv/vscode-devcontainer/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/devenv/vscode-devcontainer/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</guid>
       <description>
         
         
@@ -107,7 +107,7 @@ Congratulation, you are done!&lt;/p&gt;
 &lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Open terminal and execute one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts to execute the build&lt;/li&gt;
 &lt;li&gt;For later builds, it is advisable to run &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-env ../build-sdv-xxx &amp;amp;&amp;amp; bitbake core-image-minimal&lt;/code&gt; manually to reuse the build work directory&lt;/li&gt;
-&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
 &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Device Provisioning</title>
-    <link>/docs/device-provisioning/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/</link>
     <description>Recent content in Device Provisioning on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/device-provisioning/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/device-provisioning/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Manual Provisioning</title>
-      <link>/docs/device-provisioning/manual-provisioning/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/manual-provisioning/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/</guid>
       <description>
         
         
@@ -96,10 +96,10 @@ Conditions:
     
     <item>
       <title>Docs: Provisioning Raspberry Pi</title>
-      <link>/docs/device-provisioning/provisioning-raspi/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/provisioning-raspi/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/</guid>
       <description>
         
         
@@ -163,7 +163,7 @@ root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/c
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -172,10 +172,10 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
     
     <item>
       <title>Docs: Self Updates</title>
-      <link>/docs/device-provisioning/self-update/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/self-update/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/</guid>
       <description>
         
         

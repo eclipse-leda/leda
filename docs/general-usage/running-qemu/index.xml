@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Running on QEMU</title>
-    <link>/docs/general-usage/running-qemu/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/</link>
     <description>Recent content in Running on QEMU on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/general-usage/running-qemu/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: CAN Bus</title>
-      <link>/docs/general-usage/running-qemu/canbus/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/running-qemu/canbus/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</guid>
       <description>
         
         
@@ -145,10 +145,10 @@ ip link show type can
     
     <item>
       <title>Docs: Transferring Files</title>
-      <link>/docs/general-usage/running-qemu/filetransfer/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/running-qemu/filetransfer/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</guid>
       <description>
         
         

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Documentation</title>
-    <link>/docs/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/</link>
     <description>Recent content in Documentation on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Advanced topics</title>
-      <link>/docs/build/devenv/github-codespaces/github-codespaces-advanced/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/devenv/github-codespaces/github-codespaces-advanced/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/</guid>
       <description>
         
         
@@ -87,10 +87,10 @@ GitHub Codespaces will only inject a token with access rights to the current rep
     
     <item>
       <title>Docs: CAN Bus</title>
-      <link>/docs/general-usage/running-qemu/canbus/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/running-qemu/canbus/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</guid>
       <description>
         
         
@@ -216,10 +216,10 @@ ip link show type can
     
     <item>
       <title>Docs: Concepts</title>
-      <link>/docs/build/concepts/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/concepts/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/concepts/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/concepts/</guid>
       <description>
         
         
@@ -255,10 +255,10 @@ ip link show type can
     
     <item>
       <title>Docs: DAPR Installation</title>
-      <link>/docs/build/misc/dapr-init/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/dapr-init/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/</guid>
       <description>
         
         
@@ -295,10 +295,10 @@ Example for accessing GitHub Packages container registry at ghcr.io:&lt;/li&gt;
     
     <item>
       <title>Docs: Features</title>
-      <link>/docs/about/features/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/features/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/features/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/features/</guid>
       <description>
         
         
@@ -347,10 +347,10 @@ Example for accessing GitHub Packages container registry at ghcr.io:&lt;/li&gt;
     
     <item>
       <title>Docs: Goals</title>
-      <link>/docs/about/goals/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/goals/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/goals/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/goals/</guid>
       <description>
         
         
@@ -402,10 +402,10 @@ Example for accessing GitHub Packages container registry at ghcr.io:&lt;/li&gt;
     
     <item>
       <title>Docs: Resource Consumptions</title>
-      <link>/docs/build/misc/diskusage/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/diskusage/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</guid>
       <description>
         
         
@@ -484,10 +484,10 @@ Swap:             0           0           0
     
     <item>
       <title>Docs: Roadmap</title>
-      <link>/docs/about/roadmap/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/roadmap/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/roadmap/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/roadmap/</guid>
       <description>
         
         
@@ -512,10 +512,10 @@ Swap:             0           0           0
     
     <item>
       <title>Docs: Self Update Tutorial</title>
-      <link>/docs/device-provisioning/self-update/self-update-tutorial/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/self-update-tutorial/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/self-update/self-update-tutorial/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/self-update-tutorial/</guid>
       <description>
         
         
@@ -594,10 +594,10 @@ Swap:             0           0           0
     
     <item>
       <title>Docs: Transferring Files</title>
-      <link>/docs/general-usage/running-qemu/filetransfer/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/running-qemu/filetransfer/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</guid>
       <description>
         
         
@@ -628,10 +628,10 @@ With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote
     
     <item>
       <title>Docs: Utilities</title>
-      <link>/docs/build/misc/tools/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/misc/tools/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/misc/tools/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/tools/</guid>
       <description>
         
         
@@ -654,10 +654,10 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
     
     <item>
       <title>Docs: Validating</title>
-      <link>/docs/build/release/validation/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/release/validation/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/release/validation/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/release/validation/</guid>
       <description>
         
         
@@ -676,7 +676,7 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
 &lt;p&gt;&lt;em&gt;Note: You should test each of the release archives, for each target machine.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Follow the &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Perform some verification tests (see below)&lt;/p&gt;
@@ -709,10 +709,10 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
     
     <item>
       <title>Docs: VSCode DevContainer</title>
-      <link>/docs/build/devenv/vscode-devcontainer/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/devenv/vscode-devcontainer/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</guid>
       <description>
         
         
@@ -724,7 +724,7 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
 &lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;Open terminal and execute one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts to execute the build&lt;/li&gt;
 &lt;li&gt;For later builds, it is advisable to run &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-env ../build-sdv-xxx &amp;amp;&amp;amp; bitbake core-image-minimal&lt;/code&gt; manually to reuse the build work directory&lt;/li&gt;
-&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
 &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
@@ -747,10 +747,10 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
     
     <item>
       <title>Docs: Manual Provisioning</title>
-      <link>/docs/device-provisioning/manual-provisioning/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/manual-provisioning/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/</guid>
       <description>
         
         
@@ -827,10 +827,10 @@ Conditions:
     
     <item>
       <title>Docs: Metalayer</title>
-      <link>/docs/build/metalayer/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/metalayer/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/metalayer/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/metalayer/</guid>
       <description>
         
         
@@ -919,10 +919,10 @@ Conditions:
     
     <item>
       <title>Docs: RAUC Integration</title>
-      <link>/docs/device-provisioning/self-update/rauc-integration/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/rauc-integration/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/self-update/rauc-integration/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/rauc-integration/</guid>
       <description>
         
         
@@ -1046,10 +1046,10 @@ part /data --fixed-size 4G --fstype=ext4 --label data
     
     <item>
       <title>Docs: Dependencies</title>
-      <link>/docs/project-info/dependencies/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/project-info/dependencies/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/project-info/dependencies/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/project-info/dependencies/</guid>
       <description>
         
         
@@ -1119,10 +1119,10 @@ part /data --fixed-size 4G --fstype=ext4 --label data
     
     <item>
       <title>Docs: Provisioning Raspberry Pi</title>
-      <link>/docs/device-provisioning/provisioning-raspi/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/device-provisioning/provisioning-raspi/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/</guid>
       <description>
         
         
@@ -1186,7 +1186,7 @@ root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/c
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1195,10 +1195,10 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
     
     <item>
       <title>Docs: Run the build</title>
-      <link>/docs/build/run-build/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/run-build/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/run-build/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/run-build/</guid>
       <description>
         
         
@@ -1237,7 +1237,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;variations-of-runqemu-command-line&#34;&gt;Variations of runqemu command line&lt;/h3&gt;
 &lt;ul&gt;
@@ -1247,7 +1247,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;All other options are now part of the default Leda distribution configuration (see &lt;em&gt;leda-qemu-settings.inc&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;running-qemu-in-the-background&#34;&gt;Running QEMU in the background&lt;/h2&gt;
 &lt;p&gt;To start QEMU in the background enter, use &lt;code&gt;nohup&lt;/code&gt; and bring the process into the background.&lt;/p&gt;
@@ -1260,10 +1260,10 @@ This will write a file qemu.pid in the current directory including the process I
     
     <item>
       <title>Docs: Building tests</title>
-      <link>/docs/build/build-tests/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/build-tests/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/build-tests/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/build-tests/</guid>
       <description>
         
         
@@ -1283,24 +1283,24 @@ This will write a file qemu.pid in the current directory including the process I
     
     <item>
       <title>Docs: Architecture</title>
-      <link>/docs/about/architecture/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/architecture/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/architecture/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/architecture/</guid>
       <description>
         
         
-        &lt;p&gt;&lt;img src=&#34;/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://eclipse-leda.github.io/leda/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Contribution Guidelines</title>
-      <link>/docs/project-info/contribution-guidelines/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/project-info/contribution-guidelines/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/project-info/contribution-guidelines/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/project-info/contribution-guidelines/</guid>
       <description>
         
         
@@ -1430,10 +1430,10 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
     
     <item>
       <title>Docs: Data Protection Notice</title>
-      <link>/docs/project-info/data-privacy-notice/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/project-info/data-privacy-notice/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/project-info/data-privacy-notice/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/project-info/data-privacy-notice/</guid>
       <description>
         
         
@@ -1453,10 +1453,10 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
     
     <item>
       <title>Docs: Cheatsheet</title>
-      <link>/docs/general-usage/cheatsheet/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/cheatsheet/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/cheatsheet/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/cheatsheet/</guid>
       <description>
         
         
@@ -1603,10 +1603,10 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
     
     <item>
       <title>Docs: Incubation Components</title>
-      <link>/docs/build/sdv-private-components/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/build/sdv-private-components/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/build/sdv-private-components/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/sdv-private-components/</guid>
       <description>
         
         
@@ -1665,10 +1665,10 @@ bitbake sdv-databroker-cli
     
     <item>
       <title>Docs: Security Policy</title>
-      <link>/docs/project-info/security/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/project-info/security/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/project-info/security/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/project-info/security/</guid>
       <description>
         
         
@@ -1770,25 +1770,25 @@ bitbake sdv-databroker-cli
     
     <item>
       <title>Docs: </title>
-      <link>/docs/__shared/usage-overview/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/__shared/usage-overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/__shared/usage-overview/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/__shared/usage-overview/</guid>
       <description>
         
         
         &lt;ol&gt;
-&lt;li&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Run Eclipse Leda
 &lt;ul&gt;
-&lt;li&gt;on &lt;a href=&#34;/docs/general-usage/running-qemu/&#34;&gt;emulated Qemu devices&lt;/a&gt; or&lt;/li&gt;
-&lt;li&gt;on &lt;a href=&#34;/docs/general-usage/raspberry-pi/&#34;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;emulated Qemu devices&lt;/a&gt; or&lt;/li&gt;
+&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Configure device, e.g. &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;provision the device&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Explore the &lt;a href=&#34;/docs/build/misc/tools/&#34;&gt;device tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Configure device, e.g. &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;provision the device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Explore the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/misc/tools/&#34;&gt;device tools&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Develop your first Vehicle App using &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Eclipse Velocitas template&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/docs/app-deployment/&#34;&gt;Deploy a Vehicle App to the device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploy a Vehicle App to the device&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
       </description>

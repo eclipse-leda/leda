@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Getting Started</title>
-    <link>/docs/general-usage/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/general-usage/</link>
     <description>Recent content in Getting Started on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/general-usage/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Download latest release</title>
-      <link>/docs/general-usage/download-releases/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/download-releases/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/</guid>
       <description>
         
         
@@ -87,7 +87,7 @@ gh release download \
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On Windows:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gh release download --pattern &amp;#34;*.zip&amp;#34; --pattern &amp;#34;eclipse-leda-*&amp;#34; --repo eclipse-leda/leda-distro
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -95,10 +95,10 @@ gh release download \
     
     <item>
       <title>Docs: Running on QEMU</title>
-      <link>/docs/general-usage/running-qemu/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/running-qemu/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/</guid>
       <description>
         
         
@@ -117,7 +117,7 @@ sudo apt-get install -y qemu-system-x86-64
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the archive&lt;/p&gt;
@@ -149,7 +149,7 @@ sudo apt-get install -y qemu-system-x86-64
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;qemu-arm-64-bit&#34;&gt;QEMU ARM 64-Bit&lt;/h2&gt;
@@ -158,7 +158,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 64-Bit: &lt;code&gt;sudo apt install qemu-system-aarch64&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the archive&lt;/p&gt;
@@ -187,7 +187,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;qemu-arm-32-bit&#34;&gt;QEMU ARM 32-Bit&lt;/h2&gt;
@@ -196,7 +196,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 32-Bit: &lt;code&gt;sudo apt install qemu-system-arm&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the archive&lt;/p&gt;
@@ -225,7 +225,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -234,10 +234,10 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
     
     <item>
       <title>Docs: Running on Raspberry Pi</title>
-      <link>/docs/general-usage/raspberry-pi/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/raspberry-pi/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/</guid>
       <description>
         
         
@@ -250,7 +250,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Steps:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Download the &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the SD Card image:&lt;/p&gt;
@@ -308,7 +308,7 @@ bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -317,10 +317,10 @@ bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
     
     <item>
       <title>Docs: Cheatsheet</title>
-      <link>/docs/general-usage/cheatsheet/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/cheatsheet/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/general-usage/cheatsheet/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/cheatsheet/</guid>
       <description>
         
         

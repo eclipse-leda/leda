@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – About Leda</title>
-    <link>/docs/about/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/about/</link>
     <description>Recent content in About Leda on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/about/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/about/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Features</title>
-      <link>/docs/about/features/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/features/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/features/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/features/</guid>
       <description>
         
         
@@ -68,10 +68,10 @@
     
     <item>
       <title>Docs: Goals</title>
-      <link>/docs/about/goals/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/goals/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/goals/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/goals/</guid>
       <description>
         
         
@@ -123,10 +123,10 @@
     
     <item>
       <title>Docs: Roadmap</title>
-      <link>/docs/about/roadmap/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/roadmap/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/roadmap/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/roadmap/</guid>
       <description>
         
         
@@ -151,14 +151,14 @@
     
     <item>
       <title>Docs: Architecture</title>
-      <link>/docs/about/architecture/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/about/architecture/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/docs/about/architecture/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/about/architecture/</guid>
       <description>
         
         
-        &lt;p&gt;&lt;img src=&#34;/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://eclipse-leda.github.io/leda/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>

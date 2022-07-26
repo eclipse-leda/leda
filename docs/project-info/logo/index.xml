@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Leda Documentation – Project Logo</title>
-    <link>/docs/project-info/logo/</link>
+    <link>https://eclipse-leda.github.io/leda/docs/project-info/logo/</link>
     <description>Recent content in Project Logo on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/project-info/logo/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/project-info/logo/index.xml" rel="self" type="application/rss+xml" />
     
     
       
