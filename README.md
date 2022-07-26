@@ -1,10 +1,10 @@
-![Eclipse Leda](assets/static/eclipse-leda.png)
+![Eclipse Leda](static/assets/eclipse-leda.png)
 
 # Eclipse Leda Documentation
 
 This repository contains the sources of the main user documentation of the [Eclipse Leda](https://github.com/eclipse-leda/) project.
 
-The rendered documentation is available at https://super-spoon-82e64be3.pages.github.io/
+The rendered documentation is available at https://eclipse-leda.github.io/leda/
 
 ## Introduction
 
