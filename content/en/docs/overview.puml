@@ -1,0 +1,47 @@
+@startuml buildArch
+title Eclipse Leda Build Architecture
+
+[This repository] as self
+[Yocto] as yocto
+[Poky] as poky
+[BitBake] as bitbake
+[ExternalSources] as externalSources
+[Meta-Base] as metaBASE
+[Meta-Poky] as metaPOKY
+[Meta-Yocto-BSP] as metaYOCTOBSP
+
+[Meta-Raspberry] as metaRPI4
+
+[meta-leda] as metaSDV
+[SDVSources] as sdvSources
+
+[Build AArch64 QEMU] as buildAARCH64QEMU
+[Build AArch64 RPi4] as buildAARCH64RPi4
+[Build ARM QEMU] as buildARMQEMU
+[Build X86_64 QEMU] as buildX8664QEMU
+
+[Image X86_64 QEMU] as imageX8664QEMU
+
+self -> yocto : uses
+yocto -> poky : uses
+poky -> bitbake : uses
+bitbake -> metaBASE : pulls
+bitbake -> metaPOKY : pulls
+bitbake -> metaYOCTOBSP : pulls
+
+metaBASE -> externalSources : pulls
+metaPOKY -> externalSources : pulls
+metaYOCTOBSP -> externalSources : pulls
+
+metaSDV -> sdvSources : pulls
+
+buildX8664QEMU -> metaSDV : pulls
+buildAARCH64RPi4 -> metaSDV : pulls
+buildARMQEMU -> metaSDV : pulls
+buildAARCH64QEMU -> metaSDV : pulls
+
+buildAARCH64RPi4 -> metaRPI4 : pulls
+
+buildX8664QEMU -> imageX8664QEMU : builds
+
+@enduml
