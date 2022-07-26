@@ -1,0 +1,57 @@
+# /********************************************************************************
+# * Copyright (c) 2022 Contributors to the Eclipse Foundation
+# *
+# * See the NOTICE file(s) distributed with this work for additional
+# * information regarding copyright ownership.
+# *
+# * This program and the accompanying materials are made available under the
+# * terms of the Eclipse Public License 2.0 which is available at
+# * http://www.eclipse.org/legal/epl-2.0
+# *
+# * SPDX-License-Identifier: EPL-2.0
+# ********************************************************************************/
+
+name: CI workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  Build-documentation:
+    runs-on: ubuntu-latest
+    name: Building documentation
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.98.0"
+          extended: true
+
+      - name: Download theme
+        run: |
+          git clone https://github.com/google/docsy.git themes/docsy
+
+      - name: Install theme
+        working-directory: ./themes/docsy
+        run: |
+          npm i
+
+      - name: Build
+        run: |
+          export NODE_PATH=$NODE_PATH:`npm root -g`
+          npm i -g postcss postcss-cli autoprefixer
+          echo "Build documentation for GitHub Pages"
+          hugo
+
+      - name: Publish to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh_pages
