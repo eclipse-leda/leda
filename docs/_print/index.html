@@ -1,0 +1,4343 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.98.0" />
+<link rel="canonical" type="text/html" href="/docs/">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Documentation | Eclipse Leda Documentation</title>
+<meta name="description" content="">
+<meta property="og:title" content="Documentation" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/" />
+
+<meta itemprop="name" content="Documentation">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Documentation"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" as="style">
+<link href="/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="30 270 300 300" id="svg2"><defs id="defs6"><clipPath id="clipPath24" clipPathUnits="userSpaceOnUse"><path id="path22" d="m5116.71 2737.03v81.36c0 51.02 13.61 71.72 55.28 74.55h288.29v-182.27c-4.26-34.29-16.73-48.19-55.28-48.19h-226.21c-47.05.0-62.08 20.69-62.08 74.55zm-139.46 17.86c0-128.41 84.19-198.71 222.24-198.71h42.8c107.43.0 184.82 2.84 217.99 84.19v-84.19h137.76v534.05c0 128.13-97.8 198.71-235.85 198.71H5051.8v-106.3h360c36 0 48.48-23.52 48.48-60.66v-122.74h-260.79c-138.05.0-222.24-70.59-222.24-198.71zm-332.5-44.22c-3.97-34.29-16.44-48.19-55-48.19h-225.07c-46.76.0-62.08 20.69-62.08 74.55v371.06c0 51.03 13.9 71.71 55.28 74.55h231.87c41.39-2.84 55-23.52 55-74.55zm139.46 854.08h-138.04v-360c-33.17 81.36-110.28 84.19-217.99 84.19h-42.8c-137.77.0-221.96-70.58-221.96-198.71v-335.34c0-128.41 84.19-198.71 221.96-198.71h42.8c107.71.0 184.82 2.84 217.99 84.19v-84.19h138.04zm-925.8-587.62h-362.83v144.85c0 28.91 12.47 60.66 48.2 60.66h266.45c35.71.0 48.18-31.75 48.18-60.66zm139.47-106.3v219.4c0 128.13-98.08 198.71-236.13 198.71h-169.51c-138.04.0-235.84-70.58-235.84-198.71v-335.34c0-128.41 97.8-198.71 235.84-198.71h405.64v106.3h-454.1c-35.73.0-48.2 23.54-48.2 60.66v147.69zM2642.92 2556.18h630.71v117.36h-483.02v794.55h-147.69z"/></clipPath><linearGradient id="linearGradient34" spreadMethod="pad" gradientTransform="matrix(2955.12,0,0,-2955.12,2642.92,3060.47)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop26" offset="0" style="stop-opacity:1;stop-color:#77add1"/><stop id="stop28" offset=".189014" style="stop-opacity:1;stop-color:#64c6ee"/><stop id="stop30" offset=".994475" style="stop-opacity:1;stop-color:#7b3199"/><stop id="stop32" offset="1" style="stop-opacity:1;stop-color:#7b3199"/></linearGradient><linearGradient id="linearGradient44" spreadMethod="pad" gradientTransform="matrix(1875.15,0,0,-1875.15,364.686,2981.28)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop38" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop40" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop42" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient><clipPath id="clipPath54" clipPathUnits="userSpaceOnUse"><path id="path52" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31z"/></clipPath><linearGradient id="linearGradient70" spreadMethod="pad" gradientTransform="matrix(1417.96,0,0,-1417.96,477.178,2901.88)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop56" offset="0" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop58" offset=".11811164" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop60" offset=".509456" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop62" offset=".76356415" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop64" offset=".994475" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop66" offset=".99510668" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop68" offset="1" style="stop-opacity:1;stop-color:#4e9133"/></linearGradient><linearGradient id="linearGradient80" spreadMethod="pad" gradientTransform="matrix(942.78,0,0,-942.78,720.659,3019.8)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop74" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop76" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop78" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,795.04)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path46" style="fill:url(#linearGradient44);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m462.512 2989.03c1.133-223.65 47.902-452.13 142.867-685.13 24.66-60.94 67.465-109.13 120.187-139.47 52.727-30.61 115.657-43.93 180.852-35.14 236.122 32.03 453.262 104.03 650.552 218.55 193.89 112.53 368.79 266.17 523.27 463.18 41.11 52.15 61.8 113.67 61.8 174.9.28 61.51-20.13 123.02-60.95 175.18-145.7 186.8-317.19 337.89-515.62 450.99-194.74 110.83-415.84 185.1-665.005 220.82-65.481 9.36-128.692-3.4-181.699-33.74C665.758 3768.85 622.672 3720.94 597.441 3660c-90.14-219.4-136.062-443.06-134.929-670.97zm51.875-721.98c-99.5 244.06-148.535 484.73-149.668 721.42-1.418 241.23 47.054 477.63 142.297 708.66 33.73 81.92 91.843 146.27 163.273 187.08 71.719 40.82 156.473 58.11 244.066 45.64 261.355-37.13 494.075-115.65 699.595-232.72 209.76-119.34 390.61-278.65 544.25-475.66 54.71-70.01 81.92-152.78 81.63-235.55.0-83.06-27.49-165.83-82.2-235.56-162.42-206.65-346.68-368.5-551.62-487.27-208.35-121.05-437.67-197.02-686.549-230.75-87.313-11.9-171.785 5.95-242.934 47.05-71.433 41.39-128.976 106.02-162.14 187.66v0"/><g id="g48"><g clip-path="url(#clipPath54)" id="g50"><path id="path72" style="fill:url(#linearGradient70);fill-opacity:1;fill-rule:nonzero;stroke:none" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31v0"/></g></g><path id="path82" style="fill:url(#linearGradient80);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m935.898 3147.21c-54.71-85.89-93.543-185.38-115.085-298.77-4.821-24.94-1.418-49.33 9.07-69.74 10.207-20.69 27.496-37.98 49.605-48.75 97.508-46.78 197.292-73.42 300.192-78.81 101.19-5.1 205.51 9.92 312.94 46.78 23.81 8.21 42.81 23.53 55.56 42.8 12.48 19.56 18.71 43.37 16.44 68.88-9.07 108.28-36.57 208.92-83.9 301.61-46.49 91.28-111.97 175.18-197.58 251.15-18.71 16.44-41.1 25.51-63.78 26.93-22.67 1.13-45.92-5.11-66.33-19.28-88.72-61.51-161.292-135.78-217.132-222.8zM724.434 2866.87c24.093 125.28 67.461 236.12 128.976 332.78 63.211 98.93 144.563 182.27 243.5 250.87 38.83 27.21 83.9 39.11 128.12 36.56 44.22-2.55 87.31-19.84 123.03-51.59 95.24-84.47 168.37-178.01 220.25-279.78 53-104.31 84.19-217.14 94.39-337.89 3.97-47.61-8.22-92.98-32.6-130.39-24.09-37.42-60.66-66.9-105.45-82.21-119.34-41.1-236.12-57.83-349.79-51.87-115.94 6.24-228.473 36-337.325 88.44-42.805 20.41-75.398 53.29-95.242 92.98-19.848 39.68-26.648 85.6-17.859 132.1v0"/></g></g></svg></span><span class="font-weight-bold">Eclipse Leda Documentation</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/eclipse-leda" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block"><input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/offline-search-index.7630a0b1ee0f5eeb072e916ea4aaa7d5.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Documentation</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-c43b6569b496f1a6d7d9012ee3bc204f">About Leda</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-62f17d5d56652ecfd6e840daca9a1946">Features</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.2: <a href="#pg-f80a9fd12bf730f7bfa227ef3587f18f">Goals</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.3: <a href="#pg-5b8cf903bf49e5cac8004f4b8b1742a7">Roadmap</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.4: <a href="#pg-23c7f5c8a374f51bc942b91cd93c903c">Architecture</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-a7d93f0de2ee473f42138959371de2a6">Getting Started</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-1824dab7ca07fa41d55e9aa4fbba8522">Download latest release</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.2: <a href="#pg-e38cb2d9a2a02e8c844dee80c321dfc6">Running on QEMU</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.2.1: <a href="#pg-150b34f0644b4aaccf60977ee15c9b83">CAN Bus</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.2.2: <a href="#pg-901f785cd6428989692f77364554603a">Transferring Files</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.3: <a href="#pg-e3267d6dbf90873c340d40fb033d58b2">Running on Raspberry Pi</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.4: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-5803ac6efc38fc60ffeb9995f4fd6731">Device Provisioning</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-57ce4bccb0846f692ca5d3289bd50697">Manual Provisioning</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.2: <a href="#pg-1d2bfbb96ea7961bad79d1c54d64e56a">Provisioning Raspberry Pi</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.3: <a href="#pg-679c6c584dc366c660841bdd65d2af73">Self Updates</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.3.1: <a href="#pg-cb55165363d95c91e0f19399fa5b280b">Self Update Tutorial</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.3.2: <a href="#pg-fdfe9e0ec285454b4f0c580b5cd46e62">RAUC Integration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.3.3: <a href="#pg-330a7bfc4527a76419775bc5ddc1265b">API Reference</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3f62c837f7dcb92aa6d45e0922ff9bb3">Vehicle Applications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.1: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4.2: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-529a2058d55821d1c7fd93c5ece87d4c">Building Leda</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.1: <a href="#pg-5a114e9c0d2f593adb6abac02f868f4c">Concepts</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.2: <a href="#pg-83c252b9f9f1de95e6f3ad59a0779c80">Metalayer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.3: <a href="#pg-6bebc82bbfd98602300c719ed32319de">Setup development environment</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.3.1: <a href="#pg-f489e253846ca9247a8d639e81213fab">Codespaces</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.3.1.1: <a href="#pg-71f44dd882af01efbed1f4ad8361d98b">Advanced topics</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.3.2: <a href="#pg-c93bbe2b4afa4f696fe56387e16376bc">GitHub Runner</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.3.3: <a href="#pg-dd5aea642d95644a121fa3b9232f771f">VSCode DevContainer</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.4: <a href="#pg-e9d306dcf183db3f873e59965d0cae97">Run the build</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.5: <a href="#pg-7f21f514ad0dd5b09364dfb04efa83f2">Building tests</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.6: <a href="#pg-62352f3530820244cfc19d6fdad57df1">Runqemu</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.7: <a href="#pg-1c63e657519124a213cf5b9778390873">Miscellaneous</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.7.1: <a href="#pg-0bf6c0e0979d02d6499ec6d58123bc10">DAPR Installation</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.7.2: <a href="#pg-685226a9e960be283b847d67e85319af">Resource Consumptions</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.7.3: <a href="#pg-ad9d3198163762a2c15eca580afe3c37">Utilities</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.8: <a href="#pg-f66480308426576cea64ae2249fef2e0">Incubation Components</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.9: <a href="#pg-bdf9cb83992bb147748b5ca9a98cda7a">Releasing</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.9.1: <a href="#pg-36dea19e60b747437042ee148647e878">Validating</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-af94d3dc4d5e71fd2c9d92bcafa3b325">Project Information</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>6.1: <a href="#pg-e1426bce55eda42a39b0db25e619c6e3">Community</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6.2: <a href="#pg-edbc3d7c3b14d2db3ea68d37f7851e4b">Dependencies</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.3: <a href="#pg-3804c959464b4f1164e582f67ae410d0">Contribution Guidelines</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.4: <a href="#pg-ecbb8edc896b280ddac3a1b67ddd7ef1">Project Logo</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6.5: <a href="#pg-7892772422eb3da8a0c62a8ce99300dc">Data Protection Notice</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.6: <a href="#pg-ec74413c19c356efd4199631c80850ae">Security Policy</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-5b9855a34132ffcc60b905616e0cf498"></a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p><img src="/assets/eclipse-leda.png" alt="Eclipse Leda"></p>
+<p>The Eclipse Leda project provides system image &ldquo;recipes&rdquo; to deliver a functional and always-available Linux-based image/distribution in the context of SDV (Software Defined Vehicle), by pulling together individual contributor pieces from <a href="https://sdv.eclipse.org/">Eclipse SDV</a> and the larger OSS community.</p>
+<p>The quickstart images help to learn how the SDV development, test and deployment lifecycle works from an E2E perspective, including the deployment of applications into the container runtimes on constrained embedded devices.</p>
+<p>The ready images are also useful for quickly setting up showcases with virtual or real hardware devices.</p>
+<p>Eclipse Leda provides a Poky-based reference build pipeline and an OpenEmbedded Metalayer <a href="https://github.com/eclipse-leda/meta-leda">meta-leda</a> for integration into existing Yocto-based projects.</p>
+<h1 id="usage">Usage</h1>
+<ol>
+<li>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
+<li>Run Eclipse Leda
+<ul>
+<li>on <a href="/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
+<li>on <a href="/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
+</ul>
+</li>
+<li>Configure device, e.g. <a href="/docs/device-provisioning/">provision the device</a></li>
+<li>Explore the <a href="/docs/build/misc/tools/">device tools</a></li>
+<li>Develop your first Vehicle App using <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Eclipse Velocitas template</a></li>
+<li><a href="/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
+</ol>
+<p>Supported Machines / Build Configurations</p>
+<ul>
+<li>Emulated Qemu: x86-64, ARM64, ARM</li>
+<li>Raspberry Pi 4</li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p><img src="/assets/eclipse-leda-arch-overview.png" alt="Eclipse Leda Component Overview"></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Publish/Subscribe infrastructure for <strong>local messaging and cloud connectivity</strong></li>
+<li>Linux <strong>lightweight container runtime</strong> and Kubernetes control plane</li>
+<li><strong>Vehicle Update Manager</strong> to orchestrate deployments of Vehicle Applications over the air (SOTA)</li>
+<li><strong>Self Update Agent</strong> for firmware-over-the-air (FOTA) updates</li>
+<li><strong>Example Vehicle Seat Service</strong> implementation</li>
+<li><strong>Metrics and logs collector</strong> for Vehicle Apps</li>
+</ul>
+<p>See <a href="/docs/about/features/">About - Features</a> for more details about current implementation and <a href="/docs/about/roadmap/">About - Roadmap</a> for our future work.</p>
+<h1 id="license-and-copyright">License and Copyright</h1>
+<p>This program and the accompanying materials are made available under the
+terms of the Apache License 2.0 which is available at
+<a href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>For details, please see our license <a href="NOTICE.md">NOTICE</a></p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c43b6569b496f1a6d7d9012ee3bc204f">1 - About Leda</h1>
+    
+	<p>The Eclipse Leda project will provide system image “recipes” to deliver a functional Linux-based image/distribution in the context of SDV (Software Defined Vehicle), by pulling together individual contributons from the SDV and the larger OSS community.</p>
+<p>The Eclipse Leda distribution will work with build scripts, package definitions, image build pipelines, etc, with the goal to pull SDV projects and dependecies from the larger OSS community into a working Linux system. Such system images (or other useful forms of delivery, as determined by the project) will be made available for consumption for anyone who is interested in working with the SDV tech stack. These deliveries take the form of container (base) images, installable/flashable image files, etc (again to be evolved by the project team according to community needs). Also in scope is concise and useful documentation for consumers of the project&rsquo;s deliverables, plus a method of delivering that documentation.</p>
+<p>In the context described above - the ambition of SDV to build a technology ecosystem for software-defined vehicle concern - a prime challenge will be the combination of these initially diverse components into a coherent and useful whole: all the software components in the world will not have the impact needed to transform the automotive industry unless we can make them play together coherently an form a functional portfolio. As a first step towards that goal, this proposal (Eclipse Leda) is for a &ldquo;SDV distribution&rdquo; project that pulls together individual contributor pieces from SDV and the larger OSS community, to deliver a functional and always-available Linux-based image/distribution with two primary goals:</p>
+<ul>
+<li>
+<p>be the crystalization point for functionally integrating diverse SDV-scope projects into a working whole</p>
+</li>
+<li>
+<p>deliver a continually available, always working starting image for developers interested in getting going with the SDV tech stack</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-62f17d5d56652ecfd6e840daca9a1946">1.1 - Features</h1>
+    
+	<ul>
+<li><strong>Publish/Subscribe messaging infrastructure for cloud connectivity</strong> by <a href="https://github.com/eclipse-kanto/">Eclipse Kanto</a>
+<ul>
+<li>local messaging for applications and SDV system components via an MQTT message broker</li>
+<li>connection to a backend messaging hub, such as Azure IoT Hub or the IoT Suite</li>
+<li>device identification and authentication for cloud connectivity by using TLS device certificates</li>
+</ul>
+</li>
+<li>Linux <strong>container runtime</strong> and <strong>Kubernetes control plane</strong>
+<ul>
+<li>a Kubernetes-compliant control plane to orchestrate worker nodes, services, container pods and deployments.</li>
+<li><a href="https://k3s.io/">k3s</a> as the current implementation of the control plane and <a href="https://containerd.io/">containerd.io</a> as the default container runtime. Both layers of container runtimes can be exchanged with other implementations</li>
+</ul>
+</li>
+<li>A <strong>Vehicle Update Manager</strong> to orchestrate deployments of Vehicle Applications, configurations and base operating system updates via Kubernetes-standardized protocol specifications</li>
+<li>An example Vehicle Seat Service implementation to showcase
+<ul>
+<li>the <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> programming model,</li>
+<li>the <a href="https://github.com/eclipse/kuksa.val">Eclipse Kuksa.VAL</a> vehicle databroker and</li>
+<li>the <a href="https://github.com/COVESA/vehicle_signal_specification">Covesa Vehicle Signal Specification</a></li>
+<li>the communication with basic vehicle communication networks such as CAN-Bus (CAN Feeder)</li>
+</ul>
+</li>
+<li>A <strong>Self Update Agent</strong> for firmware-over-the-air (FOTA) updates, using an A/B deployment strategy
+<ul>
+<li>Integration with <a href="https://www.rauc.io/">RAUC</a></li>
+</ul>
+</li>
+<li>An <a href="https://github.com/open-telemetry/">OpenTelemetry collector</a> and example configurations to collect and publish logs and metrics of containerized Vehicle Applications to the cloud backend for further processing</li>
+</ul>
+<p>The features of the reusable build recipes implemented as an <a href="https://www.openembedded.org">OpenEmbedded</a> metalayer <code>meta-leda</code> are:</p>
+<ul>
+<li>Build recipes for a <a href="https://www.yoctoproject.org/">Yocto</a>-based distribution to build SDV-related software components</li>
+<li>Build recipes for customizations of the target device&rsquo;s storage structure to enable A/B system updates</li>
+<li>Build recipes for pre-packaging container images into the device during the manufacturing process to minimize initial online provisioning time</li>
+<li>A customized minimal setup for use on constrained devices and a full setup with convenient developer tools</li>
+<li>Ready images for virtual devices, for automated testing and evaluation purposes, eg QEMU ARM-64</li>
+<li>Ready images for physical devices, for evaluation and demo purposes, eg Raspberry Pi 4</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f80a9fd12bf730f7bfa227ef3587f18f">1.2 - Goals</h1>
+    
+	<p>The project aims to provide <strong>an integration point for Open Source components for the Software Defined Vehicle</strong>. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.</p>
+<p>The following document will list some of these requirements and give an explanation on why they are met in the Leda quickstart distribution.</p>
+<h1 id="overview">Overview</h1>
+<ul>
+<li>Provide an example operating system and configuration for constrained in-vehicle devices</li>
+<li>Integrate software-defined-vehicle Open Source components to showcase the available features and their state of maturity</li>
+<li>Demonstrate the use and interaction of open protocols and specifications, such as
+<ul>
+<li>the Kubernetes specifications</li>
+<li>OpenTelemetry specs and components</li>
+<li>Eclipse IoT related specifications for software rollouts and digital twin representations</li>
+<li>open specifications from the <a href="https://www.covesa.global/">The Connected Vehicle Systems Alliance (COVESA)</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="background-information">Background Information</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Met</th>
+<th>Context information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Footprint Constraints</td>
+<td>Yes</td>
+<td>Embedded in-vehicle devices have constrained resources such as CPU power, disk space, memory etc. Desktop operating systems use as much space as possible, thereas in-vehicle operating systems are as small as possible, omitting a lot of unnecessary tooling such as package managers or convenience tools for administrators, documenation (man pages) etc. Leda provides two different types of operating system images: one for quickstart and demo cases with some tooling, and a another minimal image which only contains the necessary software components for remote usage. <p></p>SDV Rescue Image is about 130MB<br>SDV Minimal Image is about 300MB <br>SDV Full Image (with convenience tools and pre-cached containers) is about 900MB<p></p><em>Note: Future roadmap includes more footprint optimizations</em></td>
+</tr>
+<tr>
+<td>Hardened system</td>
+<td>Partly</td>
+<td>A vehicle device and its operating system are vulnerable targets in the same way as any other computer, especially once they are connected to the internet. Classically, such in-vehicle devices were hardened down once with additional audit logging for any kind of network traffic. In a connected world, these devices now become mostly always-on devices and behave like any other Internet of Things devices. Special care is to be taken to guard them against vulnerabilities by keeping these devices up-to-date, establish continuous automated monitoring and other methodologies known from DevSecOps.<p></p>As Leda is supposed to be used for quickly starting and evaluating SDV software, we balance these type of requirements. For example, installing system updates in Leda is only possible with signed update bundles, but the demo uses a self-signed certificate. For production use, these self-signed certificates would of course be replaced by the manufacturer&rsquo;s real certificates.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5b8cf903bf49e5cac8004f4b8b1742a7">1.3 - Roadmap</h1>
+    
+	<p>Initial Open Source contribution expected by Q2 2022</p>
+<ul>
+<li>Release cycles are planned every 3-6 months</li>
+<li>Release planning will be conducted together with corresponding Eclipse projects</li>
+</ul>
+<h1 id="future-work">Future Work</h1>
+<p>The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.</p>
+<p>Exemplary future work:</p>
+<ul>
+<li>Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager</li>
+<li>Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other <a href="https://projects.eclipse.org/projects/automotive">Eclipse Automotive</a> projects</li>
+<li>Integration of device provisioning with specific backend services</li>
+<li>Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications</li>
+</ul>
+<p>If you have feedback, please use <a href="https://github.com/eclipse-leda/">GitHub Issues</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-23c7f5c8a374f51bc942b91cd93c903c">1.4 - Architecture</h1>
+    
+	<p><img src="/assets/leda-architecture-details.png" alt="Architecture Overview"></p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a7d93f0de2ee473f42138959371de2a6">2 - Getting Started</h1>
+    
+	<ol>
+<li>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
+<li>Run Eclipse Leda
+<ul>
+<li>on <a href="/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
+<li>on <a href="/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
+</ul>
+</li>
+<li>Configure device, e.g. <a href="/docs/device-provisioning/">provision the device</a></li>
+<li>Explore the <a href="/docs/build/misc/tools/">device tools</a></li>
+<li>Develop your first Vehicle App using <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Eclipse Velocitas template</a></li>
+<li><a href="/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-1824dab7ca07fa41d55e9aa4fbba8522">2.1 - Download latest release</h1>
+    
+	<p>Go to the <a href="https://github.com/eclipse-leda/leda-distro/releases">Eclipse Leda Releases</a> page and download the disk image for the respective machine and the respective Linux kernel:</p>
+<h1 id="latest-release-artifacts">Latest Release Artifacts</h1>
+<table>
+<thead>
+<tr>
+<th>Machine</th>
+<th>Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QEMU x86_64</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/latest/download/eclipse-leda-qemu-x86_64.tar.xz">eclipse-leda-qemu-x86_64.tar.xz</a></td>
+<td>For running QEMU x86 64-Bit</td>
+</tr>
+<tr>
+<td>QEMU ARM 64</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/latest/download/eclipse-leda-qemu-arm64.tar.xz">eclipse-leda-qemu-arm64.tar.xz</a></td>
+<td>For running QEMU ARM 64-Bit</td>
+</tr>
+<tr>
+<td>Raspberry Pi 4</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/latest/download/eclipse-leda-raspberrypi.tar.xz">eclipse-leda-raspberrypi.tar.xz</a></td>
+<td>For running on Raspberry Pi 4 (SD-Card Image)</td>
+</tr>
+<tr>
+<td>Misc</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/latest/download/qa-reports.tar">qa-reports.tar</a></td>
+<td>Test and other QA reports</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/latest/download/sdv-os-test-x86_64">sdv-os-test-x86_64</a></td>
+<td>Smoke Tests executable x86_64</td>
+</tr>
+</tbody>
+</table>
+<h1 id="using-github-cli-tool">Using GitHub CLI tool</h1>
+<p>To download all files of the latest release using the GitHub CLI:</p>
+<ul>
+<li>Install <a href="https://github.com/cli/cli">GitHub CLI</a>, e.g. for Ubuntu:</li>
+</ul>
+<pre tabindex="0"><code>curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo &#34;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&#34; | sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null
+sudo apt update
+sudo apt install gh
+</code></pre><ul>
+<li>Authenticate to GitHub:</li>
+</ul>
+<pre tabindex="0"><code>gh auth login
+</code></pre><ul>
+<li>Download Leda latest release:</li>
+</ul>
+<p>On Linux:</p>
+<pre tabindex="0"><code>mkdir leda &amp;&amp; cd leda
+
+gh release download \
+  --pattern &#39;*.zip&#39; \
+  --pattern &#39;eclipse-leda-*&#39; \
+  --repo eclipse-leda/leda-distro
+</code></pre><p>On Windows:</p>
+<pre tabindex="0"><code>gh release download --pattern &#34;*.zip&#34; --pattern &#34;eclipse-leda-*&#34; --repo eclipse-leda/leda-distro
+</code></pre><ul>
+<li>Continue with <a href="/docs/general-usage/running-qemu/">Running Eclipse Leda on QEMU</a> or <a href="/docs/general-usage/raspberry-pi/">Running Eclipse Leda on Raspberry Pi 4</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e38cb2d9a2a02e8c844dee80c321dfc6">2.2 - Running on QEMU</h1>
+    
+	<p>If you want to execute the image without building first, grab the latest release or build artifacts from <a href="https://github.com/eclipse-leda/leda-distro/">https://github.com/eclipse-leda/leda-distro/</a></p>
+<h2 id="recommendations">Recommendations</h2>
+<ul>
+<li>A <strong>Linux host</strong> with 8 vCPUs, 16GB of RAM and SSD storage is recommended</li>
+<li>Your Linux user should be <strong>sudoer</strong> to allow TAP network interfaces to be set up</li>
+</ul>
+<h2 id="qemu-x86_64">QEMU x86_64</h2>
+<ul>
+<li>
+<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for Ubuntu:</p>
+<pre><code>sudo apt-get update -y
+sudo apt-get install -y qemu-system-x86-64
+</code></pre>
+</li>
+<li>
+<p>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
+</li>
+<li>
+<p>Uncompress the archive</p>
+<pre><code>tar xf eclipse-leda-qemu-x86_64.tar.xz
+</code></pre>
+</li>
+<li>
+<p>Run QEMU on Linux:</p>
+<pre><code>./run-leda.sh
+</code></pre>
+</li>
+<li>
+<p>Run QEMU on Windows:</p>
+<pre><code>run-leda.cmd
+</code></pre>
+<p><img src="leda-bootsequence.png" alt=""></p>
+</li>
+<li>
+<p>Login as <code>root</code> without password on login prompt</p>
+</li>
+<li>
+<p>Verify and wait until k3s is started: <code>systemctl status k3s</code>
+<img src="systemctl-status-k3s.png" alt=""></p>
+</li>
+<li>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code>
+<img src="sdv-health1.png" alt=""></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to
+stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+</li>
+<li>
+<p>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></p>
+</li>
+</ul>
+<h2 id="qemu-arm-64-bit">QEMU ARM 64-Bit</h2>
+<ul>
+<li>
+<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 64-Bit: <code>sudo apt install qemu-system-aarch64</code></p>
+</li>
+<li>
+<p>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
+</li>
+<li>
+<p>Uncompress the archive</p>
+<pre><code>tar xf eclipse-leda-qemu-arm64.tar.xz
+</code></pre>
+</li>
+<li>
+<p>Run QEMU on Linux:</p>
+<pre><code>./run-leda.sh
+</code></pre>
+</li>
+<li>
+<p>Run QEMU on Windows:</p>
+<pre><code>run-leda.cmd
+</code></pre>
+</li>
+<li>
+<p>Login as <code>root</code> without password on login prompt</p>
+</li>
+<li>
+<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+</li>
+<li>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to
+stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+</li>
+<li>
+<p>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></p>
+</li>
+</ul>
+<h2 id="qemu-arm-32-bit">QEMU ARM 32-Bit</h2>
+<ul>
+<li>
+<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 32-Bit: <code>sudo apt install qemu-system-arm</code></p>
+</li>
+<li>
+<p>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
+</li>
+<li>
+<p>Uncompress the archive</p>
+<pre><code>tar xf eclipse-leda-qemu-arm.tar.xz
+</code></pre>
+</li>
+<li>
+<p>Run QEMU on Linux:</p>
+<pre><code>./run-leda.sh
+</code></pre>
+</li>
+<li>
+<p>Run QEMU on Windows:</p>
+<pre><code>run-leda.cmd
+</code></pre>
+</li>
+<li>
+<p>Login as <code>root</code> without password on login prompt</p>
+</li>
+<li>
+<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+</li>
+<li>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to
+stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+</li>
+<li>
+<p>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-150b34f0644b4aaccf60977ee15c9b83">2.2.1 - CAN Bus</h1>
+    
+	<p><em>Note: The configuration mentioned in this chapter is already enabled in the <code>run-leda.sh</code> script.</em></p>
+<h2 id="qemu">QEMU</h2>
+<p>General documentation about using CAN-Bus in Qemu: <a href="https://www.qemu.org/docs/master/system/devices/can.html">https://www.qemu.org/docs/master/system/devices/can.html</a></p>
+<h3 id="enabling-virtual-can-bus-interfaces-vcan">Enabling Virtual CAN Bus interfaces (vcan)</h3>
+<p>No special parameters are necessary for qemu, as vcan is virtual:</p>
+<pre tabindex="0"><code>runqemu qemux86-64 nographic slirp qemuparams=&#34;-m 2048&#34;
+</code></pre><p>Bring interface up:</p>
+<pre tabindex="0"><code>ip link add dev vcan0 type vcan
+ip link set vcan0 up
+</code></pre><h3 id="enabling-can-bus-interfaces-can">Enabling CAN Bus interfaces (can)</h3>
+<h4 id="standalone-can-within-qemu">Standalone CAN within Qemu</h4>
+<p>To run a standalone CAN setup, qemu must be instructed to emulate a specific CAN hardware device. We will be using the <code>kvaser_pci</code> device in this example:</p>
+<pre tabindex="0"><code>runqemu qemux86-64 nographic slirp qemuparams=&#34;-m 2048 -object can-bus,id=canbus0 -device kvaser_pci,canbus=canbus0&#34;
+</code></pre><p>After the image has booted, load the Linux Kernel Module <code>kvaser_pci</code> device driver and configure the CAN-Bus device (eg bitrate) before bringing the interface up:</p>
+<pre tabindex="0"><code>root@qemux86-64:~# modprobe kvaser_pci
+
+root@qemux86-64:~# dmesg | grep kvaser
+[    9.565149] kvaser_pci 0000:00:04.0: initializing device 10e8:8406
+[    9.569308] kvaser_pci 0000:00:04.0: reg_base=00000000d5a68095 conf_addr=000000002b3c7ef6 irq=20
+[    9.596942] kvaser_pci 0000:00:04.0: xilinx version=13 number of channels=0
+
+root@qemux86-64:~# ip link show type can
+4: can0: &lt;NOARP,ECHO&gt; mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+</code></pre><p>Configure the interface:</p>
+<pre tabindex="0"><code>root@qemux86-64:~# ip link set can0 type can bitrate 1000000
+[  165.519919] kvaser_pci 0000:00:04.0 can0: setting BTR0=0x00 BTR1=0x14
+
+root@qemux86-64:~# ip link set can0 up
+[  186.906065] IPv6: ADDRCONF(NETDEV_CHANGE): can0: link becomes ready
+
+root@qemux86-64:~# ip link show type can
+4: can0: &lt;NOARP,UP,LOWER_UP,ECHO&gt; mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+    link/can 
+</code></pre><h4 id="tunneling-a-can-interface-from-the-host">Tunneling a CAN Interface from the Host</h4>
+<pre tabindex="0"><code>runqemu qemux86-64 nographic slirp qemuparams=&#34;-m 2048 -object can-bus,id=canbus0 -object can-host-socketcan,id=canhost0,if=can0,canbus=canbus0 -device kvaser_pci,canbus=canbus0&#34;
+</code></pre><p>Bring interface up:</p>
+<pre tabindex="0"><code>ip link add dev can0 type can
+ip link set can0 type can bitrate 1000000
+ip link set can0 up
+ip link show type can
+</code></pre><h1 id="raspberry-pi-can-hat-extensions">Raspberry Pi CAN HAT Extensions</h1>
+<p>Supported boards:</p>
+<ul>
+<li>Boards with a Microchip MCP251x based CAN chip, such as Waveshare CAN HAT or PiCAN 2</li>
+</ul>
+<p>Verify driver is loaded:</p>
+<pre tabindex="0"><code># dmesg | grep mcp
+[    8.23543] mcp251x spi0.0 can0: MCP2515 successfully initialized
+</code></pre><p>Verify SocketCAN network interface shows up:</p>
+<pre tabindex="0"><code># ip link show type can
+3: can0: &lt;NOARP,ECHO&gt; mtu 16 qdisc noop state DOWN mode DEFAULT roup default qlen 10
+</code></pre><p>Continue with configuring the CAN chip and bring up the SocketCAN network interface:</p>
+<pre tabindex="0"><code># ip link set can0 type can bitrate 1000000
+# ip link set can0 up
+# ip link show type can
+</code></pre><h1 id="linux-kernel-modules">Linux Kernel Modules</h1>
+<p>The following Linux Kernel modules are available on the quickstart images:</p>
+<p><em>Note: For QEMU, only <em>kvaser_pci</em> is used</em></p>
+<h2 id="leda-main-kernel">Leda main Kernel</h2>
+<ul>
+<li>peak_pciefd - Socket-CAN driver for PEAK PCAN PCIe/M.2 FD family cards</li>
+<li>m_can - CAN bus driver for Bosch M_CAN controller</li>
+<li>m_can_pci - CAN bus driver for Bosch M_CAN controller on PCI bus</li>
+<li>m_can_platform - M_CAN driver for IO Mapped Bosch controllers</li>
+<li>softing - Softing DPRAM CAN driver</li>
+<li>cc770_platform - Socket-CAN driver for CC770 on the platform bus</li>
+<li>cc770_isa - Socket-CAN driver for CC770 on the ISA bus</li>
+<li>cc770 - cc770CAN netdevice driver</li>
+<li>ifi_canfd - CAN bus driver for IFI CANFD controller</li>
+<li>kvaser_usb - CAN driver for Kvaser CAN/USB devices</li>
+<li>etas_es58x - Socket CAN driver for ETAS ES58X USB adapters</li>
+<li>ucan - Driver for Theobroma Systems UCAN devices</li>
+<li>peak_usb - CAN driver for PEAK-System USB adapters</li>
+<li>kvaser_pciefd - CAN driver for Kvaser CAN/PCIe devices</li>
+<li>kvaser_pci - Socket-CAN driver for KVASER PCAN PCI cards</li>
+<li>f81601 - Fintek F81601 PCIE to 2 CANBUS adaptor driver</li>
+<li>sja1000_isa - Socket-CAN driver for SJA1000 on the ISA bus</li>
+<li>plx_pci - Socket-CAN driver for PLX90xx PCI-bridge cards with the SJA1000 chips</li>
+<li>sja1000 - sja1000CAN netdevice driver</li>
+<li>ems_pci - Socket-CAN driver for EMS CPC-PCI/PCIe/104P CAN cards</li>
+<li>peak_pci - Socket-CAN driver for PEAK PCAN PCI family cards</li>
+<li>sja1000_platform - Socket-CAN driver for SJA1000 on the platform bus</li>
+<li>vxcan - Virtual CAN Tunnel</li>
+<li>c_can_platform - Platform CAN bus driver for Bosch C_CAN controller</li>
+<li>c_can - CAN bus driver for Bosch C_CAN controller</li>
+<li>c_can_pci - PCI CAN bus driver for Bosch C_CAN/D_CAN controller</li>
+<li>slcan - serial line CAN interface</li>
+<li>can_dev - CAN device driver interface</li>
+<li>vcan - virtual CAN interface</li>
+<li>can-isotop - PF_CAN isotp 15765-2:2016 protocol</li>
+<li>can-gw - PF_CAN netlink gateway</li>
+<li>can-j1939 - PF_CAN SAE J1939</li>
+<li>can-raw - PF_CAN raw protocol</li>
+<li>can-bcm - PF_CAN broadcast manager protocol</li>
+<li>can - Controller Area Network PF_CAN core</li>
+</ul>
+<h2 id="raspberry-pi">Raspberry Pi</h2>
+<p>The following Linux Kernel modules are available on the quickstart image for Raspberry Pi:</p>
+<ul>
+<li>can - Controller Area Network PF_CAN core</li>
+<li>vxcan - Virtual CAN Tunnel</li>
+<li>can-dev - CAN device driver interface</li>
+<li>can-bcm - PF_CAN broadcast manager protocol</li>
+<li>can-gw - PF_CAN netlink gateway</li>
+<li>can-raw - PF_CAN raw protocol</li>
+<li>can-isotop - PF_CAN isotp 15765-2:2016 protocol</li>
+<li>can-j1939 - PF_CAN SAE J1939</li>
+<li>vcan - virtual CAN interface</li>
+<li>slcan - serial line CAN interface</li>
+<li>mcp251x - Microchip 251x/25625 CAN driver</li>
+<li>mcp251xfd - Microchip 251xFD Family CAN controller driver</li>
+<li>ems_usb - CAN driver for EMS Dr. Thomas Wuensche CAN/USB interfaces</li>
+<li>gs_usb - Socket CAN device driver for Geschwister Schneider UG</li>
+<li>peak_usb - CAN driver for PEAK-System USB adapters</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-901f785cd6428989692f77364554603a">2.2.2 - Transferring Files</h1>
+    
+	<h1 id="sharing-a-directory-with-the-guest">Sharing a directory with the guest</h1>
+<p>When you want to copy files between the host and the guest, an easy way is to use an SFTP tunnel.
+With <code>sshfs</code>, you can mount a local directory to a remote directory via SSH.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<p>Installation of needed packages:</p>
+<ul>
+<li>Run <code>apt-get install sshfs</code> on your host</li>
+<li>Enable <code>CORE_IMAGE_EXTRA_INSTALL += &quot; openssh-sftp-server&quot;</code> in <code>local.conf</code> of your image</li>
+<li>Verify SFTP connection working with <code>sftp -P 2222 root@localhost</code></li>
+</ul>
+<h2 id="transfering-files-from-host-to-guest">Transfering files from host to guest</h2>
+<p>When you want to copy files from the host to the guest, an easy way is to use an SFTP tunnel.
+With <code>sshfs</code>, you can mount a local directory to a remote directory via SSH.</p>
+<ul>
+<li>Create a mount point on your host: <code>mkdir remote</code></li>
+<li>Open the SSH Filesystem tunnel: <code>sshfs root@localhost:/ remote/ -p 2222</code></li>
+<li>Check files: <code>ls -al remote/</code> - you should see the root filesystem of the device now</li>
+<li>You can now easily copy files: <code>cp foo.txt remote/home/root/</code></li>
+</ul>
+<h2 id="transfering-files-from-guest-to-host">Transfering files from guest to host</h2>
+<p><em>Note:</em> The reverse direction, e.g. initiating an SSH tunnel from within the device to the host, is currently not supported by the installed software on the image.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e3267d6dbf90873c340d40fb033d58b2">2.3 - Running on Raspberry Pi</h1>
+    
+	<p>What you need:</p>
+<ul>
+<li>A Raspberry Pi 4 with 2 GiB of RAM or more, recommended is 8 GiB</li>
+<li>Network connection (Ethernet or Wifi) with transparent internet access</li>
+<li>Optional keyboard and display (makes it easier to troubleshoot)</li>
+</ul>
+<p>Steps:</p>
+<ul>
+<li>
+<p>Download the <a href="/docs/general-usage/download-releases/">latest released SD-Card Image</a>: <code>eclipse-leda-raspberrypi.tar.xz</code></p>
+</li>
+<li>
+<p>Uncompress the SD Card image:</p>
+<pre><code>tar xf eclipse-leda-raspberrypi.tar.xz
+bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
+</code></pre>
+</li>
+<li>
+<p>Flash the <code>sdv-image-full-raspberrypi4.wic</code> file to an SD-Card</p>
+<ul>
+<li>On Linux:
+<ul>
+<li>Install bmap tools: <code>sudo apt-get install -y bmap-tools</code></li>
+<li>Insert SD Card and check which device is mounted: <code>sudo fdisk -l</code></li>
+<li>Unmount the device: <code>sudo umount /dev/sd[X]</code></li>
+<li><code>sudo bmaptool copy --bmap sdv-image-full-raspberrypi4-64.wic.bmap sdv-image-full-raspberrypi4-64.wic.gz /dev/sd[X]</code></li>
+</ul>
+</li>
+<li>On Windows:
+<ul>
+<li><a href="https://www.raspberrypi.org/documentation/installation/installing-images/">Raspberry Pi Imager</a></li>
+<li><a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><em>Optional: If you need to adapt the network configuration eg Wifi credentials, edit the configuration files on the <code>boot</code> partition.</em></p>
+</li>
+<li>
+<p>Shutdown the Raspberry and insert the SD-Card into the Raspberry Pi SD-Card slot at the bottom</p>
+</li>
+<li>
+<p>Power on your Raspberry to boot the image</p>
+</li>
+<li>
+<p>Login with <code>root</code></p>
+</li>
+<li>
+<p>Check disk space:</p>
+<ul>
+<li>
+<p>The <code>raspberry-growdisk</code> system service will do this automatically on first boot.</p>
+</li>
+<li>
+<p>To manually enlarge the available disk space on the SD-Card, resize the disk partition: <code>parted /dev/mmcblk0 resizepart 6 100% &amp;&amp; resize2fs /dev/mmcblk0p6</code>. Verify with <code>df -h</code>.</p>
+<p><em>Note: Due to changes in the disk partition, the partition number (<code>6</code> in the example) may have changed.</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+</li>
+<li>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
+</li>
+<li>
+<p>Continue with <a href="/docs/device-provisioning/provisioning-raspi/">Provisioning Raspberry Pi</a></p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">2.4 - Cheatsheet</h1>
+    
+	<p>This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General</td>
+<td>Overall info</td>
+<td><code>sdv-health</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Show device info</td>
+<td><code>sdv-device-info</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Device provisioning</td>
+<td><code>sdv-provision</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Switch Keyboard layout</td>
+<td><code>loadkeys de</code></td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Check k3s status</td>
+<td><code>systemctl status k3s</code></td>
+</tr>
+<tr>
+<td></td>
+<td>k9s</td>
+<td><code>k9s</code></td>
+</tr>
+<tr>
+<td></td>
+<td>k3s service logs</td>
+<td><code>journalctl -f -l -t k3s</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Show all Pods</td>
+<td><code>kubectl get pods -A</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Pod details</td>
+<td><code>kubectl describe pod &lt;podname&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Pod logs</td>
+<td><code>kubectl logs &lt;podname&gt; &lt;containername&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Auto deployments</td>
+<td>See <code>/var/lib/rancher/k3s/server/manifests/</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Delete a Pod</td>
+<td><code>kubectl delete pod &lt;podname&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Redeplod a Pod</td>
+<td><code>kubectl apply -f &lt;podspec.yaml&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Shell in a Pod</td>
+<td><code>kubectl exec --stdin --tty &lt;podname&gt; -- /bin/sh</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Cluster IP</td>
+<td><code>kubectl get svc clusterip</code></td>
+</tr>
+<tr>
+<td>ContainerdD</td>
+<td>Show images</td>
+<td><code>ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i ls</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Import local archive</td>
+<td><code>ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i import &lt;docker.tar&gt;</code></td>
+</tr>
+<tr>
+<td>DAPR</td>
+<td>Reinstall</td>
+<td><code>dapr-init.sh</code></td>
+</tr>
+<tr>
+<td>Mosquitto</td>
+<td>Show all messages</td>
+<td><code>mosquitto_sub -v -t '#' -h &lt;MosquittoClusterIP&gt;'</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Send message</td>
+<td><code>mosquitto_pub -t '&lt;target/topic&gt;' -h &lt;MosquittoClusterIP&gt; -m '{&quot;foo&quot;:&quot;bar&quot;}'</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Mosquitto Cluster IP</td>
+<td><code>kubectl get svc mosquitto</code></td>
+</tr>
+<tr>
+<td>Cloud Connectivity</td>
+<td>Cloud agent logs</td>
+<td><code>kubectl get logs sdv-core-cloud-agent</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Connectivity status</td>
+<td><code>mosquitto_rr --quiet -h &lt;MosquittoClusterIP&gt; -t 'edge/thing/request' -e 'edge/thing/response' -m ''</code></td>
+</tr>
+<tr>
+<td>RAUC Self Update</td>
+<td>Current boot status</td>
+<td><code>rauc status</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Switch to other boot slot</td>
+<td><code>rauc status mark-active other</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5803ac6efc38fc60ffeb9995f4fd6731">3 - Device Provisioning</h1>
+    
+	<p>The device needs to be configured before it can make a connection to the cloud.</p>
+<p>The following initial configuration steps are required:</p>
+<ul>
+<li>Create a device in Azure IoT Hub</li>
+<li>Configure authentication on device</li>
+<li>Configure credentials for accessing private container registries</li>
+</ul>
+<h1 id="create-a-device-in-azure-iot-hub">Create a device in Azure IoT Hub</h1>
+<p>For the device to be connectable, it needs to be known to the cloud service first. In these steps, we will create a new device identity by using Azure IoT Hub.</p>
+<p><strong>Pre-Requisites</strong>:</p>
+<ul>
+<li>
+<p>Virtual device must already be started with <code>runqemu ...</code> or <code>leda</code></p>
+<p><em>Note: For Raspberry Pi, please follow the manual steps below and adapt the SSH connection options to the IP of your Raspbery Pi.</em></p>
+</li>
+<li>
+<p>The virtual device needs to be remotely accessible via ssh port <code>2222</code> on the host&rsquo;s <code>localhost</code> (Qemu port forwarding in userspace)
+or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu virtual networking using TAP network interface)</p>
+</li>
+<li>
+<p>The k3s service needs to have started successfully, check with <code>systemctl status k3s</code></p>
+</li>
+<li>
+<p>A Device has been created in Azure IoT Hub</p>
+<p><em>Note: Do <strong>not</strong> create an <em>edge</em> device.</em></p>
+</li>
+</ul>
+<h2 id="script-on-host-system">Script on host system</h2>
+<p><em>Note: For Linux hosts only. Alternatively, you can perform the steps <a href="/docs/device-provisioning/manual-provisioning/">manually on command line</a>.</em></p>
+<p>Pre-Requisite:</p>
+<ul>
+<li>
+<p>Install <code>jq</code> and <code>dialog</code> on your host:</p>
+<pre><code>apt-get install jq dialog
+</code></pre>
+</li>
+<li>
+<p>Run the provisioning script on your host system</p>
+<pre><code>./provision-device.sh
+</code></pre>
+</li>
+</ul>
+<p>The script will:</p>
+<ul>
+<li>Remotely connect to the QEMU instance via <code>root@192.168.7.2</code></li>
+<li>Install Azure CLI</li>
+<li>Ask you to login to Azure using the Device Code Flow</li>
+<li>Ask which Azure Subscription to use</li>
+<li>Ask which Azure IoT Hub the device shall connect to</li>
+<li>Ask which existing device to use or to create a new device</li>
+<li>Generate and retrieve the connection string secret</li>
+<li>Deploy the connection string to device as Kubernetes secret</li>
+</ul>
+<p><em>Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.</em></p>
+<p>When finished, continue with</p>
+<ul>
+<li><a href="/docs/app-deployment/">Deploying a Vehicle App</a></li>
+<li><a href="/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
+</ul>
+<h2 id="script-on-guest-system">Script on guest system</h2>
+<p><em>Note: When running the device provisioning from the guest, you need to manually retrieve the device secrets first.</em></p>
+<ul>
+<li>
+<p>Run the provisioning script on the guest system</p>
+<pre><code>sdv-provision
+</code></pre>
+</li>
+</ul>
+<p>The script will:</p>
+<ul>
+<li>Ask for an Azure IoT device <em>Connection String</em></li>
+<li>Ask for credentials to access private container registries (&lsquo;imagePullSecret&rsquo;)</li>
+<li>Deploy the connection string as Kubernetes secret</li>
+<li>Deploy the imagePullSecret as Kubernetes secret</li>
+</ul>
+<p><em>Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.</em></p>
+<p>When finished, continue with</p>
+<ul>
+<li><a href="/docs/app-deployment/">Deploying a Vehicle App</a></li>
+<li><a href="/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-57ce4bccb0846f692ca5d3289bd50697">3.1 - Manual Provisioning</h1>
+    
+	<p>Follow these steps to do a manual device provisioning:</p>
+<ul>
+<li>Log in to Azure Portal</li>
+<li>Go to Azure Iot Hub</li>
+<li>Create a new device (Note: Do <strong>not</strong> create an <em>edge</em> device)</li>
+<li>Copy the <em>Primary Connection String</em></li>
+<li>Create a Kubernetes Secret with the name <code>cloudagent</code> by using <code>kubectl</code> on the device</li>
+</ul>
+<p>Alternatively, on command line:</p>
+<ul>
+<li>Install Azure CLI: <code>curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash</code></li>
+<li>Allow automated installation of extensions: <code>az config set extension.use_dynamic_install=yes_without_prompt</code></li>
+<li>Login to Azure: <code>az login</code></li>
+<li>Select the correct subscription: <code>az account set --subscription &lt;&lt;subscription&gt;&gt;</code></li>
+<li>Create device: <code>az iot hub device-identity create -n {iothub_name} -d {device_id}</code></li>
+<li>Show connection string: <code>az iot hub device-identity connection-string show -n {iothub_name} -d {device_id} -o tsv</code></li>
+<li>Create a Kubernetes Secret</li>
+</ul>
+<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret generic cloudagent \
+            --from-literal=PrimaryConnectionString=&#39;&lt;&lt;Connection String&gt;&gt;&#39;
+</code></pre><h1 id="configure-credentials-for-private-container-registries">Configure credentials for private container registries</h1>
+<p>For each private container registry, a separate Secret is needed.
+For GitHub, your Personal Access Token requires the <code>read:packages</code> permission.</p>
+<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry ghcr-io \
+    --docker-server=ghcr.io \
+    --docker-username=&lt;your github username&gt; \
+    --docker-password=&lt;your github personal access token&gt;
+</code></pre><p>If you have additional project-specific container registries, you may need to add them as well:</p>
+<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry azurecr \
+    --docker-server=&lt;your cr&gt;.azurecr.io \
+    --docker-username=&lt;username&gt; \
+    --docker-password=&lt;password&gt;
+</code></pre><p>The Pod specifications need to reference the image pull secret:</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: ...
+spec:
+  containers:
+    - name: ...
+      image: ...
+  imagePullSecrets:
+  - name: azurecr
+</code></pre><h2 id="verifying-correct-configuration">Verifying correct configuration</h2>
+<ul>
+<li>Check that the secret <code>cloudagent</code> has been deployed:</li>
+</ul>
+<pre tabindex="0"><code>root@qemux86-64:~# kubectl get secrets
+NAME                  TYPE                                  DATA   AGE
+default-token-pmtd9   kubernetes.io/service-account-token   3      47m
+cloudagent            Opaque                                1      10s
+</code></pre><ul>
+<li>Check that the SDV Cloud Agent pod has been deployed and started:</li>
+</ul>
+<pre tabindex="0"><code>root@qemux86-64:~# kubectl describe pod cloud-connector
+Name:         cloud-connector
+Namespace:    default
+Priority:     0
+Node:         qemux86-64/10.0.2.15
+...
+Status:       Running
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1d2bfbb96ea7961bad79d1c54d64e56a">3.2 - Provisioning Raspberry Pi</h1>
+    
+	<p>As your Raspberry Pi device might not be reachable via network, you can configure the initial credentials by specifying them as a Kubernetes resource file, copy the files to the FAT32 Boot Partition and then apply them on the offine device.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<ul>
+<li>
+<p>Online connection to device or physical access to the device</p>
+</li>
+<li>
+<p>Device clock needs to be in sync - Verify with <code>timedatectl</code> or <code>systemctl status systemd-timesyncd</code></p>
+</li>
+<li>
+<p>Installed <code>kubectl</code> on your workstation - See <a href="https://kubernetes.io/docs/tasks/tools/">Installing kubectl</a></p>
+<p><em>Note:</em> If you do not have kubectl at hand, an alternative way is to <a href="https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/">deploy secrets using Kubernetes Configuration files</a>.</p>
+</li>
+</ul>
+<h2 id="secret-for-cloud-connector">Secret for Cloud Connector</h2>
+<ul>
+<li>Put the SD-Card into your card reader
+<ul>
+<li>Windows: Look for a new drive in Windows Explorer <code>F: [boot]</code></li>
+<li>Linux: Mount the SD Card</li>
+</ul>
+</li>
+<li>Create a new secret file for the Cloud Connection:</li>
+</ul>
+<pre tabindex="0"><code>$ kubectl create secret generic cloudagent \
+ --dry-run=client \
+ --from-literal=PrimaryConnectionString=&#34;{{Connection String}}&#34; \
+ -o yaml &gt; cloudagent-secret.yaml
+</code></pre><ul>
+<li>For each private Container Registry, create an an additional yaml file to specify the credentials:</li>
+</ul>
+<pre tabindex="0"><code>$ kubectl create secret docker-registry ghcr-io \
+--dry-run=client \
+--docker-server=ghcr.io \
+--docker-username=&#34;&lt;USERNAME&gt;&#34; \
+--docker-password=&#34;&lt;PASSWORD&gt;&#34; \
+-o yaml &gt; ghcr-io-secret.yaml
+</code></pre><ul>
+<li>Copy the secret files to the boot partition of the SD Card</li>
+<li>Boot the SD-Card on the Raspberry Pi</li>
+<li>Login as <code>root</code> without password on login prompt</li>
+<li>Apply the Kubernetes configuration specifications:</li>
+</ul>
+<pre tabindex="0"><code>root@raspberrypi4-64:~# kubectl apply -f /boot/cloudagent-secret.yaml
+root@raspberrypi4-64:~# kubectl apply -f /boot/ghcr-io-secret.yaml
+</code></pre><ul>
+<li>You may need to restart the pods for the changes to take effect:</li>
+</ul>
+<pre tabindex="0"><code>root@raspberrypi4-64:~# kubectl delete pod cloud-connector
+root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/cloud-connector.podspec.yaml
+</code></pre><ul>
+<li>
+<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+</li>
+<li>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to
+stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+</li>
+<li>
+<p>Continue with <a href="/docs/app-deployment/">Deploying a Vehicle App</a></p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-679c6c584dc366c660841bdd65d2af73">3.3 - Self Updates</h1>
+    
+	<p>In general, the self-update mechanism for operating system level updates is done with two separate partitions. While one partition is the actively booted partition and in use, the other partition can be updated by writing a partition image to it, as it is unused or inactive.</p>
+<p>Once the download and writing is done, a reboot is triggered and the boot loader will now switch to the newly updated partition.</p>
+<p>If the booting of the updated partition fails, the self update mechanism can revert back to the previous partition or boot to a rescue partition.</p>
+<p><img src="leda-self-update.png" alt=""></p>
+<p>As updating the running operating system cannot be done at runtime, the approach requires additional disk space, a second partition and also requires the device to be rebooted for the updates to take effect.</p>
+<p>In a vehicle, the self-updater cannot decide on its own when to do a reboot, as the vehicle must be in a safe condition (eg parked, state of charge etc.). Hence, the trigger for performaing the switch to another slot and a subsequent reboot is handed over to a higher level component, such as the vehicle update manager, which may in turn rely on driver feedback or other conditions.</p>
+<h1 id="implementation-with-rauc-update-service">Implementation with RAUC Update Service</h1>
+<p><a href="https://www.rauc.io/">RAUC</a> is a lightweight update client that runs on your embedded device and reliably controls the procedure of updating your device with a new firmware revision.</p>
+<p>For general usage of the RAUC tool, please see the <a href="https://rauc.readthedocs.io/en/latest/using.html">RAUC User manual</a></p>
+<h2 id="reference-configuration">Reference configuration</h2>
+<p>The project contains an example reference implementation and configuration using RAUC, which allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment.</p>
+<p>The Leda quickstart image contains the following disk partitions:</p>
+<ul>
+<li>a small rescue partition</li>
+<li>a full SDV installation with a Kubernetes Control Plane (Server + Agent as single node), pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and k9s.</li>
+<li>a minimal SDV installation with a Kubernetes Control Plane (Server + Agent as single node), but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.</li>
+<li>additional boot and data partitions for keeping system state information</li>
+</ul>
+<p>*Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions which contain the Kubernetes Control Plane will use the same shared data partition for the Kubernetes Cluster information. *</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cb55165363d95c91e0f19399fa5b280b">3.3.1 - Self Update Tutorial</h1>
+    
+	<p>This chapter describes the steps necessary to perform a local (without cloud) self update of the operating system.</p>
+<p><img src="../self-update-arch.png" alt=""></p>
+<h2 id="self-update-using-rauc-update-bundles">Self-Update using RAUC Update Bundles</h2>
+<ul>
+<li>
+<p>On host: Update bundle <code>sdv-rauc-bundle-qemux86-64.raucb</code> is in current folder</p>
+<p><em>Note: In the development environment, the update RAUC Update Bundle is located in the BitBake machine-specific output folder, for example <code>tmp/deploy/images/qemux86-64</code></em></p>
+</li>
+<li>
+<p>On host: Start a dummy web server for serving the update file</p>
+<pre><code>python3 -m http.server --bind 192.168.7.1
+</code></pre>
+</li>
+<li>
+<p>On host: open two new terminals - one for monitoring and one for triggering the self-update</p>
+<ul>
+<li>
+<p>Terminal 1: To view the progress, watch the MQTT topics <code>selfupdate/desiredstate</code> and <code>selfupdate/desiredstatefeedback</code>:</p>
+<pre><code>mosquitto_sub -h 192.168.7.2 -p 31883 -t &quot;selfupdate/#&quot;
+</code></pre>
+</li>
+<li>
+<p>Terminal 2: Trigger the actual self update process by publishing an MQTT message to <code>selfupdate/desiredstate</code>:</p>
+<pre><code>mosquitto_pub -h 192.168.7.2 -p 31883 -t &quot;selfupdate/desiredstate&quot; -f start-update-example.yaml
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>Switch to a terminal in the guest</p>
+</li>
+<li>
+<p>On guest: After the self update process completed, check the status:</p>
+<pre><code>rauc status --detailed
+</code></pre>
+</li>
+</ul>
+<h2 id="self-update-trigger-message">Self-Update Trigger Message</h2>
+<p><code>start-update-example.yaml</code> file:</p>
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;sdv.eclipse.org/v1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SelfUpdateBundle</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">self-update-bundle-example</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">swdv-qemux86-64-build42</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1beta3 </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleDownloadUrl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://192.168.7.1:8000/sdv-rauc-bundle-qemux86-64.raucb</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleTarget</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+
+
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fdfe9e0ec285454b4f0c580b5cd46e62">3.3.2 - RAUC Integration</h1>
+    
+	<p>Leda integrates <a href="https://rauc.io/">RAUC</a> as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.</p>
+<h2 id="checking-the-rauc-status">Checking the RAUC Status</h2>
+<p>Get the current RAUC boot status:</p>
+<pre><code>rauc status
+</code></pre>
+<p>Example output:</p>
+<pre tabindex="0"><code>root@qemux86-64:~# rauc status
+=== System Info ===
+Compatible:  Eclipse Leda qemu86-64
+Variant:     
+Booted from: rootfs.1 (SDV_B)
+
+=== Bootloader ===
+Activated: rootfs.1 (SDV_B)
+
+=== Slot States ===
+
+o [rootfs.1] (/dev/sda5, ext4, inactive)
+        bootname: SDV_B
+        mounted: /
+        boot status: good
+
+x [rootfs.0] (/dev/sda4, ext4, booted)
+        bootname: SDV_A
+        boot status: good
+</code></pre><h2 id="forcing-to-boot-the-other-slot">Forcing to boot the other slot</h2>
+<p>To manually force the device to boot into another slot, mark the current booted slot as <em>bad</em>, mark the other partitions as <em>active</em> and perform a reboot:</p>
+<pre tabindex="0"><code>rauc status mark-bad booted
+rauc status mark-active other
+reboot now
+</code></pre><h2 id="testing-the-rescue-system">Testing the rescue system</h2>
+<p>By marking both root slots as bad, the bootloader is supposed to boot the rescue system:</p>
+<pre tabindex="0"><code>rauc status mark-bad rootfs.0
+rauc status mark-bad rootfs.1
+reboot now
+</code></pre><p>Example output of rauc:</p>
+<pre tabindex="0"><code>o [rootfs.1] (/dev/sda5, ext4, inactive)
+        bootname: B
+        boot status: bad
+
+o [rootfs.0] (/dev/sda4, ext4, booted)
+        bootname: A
+        mounted: /
+        boot status: bad
+</code></pre><h2 id="customizations">Customizations</h2>
+<p>The configurations can be customized by applying or patching the following files:</p>
+<ul>
+<li>RAUC Configuration file: <code>meta-leda/recipes-bsp/rauc/files/qemux86-64/system.conf</code></li>
+<li>Bootloader Configuration file: <code>meta-leda/recipes-bsp/grub/files/grub.cfg</code></li>
+<li>The physical disk partition configuration: <code>meta-leda/recipes-sdv/wic/qemux86-grub-efi.wks</code></li>
+</ul>
+<h2 id="rauc-system-configuration">RAUC System Configuration</h2>
+<p>The <a href="https://rauc.readthedocs.io/en/latest/integration.html#rauc-system-configuration">RAUC System Configuration </a> is the central configuration of the RAUC Update system.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>[system]
+compatible=Eclipse Leda qemu86-64
+bootloader=grub
+grubenv=/grubenv/grubenv
+statusfile=/data/rauc.status
+
+[keyring]
+path=ca.cert.pem
+
+[slot.efi.0]
+device=/dev/sda
+type=boot-gpt-switch
+region-start=4M
+region-size=100M
+
+[slot.rescue.0]
+device=/dev/sda3
+type=ext4
+readonly=true
+
+[slot.rootfs.0]
+device=/dev/sda4
+type=ext4
+bootname=SDV_A
+
+[slot.rootfs.1]
+device=/dev/sda5
+type=ext4
+bootname=SDV_B
+</code></pre><h2 id="grub-bootloader-configuration">GRUB Bootloader Configuration</h2>
+<p>The GRUB bootloader has a configuration file which describes which partitions are bootable, which partition they are located at and a reference to RAUC&rsquo;s slot name.</p>
+<p>The configuration also contains <strong>RAUC specific logic and variables required for a proper integration</strong>. Please see the full <code>grub.cfg</code> in the source repository and <a href="https://rauc.readthedocs.io/en/latest/integration.html#grub">RAUC Documentation - Integration - GRUB</a> for details.</p>
+<p>Excerpt:</p>
+<pre tabindex="0"><code>...
+
+menuentry &#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&#34; {
+    linux (hd0,4)/boot/bzImage root=/dev/vda4 $CMDLINE rauc.slot=SDV_A
+}
+
+menuentry &#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&#34; {
+    linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
+}
+</code></pre><h2 id="disk-partitioning-with-openembedded-image-creator-wic">Disk Partitioning with OpenEmbedded Image Creator (WIC)</h2>
+<p>The <a href="https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic">OpenEmbedded Image Creator</a> is used in BitBake to actually create full disk images with multiple partitions.</p>
+<p>These disk images are machine specific and the structure of the partitions are configured in <a href="https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart">OpenEmbedded Kickstart</a> files (<code>*.wks</code>).</p>
+<h3 id="excerpt-qemux86-grub-efiwks">Excerpt <code>qemux86-grub-efi.wks</code></h3>
+<p><em>Note: The excerpt is exemplary, please see the sources for a full representation and documentation.</em></p>
+<pre tabindex="0"><code>bootloader --ptable gpt
+
+part --fixed-size 50M --source rawcopy --sourceparams=&#34;file=efi-boot.vfat&#34; --fstype=vfat --label boot --active
+
+part --fixed-size 10M --source rawcopy --sourceparams=&#34;file=grubenv.vfat&#34; --fstype=vfat --label grubenv
+
+part /rescue --source rootfs --fstype=ext4 --label rescue
+
+part / --source rootfs --fstype=ext4 --label root_a
+
+part / --source rootfs --fstype=ext4 --label root_b
+
+part /data --fixed-size 4G --fstype=ext4 --label data
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-330a7bfc4527a76419775bc5ddc1265b">3.3.3 - API Reference</h1>
+    
+	<p>The self update agent (SUA) is a component responsible for the OS Update process.  SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses <a href="https://rauc.io/">RAUC</a> to perform the update.</p>
+<p>Following sequence diagram shows the happy path example of communication between components.</p>
+<h2 id="process-overview">Process Overview</h2>
+<div class="mermaid">sequenceDiagram
+    participant m as MQTT Broker 
+    participant s as SUA
+    participant r as RAUC
+    s -->> m: connect
+    loop Wait for message: selfupdate/desiredstate
+    Note left of s: Initial start
+    s ->> m: selfupdate/currentstate
+    Note left of s: Trigger for OTA
+    m ->> s: selfupdate/desiredstate
+    s ->> m: selfupdate/desiredstatefeedback: downloading 0%
+    s ->> s: download bundle
+    s ->> m: selfupdate/desiredstatefeedback: downloading 51%
+    s ->> r: install
+    s ->> m: selfupdate/desiredstatefeedback: installing 0%
+    r ->> r: install
+    r ->> s: share progress: e.g. 51%
+    s ->> m: selfupdate/desiredstatefeedback: installing 51%
+    r ->> s: installation ready
+    s ->> m: selfupdate/desiredstatefeedback: installed 
+    s ->> m: selfupdate/desiredstatefeedback: idle 
+    end
+  </div>
+  
+  <h2 id="mqtt-message-definitions">MQTT Message Definitions</h2>
+<p>MQTT messages are specified as follows:</p>
+<h3 id="selfupdatedesiredstate">selfupdate/desiredstate</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selfupdate/desiredstate</td>
+<td>IN</td>
+<td>This message triggers the update process. The payload shall contain all data necessary to obtain the update bundle and to install it.</td>
+</tr>
+</tbody>
+</table>
+<pre tabindex="0"><code>apiVersion: &#34;sdv.eclipse.org/v1&#34;
+kind: SelfUpdateBundle
+metadata:
+  name: self-update-bundle-example
+spec:
+  bundleName: swdv-arm64-build42
+  bundleVersion: v1beta3
+  bundleDownloadUrl: https://example.com/repository/base/
+  bundleTarget: base
+</code></pre><h3 id="selfupdatecurrentstate">selfupdate/currentstate</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selfupdate/currentstate</td>
+<td>OUT</td>
+<td>This message is being sent once, on SUA start. It contains information about currently installed OS version.</td>
+</tr>
+</tbody>
+</table>
+<pre tabindex="0"><code>apiVersion: &#34;sdv.eclipse.org/v1&#34;
+kind: SelfUpdateBundle
+metadata:
+  name: self-update-bundle-example
+spec:
+  bundleVersion: v1beta3
+</code></pre><h3 id="selfupdatedesiredstatefeedback">selfupdate/desiredstatefeedback</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selfupdate/desiredstatefeedback</td>
+<td>OUT</td>
+<td>This message is being sent by SUA to share current progress of triggered update process. This is the <em>OUT</em> counterpart of <em>selfupdate/desiredstate</em> input message.</td>
+</tr>
+</tbody>
+</table>
+<pre tabindex="0"><code>apiVersion: &#34;sdv.eclipse.org/v1&#34;
+kind: SelfUpdateBundle
+metadata:
+  name: self-update-bundle-example
+spec:
+  bundleName: swdv-arm64-build42
+  bundleVersion: v1beta3
+  bundleDownloadUrl: https://example.com/repository/base/
+  bundleTarget: base
+state:
+  name: &#34;idle|installing|etc.&#34;
+  progress: 0|51|99|etc., 
+  techCode: 0|1|5|etc.,  
+  message: &#34;Cannot download from url|Bundle already installed|etc.&#34; 
+</code></pre><h4 id="state-enum">state enum</h4>
+<p>State name field can have one of following values:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Description</th>
+<th>Additional payload data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uninitialized</td>
+<td>When the SUA is not configured yet</td>
+<td>-</td>
+</tr>
+<tr>
+<td>idle</td>
+<td>Configured and waiting for messages</td>
+<td>-</td>
+</tr>
+<tr>
+<td>downloading</td>
+<td>Downloading the bundle file</td>
+<td>progress</td>
+</tr>
+<tr>
+<td>installing</td>
+<td>Performing installation</td>
+<td>progress</td>
+</tr>
+<tr>
+<td>installed</td>
+<td>Installation process was successful, new OS version is installed on inactive disc Slot. <br><strong>Important: to finish the OTA process, reboot is required, and it shall be performed by another component, such as the Vehicle Update Manager.</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>failed</td>
+<td>Error occurred</td>
+<td>techCode</td>
+</tr>
+</tbody>
+</table>
+<h4 id="techcode-values">techCode values</h4>
+<p>techCode field is providing additional details to the state value. It is especially useful for the <strong>failed</strong> state, as it can specify the reason of failure.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>OK, no error</td>
+</tr>
+<tr>
+<td>1001</td>
+<td>Download failed</td>
+</tr>
+<tr>
+<td>2001</td>
+<td>Invalid Bundle</td>
+</tr>
+<tr>
+<td>3001</td>
+<td>Installation failed</td>
+</tr>
+<tr>
+<td>4001</td>
+<td>Update rejected, bundle version same as current OS version</td>
+</tr>
+<tr>
+<td>5001</td>
+<td>Unknown Error</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3f62c837f7dcb92aa6d45e0922ff9bb3">4 - Vehicle Applications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">4.1 - Cloud2Device Messages</h1>
+    
+	<p><img src="c2d-architecture-overview.png" alt=""></p>
+<p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<ul>
+<li>Device is up and running, e.g by <a href="/docs/general-usage/running-qemu/">running in qemu</a></li>
+<li>Eclipse Leda has successfully booted</li>
+<li>The device has been provisioned and configured, see <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+</ul>
+<h2 id="validating-configuration">Validating configuration</h2>
+<p>First, let&rsquo;s check that the cloud connection is active.</p>
+<ul>
+<li>Login as <code>root</code></li>
+<li>Run sdv-health and check for the <em>SDV Connectivity</em> section:</li>
+</ul>
+<pre tabindex="0"><code>sdv-health
+</code></pre><p><img src="sdv-health-connectivity.png" alt=""></p>
+<ul>
+<li>Start watching the output of the cloud connector:</li>
+</ul>
+<pre tabindex="0"><code>kubectl logs cloud-connector -f
+</code></pre><blockquote>
+<p><em>Note:</em> When an unknown type of message is received, the cloud connector will log an error:</p>
+<pre tabindex="0"><code>2022/04/13 16:04:41.911727  [agent]  ERROR  Handler returned error err=&#34;cannot deserialize cloud message: invalid character &#39;H&#39; looking for beginning of value
+</code></pre></blockquote>
+<ul>
+<li>Start watching on the MQTT message broker:</li>
+</ul>
+<pre tabindex="0"><code>MOSQUITTO_HOST=$(kubectl get service/mosquitto -o jsonpath=&#39;{.spec.clusterIP}&#39; --request-timeout=&#39;60s&#39;)
+mosquitto_sub -h ${MOSQUITTO_HOST} -t &#39;#&#39; --pretty -v
+</code></pre><blockquote>
+<p><em>Note:</em> When a known type of message is received, the cloud connector will forward the message to the MQTT broker into the corresponding topic <code>$appId/$cmdName</code></p>
+</blockquote>
+<h2 id="sending-a-device-message">Sending a Device Message</h2>
+<ul>
+<li>Go to the Web Console of Azure IoT Hub</li>
+<li>Select the device</li>
+<li>Click on &ldquo;Send Message&rdquo;</li>
+<li>Enter a C2D payload and click &ldquo;Send&rdquo;</li>
+</ul>
+<p>Alternatively, on command line, use the Azure CLI client. Replace <code>DeviceId</code> and <code>IotHubName</code> with the appropriate names of your IoT Hub and device.</p>
+<pre tabindex="0"><code>az iot device c2d-message send \
+ --device-id ${DeviceID} \
+ --hub-name ${IotHubName} \
+ --data &#39;Hello World&#39;
+</code></pre>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">4.2 - Velocitas VApps</h1>
+    
+	<p>For local deployment without a cloud backend, deployment specifications for <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> Vehicle Apps may be put directly onto the device.</p>
+<ul>
+<li>Create a Kubernetes deployment specification for your vehicle app</li>
+<li>Copy the specification file to the device, e.g. <code>scp -P 2222 myapp.yaml root@localhost</code></li>
+<li>Apply the specification: <code>ssh -p 2222 root@localhost /usr/local/bin/kubectl apply -f myapp.yaml</code></li>
+</ul>
+<h2 id="example-pod-specification">Example Pod Specification</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Pod</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-example-app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">annotations</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/enabled</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/app-id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;my-example-app&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/app-port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;50008&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/log-level</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;info&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/app-protocol</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;grpc&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">restartPolicy</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Always</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">hostAliases</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">ip</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;10.0.2.15&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">hostnames</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#4e9a06">&#34;edgehost&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-example-app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-private-container-registry.azurecr.io/my-example-app:latest</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">imagePullPolicy</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">IfNotPresent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">ports</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">containerPort</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">50008</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SEAT_SERVICE_ADDRESS</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;edgehost:50051&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">imagePullSecrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-private-container-registry-secret</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-529a2058d55821d1c7fd93c5ece87d4c">5 - Building Leda</h1>
+    
+	<p>Running BitBake to build your own images requires some extra setup on the build machine. Please see the following chapters for more information about the build process itself and how to setup a development and build infrastructure.</p>
+<p><img src="build-terminal.png" alt=""></p>
+<p>If you are interested to contribute or to get in touch with us, please see our <a href="/docs/project-info/community/">Community</a> pages and <a href="/docs/project-info/contribution-guidelines/">Contribution Guidelines</a>.
+For reporting security vulnerabilities, please follow our <a href="/docs/project-info/security/">Security Policy</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5a114e9c0d2f593adb6abac02f868f4c">5.1 - Concepts</h1>
+    
+	<h1 id="bitbake-and-metalayers">BitBake and Metalayers</h1>
+<p>The example build configurations in this repository are based on the official <a href="https://www.yoctoproject.org/docs/current/brief-yoctoprojectqs/brief-yoctoprojectqs.html">BitBake Quickstart tutorial</a> and have been extended to include SDV components.</p>
+<p>To set up your own BitBake build configuration, follow the BitBake documentation and include <code>meta-leda</code> in your <code>bblayers.conf</code> and add the SDV packages into your <code>local.conf</code>. You may use the the <code>local.conf</code> files in the <code>build-sdv-*/conf/local.conf</code> as a guiding reference.</p>
+<h1 id="sdv-meta-layer">SDV Meta Layer</h1>
+<p>The <code>meta-leda</code> layer conatins the BitBake Classes and Recipes to integrate SDV Components into a BitBake based build setup.</p>
+<p>Please see <a href="https://github.com/eclipse-leda/meta-leda">https://github.com/eclipse-leda/meta-leda</a> for more information.</p>
+<h1 id="recipes-for-kubernetes-pods">Recipes for Kubernetes Pods</h1>
+<p>The SDV stack is based on a Kubernetes Control Plane and the intention is to have as much components containerized as possible, to ensure a high degree of isolation and updateability.</p>
+<p>To automatically deploy the pods of the SDV reference implementation and example applications and services, the build configurations will deploy a couple of Pod specifiction files into the <a href="https://rancher.com/docs/k3s/latest/en/advanced/#auto-deploying-manifests">auto-deployment folder of k3s</a>.</p>
+<p>At start time of k3s, these pods will be automatically deployed:</p>
+<ul>
+<li>Cloud Connector by <a href="https://projects.eclipse.org/projects/iot.kanto">Eclipse Kanto</a></li>
+<li>Log and Trace by <a href="https://github.com/open-telemetry/">OpenTelemetry</a></li>
+<li>Example Application: <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Seat Adjuster python app</a></li>
+<li>Vehicle API
+<ul>
+<li>Data Broker</li>
+<li>Example Seat Service (CAN-bus implementation)</li>
+</ul>
+</li>
+<li>Vehicle Update Manager</li>
+</ul>
+<p>For a full list of pods, see <a href="https://github.com/eclipse-leda/meta-leda/tree/main/recipes-sdv/sdv-core/files/sdv-core-bundle-pods"><code>meta-leda/recipes-sdv/sdv-core/files/sdv-core-bundle-pods/</code></a></p>
+<h1 id="recipes-for-containerized-applications">Recipes for containerized applications</h1>
+<p>OpenEmbedded&rsquo;s <a href="https://layers.openembedded.org/layerindex/branch/master/layer/meta-virtualization/">meta-virtualization</a> already contains some recipes and reusabled classes for building virtualization and containerized applications.</p>
+<p><code>meta-leda</code> extends that functionality by using <code>skopeo</code> to package container images. To minimize the runtime requirements (dependencies, disk usage), an approach to pre-load container images and its layers directly into the content storage of the container runtime is followed.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-83c252b9f9f1de95e6f3ad59a0779c80">5.2 - Metalayer</h1>
+    
+	<h1 id="initializing-bitbake-environment">Initializing BitBake environment</h1>
+<p>Alternatively, initialize build environment manually. This way, you can invoke multiple build processes in the same context, eg when building individual recipes.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> poky
+</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env ../build-sdv-&lt;target&gt;
+</span></span><span style="display:flex;"><span>bitbake sdv-image-all
+</span></span><span style="display:flex;"><span>leda
+</span></span></code></pre></div><h1 id="individual-recipes">Individual recipes</h1>
+<p>General usage:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> poky
+</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env ../build-sdv-&lt;target&gt;
+</span></span><span style="display:flex;"><span>bitbake &lt;recipe&gt;
+</span></span></code></pre></div><h2 id="recipes-structure">Recipes Structure</h2>
+<pre tabindex="0"><code> meta-leda
+ \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
+ \-- conf                         // Distribution specific configurations, eg version numbers, release codename
+ \-- recipes-bsp                  // Board Support Packages, eg specifics for QEMU and Raspberry Pi
+ \-- recipes-devtools             // Build tools
+ \-- recipes-kernel               // Kernel configuration, eg kernel modules, logging, virtio
+ \-- recipes-sdv
+   |-- eclipse-kanto              // Build recipes for Kanto
+   |-- images                     // Definition of three disk images: full, minimal, rescue
+   |-- packagegroups              // Grouping packages
+   \-- sdv-base                   // SDV Base Bundle: k3s, fstab, can0.network
+     |--- base-files
+     |--- SDV Core Utilities
+     |--- DAPR &amp; HELM CLI
+     \--- SDV Utilities
+   |-- sdv-containers              // Container images recipes for pre-caching
+     |--- Cloud Agent
+     |--- Data Broker
+     |--- Feeder CAN
+     |--- OTel Collector
+     |--- Self Update Agent
+     |--- Vehicle Update manager
+     |--- Example Seat Service
+     \--- ...
+   |-- sdv-core                    // SDV Core Bundle
+     |--- SDV Core Bundle Pods     // Kubernetes Deployment files
+     |--- DAPR Initializer         // Initialize HELM and DAPR on first boot
+     \--- Cloud Connector          // Optional: Native installation of Cloud Agent
+   \-- tools                       // Convenience tools for the &#34;full&#34; image, eg nerdctl and k9s
+</code></pre><h2 id="sdv-base-bundle">SDV Base Bundle</h2>
+<p>Contains the recipes to build and install the minimal set of dependencies for the SDV stack on the edge device. With these minimal components, the SDV stack should be able to bootstrap itself.</p>
+<p>Example:
+<code>bitbake sdv-core-utils</code></p>
+<h3 id="can-bus-kernel-configuration">CAN-Bus Kernel Configuration</h3>
+<p>To enable support for CAN bus related modules, the kernel needs to be reconfigured. This is done by the <code>sdv-canbus-modules.inc</code> include file in the <code>recipes-kernel/linux</code> folder, which patches Poky&rsquo;s <code>linux-yocto</code> recipe.</p>
+<p>Verifying and displaying the current kernel configuration: <code>bitbake -e virtual/kernel</code></p>
+<p>To verify the recipe and the kernel configuration: <code>bitbake linux-yocto -c kernel_configcheck -f</code></p>
+<p>The kernel config file can be found in:
+<code>./tmp/work/qemux86_64-poky-linux/linux-yocto/*/linux-qemux86_64-standard-build/.config</code></p>
+<h2 id="sdv-core-bundle">SDV Core Bundle</h2>
+<p>Contains the recipes to build and install additional SDV components, which are required for a proper runtime setup.</p>
+<p>Example:
+<code>bitbake sdv-core-bundle-pods</code></p>
+<h2 id="sdv-containers">SDV Containers</h2>
+<p>Contains the recipes for pre-installing specific containers into the container management at runtime. This is mainly for pre-caching container image layers onto the device to speed up the initial deployment but can also be used to enable offline usecases.</p>
+<p>Example:
+<code>bitbake sdv-container-seatservice</code></p>
+<h2 id="building-sdv-container-seat-service-container-image">Building SDV Container Seat Service container image</h2>
+<ul>
+<li>With dependencies (default): <code>bitbake sdv-container-seatservice</code></li>
+<li>Without dependencies: <code>bitbake -v -b ../meta-leda/recipes-sdv/sdv-containers/sdv-container-seatservice.bb</code></li>
+<li>Output in <code>/leda-distro/build-sdv-x86_64/tmp/work/core2-64-poky-linux/sdv-container-seatservice/1.0-r0/deploy-rpms/core2_64/sdv-container-seatservice-1.0-r0.core2_64.rpm</code> (Example)</li>
+</ul>
+<h1 id="build-configuration">Build Configuration</h1>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Yocto Project 3.4 (honister) or higher - required for k3s support in meta-virtualization</li>
+<li>50GB+ free disk space per build configuration</li>
+<li>Online connection for fetching sources and container images</li>
+</ul>
+<h2 id="build-scripts">Build Scripts</h2>
+<ul>
+<li><code>build-aarch64-qemu.sh</code> - generix ARM64 for QEMU emulation</li>
+<li><code>build-aarch64-rpi4.sh</code> - ARM64 with Raspberry Pi 4 board support package</li>
+<li><code>build-arm-qemu.sh</code> - generix ARM for QEMU emulation</li>
+<li><code>build-x86_64.sh</code> - generix x64-64 for QEMU emulation</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6bebc82bbfd98602300c719ed32319de">5.3 - Setup development environment</h1>
+    
+	<p>There are multiple variants on how to set up a build environment:</p>
+<ul>
+<li>with <a href="/docs/build/devenv/github-codespaces/">GitHub Codespaces</a> - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts</li>
+<li>with <a href="/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> - recommended for Linux hosts</li>
+<li>Custom setup - for teams</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f489e253846ca9247a8d639e81213fab">5.3.1 - Codespaces</h1>
+    
+	<h1 id="setting-up-development-environment-in-github-codespaces">Setting up Development Environment in GitHub Codespaces</h1>
+<h2 id="install-the-github-codespaces-extension">Install the GitHub Codespaces Extension</h2>
+<p><em>Note:</em> When using our DevContainer, the <em>GitHub Codespaces</em> extension is pre-installed.</p>
+<ul>
+<li>Start VSCode</li>
+<li>Go to <em>Extensions</em></li>
+<li>Search for &ldquo;GitHub Codespaces&rdquo;</li>
+<li>Click <em>Install</em></li>
+</ul>
+<p>Alternatively, create a new codespace via the GitHub web interface:</p>
+<p><img src="github-code-new-codespace.png" alt=""></p>
+<p>Select a big enough machine type for Yocto/BitBake, e.g. 16 CPU. You need at leasst 50GB disk space.</p>
+<p><img src="github-codespaces-remote-explorer.png" alt=""></p>
+<h2 id="private-repositories">Private Repositories</h2>
+<p>When using GitHub Codespaces with submodules and private repositories,
+a separate tool for git authentication is required (see <a href="https://github.com/microsoft/vscode/issues/109050">VSCode issue #109050</a>), as the authentication token provided to the GitHub Codespaces virtual machine only allows access to the main repository.</p>
+<p>Git Credential Manager:
+<a href="https://aka.ms/gcm">https://aka.ms/gcm</a></p>
+<p>Installation:</p>
+<pre tabindex="0"><code>curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;&amp;
+sh ./install-from-source.sh &amp;&amp;
+git-credential-manager-core configure
+</code></pre>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-71f44dd882af01efbed1f4ad8361d98b">5.3.1.1 - Advanced topics</h1>
+    
+	<h1 id="setting-up-github-codespaces">Setting up GitHub Codespaces</h1>
+<h2 id="git-authentication">Git Authentication</h2>
+<p>For private repositories, we need to separately authenticate against the submodule repositories, as
+GitHub Codespaces will only inject a token with access rights to the current repository.</p>
+<ol>
+<li>
+<p>Change to the users home directory</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> ~
+</span></span></code></pre></div></li>
+<li>
+<p>Install <a href="https://github.com/GitCredentialManager/git-credential-manager">https://github.com/GitCredentialManager/git-credential-manager</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>sh ./install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>git-credential-manager-core configure
+</span></span></code></pre></div></li>
+<li>
+<p>Configure a credential store typ, e.g. <code>git config --global credential.credentialStore plaintext</code></p>
+</li>
+<li>
+<p>Verify with <code>git config --global -l</code>, it should show git-credential-manager-core as the credential helper.</p>
+</li>
+</ol>
+<h2 id="update-the-submodules">Update the submodules</h2>
+<p>Run <code>git submodule update --recursive</code></p>
+<p>See <a href="https://github.com/microsoft/vscode/issues/109050">https://github.com/microsoft/vscode/issues/109050</a> for details.</p>
+<h2 id="setup-skopeo">Setup skopeo</h2>
+<p>Skopeo is needed to download various files during the build:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /run/containers/1000
+</span></span><span style="display:flex;"><span>sudo chmod a+w /run/containers/1000
+</span></span><span style="display:flex;"><span>skopeo login ghcr.io --authfile ~/auth.json --username &lt;your GitHub User&gt; 
+</span></span></code></pre></div><p>Enter your token when asked for the password.</p>
+<h2 id="run-the-build">Run the build</h2>
+<p>Now the actual build can be started:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> /workspace/leda-distro/poky
+</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env ../build-sdv-x86_64/
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> /workspace/leda-distro
+</span></span><span style="display:flex;"><span>./build-x86_64.sh
+</span></span></code></pre></div><h2 id="run-qemu">Run qemu</h2>
+<p>Start qemu with the new image:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>runqemu qemux86-64 nographic slirp <span style="color:#000">qemuparams</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-m 2048&#34;</span>
+</span></span></code></pre></div><h2 id="start-the-k3s-pods">Start the k3s pods</h2>
+<p>Create the secret ConnectionString for the cloudconnector:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret generic cloudagent <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>            --from-literal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">PrimaryConnectionString</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;&lt;&lt;&lt;ConnectionString&gt;&gt;&gt;&#39;</span>
+</span></span></code></pre></div><p>Create the secret needed to pull images from ghcr:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret docker-registry ghcr-io <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-server<span style="color:#ce5c00;font-weight:bold">=</span>ghcr.io <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-username<span style="color:#ce5c00;font-weight:bold">=</span>&lt;your github username&gt; <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-password<span style="color:#ce5c00;font-weight:bold">=</span>&lt;your github personal access token&gt;
+</span></span></code></pre></div><p>check the pods, you should now have them running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@qemux86-64:~# kubectl get pods
+</span></span><span style="display:flex;"><span>NAME                                  READY   STATUS    RESTARTS   AGE
+</span></span><span style="display:flex;"><span>sdv-core-vehicle-update-manager-pod   1/1     Running   <span style="color:#0000cf;font-weight:bold">1</span>          127m
+</span></span><span style="display:flex;"><span>mosquitto-76bcf4956f-bpncv            1/1     Running   <span style="color:#0000cf;font-weight:bold">1</span>          127m
+</span></span><span style="display:flex;"><span>cloud-connector                       1/1     Running   <span style="color:#0000cf;font-weight:bold">18</span>         37m
+</span></span></code></pre></div><h2 id="subscribe-to-a-topic-with-the-mosquitto-in-the-pod">Subscribe to a topic with the mosquitto in the pod:</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl <span style="color:#204a87">exec</span> --stdin --tty mosquitto -- /bin/sh
+</span></span><span style="display:flex;"><span>mosquitto_sub -v -t <span style="color:#4e9a06">&#39;#&#39;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c93bbe2b4afa4f696fe56387e16376bc">5.3.2 - GitHub Runner</h1>
+    
+	<h1 id="create-a-new-github-runner-for-this-repo">Create a new GitHub Runner for this repo</h1>
+<p>Start with creating a new azure VM:</p>
+<ul>
+<li>Ubuntu Server Latest, currently 20.04</li>
+<li>Size Standard D16ds v5</li>
+<li>The admin user should be called &ldquo;runner&rdquo;</li>
+</ul>
+<p>Once the VM is ready:</p>
+<ol>
+<li>Stop the VM</li>
+<li>Go to &ldquo;Disk&rdquo; and resize the OS disk to 512 GB</li>
+<li>Start the VM again</li>
+</ol>
+<h1 id="run-the-script-to-setup-the-runner">Run the script to setup the runner</h1>
+<p>Log on to the VM as runner. Either copy the <code>scripts/PrepVMasGHRunner.sh</code> onto the VM or create a new script:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano prep.sh
+</span></span></code></pre></div><p>Copy the content of the PrepVMasGHRunner.sh from this repo into the new file, save it and make it executable:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#0000cf;font-weight:bold">755</span> prep.sh
+</span></span></code></pre></div><p>Call it with the token and the next available nummer, see below how to get this items:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./prep.sh <span style="color:#4e9a06">&#34;ASYVOMU........DTCFCMBA&#34;</span> <span style="color:#0000cf;font-weight:bold">3</span>
+</span></span></code></pre></div><p>In the Azure portal go the VM, go to the &ldquo;network&rdquo; section and delete the rule opening port 22.
+Congratulation, you are done!</p>
+<h1 id="how-to-get-the-token-and-the-number-to-call-the-script">How to get the token and the number to call the script</h1>
+<p>In the repo, go to &ldquo;Settings&rdquo; -&gt; &ldquo;Actions&rdquo;. You see the currently provisioned runners:</p>
+<p><img src="nextnumber.png" alt="Alt text" title="Find next number"></p>
+<p>Pick the next number and pass it to the script.</p>
+<p>To get the token press the green button in the above screenshot. The token is in the command:</p>
+<p><img src="token.png" alt="Alt text" title="Get the token"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dd5aea642d95644a121fa3b9232f771f">5.3.3 - VSCode DevContainer</h1>
+    
+	<h2 id="visual-studio-code-development-containers">Visual Studio Code: Development Containers</h2>
+<ul>
+<li>Install and start Visual Studio</li>
+<li>Open Command Palette (<code>F1</code>) and select <code>Clone repository into DevContainer</code></li>
+<li>Select this repository and the main branch.</li>
+<li>Adapt proxy configurations if necessary (<code>.devcontainer/proxy.sh</code>)</li>
+<li>Open terminal and execute one of the <code>build-xxx.sh</code> scripts to execute the build</li>
+<li>For later builds, it is advisable to run <code>cd poky &amp;&amp; source oe-init-env ../build-sdv-xxx &amp;&amp; bitbake core-image-minimal</code> manually to reuse the build work directory</li>
+<li>For a clean remote build machine, you may want to <a href="/docs/build/devenv/github-codespaces/">set up development environment on GitHub CodeSpaces</a></li>
+</ul>
+<h2 id="visual-studio-devcontainer-setup">Visual Studio DevContainer Setup</h2>
+<h2 id="authentication">Authentication</h2>
+<p>The build process requires online connection and you must be authenticated to access private repositories.</p>
+<ol>
+<li>Create a GitHub Personal Access Token (PAT) at <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and grant <code>read:packages</code> permission</li>
+<li>Use <code>Configure SSO</code> and authorize your PAT for the organization</li>
+<li>On the build host, authenticate to ghcr.io: <code>skopeo login ghcr.io --authfile ~/auth.json --username &lt;username&gt;</code> and enter the PAT as password
+<ul>
+<li>You may need to create the folder where skopeo is storing authentication information beforehand:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /run/containers/1000
+</span></span><span style="display:flex;"><span>sudo chmod a+w /run/containers/1000
+</span></span></code></pre></div></li>
+<li>Start the bitbake build process</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e9d306dcf183db3f873e59965d0cae97">5.4 - Run the build</h1>
+    
+	<h1 id="run-the-full-build">Run the full build</h1>
+<ul>
+<li>Pre-Requisites: Configure proxy, eg <code>source .devcontainer/proxy.sh</code></li>
+<li>Initialize git submodules: <code>git submodule update --init --recursive</code></li>
+<li>Update from remote: <code>git submodule update --recursive --remote</code></li>
+<li>Check versions: <code>git submodule</code></li>
+<li>Execute the setup for your host: <code>./setup.sh</code></li>
+<li>Execute the main build script: <code>./build-&lt;target&gt;.sh</code></li>
+</ul>
+<h2 id="build-from-scratch">Build from scratch</h2>
+<ul>
+<li>Trigger the respective build with one of the <code>build-xxx.sh</code> scripts</li>
+<li>The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB+ free disk space for each build environment.</li>
+</ul>
+<h2 id="running-qemu-from-existing-build">Running QEMU from existing build</h2>
+<ul>
+<li>Switch to the build directory: <code>cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx</code></li>
+<li>Use <code>runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot;</code> to execute the image. Replace <code>qemux86-64</code> with one of the machines listed above.
+<ul>
+<li><code>slirp</code> enables user-networking which does not require root privileges on the host. <code>tun</code> is default but requires setup on the host.</li>
+<li><code>nographic</code> disables graphical user interface</li>
+<li><code>qemuparams</code> are additional command line parameters for qemu</li>
+<li><code>-m 2048</code> gives 2GB of memory to the qemu instance, required for k3s</li>
+</ul>
+</li>
+<li>Using <code>tap</code> networking
+<ul>
+<li>Login as <code>root</code> without password on login prompt, or use <code>ssh root@192.168.7.2</code> to login remotely to qemu instance</li>
+</ul>
+</li>
+<li>Using <code>slirp</code> networking
+<ul>
+<li>Login as <code>root</code> without password on login prompt, or use <code>ssh -p 2222 root@localhost</code> to login remotely to qemu instance</li>
+</ul>
+</li>
+<li>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+</ul>
+<h3 id="variations-of-runqemu-command-line">Variations of runqemu command line</h3>
+<ul>
+<li>Use <code>runqemu ovmf</code>
+<ul>
+<li><code>ovmf</code> will enable the UEFI support for IA32 (x86) and X64 (x86-64) guests, for testing the dual-boot capabilities and SDV Self-Update mechanisms</li>
+</ul>
+</li>
+<li>All other options are now part of the default Leda distribution configuration (see <em>leda-qemu-settings.inc</em>)</li>
+<li>Continue with <a href="/docs/device-provisioning/">Device Provisioning</a></li>
+</ul>
+<h2 id="running-qemu-in-the-background">Running QEMU in the background</h2>
+<p>To start QEMU in the background enter, use <code>nohup</code> and bring the process into the background.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nohup runqemu qemux86-64 nographic <span style="color:#000">qemuparams</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-m 2048 -pidfile qemu.pid&#34;</span> <span style="color:#000;font-weight:bold">&amp;</span>
+</span></span></code></pre></div><p>The image is then reachable via <code>ssh root@192.168.72</code>
+This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, <code>kill -9 &lt;qemu.pid&gt;</code> kills the process.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f21f514ad0dd5b09364dfb04efa83f2">5.5 - Building tests</h1>
+    
+	<h1 id="cross-compiling-to-x86_64-on-ubuntu-2004">Cross Compiling to X86_64 on Ubuntu 20.04</h1>
+<p>There is currently a step to cross-compile tests to X86_64. In order to successfully run the step, you need to make sure that the following artifacts are available on the runner:</p>
+<ul>
+<li>rustc + cargo: <code>curl https://sh.rustup.rs -sSf | sh</code></li>
+<li>docker: follow <a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a> and afterwards <a href="https://docs.docker.com/engine/install/linux-postinstall/">https://docs.docker.com/engine/install/linux-postinstall/</a></li>
+<li>build-essential: <code>sudo apt-get install build-essential</code></li>
+<li>cross (0.1.16): <code>cargo install cross --version 0.1.16</code></li>
+<li>jq: <code>sudo apt-get install jq -y</code></li>
+</ul>
+<p>You may restart your current shell so that all components are available as env vars.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-62352f3530820244cfc19d6fdad57df1">5.6 - Runqemu</h1>
+    
+	<p>QEMU&rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called <code>runqemu</code>, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.</p>
+<p>Running without runqemu: when you need more control over qemu options</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>qemu-system-x86_64 -kernel .<span style="color:#4e9a06">\b</span>zImage-qemux86-64.bin -nographic -m 2G -append <span style="color:#4e9a06">&#34;console=ttyS0 root=/dev/vda1&#34;</span> -drive <span style="color:#000">file</span><span style="color:#ce5c00;font-weight:bold">=</span>.../sdv-image-full-qemux86-64.ext4
+</span></span></code></pre></div><p>Running with runqemu: simple and some convenient flags are supported</p>
+<pre><code>runqemu ovmf sdv-image-full
+</code></pre>
+<p>Running with leda: no options, runs the default settings only</p>
+<pre><code>leda
+</code></pre>
+<p><img src="qemu-runner-script.png" alt=""></p>
+<h2 id="enabling-kvm-for-better-performance">Enabling KVM for better performance</h2>
+<p>The performance of qemux86_64 is much better when KVM can be used.
+Try running with:</p>
+<pre><code>runqemu ovmf kvm
+</code></pre>
+<p><em>Note: You may need to set up KVM for your host machine first, please refer to <a href="https://wiki.yoctoproject.org/wiki/How_to_enable_KVM_for_Poky_qemu">How to enable KVM for Poky qemu</a></em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/workspaces/leda-distro/build-sdv-x86_64 <span style="color:#ce5c00;font-weight:bold">(</span>imageformatcleanup ✗<span style="color:#ce5c00;font-weight:bold">)</span> $ ls -al /dev/kvm
+</span></span><span style="display:flex;"><span>crw-rw---- <span style="color:#0000cf;font-weight:bold">1</span> root kvm 10, <span style="color:#0000cf;font-weight:bold">232</span> May <span style="color:#0000cf;font-weight:bold">16</span> 06:46 /dev/kvm
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1c63e657519124a213cf5b9778390873">5.7 - Miscellaneous</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0bf6c0e0979d02d6499ec6d58123bc10">5.7.1 - DAPR Installation</h1>
+    
+	<h1 id="initial-configuration">Initial configuration</h1>
+<ul>
+<li>To initialize DAPR, run:</li>
+</ul>
+<pre tabindex="0"><code>export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+/dapr init -k
+</code></pre><ul>
+<li>For accessing private container registries, create <code>/etc/rancher/k3s/registries.yml</code>:
+Example for accessing GitHub Packages container registry at ghcr.io:</li>
+</ul>
+<pre tabindex="0"><code>configs:
+  &#34;ghcr.io&#34;:
+    auth:
+      username: &lt;&lt;github-username&gt;&gt;
+      password: &lt;&lt;github-personal-access-token&gt;&gt;
+</code></pre><p><em>Note:</em> Ensure the Personal Access Token has the permission to access GitHub packages</p>
+<ul>
+<li>Get your Azure IoT Hub Connection String and base64 it:</li>
+</ul>
+<pre tabindex="0"><code>echo &#34;&lt;&lt;AzureIoTHubConnectionString&gt;&gt;&#34; | base64 -w 0
+</code></pre><p>Put the encoded result into <code>/var/lib/rancher/k3s/server/manifest/cloud-connector.secret.yaml</code> (rename from template)</p>
+<ul>
+<li>Verify that credentials have been crated: <code>kubectl get secrets cloudagent</code></li>
+<li>Restart k3s: <code>systemctl restart k3s</code></li>
+<li>Manually start the k3s agent:</li>
+</ul>
+<pre tabindex="0"><code>k3s agent -s https://10.0.2.15:6443 -lb-server-port 6445 -t $(cat /var/lib/rancher/k3s/server/node-token)
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-685226a9e960be283b847d67e85319af">5.7.2 - Resource Consumptions</h1>
+    
+	<h1 id="baseline-no-apps-installed">Baseline (no apps installed)</h1>
+<p>Baseline: 400 MB
+Baseline after k3s started: 535 MB disk</p>
+<p>Installed components:</p>
+<ul>
+<li>Container Management: runc, containerd, k3s</li>
+<li>System Services: systemd, openssh, mosquitto, mosquitto-clients</li>
+<li>No dapr</li>
+<li>No cloud connector or edgecontainerd yet.</li>
+<li>No self update agent</li>
+<li>No containers, no vehicle apps etc.</li>
+</ul>
+<pre tabindex="0"><code>root@qemux86-64:/bin# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       2.5G  506M  1.8G  22% /
+</code></pre><ul>
+<li>Memory Usage: 200MB</li>
+</ul>
+<pre tabindex="0"><code>root@qemux86-64:/var/lib/rancher/k3s/server# free
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G
+Swap:    
+</code></pre><h1 id="with-dapr-and-pods">With dapr and pods</h1>
+<h1 id="with-dapr-preinstalled-no-pods-yet">With DAPR preinstalled, no pods yet</h1>
+<pre tabindex="0"><code>root@qemux86-64:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       2.5G  1.3G 1005M  57% /
+</code></pre><pre tabindex="0"><code>root@qemux86-64:~# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G      812.7M       19.4M       18.1M        1.1G        1.1G
+Swap:             0           0           0
+</code></pre><h1 id="with-dapr-with-cloud-connector-and-vehicle-update-manager">With DAPR, with cloud connector and vehicle update manager</h1>
+<pre tabindex="0"><code>root@qemux86-64:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       2.5G  2.2G   90M  97% /
+</code></pre><pre tabindex="0"><code>root@qemux86-64:~# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G      849.5M      100.8M       26.6M        1.0G        1.1G
+Swap:             0           0           0
+</code></pre><h1 id="details">Details</h1>
+<p>Dependencies</p>
+<ul>
+<li>k3s (binary executable only): 140 MB</li>
+<li>cni (container networking): 51 MB</li>
+<li>containerd-ctr: 26 MB</li>
+<li>containerd: 46 MB</li>
+<li>dapr cli: 38 MB</li>
+<li>helm cli: 43 MB</li>
+<li>runc: 10 MB</li>
+</ul>
+<p>SDV Components</p>
+<ul>
+<li>vehicle-data-cli: 2.3 MB (dynamic)</li>
+</ul>
+<p>Medium:</p>
+<ul>
+<li>Linux Kernel (Poky minimal): 8 MB</li>
+<li>oci-image-tool: 9 MB</li>
+<li>oci-runtime-tool: 7 MB</li>
+<li>sshd: 1 MB</li>
+<li>libstdc++: 2 MB</li>
+<li>lic: 2 MB</li>
+<li>libcrypto: 3 MB</li>
+<li>containerd-shim: 7 MB</li>
+<li>containerd-shim-runc-v1: 9 MB</li>
+<li>containred-shim-runc-v2: 9 MB</li>
+<li>libsystemd: 1 MB</li>
+<li>busybox: 1 MB</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ad9d3198163762a2c15eca580afe3c37">5.7.3 - Utilities</h1>
+    
+	<h1 id="sdv-core-utils">SDV Core Utils</h1>
+<p>The quickstart image contains the following toolings:</p>
+<ul>
+<li>SDV Device Info</li>
+<li>SDV Health</li>
+<li>CAN Forwarder</li>
+<li>SDV MOTD</li>
+</ul>
+<p>For details, please see <a href="https://github.com/eclipse-leda/leda-utils/">leda-utils</a></p>
+<h1 id="connecting-to-mosquitto">Connecting to Mosquitto</h1>
+<p>If you want to use your favourite MQTT tool with the quickstart image, you can
+connect to the MQTT broker running on the device by using exposed port 31883:</p>
+<pre tabindex="0"><code>$# mosquitto_sub -h 192.168.7.2 -p 31883 -t &#39;#&#39;
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f66480308426576cea64ae2249fef2e0">5.8 - Incubation Components</h1>
+    
+	<h1 id="building-private-components">Building private components</h1>
+<p>Some components are not yet released to the public.</p>
+<p>To build them, or to integrate them to the image, these components need to be manually downloaded first.</p>
+<h2 id="sdv-databroker-cli">sdv-databroker-cli</h2>
+<ul>
+<li>Install GitHub CLI</li>
+<li>Add to <code>local.conf</code> to include in image:</li>
+</ul>
+<pre tabindex="0"><code>CORE_IMAGE_EXTRA_INSTALL += &#34; sdv-databroker-cli&#34;
+</code></pre><ul>
+<li>Manually login to GitHub CLI</li>
+</ul>
+<pre tabindex="0"><code>    unset GITHUB_TOKEN
+    gh auth login
+</code></pre><pre><code>Output:
+</code></pre>
+<pre tabindex="0"><code>? What account do you want to log into? GitHub.com
+? You&#39;re already logged into github.com. Do you want to re-authenticate? Yes
+? What is your preferred protocol for Git operations? HTTPS
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: A123-C12B
+Press Enter to open github.com in your browser... 
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as johndoe
+</code></pre><ul>
+<li>Manually download the release artifacts:</li>
+</ul>
+<pre tabindex="0"><code>    $ gh release download v0.14.0 \
+        --archive=zip \
+        --repo eclipse-leda/incubator-vehicleapi \
+        --dir downloads
+    
+    $ gh release download v0.14.0 \
+        --pattern &#39;bin_release_databroker_*.tar.gz&#39; \
+        --repo eclipse-leda/incubator-vehicleapi \
+        --dir downloads
+</code></pre><ul>
+<li>Build the recipe:</li>
+</ul>
+<pre tabindex="0"><code>cd poky
+source oe-init-build-env ../build-sdv-x86_64
+bitbake sdv-databroker-cli
+</code></pre><ul>
+<li>Build the image:</li>
+</ul>
+<pre tabindex="0"><code>bitbake sdv-image-minimal
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bdf9cb83992bb147748b5ca9a98cda7a">5.9 - Releasing</h1>
+    
+	<h1 id="versioning-and-codenames">Versioning and Codenames</h1>
+<ul>
+<li>Distribution Versioning is following the <code>x.y.z</code> syntax for the distribution, e.g. <code>Leda 0.0.1</code></li>
+<li>Build Versioning is following the git describe syntax: <code>v0.0.1-blank-168-g7e14c4c</code>
+<ul>
+<li>Latest tag name: <code>v0.0.1</code></li>
+<li>Branch name: <code>blank</code></li>
+<li>Number of commits behind: <code>168</code></li>
+<li>Short Commit ID: <code>g7e14c4c</code></li>
+</ul>
+</li>
+<li>Codenames are taken from <a href="https://en.wikipedia.org/wiki/List_of_motor_racing_tracks">Wikipedia List of Motor Racing Tracks</a></li>
+<li>Initial codename is <code>Hockenheim</code></li>
+<li>Current distribution version can be taken from <code>/etc/issue</code>:</li>
+</ul>
+<pre tabindex="0"><code>root@qemux86-64:~# cat /etc/issue
+Eclipse Leda v0.0.8
+</code></pre><h1 id="how-to-release">How to Release</h1>
+<p>A new release is triggered manually from its GitHub web page <code>Releases</code> section. By
+clicking on the <code>Draft new release</code> button, the release process starts:</p>
+<ul>
+<li>Select a branch to use as code base for the release</li>
+<li>Create a tag using the standard pattern <code>vX.Y.Z</code></li>
+<li>Write a title <code>Release X.Y.Z</code> and release notes</li>
+<li>Optionally select if this is a pre-release</li>
+<li>Publish the release</li>
+<li><a href="validation.md">Validate the release</a></li>
+</ul>
+<p>With <code>Publish the release</code> action the release workflow located in <code>.github/workflows/release.yml</code> will be triggered. This
+will start building the distro image files for the supported platforms, running the test cases and generating reports as
+junit xml and license scanning. If the image generation and the test runs are successful the artifacts: images, test
+binaries and qa reports will be attached as assets to the release.</p>
+<p>The build (<code>build.yml</code>) and release (<code>release.yml</code>) workflows share a common reusable workflow (<code>base.yml</code>). In this way the
+release workflow repeats the build actions without duplicating the code.</p>
+<h1 id="detailed-build-information-on-device">Detailed build information on device</h1>
+<h2 id="eclipse-leda-version">Eclipse Leda Version</h2>
+<pre tabindex="0"><code>root@qemux86-64:~# cat /etc/issue
+Eclipse Leda v0.0.8
+</code></pre><h2 id="exact-build-timestamp">Exact Build Timestamp</h2>
+<pre tabindex="0"><code>root@qemux86-64:~# cat /etc/version
+20220408135014
+root@qemux86-64:~# cat /etc/timestamp
+20220408135230
+</code></pre><h2 id="details-of-build-information">Details of Build Information</h2>
+<pre tabindex="0"><code>root@qemux86-64:~# cat /etc/build 
+-----------------------
+Build Configuration:  |
+-----------------------
+DISTRO = leda
+DISTRO_VERSION = 2022
+DATETIME = 20220408135014
+DISTRO_NAME = Eclipse Leda
+IMAGE_BASENAME = core-image-minimal
+MACHINE = qemux86-64
+TUNE_PKGARCH = core2-64
+MACHINE_FEATURES = alsa bluetooth usbgadget screen vfat x86 pci rtc qemu-usermode
+DISTRO_FEATURES = acl alsa argp  debuginfod  ipv4 ipv6 largefile pcmcia usbgadget usbhost wifi xattr  zeroconf pci    vfat seccomp largefile  ptest multiarch  vulkan virtualization k8s seccomp raucg
+COMMON_FEATURES = 
+IMAGE_FEATURES = debug-tweaks
+TUNE_FEATURES = m64 core2
+TARGET_FPU = 
+APP_URI_PREFIX = 
+APP_URI_BRANCH = 
+-----------------------
+Layer Revisions:      |
+-----------------------
+meta              = honister:ee68ae307fd951b9de6b31dc6713ea29186b7749 
+meta-poky         = honister:ee68ae307fd951b9de6b31dc6713ea29186b7749 
+meta-yocto-bsp    = honister:ee68ae307fd951b9de6b31dc6713ea29186b7749 
+meta-leda          = main:30a5ff0a7e04dfa2c9b43175a49ac7a2ae0c64a9 -- modified
+meta-rauc         = honister:3faf4cc4fcf558e99dad5aa8532fef2ecd566653 
+meta-filesystems  = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-networking   = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-oe           = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-python       = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-perl         = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-virtualization = honister:bd7511c53b921c9ce4ba2fdb42778ca194ebc3e8 
+meta-security     = honister:fb77606aef461910db4836bad94d75758cc2688c 
+patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
+</code></pre>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-36dea19e60b747437042ee148647e878">5.9.1 - Validating</h1>
+    
+	<h1 id="validating-the-release">Validating the release</h1>
+<p>Steps to validate if a release is properly working:</p>
+<ol>
+<li>
+<p>Create a new pre-release from your branch</p>
+</li>
+<li>
+<p>Download the release artifacts onto a clean system.</p>
+<p>Do not use your build environment, to minimize the impact of existing environment configuration from BitBake etc.</p>
+</li>
+<li>
+<p>Run the <code>run-leda</code> scripts to execute Qemu</p>
+<p><em>Note: You should test each of the release archives, for each target machine.</em></p>
+</li>
+<li>
+<p>Follow the <a href="/docs/device-provisioning/">Device Provisioning</a> guide</p>
+</li>
+<li>
+<p>Perform some verification tests (see below)</p>
+</li>
+<li>
+<p>Cleanup: Delete the pre-release and the git tag:</p>
+<pre><code>git push --delete origin &lt;tagname&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="ideas-for-manual-verification-steps">Ideas for manual verification steps</h2>
+<p><em>Note: These are just for manual testing, as we intend to extend the automated tests as much as possible.</em></p>
+<ul>
+<li>Operating system level
+<ul>
+<li>Run <code>sdv-health</code> on the shell</li>
+<li>Verify disk partitions and RAUC status, e.g. <code>rauc status</code></li>
+<li>Verify network interface and CAN-Bus with <code>ip addr</code></li>
+</ul>
+</li>
+<li>Kubernetes
+<ul>
+<li>Check status of cluster and pods with <code>k9s</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-af94d3dc4d5e71fd2c9d92bcafa3b325">6 - Project Information</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-e1426bce55eda42a39b0db25e619c6e3">6.1 - Community</h1>
+    
+	<p>Thanks for your interest in this project and in our community.</p>
+<ul>
+<li><a href="https://projects.eclipse.org/projects/automotive.leda">https://projects.eclipse.org/projects/automotive.leda</a></li>
+</ul>
+<h2 id="contact">Contact</h2>
+<p>Contact the project developers via the project&rsquo;s &ldquo;dev&rdquo; list.</p>
+<ul>
+<li><a href="https://accounts.eclipse.org/mailing-list/leda-dev">https://accounts.eclipse.org/mailing-list/leda-dev</a></li>
+</ul>
+<h2 id="developer-resources">Developer resources</h2>
+<p>Information regarding source code management, builds, coding standards, and
+more.</p>
+<ul>
+<li><a href="https://projects.eclipse.org/projects/automotive.leda/developer">https://projects.eclipse.org/projects/automotive.leda/developer</a></li>
+</ul>
+<p>The project maintains the following source code repositories</p>
+<ul>
+<li><a href="https://github.com/eclipse-leda/leda">https://github.com/eclipse-leda/leda</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro">https://github.com/eclipse-leda/leda-distro</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda">https://github.com/eclipse-leda/meta-leda</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-edbc3d7c3b14d2db3ea68d37f7851e4b">6.2 - Dependencies</h1>
+    
+	<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Type</th>
+<th>License</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>poky</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT or GPL-2.0-only</td>
+<td><a href="https://www.yoctoproject.org/software-item/poky/">https://www.yoctoproject.org/software-item/poky/</a></td>
+</tr>
+<tr>
+<td>meta-virtualization</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://git.yoctoproject.org/meta-virtualization">https://git.yoctoproject.org/meta-virtualization</a></td>
+</tr>
+<tr>
+<td>meta-networking</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://git.yoctoproject.org/meta-networking">https://git.yoctoproject.org/meta-networking</a></td>
+</tr>
+<tr>
+<td>meta-rauc</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://github.com/rauc/meta-rauc">https://github.com/rauc/meta-rauc</a></td>
+</tr>
+<tr>
+<td>meta-openembedded</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://git.openembedded.org/meta-openembedded">https://git.openembedded.org/meta-openembedded</a></td>
+</tr>
+<tr>
+<td>meta-security</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://git.yoctoproject.org/meta-security">https://git.yoctoproject.org/meta-security</a></td>
+</tr>
+<tr>
+<td>meta-rauc-community</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://github.com/rauc/meta-rauc-community">https://github.com/rauc/meta-rauc-community</a></td>
+</tr>
+<tr>
+<td>meta-raspberrypi</td>
+<td>OpenEmbedded Metalayer</td>
+<td>MIT</td>
+<td><a href="https://git.yoctoproject.org/meta-raspberrypi">https://git.yoctoproject.org/meta-raspberrypi</a></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3804c959464b4f1164e582f67ae410d0">6.3 - Contribution Guidelines</h1>
+    
+	<p>Thanks for considering to contribute to Eclipse Leda. We really appreciate the time and effort you want to spend helping to improve the project.</p>
+<p>In order to get you started as fast as possible we need to go through some organizational issues first, though.</p>
+<h2 id="eclipse-development-process">Eclipse Development Process</h2>
+<p>This Eclipse Foundation open project is governed by the Eclipse Foundation
+Development Process and operates under the terms of the Eclipse IP Policy.</p>
+<ul>
+<li><a href="https://eclipse.org/projects/dev_process">https://eclipse.org/projects/dev_process</a></li>
+<li><a href="https://www.eclipse.org/org/documents/Eclipse_IP_Policy.pdf">https://www.eclipse.org/org/documents/Eclipse_IP_Policy.pdf</a></li>
+</ul>
+<h2 id="eclipse-contributor-agreement">Eclipse Contributor Agreement</h2>
+<p>Before your contribution can be accepted by the project team contributors must
+electronically sign the Eclipse Contributor Agreement (ECA).</p>
+<ul>
+<li><a href="http://www.eclipse.org/legal/ECA.php">http://www.eclipse.org/legal/ECA.php</a></li>
+</ul>
+<p>Commits that are provided by non-committers must have a Signed-off-by field in
+the footer indicating that the author is aware of the terms by which the
+contribution has been provided to the project. The non-committer must
+additionally have an Eclipse Foundation account and must have a signed Eclipse
+Contributor Agreement (ECA) on file.</p>
+<p>For more information, please see the Eclipse Committer Handbook:
+<a href="https://www.eclipse.org/projects/handbook/#resources-commit">https://www.eclipse.org/projects/handbook/#resources-commit</a></p>
+<h2 id="making-your-changes">Making Your Changes</h2>
+<ul>
+<li>Fork the repository on GitHub.</li>
+<li>Create a new branch for your changes.
+<ul>
+<li><em>Note: When forking multiple repositories (eg most of the time, you also need to make modifications to meta-leda), please use the same branch name of each repository.</em></li>
+</ul>
+</li>
+<li>Make your changes following the code style guide for the respective type of content:
+<ul>
+<li>BitBake Recipes: <a href="https://www.openembedded.org/wiki/Styleguide">https://www.openembedded.org/wiki/Styleguide</a></li>
+<li>Documentation: <a href="https://www.docsy.dev/docs/best-practices/">https://www.docsy.dev/docs/best-practices/</a></li>
+<li>Shell Scripts (Example Style Guide): <a href="https://google.github.io/styleguide/shellguide.html">https://google.github.io/styleguide/shellguide.html</a></li>
+</ul>
+</li>
+<li>When you create new files make sure you include a proper license header at the top of the file (see License Header section below).</li>
+<li>Make sure you include test cases for non-trivial features.</li>
+<li>Make sure the test suite passes after your changes.</li>
+<li>Commit your changes into that branch.</li>
+<li>Use descriptive and meaningful commit messages. Start the first line of the commit message with the a GitHub Issue number if available and a title e.g. <code>[#9865] Add token based authentication</code>.</li>
+<li>Squash multiple commits that are related to each other semantically into a single one.</li>
+<li>Make sure you use the <code>-s</code> flag when committing as explained above.</li>
+<li>Push your changes to your branch in your forked repository.</li>
+<li>Once you&rsquo;re satisfied with your contribution, open a Pull Request and Eclipse Leda Committers will start with the review of your changes.
+<ul>
+<li><em>Note: When working with multiple repositories, you need to open separate Pull Requests for each repository.</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="adding-documentation-to-hugo">Adding Documentation to Hugo</h2>
+<ul>
+<li>Add the markdown document to the appropriate folder in the path <code>leda/content/en</code>.</li>
+<li>Add the front-matter</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">title</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;title of the file&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">date</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">2022-05-09T13:43:25</span><span style="color:#0000cf;font-weight:bold">+05</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">30</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><ul>
+<li>Additional front matter that can be added –
+<ul>
+<li>url : &quot;specifying a definite url to the file&quot;</li>
+<li>weight : 10 (used for ordering your content in lists. Lower weight gets higher precedence.)</li>
+</ul>
+</li>
+<li>The images need to be put in path <code>leda/static/assets</code>. The image reference should be <code>/assets/image.jpg</code> in the markdown file.
+(Note: Do not use relative paths or url)</li>
+<li>In case you are creating a new folder, create _index.md file with the front matter only.</li>
+</ul>
+<h2 id="running-locally">Running Locally</h2>
+<ul>
+<li>Install hugo version 0.98.0 extended <a href="https://github.com/gohugoio/hugo/releases/tag/v0.98.0">Release v0.98.0 · gohugoio/hugo (github.com)</a></li>
+<li>Install Docsy theme in the path leda/themes/docsy –</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#Run this command from root directory of velocitas-docs</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/google/docsy.git themes/docsy
+</span></span></code></pre></div><ul>
+<li>Install pre-requisites</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> themes/docsy/userguide/
+</span></span><span style="display:flex;"><span>npm install
+</span></span><span style="display:flex;"><span>npm install --save-dev postcss
+</span></span></code></pre></div><ul>
+<li>From the leda directory run the command <strong>hugo server</strong> visit localhost:1313 to see the rendered static site.</li>
+</ul>
+<h2 id="submitting-the-changes">Submitting the Changes</h2>
+<p>Submit a pull request via the normal GitHub UI.</p>
+<h2 id="after-submitting">After Submitting</h2>
+<ul>
+<li>Do not use your branch for any other development, otherwise further changes that you make will be visible in the PR.</li>
+</ul>
+<h2 id="license-header">License Header</h2>
+<p>Please make sure any file you newly create contains a proper license header like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># /********************************************************************************</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * Copyright (c) 2022 Contributors to the Eclipse Foundation</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># *</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * See the NOTICE file(s) distributed with this work for additional</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * information regarding copyright ownership.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># *</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * This program and the accompanying materials are made available under the</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * terms of the Apache License 2.0 which is available at</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * https://www.apache.org/licenses/LICENSE-2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># *</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># * SPDX-License-Identifier: Apache-2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ********************************************************************************/</span>
+</span></span></code></pre></div><p>You should, of course, adapt this header to use the specific mechanism for comments pertaining to the type of file you create.</p>
+<p><strong>Important</strong></p>
+<p>Please do not forget to add your name/organization to the <code>LICENSE</code> file&rsquo;s <em>Copyright Holders</em> section. If this is not the first contribution you make, then simply update the time period contained in the copyright entry to use the year of your first contribution as the lower boundary and the current year as the upper boundary, e.g.</p>
+<p><code>Copyright 2017, 2018 ACME Corporation</code></p>
+<h2 id="build">Build</h2>
+<ul>
+<li>On every PR merge a pipeline run will be triggered. This run will trigger the hugo docs build</li>
+<li>Hugo v0.98.0 extended is set up for the runner</li>
+<li>Docsy theme is setup for beautification of static site</li>
+<li>Then dependencies are installed for the theme</li>
+<li>Static site is generated and stored in a folder &quot;public&quot;</li>
+<li>The contents of public are committed to gh_pages branch which is exposed to host the github pages</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ecbb8edc896b280ddac3a1b67ddd7ef1">6.4 - Project Logo</h1>
+    
+	<p><a href="eclipse-leda-logo.zip">Download eclipse-leda-logo.zip</a></p>
+<h2 id="white-background">White background</h2>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 650px">
+	<img class="card-img-top" src="/docs/project-info/logo/eclipse-leda-logo-white-transparent_hu9a062543d0484a5cb9683d4306669d63_91703_640x0_resize_catmullrom_3.png" width="640" height="233">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+2182x794, white, transparent
+</p>
+	</figcaption>
+	
+</figure>
+
+<h2 id="black-background">Black background</h2>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 650px">
+	<img class="card-img-top" src="/docs/project-info/logo/eclipse-leda-logo-black_hu3de800b8cf15ea47f176e535cd90a422_110601_640x0_resize_catmullrom_3.png" width="640" height="233">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+2182x794, black, opaque
+<small class="text-muted"><br/>Credits: prothesis / kanellos @ 99designs.com | Font: https://www.dafont.com/olney.font</small></p>
+	</figcaption>
+	
+</figure>
+
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 138px">
+	<img class="card-img-top" src="/docs/project-info/logo/icon_hue62b0b1a8d8b9fe0e0ffe6ab60b42779_84571_128x128_resize_catmullrom_3.png" width="128" height="128">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+916x916, black
+</p>
+	</figcaption>
+	
+</figure>
+
+<h2 id="colors">Colors</h2>
+<ul>
+<li>Primary Color: #6daed1</li>
+<li>Secondary Color: #804096</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7892772422eb3da8a0c62a8ce99300dc">6.5 - Data Protection Notice</h1>
+    
+	<p>Your privacy is important to us. The following Information is to provide you with all information relevant to data protection in order to be able to use the software, in a data protection compliant manner. It is provided as an information source for your solution-specific data protection and data privacy topics. This is not intended to provide and should not be relied on for legal advice.</p>
+<h3 id="your-role">Your Role</h3>
+<p>First things first: when you choose and use our software, you are most likely acting in the role of data controller, if personal related data is being processed. Therefore, you must ensure that the processing of personal data complies with the respective local legal requirements, e.g. when processing data within the scope of General Data Protection Regulation (GDPR) the legal requirements for a controller from the GDPR.</p>
+<h3 id="where-may-the-processing-of-personal-related-data-be-relevant">Where may the processing of personal related data be relevant?</h3>
+<p>When using our software in combination with other software components, personal data or data categories may be collected for the purpose of developing, testing and running in-vehicle applications (Vehicle Apps). Possible examples are the vehicle identification number (VIN), the number plate, GPS data, video data, audio data, or other measurement data. You can determine which data or data categories are collected when configuring the software. These data are stored in volatile memory and are deleted by shutting down the system. You are responsible for the compliant handling of the data in accordance with the applicable local law.</p>
+<h3 id="what-have-we-done-to-make-the-software-data-protection-friendly">What have we done to make the software data protection friendly?</h3>
+<p>This section describes the measures taken to integrate the requirements of the data protection directly into the software development. The technical measures described below follow a &ldquo;privacy by design&rdquo; approach.</p>
+<ul>
+<li>Deletion possibility: The software does not save data permanently since it uses only volatile memory. All collected or processed data can be deleted by rebooting the host hardware.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ec74413c19c356efd4199631c80850ae">6.6 - Security Policy</h1>
+    
+	<p>This project implements the Eclipse Foundation Security Policy</p>
+<ul>
+<li><a href="https://www.eclipse.org/security">https://www.eclipse.org/security</a></li>
+</ul>
+<h2 id="reporting-a-vulnerability">Reporting a Vulnerability</h2>
+<p>Please report vulnerabilities to the Eclipse Foundation Security Team at
+<a href="mailto:security@eclipse.org">security@eclipse.org</a></p>
+<h2 id="supported-yocto-versions">Supported Yocto Versions</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yocto 4.x (Kirkstone)</td>
+<td>Untested</td>
+</tr>
+<tr>
+<td>Yocto 3.4 (Honister)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Yocto 3.3</td>
+<td>Untested</td>
+</tr>
+<tr>
+<td>Yocto &lt; 3.3</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important: When you use the quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it.</strong></p>
+<h2 id="configuration-items">Configuration Items</h2>
+<ul>
+<li>Disable system user (root) password and login</li>
+<li>Disable SSH login with password</li>
+<li>Adding a new Linux user with restricted permissions</li>
+<li>Adding SSH key based authentication</li>
+<li>Kubernetes Resources: Secrets
+<ul>
+<li>Device Identity Certificates for Cloud Connection</li>
+<li>Access credentials for private Container Registries</li>
+</ul>
+</li>
+</ul>
+<h3 id="device-identity-for-cloud-connector">Device Identity for Cloud Connector</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Implementation</th>
+<th>Intended use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-Shared Symmetric Key</td>
+<td>Azure IoT Hub Connection String</td>
+<td>Development</td>
+</tr>
+<tr>
+<td>Certificates</td>
+<td>X.509 Certificates</td>
+<td>Production</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kubernetes-secrets-encryption">Kubernetes Secrets Encryption</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Implementation</th>
+<th>Intended use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plain text</td>
+<td>Base64 Encoding</td>
+<td>Development</td>
+</tr>
+<tr>
+<td>Encrypted</td>
+<td><a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">Kubernetes: Encrypting Secret Data at Rest</a></td>
+<td>Production</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5b9855a34132ffcc60b905616e0cf498">7 - </h1>
+    
+	<ol>
+<li>Download <a href="/docs/general-usage/download-releases/">latest Eclipse Leda release</a></li>
+<li>Run Eclipse Leda
+<ul>
+<li>on <a href="/docs/general-usage/running-qemu/">emulated Qemu devices</a> or</li>
+<li>on <a href="/docs/general-usage/raspberry-pi/">Raspberry Pi 4</a></li>
+</ul>
+</li>
+<li>Configure device, e.g. <a href="/docs/device-provisioning/">provision the device</a></li>
+<li>Explore the <a href="/docs/build/misc/tools/">device tools</a></li>
+<li>Develop your first Vehicle App using <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Eclipse Velocitas template</a></li>
+<li><a href="/docs/app-deployment/">Deploy a Vehicle App to the device</a></li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+
+
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-leda" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+        
+          <p class="mt-2"><a href="/docs/about/">About Leda</a></p>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.0a4011cc64eece3f188017a6ab918e3311f9db86caa7b500616261bc807bbedb.js" integrity="sha256-CkARzGTuzj8YgBemq5GOMxH524bKp7UAYWJhvIB7vts=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

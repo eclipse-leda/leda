@@ -1,0 +1,73 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Releasing</title>
+    <link>/docs/build/release/</link>
+    <description>Recent content in Releasing on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/build/release/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Validating</title>
+      <link>/docs/build/release/validation/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/release/validation/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;validating-the-release&#34;&gt;Validating the release&lt;/h1&gt;
+&lt;p&gt;Steps to validate if a release is properly working:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new pre-release from your branch&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the release artifacts onto a clean system.&lt;/p&gt;
+&lt;p&gt;Do not use your build environment, to minimize the impact of existing environment configuration from BitBake etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the &lt;code&gt;run-leda&lt;/code&gt; scripts to execute Qemu&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: You should test each of the release archives, for each target machine.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt; guide&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Perform some verification tests (see below)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cleanup: Delete the pre-release and the git tag:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git push --delete origin &amp;lt;tagname&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;ideas-for-manual-verification-steps&#34;&gt;Ideas for manual verification steps&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Note: These are just for manual testing, as we intend to extend the automated tests as much as possible.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Operating system level
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;sdv-health&lt;/code&gt; on the shell&lt;/li&gt;
+&lt;li&gt;Verify disk partitions and RAUC status, e.g. &lt;code&gt;rauc status&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Verify network interface and CAN-Bus with &lt;code&gt;ip addr&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kubernetes
+&lt;ul&gt;
+&lt;li&gt;Check status of cluster and pods with &lt;code&gt;k9s&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

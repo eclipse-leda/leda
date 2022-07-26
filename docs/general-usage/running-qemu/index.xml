@@ -1,0 +1,181 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Running on QEMU</title>
+    <link>/docs/general-usage/running-qemu/</link>
+    <description>Recent content in Running on QEMU on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/general-usage/running-qemu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: CAN Bus</title>
+      <link>/docs/general-usage/running-qemu/canbus/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/general-usage/running-qemu/canbus/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;em&gt;Note: The configuration mentioned in this chapter is already enabled in the &lt;code&gt;run-leda.sh&lt;/code&gt; script.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;qemu&#34;&gt;QEMU&lt;/h2&gt;
+&lt;p&gt;General documentation about using CAN-Bus in Qemu: &lt;a href=&#34;https://www.qemu.org/docs/master/system/devices/can.html&#34;&gt;https://www.qemu.org/docs/master/system/devices/can.html&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;enabling-virtual-can-bus-interfaces-vcan&#34;&gt;Enabling Virtual CAN Bus interfaces (vcan)&lt;/h3&gt;
+&lt;p&gt;No special parameters are necessary for qemu, as vcan is virtual:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;#34;-m 2048&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Bring interface up:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ip link add dev vcan0 type vcan
+ip link set vcan0 up
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;enabling-can-bus-interfaces-can&#34;&gt;Enabling CAN Bus interfaces (can)&lt;/h3&gt;
+&lt;h4 id=&#34;standalone-can-within-qemu&#34;&gt;Standalone CAN within Qemu&lt;/h4&gt;
+&lt;p&gt;To run a standalone CAN setup, qemu must be instructed to emulate a specific CAN hardware device. We will be using the &lt;code&gt;kvaser_pci&lt;/code&gt; device in this example:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;#34;-m 2048 -object can-bus,id=canbus0 -device kvaser_pci,canbus=canbus0&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After the image has booted, load the Linux Kernel Module &lt;code&gt;kvaser_pci&lt;/code&gt; device driver and configure the CAN-Bus device (eg bitrate) before bringing the interface up:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# modprobe kvaser_pci
+
+root@qemux86-64:~# dmesg | grep kvaser
+[    9.565149] kvaser_pci 0000:00:04.0: initializing device 10e8:8406
+[    9.569308] kvaser_pci 0000:00:04.0: reg_base=00000000d5a68095 conf_addr=000000002b3c7ef6 irq=20
+[    9.596942] kvaser_pci 0000:00:04.0: xilinx version=13 number of channels=0
+
+root@qemux86-64:~# ip link show type can
+4: can0: &amp;lt;NOARP,ECHO&amp;gt; mtu 16 qdisc noop state DOWN mode DEFAULT group default qlen 10
+    link/can
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Configure the interface:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# ip link set can0 type can bitrate 1000000
+[  165.519919] kvaser_pci 0000:00:04.0 can0: setting BTR0=0x00 BTR1=0x14
+
+root@qemux86-64:~# ip link set can0 up
+[  186.906065] IPv6: ADDRCONF(NETDEV_CHANGE): can0: link becomes ready
+
+root@qemux86-64:~# ip link show type can
+4: can0: &amp;lt;NOARP,UP,LOWER_UP,ECHO&amp;gt; mtu 16 qdisc pfifo_fast state UP mode DEFAULT group default qlen 10
+    link/can 
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;tunneling-a-can-interface-from-the-host&#34;&gt;Tunneling a CAN Interface from the Host&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;#34;-m 2048 -object can-bus,id=canbus0 -object can-host-socketcan,id=canhost0,if=can0,canbus=canbus0 -device kvaser_pci,canbus=canbus0&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Bring interface up:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ip link add dev can0 type can
+ip link set can0 type can bitrate 1000000
+ip link set can0 up
+ip link show type can
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;raspberry-pi-can-hat-extensions&#34;&gt;Raspberry Pi CAN HAT Extensions&lt;/h1&gt;
+&lt;p&gt;Supported boards:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Boards with a Microchip MCP251x based CAN chip, such as Waveshare CAN HAT or PiCAN 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Verify driver is loaded:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# dmesg | grep mcp
+[    8.23543] mcp251x spi0.0 can0: MCP2515 successfully initialized
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Verify SocketCAN network interface shows up:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# ip link show type can
+3: can0: &amp;lt;NOARP,ECHO&amp;gt; mtu 16 qdisc noop state DOWN mode DEFAULT roup default qlen 10
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Continue with configuring the CAN chip and bring up the SocketCAN network interface:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# ip link set can0 type can bitrate 1000000
+# ip link set can0 up
+# ip link show type can
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;linux-kernel-modules&#34;&gt;Linux Kernel Modules&lt;/h1&gt;
+&lt;p&gt;The following Linux Kernel modules are available on the quickstart images:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: For QEMU, only &lt;em&gt;kvaser_pci&lt;/em&gt; is used&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;leda-main-kernel&#34;&gt;Leda main Kernel&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;peak_pciefd - Socket-CAN driver for PEAK PCAN PCIe/M.2 FD family cards&lt;/li&gt;
+&lt;li&gt;m_can - CAN bus driver for Bosch M_CAN controller&lt;/li&gt;
+&lt;li&gt;m_can_pci - CAN bus driver for Bosch M_CAN controller on PCI bus&lt;/li&gt;
+&lt;li&gt;m_can_platform - M_CAN driver for IO Mapped Bosch controllers&lt;/li&gt;
+&lt;li&gt;softing - Softing DPRAM CAN driver&lt;/li&gt;
+&lt;li&gt;cc770_platform - Socket-CAN driver for CC770 on the platform bus&lt;/li&gt;
+&lt;li&gt;cc770_isa - Socket-CAN driver for CC770 on the ISA bus&lt;/li&gt;
+&lt;li&gt;cc770 - cc770CAN netdevice driver&lt;/li&gt;
+&lt;li&gt;ifi_canfd - CAN bus driver for IFI CANFD controller&lt;/li&gt;
+&lt;li&gt;kvaser_usb - CAN driver for Kvaser CAN/USB devices&lt;/li&gt;
+&lt;li&gt;etas_es58x - Socket CAN driver for ETAS ES58X USB adapters&lt;/li&gt;
+&lt;li&gt;ucan - Driver for Theobroma Systems UCAN devices&lt;/li&gt;
+&lt;li&gt;peak_usb - CAN driver for PEAK-System USB adapters&lt;/li&gt;
+&lt;li&gt;kvaser_pciefd - CAN driver for Kvaser CAN/PCIe devices&lt;/li&gt;
+&lt;li&gt;kvaser_pci - Socket-CAN driver for KVASER PCAN PCI cards&lt;/li&gt;
+&lt;li&gt;f81601 - Fintek F81601 PCIE to 2 CANBUS adaptor driver&lt;/li&gt;
+&lt;li&gt;sja1000_isa - Socket-CAN driver for SJA1000 on the ISA bus&lt;/li&gt;
+&lt;li&gt;plx_pci - Socket-CAN driver for PLX90xx PCI-bridge cards with the SJA1000 chips&lt;/li&gt;
+&lt;li&gt;sja1000 - sja1000CAN netdevice driver&lt;/li&gt;
+&lt;li&gt;ems_pci - Socket-CAN driver for EMS CPC-PCI/PCIe/104P CAN cards&lt;/li&gt;
+&lt;li&gt;peak_pci - Socket-CAN driver for PEAK PCAN PCI family cards&lt;/li&gt;
+&lt;li&gt;sja1000_platform - Socket-CAN driver for SJA1000 on the platform bus&lt;/li&gt;
+&lt;li&gt;vxcan - Virtual CAN Tunnel&lt;/li&gt;
+&lt;li&gt;c_can_platform - Platform CAN bus driver for Bosch C_CAN controller&lt;/li&gt;
+&lt;li&gt;c_can - CAN bus driver for Bosch C_CAN controller&lt;/li&gt;
+&lt;li&gt;c_can_pci - PCI CAN bus driver for Bosch C_CAN/D_CAN controller&lt;/li&gt;
+&lt;li&gt;slcan - serial line CAN interface&lt;/li&gt;
+&lt;li&gt;can_dev - CAN device driver interface&lt;/li&gt;
+&lt;li&gt;vcan - virtual CAN interface&lt;/li&gt;
+&lt;li&gt;can-isotop - PF_CAN isotp 15765-2:2016 protocol&lt;/li&gt;
+&lt;li&gt;can-gw - PF_CAN netlink gateway&lt;/li&gt;
+&lt;li&gt;can-j1939 - PF_CAN SAE J1939&lt;/li&gt;
+&lt;li&gt;can-raw - PF_CAN raw protocol&lt;/li&gt;
+&lt;li&gt;can-bcm - PF_CAN broadcast manager protocol&lt;/li&gt;
+&lt;li&gt;can - Controller Area Network PF_CAN core&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;raspberry-pi&#34;&gt;Raspberry Pi&lt;/h2&gt;
+&lt;p&gt;The following Linux Kernel modules are available on the quickstart image for Raspberry Pi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;can - Controller Area Network PF_CAN core&lt;/li&gt;
+&lt;li&gt;vxcan - Virtual CAN Tunnel&lt;/li&gt;
+&lt;li&gt;can-dev - CAN device driver interface&lt;/li&gt;
+&lt;li&gt;can-bcm - PF_CAN broadcast manager protocol&lt;/li&gt;
+&lt;li&gt;can-gw - PF_CAN netlink gateway&lt;/li&gt;
+&lt;li&gt;can-raw - PF_CAN raw protocol&lt;/li&gt;
+&lt;li&gt;can-isotop - PF_CAN isotp 15765-2:2016 protocol&lt;/li&gt;
+&lt;li&gt;can-j1939 - PF_CAN SAE J1939&lt;/li&gt;
+&lt;li&gt;vcan - virtual CAN interface&lt;/li&gt;
+&lt;li&gt;slcan - serial line CAN interface&lt;/li&gt;
+&lt;li&gt;mcp251x - Microchip 251x/25625 CAN driver&lt;/li&gt;
+&lt;li&gt;mcp251xfd - Microchip 251xFD Family CAN controller driver&lt;/li&gt;
+&lt;li&gt;ems_usb - CAN driver for EMS Dr. Thomas Wuensche CAN/USB interfaces&lt;/li&gt;
+&lt;li&gt;gs_usb - Socket CAN device driver for Geschwister Schneider UG&lt;/li&gt;
+&lt;li&gt;peak_usb - CAN driver for PEAK-System USB adapters&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Transferring Files</title>
+      <link>/docs/general-usage/running-qemu/filetransfer/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/general-usage/running-qemu/filetransfer/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;sharing-a-directory-with-the-guest&#34;&gt;Sharing a directory with the guest&lt;/h1&gt;
+&lt;p&gt;When you want to copy files between the host and the guest, an easy way is to use an SFTP tunnel.
+With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote directory via SSH.&lt;/p&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;p&gt;Installation of needed packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;apt-get install sshfs&lt;/code&gt; on your host&lt;/li&gt;
+&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image&lt;/li&gt;
+&lt;li&gt;Verify SFTP connection working with &lt;code&gt;sftp -P 2222 root@localhost&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;transfering-files-from-host-to-guest&#34;&gt;Transfering files from host to guest&lt;/h2&gt;
+&lt;p&gt;When you want to copy files from the host to the guest, an easy way is to use an SFTP tunnel.
+With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote directory via SSH.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a mount point on your host: &lt;code&gt;mkdir remote&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open the SSH Filesystem tunnel: &lt;code&gt;sshfs root@localhost:/ remote/ -p 2222&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check files: &lt;code&gt;ls -al remote/&lt;/code&gt; - you should see the root filesystem of the device now&lt;/li&gt;
+&lt;li&gt;You can now easily copy files: &lt;code&gt;cp foo.txt remote/home/root/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;transfering-files-from-guest-to-host&#34;&gt;Transfering files from guest to host&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; The reverse direction, e.g. initiating an SSH tunnel from within the device to the host, is currently not supported by the installed software on the image.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

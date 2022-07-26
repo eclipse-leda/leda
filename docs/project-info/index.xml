@@ -1,0 +1,461 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Project Information</title>
+    <link>/docs/project-info/</link>
+    <description>Recent content in Project Information on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/project-info/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Community</title>
+      <link>/docs/project-info/community/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/project-info/community/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Thanks for your interest in this project and in our community.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/automotive.leda&#34;&gt;https://projects.eclipse.org/projects/automotive.leda&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
+&lt;p&gt;Contact the project developers via the project&amp;rsquo;s &amp;ldquo;dev&amp;rdquo; list.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://accounts.eclipse.org/mailing-list/leda-dev&#34;&gt;https://accounts.eclipse.org/mailing-list/leda-dev&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;developer-resources&#34;&gt;Developer resources&lt;/h2&gt;
+&lt;p&gt;Information regarding source code management, builds, coding standards, and
+more.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://projects.eclipse.org/projects/automotive.leda/developer&#34;&gt;https://projects.eclipse.org/projects/automotive.leda/developer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The project maintains the following source code repositories&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda&#34;&gt;https://github.com/eclipse-leda/leda&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro&#34;&gt;https://github.com/eclipse-leda/leda-distro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda&#34;&gt;https://github.com/eclipse-leda/meta-leda&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Dependencies</title>
+      <link>/docs/project-info/dependencies/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/project-info/dependencies/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Dependency&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;License&lt;/th&gt;
+&lt;th&gt;URL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;poky&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT or GPL-2.0-only&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.yoctoproject.org/software-item/poky/&#34;&gt;https://www.yoctoproject.org/software-item/poky/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-virtualization&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://git.yoctoproject.org/meta-virtualization&#34;&gt;https://git.yoctoproject.org/meta-virtualization&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-networking&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://git.yoctoproject.org/meta-networking&#34;&gt;https://git.yoctoproject.org/meta-networking&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-rauc&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/rauc/meta-rauc&#34;&gt;https://github.com/rauc/meta-rauc&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-openembedded&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://git.openembedded.org/meta-openembedded&#34;&gt;https://git.openembedded.org/meta-openembedded&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-security&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://git.yoctoproject.org/meta-security&#34;&gt;https://git.yoctoproject.org/meta-security&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-rauc-community&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/rauc/meta-rauc-community&#34;&gt;https://github.com/rauc/meta-rauc-community&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meta-raspberrypi&lt;/td&gt;
+&lt;td&gt;OpenEmbedded Metalayer&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://git.yoctoproject.org/meta-raspberrypi&#34;&gt;https://git.yoctoproject.org/meta-raspberrypi&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Contribution Guidelines</title>
+      <link>/docs/project-info/contribution-guidelines/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/project-info/contribution-guidelines/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Thanks for considering to contribute to Eclipse Leda. We really appreciate the time and effort you want to spend helping to improve the project.&lt;/p&gt;
+&lt;p&gt;In order to get you started as fast as possible we need to go through some organizational issues first, though.&lt;/p&gt;
+&lt;h2 id=&#34;eclipse-development-process&#34;&gt;Eclipse Development Process&lt;/h2&gt;
+&lt;p&gt;This Eclipse Foundation open project is governed by the Eclipse Foundation
+Development Process and operates under the terms of the Eclipse IP Policy.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse.org/projects/dev_process&#34;&gt;https://eclipse.org/projects/dev_process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/org/documents/Eclipse_IP_Policy.pdf&#34;&gt;https://www.eclipse.org/org/documents/Eclipse_IP_Policy.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;eclipse-contributor-agreement&#34;&gt;Eclipse Contributor Agreement&lt;/h2&gt;
+&lt;p&gt;Before your contribution can be accepted by the project team contributors must
+electronically sign the Eclipse Contributor Agreement (ECA).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.eclipse.org/legal/ECA.php&#34;&gt;http://www.eclipse.org/legal/ECA.php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Commits that are provided by non-committers must have a Signed-off-by field in
+the footer indicating that the author is aware of the terms by which the
+contribution has been provided to the project. The non-committer must
+additionally have an Eclipse Foundation account and must have a signed Eclipse
+Contributor Agreement (ECA) on file.&lt;/p&gt;
+&lt;p&gt;For more information, please see the Eclipse Committer Handbook:
+&lt;a href=&#34;https://www.eclipse.org/projects/handbook/#resources-commit&#34;&gt;https://www.eclipse.org/projects/handbook/#resources-commit&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;making-your-changes&#34;&gt;Making Your Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fork the repository on GitHub.&lt;/li&gt;
+&lt;li&gt;Create a new branch for your changes.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Note: When forking multiple repositories (eg most of the time, you also need to make modifications to meta-leda), please use the same branch name of each repository.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Make your changes following the code style guide for the respective type of content:
+&lt;ul&gt;
+&lt;li&gt;BitBake Recipes: &lt;a href=&#34;https://www.openembedded.org/wiki/Styleguide&#34;&gt;https://www.openembedded.org/wiki/Styleguide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Documentation: &lt;a href=&#34;https://www.docsy.dev/docs/best-practices/&#34;&gt;https://www.docsy.dev/docs/best-practices/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Shell Scripts (Example Style Guide): &lt;a href=&#34;https://google.github.io/styleguide/shellguide.html&#34;&gt;https://google.github.io/styleguide/shellguide.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;When you create new files make sure you include a proper license header at the top of the file (see License Header section below).&lt;/li&gt;
+&lt;li&gt;Make sure you include test cases for non-trivial features.&lt;/li&gt;
+&lt;li&gt;Make sure the test suite passes after your changes.&lt;/li&gt;
+&lt;li&gt;Commit your changes into that branch.&lt;/li&gt;
+&lt;li&gt;Use descriptive and meaningful commit messages. Start the first line of the commit message with the a GitHub Issue number if available and a title e.g. &lt;code&gt;[#9865] Add token based authentication&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Squash multiple commits that are related to each other semantically into a single one.&lt;/li&gt;
+&lt;li&gt;Make sure you use the &lt;code&gt;-s&lt;/code&gt; flag when committing as explained above.&lt;/li&gt;
+&lt;li&gt;Push your changes to your branch in your forked repository.&lt;/li&gt;
+&lt;li&gt;Once you&amp;rsquo;re satisfied with your contribution, open a Pull Request and Eclipse Leda Committers will start with the review of your changes.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Note: When working with multiple repositories, you need to open separate Pull Requests for each repository.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;adding-documentation-to-hugo&#34;&gt;Adding Documentation to Hugo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the markdown document to the appropriate folder in the path &lt;code&gt;leda/content/en&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add the front-matter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;title of the file&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;2022-05-09T13:43:25&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;+05&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Additional front matter that can be added –
+&lt;ul&gt;
+&lt;li&gt;url : &amp;quot;specifying a definite url to the file&amp;quot;&lt;/li&gt;
+&lt;li&gt;weight : 10 (used for ordering your content in lists. Lower weight gets higher precedence.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The images need to be put in path &lt;code&gt;leda/static/assets&lt;/code&gt;. The image reference should be &lt;code&gt;/assets/image.jpg&lt;/code&gt; in the markdown file.
+(Note: Do not use relative paths or url)&lt;/li&gt;
+&lt;li&gt;In case you are creating a new folder, create _index.md file with the front matter only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;running-locally&#34;&gt;Running Locally&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install hugo version 0.98.0 extended &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/tag/v0.98.0&#34;&gt;Release v0.98.0 · gohugoio/hugo (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install Docsy theme in the path leda/themes/docsy –&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#Run this command from root directory of velocitas-docs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/google/docsy.git themes/docsy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Install pre-requisites&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; themes/docsy/userguide/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install --save-dev postcss
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;From the leda directory run the command &lt;strong&gt;hugo server&lt;/strong&gt; visit localhost:1313 to see the rendered static site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;submitting-the-changes&#34;&gt;Submitting the Changes&lt;/h2&gt;
+&lt;p&gt;Submit a pull request via the normal GitHub UI.&lt;/p&gt;
+&lt;h2 id=&#34;after-submitting&#34;&gt;After Submitting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not use your branch for any other development, otherwise further changes that you make will be visible in the PR.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;license-header&#34;&gt;License Header&lt;/h2&gt;
+&lt;p&gt;Please make sure any file you newly create contains a proper license header like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# /********************************************************************************&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * Copyright (c) 2022 Contributors to the Eclipse Foundation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# *&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * See the NOTICE file(s) distributed with this work for additional&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * information regarding copyright ownership.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# *&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * This program and the accompanying materials are made available under the&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * terms of the Apache License 2.0 which is available at&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * https://www.apache.org/licenses/LICENSE-2.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# *&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# * SPDX-License-Identifier: Apache-2.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# ********************************************************************************/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should, of course, adapt this header to use the specific mechanism for comments pertaining to the type of file you create.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Please do not forget to add your name/organization to the &lt;code&gt;LICENSE&lt;/code&gt; file&amp;rsquo;s &lt;em&gt;Copyright Holders&lt;/em&gt; section. If this is not the first contribution you make, then simply update the time period contained in the copyright entry to use the year of your first contribution as the lower boundary and the current year as the upper boundary, e.g.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Copyright 2017, 2018 ACME Corporation&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;On every PR merge a pipeline run will be triggered. This run will trigger the hugo docs build&lt;/li&gt;
+&lt;li&gt;Hugo v0.98.0 extended is set up for the runner&lt;/li&gt;
+&lt;li&gt;Docsy theme is setup for beautification of static site&lt;/li&gt;
+&lt;li&gt;Then dependencies are installed for the theme&lt;/li&gt;
+&lt;li&gt;Static site is generated and stored in a folder &amp;quot;public&amp;quot;&lt;/li&gt;
+&lt;li&gt;The contents of public are committed to gh_pages branch which is exposed to host the github pages&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Project Logo</title>
+      <link>/docs/project-info/logo/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/project-info/logo/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;eclipse-leda-logo.zip&#34;&gt;Download eclipse-leda-logo.zip&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;white-background&#34;&gt;White background&lt;/h2&gt;
+
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 650px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/project-info/logo/eclipse-leda-logo-white-transparent_hu9a062543d0484a5cb9683d4306669d63_91703_640x0_resize_catmullrom_3.png&#34; width=&#34;640&#34; height=&#34;233&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+2182x794, white, transparent
+&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;black-background&#34;&gt;Black background&lt;/h2&gt;
+
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 650px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/project-info/logo/eclipse-leda-logo-black_hu3de800b8cf15ea47f176e535cd90a422_110601_640x0_resize_catmullrom_3.png&#34; width=&#34;640&#34; height=&#34;233&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+2182x794, black, opaque
+&lt;small class=&#34;text-muted&#34;&gt;&lt;br/&gt;Credits: prothesis / kanellos @ 99designs.com | Font: https://www.dafont.com/olney.font&lt;/small&gt;&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 138px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/project-info/logo/icon_hue62b0b1a8d8b9fe0e0ffe6ab60b42779_84571_128x128_resize_catmullrom_3.png&#34; width=&#34;128&#34; height=&#34;128&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+916x916, black
+&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;colors&#34;&gt;Colors&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Primary Color: #6daed1&lt;/li&gt;
+&lt;li&gt;Secondary Color: #804096&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Data Protection Notice</title>
+      <link>/docs/project-info/data-privacy-notice/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/project-info/data-privacy-notice/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Your privacy is important to us. The following Information is to provide you with all information relevant to data protection in order to be able to use the software, in a data protection compliant manner. It is provided as an information source for your solution-specific data protection and data privacy topics. This is not intended to provide and should not be relied on for legal advice.&lt;/p&gt;
+&lt;h3 id=&#34;your-role&#34;&gt;Your Role&lt;/h3&gt;
+&lt;p&gt;First things first: when you choose and use our software, you are most likely acting in the role of data controller, if personal related data is being processed. Therefore, you must ensure that the processing of personal data complies with the respective local legal requirements, e.g. when processing data within the scope of General Data Protection Regulation (GDPR) the legal requirements for a controller from the GDPR.&lt;/p&gt;
+&lt;h3 id=&#34;where-may-the-processing-of-personal-related-data-be-relevant&#34;&gt;Where may the processing of personal related data be relevant?&lt;/h3&gt;
+&lt;p&gt;When using our software in combination with other software components, personal data or data categories may be collected for the purpose of developing, testing and running in-vehicle applications (Vehicle Apps). Possible examples are the vehicle identification number (VIN), the number plate, GPS data, video data, audio data, or other measurement data. You can determine which data or data categories are collected when configuring the software. These data are stored in volatile memory and are deleted by shutting down the system. You are responsible for the compliant handling of the data in accordance with the applicable local law.&lt;/p&gt;
+&lt;h3 id=&#34;what-have-we-done-to-make-the-software-data-protection-friendly&#34;&gt;What have we done to make the software data protection friendly?&lt;/h3&gt;
+&lt;p&gt;This section describes the measures taken to integrate the requirements of the data protection directly into the software development. The technical measures described below follow a &amp;ldquo;privacy by design&amp;rdquo; approach.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deletion possibility: The software does not save data permanently since it uses only volatile memory. All collected or processed data can be deleted by rebooting the host hardware.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Security Policy</title>
+      <link>/docs/project-info/security/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/project-info/security/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This project implements the Eclipse Foundation Security Policy&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.eclipse.org/security&#34;&gt;https://www.eclipse.org/security&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reporting-a-vulnerability&#34;&gt;Reporting a Vulnerability&lt;/h2&gt;
+&lt;p&gt;Please report vulnerabilities to the Eclipse Foundation Security Team at
+&lt;a href=&#34;mailto:security@eclipse.org&#34;&gt;security@eclipse.org&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;supported-yocto-versions&#34;&gt;Supported Yocto Versions&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Supported&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Yocto 4.x (Kirkstone)&lt;/td&gt;
+&lt;td&gt;Untested&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yocto 3.4 (Honister)&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yocto 3.3&lt;/td&gt;
+&lt;td&gt;Untested&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Yocto &amp;lt; 3.3&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Important: When you use the quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;configuration-items&#34;&gt;Configuration Items&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Disable system user (root) password and login&lt;/li&gt;
+&lt;li&gt;Disable SSH login with password&lt;/li&gt;
+&lt;li&gt;Adding a new Linux user with restricted permissions&lt;/li&gt;
+&lt;li&gt;Adding SSH key based authentication&lt;/li&gt;
+&lt;li&gt;Kubernetes Resources: Secrets
+&lt;ul&gt;
+&lt;li&gt;Device Identity Certificates for Cloud Connection&lt;/li&gt;
+&lt;li&gt;Access credentials for private Container Registries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;device-identity-for-cloud-connector&#34;&gt;Device Identity for Cloud Connector&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Method&lt;/th&gt;
+&lt;th&gt;Implementation&lt;/th&gt;
+&lt;th&gt;Intended use&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Pre-Shared Symmetric Key&lt;/td&gt;
+&lt;td&gt;Azure IoT Hub Connection String&lt;/td&gt;
+&lt;td&gt;Development&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Certificates&lt;/td&gt;
+&lt;td&gt;X.509 Certificates&lt;/td&gt;
+&lt;td&gt;Production&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;kubernetes-secrets-encryption&#34;&gt;Kubernetes Secrets Encryption&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Method&lt;/th&gt;
+&lt;th&gt;Implementation&lt;/th&gt;
+&lt;th&gt;Intended use&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Plain text&lt;/td&gt;
+&lt;td&gt;Base64 Encoding&lt;/td&gt;
+&lt;td&gt;Development&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Encrypted&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/&#34;&gt;Kubernetes: Encrypting Secret Data at Rest&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Production&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

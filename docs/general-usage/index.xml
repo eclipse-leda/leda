@@ -1,0 +1,469 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Getting Started</title>
+    <link>/docs/general-usage/</link>
+    <description>Recent content in Getting Started on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/general-usage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Download latest release</title>
+      <link>/docs/general-usage/download-releases/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/general-usage/download-releases/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Go to the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases&#34;&gt;Eclipse Leda Releases&lt;/a&gt; page and download the disk image for the respective machine and the respective Linux kernel:&lt;/p&gt;
+&lt;h1 id=&#34;latest-release-artifacts&#34;&gt;Latest Release Artifacts&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Machine&lt;/th&gt;
+&lt;th&gt;Filename&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;QEMU x86_64&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/latest/download/eclipse-leda-qemu-x86_64.tar.xz&#34;&gt;eclipse-leda-qemu-x86_64.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;For running QEMU x86 64-Bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QEMU ARM 64&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/latest/download/eclipse-leda-qemu-arm64.tar.xz&#34;&gt;eclipse-leda-qemu-arm64.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;For running QEMU ARM 64-Bit&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Raspberry Pi 4&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/latest/download/eclipse-leda-raspberrypi.tar.xz&#34;&gt;eclipse-leda-raspberrypi.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;For running on Raspberry Pi 4 (SD-Card Image)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Misc&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/latest/download/qa-reports.tar&#34;&gt;qa-reports.tar&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Test and other QA reports&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/latest/download/sdv-os-test-x86_64&#34;&gt;sdv-os-test-x86_64&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Smoke Tests executable x86_64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;using-github-cli-tool&#34;&gt;Using GitHub CLI tool&lt;/h1&gt;
+&lt;p&gt;To download all files of the latest release using the GitHub CLI:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://github.com/cli/cli&#34;&gt;GitHub CLI&lt;/a&gt;, e.g. for Ubuntu:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&amp;#34; | sudo tee /etc/apt/sources.list.d/github-cli.list &amp;gt; /dev/null
+sudo apt update
+sudo apt install gh
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Authenticate to GitHub:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gh auth login
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Download Leda latest release:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On Linux:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir leda &amp;amp;&amp;amp; cd leda
+
+gh release download \
+  --pattern &amp;#39;*.zip&amp;#39; \
+  --pattern &amp;#39;eclipse-leda-*&amp;#39; \
+  --repo eclipse-leda/leda-distro
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On Windows:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gh release download --pattern &amp;#34;*.zip&amp;#34; --pattern &amp;#34;eclipse-leda-*&amp;#34; --repo eclipse-leda/leda-distro
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running on QEMU</title>
+      <link>/docs/general-usage/running-qemu/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/general-usage/running-qemu/</guid>
+      <description>
+        
+        
+        &lt;p&gt;If you want to execute the image without building first, grab the latest release or build artifacts from &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/&#34;&gt;https://github.com/eclipse-leda/leda-distro/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;recommendations&#34;&gt;Recommendations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;strong&gt;Linux host&lt;/strong&gt; with 8 vCPUs, 16GB of RAM and SSD storage is recommended&lt;/li&gt;
+&lt;li&gt;Your Linux user should be &lt;strong&gt;sudoer&lt;/strong&gt; to allow TAP network interfaces to be set up&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;qemu-x86_64&#34;&gt;QEMU x86_64&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for Ubuntu:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update -y
+sudo apt-get install -y qemu-system-x86-64
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uncompress the archive&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar xf eclipse-leda-qemu-x86_64.tar.xz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run QEMU on Linux:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./run-leda.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run QEMU on Windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;run-leda.cmd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;leda-bootsequence.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;
+&lt;img src=&#34;systemctl-status-k3s.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;
+&lt;img src=&#34;sdv-health1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
+stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;qemu-arm-64-bit&#34;&gt;QEMU ARM 64-Bit&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 64-Bit: &lt;code&gt;sudo apt install qemu-system-aarch64&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uncompress the archive&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar xf eclipse-leda-qemu-arm64.tar.xz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run QEMU on Linux:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./run-leda.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run QEMU on Windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;run-leda.cmd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
+stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;qemu-arm-32-bit&#34;&gt;QEMU ARM 32-Bit&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 32-Bit: &lt;code&gt;sudo apt install qemu-system-arm&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uncompress the archive&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar xf eclipse-leda-qemu-arm.tar.xz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run QEMU on Linux:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./run-leda.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run QEMU on Windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;run-leda.cmd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
+stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running on Raspberry Pi</title>
+      <link>/docs/general-usage/raspberry-pi/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/general-usage/raspberry-pi/</guid>
+      <description>
+        
+        
+        &lt;p&gt;What you need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Raspberry Pi 4 with 2 GiB of RAM or more, recommended is 8 GiB&lt;/li&gt;
+&lt;li&gt;Network connection (Ethernet or Wifi) with transparent internet access&lt;/li&gt;
+&lt;li&gt;Optional keyboard and display (makes it easier to troubleshoot)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download the &lt;a href=&#34;/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uncompress the SD Card image:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tar xf eclipse-leda-raspberrypi.tar.xz
+bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flash the &lt;code&gt;sdv-image-full-raspberrypi4.wic&lt;/code&gt; file to an SD-Card&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Linux:
+&lt;ul&gt;
+&lt;li&gt;Install bmap tools: &lt;code&gt;sudo apt-get install -y bmap-tools&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Insert SD Card and check which device is mounted: &lt;code&gt;sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Unmount the device: &lt;code&gt;sudo umount /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-full-raspberrypi4-64.wic.bmap sdv-image-full-raspberrypi4-64.wic.gz /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;On Windows:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.raspberrypi.org/documentation/installation/installing-images/&#34;&gt;Raspberry Pi Imager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.balena.io/etcher/&#34;&gt;Balena Etcher&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional: If you need to adapt the network configuration eg Wifi credentials, edit the configuration files on the &lt;code&gt;boot&lt;/code&gt; partition.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Shutdown the Raspberry and insert the SD-Card into the Raspberry Pi SD-Card slot at the bottom&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power on your Raspberry to boot the image&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Login with &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check disk space:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;raspberry-growdisk&lt;/code&gt; system service will do this automatically on first boot.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To manually enlarge the available disk space on the SD-Card, resize the disk partition: &lt;code&gt;parted /dev/mmcblk0 resizepart 6 100% &amp;amp;&amp;amp; resize2fs /dev/mmcblk0p6&lt;/code&gt;. Verify with &lt;code&gt;df -h&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Due to changes in the disk partition, the partition number (&lt;code&gt;6&lt;/code&gt; in the example) may have changed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Cheatsheet</title>
+      <link>/docs/general-usage/cheatsheet/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/general-usage/cheatsheet/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Task&lt;/th&gt;
+&lt;th&gt;Command&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;General&lt;/td&gt;
+&lt;td&gt;Overall info&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sdv-health&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Show device info&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sdv-device-info&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Device provisioning&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sdv-provision&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Switch Keyboard layout&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;loadkeys de&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kubernetes&lt;/td&gt;
+&lt;td&gt;Check k3s status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;k9s&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;k9s&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;k3s service logs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;journalctl -f -l -t k3s&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Show all Pods&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl get pods -A&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Pod details&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl describe pod &amp;lt;podname&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Pod logs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl logs &amp;lt;podname&amp;gt; &amp;lt;containername&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Auto deployments&lt;/td&gt;
+&lt;td&gt;See &lt;code&gt;/var/lib/rancher/k3s/server/manifests/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Delete a Pod&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl delete pod &amp;lt;podname&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Redeplod a Pod&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl apply -f &amp;lt;podspec.yaml&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Shell in a Pod&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl exec --stdin --tty &amp;lt;podname&amp;gt; -- /bin/sh&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Cluster IP&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl get svc clusterip&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ContainerdD&lt;/td&gt;
+&lt;td&gt;Show images&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i ls&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Import local archive&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i import &amp;lt;docker.tar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DAPR&lt;/td&gt;
+&lt;td&gt;Reinstall&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dapr-init.sh&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mosquitto&lt;/td&gt;
+&lt;td&gt;Show all messages&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mosquitto_sub -v -t &#39;#&#39; -h &amp;lt;MosquittoClusterIP&amp;gt;&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Send message&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mosquitto_pub -t &#39;&amp;lt;target/topic&amp;gt;&#39; -h &amp;lt;MosquittoClusterIP&amp;gt; -m &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Mosquitto Cluster IP&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl get svc mosquitto&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloud Connectivity&lt;/td&gt;
+&lt;td&gt;Cloud agent logs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl get logs sdv-core-cloud-agent&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Connectivity status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mosquitto_rr --quiet -h &amp;lt;MosquittoClusterIP&amp;gt; -t &#39;edge/thing/request&#39; -e &#39;edge/thing/response&#39; -m &#39;&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RAUC Self Update&lt;/td&gt;
+&lt;td&gt;Current boot status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rauc status&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Switch to other boot slot&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;rauc status mark-active other&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

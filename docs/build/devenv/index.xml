@@ -1,0 +1,132 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Setup development environment</title>
+    <link>/docs/build/devenv/</link>
+    <description>Recent content in Setup development environment on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/build/devenv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Codespaces</title>
+      <link>/docs/build/devenv/github-codespaces/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/devenv/github-codespaces/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;setting-up-development-environment-in-github-codespaces&#34;&gt;Setting up Development Environment in GitHub Codespaces&lt;/h1&gt;
+&lt;h2 id=&#34;install-the-github-codespaces-extension&#34;&gt;Install the GitHub Codespaces Extension&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; When using our DevContainer, the &lt;em&gt;GitHub Codespaces&lt;/em&gt; extension is pre-installed.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start VSCode&lt;/li&gt;
+&lt;li&gt;Go to &lt;em&gt;Extensions&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Search for &amp;ldquo;GitHub Codespaces&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Click &lt;em&gt;Install&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Alternatively, create a new codespace via the GitHub web interface:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;github-code-new-codespace.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Select a big enough machine type for Yocto/BitBake, e.g. 16 CPU. You need at leasst 50GB disk space.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;github-codespaces-remote-explorer.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;private-repositories&#34;&gt;Private Repositories&lt;/h2&gt;
+&lt;p&gt;When using GitHub Codespaces with submodules and private repositories,
+a separate tool for git authentication is required (see &lt;a href=&#34;https://github.com/microsoft/vscode/issues/109050&#34;&gt;VSCode issue #109050&lt;/a&gt;), as the authentication token provided to the GitHub Codespaces virtual machine only allows access to the main repository.&lt;/p&gt;
+&lt;p&gt;Git Credential Manager:
+&lt;a href=&#34;https://aka.ms/gcm&#34;&gt;https://aka.ms/gcm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Installation:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;amp;&amp;amp;
+sh ./install-from-source.sh &amp;amp;&amp;amp;
+git-credential-manager-core configure
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: GitHub Runner</title>
+      <link>/docs/build/devenv/github-runner/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/devenv/github-runner/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;create-a-new-github-runner-for-this-repo&#34;&gt;Create a new GitHub Runner for this repo&lt;/h1&gt;
+&lt;p&gt;Start with creating a new azure VM:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ubuntu Server Latest, currently 20.04&lt;/li&gt;
+&lt;li&gt;Size Standard D16ds v5&lt;/li&gt;
+&lt;li&gt;The admin user should be called &amp;ldquo;runner&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once the VM is ready:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Stop the VM&lt;/li&gt;
+&lt;li&gt;Go to &amp;ldquo;Disk&amp;rdquo; and resize the OS disk to 512 GB&lt;/li&gt;
+&lt;li&gt;Start the VM again&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;run-the-script-to-setup-the-runner&#34;&gt;Run the script to setup the runner&lt;/h1&gt;
+&lt;p&gt;Log on to the VM as runner. Either copy the &lt;code&gt;scripts/PrepVMasGHRunner.sh&lt;/code&gt; onto the VM or create a new script:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano prep.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the content of the PrepVMasGHRunner.sh from this repo into the new file, save it and make it executable:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;755&lt;/span&gt; prep.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Call it with the token and the next available nummer, see below how to get this items:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./prep.sh &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ASYVOMU........DTCFCMBA&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the Azure portal go the VM, go to the &amp;ldquo;network&amp;rdquo; section and delete the rule opening port 22.
+Congratulation, you are done!&lt;/p&gt;
+&lt;h1 id=&#34;how-to-get-the-token-and-the-number-to-call-the-script&#34;&gt;How to get the token and the number to call the script&lt;/h1&gt;
+&lt;p&gt;In the repo, go to &amp;ldquo;Settings&amp;rdquo; -&amp;gt; &amp;ldquo;Actions&amp;rdquo;. You see the currently provisioned runners:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;nextnumber.png&#34; alt=&#34;Alt text&#34; title=&#34;Find next number&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Pick the next number and pass it to the script.&lt;/p&gt;
+&lt;p&gt;To get the token press the green button in the above screenshot. The token is in the command:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;token.png&#34; alt=&#34;Alt text&#34; title=&#34;Get the token&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: VSCode DevContainer</title>
+      <link>/docs/build/devenv/vscode-devcontainer/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/devenv/vscode-devcontainer/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;visual-studio-code-development-containers&#34;&gt;Visual Studio Code: Development Containers&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install and start Visual Studio&lt;/li&gt;
+&lt;li&gt;Open Command Palette (&lt;code&gt;F1&lt;/code&gt;) and select &lt;code&gt;Clone repository into DevContainer&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select this repository and the main branch.&lt;/li&gt;
+&lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Open terminal and execute one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts to execute the build&lt;/li&gt;
+&lt;li&gt;For later builds, it is advisable to run &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-env ../build-sdv-xxx &amp;amp;&amp;amp; bitbake core-image-minimal&lt;/code&gt; manually to reuse the build work directory&lt;/li&gt;
+&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
+&lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
+&lt;p&gt;The build process requires online connection and you must be authenticated to access private repositories.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a GitHub Personal Access Token (PAT) at &lt;a href=&#34;https://github.com/settings/tokens&#34;&gt;https://github.com/settings/tokens&lt;/a&gt; and grant &lt;code&gt;read:packages&lt;/code&gt; permission&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;Configure SSO&lt;/code&gt; and authorize your PAT for the organization&lt;/li&gt;
+&lt;li&gt;On the build host, authenticate to ghcr.io: &lt;code&gt;skopeo login ghcr.io --authfile ~/auth.json --username &amp;lt;username&amp;gt;&lt;/code&gt; and enter the PAT as password
+&lt;ul&gt;
+&lt;li&gt;You may need to create the folder where skopeo is storing authentication information beforehand:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir -p /run/containers/1000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chmod a+w /run/containers/1000
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Start the bitbake build process&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

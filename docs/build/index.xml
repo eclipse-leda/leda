@@ -1,0 +1,454 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Building Leda</title>
+    <link>/docs/build/</link>
+    <description>Recent content in Building Leda on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/build/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Concepts</title>
+      <link>/docs/build/concepts/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/concepts/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;bitbake-and-metalayers&#34;&gt;BitBake and Metalayers&lt;/h1&gt;
+&lt;p&gt;The example build configurations in this repository are based on the official &lt;a href=&#34;https://www.yoctoproject.org/docs/current/brief-yoctoprojectqs/brief-yoctoprojectqs.html&#34;&gt;BitBake Quickstart tutorial&lt;/a&gt; and have been extended to include SDV components.&lt;/p&gt;
+&lt;p&gt;To set up your own BitBake build configuration, follow the BitBake documentation and include &lt;code&gt;meta-leda&lt;/code&gt; in your &lt;code&gt;bblayers.conf&lt;/code&gt; and add the SDV packages into your &lt;code&gt;local.conf&lt;/code&gt;. You may use the the &lt;code&gt;local.conf&lt;/code&gt; files in the &lt;code&gt;build-sdv-*/conf/local.conf&lt;/code&gt; as a guiding reference.&lt;/p&gt;
+&lt;h1 id=&#34;sdv-meta-layer&#34;&gt;SDV Meta Layer&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;meta-leda&lt;/code&gt; layer conatins the BitBake Classes and Recipes to integrate SDV Components into a BitBake based build setup.&lt;/p&gt;
+&lt;p&gt;Please see &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda&#34;&gt;https://github.com/eclipse-leda/meta-leda&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;h1 id=&#34;recipes-for-kubernetes-pods&#34;&gt;Recipes for Kubernetes Pods&lt;/h1&gt;
+&lt;p&gt;The SDV stack is based on a Kubernetes Control Plane and the intention is to have as much components containerized as possible, to ensure a high degree of isolation and updateability.&lt;/p&gt;
+&lt;p&gt;To automatically deploy the pods of the SDV reference implementation and example applications and services, the build configurations will deploy a couple of Pod specifiction files into the &lt;a href=&#34;https://rancher.com/docs/k3s/latest/en/advanced/#auto-deploying-manifests&#34;&gt;auto-deployment folder of k3s&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At start time of k3s, these pods will be automatically deployed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cloud Connector by &lt;a href=&#34;https://projects.eclipse.org/projects/iot.kanto&#34;&gt;Eclipse Kanto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Log and Trace by &lt;a href=&#34;https://github.com/open-telemetry/&#34;&gt;OpenTelemetry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Example Application: &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Seat Adjuster python app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Vehicle API
+&lt;ul&gt;
+&lt;li&gt;Data Broker&lt;/li&gt;
+&lt;li&gt;Example Seat Service (CAN-bus implementation)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Vehicle Update Manager&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For a full list of pods, see &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/recipes-sdv/sdv-core/files/sdv-core-bundle-pods&#34;&gt;&lt;code&gt;meta-leda/recipes-sdv/sdv-core/files/sdv-core-bundle-pods/&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;recipes-for-containerized-applications&#34;&gt;Recipes for containerized applications&lt;/h1&gt;
+&lt;p&gt;OpenEmbedded&amp;rsquo;s &lt;a href=&#34;https://layers.openembedded.org/layerindex/branch/master/layer/meta-virtualization/&#34;&gt;meta-virtualization&lt;/a&gt; already contains some recipes and reusabled classes for building virtualization and containerized applications.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;meta-leda&lt;/code&gt; extends that functionality by using &lt;code&gt;skopeo&lt;/code&gt; to package container images. To minimize the runtime requirements (dependencies, disk usage), an approach to pre-load container images and its layers directly into the content storage of the container runtime is followed.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Metalayer</title>
+      <link>/docs/build/metalayer/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/metalayer/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;initializing-bitbake-environment&#34;&gt;Initializing BitBake environment&lt;/h1&gt;
+&lt;p&gt;Alternatively, initialize build environment manually. This way, you can invoke multiple build processes in the same context, eg when building individual recipes.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; poky
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; oe-init-build-env ../build-sdv-&amp;lt;target&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake sdv-image-all
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;leda
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;individual-recipes&#34;&gt;Individual recipes&lt;/h1&gt;
+&lt;p&gt;General usage:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; poky
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; oe-init-build-env ../build-sdv-&amp;lt;target&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake &amp;lt;recipe&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recipes-structure&#34;&gt;Recipes Structure&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; meta-leda
+ \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
+ \-- conf                         // Distribution specific configurations, eg version numbers, release codename
+ \-- recipes-bsp                  // Board Support Packages, eg specifics for QEMU and Raspberry Pi
+ \-- recipes-devtools             // Build tools
+ \-- recipes-kernel               // Kernel configuration, eg kernel modules, logging, virtio
+ \-- recipes-sdv
+   |-- eclipse-kanto              // Build recipes for Kanto
+   |-- images                     // Definition of three disk images: full, minimal, rescue
+   |-- packagegroups              // Grouping packages
+   \-- sdv-base                   // SDV Base Bundle: k3s, fstab, can0.network
+     |--- base-files
+     |--- SDV Core Utilities
+     |--- DAPR &amp;amp; HELM CLI
+     \--- SDV Utilities
+   |-- sdv-containers              // Container images recipes for pre-caching
+     |--- Cloud Agent
+     |--- Data Broker
+     |--- Feeder CAN
+     |--- OTel Collector
+     |--- Self Update Agent
+     |--- Vehicle Update manager
+     |--- Example Seat Service
+     \--- ...
+   |-- sdv-core                    // SDV Core Bundle
+     |--- SDV Core Bundle Pods     // Kubernetes Deployment files
+     |--- DAPR Initializer         // Initialize HELM and DAPR on first boot
+     \--- Cloud Connector          // Optional: Native installation of Cloud Agent
+   \-- tools                       // Convenience tools for the &amp;#34;full&amp;#34; image, eg nerdctl and k9s
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;sdv-base-bundle&#34;&gt;SDV Base Bundle&lt;/h2&gt;
+&lt;p&gt;Contains the recipes to build and install the minimal set of dependencies for the SDV stack on the edge device. With these minimal components, the SDV stack should be able to bootstrap itself.&lt;/p&gt;
+&lt;p&gt;Example:
+&lt;code&gt;bitbake sdv-core-utils&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;can-bus-kernel-configuration&#34;&gt;CAN-Bus Kernel Configuration&lt;/h3&gt;
+&lt;p&gt;To enable support for CAN bus related modules, the kernel needs to be reconfigured. This is done by the &lt;code&gt;sdv-canbus-modules.inc&lt;/code&gt; include file in the &lt;code&gt;recipes-kernel/linux&lt;/code&gt; folder, which patches Poky&amp;rsquo;s &lt;code&gt;linux-yocto&lt;/code&gt; recipe.&lt;/p&gt;
+&lt;p&gt;Verifying and displaying the current kernel configuration: &lt;code&gt;bitbake -e virtual/kernel&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To verify the recipe and the kernel configuration: &lt;code&gt;bitbake linux-yocto -c kernel_configcheck -f&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The kernel config file can be found in:
+&lt;code&gt;./tmp/work/qemux86_64-poky-linux/linux-yocto/*/linux-qemux86_64-standard-build/.config&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sdv-core-bundle&#34;&gt;SDV Core Bundle&lt;/h2&gt;
+&lt;p&gt;Contains the recipes to build and install additional SDV components, which are required for a proper runtime setup.&lt;/p&gt;
+&lt;p&gt;Example:
+&lt;code&gt;bitbake sdv-core-bundle-pods&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sdv-containers&#34;&gt;SDV Containers&lt;/h2&gt;
+&lt;p&gt;Contains the recipes for pre-installing specific containers into the container management at runtime. This is mainly for pre-caching container image layers onto the device to speed up the initial deployment but can also be used to enable offline usecases.&lt;/p&gt;
+&lt;p&gt;Example:
+&lt;code&gt;bitbake sdv-container-seatservice&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;building-sdv-container-seat-service-container-image&#34;&gt;Building SDV Container Seat Service container image&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;With dependencies (default): &lt;code&gt;bitbake sdv-container-seatservice&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Without dependencies: &lt;code&gt;bitbake -v -b ../meta-leda/recipes-sdv/sdv-containers/sdv-container-seatservice.bb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Output in &lt;code&gt;/leda-distro/build-sdv-x86_64/tmp/work/core2-64-poky-linux/sdv-container-seatservice/1.0-r0/deploy-rpms/core2_64/sdv-container-seatservice-1.0-r0.core2_64.rpm&lt;/code&gt; (Example)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;build-configuration&#34;&gt;Build Configuration&lt;/h1&gt;
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Yocto Project 3.4 (honister) or higher - required for k3s support in meta-virtualization&lt;/li&gt;
+&lt;li&gt;50GB+ free disk space per build configuration&lt;/li&gt;
+&lt;li&gt;Online connection for fetching sources and container images&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;build-scripts&#34;&gt;Build Scripts&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;build-aarch64-qemu.sh&lt;/code&gt; - generix ARM64 for QEMU emulation&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;build-aarch64-rpi4.sh&lt;/code&gt; - ARM64 with Raspberry Pi 4 board support package&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;build-arm-qemu.sh&lt;/code&gt; - generix ARM for QEMU emulation&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;build-x86_64.sh&lt;/code&gt; - generix x64-64 for QEMU emulation&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Setup development environment</title>
+      <link>/docs/build/devenv/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/devenv/</guid>
+      <description>
+        
+        
+        &lt;p&gt;There are multiple variants on how to set up a build environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;with &lt;a href=&#34;/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespaces&lt;/a&gt; - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts&lt;/li&gt;
+&lt;li&gt;with &lt;a href=&#34;/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; - recommended for Linux hosts&lt;/li&gt;
+&lt;li&gt;Custom setup - for teams&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Run the build</title>
+      <link>/docs/build/run-build/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/run-build/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;run-the-full-build&#34;&gt;Run the full build&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Pre-Requisites: Configure proxy, eg &lt;code&gt;source .devcontainer/proxy.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Initialize git submodules: &lt;code&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Update from remote: &lt;code&gt;git submodule update --recursive --remote&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check versions: &lt;code&gt;git submodule&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Execute the setup for your host: &lt;code&gt;./setup.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Execute the main build script: &lt;code&gt;./build-&amp;lt;target&amp;gt;.sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;build-from-scratch&#34;&gt;Build from scratch&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Trigger the respective build with one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts&lt;/li&gt;
+&lt;li&gt;The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB+ free disk space for each build environment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;running-qemu-from-existing-build&#34;&gt;Running QEMU from existing build&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Switch to the build directory: &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-build-env ../build-sdv-xxx&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;quot;-m 2048&amp;quot;&lt;/code&gt; to execute the image. Replace &lt;code&gt;qemux86-64&lt;/code&gt; with one of the machines listed above.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;slirp&lt;/code&gt; enables user-networking which does not require root privileges on the host. &lt;code&gt;tun&lt;/code&gt; is default but requires setup on the host.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nographic&lt;/code&gt; disables graphical user interface&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qemuparams&lt;/code&gt; are additional command line parameters for qemu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-m 2048&lt;/code&gt; gives 2GB of memory to the qemu instance, required for k3s&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using &lt;code&gt;tap&lt;/code&gt; networking
+&lt;ul&gt;
+&lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh root@192.168.7.2&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Using &lt;code&gt;slirp&lt;/code&gt; networking
+&lt;ul&gt;
+&lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;variations-of-runqemu-command-line&#34;&gt;Variations of runqemu command line&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;runqemu ovmf&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ovmf&lt;/code&gt; will enable the UEFI support for IA32 (x86) and X64 (x86-64) guests, for testing the dual-boot capabilities and SDV Self-Update mechanisms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;All other options are now part of the default Leda distribution configuration (see &lt;em&gt;leda-qemu-settings.inc&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Continue with &lt;a href=&#34;/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;running-qemu-in-the-background&#34;&gt;Running QEMU in the background&lt;/h2&gt;
+&lt;p&gt;To start QEMU in the background enter, use &lt;code&gt;nohup&lt;/code&gt; and bring the process into the background.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nohup runqemu qemux86-64 nographic &lt;span style=&#34;color:#000&#34;&gt;qemuparams&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-m 2048 -pidfile qemu.pid&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The image is then reachable via &lt;code&gt;ssh root@192.168.72&lt;/code&gt;
+This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, &lt;code&gt;kill -9 &amp;lt;qemu.pid&amp;gt;&lt;/code&gt; kills the process.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Building tests</title>
+      <link>/docs/build/build-tests/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/build-tests/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;cross-compiling-to-x86_64-on-ubuntu-2004&#34;&gt;Cross Compiling to X86_64 on Ubuntu 20.04&lt;/h1&gt;
+&lt;p&gt;There is currently a step to cross-compile tests to X86_64. In order to successfully run the step, you need to make sure that the following artifacts are available on the runner:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;rustc + cargo: &lt;code&gt;curl https://sh.rustup.rs -sSf | sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;docker: follow &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;https://docs.docker.com/engine/install/ubuntu/&lt;/a&gt; and afterwards &lt;a href=&#34;https://docs.docker.com/engine/install/linux-postinstall/&#34;&gt;https://docs.docker.com/engine/install/linux-postinstall/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build-essential: &lt;code&gt;sudo apt-get install build-essential&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;cross (0.1.16): &lt;code&gt;cargo install cross --version 0.1.16&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;jq: &lt;code&gt;sudo apt-get install jq -y&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You may restart your current shell so that all components are available as env vars.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Runqemu</title>
+      <link>/docs/build/runqemu/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/runqemu/</guid>
+      <description>
+        
+        
+        &lt;p&gt;QEMU&amp;rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called &lt;code&gt;runqemu&lt;/code&gt;, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.&lt;/p&gt;
+&lt;p&gt;Running without runqemu: when you need more control over qemu options&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;qemu-system-x86_64 -kernel .&lt;span style=&#34;color:#4e9a06&#34;&gt;\b&lt;/span&gt;zImage-qemux86-64.bin -nographic -m 2G -append &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;console=ttyS0 root=/dev/vda1&amp;#34;&lt;/span&gt; -drive &lt;span style=&#34;color:#000&#34;&gt;file&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;.../sdv-image-full-qemux86-64.ext4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running with runqemu: simple and some convenient flags are supported&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;runqemu ovmf sdv-image-full
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Running with leda: no options, runs the default settings only&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;leda
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;qemu-runner-script.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;enabling-kvm-for-better-performance&#34;&gt;Enabling KVM for better performance&lt;/h2&gt;
+&lt;p&gt;The performance of qemux86_64 is much better when KVM can be used.
+Try running with:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;runqemu ovmf kvm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Note: You may need to set up KVM for your host machine first, please refer to &lt;a href=&#34;https://wiki.yoctoproject.org/wiki/How_to_enable_KVM_for_Poky_qemu&#34;&gt;How to enable KVM for Poky qemu&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/workspaces/leda-distro/build-sdv-x86_64 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;imageformatcleanup ✗&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ ls -al /dev/kvm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;crw-rw---- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; root kvm 10, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;232&lt;/span&gt; May &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt; 06:46 /dev/kvm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Miscellaneous</title>
+      <link>/docs/build/misc/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/misc/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Incubation Components</title>
+      <link>/docs/build/sdv-private-components/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/sdv-private-components/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;building-private-components&#34;&gt;Building private components&lt;/h1&gt;
+&lt;p&gt;Some components are not yet released to the public.&lt;/p&gt;
+&lt;p&gt;To build them, or to integrate them to the image, these components need to be manually downloaded first.&lt;/p&gt;
+&lt;h2 id=&#34;sdv-databroker-cli&#34;&gt;sdv-databroker-cli&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install GitHub CLI&lt;/li&gt;
+&lt;li&gt;Add to &lt;code&gt;local.conf&lt;/code&gt; to include in image:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;#34; sdv-databroker-cli&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Manually login to GitHub CLI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    unset GITHUB_TOKEN
+    gh auth login
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Output:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;? What account do you want to log into? GitHub.com
+? You&amp;#39;re already logged into github.com. Do you want to re-authenticate? Yes
+? What is your preferred protocol for Git operations? HTTPS
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: A123-C12B
+Press Enter to open github.com in your browser... 
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as johndoe
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Manually download the release artifacts:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    $ gh release download v0.14.0 \
+        --archive=zip \
+        --repo eclipse-leda/incubator-vehicleapi \
+        --dir downloads
+    
+    $ gh release download v0.14.0 \
+        --pattern &amp;#39;bin_release_databroker_*.tar.gz&amp;#39; \
+        --repo eclipse-leda/incubator-vehicleapi \
+        --dir downloads
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Build the recipe:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd poky
+source oe-init-build-env ../build-sdv-x86_64
+bitbake sdv-databroker-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;Build the image:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;bitbake sdv-image-minimal
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Releasing</title>
+      <link>/docs/build/release/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/build/release/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;versioning-and-codenames&#34;&gt;Versioning and Codenames&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Distribution Versioning is following the &lt;code&gt;x.y.z&lt;/code&gt; syntax for the distribution, e.g. &lt;code&gt;Leda 0.0.1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Build Versioning is following the git describe syntax: &lt;code&gt;v0.0.1-blank-168-g7e14c4c&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;Latest tag name: &lt;code&gt;v0.0.1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Branch name: &lt;code&gt;blank&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Number of commits behind: &lt;code&gt;168&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Short Commit ID: &lt;code&gt;g7e14c4c&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Codenames are taken from &lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_motor_racing_tracks&#34;&gt;Wikipedia List of Motor Racing Tracks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Initial codename is &lt;code&gt;Hockenheim&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Current distribution version can be taken from &lt;code&gt;/etc/issue&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# cat /etc/issue
+Eclipse Leda v0.0.8
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;how-to-release&#34;&gt;How to Release&lt;/h1&gt;
+&lt;p&gt;A new release is triggered manually from its GitHub web page &lt;code&gt;Releases&lt;/code&gt; section. By
+clicking on the &lt;code&gt;Draft new release&lt;/code&gt; button, the release process starts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Select a branch to use as code base for the release&lt;/li&gt;
+&lt;li&gt;Create a tag using the standard pattern &lt;code&gt;vX.Y.Z&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Write a title &lt;code&gt;Release X.Y.Z&lt;/code&gt; and release notes&lt;/li&gt;
+&lt;li&gt;Optionally select if this is a pre-release&lt;/li&gt;
+&lt;li&gt;Publish the release&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;validation.md&#34;&gt;Validate the release&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With &lt;code&gt;Publish the release&lt;/code&gt; action the release workflow located in &lt;code&gt;.github/workflows/release.yml&lt;/code&gt; will be triggered. This
+will start building the distro image files for the supported platforms, running the test cases and generating reports as
+junit xml and license scanning. If the image generation and the test runs are successful the artifacts: images, test
+binaries and qa reports will be attached as assets to the release.&lt;/p&gt;
+&lt;p&gt;The build (&lt;code&gt;build.yml&lt;/code&gt;) and release (&lt;code&gt;release.yml&lt;/code&gt;) workflows share a common reusable workflow (&lt;code&gt;base.yml&lt;/code&gt;). In this way the
+release workflow repeats the build actions without duplicating the code.&lt;/p&gt;
+&lt;h1 id=&#34;detailed-build-information-on-device&#34;&gt;Detailed build information on device&lt;/h1&gt;
+&lt;h2 id=&#34;eclipse-leda-version&#34;&gt;Eclipse Leda Version&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# cat /etc/issue
+Eclipse Leda v0.0.8
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;exact-build-timestamp&#34;&gt;Exact Build Timestamp&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# cat /etc/version
+20220408135014
+root@qemux86-64:~# cat /etc/timestamp
+20220408135230
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;details-of-build-information&#34;&gt;Details of Build Information&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# cat /etc/build 
+-----------------------
+Build Configuration:  |
+-----------------------
+DISTRO = leda
+DISTRO_VERSION = 2022
+DATETIME = 20220408135014
+DISTRO_NAME = Eclipse Leda
+IMAGE_BASENAME = core-image-minimal
+MACHINE = qemux86-64
+TUNE_PKGARCH = core2-64
+MACHINE_FEATURES = alsa bluetooth usbgadget screen vfat x86 pci rtc qemu-usermode
+DISTRO_FEATURES = acl alsa argp  debuginfod  ipv4 ipv6 largefile pcmcia usbgadget usbhost wifi xattr  zeroconf pci    vfat seccomp largefile  ptest multiarch  vulkan virtualization k8s seccomp raucg
+COMMON_FEATURES = 
+IMAGE_FEATURES = debug-tweaks
+TUNE_FEATURES = m64 core2
+TARGET_FPU = 
+APP_URI_PREFIX = 
+APP_URI_BRANCH = 
+-----------------------
+Layer Revisions:      |
+-----------------------
+meta              = honister:ee68ae307fd951b9de6b31dc6713ea29186b7749 
+meta-poky         = honister:ee68ae307fd951b9de6b31dc6713ea29186b7749 
+meta-yocto-bsp    = honister:ee68ae307fd951b9de6b31dc6713ea29186b7749 
+meta-leda          = main:30a5ff0a7e04dfa2c9b43175a49ac7a2ae0c64a9 -- modified
+meta-rauc         = honister:3faf4cc4fcf558e99dad5aa8532fef2ecd566653 
+meta-filesystems  = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-networking   = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-oe           = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-python       = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-perl         = honister:061b7fc74f887454251307ef119b808a90654d3f 
+meta-virtualization = honister:bd7511c53b921c9ce4ba2fdb42778ca194ebc3e8 
+meta-security     = honister:fb77606aef461910db4836bad94d75758cc2688c 
+patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

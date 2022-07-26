@@ -1,0 +1,167 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – About Leda</title>
+    <link>/docs/about/</link>
+    <description>Recent content in About Leda on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Features</title>
+      <link>/docs/about/features/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/about/features/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Publish/Subscribe messaging infrastructure for cloud connectivity&lt;/strong&gt; by &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;local messaging for applications and SDV system components via an MQTT message broker&lt;/li&gt;
+&lt;li&gt;connection to a backend messaging hub, such as Azure IoT Hub or the IoT Suite&lt;/li&gt;
+&lt;li&gt;device identification and authentication for cloud connectivity by using TLS device certificates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Linux &lt;strong&gt;container runtime&lt;/strong&gt; and &lt;strong&gt;Kubernetes control plane&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;a Kubernetes-compliant control plane to orchestrate worker nodes, services, container pods and deployments.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;k3s&lt;/a&gt; as the current implementation of the control plane and &lt;a href=&#34;https://containerd.io/&#34;&gt;containerd.io&lt;/a&gt; as the default container runtime. Both layers of container runtimes can be exchanged with other implementations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Vehicle Update Manager&lt;/strong&gt; to orchestrate deployments of Vehicle Applications, configurations and base operating system updates via Kubernetes-standardized protocol specifications&lt;/li&gt;
+&lt;li&gt;An example Vehicle Seat Service implementation to showcase
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;https://projects.eclipse.org/projects/automotive.velocitas&#34;&gt;Eclipse Velocitas&lt;/a&gt; programming model,&lt;/li&gt;
+&lt;li&gt;the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;Eclipse Kuksa.VAL&lt;/a&gt; vehicle databroker and&lt;/li&gt;
+&lt;li&gt;the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;Covesa Vehicle Signal Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;the communication with basic vehicle communication networks such as CAN-Bus (CAN Feeder)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Self Update Agent&lt;/strong&gt; for firmware-over-the-air (FOTA) updates, using an A/B deployment strategy
+&lt;ul&gt;
+&lt;li&gt;Integration with &lt;a href=&#34;https://www.rauc.io/&#34;&gt;RAUC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;https://github.com/open-telemetry/&#34;&gt;OpenTelemetry collector&lt;/a&gt; and example configurations to collect and publish logs and metrics of containerized Vehicle Applications to the cloud backend for further processing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The features of the reusable build recipes implemented as an &lt;a href=&#34;https://www.openembedded.org&#34;&gt;OpenEmbedded&lt;/a&gt; metalayer &lt;code&gt;meta-leda&lt;/code&gt; are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build recipes for a &lt;a href=&#34;https://www.yoctoproject.org/&#34;&gt;Yocto&lt;/a&gt;-based distribution to build SDV-related software components&lt;/li&gt;
+&lt;li&gt;Build recipes for customizations of the target device&amp;rsquo;s storage structure to enable A/B system updates&lt;/li&gt;
+&lt;li&gt;Build recipes for pre-packaging container images into the device during the manufacturing process to minimize initial online provisioning time&lt;/li&gt;
+&lt;li&gt;A customized minimal setup for use on constrained devices and a full setup with convenient developer tools&lt;/li&gt;
+&lt;li&gt;Ready images for virtual devices, for automated testing and evaluation purposes, eg QEMU ARM-64&lt;/li&gt;
+&lt;li&gt;Ready images for physical devices, for evaluation and demo purposes, eg Raspberry Pi 4&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Goals</title>
+      <link>/docs/about/goals/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/about/goals/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The project aims to provide &lt;strong&gt;an integration point for Open Source components for the Software Defined Vehicle&lt;/strong&gt;. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&amp;rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.&lt;/p&gt;
+&lt;p&gt;The following document will list some of these requirements and give an explanation on why they are met in the Leda quickstart distribution.&lt;/p&gt;
+&lt;h1 id=&#34;overview&#34;&gt;Overview&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Provide an example operating system and configuration for constrained in-vehicle devices&lt;/li&gt;
+&lt;li&gt;Integrate software-defined-vehicle Open Source components to showcase the available features and their state of maturity&lt;/li&gt;
+&lt;li&gt;Demonstrate the use and interaction of open protocols and specifications, such as
+&lt;ul&gt;
+&lt;li&gt;the Kubernetes specifications&lt;/li&gt;
+&lt;li&gt;OpenTelemetry specs and components&lt;/li&gt;
+&lt;li&gt;Eclipse IoT related specifications for software rollouts and digital twin representations&lt;/li&gt;
+&lt;li&gt;open specifications from the &lt;a href=&#34;https://www.covesa.global/&#34;&gt;The Connected Vehicle Systems Alliance (COVESA)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;background-information&#34;&gt;Background Information&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Requirement&lt;/th&gt;
+&lt;th&gt;Met&lt;/th&gt;
+&lt;th&gt;Context information&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Footprint Constraints&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Embedded in-vehicle devices have constrained resources such as CPU power, disk space, memory etc. Desktop operating systems use as much space as possible, thereas in-vehicle operating systems are as small as possible, omitting a lot of unnecessary tooling such as package managers or convenience tools for administrators, documenation (man pages) etc. Leda provides two different types of operating system images: one for quickstart and demo cases with some tooling, and a another minimal image which only contains the necessary software components for remote usage. &lt;p&gt;&lt;/p&gt;SDV Rescue Image is about 130MB&lt;br&gt;SDV Minimal Image is about 300MB &lt;br&gt;SDV Full Image (with convenience tools and pre-cached containers) is about 900MB&lt;p&gt;&lt;/p&gt;&lt;em&gt;Note: Future roadmap includes more footprint optimizations&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hardened system&lt;/td&gt;
+&lt;td&gt;Partly&lt;/td&gt;
+&lt;td&gt;A vehicle device and its operating system are vulnerable targets in the same way as any other computer, especially once they are connected to the internet. Classically, such in-vehicle devices were hardened down once with additional audit logging for any kind of network traffic. In a connected world, these devices now become mostly always-on devices and behave like any other Internet of Things devices. Special care is to be taken to guard them against vulnerabilities by keeping these devices up-to-date, establish continuous automated monitoring and other methodologies known from DevSecOps.&lt;p&gt;&lt;/p&gt;As Leda is supposed to be used for quickly starting and evaluating SDV software, we balance these type of requirements. For example, installing system updates in Leda is only possible with signed update bundles, but the demo uses a self-signed certificate. For production use, these self-signed certificates would of course be replaced by the manufacturer&amp;rsquo;s real certificates.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Roadmap</title>
+      <link>/docs/about/roadmap/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/about/roadmap/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Initial Open Source contribution expected by Q2 2022&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Release cycles are planned every 3-6 months&lt;/li&gt;
+&lt;li&gt;Release planning will be conducted together with corresponding Eclipse projects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;future-work&#34;&gt;Future Work&lt;/h1&gt;
+&lt;p&gt;The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.&lt;/p&gt;
+&lt;p&gt;Exemplary future work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager&lt;/li&gt;
+&lt;li&gt;Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other &lt;a href=&#34;https://projects.eclipse.org/projects/automotive&#34;&gt;Eclipse Automotive&lt;/a&gt; projects&lt;/li&gt;
+&lt;li&gt;Integration of device provisioning with specific backend services&lt;/li&gt;
+&lt;li&gt;Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have feedback, please use &lt;a href=&#34;https://github.com/eclipse-leda/&#34;&gt;GitHub Issues&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Architecture</title>
+      <link>/docs/about/architecture/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/about/architecture/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;img src=&#34;/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

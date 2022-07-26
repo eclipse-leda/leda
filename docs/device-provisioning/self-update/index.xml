@@ -1,0 +1,428 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Self Updates</title>
+    <link>/docs/device-provisioning/self-update/</link>
+    <description>Recent content in Self Updates on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/device-provisioning/self-update/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Self Update Tutorial</title>
+      <link>/docs/device-provisioning/self-update/self-update-tutorial/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/device-provisioning/self-update/self-update-tutorial/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This chapter describes the steps necessary to perform a local (without cloud) self update of the operating system.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../self-update-arch.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;self-update-using-rauc-update-bundles&#34;&gt;Self-Update using RAUC Update Bundles&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;On host: Update bundle &lt;code&gt;sdv-rauc-bundle-qemux86-64.raucb&lt;/code&gt; is in current folder&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: In the development environment, the update RAUC Update Bundle is located in the BitBake machine-specific output folder, for example &lt;code&gt;tmp/deploy/images/qemux86-64&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On host: Start a dummy web server for serving the update file&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python3 -m http.server --bind 192.168.7.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On host: open two new terminals - one for monitoring and one for triggering the self-update&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Terminal 1: To view the progress, watch the MQTT topics &lt;code&gt;selfupdate/desiredstate&lt;/code&gt; and &lt;code&gt;selfupdate/desiredstatefeedback&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mosquitto_sub -h 192.168.7.2 -p 31883 -t &amp;quot;selfupdate/#&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Terminal 2: Trigger the actual self update process by publishing an MQTT message to &lt;code&gt;selfupdate/desiredstate&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mosquitto_pub -h 192.168.7.2 -p 31883 -t &amp;quot;selfupdate/desiredstate&amp;quot; -f start-update-example.yaml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Switch to a terminal in the guest&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On guest: After the self update process completed, check the status:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rauc status --detailed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;self-update-trigger-message&#34;&gt;Self-Update Trigger Message&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;start-update-example.yaml&lt;/code&gt; file:&lt;/p&gt;
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sdv.eclipse.org/v1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SelfUpdateBundle&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;self-update-bundle-example&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bundleName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;swdv-qemux86-64-build42&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bundleVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;v1beta3 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bundleDownloadUrl&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;http://192.168.7.1:8000/sdv-rauc-bundle-qemux86-64.raucb&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bundleTarget&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;base&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: RAUC Integration</title>
+      <link>/docs/device-provisioning/self-update/rauc-integration/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/device-provisioning/self-update/rauc-integration/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Leda integrates &lt;a href=&#34;https://rauc.io/&#34;&gt;RAUC&lt;/a&gt; as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.&lt;/p&gt;
+&lt;h2 id=&#34;checking-the-rauc-status&#34;&gt;Checking the RAUC Status&lt;/h2&gt;
+&lt;p&gt;Get the current RAUC boot status:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;rauc status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# rauc status
+=== System Info ===
+Compatible:  Eclipse Leda qemu86-64
+Variant:     
+Booted from: rootfs.1 (SDV_B)
+
+=== Bootloader ===
+Activated: rootfs.1 (SDV_B)
+
+=== Slot States ===
+
+o [rootfs.1] (/dev/sda5, ext4, inactive)
+        bootname: SDV_B
+        mounted: /
+        boot status: good
+
+x [rootfs.0] (/dev/sda4, ext4, booted)
+        bootname: SDV_A
+        boot status: good
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;forcing-to-boot-the-other-slot&#34;&gt;Forcing to boot the other slot&lt;/h2&gt;
+&lt;p&gt;To manually force the device to boot into another slot, mark the current booted slot as &lt;em&gt;bad&lt;/em&gt;, mark the other partitions as &lt;em&gt;active&lt;/em&gt; and perform a reboot:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rauc status mark-bad booted
+rauc status mark-active other
+reboot now
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;testing-the-rescue-system&#34;&gt;Testing the rescue system&lt;/h2&gt;
+&lt;p&gt;By marking both root slots as bad, the bootloader is supposed to boot the rescue system:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;rauc status mark-bad rootfs.0
+rauc status mark-bad rootfs.1
+reboot now
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Example output of rauc:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;o [rootfs.1] (/dev/sda5, ext4, inactive)
+        bootname: B
+        boot status: bad
+
+o [rootfs.0] (/dev/sda4, ext4, booted)
+        bootname: A
+        mounted: /
+        boot status: bad
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;customizations&#34;&gt;Customizations&lt;/h2&gt;
+&lt;p&gt;The configurations can be customized by applying or patching the following files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;RAUC Configuration file: &lt;code&gt;meta-leda/recipes-bsp/rauc/files/qemux86-64/system.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Bootloader Configuration file: &lt;code&gt;meta-leda/recipes-bsp/grub/files/grub.cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;The physical disk partition configuration: &lt;code&gt;meta-leda/recipes-sdv/wic/qemux86-grub-efi.wks&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;rauc-system-configuration&#34;&gt;RAUC System Configuration&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rauc.readthedocs.io/en/latest/integration.html#rauc-system-configuration&#34;&gt;RAUC System Configuration &lt;/a&gt; is the central configuration of the RAUC Update system.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[system]
+compatible=Eclipse Leda qemu86-64
+bootloader=grub
+grubenv=/grubenv/grubenv
+statusfile=/data/rauc.status
+
+[keyring]
+path=ca.cert.pem
+
+[slot.efi.0]
+device=/dev/sda
+type=boot-gpt-switch
+region-start=4M
+region-size=100M
+
+[slot.rescue.0]
+device=/dev/sda3
+type=ext4
+readonly=true
+
+[slot.rootfs.0]
+device=/dev/sda4
+type=ext4
+bootname=SDV_A
+
+[slot.rootfs.1]
+device=/dev/sda5
+type=ext4
+bootname=SDV_B
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;grub-bootloader-configuration&#34;&gt;GRUB Bootloader Configuration&lt;/h2&gt;
+&lt;p&gt;The GRUB bootloader has a configuration file which describes which partitions are bootable, which partition they are located at and a reference to RAUC&amp;rsquo;s slot name.&lt;/p&gt;
+&lt;p&gt;The configuration also contains &lt;strong&gt;RAUC specific logic and variables required for a proper integration&lt;/strong&gt;. Please see the full &lt;code&gt;grub.cfg&lt;/code&gt; in the source repository and &lt;a href=&#34;https://rauc.readthedocs.io/en/latest/integration.html#grub&#34;&gt;RAUC Documentation - Integration - GRUB&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;Excerpt:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;...
+
+menuentry &amp;#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&amp;#34; {
+    linux (hd0,4)/boot/bzImage root=/dev/vda4 $CMDLINE rauc.slot=SDV_A
+}
+
+menuentry &amp;#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&amp;#34; {
+    linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;disk-partitioning-with-openembedded-image-creator-wic&#34;&gt;Disk Partitioning with OpenEmbedded Image Creator (WIC)&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic&#34;&gt;OpenEmbedded Image Creator&lt;/a&gt; is used in BitBake to actually create full disk images with multiple partitions.&lt;/p&gt;
+&lt;p&gt;These disk images are machine specific and the structure of the partitions are configured in &lt;a href=&#34;https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart&#34;&gt;OpenEmbedded Kickstart&lt;/a&gt; files (&lt;code&gt;*.wks&lt;/code&gt;).&lt;/p&gt;
+&lt;h3 id=&#34;excerpt-qemux86-grub-efiwks&#34;&gt;Excerpt &lt;code&gt;qemux86-grub-efi.wks&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Note: The excerpt is exemplary, please see the sources for a full representation and documentation.&lt;/em&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;bootloader --ptable gpt
+
+part --fixed-size 50M --source rawcopy --sourceparams=&amp;#34;file=efi-boot.vfat&amp;#34; --fstype=vfat --label boot --active
+
+part --fixed-size 10M --source rawcopy --sourceparams=&amp;#34;file=grubenv.vfat&amp;#34; --fstype=vfat --label grubenv
+
+part /rescue --source rootfs --fstype=ext4 --label rescue
+
+part / --source rootfs --fstype=ext4 --label root_a
+
+part / --source rootfs --fstype=ext4 --label root_b
+
+part /data --fixed-size 4G --fstype=ext4 --label data
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: API Reference</title>
+      <link>/docs/device-provisioning/self-update/api/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/docs/device-provisioning/self-update/api/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The self update agent (SUA) is a component responsible for the OS Update process.  SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses &lt;a href=&#34;https://rauc.io/&#34;&gt;RAUC&lt;/a&gt; to perform the update.&lt;/p&gt;
+&lt;p&gt;Following sequence diagram shows the happy path example of communication between components.&lt;/p&gt;
+&lt;h2 id=&#34;process-overview&#34;&gt;Process Overview&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;sequenceDiagram
+    participant m as MQTT Broker 
+    participant s as SUA
+    participant r as RAUC
+    s --&gt;&gt; m: connect
+    loop Wait for message: selfupdate/desiredstate
+    Note left of s: Initial start
+    s -&gt;&gt; m: selfupdate/currentstate
+    Note left of s: Trigger for OTA
+    m -&gt;&gt; s: selfupdate/desiredstate
+    s -&gt;&gt; m: selfupdate/desiredstatefeedback: downloading 0%
+    s -&gt;&gt; s: download bundle
+    s -&gt;&gt; m: selfupdate/desiredstatefeedback: downloading 51%
+    s -&gt;&gt; r: install
+    s -&gt;&gt; m: selfupdate/desiredstatefeedback: installing 0%
+    r -&gt;&gt; r: install
+    r -&gt;&gt; s: share progress: e.g. 51%
+    s -&gt;&gt; m: selfupdate/desiredstatefeedback: installing 51%
+    r -&gt;&gt; s: installation ready
+    s -&gt;&gt; m: selfupdate/desiredstatefeedback: installed 
+    s -&gt;&gt; m: selfupdate/desiredstatefeedback: idle 
+    end
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;mqtt-message-definitions&#34;&gt;MQTT Message Definitions&lt;/h2&gt;
+&lt;p&gt;MQTT messages are specified as follows:&lt;/p&gt;
+&lt;h3 id=&#34;selfupdatedesiredstate&#34;&gt;selfupdate/desiredstate&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Direction&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;selfupdate/desiredstate&lt;/td&gt;
+&lt;td&gt;IN&lt;/td&gt;
+&lt;td&gt;This message triggers the update process. The payload shall contain all data necessary to obtain the update bundle and to install it.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: &amp;#34;sdv.eclipse.org/v1&amp;#34;
+kind: SelfUpdateBundle
+metadata:
+  name: self-update-bundle-example
+spec:
+  bundleName: swdv-arm64-build42
+  bundleVersion: v1beta3
+  bundleDownloadUrl: https://example.com/repository/base/
+  bundleTarget: base
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;selfupdatecurrentstate&#34;&gt;selfupdate/currentstate&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Direction&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;selfupdate/currentstate&lt;/td&gt;
+&lt;td&gt;OUT&lt;/td&gt;
+&lt;td&gt;This message is being sent once, on SUA start. It contains information about currently installed OS version.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: &amp;#34;sdv.eclipse.org/v1&amp;#34;
+kind: SelfUpdateBundle
+metadata:
+  name: self-update-bundle-example
+spec:
+  bundleVersion: v1beta3
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;selfupdatedesiredstatefeedback&#34;&gt;selfupdate/desiredstatefeedback&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Topic&lt;/th&gt;
+&lt;th&gt;Direction&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;selfupdate/desiredstatefeedback&lt;/td&gt;
+&lt;td&gt;OUT&lt;/td&gt;
+&lt;td&gt;This message is being sent by SUA to share current progress of triggered update process. This is the &lt;em&gt;OUT&lt;/em&gt; counterpart of &lt;em&gt;selfupdate/desiredstate&lt;/em&gt; input message.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: &amp;#34;sdv.eclipse.org/v1&amp;#34;
+kind: SelfUpdateBundle
+metadata:
+  name: self-update-bundle-example
+spec:
+  bundleName: swdv-arm64-build42
+  bundleVersion: v1beta3
+  bundleDownloadUrl: https://example.com/repository/base/
+  bundleTarget: base
+state:
+  name: &amp;#34;idle|installing|etc.&amp;#34;
+  progress: 0|51|99|etc., 
+  techCode: 0|1|5|etc.,  
+  message: &amp;#34;Cannot download from url|Bundle already installed|etc.&amp;#34; 
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;state-enum&#34;&gt;state enum&lt;/h4&gt;
+&lt;p&gt;State name field can have one of following values:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;State&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Additional payload data&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;uninitialized&lt;/td&gt;
+&lt;td&gt;When the SUA is not configured yet&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;idle&lt;/td&gt;
+&lt;td&gt;Configured and waiting for messages&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;downloading&lt;/td&gt;
+&lt;td&gt;Downloading the bundle file&lt;/td&gt;
+&lt;td&gt;progress&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;installing&lt;/td&gt;
+&lt;td&gt;Performing installation&lt;/td&gt;
+&lt;td&gt;progress&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;installed&lt;/td&gt;
+&lt;td&gt;Installation process was successful, new OS version is installed on inactive disc Slot. &lt;br&gt;&lt;strong&gt;Important: to finish the OTA process, reboot is required, and it shall be performed by another component, such as the Vehicle Update Manager.&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;failed&lt;/td&gt;
+&lt;td&gt;Error occurred&lt;/td&gt;
+&lt;td&gt;techCode&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;techcode-values&#34;&gt;techCode values&lt;/h4&gt;
+&lt;p&gt;techCode field is providing additional details to the state value. It is especially useful for the &lt;strong&gt;failed&lt;/strong&gt; state, as it can specify the reason of failure.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;OK, no error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1001&lt;/td&gt;
+&lt;td&gt;Download failed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2001&lt;/td&gt;
+&lt;td&gt;Invalid Bundle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3001&lt;/td&gt;
+&lt;td&gt;Installation failed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4001&lt;/td&gt;
+&lt;td&gt;Update rejected, bundle version same as current OS version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5001&lt;/td&gt;
+&lt;td&gt;Unknown Error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
