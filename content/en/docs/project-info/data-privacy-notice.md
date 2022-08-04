@@ -18,4 +18,16 @@ When using our software in combination with other software components, personal 
 
 This section describes the measures taken to integrate the requirements of the data protection directly into the software development. The technical measures described below follow a "privacy by design" approach.
 
-- Deletion possibility: The software does not save data permanently since it uses only volatile memory. All collected or processed data can be deleted by rebooting the host hardware.
+- **Local data:** The software may save data permanently in local virtual storage (eg when run in QEMU Emulator) or on local physical storage (SD-Card on Raspberry PI). All collected or processed data can be deleted by either deleting the virtual storage file (*.qcow2), or by erasing the SD-Card.
+
+- **Cloud storage:** The software may send data to cloud endpoints controlled by you or your organization. Examples include connectivity data, device identification, device health, device telemetry, application metrics and application logs. Collection and processing of example data on the device is enabled by default. Sending of device data to cloud endpoints must be explicitly enabled by performing the device provisioning process. The actual cloud endpoints are determined and configured during the device provisioning process. All collected or processed data can be deleted on the cloud side in the respective cloud endpoints.
+
+- **Vulnerabilities:** The release process for this software is set up to always update to the newest package updates. The project will continously release new versions of the software. To protect personal data, it is advisable to always use the latest version of the software.
+
+- **Important:** When you use the Eclipse Leda quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it, this includes but is not limited to the following configuration items:
+
+    - Disable system user (root) password and login
+    - Disable SSH login with password
+    - Adding a new Linux user with restricted permissions
+    - Adding SSH key based authentication
+    - Kubernetes Resources: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries

@@ -13,8 +13,9 @@ Steps:
 - Download the [latest released SD-Card Image](/leda/docs/general-usage/download-releases/): `eclipse-leda-raspberrypi.tar.xz`
 - Uncompress the SD Card image:
 
+      apt-get install -y xz-utils
       tar xf eclipse-leda-raspberrypi.tar.xz
-      bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
+      bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 
 - Flash the `sdv-image-full-raspberrypi4.wic` file to an SD-Card
   - On Linux:

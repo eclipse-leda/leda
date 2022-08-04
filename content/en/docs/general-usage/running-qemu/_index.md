@@ -15,7 +15,7 @@ If you want to execute the image without building first, grab the latest release
 - Install Qemu https://www.qemu.org/, e.g. for Ubuntu:
 
       sudo apt-get update -y
-      sudo apt-get install -y qemu-system-x86-64
+      sudo apt-get install -y xz-utils qemu-system-x86-64
 
 - Download [latest Eclipse Leda release](/leda/docs/general-usage/download-releases/)
 - Uncompress the archive
