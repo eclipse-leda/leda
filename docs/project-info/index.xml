@@ -346,7 +346,25 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
 &lt;h3 id=&#34;what-have-we-done-to-make-the-software-data-protection-friendly&#34;&gt;What have we done to make the software data protection friendly?&lt;/h3&gt;
 &lt;p&gt;This section describes the measures taken to integrate the requirements of the data protection directly into the software development. The technical measures described below follow a &amp;ldquo;privacy by design&amp;rdquo; approach.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Deletion possibility: The software does not save data permanently since it uses only volatile memory. All collected or processed data can be deleted by rebooting the host hardware.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Local data:&lt;/strong&gt; The software may save data permanently in local virtual storage (eg when run in QEMU Emulator) or on local physical storage (SD-Card on Raspberry PI). All collected or processed data can be deleted by either deleting the virtual storage file (*.qcow2), or by erasing the SD-Card.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cloud storage:&lt;/strong&gt; The software may send data to cloud endpoints controlled by you or your organization. Examples include connectivity data, device identification, device health, device telemetry, application metrics and application logs. Collection and processing of example data on the device is enabled by default. Sending of device data to cloud endpoints must be explicitly enabled by performing the device provisioning process. The actual cloud endpoints are determined and configured during the device provisioning process. All collected or processed data can be deleted on the cloud side in the respective cloud endpoints.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vulnerabilities:&lt;/strong&gt; The release process for this software is set up to always update to the newest package updates. The project will continously release new versions of the software. To protect personal data, it is advisable to always use the latest version of the software.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; When you use the Eclipse Leda quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it, this includes but is not limited to the following configuration items:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Disable system user (root) password and login&lt;/li&gt;
+&lt;li&gt;Disable SSH login with password&lt;/li&gt;
+&lt;li&gt;Adding a new Linux user with restricted permissions&lt;/li&gt;
+&lt;li&gt;Adding SSH key based authentication&lt;/li&gt;
+&lt;li&gt;Kubernetes Resources: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

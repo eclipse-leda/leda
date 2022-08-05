@@ -25,11 +25,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2022-07-26T07:49:36+00:00" />
+<meta property="article:modified_time" content="2022-08-05T11:32:57+02:00" />
 
 <meta itemprop="name" content="VSCode DevContainer">
 <meta itemprop="description" content="Visual Studio Code: Development Containers  Install and start Visual Studio Open Command Palette (F1) and select Clone repository into DevContainer Select this repository and the main branch. Adapt proxy configurations if necessary (.devcontainer/proxy.sh) Open terminal and execute one of the build-xxx.sh scripts to execute the build For later builds, it is advisable to run cd poky &amp;&amp; source oe-init-env ../build-sdv-xxx &amp;&amp; bitbake core-image-minimal manually to reuse the build work directory For a clean remote build machine, you may want to set up development environment on GitHub CodeSpaces  Visual Studio DevContainer Setup Authentication The build process requires online connection and you must be authenticated to access private repositories."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2022-07-26T07:49:36+00:00" />
+<meta itemprop="dateModified" content="2022-08-05T11:32:57+02:00" />
 <meta itemprop="wordCount" content="177">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VSCode DevContainer"/>
@@ -38,8 +38,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" as="style">
-<link href="/leda/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.e0cb643cb22d785f156f1ca12addea3890d8982bc26d02772c90c53b2346f445.css" as="style">
+<link href="/leda/scss/main.min.e0cb643cb22d785f156f1ca12addea3890d8982bc26d02772c90c53b2346f445.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -83,7 +83,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/leda/offline-search-index.935c5e741cd5ebb4fb3f2944a790ecfb.json"
+  data-offline-search-index-json-src="/leda/offline-search-index.ddbb4fc14e3720dfdbcf28c24a6b622b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -105,7 +105,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/leda/offline-search-index.935c5e741cd5ebb4fb3f2944a790ecfb.json"
+  data-offline-search-index-json-src="/leda/offline-search-index.ddbb4fc14e3720dfdbcf28c24a6b622b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -188,6 +188,21 @@
   <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
   <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
+  <label for="m-ledadocsdevice-provisioningvehicle-update-manager-check"><a href="/leda/docs/device-provisioning/vehicle-update-manager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioningvehicle-update-manager"><span class="">Vehicle Update Manager</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration-check"/>
+  <label for="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration-check"><a href="/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration"><span class="">Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow-check"/>
+  <label for="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow-check"><a href="/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow"><span class="">Message Flow</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningself-update-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningself-update-check"/>
   <label for="m-ledadocsdevice-provisioningself-update-check"><a href="/leda/docs/device-provisioning/self-update/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioningself-update"><span class="">Self Updates</span></a></label>

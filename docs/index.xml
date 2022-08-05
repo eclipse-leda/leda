@@ -746,6 +746,108 @@ connect to the MQTT broker running on the device by using exposed port 31883:&lt
     </item>
     
     <item>
+      <title>Docs: Configuration</title>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The vehicle update manager container requires the following configuration:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Container needs to run in &lt;strong&gt;privileged mode&lt;/strong&gt; to enable automatic reboot.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Connection to MQTT broker&lt;/strong&gt;, defaults to &lt;code&gt;THINGS_CONN_BROKER=tcp://mosquitto:1883&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Enable container orchestration&lt;/strong&gt; feature: &lt;code&gt;THINGS_FEATURES=ContainerOrchestrator&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Optional configuration options are:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;SELF_UPDATE_ENABLE_REBOOT=true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;Enable automatic reboot after a successfull application of the update bundle.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;SELF_UPDATE_TIMEOUT=30m&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;Timeout for downloading and installing an update bundle.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h1 id=&#34;example-deployment-specification&#34;&gt;Example Deployment Specification&lt;/h1&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vehicle-update-manager
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vehicle-update-manager
+rules:
+- apiGroups:
+  - &amp;#39;*&amp;#39;
+  resources:
+  - &amp;#39;*&amp;#39;
+  verbs:
+  - &amp;#39;*&amp;#39;
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: vehicle-update-manager
+subjects:
+- kind: ServiceAccount
+  name: vehicle-update-manager
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: vehicle-update-manager
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-update-manager
+spec:
+  selector:
+    matchLabels:
+      component: vehicle-update-manager
+  template:
+    metadata:
+      labels:
+        component: vehicle-update-manager
+    spec:
+      serviceAccountName: vehicle-update-manager
+      containers:
+        - name: vehicle-update-manager
+          image: &amp;lt;repository&amp;gt;/vehicleupdatemanager:&amp;lt;tag&amp;gt;
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+          env:
+            - name: SELF_UPDATE_TIMEOUT
+              value: 30m
+            - name: SELF_UPDATE_ENABLE_REBOOT
+              value: &amp;#34;true&amp;#34;
+            - name: THINGS_CONN_BROKER
+              value: tcp://mosquitto:1883
+            - name: THINGS_FEATURES
+              value: ContainerOrchestrator
+          volumeMounts:
+          - mountPath: /proc
+            name: proc
+      volumes:
+      - hostPath:
+          path: /proc
+        name: proc
+      imagePullSecrets:
+        - name: ghcr-io
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Manual Provisioning</title>
       <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -1041,6 +1143,157 @@ part / --source rootfs --fstype=ext4 --label root_b
 
 part /data --fixed-size 4G --fstype=ext4 --label data
 &lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Message Flow</title>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The following message flow is an example for the &lt;em&gt;Self Update&lt;/em&gt; use case.
+The message is triggered by command line via Azure IoT Hub.&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;sequenceDiagram
+    autonumber
+
+    actor flops as Fleet Operations
+
+    participant backend as Digital Twin
+    participant vum as Vehicle Update Manager
+    participant sua as Self Update Agent
+    participant device as Device
+
+    flops -&gt;&gt; backend: Rollout Campaign
+
+    backend --&gt;&gt; vum: Device Command &lt;br&gt; Live Message: &lt;br&gt; yamlApply
+
+    Note left of backend: C2D Message
+
+    vum --&gt;&gt; sua: selfupdate/desiredstate &lt;br&gt; SelfUpdateBundle
+
+    loop Download
+        sua --&gt;&gt; sua: Downloading
+        sua --&gt;&gt; vum: selfupdate/desiredstatefeedback
+        vum --&gt;&gt; backend: progress
+    end
+
+    loop Installation
+        sua --&gt;&gt; device: Installing
+        Note right of device: RAUC Update Bundle
+        sua --&gt;&gt; vum: selfupdate/desiredstatefeedback
+        vum --&gt;&gt; backend: progress
+    end
+
+    sua --&gt;&gt; vum: Installed
+    
+    rect rgb(100, 255, 150)
+        sua --&gt;&gt; backend: FINISHED_SUCCESS
+    end
+
+    opt Reboot
+        vum --&gt;&gt; device: SysRq Reboot
+    end
+  &lt;/div&gt;
+  
+  &lt;h1 id=&#34;messages&#34;&gt;Messages&lt;/h1&gt;
+&lt;p&gt;The following describes the message flow with example messages in more detail. The following variables are used for dynamic parts of the messages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;cuid&amp;gt;&lt;/code&gt; - A Correlation ID in form of a UUID&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;selfUpdateRequestYaml&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;payload&amp;gt;&lt;/code&gt;- The Desired State Self Update Request message in YAML, as defined by the Self Update Agent API&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;hub&amp;gt;&lt;/code&gt; - The name or identifier of the message hub&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;device&amp;gt;&lt;/code&gt; - The device identifier used by the message hub or other components to identify the device.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Cloud backend sends the Self-Update Request Message as YAML embedded into an Azure IoT Hub C2D Message Envelope:&lt;/p&gt;
+&lt;p&gt;Payload:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+    &amp;#34;appId&amp;#34;: &amp;#34;mc-ota-update&amp;#34;,
+    &amp;#34;cmdName&amp;#34;: &amp;#34;desiredstate.update&amp;#34;,
+    &amp;#34;cId&amp;#34;: &amp;#34;&amp;lt;cuid&amp;gt;&amp;#34;,
+    &amp;#34;eVer&amp;#34;: &amp;#34;2.0&amp;#34;,
+    &amp;#34;pVer&amp;#34;: &amp;#34;1.0&amp;#34;,
+    &amp;#34;p&amp;#34;: &amp;lt;selfUpdateRequestYaml&amp;gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cloud Connector validates envelope and transforms request message into a &lt;em&gt;ContainerOrechestrator&lt;/em&gt; message:&lt;/p&gt;
+&lt;p&gt;Topic: &lt;code&gt;command//azure.edge:&amp;lt;hub&amp;gt;:&amp;lt;device&amp;gt;:edge:containers/req/&amp;lt;cuid&amp;gt;/yamlApply&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Body (json):&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; {
+  &amp;#34;topic&amp;#34;: &amp;#34;azure.edge/&amp;lt;hub&amp;gt;:&amp;lt;device&amp;gt;:edge:containers/things/live/messages/yamlApply&amp;#34;,
+  &amp;#34;headers&amp;#34;: {
+     &amp;#34;content-type&amp;#34;: &amp;#34;application/json&amp;#34;,
+     &amp;#34;correlation-id&amp;#34;: &amp;#34;&amp;lt;cuid&amp;gt;&amp;#34;},
+     &amp;#34;path&amp;#34;: &amp;#34;/features/ContainerOrchestrator/inbox/messages/yamlApply&amp;#34;,
+     &amp;#34;value&amp;#34;: {
+         &amp;#34;correlationId&amp;#34;: &amp;#34;&amp;lt;cuid&amp;gt;&amp;#34;,
+         &amp;#34;payload&amp;#34;: &amp;#34;&amp;lt;payload&amp;gt;&amp;#34;
+         }
+     }
+ }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Note: Payload (Yaml encoded in JSON) omitted here for clarity, see next step.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Vehicle Update manager extracts payload and forward the message to the Self Update Agent message inbox:&lt;/p&gt;
+&lt;p&gt;Topic: &lt;code&gt;selfupdate/desiredstate&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Message:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: sdv.eclipse.org/v1
+kind: SelfUpdateBundle
+metadata:
+    name: self-update-bundle-example
+spec:
+    bundleDownloadUrl: http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb
+    bundleName: swdv-arm64-build42
+    bundleTarget: base
+    bundleVersion: v1beta3
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;The Self Update Agent response with status messages during download and installation phases.&lt;/p&gt;
+&lt;p&gt;Topic: &lt;code&gt;selfupdate/desiredstatefeedback&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Message:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: sdv.eclipse.org/v1
+kind: SelfUpdateBundle
+metadata: 
+  name: &amp;#34;self-update-bundle-example&amp;#34;
+spec: 
+  bundleDownloadUrl: &amp;#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&amp;#34;
+  bundleName: &amp;#34;swdv-arm64-build42&amp;#34;
+  bundleTarget: base
+  bundleVersion: v1beta3
+state: 
+  message: Entered Downloading state
+  name: downloading
+  progress: 0
+  techCode: 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once finished, the Vehicle Update Manager will also return a &lt;code&gt;FINISHED_SUCCESS&lt;/code&gt; message for the conversation with the backend.&lt;/p&gt;
+&lt;p&gt;Topic: &lt;code&gt;e/defaultTenant/azure.edge:&amp;lt;hub&amp;gt;:&amp;lt;device&amp;gt;:edge:containers&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Message:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;topic&amp;#34;: &amp;#34;azure.edge/&amp;lt;hub&amp;gt;:&amp;lt;device&amp;gt;:edge:containers/things/twin/commands/modify&amp;#34;,
+  &amp;#34;headers&amp;#34;: {
+    &amp;#34;response-required&amp;#34;:false
+  },
+  &amp;#34;path&amp;#34;: &amp;#34;/features/ContainerOrchestrator/properties/status/state&amp;#34;,
+  &amp;#34;value&amp;#34;: {
+    &amp;#34;manifest&amp;#34;: [],
+    &amp;#34;status&amp;#34;: &amp;#34;FINISHED_SUCCESS&amp;#34;,
+    &amp;#34;correlationId&amp;#34;:&amp;#34;&amp;lt;cuid&amp;gt;&amp;#34;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
       </description>
     </item>
     
@@ -1445,7 +1698,25 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
 &lt;h3 id=&#34;what-have-we-done-to-make-the-software-data-protection-friendly&#34;&gt;What have we done to make the software data protection friendly?&lt;/h3&gt;
 &lt;p&gt;This section describes the measures taken to integrate the requirements of the data protection directly into the software development. The technical measures described below follow a &amp;ldquo;privacy by design&amp;rdquo; approach.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Deletion possibility: The software does not save data permanently since it uses only volatile memory. All collected or processed data can be deleted by rebooting the host hardware.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Local data:&lt;/strong&gt; The software may save data permanently in local virtual storage (eg when run in QEMU Emulator) or on local physical storage (SD-Card on Raspberry PI). All collected or processed data can be deleted by either deleting the virtual storage file (*.qcow2), or by erasing the SD-Card.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cloud storage:&lt;/strong&gt; The software may send data to cloud endpoints controlled by you or your organization. Examples include connectivity data, device identification, device health, device telemetry, application metrics and application logs. Collection and processing of example data on the device is enabled by default. Sending of device data to cloud endpoints must be explicitly enabled by performing the device provisioning process. The actual cloud endpoints are determined and configured during the device provisioning process. All collected or processed data can be deleted on the cloud side in the respective cloud endpoints.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vulnerabilities:&lt;/strong&gt; The release process for this software is set up to always update to the newest package updates. The project will continously release new versions of the software. To protect personal data, it is advisable to always use the latest version of the software.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; When you use the Eclipse Leda quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it, this includes but is not limited to the following configuration items:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Disable system user (root) password and login&lt;/li&gt;
+&lt;li&gt;Disable SSH login with password&lt;/li&gt;
+&lt;li&gt;Adding a new Linux user with restricted permissions&lt;/li&gt;
+&lt;li&gt;Adding SSH key based authentication&lt;/li&gt;
+&lt;li&gt;Kubernetes Resources: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

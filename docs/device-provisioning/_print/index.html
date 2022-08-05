@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" as="style">
-<link href="/leda/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.e0cb643cb22d785f156f1ca12addea3890d8982bc26d02772c90c53b2346f445.css" as="style">
+<link href="/leda/scss/main.min.e0cb643cb22d785f156f1ca12addea3890d8982bc26d02772c90c53b2346f445.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -80,7 +80,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/leda/offline-search-index.935c5e741cd5ebb4fb3f2944a790ecfb.json"
+  data-offline-search-index-json-src="/leda/offline-search-index.ddbb4fc14e3720dfdbcf28c24a6b622b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -142,7 +142,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-679c6c584dc366c660841bdd65d2af73">Self Updates</a></li>
+<li>3: <a href="#pg-b841cdcaabc5e1bd7476de818736b5bd">Vehicle Update Manager</a></li>
 
 
     
@@ -157,7 +157,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1: <a href="#pg-cb55165363d95c91e0f19399fa5b280b">Self Update Tutorial</a></li>
+<li>3.1: <a href="#pg-42e18573332f97451f15ebcfa61573ab">Configuration</a></li>
 
 
     
@@ -165,7 +165,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.2: <a href="#pg-fdfe9e0ec285454b4f0c580b5cd46e62">RAUC Integration</a></li>
+<li>3.2: <a href="#pg-a9d83955f4af71a310e5e508cd17161e">Message Flow</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-679c6c584dc366c660841bdd65d2af73">Self Updates</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.1: <a href="#pg-cb55165363d95c91e0f19399fa5b280b">Self Update Tutorial</a></li>
 
 
     
@@ -173,7 +200,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3: <a href="#pg-330a7bfc4527a76419775bc5ddc1265b">API Reference</a></li>
+<li>4.2: <a href="#pg-fdfe9e0ec285454b4f0c580b5cd46e62">RAUC Integration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4.3: <a href="#pg-330a7bfc4527a76419775bc5ddc1265b">API Reference</a></li>
 
 
     
@@ -464,7 +499,309 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-679c6c584dc366c660841bdd65d2af73">3 - Self Updates</h1>
+	<h1 id="pg-b841cdcaabc5e1bd7476de818736b5bd">3 - Vehicle Update Manager</h1>
+    
+	<p>The <em>Vehicle Update Manager</em> delegates two different types of updates:</p>
+<ol>
+<li>The <em>Desired State</em> on the Kubernetes layer</li>
+<li>The <em>Self Update</em> on operating system layer</li>
+</ol>
+<p><img src="vehicle-update-manager-arch.png" alt="Vehicle Update Manager Architecture Overview"></p>
+<h1 id="desired-state">Desired State</h1>
+<p>The <em>Desired State</em> is applied at runtime on the Kubernetes cluster layer.</p>
+<p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.</p>
+<h1 id="self-update">Self Update</h1>
+<p>The <em>Self Update</em> is applied on reboot of the device only.</p>
+<p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-42e18573332f97451f15ebcfa61573ab">3.1 - Configuration</h1>
+    
+	<p>The vehicle update manager container requires the following configuration:</p>
+<ul>
+<li>
+<p>Container needs to run in <strong>privileged mode</strong> to enable automatic reboot.</p>
+<p><em>Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.</em></p>
+</li>
+<li>
+<p><strong>Connection to MQTT broker</strong>, defaults to <code>THINGS_CONN_BROKER=tcp://mosquitto:1883</code></p>
+</li>
+<li>
+<p><strong>Enable container orchestration</strong> feature: <code>THINGS_FEATURES=ContainerOrchestrator</code></p>
+</li>
+</ul>
+<p>Optional configuration options are:</p>
+<dl>
+<dt><code>SELF_UPDATE_ENABLE_REBOOT=true</code></dt>
+<dd>Enable automatic reboot after a successfull application of the update bundle.</dd>
+<dt><code>SELF_UPDATE_TIMEOUT=30m</code></dt>
+<dd>Timeout for downloading and installing an update bundle.</dd>
+</dl>
+<h1 id="example-deployment-specification">Example Deployment Specification</h1>
+<pre tabindex="0"><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: vehicle-update-manager
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: vehicle-update-manager
+rules:
+- apiGroups:
+  - &#39;*&#39;
+  resources:
+  - &#39;*&#39;
+  verbs:
+  - &#39;*&#39;
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: vehicle-update-manager
+subjects:
+- kind: ServiceAccount
+  name: vehicle-update-manager
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: vehicle-update-manager
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-update-manager
+spec:
+  selector:
+    matchLabels:
+      component: vehicle-update-manager
+  template:
+    metadata:
+      labels:
+        component: vehicle-update-manager
+    spec:
+      serviceAccountName: vehicle-update-manager
+      containers:
+        - name: vehicle-update-manager
+          image: &lt;repository&gt;/vehicleupdatemanager:&lt;tag&gt;
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            privileged: true
+          env:
+            - name: SELF_UPDATE_TIMEOUT
+              value: 30m
+            - name: SELF_UPDATE_ENABLE_REBOOT
+              value: &#34;true&#34;
+            - name: THINGS_CONN_BROKER
+              value: tcp://mosquitto:1883
+            - name: THINGS_FEATURES
+              value: ContainerOrchestrator
+          volumeMounts:
+          - mountPath: /proc
+            name: proc
+      volumes:
+      - hostPath:
+          path: /proc
+        name: proc
+      imagePullSecrets:
+        - name: ghcr-io
+</code></pre>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a9d83955f4af71a310e5e508cd17161e">3.2 - Message Flow</h1>
+    
+	<p>The following message flow is an example for the <em>Self Update</em> use case.
+The message is triggered by command line via Azure IoT Hub.</p>
+<div class="mermaid">sequenceDiagram
+    autonumber
+
+    actor flops as Fleet Operations
+
+    participant backend as Digital Twin
+    participant vum as Vehicle Update Manager
+    participant sua as Self Update Agent
+    participant device as Device
+
+    flops ->> backend: Rollout Campaign
+
+    backend -->> vum: Device Command <br> Live Message: <br> yamlApply
+
+    Note left of backend: C2D Message
+
+    vum -->> sua: selfupdate/desiredstate <br> SelfUpdateBundle
+
+    loop Download
+        sua -->> sua: Downloading
+        sua -->> vum: selfupdate/desiredstatefeedback
+        vum -->> backend: progress
+    end
+
+    loop Installation
+        sua -->> device: Installing
+        Note right of device: RAUC Update Bundle
+        sua -->> vum: selfupdate/desiredstatefeedback
+        vum -->> backend: progress
+    end
+
+    sua -->> vum: Installed
+    
+    rect rgb(100, 255, 150)
+        sua -->> backend: FINISHED_SUCCESS
+    end
+
+    opt Reboot
+        vum -->> device: SysRq Reboot
+    end
+  </div>
+  
+  <h1 id="messages">Messages</h1>
+<p>The following describes the message flow with example messages in more detail. The following variables are used for dynamic parts of the messages:</p>
+<ul>
+<li><code>&lt;cuid&gt;</code> - A Correlation ID in form of a UUID</li>
+<li><code>&lt;selfUpdateRequestYaml&gt;</code> or <code>&lt;payload&gt;</code>- The Desired State Self Update Request message in YAML, as defined by the Self Update Agent API</li>
+<li><code>&lt;hub&gt;</code> - The name or identifier of the message hub</li>
+<li><code>&lt;device&gt;</code> - The device identifier used by the message hub or other components to identify the device.</li>
+</ul>
+<ol>
+<li>
+<p>Cloud backend sends the Self-Update Request Message as YAML embedded into an Azure IoT Hub C2D Message Envelope:</p>
+<p>Payload:</p>
+<pre tabindex="0"><code>{
+    &#34;appId&#34;: &#34;mc-ota-update&#34;,
+    &#34;cmdName&#34;: &#34;desiredstate.update&#34;,
+    &#34;cId&#34;: &#34;&lt;cuid&gt;&#34;,
+    &#34;eVer&#34;: &#34;2.0&#34;,
+    &#34;pVer&#34;: &#34;1.0&#34;,
+    &#34;p&#34;: &lt;selfUpdateRequestYaml&gt;
+}
+</code></pre></li>
+<li>
+<p>Cloud Connector validates envelope and transforms request message into a <em>ContainerOrechestrator</em> message:</p>
+<p>Topic: <code>command//azure.edge:&lt;hub&gt;:&lt;device&gt;:edge:containers/req/&lt;cuid&gt;/yamlApply</code></p>
+<p>Body (json):</p>
+<pre tabindex="0"><code> {
+  &#34;topic&#34;: &#34;azure.edge/&lt;hub&gt;:&lt;device&gt;:edge:containers/things/live/messages/yamlApply&#34;,
+  &#34;headers&#34;: {
+     &#34;content-type&#34;: &#34;application/json&#34;,
+     &#34;correlation-id&#34;: &#34;&lt;cuid&gt;&#34;},
+     &#34;path&#34;: &#34;/features/ContainerOrchestrator/inbox/messages/yamlApply&#34;,
+     &#34;value&#34;: {
+         &#34;correlationId&#34;: &#34;&lt;cuid&gt;&#34;,
+         &#34;payload&#34;: &#34;&lt;payload&gt;&#34;
+         }
+     }
+ }
+</code></pre><p><em>Note: Payload (Yaml encoded in JSON) omitted here for clarity, see next step.</em></p>
+</li>
+</ol>
+<ol start="3">
+<li>
+<p>Vehicle Update manager extracts payload and forward the message to the Self Update Agent message inbox:</p>
+<p>Topic: <code>selfupdate/desiredstate</code></p>
+<p>Message:</p>
+<pre tabindex="0"><code>apiVersion: sdv.eclipse.org/v1
+kind: SelfUpdateBundle
+metadata:
+    name: self-update-bundle-example
+spec:
+    bundleDownloadUrl: http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb
+    bundleName: swdv-arm64-build42
+    bundleTarget: base
+    bundleVersion: v1beta3
+</code></pre></li>
+</ol>
+<ol start="4">
+<li>
+<p>The Self Update Agent response with status messages during download and installation phases.</p>
+<p>Topic: <code>selfupdate/desiredstatefeedback</code></p>
+<p>Message:</p>
+<pre tabindex="0"><code>apiVersion: sdv.eclipse.org/v1
+kind: SelfUpdateBundle
+metadata: 
+  name: &#34;self-update-bundle-example&#34;
+spec: 
+  bundleDownloadUrl: &#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;
+  bundleName: &#34;swdv-arm64-build42&#34;
+  bundleTarget: base
+  bundleVersion: v1beta3
+state: 
+  message: Entered Downloading state
+  name: downloading
+  progress: 0
+  techCode: 0
+</code></pre></li>
+<li>
+<p>Once finished, the Vehicle Update Manager will also return a <code>FINISHED_SUCCESS</code> message for the conversation with the backend.</p>
+<p>Topic: <code>e/defaultTenant/azure.edge:&lt;hub&gt;:&lt;device&gt;:edge:containers</code></p>
+<p>Message:</p>
+<pre tabindex="0"><code>{
+  &#34;topic&#34;: &#34;azure.edge/&lt;hub&gt;:&lt;device&gt;:edge:containers/things/twin/commands/modify&#34;,
+  &#34;headers&#34;: {
+    &#34;response-required&#34;:false
+  },
+  &#34;path&#34;: &#34;/features/ContainerOrchestrator/properties/status/state&#34;,
+  &#34;value&#34;: {
+    &#34;manifest&#34;: [],
+    &#34;status&#34;: &#34;FINISHED_SUCCESS&#34;,
+    &#34;correlationId&#34;:&#34;&lt;cuid&gt;&#34;
+    }
+}
+</code></pre></li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-679c6c584dc366c660841bdd65d2af73">4 - Self Updates</h1>
     
 	<p>In general, the self-update mechanism for operating system level updates is done with two separate partitions. While one partition is the actively booted partition and in use, the other partition can be updated by writing a partition image to it, as it is unused or inactive.</p>
 <p>Once the download and writing is done, a reboot is triggered and the boot loader will now switch to the newly updated partition.</p>
@@ -508,7 +845,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-cb55165363d95c91e0f19399fa5b280b">3.1 - Self Update Tutorial</h1>
+	<h1 id="pg-cb55165363d95c91e0f19399fa5b280b">4.1 - Self Update Tutorial</h1>
     
 	<p>This chapter describes the steps necessary to perform a local (without cloud) self update of the operating system.</p>
 <p><img src="../self-update-arch.png" alt=""></p>
@@ -594,7 +931,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fdfe9e0ec285454b4f0c580b5cd46e62">3.2 - RAUC Integration</h1>
+	<h1 id="pg-fdfe9e0ec285454b4f0c580b5cd46e62">4.2 - RAUC Integration</h1>
     
 	<p>Leda integrates <a href="https://rauc.io/">RAUC</a> as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.</p>
 <h2 id="checking-the-rauc-status">Checking the RAUC Status</h2>
@@ -725,7 +1062,7 @@ part /data --fixed-size 4G --fstype=ext4 --label data
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-330a7bfc4527a76419775bc5ddc1265b">3.3 - API Reference</h1>
+	<h1 id="pg-330a7bfc4527a76419775bc5ddc1265b">4.3 - API Reference</h1>
     
 	<p>The self update agent (SUA) is a component responsible for the OS Update process.  SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses <a href="https://rauc.io/">RAUC</a> to perform the update.</p>
 <p>Following sequence diagram shows the happy path example of communication between components.</p>

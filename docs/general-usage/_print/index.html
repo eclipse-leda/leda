@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" as="style">
-<link href="/leda/scss/main.min.a872e4e4fe71877352cbea14f3a874d72daf667cc7f3f49fc695b5a36f393415.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.e0cb643cb22d785f156f1ca12addea3890d8982bc26d02772c90c53b2346f445.css" as="style">
+<link href="/leda/scss/main.min.e0cb643cb22d785f156f1ca12addea3890d8982bc26d02772c90c53b2346f445.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -80,7 +80,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/leda/offline-search-index.935c5e741cd5ebb4fb3f2944a790ecfb.json"
+  data-offline-search-index-json-src="/leda/offline-search-index.ddbb4fc14e3720dfdbcf28c24a6b622b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -352,7 +352,7 @@ gh release download \
 <li>
 <p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for Ubuntu:</p>
 <pre><code>sudo apt-get update -y
-sudo apt-get install -y qemu-system-x86-64
+sudo apt-get install -y xz-utils qemu-system-x86-64
 </code></pre>
 </li>
 <li>
@@ -680,19 +680,21 @@ With <code>sshfs</code>, you can mount a local directory to a remote directory v
 </li>
 <li>
 <p>Uncompress the SD Card image:</p>
-<pre><code>tar xf eclipse-leda-raspberrypi.tar.xz
-bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
+<pre><code>apt-get install -y xz-utils
+tar xf eclipse-leda-raspberrypi.tar.xz
+bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 </code></pre>
 </li>
 <li>
-<p>Flash the <code>sdv-image-full-raspberrypi4.wic</code> file to an SD-Card</p>
+<p>Flash the <code>sdv-image-all-raspberrypi4.wic</code> file to an SD-Card</p>
 <ul>
 <li>On Linux:
 <ul>
 <li>Install bmap tools: <code>sudo apt-get install -y bmap-tools</code></li>
 <li>Insert SD Card and check which device is mounted: <code>sudo fdisk -l</code></li>
 <li>Unmount the device: <code>sudo umount /dev/sd[X]</code></li>
-<li><code>sudo bmaptool copy --bmap sdv-image-full-raspberrypi4-64.wic.bmap sdv-image-full-raspberrypi4-64.wic.gz /dev/sd[X]</code></li>
+<li><code>sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]</code></li>
+<li><em>Note:  Using <code>bmap</code> is faster but works the same as with plain <code>dd if=&lt;wic-file&gt; of=dev/sd[x]</code>.</em></li>
 </ul>
 </li>
 <li>On Windows:

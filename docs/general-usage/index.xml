@@ -114,7 +114,7 @@ gh release download \
 &lt;li&gt;
 &lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for Ubuntu:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get update -y
-sudo apt-get install -y qemu-system-x86-64
+sudo apt-get install -y xz-utils qemu-system-x86-64
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -255,19 +255,21 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Uncompress the SD Card image:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;tar xf eclipse-leda-raspberrypi.tar.xz
-bzip2 -d -f core-image-minimal-raspberrypi4.wic.bz2
+&lt;pre&gt;&lt;code&gt;apt-get install -y xz-utils
+tar xf eclipse-leda-raspberrypi.tar.xz
+bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Flash the &lt;code&gt;sdv-image-full-raspberrypi4.wic&lt;/code&gt; file to an SD-Card&lt;/p&gt;
+&lt;p&gt;Flash the &lt;code&gt;sdv-image-all-raspberrypi4.wic&lt;/code&gt; file to an SD-Card&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;On Linux:
 &lt;ul&gt;
 &lt;li&gt;Install bmap tools: &lt;code&gt;sudo apt-get install -y bmap-tools&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Insert SD Card and check which device is mounted: &lt;code&gt;sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Unmount the device: &lt;code&gt;sudo umount /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-full-raspberrypi4-64.wic.bmap sdv-image-full-raspberrypi4-64.wic.gz /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Note:  Using &lt;code&gt;bmap&lt;/code&gt; is faster but works the same as with plain &lt;code&gt;dd if=&amp;lt;wic-file&amp;gt; of=dev/sd[x]&lt;/code&gt;.&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;On Windows:

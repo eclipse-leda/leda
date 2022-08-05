@@ -171,6 +171,31 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
     </item>
     
     <item>
+      <title>Docs: Vehicle Update Manager</title>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;em&gt;Vehicle Update Manager&lt;/em&gt; delegates two different types of updates:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;em&gt;Desired State&lt;/em&gt; on the Kubernetes layer&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;Self Update&lt;/em&gt; on operating system layer&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;vehicle-update-manager-arch.png&#34; alt=&#34;Vehicle Update Manager Architecture Overview&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;desired-state&#34;&gt;Desired State&lt;/h1&gt;
+&lt;p&gt;The &lt;em&gt;Desired State&lt;/em&gt; is applied at runtime on the Kubernetes cluster layer.&lt;/p&gt;
+&lt;p&gt;This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.&lt;/p&gt;
+&lt;h1 id=&#34;self-update&#34;&gt;Self Update&lt;/h1&gt;
+&lt;p&gt;The &lt;em&gt;Self Update&lt;/em&gt; is applied on reboot of the device only.&lt;/p&gt;
+&lt;p&gt;This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Self Updates</title>
       <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
