@@ -23,7 +23,7 @@ Steps:
      - Insert SD Card and check which device is mounted: `sudo fdisk -l`
      - Unmount the device: `sudo umount /dev/sd[X]`
      - `sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]`
-     - *Note:  Using `bmap` is faster but works the same as with plain `dd`.*
+     - *Note:  Using `bmap` is faster but works the same as with plain `dd if=<wic-file> of=dev/sd[x]`.*
   - On Windows: 
      - [Raspberry Pi Imager](https://www.raspberrypi.org/documentation/installation/installing-images/)
      - [Balena Etcher](https://www.balena.io/etcher/)
