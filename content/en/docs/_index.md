@@ -43,5 +43,5 @@ This program and the accompanying materials are made available under the
 terms of the Apache License 2.0 which is available at
 https://www.apache.org/licenses/LICENSE-2.0
 
-For details, please see our license [NOTICE](NOTICE.md)
+For details, please see our license [NOTICE](https://github.com/eclipse-leda/leda/blob/main/NOTICE.md)
 
