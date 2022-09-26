@@ -14,7 +14,7 @@ The ready images are also useful for quickly setting up showcases with virtual o
 
 Eclipse Leda provides a Poky-based reference build pipeline and an OpenEmbedded Metalayer [meta-leda](https://github.com/eclipse-leda/meta-leda) for integration into existing Yocto-based projects.
 
-# Usage
+## Usage
 
 {{% readfile "/docs/__shared/usage-overview.md" %}}
 
@@ -22,7 +22,11 @@ Supported Machines / Build Configurations
 - Emulated Qemu: x86-64, ARM64, ARM
 - Raspberry Pi 4
 
-# Overview
+## Introduction Video
+
+{{< youtube id="91hNeQ3kf0w" title="Eclipse Leda - Build your ideas in the playground and make it automotive ready!" >}}
+
+## Components Overview
 
 ![Eclipse Leda Component Overview](/leda/assets/eclipse-leda-arch-overview.png)
 
