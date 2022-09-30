@@ -27,3 +27,8 @@ The project maintains the following source code repositories
 * https://github.com/eclipse-leda/leda-distro
 * https://github.com/eclipse-leda/meta-leda
 
+## Publications
+
+* [Eclipse Leda Introduction Video](https://www.youtube.com/watch?v=91hNeQ3kf0w) - YouTube, 2min
+* [Eclipse SDV - First Contribution Day (June 2022)](https://www.youtube.com/watch?v=yOVHyG0aZ7M&list=PLy7t4z5SYNaRYI7lH26szREOi9pfqxOUU&index=8) - Session Recording, YouTube, 26min
+* [Eclipse SDV - Second Contribution Day (September 2022)](https://www.youtube.com/watch?v=hiFriZhv1NE&list=PLy7t4z5SYNaRYI7lH26szREOi9pfqxOUU&index=17) - Session Recording, YouTube, 30min
