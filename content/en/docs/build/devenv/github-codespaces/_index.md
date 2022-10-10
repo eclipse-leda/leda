@@ -27,9 +27,9 @@ Select a big enough machine type for Yocto/BitBake, e.g. 16 CPU. You need at lea
 
 After successfully obtaining and connecting to a codespace you can build Leda either with kas or manually:
 
-- To build with kas follow the instructions at: [Building with kas](/leda/docs/build/devenv/vscode-devcontainer/#building-with-kas)
+- To build with kas follow the instructions at: [Building with kas](/leda/docs/build/devenv/build-kas-manually/#building-with-kas)
 
-- To build manually: [Building manually](/leda/docs/build/devenv/vscode-devcontainer/#building-manually)
+- To build manually: [Building manually](/leda/docs/build/devenv/build-kas-manually/#building-manually)
 
 
 ## Private Repositories
