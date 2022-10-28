@@ -270,7 +270,8 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
         
         
         &lt;p&gt;&lt;a href=&#34;eclipse-leda-logo.zip&#34;&gt;Download eclipse-leda-logo.zip&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;white-background&#34;&gt;White background&lt;/h2&gt;
+&lt;h2 id=&#34;for-screen&#34;&gt;For Screen&lt;/h2&gt;
+&lt;h3 id=&#34;white-background&#34;&gt;White background&lt;/h3&gt;
 
 
 
@@ -289,7 +290,7 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
 	
 &lt;/figure&gt;
 
-&lt;h2 id=&#34;black-background&#34;&gt;Black background&lt;/h2&gt;
+&lt;h3 id=&#34;black-background&#34;&gt;Black background&lt;/h3&gt;
 
 
 
@@ -326,6 +327,88 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
 	
 &lt;/figure&gt;
 
+&lt;h2 id=&#34;for-print&#34;&gt;For Print&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;File&lt;/th&gt;
+&lt;th&gt;File Format&lt;/th&gt;
+&lt;th&gt;Color model&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_01_cmyk.ai&#34;&gt;eclipse-leda-logo_01_cmyk.ai&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Adobe Illustrator&lt;/td&gt;
+&lt;td&gt;CMYK, Black background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_01_cmyk.eps&#34;&gt;eclipse-leda-logo_01_cmyk.eps&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Encapsulated PostScript&lt;/td&gt;
+&lt;td&gt;CMYK, Black background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_01_cmyk.pdf&#34;&gt;eclipse-leda-logo_01_cmyk.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Portable Document Format&lt;/td&gt;
+&lt;td&gt;CMYK, Black background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_01_rgb.ai&#34;&gt;eclipse-leda-logo_01_rgb.ai&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Adobe Illustrator&lt;/td&gt;
+&lt;td&gt;RGB, Black background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_01_rgb.jpg&#34;&gt;eclipse-leda-logo_01_rgb.jpg&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;JPEG&lt;/td&gt;
+&lt;td&gt;RGB, Black background, 2480x2480&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_01_rgb.png&#34;&gt;eclipse-leda-logo_01_rgb.png&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PNG&lt;/td&gt;
+&lt;td&gt;RGB, Black background, 2480x2480&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_02_cmyk.ai&#34;&gt;eclipse-leda-logo_02_cmyk.ai&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Adobe Illustrator&lt;/td&gt;
+&lt;td&gt;CMYK, Transparent background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_02_cmyk.eps&#34;&gt;eclipse-leda-logo_02_cmyk.eps&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Encapsulated PostScript&lt;/td&gt;
+&lt;td&gt;CMYK, Transparent background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_02_cmyk.pdf&#34;&gt;eclipse-leda-logo_02_cmyk.pdf&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Portable Document Format&lt;/td&gt;
+&lt;td&gt;CMYK, Transparent background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_02_rgb.ai&#34;&gt;eclipse-leda-logo_02_rgb.ai&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Adobe Illustrator&lt;/td&gt;
+&lt;td&gt;RGB, Transparent background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_02_rgb.jpg&#34;&gt;eclipse-leda-logo_02_rgb.jpg&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;JPEG&lt;/td&gt;
+&lt;td&gt;RGB, White background, 2480x2480&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_02_rgb.png&#34;&gt;eclipse-leda-logo_02_rgb.png&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;PNG&lt;/td&gt;
+&lt;td&gt;RGB, Transparent background, 2480x2480&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_03_cmyk_cropped.svg&#34;&gt;eclipse-leda-logo_03_cmyk_cropped.svg&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Scalable Vector Graphics&lt;/td&gt;
+&lt;td&gt;CMYK, Transparent background, Cropped&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;eclipse-leda-logo_03_cmyk.svg&#34;&gt;eclipse-leda-logo_03_cmyk.svg&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Scalable Vector Graphics&lt;/td&gt;
+&lt;td&gt;CMYK, Transparent background&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;colors&#34;&gt;Colors&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Primary Color: #6daed1&lt;/li&gt;
