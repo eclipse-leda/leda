@@ -4,18 +4,10 @@ date: 2022-05-09T14:24:56+05:30
 weight: 3
 ---
 
-# Run the full build
+## Run the full build
 
-- Pre-Requisites: Configure proxy, eg `source .devcontainer/proxy.sh`
-- Initialize git submodules: `git submodule update --init --recursive`
-- Update from remote: `git submodule update --recursive --remote`
-- Check versions: `git submodule`
-- Execute the setup for your host: `./setup.sh`
-- Execute the main build script: `./build-<target>.sh`
+To setup the environment and build the Leda image, please refer to: [Setup development environment](/leda/docs/build/devenv/).
 
-## Build from scratch
-- Trigger the respective build with one of the `build-xxx.sh` scripts
-- The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB+ free disk space for each build environment.
 
 ## Running QEMU from existing build
 
@@ -49,3 +41,10 @@ nohup runqemu qemux86-64 nographic qemuparams="-m 2048 -pidfile qemu.pid" &
 The image is then reachable via `ssh root@192.168.72`
 This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, ``kill -9 <qemu.pid>`` kills the process.
 
+## Running with kas-shell
+
+If you've chosen to build the Leda image with kas, you can use the kas-shell to run QEMU, with kas setting up the environment for you. To do that change to the main working directory and run:
+
+```bash
+kas shell -c 'runqemu slirp nographic ovmf sdv-image-full'
+```

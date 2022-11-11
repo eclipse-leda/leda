@@ -23,6 +23,15 @@ Select a big enough machine type for Yocto/BitBake, e.g. 16 CPU. You need at lea
 
 ![](github-codespaces-remote-explorer.png)
 
+## Building Leda in a Github Codespace
+
+After successfully obtaining and connecting to a codespace you can build Leda either with kas or manually:
+
+- To build with kas follow the instructions at: [Building with kas](/leda/docs/build/devenv/build-kas-manually/#building-with-kas)
+
+- To build manually: [Building manually](/leda/docs/build/devenv/build-kas-manually/#building-manually)
+
+
 ## Private Repositories
 
 When using GitHub Codespaces with submodules and private repositories,
