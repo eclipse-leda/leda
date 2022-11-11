@@ -6,7 +6,7 @@ weight: 1
 
 # BitBake and Metalayers
 
-The example build configurations in this repository are based on the official [BitBake Quickstart tutorial](https://www.yoctoproject.org/docs/current/brief-yoctoprojectqs/brief-yoctoprojectqs.html) and have been extended to include SDV components.
+The example build configurations in this repository are based on the official [BitBake Quickstart tutorial](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html) and have been extended to include SDV components.
 
 To set up your own BitBake build configuration, follow the BitBake documentation and include `meta-leda` in your `bblayers.conf` and add the SDV packages into your `local.conf`. You may use the the `local.conf` files in the `build-sdv-*/conf/local.conf` as a guiding reference.
 
