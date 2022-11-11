@@ -18,34 +18,30 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Roadmap | Eclipse Leda Documentation</title>
-<meta name="description" content="Initial Open Source contribution expected by Q2 2022
- Release cycles are planned every 3-6 months Release planning will be conducted together with corresponding Eclipse projects  Future Work The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.
-Exemplary future work:
- Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other Eclipse Automotive projects Integration of device provisioning with specific backend services Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications  If you have feedback, please use GitHub Issues">
-<meta property="og:title" content="Roadmap" />
-<meta property="og:description" content="Initial Open Source contribution expected by Q2 2022
- Release cycles are planned every 3-6 months Release planning will be conducted together with corresponding Eclipse projects  Future Work The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.
-Exemplary future work:
- Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other Eclipse Automotive projects Integration of device provisioning with specific backend services Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications  If you have feedback, please use GitHub Issues" />
+<title>Building with kas/manually | Eclipse Leda Documentation</title>
+<meta name="description" content="After setting up your VSCode DevContainer or GitHub Codespace you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.
+Building with kas This is the easiest way to build leda semi-automatically
+ cd /workspaces/meta-leda-fork/ Open the VSCode terminal and run kas build Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository  Building manually You can also build Leda manually if more customization of the build process is required.">
+<meta property="og:title" content="Building with kas/manually" />
+<meta property="og:description" content="After setting up your VSCode DevContainer or GitHub Codespace you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.
+Building with kas This is the easiest way to build leda semi-automatically
+ cd /workspaces/meta-leda-fork/ Open the VSCode terminal and run kas build Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository  Building manually You can also build Leda manually if more customization of the build process is required." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/about/roadmap/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
 <meta property="article:modified_time" content="2022-11-11T09:33:14+01:00" />
 
-<meta itemprop="name" content="Roadmap">
-<meta itemprop="description" content="Initial Open Source contribution expected by Q2 2022
- Release cycles are planned every 3-6 months Release planning will be conducted together with corresponding Eclipse projects  Future Work The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.
-Exemplary future work:
- Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other Eclipse Automotive projects Integration of device provisioning with specific backend services Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications  If you have feedback, please use GitHub Issues"><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="name" content="Building with kas/manually">
+<meta itemprop="description" content="After setting up your VSCode DevContainer or GitHub Codespace you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.
+Building with kas This is the easiest way to build leda semi-automatically
+ cd /workspaces/meta-leda-fork/ Open the VSCode terminal and run kas build Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository  Building manually You can also build Leda manually if more customization of the build process is required."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
 <meta itemprop="dateModified" content="2022-11-11T09:33:14+01:00" />
-<meta itemprop="wordCount" content="105">
+<meta itemprop="wordCount" content="267">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Roadmap"/>
-<meta name="twitter:description" content="Initial Open Source contribution expected by Q2 2022
- Release cycles are planned every 3-6 months Release planning will be conducted together with corresponding Eclipse projects  Future Work The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.
-Exemplary future work:
- Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other Eclipse Automotive projects Integration of device provisioning with specific backend services Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications  If you have feedback, please use GitHub Issues"/>
+<meta name="twitter:title" content="Building with kas/manually"/>
+<meta name="twitter:description" content="After setting up your VSCode DevContainer or GitHub Codespace you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.
+Building with kas This is the easiest way to build leda semi-automatically
+ cd /workspaces/meta-leda-fork/ Open the VSCode terminal and run kas build Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository  Building manually You can also build Leda manually if more customization of the build process is required."/>
 
 
 
@@ -123,8 +119,8 @@ Exemplary future work:
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocs-li">
   <a href="/leda/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ledadocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsabout-li">
-  <input type="checkbox" id="m-ledadocsabout-check" checked/>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsabout-li">
+  <input type="checkbox" id="m-ledadocsabout-check"/>
   <label for="m-ledadocsabout-check"><a href="/leda/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsabout"><span class="">About Leda</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -136,9 +132,9 @@ Exemplary future work:
   <input type="checkbox" id="m-ledadocsaboutgoals-check"/>
   <label for="m-ledadocsaboutgoals-check"><a href="/leda/docs/about/goals/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutgoals"><span class="">Goals</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsaboutroadmap-li">
-  <input type="checkbox" id="m-ledadocsaboutroadmap-check" checked/>
-  <label for="m-ledadocsaboutroadmap-check"><a href="/leda/docs/about/roadmap/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutroadmap"><span class="td-sidebar-nav-active-item">Roadmap</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutroadmap-li">
+  <input type="checkbox" id="m-ledadocsaboutroadmap-check"/>
+  <label for="m-ledadocsaboutroadmap-check"><a href="/leda/docs/about/roadmap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutroadmap"><span class="">Roadmap</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutarchitecture-li">
   <input type="checkbox" id="m-ledadocsaboutarchitecture-check"/>
@@ -244,8 +240,8 @@ Exemplary future work:
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuild-li">
-  <input type="checkbox" id="m-ledadocsbuild-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsbuild-li">
+  <input type="checkbox" id="m-ledadocsbuild-check" checked/>
   <label for="m-ledadocsbuild-check"><a href="/leda/docs/build/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuild"><span class="">Building Leda</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -257,8 +253,8 @@ Exemplary future work:
   <input type="checkbox" id="m-ledadocsbuildmetalayer-check"/>
   <label for="m-ledadocsbuildmetalayer-check"><a href="/leda/docs/build/metalayer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmetalayer"><span class="">Metalayer</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddevenv-li">
-  <input type="checkbox" id="m-ledadocsbuilddevenv-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsbuilddevenv-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenv-check" checked/>
   <label for="m-ledadocsbuilddevenv-check"><a href="/leda/docs/build/devenv/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddevenv"><span class="">Setup development environment</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -281,9 +277,9 @@ Exemplary future work:
   <input type="checkbox" id="m-ledadocsbuilddevenvvscode-devcontainer-check"/>
   <label for="m-ledadocsbuilddevenvvscode-devcontainer-check"><a href="/leda/docs/build/devenv/vscode-devcontainer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvvscode-devcontainer"><span class="">VSCode DevContainer</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvbuild-kas-manually-li">
-  <input type="checkbox" id="m-ledadocsbuilddevenvbuild-kas-manually-check"/>
-  <label for="m-ledadocsbuilddevenvbuild-kas-manually-check"><a href="/leda/docs/build/devenv/build-kas-manually/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvbuild-kas-manually"><span class="">Building with kas/manually</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsbuilddevenvbuild-kas-manually-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvbuild-kas-manually-check" checked/>
+  <label for="m-ledadocsbuilddevenvbuild-kas-manually-check"><a href="/leda/docs/build/devenv/build-kas-manually/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvbuild-kas-manually"><span class="td-sidebar-nav-active-item">Building with kas/manually</span></a></label>
   
 </li>
   </ul>
@@ -381,11 +377,19 @@ Exemplary future work:
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/about/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/build/devenv/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
-            
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#building-with-kas">Building with kas</a></li>
+    <li><a href="#building-manually">Building manually</a></li>
+  </ul>
+</nav>
+      </div>
+    
             
 
 	
@@ -425,16 +429,19 @@ Exemplary future work:
     <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/about/">About Leda</a>
+    <a href="https://eclipse-leda.github.io/leda/docs/build/">Building Leda</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/build/devenv/">Setup development environment</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://eclipse-leda.github.io/leda/docs/about/roadmap/" aria-disabled="true" class="btn-link disabled">Roadmap</a>
+    <a href="https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/" aria-disabled="true" class="btn-link disabled">Building with kas/manually</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Roadmap</h1>
+	<h1>Building with kas/manually</h1>
 	
 	<header class="article-meta">
 		
@@ -453,21 +460,79 @@ Exemplary future work:
 
 		
 	</header>    
-	<p>Initial Open Source contribution expected by Q2 2022</p>
+	<p>After setting up your <a href="/leda/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> or <a href="/leda/docs/build/devenv/github-codespaces/">GitHub Codespace</a> you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.</p>
+<h2 id="building-with-kas">Building with kas</h2>
+<p>This is the easiest way to build leda semi-automatically</p>
 <ul>
-<li>Release cycles are planned every 3-6 months</li>
-<li>Release planning will be conducted together with corresponding Eclipse projects</li>
+<li><code>cd /workspaces/meta-leda-fork/</code></li>
+<li>Open the VSCode terminal and run <code>kas build</code></li>
+<li><strong>Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository</strong></li>
 </ul>
-<h1 id="future-work">Future Work</h1>
-<p>The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.</p>
-<p>Exemplary future work:</p>
+<h2 id="building-manually">Building manually</h2>
+<p>You can also build Leda manually if more customization of the build process is required.</p>
 <ul>
-<li>Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager</li>
-<li>Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other <a href="https://projects.eclipse.org/projects/automotive">Eclipse Automotive</a> projects</li>
-<li>Integration of device provisioning with specific backend services</li>
-<li>Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications</li>
+<li>
+<p><code>export LEDA_WORKDIR=/workspaces/meta-leda-fork/</code></p>
+</li>
+<li>
+<p><code>cd ${LEDA_WORKDIR}</code></p>
+</li>
+<li>
+<p>Clone the Poky repository with the required release, e.g. <code>kirkstone</code> and pull updates if necessary:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git://git.yoctoproject.org/poky
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> poky
+</span></span><span style="display:flex;"><span>git checkout -t origin/kirkstone -b kirkstone
+</span></span><span style="display:flex;"><span>git config pull.rebase <span style="color:#204a87">false</span>
+</span></span><span style="display:flex;"><span>git pull
+</span></span></code></pre></div></li>
+<li>
+<p>Prepare the build environment:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env
+</span></span></code></pre></div></li>
+<li>
+<p>Dry-run a build of the Linux Kernel recipe using BitBake:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bitbake --dry-run linux-yocto
+</span></span></code></pre></div></li>
+<li>
+<p>Checkout the meta-layer dependencies for Leda:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> <span style="color:#000">$LEDA_WORKDIR</span>
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://github.com/rauc/meta-rauc.git meta-rauc
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://github.com/rauc/meta-rauc-community.git meta-rauc-community
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://git.yoctoproject.org/meta-virtualization meta-virtualization
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://git.openembedded.org/meta-openembedded meta-openembedded
+</span></span></code></pre></div></li>
+<li>
+<p>Change to the <code>poky/build</code> directory (generated from the <code>oe-init-build-env</code> script automatically)</p>
+</li>
+<li>
+<p>Add all the necessary meta-layers:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-rauc
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-rauc-community/meta-rauc-qemux86
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-oe
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-filesystems
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-python
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-networking
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-virtualization
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-leda-components
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-leda-bsp
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-leda-distro
+</span></span></code></pre></div></li>
+<li>
+<p>Dry run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span>leda bitbake --dry-run sdv-image-all
+</span></span></code></pre></div></li>
+<li>
+<p>Real build:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span>leda bitbake sdv-image-all
+</span></span></code></pre></div></li>
+<li>
+<p>You can also build one of the target recipies this way:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span>leda bitbake kanto-container-management
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Note: in this case you can set the target architecture and other build options in the build/local.conf file</strong></p>
+</li>
 </ul>
-<p>If you have feedback, please use <a href="https://github.com/eclipse-leda/">GitHub Issues</a></p>
 
 	
 	

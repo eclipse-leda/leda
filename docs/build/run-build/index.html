@@ -19,21 +19,25 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
 <title>Run the build | Eclipse Leda Documentation</title>
-<meta name="description" content="Run the full build  Pre-Requisites: Configure proxy, eg source .devcontainer/proxy.sh Initialize git submodules: git submodule update --init --recursive Update from remote: git submodule update --recursive --remote Check versions: git submodule Execute the setup for your host: ./setup.sh Execute the main build script: ./build-&amp;lt;target&amp;gt;.sh  Build from scratch  Trigger the respective build with one of the build-xxx.sh scripts The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB&#43; free disk space for each build environment.">
+<meta name="description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
+Running QEMU from existing build  Switch to the build directory: cd poky &amp;amp;&amp;amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&amp;quot;-m 2048&amp;quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host.">
 <meta property="og:title" content="Run the build" />
-<meta property="og:description" content="Run the full build  Pre-Requisites: Configure proxy, eg source .devcontainer/proxy.sh Initialize git submodules: git submodule update --init --recursive Update from remote: git submodule update --recursive --remote Check versions: git submodule Execute the setup for your host: ./setup.sh Execute the main build script: ./build-&lt;target&gt;.sh  Build from scratch  Trigger the respective build with one of the build-xxx.sh scripts The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB&#43; free disk space for each build environment." />
+<meta property="og:description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
+Running QEMU from existing build  Switch to the build directory: cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/run-build/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2022-10-28T08:35:17+02:00" />
+<meta property="article:modified_time" content="2022-11-11T09:33:14+01:00" />
 
 <meta itemprop="name" content="Run the build">
-<meta itemprop="description" content="Run the full build  Pre-Requisites: Configure proxy, eg source .devcontainer/proxy.sh Initialize git submodules: git submodule update --init --recursive Update from remote: git submodule update --recursive --remote Check versions: git submodule Execute the setup for your host: ./setup.sh Execute the main build script: ./build-&lt;target&gt;.sh  Build from scratch  Trigger the respective build with one of the build-xxx.sh scripts The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB&#43; free disk space for each build environment."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2022-10-28T08:35:17+02:00" />
-<meta itemprop="wordCount" content="323">
+<meta itemprop="description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
+Running QEMU from existing build  Switch to the build directory: cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2022-11-11T09:33:14+01:00" />
+<meta itemprop="wordCount" content="308">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run the build"/>
-<meta name="twitter:description" content="Run the full build  Pre-Requisites: Configure proxy, eg source .devcontainer/proxy.sh Initialize git submodules: git submodule update --init --recursive Update from remote: git submodule update --recursive --remote Check versions: git submodule Execute the setup for your host: ./setup.sh Execute the main build script: ./build-&lt;target&gt;.sh  Build from scratch  Trigger the respective build with one of the build-xxx.sh scripts The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB&#43; free disk space for each build environment."/>
+<meta name="twitter:description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
+Running QEMU from existing build  Switch to the build directory: cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host."/>
 
 
 
@@ -72,7 +76,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.f2c7cd08749e2ed21ffde243ac84ad61.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.9bc00180b5fd952185218f60c9c21685.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -97,7 +101,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.f2c7cd08749e2ed21ffde243ac84ad61.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.9bc00180b5fd952185218f60c9c21685.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -269,6 +273,10 @@
   <input type="checkbox" id="m-ledadocsbuilddevenvvscode-devcontainer-check"/>
   <label for="m-ledadocsbuilddevenvvscode-devcontainer-check"><a href="/leda/docs/build/devenv/vscode-devcontainer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvvscode-devcontainer"><span class="">VSCode DevContainer</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvbuild-kas-manually-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvbuild-kas-manually-check"/>
+  <label for="m-ledadocsbuilddevenvbuild-kas-manually-check"><a href="/leda/docs/build/devenv/build-kas-manually/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvbuild-kas-manually"><span class="">Building with kas/manually</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsbuildrun-build-li">
@@ -372,13 +380,14 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#build-from-scratch">Build from scratch</a></li>
+    <li><a href="#run-the-full-build">Run the full build</a></li>
     <li><a href="#running-qemu-from-existing-build">Running QEMU from existing build</a>
       <ul>
         <li><a href="#variations-of-runqemu-command-line">Variations of runqemu command line</a></li>
       </ul>
     </li>
     <li><a href="#running-qemu-in-the-background">Running QEMU in the background</a></li>
+    <li><a href="#running-with-kas-shell">Running with kas-shell</a></li>
   </ul>
 </nav>
       </div>
@@ -450,20 +459,8 @@
 
 		
 	</header>    
-	<h1 id="run-the-full-build">Run the full build</h1>
-<ul>
-<li>Pre-Requisites: Configure proxy, eg <code>source .devcontainer/proxy.sh</code></li>
-<li>Initialize git submodules: <code>git submodule update --init --recursive</code></li>
-<li>Update from remote: <code>git submodule update --recursive --remote</code></li>
-<li>Check versions: <code>git submodule</code></li>
-<li>Execute the setup for your host: <code>./setup.sh</code></li>
-<li>Execute the main build script: <code>./build-&lt;target&gt;.sh</code></li>
-</ul>
-<h2 id="build-from-scratch">Build from scratch</h2>
-<ul>
-<li>Trigger the respective build with one of the <code>build-xxx.sh</code> scripts</li>
-<li>The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB+ free disk space for each build environment.</li>
-</ul>
+	<h2 id="run-the-full-build">Run the full build</h2>
+<p>To setup the environment and build the Leda image, please refer to: <a href="/leda/docs/build/devenv/">Setup development environment</a>.</p>
 <h2 id="running-qemu-from-existing-build">Running QEMU from existing build</h2>
 <ul>
 <li>Switch to the build directory: <code>cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx</code></li>
@@ -502,7 +499,10 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nohup runqemu qemux86-64 nographic <span style="color:#000">qemuparams</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-m 2048 -pidfile qemu.pid&#34;</span> <span style="color:#000;font-weight:bold">&amp;</span>
 </span></span></code></pre></div><p>The image is then reachable via <code>ssh root@192.168.72</code>
 This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, <code>kill -9 &lt;qemu.pid&gt;</code> kills the process.</p>
-
+<h2 id="running-with-kas-shell">Running with kas-shell</h2>
+<p>If you&rsquo;ve chosen to build the Leda image with kas, you can use the kas-shell to run QEMU, with kas setting up the environment for you. To do that change to the main working directory and run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kas shell -c <span style="color:#4e9a06">&#39;runqemu slirp nographic ovmf sdv-image-full&#39;</span>
+</span></span></code></pre></div>
 	
 	
 	
@@ -623,7 +623,7 @@ This will write a file qemu.pid in the current directory including the process I
     </div>
     
 
-<script src="/leda/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
+<script src="/leda/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
 <script src='/leda/js/tabpane-persist.js'></script>
 
   </body>

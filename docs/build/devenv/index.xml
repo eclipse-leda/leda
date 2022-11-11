@@ -36,6 +36,16 @@
 &lt;p&gt;&lt;img src=&#34;github-code-new-codespace.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Select a big enough machine type for Yocto/BitBake, e.g. 16 CPU. You need at leasst 50GB disk space.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;github-codespaces-remote-explorer.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;building-leda-in-a-github-codespace&#34;&gt;Building Leda in a Github Codespace&lt;/h2&gt;
+&lt;p&gt;After successfully obtaining and connecting to a codespace you can build Leda either with kas or manually:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To build with kas follow the instructions at: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/build-kas-manually/#building-with-kas&#34;&gt;Building with kas&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To build manually: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/build-kas-manually/#building-manually&#34;&gt;Building manually&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;private-repositories&#34;&gt;Private Repositories&lt;/h2&gt;
 &lt;p&gt;When using GitHub Codespaces with submodules and private repositories,
 a separate tool for git authentication is required (see &lt;a href=&#34;https://github.com/microsoft/vscode/issues/109050&#34;&gt;VSCode issue #109050&lt;/a&gt;), as the authentication token provided to the GitHub Codespaces virtual machine only allows access to the main repository.&lt;/p&gt;
@@ -99,15 +109,28 @@ Congratulation, you are done!&lt;/p&gt;
       <description>
         
         
-        &lt;h2 id=&#34;visual-studio-code-development-containers&#34;&gt;Visual Studio Code: Development Containers&lt;/h2&gt;
+        &lt;h2 id=&#34;preparation&#34;&gt;Preparation&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Install and start Visual Studio&lt;/li&gt;
-&lt;li&gt;Open Command Palette (&lt;code&gt;F1&lt;/code&gt;) and select &lt;code&gt;Clone repository into DevContainer&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Select this repository and the main branch.&lt;/li&gt;
+&lt;li&gt;Obtain the &lt;a href=&#34;https://docs.docker.com/engine/install/&#34;&gt;Docker Engine&lt;/a&gt; for your distribution and add your non-privileged user to the docker group (&lt;code&gt;sudo usermod -aG docker $USER&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://code.visualstudio.com/download&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;visual-studio-code-development-containers&#34;&gt;Visual Studio Code: Development Containers&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Visual Studio Code&lt;/li&gt;
+&lt;li&gt;Open Command Palette (&lt;code&gt;F1&lt;/code&gt;) and select &lt;code&gt;Clone repository in Container Volume&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;eclipse-leda/meta-leda&lt;/code&gt; and the main branch.&lt;/li&gt;
 &lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Open terminal and execute one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts to execute the build&lt;/li&gt;
-&lt;li&gt;For later builds, it is advisable to run &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-env ../build-sdv-xxx &amp;amp;&amp;amp; bitbake core-image-minimal&lt;/code&gt; manually to reuse the build work directory&lt;/li&gt;
-&lt;li&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up a development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;building-leda-in-a-vscode-devcontainer&#34;&gt;Building Leda in a VSCode DevContainer:&lt;/h2&gt;
+&lt;p&gt;After successfully setting up your DevContainer you can build Leda either with kas or manually:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To build with kas follow the instructions at: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/build-kas-manually/#building-with-kas&#34;&gt;Building with kas&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To build manually: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/build-kas-manually/#building-manually&#34;&gt;Building manually&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
 &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
@@ -124,6 +147,92 @@ Congratulation, you are done!&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;Start the bitbake build process&lt;/li&gt;
 &lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Building with kas/manually</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/</guid>
+      <description>
+        
+        
+        &lt;p&gt;After setting up your &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespace&lt;/a&gt; you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.&lt;/p&gt;
+&lt;h2 id=&#34;building-with-kas&#34;&gt;Building with kas&lt;/h2&gt;
+&lt;p&gt;This is the easiest way to build leda semi-automatically&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd /workspaces/meta-leda-fork/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open the VSCode terminal and run &lt;code&gt;kas build&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;building-manually&#34;&gt;Building manually&lt;/h2&gt;
+&lt;p&gt;You can also build Leda manually if more customization of the build process is required.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;export LEDA_WORKDIR=/workspaces/meta-leda-fork/&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cd ${LEDA_WORKDIR}&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the Poky repository with the required release, e.g. &lt;code&gt;kirkstone&lt;/code&gt; and pull updates if necessary:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone git://git.yoctoproject.org/poky
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; poky
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout -t origin/kirkstone -b kirkstone
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config pull.rebase &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Prepare the build environment:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; oe-init-build-env
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dry-run a build of the Linux Kernel recipe using BitBake:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake --dry-run linux-yocto
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout the meta-layer dependencies for Leda:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$LEDA_WORKDIR&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone -b kirkstone https://github.com/rauc/meta-rauc.git meta-rauc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone -b kirkstone https://github.com/rauc/meta-rauc-community.git meta-rauc-community
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone -b kirkstone https://git.yoctoproject.org/meta-virtualization meta-virtualization
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone -b kirkstone https://git.openembedded.org/meta-openembedded meta-openembedded
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change to the &lt;code&gt;poky/build&lt;/code&gt; directory (generated from the &lt;code&gt;oe-init-build-env&lt;/code&gt; script automatically)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add all the necessary meta-layers:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-rauc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-rauc-community/meta-rauc-qemux86
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-openembedded/meta-oe
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-openembedded/meta-filesystems
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-openembedded/meta-python
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-openembedded/meta-networking
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-virtualization
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-leda-components
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-leda-bsp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake-layers add-layer &lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;LEDA_WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;/meta-leda-distro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dry run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leda bitbake --dry-run sdv-image-all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Real build:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leda bitbake sdv-image-all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can also build one of the target recipies this way:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leda bitbake kanto-container-management
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Note: in this case you can set the target architecture and other build options in the build/local.conf file&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>

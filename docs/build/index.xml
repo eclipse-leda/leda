@@ -24,7 +24,7 @@
         
         
         &lt;h1 id=&#34;bitbake-and-metalayers&#34;&gt;BitBake and Metalayers&lt;/h1&gt;
-&lt;p&gt;The example build configurations in this repository are based on the official &lt;a href=&#34;https://www.yoctoproject.org/docs/current/brief-yoctoprojectqs/brief-yoctoprojectqs.html&#34;&gt;BitBake Quickstart tutorial&lt;/a&gt; and have been extended to include SDV components.&lt;/p&gt;
+&lt;p&gt;The example build configurations in this repository are based on the official &lt;a href=&#34;https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html&#34;&gt;BitBake Quickstart tutorial&lt;/a&gt; and have been extended to include SDV components.&lt;/p&gt;
 &lt;p&gt;To set up your own BitBake build configuration, follow the BitBake documentation and include &lt;code&gt;meta-leda&lt;/code&gt; in your &lt;code&gt;bblayers.conf&lt;/code&gt; and add the SDV packages into your &lt;code&gt;local.conf&lt;/code&gt;. You may use the the &lt;code&gt;local.conf&lt;/code&gt; files in the &lt;code&gt;build-sdv-*/conf/local.conf&lt;/code&gt; as a guiding reference.&lt;/p&gt;
 &lt;h1 id=&#34;sdv-meta-layer&#34;&gt;SDV Meta Layer&lt;/h1&gt;
 &lt;p&gt;The &lt;code&gt;meta-leda&lt;/code&gt; layer conatins the BitBake Classes and Recipes to integrate SDV Components into a BitBake based build setup.&lt;/p&gt;
@@ -173,20 +173,8 @@
       <description>
         
         
-        &lt;h1 id=&#34;run-the-full-build&#34;&gt;Run the full build&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Pre-Requisites: Configure proxy, eg &lt;code&gt;source .devcontainer/proxy.sh&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Initialize git submodules: &lt;code&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Update from remote: &lt;code&gt;git submodule update --recursive --remote&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Check versions: &lt;code&gt;git submodule&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Execute the setup for your host: &lt;code&gt;./setup.sh&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Execute the main build script: &lt;code&gt;./build-&amp;lt;target&amp;gt;.sh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;build-from-scratch&#34;&gt;Build from scratch&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Trigger the respective build with one of the &lt;code&gt;build-xxx.sh&lt;/code&gt; scripts&lt;/li&gt;
-&lt;li&gt;The initial build time will take very long (couple of hours, as the caches are empty) and requires 50GB+ free disk space for each build environment.&lt;/li&gt;
-&lt;/ul&gt;
+        &lt;h2 id=&#34;run-the-full-build&#34;&gt;Run the full build&lt;/h2&gt;
+&lt;p&gt;To setup the environment and build the Leda image, please refer to: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/&#34;&gt;Setup development environment&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;running-qemu-from-existing-build&#34;&gt;Running QEMU from existing build&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Switch to the build directory: &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-build-env ../build-sdv-xxx&lt;/code&gt;&lt;/li&gt;
@@ -225,7 +213,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nohup runqemu qemux86-64 nographic &lt;span style=&#34;color:#000&#34;&gt;qemuparams&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-m 2048 -pidfile qemu.pid&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The image is then reachable via &lt;code&gt;ssh root@192.168.72&lt;/code&gt;
 This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, &lt;code&gt;kill -9 &amp;lt;qemu.pid&amp;gt;&lt;/code&gt; kills the process.&lt;/p&gt;
-
+&lt;h2 id=&#34;running-with-kas-shell&#34;&gt;Running with kas-shell&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;ve chosen to build the Leda image with kas, you can use the kas-shell to run QEMU, with kas setting up the environment for you. To do that change to the main working directory and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kas shell -c &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;runqemu slirp nographic ovmf sdv-image-full&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
