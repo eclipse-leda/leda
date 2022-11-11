@@ -56,4 +56,3 @@ resources:
 
 - Primary Color: #6daed1
 - Secondary Color: #804096
-
