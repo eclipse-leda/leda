@@ -1,0 +1,614 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.98.0" />
+<link rel="alternate" type="text/html" href="https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/_print/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/index.xml">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/leda/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/leda/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/leda/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/leda/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/leda/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/leda/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
+
+<title>Cloud Connector | Eclipse Leda Documentation</title>
+<meta name="description" content="">
+<meta property="og:title" content="Cloud Connector" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/" />
+
+<meta itemprop="name" content="Cloud Connector">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cloud Connector"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/leda/scss/main.min.a6390339b70d2f6708a468b2cd57009671fbdbad686e5b38e487c8b27ef5bc72.css" as="style">
+<link href="/leda/scss/main.min.a6390339b70d2f6708a468b2cd57009671fbdbad686e5b38e487c8b27ef5bc72.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/leda/"><span class="navbar-brand__logo navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="30 270 300 300" id="svg2"><defs id="defs6"><clipPath id="clipPath24" clipPathUnits="userSpaceOnUse"><path id="path22" d="m5116.71 2737.03v81.36c0 51.02 13.61 71.72 55.28 74.55h288.29v-182.27c-4.26-34.29-16.73-48.19-55.28-48.19h-226.21c-47.05.0-62.08 20.69-62.08 74.55zm-139.46 17.86c0-128.41 84.19-198.71 222.24-198.71h42.8c107.43.0 184.82 2.84 217.99 84.19v-84.19h137.76v534.05c0 128.13-97.8 198.71-235.85 198.71H5051.8v-106.3h360c36 0 48.48-23.52 48.48-60.66v-122.74h-260.79c-138.05.0-222.24-70.59-222.24-198.71zm-332.5-44.22c-3.97-34.29-16.44-48.19-55-48.19h-225.07c-46.76.0-62.08 20.69-62.08 74.55v371.06c0 51.03 13.9 71.71 55.28 74.55h231.87c41.39-2.84 55-23.52 55-74.55zm139.46 854.08h-138.04v-360c-33.17 81.36-110.28 84.19-217.99 84.19h-42.8c-137.77.0-221.96-70.58-221.96-198.71v-335.34c0-128.41 84.19-198.71 221.96-198.71h42.8c107.71.0 184.82 2.84 217.99 84.19v-84.19h138.04zm-925.8-587.62h-362.83v144.85c0 28.91 12.47 60.66 48.2 60.66h266.45c35.71.0 48.18-31.75 48.18-60.66zm139.47-106.3v219.4c0 128.13-98.08 198.71-236.13 198.71h-169.51c-138.04.0-235.84-70.58-235.84-198.71v-335.34c0-128.41 97.8-198.71 235.84-198.71h405.64v106.3h-454.1c-35.73.0-48.2 23.54-48.2 60.66v147.69zM2642.92 2556.18h630.71v117.36h-483.02v794.55h-147.69z"/></clipPath><linearGradient id="linearGradient34" spreadMethod="pad" gradientTransform="matrix(2955.12,0,0,-2955.12,2642.92,3060.47)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop26" offset="0" style="stop-opacity:1;stop-color:#77add1"/><stop id="stop28" offset=".189014" style="stop-opacity:1;stop-color:#64c6ee"/><stop id="stop30" offset=".994475" style="stop-opacity:1;stop-color:#7b3199"/><stop id="stop32" offset="1" style="stop-opacity:1;stop-color:#7b3199"/></linearGradient><linearGradient id="linearGradient44" spreadMethod="pad" gradientTransform="matrix(1875.15,0,0,-1875.15,364.686,2981.28)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop38" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop40" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop42" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient><clipPath id="clipPath54" clipPathUnits="userSpaceOnUse"><path id="path52" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31z"/></clipPath><linearGradient id="linearGradient70" spreadMethod="pad" gradientTransform="matrix(1417.96,0,0,-1417.96,477.178,2901.88)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop56" offset="0" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop58" offset=".11811164" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop60" offset=".509456" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop62" offset=".76356415" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop64" offset=".994475" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop66" offset=".99510668" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop68" offset="1" style="stop-opacity:1;stop-color:#4e9133"/></linearGradient><linearGradient id="linearGradient80" spreadMethod="pad" gradientTransform="matrix(942.78,0,0,-942.78,720.659,3019.8)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop74" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop76" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop78" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,795.04)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path46" style="fill:url(#linearGradient44);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m462.512 2989.03c1.133-223.65 47.902-452.13 142.867-685.13 24.66-60.94 67.465-109.13 120.187-139.47 52.727-30.61 115.657-43.93 180.852-35.14 236.122 32.03 453.262 104.03 650.552 218.55 193.89 112.53 368.79 266.17 523.27 463.18 41.11 52.15 61.8 113.67 61.8 174.9.28 61.51-20.13 123.02-60.95 175.18-145.7 186.8-317.19 337.89-515.62 450.99-194.74 110.83-415.84 185.1-665.005 220.82-65.481 9.36-128.692-3.4-181.699-33.74C665.758 3768.85 622.672 3720.94 597.441 3660c-90.14-219.4-136.062-443.06-134.929-670.97zm51.875-721.98c-99.5 244.06-148.535 484.73-149.668 721.42-1.418 241.23 47.054 477.63 142.297 708.66 33.73 81.92 91.843 146.27 163.273 187.08 71.719 40.82 156.473 58.11 244.066 45.64 261.355-37.13 494.075-115.65 699.595-232.72 209.76-119.34 390.61-278.65 544.25-475.66 54.71-70.01 81.92-152.78 81.63-235.55.0-83.06-27.49-165.83-82.2-235.56-162.42-206.65-346.68-368.5-551.62-487.27-208.35-121.05-437.67-197.02-686.549-230.75-87.313-11.9-171.785 5.95-242.934 47.05-71.433 41.39-128.976 106.02-162.14 187.66v0"/><g id="g48"><g clip-path="url(#clipPath54)" id="g50"><path id="path72" style="fill:url(#linearGradient70);fill-opacity:1;fill-rule:nonzero;stroke:none" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31v0"/></g></g><path id="path82" style="fill:url(#linearGradient80);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m935.898 3147.21c-54.71-85.89-93.543-185.38-115.085-298.77-4.821-24.94-1.418-49.33 9.07-69.74 10.207-20.69 27.496-37.98 49.605-48.75 97.508-46.78 197.292-73.42 300.192-78.81 101.19-5.1 205.51 9.92 312.94 46.78 23.81 8.21 42.81 23.53 55.56 42.8 12.48 19.56 18.71 43.37 16.44 68.88-9.07 108.28-36.57 208.92-83.9 301.61-46.49 91.28-111.97 175.18-197.58 251.15-18.71 16.44-41.1 25.51-63.78 26.93-22.67 1.13-45.92-5.11-66.33-19.28-88.72-61.51-161.292-135.78-217.132-222.8zM724.434 2866.87c24.093 125.28 67.461 236.12 128.976 332.78 63.211 98.93 144.563 182.27 243.5 250.87 38.83 27.21 83.9 39.11 128.12 36.56 44.22-2.55 87.31-19.84 123.03-51.59 95.24-84.47 168.37-178.01 220.25-279.78 53-104.31 84.19-217.14 94.39-337.89 3.97-47.61-8.22-92.98-32.6-130.39-24.09-37.42-60.66-66.9-105.45-82.21-119.34-41.1-236.12-57.83-349.79-51.87-115.94 6.24-228.473 36-337.325 88.44-42.805 20.41-75.398 53.29-95.242 92.98-19.848 39.68-26.648 85.6-17.859 132.1v0"/></g></g></svg></span><span class="navbar-brand__name">Eclipse Leda Documentation</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="https://github.com/eclipse-leda" target="_blank"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/leda/offline-search-index.22f0bed0df1e6639483fe35c25dd9019.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/leda/offline-search-index.22f0bed0df1e6639483fe35c25dd9019.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocs-li">
+  <a href="/leda/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ledadocs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsabout-li">
+  <input type="checkbox" id="m-ledadocsabout-check"/>
+  <label for="m-ledadocsabout-check"><a href="/leda/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsabout"><span class="">About Leda</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutfeatures-li">
+  <input type="checkbox" id="m-ledadocsaboutfeatures-check"/>
+  <label for="m-ledadocsaboutfeatures-check"><a href="/leda/docs/about/features/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutfeatures"><span class="">Features</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutgoals-li">
+  <input type="checkbox" id="m-ledadocsaboutgoals-check"/>
+  <label for="m-ledadocsaboutgoals-check"><a href="/leda/docs/about/goals/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutgoals"><span class="">Goals</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutroadmap-li">
+  <input type="checkbox" id="m-ledadocsaboutroadmap-check"/>
+  <label for="m-ledadocsaboutroadmap-check"><a href="/leda/docs/about/roadmap/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutroadmap"><span class="">Roadmap</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutarchitecture-li">
+  <input type="checkbox" id="m-ledadocsaboutarchitecture-check"/>
+  <label for="m-ledadocsaboutarchitecture-check"><a href="/leda/docs/about/architecture/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutarchitecture"><span class="">Architecture</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usage-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usage-check"/>
+  <label for="m-ledadocsgeneral-usage-check"><a href="/leda/docs/general-usage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usage"><span class="">Getting Started</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagedownload-releases-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagedownload-releases-check"/>
+  <label for="m-ledadocsgeneral-usagedownload-releases-check"><a href="/leda/docs/general-usage/download-releases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagedownload-releases"><span class="">Download latest release</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usagerunning-qemu-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagerunning-qemu-check"/>
+  <label for="m-ledadocsgeneral-usagerunning-qemu-check"><a href="/leda/docs/general-usage/running-qemu/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagerunning-qemu"><span class="">Running on QEMU</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagerunning-qemucanbus-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagerunning-qemucanbus-check"/>
+  <label for="m-ledadocsgeneral-usagerunning-qemucanbus-check"><a href="/leda/docs/general-usage/running-qemu/canbus/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagerunning-qemucanbus"><span class="">CAN Bus</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagerunning-qemufiletransfer-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagerunning-qemufiletransfer-check"/>
+  <label for="m-ledadocsgeneral-usagerunning-qemufiletransfer-check"><a href="/leda/docs/general-usage/running-qemu/filetransfer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagerunning-qemufiletransfer"><span class="">Transferring Files</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageraspberry-pi-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
+  <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
+  <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioning-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioning-check"/>
+  <label for="m-ledadocsdevice-provisioning-check"><a href="/leda/docs/device-provisioning/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioning"><span class="">Device Provisioning</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningmanual-provisioning-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check"/>
+  <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="">Manual Provisioning</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningprovisioning-raspi-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
+  <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
+  <label for="m-ledadocsdevice-provisioningvehicle-update-manager-check"><a href="/leda/docs/device-provisioning/vehicle-update-manager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioningvehicle-update-manager"><span class="">Vehicle Update Manager</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration-check"/>
+  <label for="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration-check"><a href="/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningvehicle-update-managervehicle-update-manager-configuration"><span class="">Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow-check"/>
+  <label for="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow-check"><a href="/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningvehicle-update-managermessage-flow"><span class="">Message Flow</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningself-update-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningself-update-check"/>
+  <label for="m-ledadocsdevice-provisioningself-update-check"><a href="/leda/docs/device-provisioning/self-update/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioningself-update"><span class="">Self Updates</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningself-updateself-update-tutorial-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningself-updateself-update-tutorial-check"/>
+  <label for="m-ledadocsdevice-provisioningself-updateself-update-tutorial-check"><a href="/leda/docs/device-provisioning/self-update/self-update-tutorial/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningself-updateself-update-tutorial"><span class="">Self Update Tutorial</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningself-updaterauc-integration-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningself-updaterauc-integration-check"/>
+  <label for="m-ledadocsdevice-provisioningself-updaterauc-integration-check"><a href="/leda/docs/device-provisioning/self-update/rauc-integration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningself-updaterauc-integration"><span class="">RAUC Integration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningself-updateapi-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningself-updateapi-check"/>
+  <label for="m-ledadocsdevice-provisioningself-updateapi-check"><a href="/leda/docs/device-provisioning/self-update/api/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioningself-updateapi"><span class="">API Reference</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsapp-deployment-li">
+  <input type="checkbox" id="m-ledadocsapp-deployment-check"/>
+  <label for="m-ledadocsapp-deployment-check"><a href="/leda/docs/app-deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deployment"><span class="">Vehicle Applications</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentcloud2device-messages-li">
+  <input type="checkbox" id="m-ledadocsapp-deploymentcloud2device-messages-check"/>
+  <label for="m-ledadocsapp-deploymentcloud2device-messages-check"><a href="/leda/docs/app-deployment/cloud2device-messages/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentcloud2device-messages"><span class="">Cloud2Device Messages</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentvelocitas-li">
+  <input type="checkbox" id="m-ledadocsapp-deploymentvelocitas-check"/>
+  <label for="m-ledadocsapp-deploymentvelocitas-check"><a href="/leda/docs/app-deployment/velocitas/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentvelocitas"><span class="">Velocitas VApps</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsleda-incubator-li">
+  <input type="checkbox" id="m-ledadocsleda-incubator-check" checked/>
+  <label for="m-ledadocsleda-incubator-check"><a href="/leda/docs/leda-incubator/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubator"><span class="">Incubator</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsleda-incubatorcloud-connector-li">
+  <input type="checkbox" id="m-ledadocsleda-incubatorcloud-connector-check" checked/>
+  <label for="m-ledadocsleda-incubatorcloud-connector-check"><a href="/leda/docs/leda-incubator/cloud-connector/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorcloud-connector"><span class="td-sidebar-nav-active-item">Cloud Connector</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsleda-incubatorself-update-agent-li">
+  <input type="checkbox" id="m-ledadocsleda-incubatorself-update-agent-check"/>
+  <label for="m-ledadocsleda-incubatorself-update-agent-check"><a href="/leda/docs/leda-incubator/self-update-agent/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorself-update-agent"><span class="">Self Update Agent</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsleda-incubatorvehicle-update-manager-li">
+  <input type="checkbox" id="m-ledadocsleda-incubatorvehicle-update-manager-check"/>
+  <label for="m-ledadocsleda-incubatorvehicle-update-manager-check"><a href="/leda/docs/leda-incubator/vehicle-update-manager/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorvehicle-update-manager"><span class="">Vehicle Update Manager</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuild-li">
+  <input type="checkbox" id="m-ledadocsbuild-check"/>
+  <label for="m-ledadocsbuild-check"><a href="/leda/docs/build/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuild"><span class="">Building Leda</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildconcepts-li">
+  <input type="checkbox" id="m-ledadocsbuildconcepts-check"/>
+  <label for="m-ledadocsbuildconcepts-check"><a href="/leda/docs/build/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildconcepts"><span class="">Concepts</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmetalayer-li">
+  <input type="checkbox" id="m-ledadocsbuildmetalayer-check"/>
+  <label for="m-ledadocsbuildmetalayer-check"><a href="/leda/docs/build/metalayer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmetalayer"><span class="">Metalayer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddevenv-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenv-check"/>
+  <label for="m-ledadocsbuilddevenv-check"><a href="/leda/docs/build/devenv/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddevenv"><span class="">Setup development environment</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddevenvgithub-codespaces-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvgithub-codespaces-check"/>
+  <label for="m-ledadocsbuilddevenvgithub-codespaces-check"><a href="/leda/docs/build/devenv/github-codespaces/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddevenvgithub-codespaces"><span class="">Codespaces</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvgithub-codespacesgithub-codespaces-advanced-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvgithub-codespacesgithub-codespaces-advanced-check"/>
+  <label for="m-ledadocsbuilddevenvgithub-codespacesgithub-codespaces-advanced-check"><a href="/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvgithub-codespacesgithub-codespaces-advanced"><span class="">Advanced topics</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvgithub-runner-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvgithub-runner-check"/>
+  <label for="m-ledadocsbuilddevenvgithub-runner-check"><a href="/leda/docs/build/devenv/github-runner/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddevenvgithub-runner"><span class="">GitHub Runner</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvvscode-devcontainer-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvvscode-devcontainer-check"/>
+  <label for="m-ledadocsbuilddevenvvscode-devcontainer-check"><a href="/leda/docs/build/devenv/vscode-devcontainer/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvvscode-devcontainer"><span class="">VSCode DevContainer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvbuild-kas-manually-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvbuild-kas-manually-check"/>
+  <label for="m-ledadocsbuilddevenvbuild-kas-manually-check"><a href="/leda/docs/build/devenv/build-kas-manually/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvbuild-kas-manually"><span class="">Building with kas/manually</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildrun-build-li">
+  <input type="checkbox" id="m-ledadocsbuildrun-build-check"/>
+  <label for="m-ledadocsbuildrun-build-check"><a href="/leda/docs/build/run-build/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildrun-build"><span class="">Run the build</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildbuild-tests-li">
+  <input type="checkbox" id="m-ledadocsbuildbuild-tests-check"/>
+  <label for="m-ledadocsbuildbuild-tests-check"><a href="/leda/docs/build/build-tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildbuild-tests"><span class="">Building tests</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildrunqemu-li">
+  <input type="checkbox" id="m-ledadocsbuildrunqemu-check"/>
+  <label for="m-ledadocsbuildrunqemu-check"><a href="/leda/docs/build/runqemu/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrunqemu"><span class="">Runqemu</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildmisc-li">
+  <input type="checkbox" id="m-ledadocsbuildmisc-check"/>
+  <label for="m-ledadocsbuildmisc-check"><a href="/leda/docs/build/misc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildmisc"><span class="">Miscellaneous</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdapr-init-li">
+  <input type="checkbox" id="m-ledadocsbuildmiscdapr-init-check"/>
+  <label for="m-ledadocsbuildmiscdapr-init-check"><a href="/leda/docs/build/misc/dapr-init/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdapr-init"><span class="">DAPR Installation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
+  <input type="checkbox" id="m-ledadocsbuildmiscdiskusage-check"/>
+  <label for="m-ledadocsbuildmiscdiskusage-check"><a href="/leda/docs/build/misc/diskusage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdiskusage"><span class="">Resource Consumptions</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmisctools-li">
+  <input type="checkbox" id="m-ledadocsbuildmisctools-check"/>
+  <label for="m-ledadocsbuildmisctools-check"><a href="/leda/docs/build/misc/tools/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmisctools"><span class="">Utilities</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildsdv-private-components-li">
+  <input type="checkbox" id="m-ledadocsbuildsdv-private-components-check"/>
+  <label for="m-ledadocsbuildsdv-private-components-check"><a href="/leda/docs/build/sdv-private-components/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildsdv-private-components"><span class="">Incubation Components</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildrelease-li">
+  <input type="checkbox" id="m-ledadocsbuildrelease-check"/>
+  <label for="m-ledadocsbuildrelease-check"><a href="/leda/docs/build/release/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrelease"><span class="">Releasing</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildreleasevalidation-li">
+  <input type="checkbox" id="m-ledadocsbuildreleasevalidation-check"/>
+  <label for="m-ledadocsbuildreleasevalidation-check"><a href="/leda/docs/build/release/validation/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildreleasevalidation"><span class="">Validating</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsproject-info-li">
+  <input type="checkbox" id="m-ledadocsproject-info-check"/>
+  <label for="m-ledadocsproject-info-check"><a href="/leda/docs/project-info/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsproject-info"><span class="">Project Information</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsproject-infocommunity-li">
+  <input type="checkbox" id="m-ledadocsproject-infocommunity-check"/>
+  <label for="m-ledadocsproject-infocommunity-check"><a href="/leda/docs/project-info/community/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsproject-infocommunity"><span class="">Community</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsproject-infodependencies-li">
+  <input type="checkbox" id="m-ledadocsproject-infodependencies-check"/>
+  <label for="m-ledadocsproject-infodependencies-check"><a href="/leda/docs/project-info/dependencies/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsproject-infodependencies"><span class="">Dependencies</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsproject-infocontribution-guidelines-li">
+  <input type="checkbox" id="m-ledadocsproject-infocontribution-guidelines-check"/>
+  <label for="m-ledadocsproject-infocontribution-guidelines-check"><a href="/leda/docs/project-info/contribution-guidelines/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsproject-infocontribution-guidelines"><span class="">Contribution Guidelines</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsproject-infologo-li">
+  <input type="checkbox" id="m-ledadocsproject-infologo-check"/>
+  <label for="m-ledadocsproject-infologo-check"><a href="/leda/docs/project-info/logo/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsproject-infologo"><span class="">Project Logo</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsproject-infodata-privacy-notice-li">
+  <input type="checkbox" id="m-ledadocsproject-infodata-privacy-notice-check"/>
+  <label for="m-ledadocsproject-infodata-privacy-notice-check"><a href="/leda/docs/project-info/data-privacy-notice/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsproject-infodata-privacy-notice"><span class="">Data Protection Notice</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsproject-infosecurity-li">
+  <input type="checkbox" id="m-ledadocsproject-infosecurity-check"/>
+  <label for="m-ledadocsproject-infosecurity-check"><a href="/leda/docs/project-info/security/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsproject-infosecurity"><span class="">Security Policy</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocs__sharedusage-overview-li">
+  <input type="checkbox" id="m-ledadocs__sharedusage-overview-check"/>
+  <label for="m-ledadocs__sharedusage-overview-check"><a href="/leda/docs/__shared/usage-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocs__sharedusage-overview"><span class=""></span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#runtime">Runtime</a></li>
+    <li><a href="#source-repository">Source Repository</a></li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+	
+		
+			
+				
+			
+			
+
+
+
+  
+  
+
+		
+			
+				
+			
+			
+
+
+
+  
+  
+
+		
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/leda-incubator/">Incubator</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/" aria-disabled="true" class="btn-link disabled">Cloud Connector</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Cloud Connector</h1>
+  
+	<header class="article-meta">
+		
+
+  
+    
+      
+
+
+    
+      
+
+
+    
+  
+
+		
+	</header>
+	<p>The cloud connector is used in the context of <a href="/leda/docs/device-provisioning/">Device Provisioning</a> and cloud backend connectivity.</p>
+<h2 id="overview">Overview</h2>
+<p>Leda Cloud Connector for Azure IoT Hub is a fork (extended and adapted) of the generic <a href="https://github.com/eclipse-kanto/azure-connector">Eclipse Kanto&rsquo;s Azure connector</a> that is being able to process cloud-to-device and device-to-cloud messages as defined for the Software-Defined Vehicle cloud backend.</p>
+<p><img src="./cloud-connector-fork.png" alt="Cloud Connector Fork Relationship"></p>
+<h2 id="runtime">Runtime</h2>
+<p>The SDV cloud connector will come up with pluggable architecture that will allow easy <strong>transformation of the incoming cloud-to-device command messages (SDV message envelope) to a format suitable and understandable by the rest of the in-vehicle components</strong> and vice-versa. It shall be possible to map SDV messages to and from <a href="https://www.eclipse.org/hono/docs/concepts/connecting-devices/">Eclipse Hono</a> and <a href="https://www.eclipse.org/ditto/">Eclipse Ditto</a> messages using simple configuration, rules written in JSON; thus allowing this component to work together with other <a href="https://websites.eclipseprojects.io/kanto/">Eclipse Kanto</a> components too.</p>
+<p><img src="./cloud-connector-runtime.png" alt="Cloud Connector Runtime View"></p>
+<h2 id="source-repository">Source Repository</h2>
+<p>Source Repository: <a href="https://github.com/eclipse-leda/leda-contrib-cloud-connector">https://github.com/eclipse-leda/leda-contrib-cloud-connector</a></p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+	
+	
+	
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+
+
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-leda" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+        
+          <p class="mt-2"><a href="/leda/docs/about/">About Leda</a></p>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+
+<script src="/leda/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
+<script src='/leda/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

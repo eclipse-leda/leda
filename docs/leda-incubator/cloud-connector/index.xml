@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Cloud Connector</title>
+    <link>https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/</link>
+    <description>Recent content in Cloud Connector on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/leda-incubator/cloud-connector/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>
