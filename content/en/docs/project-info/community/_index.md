@@ -2,6 +2,9 @@
 title: "Community"
 date: 2022-05-09T14:24:56+05:30
 weight: 1
+resources:
+- name: slides-sdv-contrib-day-sept2022
+  src: Eclipse Leda - Slides SDV Contribution Day - September 2022.pdf
 ---
 
 Thanks for your interest in this project and in our community.
@@ -32,3 +35,4 @@ The project maintains the following source code repositories
 * [Eclipse Leda Introduction Video](https://www.youtube.com/watch?v=91hNeQ3kf0w) - YouTube, 2min
 * [Eclipse SDV - First Contribution Day (June 2022)](https://www.youtube.com/watch?v=yOVHyG0aZ7M&list=PLy7t4z5SYNaRYI7lH26szREOi9pfqxOUU&index=8) - Session Recording, YouTube, 26min
 * [Eclipse SDV - Second Contribution Day (September 2022)](https://www.youtube.com/watch?v=hiFriZhv1NE&list=PLy7t4z5SYNaRYI7lH26szREOi9pfqxOUU&index=17) - Session Recording, YouTube, 30min
+* [Eclipse Leda - Slides SDV Contribution Day - September 2022](./Eclipse%20Leda%20-%20Slides%20SDV%20Contribution%20Day%20-%20September%202022.pdf) - Slides (PDF)
