@@ -130,8 +130,10 @@
       <description>
         
         
-        &lt;p&gt;Initial Open Source contribution expected by Q2 2022&lt;/p&gt;
-&lt;ul&gt;
+        &lt;ul&gt;
+&lt;li&gt;Initial Open Source contribution expected by Q2 2022 (Done)&lt;/li&gt;
+&lt;li&gt;A first milestone build is expected end of 2022&lt;/li&gt;
+&lt;li&gt;Plan for the first release cycle to be created in Q1/2023&lt;/li&gt;
 &lt;li&gt;Release cycles are planned every 3-6 months&lt;/li&gt;
 &lt;li&gt;Release planning will be conducted together with corresponding Eclipse projects&lt;/li&gt;
 &lt;/ul&gt;
@@ -140,8 +142,15 @@
 &lt;p&gt;Exemplary future work:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager&lt;/li&gt;
-&lt;li&gt;Include reference implementations from Eclipse Velocitas, Eclipse Kuksa and other &lt;a href=&#34;https://projects.eclipse.org/projects/automotive&#34;&gt;Eclipse Automotive&lt;/a&gt; projects&lt;/li&gt;
-&lt;li&gt;Integration of device provisioning with specific backend services&lt;/li&gt;
+&lt;li&gt;Include reference implementations from the &lt;a href=&#34;https://projects.eclipse.org/working-group/eclipse-software-defined-vehicle&#34;&gt;Eclipse Software Defined Vehicle working group&lt;/a&gt; projects:
+&lt;ul&gt;
+&lt;li&gt;Eclipse Velocitas&lt;/li&gt;
+&lt;li&gt;Eclipse Kuksa&lt;/li&gt;
+&lt;li&gt;Eclipse SommR&lt;/li&gt;
+&lt;li&gt;Eclipse Chariott&lt;/li&gt;
+&lt;li&gt;Eclipse Backend function Bindings (BfB)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;If you have feedback, please use &lt;a href=&#34;https://github.com/eclipse-leda/&#34;&gt;GitHub Issues&lt;/a&gt;&lt;/p&gt;
