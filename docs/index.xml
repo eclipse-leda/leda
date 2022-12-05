@@ -1786,6 +1786,88 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: GitHub Workflow</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/github/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/github/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;img src=&#34;./github-workflow.png&#34; alt=&#34;GitHub Workflow&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Manually creating a Release triggers the release workflow.&lt;/li&gt;
+&lt;li&gt;The release workflow calls the build workflow.&lt;/li&gt;
+&lt;li&gt;The build workflow indirectly depends on the sstate cache being prebuilt manually (see optimizations below)&lt;/li&gt;
+&lt;li&gt;The build workflow runs a full build of the SDV-Image-All disk image for all target machines.&lt;/li&gt;
+&lt;li&gt;A separate job is used for each target machine, to ensure an image build for a target machine can finish within 6 hours.&lt;/li&gt;
+&lt;li&gt;Each build contains the creation of SBOM artifacts and the check for CVEs. The SBOM artifacts are in SPDX JSON format and packaged per target machine&amp;rsquo;s disk image (SDV-Image-Full to include all packages).&lt;/li&gt;
+&lt;li&gt;The OSS License Scanning (using the OSS Review Toolkit) is done asynchronously on a separate fork, as it currently uses a proprietary infrastructure. The ORT-based infrastructure of Eclipse is planned to be used in the future. The web report is attached as a build artifact on the internal fork and not accessible by public currently.&lt;/li&gt;
+&lt;li&gt;Once the build workflow&amp;rsquo;s jobs are finished, the release workflow will finalize by attaching the release artifacts as assets to the release.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Note: While the build workflow and release workflows are in progress, the GitHub release page of that release does not show any other assets besides the source archives. The release artifacts (eclipse-leda-&lt;machine&gt;.tar.xz) will only be visible once all workflows have finished.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;limitations-on-standard-runners&#34;&gt;Limitations on standard runners&lt;/h2&gt;
+&lt;p&gt;As the GitHub-managed runners are optimized for ephemeral build use cases and a Yocto-based build process is very consuming in regards to CPU and disk capacity, a few optimizations need to be done before being able to run a full build or even a release workflow on limited GitHub-managed standard runners.&lt;/p&gt;
+&lt;p&gt;Please see the documentation about &lt;a href=&#34;https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources&#34;&gt;GitHub Hosted Runners&lt;/a&gt; for current specs.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Resource&lt;/th&gt;
+&lt;th&gt;Standard GitHub Runner&lt;/th&gt;
+&lt;th&gt;Recommended for Yocto&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;2-core CPU (x86_64)&lt;/td&gt;
+&lt;td&gt;16-core CPU (x86_64)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RAM&lt;/td&gt;
+&lt;td&gt;7 GB of RAM&lt;/td&gt;
+&lt;td&gt;16 GB of RAM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Disk&lt;/td&gt;
+&lt;td&gt;14 GB of SSD&lt;/td&gt;
+&lt;td&gt;128+ GB of SSD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Time&lt;/td&gt;
+&lt;td&gt;max. 6 hours / job&lt;/td&gt;
+&lt;td&gt;not limited&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In general, GitHub recommends to split a build process into smaller chunks, which can then fit into the constraints.&lt;/p&gt;
+&lt;h2 id=&#34;optimizations&#34;&gt;Optimizations&lt;/h2&gt;
+&lt;p&gt;The following optimizations have been implemented for the Eclipse Leda public repository and its build workflow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Remote SState Cache&lt;/strong&gt;: To minimize build time and disk usage, a remote sstate-cache mirror is being used. The mirror is hosted by one of the project sponsors on european Azure infrastructure and available as public HTTP mirror to anonymous Leda builds. The mirror is provided as best-effort, does not provide any kind of service level and may not be available at all times.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: To use the mirror, set the &lt;code&gt;BB_HASHSERVE&lt;/code&gt;, &lt;code&gt;MIRROR_SERVER&lt;/code&gt;, &lt;code&gt;SSTATE_MIRRORS&lt;/code&gt; and related configuration settings. See the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/blob/main/kas/mirrors.yaml&#34;&gt;mirrors.yaml&lt;/a&gt; for a full sample.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./github-workflow-optimizations.png&#34; alt=&#34;GitHub Workflow Optimizations&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prebuilding&lt;/strong&gt;: To fill the remote sstate cache mirror, another build infrastructure is being used. The repository fork has been configured with additional credentials to authenticate against the remote mirror for uploading the built packages. To ensure these steps are not run on the public OSS repository, the workflow steps use additional conditions to check for the owner of the repository. This is a workaround due to a &lt;a href=&#34;https://github.com/actions/runner/issues/520&#34;&gt;known issue on GitHub Actions&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Chunking of the build steps:&lt;/strong&gt; To minimize bandwidth transfer, a local GitHub Action Cache is being used. This cache is per target machine and filled with a separate workflow. The &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/actions/workflows/prebuild-sstate.yml&#34;&gt;Prebuild sstate&lt;/a&gt; build jobs will run the BitBake process for 4 hours and then gracefully shut down. The build process will finish the current tasks. The remaining time (max. runtime for GitHub Runners is 6 hours) is used to package and upload the packages to the cache. If the 4 hours of build time are not enough, it may be required to re-run the same job more often.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The disadvantage of this approach is that each run requires a significant lead time where the remote cache is downloaded, the recipes get parsed again, the build task dependencies are compiled etc. On a persistent runner, this time can be spared.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Rerun on sstate miss:&lt;/strong&gt; When BitBake is missing a package in the sstate mirror (it may exist in the Hash Equivalence Server though), BitBake will log an &lt;strong&gt;Error&lt;/strong&gt; and continue to run the recipe. However, as the cache-miss is logged as error, BitBake will exit with an error code, indicating a failed build, which in turn would mark the GitHub Job as failed, too. To circumvent this problem, the BitBake build process is executed in a loop (max. 3 retries) to ensure that with the current state, all packages can be built without errors, eventually succeeding with the buid.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Always upload GitHub Cache:&lt;/strong&gt; Under normal circumstances, the GitHub Cache action will update the cache on success of the build job - to not poison the cache with failed builds. However, as the Leda build workflows run for a very long time and may fail due to other reasons, the goal is to still reuse the sstate-cache as much as possible. For that reason, the &lt;code&gt;pat-s/always-upload-cache&lt;/code&gt; GitHub action is being used, as it will also upload the cache on failed builds.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Privacy Information</title>
       <link>https://eclipse-leda.github.io/leda/docs/project-info/privacy-information/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>

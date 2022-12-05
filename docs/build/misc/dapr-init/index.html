@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2022-12-02T12:30:09+01:00" />
+<meta property="article:modified_time" content="2022-12-05T17:32:29+01:00" />
 
 <meta itemprop="name" content="DAPR Installation">
 <meta itemprop="description" content="Initial configuration  To initialize DAPR, run:  export KUBECONFIG=/etc/rancher/k3s/k3s.yaml /dapr init -k  For accessing private container registries, create /etc/rancher/k3s/registries.yml: Example for accessing GitHub Packages container registry at ghcr.io:  configs: &#34;ghcr.io&#34;: auth: username: &lt;&lt;github-username&gt;&gt; password: &lt;&lt;github-personal-access-token&gt;&gt; Note: Ensure the Personal Access Token has the permission to access GitHub packages
  Get your Azure IoT Hub Connection String and base64 it:  echo &#34;&lt;&lt;AzureIoTHubConnectionString&gt;&gt;&#34; | base64 -w 0 Put the encoded result into /var/lib/rancher/k3s/server/manifest/cloud-connector."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2022-12-02T12:30:09+01:00" />
+<meta itemprop="dateModified" content="2022-12-05T17:32:29+01:00" />
 <meta itemprop="wordCount" content="101">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DAPR Installation"/>
@@ -42,8 +42,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.a6390339b70d2f6708a468b2cd57009671fbdbad686e5b38e487c8b27ef5bc72.css" as="style">
-<link href="/leda/scss/main.min.a6390339b70d2f6708a468b2cd57009671fbdbad686e5b38e487c8b27ef5bc72.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.d86ef99a53d45fd14aeb8e656797db2a483e428df7dad0b1d02264ae01ba10e4.css" as="style">
+<link href="/leda/scss/main.min.d86ef99a53d45fd14aeb8e656797db2a483e428df7dad0b1d02264ae01ba10e4.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -76,7 +76,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.881fbf0b4ddad8a5dbc7c251c309b2df.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.88f1781c0e06994beafe945d13ec64b6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -101,7 +101,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.881fbf0b4ddad8a5dbc7c251c309b2df.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.88f1781c0e06994beafe945d13ec64b6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -305,6 +305,10 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildbuild-tests-li">
   <input type="checkbox" id="m-ledadocsbuildbuild-tests-check"/>
   <label for="m-ledadocsbuildbuild-tests-check"><a href="/leda/docs/build/build-tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildbuild-tests"><span class="">Building tests</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildgithub-li">
+  <input type="checkbox" id="m-ledadocsbuildgithub-check"/>
+  <label for="m-ledadocsbuildgithub-check"><a href="/leda/docs/build/github/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildgithub"><span class="">GitHub Workflow</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildrunqemu-li">
   <input type="checkbox" id="m-ledadocsbuildrunqemu-check"/>
@@ -614,9 +618,7 @@ Example for accessing GitHub Packages container registry at ghcr.io:</li>
 
     </div>
     
-    
-
-<script src="/leda/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
+  <script src="/leda/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
 <script src='/leda/js/tabpane-persist.js'></script>
 
   </body>

@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.a6390339b70d2f6708a468b2cd57009671fbdbad686e5b38e487c8b27ef5bc72.css" as="style">
-<link href="/leda/scss/main.min.a6390339b70d2f6708a468b2cd57009671fbdbad686e5b38e487c8b27ef5bc72.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.d86ef99a53d45fd14aeb8e656797db2a483e428df7dad0b1d02264ae01ba10e4.css" as="style">
+<link href="/leda/scss/main.min.d86ef99a53d45fd14aeb8e656797db2a483e428df7dad0b1d02264ae01ba10e4.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.881fbf0b4ddad8a5dbc7c251c309b2df.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.88f1781c0e06994beafe945d13ec64b6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -652,7 +652,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.6: <a href="#pg-62352f3530820244cfc19d6fdad57df1">Runqemu</a></li>
+<li>6.6: <a href="#pg-40e3f4818f73b84ce32042db1961675c">GitHub Workflow</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.7: <a href="#pg-62352f3530820244cfc19d6fdad57df1">Runqemu</a></li>
 
 
     
@@ -671,7 +679,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.7: <a href="#pg-1c63e657519124a213cf5b9778390873">Miscellaneous</a></li>
+<li>6.8: <a href="#pg-1c63e657519124a213cf5b9778390873">Miscellaneous</a></li>
 
 
     
@@ -686,7 +694,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.7.1: <a href="#pg-0bf6c0e0979d02d6499ec6d58123bc10">DAPR Installation</a></li>
+<li>6.8.1: <a href="#pg-0bf6c0e0979d02d6499ec6d58123bc10">DAPR Installation</a></li>
 
 
     
@@ -694,7 +702,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.7.2: <a href="#pg-685226a9e960be283b847d67e85319af">Resource Consumptions</a></li>
+<li>6.8.2: <a href="#pg-685226a9e960be283b847d67e85319af">Resource Consumptions</a></li>
 
 
     
@@ -702,7 +710,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.7.3: <a href="#pg-ad9d3198163762a2c15eca580afe3c37">Utilities</a></li>
+<li>6.8.3: <a href="#pg-ad9d3198163762a2c15eca580afe3c37">Utilities</a></li>
 
 
     
@@ -714,7 +722,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.8: <a href="#pg-f66480308426576cea64ae2249fef2e0">Incubation Components</a></li>
+<li>6.9: <a href="#pg-f66480308426576cea64ae2249fef2e0">Incubation Components</a></li>
 
 
     
@@ -722,7 +730,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.9: <a href="#pg-bdf9cb83992bb147748b5ca9a98cda7a">Releasing</a></li>
+<li>6.10: <a href="#pg-bdf9cb83992bb147748b5ca9a98cda7a">Releasing</a></li>
 
 
     
@@ -737,7 +745,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.9.1: <a href="#pg-36dea19e60b747437042ee148647e878">Validating</a></li>
+<li>6.10.1: <a href="#pg-36dea19e60b747437042ee148647e878">Validating</a></li>
 
 
     
@@ -3875,7 +3883,93 @@ This will write a file qemu.pid in the current directory including the process I
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-62352f3530820244cfc19d6fdad57df1">6.6 - Runqemu</h1>
+	<h1 id="pg-40e3f4818f73b84ce32042db1961675c">6.6 - GitHub Workflow</h1>
+    
+	<p><img src="./github-workflow.png" alt="GitHub Workflow"></p>
+<ul>
+<li>Manually creating a Release triggers the release workflow.</li>
+<li>The release workflow calls the build workflow.</li>
+<li>The build workflow indirectly depends on the sstate cache being prebuilt manually (see optimizations below)</li>
+<li>The build workflow runs a full build of the SDV-Image-All disk image for all target machines.</li>
+<li>A separate job is used for each target machine, to ensure an image build for a target machine can finish within 6 hours.</li>
+<li>Each build contains the creation of SBOM artifacts and the check for CVEs. The SBOM artifacts are in SPDX JSON format and packaged per target machine&rsquo;s disk image (SDV-Image-Full to include all packages).</li>
+<li>The OSS License Scanning (using the OSS Review Toolkit) is done asynchronously on a separate fork, as it currently uses a proprietary infrastructure. The ORT-based infrastructure of Eclipse is planned to be used in the future. The web report is attached as a build artifact on the internal fork and not accessible by public currently.</li>
+<li>Once the build workflow&rsquo;s jobs are finished, the release workflow will finalize by attaching the release artifacts as assets to the release.</li>
+</ul>
+<p><em>Note: While the build workflow and release workflows are in progress, the GitHub release page of that release does not show any other assets besides the source archives. The release artifacts (eclipse-leda-<machine>.tar.xz) will only be visible once all workflows have finished.</em></p>
+<h2 id="limitations-on-standard-runners">Limitations on standard runners</h2>
+<p>As the GitHub-managed runners are optimized for ephemeral build use cases and a Yocto-based build process is very consuming in regards to CPU and disk capacity, a few optimizations need to be done before being able to run a full build or even a release workflow on limited GitHub-managed standard runners.</p>
+<p>Please see the documentation about <a href="https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources">GitHub Hosted Runners</a> for current specs.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Standard GitHub Runner</th>
+<th>Recommended for Yocto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>2-core CPU (x86_64)</td>
+<td>16-core CPU (x86_64)</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>7 GB of RAM</td>
+<td>16 GB of RAM</td>
+</tr>
+<tr>
+<td>Disk</td>
+<td>14 GB of SSD</td>
+<td>128+ GB of SSD</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>max. 6 hours / job</td>
+<td>not limited</td>
+</tr>
+</tbody>
+</table>
+<p>In general, GitHub recommends to split a build process into smaller chunks, which can then fit into the constraints.</p>
+<h2 id="optimizations">Optimizations</h2>
+<p>The following optimizations have been implemented for the Eclipse Leda public repository and its build workflow:</p>
+<ol>
+<li>
+<p><strong>Remote SState Cache</strong>: To minimize build time and disk usage, a remote sstate-cache mirror is being used. The mirror is hosted by one of the project sponsors on european Azure infrastructure and available as public HTTP mirror to anonymous Leda builds. The mirror is provided as best-effort, does not provide any kind of service level and may not be available at all times.</p>
+<p><em>Note: To use the mirror, set the <code>BB_HASHSERVE</code>, <code>MIRROR_SERVER</code>, <code>SSTATE_MIRRORS</code> and related configuration settings. See the <a href="https://github.com/eclipse-leda/leda-distro/blob/main/kas/mirrors.yaml">mirrors.yaml</a> for a full sample.</em></p>
+<p><img src="./github-workflow-optimizations.png" alt="GitHub Workflow Optimizations"></p>
+</li>
+<li>
+<p><strong>Prebuilding</strong>: To fill the remote sstate cache mirror, another build infrastructure is being used. The repository fork has been configured with additional credentials to authenticate against the remote mirror for uploading the built packages. To ensure these steps are not run on the public OSS repository, the workflow steps use additional conditions to check for the owner of the repository. This is a workaround due to a <a href="https://github.com/actions/runner/issues/520">known issue on GitHub Actions</a>.</p>
+</li>
+<li>
+<p><strong>Chunking of the build steps:</strong> To minimize bandwidth transfer, a local GitHub Action Cache is being used. This cache is per target machine and filled with a separate workflow. The <a href="https://github.com/eclipse-leda/leda-distro/actions/workflows/prebuild-sstate.yml">Prebuild sstate</a> build jobs will run the BitBake process for 4 hours and then gracefully shut down. The build process will finish the current tasks. The remaining time (max. runtime for GitHub Runners is 6 hours) is used to package and upload the packages to the cache. If the 4 hours of build time are not enough, it may be required to re-run the same job more often.</p>
+<p><em>Note: The disadvantage of this approach is that each run requires a significant lead time where the remote cache is downloaded, the recipes get parsed again, the build task dependencies are compiled etc. On a persistent runner, this time can be spared.</em></p>
+</li>
+<li>
+<p><strong>Rerun on sstate miss:</strong> When BitBake is missing a package in the sstate mirror (it may exist in the Hash Equivalence Server though), BitBake will log an <strong>Error</strong> and continue to run the recipe. However, as the cache-miss is logged as error, BitBake will exit with an error code, indicating a failed build, which in turn would mark the GitHub Job as failed, too. To circumvent this problem, the BitBake build process is executed in a loop (max. 3 retries) to ensure that with the current state, all packages can be built without errors, eventually succeeding with the buid.</p>
+</li>
+<li>
+<p><strong>Always upload GitHub Cache:</strong> Under normal circumstances, the GitHub Cache action will update the cache on success of the build job - to not poison the cache with failed builds. However, as the Leda build workflows run for a very long time and may fail due to other reasons, the goal is to still reuse the sstate-cache as much as possible. For that reason, the <code>pat-s/always-upload-cache</code> GitHub action is being used, as it will also upload the cache on failed builds.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-62352f3530820244cfc19d6fdad57df1">6.7 - Runqemu</h1>
     
 	<p>QEMU&rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called <code>runqemu</code>, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.</p>
 <p>Running without runqemu: when you need more control over qemu options</p>
@@ -3922,7 +4016,7 @@ Try running with:</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1c63e657519124a213cf5b9778390873">6.7 - Miscellaneous</h1>
+	<h1 id="pg-1c63e657519124a213cf5b9778390873">6.8 - Miscellaneous</h1>
     
 	
 </div>
@@ -3947,7 +4041,7 @@ Try running with:</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-0bf6c0e0979d02d6499ec6d58123bc10">6.7.1 - DAPR Installation</h1>
+	<h1 id="pg-0bf6c0e0979d02d6499ec6d58123bc10">6.8.1 - DAPR Installation</h1>
     
 	<h1 id="initial-configuration">Initial configuration</h1>
 <ul>
@@ -3991,7 +4085,7 @@ Example for accessing GitHub Packages container registry at ghcr.io:</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-685226a9e960be283b847d67e85319af">6.7.2 - Resource Consumptions</h1>
+	<h1 id="pg-685226a9e960be283b847d67e85319af">6.8.2 - Resource Consumptions</h1>
     
 	<h1 id="baseline-no-apps-installed">Baseline (no apps installed)</h1>
 <p>Baseline: 400 MB
@@ -4077,7 +4171,7 @@ Swap:             0           0           0
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ad9d3198163762a2c15eca580afe3c37">6.7.3 - Utilities</h1>
+	<h1 id="pg-ad9d3198163762a2c15eca580afe3c37">6.8.3 - Utilities</h1>
     
 	<h1 id="sdv-core-utils">SDV Core Utils</h1>
 <p>The quickstart image contains the following toolings:</p>
@@ -4111,7 +4205,7 @@ connect to the MQTT broker running on the device by using exposed port 31883:</p
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f66480308426576cea64ae2249fef2e0">6.8 - Incubation Components</h1>
+	<h1 id="pg-f66480308426576cea64ae2249fef2e0">6.9 - Incubation Components</h1>
     
 	<h1 id="building-private-components">Building private components</h1>
 <p>Some components are not yet released to the public.</p>
@@ -4177,7 +4271,7 @@ bitbake sdv-databroker-cli
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-bdf9cb83992bb147748b5ca9a98cda7a">6.9 - Releasing</h1>
+	<h1 id="pg-bdf9cb83992bb147748b5ca9a98cda7a">6.10 - Releasing</h1>
     
 	<h1 id="versioning-and-codenames">Versioning and Codenames</h1>
 <ul>
@@ -4281,7 +4375,7 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-36dea19e60b747437042ee148647e878">6.9.1 - Validating</h1>
+	<h1 id="pg-36dea19e60b747437042ee148647e878">6.10.1 - Validating</h1>
     
 	<h1 id="validating-the-release">Validating the release</h1>
 <p>Steps to validate if a release is properly working:</p>
@@ -5115,9 +5209,7 @@ Contributor Agreement (ECA) on file.</p>
 
     </div>
     
-    
-
-<script src="/leda/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
+  <script src="/leda/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
 <script src='/leda/js/tabpane-persist.js'></script>
 
   </body>
