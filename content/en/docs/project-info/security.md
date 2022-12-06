@@ -17,8 +17,8 @@ security@eclipse.org
 
 | Version                 | Supported          |
 | ----------------------- | ------------------ |
-| Yocto 4.x (Kirkstone)   | Untested           |
-| Yocto 3.4 (Honister)    | Yes                |
+| Yocto 4.x (Kirkstone)   | Yes                |
+| Yocto 3.4 (Honister)    | EOL                |
 | Yocto 3.3               | Untested           |
 | Yocto < 3.3             | No                 |
 
