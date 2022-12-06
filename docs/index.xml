@@ -2147,11 +2147,11 @@ bitbake sdv-databroker-cli
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;Yocto 4.x (Kirkstone)&lt;/td&gt;
-&lt;td&gt;Untested&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Yocto 3.4 (Honister)&lt;/td&gt;
-&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;EOL&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Yocto 3.3&lt;/td&gt;
