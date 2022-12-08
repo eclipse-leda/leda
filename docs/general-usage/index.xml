@@ -25,7 +25,7 @@
         
         &lt;p&gt;Go to the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases&#34;&gt;Eclipse Leda Releases&lt;/a&gt; page and download the disk image for the respective machine and the respective Linux kernel:&lt;/p&gt;
 &lt;h1 id=&#34;latest-release-artifacts&#34;&gt;Latest Release Artifacts&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Note: There is no binary release yet. A first milestone binary release is planned for Q3/2022.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: There are no official releases yet. The artifacts available on the Release page are for testing the build and release workflows and should be considered as unstable nightly builds from the main branch.&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -49,16 +49,6 @@
 &lt;td&gt;Raspberry Pi 4&lt;/td&gt;
 &lt;td&gt;eclipse-leda-raspberrypi.tar.xz&lt;/td&gt;
 &lt;td&gt;For running on Raspberry Pi 4 (SD-Card Image)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Misc&lt;/td&gt;
-&lt;td&gt;qa-reports.tar&lt;/td&gt;
-&lt;td&gt;Test and other QA reports&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;sdv-os-test-x86_64&lt;/td&gt;
-&lt;td&gt;Smoke Tests executable x86_64&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
