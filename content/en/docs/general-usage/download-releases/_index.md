@@ -8,15 +8,13 @@ Go to the [Eclipse Leda Releases](https://github.com/eclipse-leda/leda-distro/re
 
 # Latest Release Artifacts
 
-**Note: There is no binary release yet. A first milestone binary release is planned for Q3/2022.**
+**Note: There are no official releases yet. The artifacts available on the Release page are for testing the build and release workflows and should be considered as unstable nightly builds from the main branch.**
 
 | Machine | Filename | Description |
 | ------- | -------- | ----------- |
 | QEMU x86_64 | eclipse-leda-qemu-x86_64.tar.xz | For running QEMU x86 64-Bit |
 | QEMU ARM 64 | eclipse-leda-qemu-arm64.tar.xz | For running QEMU ARM 64-Bit |
 | Raspberry Pi 4 | eclipse-leda-raspberrypi.tar.xz | For running on Raspberry Pi 4 (SD-Card Image) |
-| Misc | qa-reports.tar | Test and other QA reports |
-| | sdv-os-test-x86_64 | Smoke Tests executable x86_64 |
 
 # Using GitHub CLI tool
 
