@@ -15,7 +15,7 @@ GitHub Codespaces will only inject a token with access rights to the current rep
     cd ~
     ```
 
-2. Install https://github.com/GitCredentialManager/git-credential-manager
+2. Install [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager)
 
     ```bash
     curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &&
@@ -30,7 +30,7 @@ GitHub Codespaces will only inject a token with access rights to the current rep
 
 Run `git submodule update --recursive`
 
-See https://github.com/microsoft/vscode/issues/109050 for details.
+See [VSCode Issue #109050](https://github.com/microsoft/vscode/issues/109050) for details.
 
 ## Setup skopeo
 

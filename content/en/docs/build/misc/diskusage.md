@@ -4,11 +4,12 @@ date: 2022-05-09T14:24:56+05:30
 weight: 1
 ---
 
-# Baseline (no apps installed)
+## Baseline (no apps installed)
 
 Baseline: 400 MB
 
 Installed components:
+
 - Container Management: runc, containerd, container-management
 - System Services: systemd, openssh, mosquitto, mosquitto-clients
 - No cloud connector or edgecontainerd yet.

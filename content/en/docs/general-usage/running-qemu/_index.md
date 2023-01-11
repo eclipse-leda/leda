@@ -4,7 +4,7 @@ date: 2022-05-09T14:24:56+05:30
 weight: 1
 ---
 
-If you want to execute the image without building first, grab the latest release or build artifacts from https://github.com/eclipse-leda/leda-distro/
+If you want to execute the image without building first, grab the latest release or build artifacts from [https://github.com/eclipse-leda/leda-distro/](https://github.com/eclipse-leda/leda-distro/)
 
 ## Recommendations
 
@@ -13,7 +13,7 @@ If you want to execute the image without building first, grab the latest release
 
 ## QEMU x86_64
 
-- Install Qemu https://www.qemu.org/, e.g. for Ubuntu:
+- Install [Qemu](https://www.qemu.org/), e.g. for Ubuntu:
 
       sudo apt-get update -y
       sudo apt-get install -y xz-utils qemu-system-x86-64
@@ -44,7 +44,7 @@ If you want to execute the image without building first, grab the latest release
 
 ## QEMU ARM 64-Bit
 
-- Install Qemu https://www.qemu.org/, e.g. for ARM 64-Bit: `sudo apt install qemu-system-aarch64`
+- Install [Qemu](https://www.qemu.org/), e.g. for ARM 64-Bit: `sudo apt install qemu-system-aarch64`
 - Download [latest Eclipse Leda release](/leda/docs/general-usage/download-releases/)
 - Uncompress the archive
 

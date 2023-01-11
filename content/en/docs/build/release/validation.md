@@ -4,7 +4,7 @@ date: 2022-05-09T14:24:56+05:30
 weight: 1
 ---
 
-# Validating the release
+## Validating the release
 
 Steps to validate if a release is properly working:
 
@@ -31,4 +31,3 @@ Steps to validate if a release is properly working:
   - Verify network interface and CAN-Bus with `ip addr`
 - Container runtime
   - Check status of containers with `kantui`
-

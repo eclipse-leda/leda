@@ -6,7 +6,7 @@ weight: 10
 
 This project implements the Eclipse Foundation Security Policy
 
-* https://www.eclipse.org/security
+* [https://www.eclipse.org/security](https://www.eclipse.org/security)
 
 ## Reporting a Vulnerability
 

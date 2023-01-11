@@ -10,13 +10,13 @@ Once the download and writing is done, a reboot is triggered and the boot loader
 
 If the booting of the updated partition fails, the self update mechanism can revert back to the previous partition or boot to a rescue partition.
 
-![](leda-self-update.png)
+![Leda Self Update](leda-self-update.png)
 
 As updating the running operating system cannot be done at runtime, the approach requires additional disk space, a second partition and also requires the device to be rebooted for the updates to take effect.
 
 In a vehicle, the self-updater cannot decide on its own when to do a reboot, as the vehicle must be in a safe condition (eg parked, state of charge etc.). Hence, the trigger for performaing the switch to another slot and a subsequent reboot is handed over to a higher level component, such as the vehicle update manager, which may in turn rely on driver feedback or other conditions.
 
-# Implementation with RAUC Update Service
+## Implementation with RAUC Update Service
 
 [RAUC](https://www.rauc.io/) is a lightweight update client that runs on your embedded device and reliably controls the procedure of updating your device with a new firmware revision.
 

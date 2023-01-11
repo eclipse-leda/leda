@@ -33,7 +33,7 @@ repos:
 
 The `meta-leda` layer conatins the BitBake Classes and Recipes to integrate SDV Components into a BitBake based build setup.
 
-Please see https://github.com/eclipse-leda/meta-leda for more information.
+Please see [https://github.com/eclipse-leda/meta-leda](https://github.com/eclipse-leda/meta-leda) for more information.
 
 ## Recipes for containerized components
 
