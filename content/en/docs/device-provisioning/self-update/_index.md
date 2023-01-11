@@ -27,10 +27,10 @@ For general usage of the RAUC tool, please see the [RAUC User manual](https://ra
 The project contains an example reference implementation and configuration using RAUC, which allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment.
 
 The Leda quickstart image contains the following disk partitions:
+
 - a small rescue partition
-- a full SDV installation with a Kubernetes Control Plane (Server + Agent as single node), pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and k9s.
-- a minimal SDV installation with a Kubernetes Control Plane (Server + Agent as single node), but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.
+- a full SDV installation with a container runtime, pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and kantui.
+- a minimal SDV installation with a container runtime, but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.
 - additional boot and data partitions for keeping system state information
 
-*Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions which contain the Kubernetes Control Plane will use the same shared data partition for the Kubernetes Cluster information. *
-
+*Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions will use the same shared data partition for the container persistent state.*

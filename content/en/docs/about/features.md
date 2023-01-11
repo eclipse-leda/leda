@@ -8,10 +8,10 @@ weight: 1
   - local messaging for applications and SDV system components via an MQTT message broker
   - connection to a backend messaging hub, such as Azure IoT Hub or the IoT Suite
   - device identification and authentication for cloud connectivity by using TLS device certificates
-- Linux **container runtime** and **Kubernetes control plane**
-  - a Kubernetes-compliant control plane to orchestrate worker nodes, services, container pods and deployments.
-  - [k3s](https://k3s.io/) as the current implementation of the control plane and [containerd.io](https://containerd.io/) as the default container runtime. Both layers of container runtimes can be exchanged with other implementations
-- A **Vehicle Update Manager** to orchestrate deployments of Vehicle Applications, configurations and base operating system updates via Kubernetes-standardized protocol specifications
+- **Container runtime**
+  - An OCI-compliant container orchestration for vehicle applications and services by [Eclipse Kanto](https://github.com/eclipse-kanto/)
+  - [containerd.io](https://containerd.io/) as the default container runtime. Both layers of container runtimes can be exchanged with other implementations
+- A **Vehicle Update Manager** to orchestrate deployments of Vehicle Applications, configurations and base operating system updates
 - An example Vehicle Seat Service implementation to showcase
   - the [Eclipse Velocitas](https://projects.eclipse.org/projects/automotive.velocitas) programming model,
   - the [Eclipse Kuksa.VAL](https://github.com/eclipse/kuksa.val) vehicle databroker and

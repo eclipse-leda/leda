@@ -26,13 +26,13 @@ security@eclipse.org
 
 ## Configuration Items
 
-- Disable system user (root) password and login
-- Disable SSH login with password
-- Adding a new Linux user with restricted permissions
-- Adding SSH key based authentication
-- Kubernetes Resources: Secrets
-  - Device Identity Certificates for Cloud Connection
-  - Access credentials for private Container Registries
+* Disable system user (root) password and login
+* Disable SSH login with password
+* Adding a new Linux user with restricted permissions
+* Adding SSH key based authentication
+* Container Secrets
+  * Device identity certificates for cloud connection
+  * Access credentials for private container registries
 
 ### Device Identity for Cloud Connector
 
@@ -40,10 +40,3 @@ security@eclipse.org
 | -------------- | -------------- | ---------------------------- |
 | Pre-Shared Symmetric Key | Azure IoT Hub Connection String | Development |
 | Certificates | X.509 Certificates | Production |
-
-### Kubernetes Secrets Encryption
-
-| Method       | Implementation | Intended use                 |
-| ------------ | -------------- | ---------------------------- |
-| Plain text   | Base64 Encoding | Development |
-| Encrypted    | [Kubernetes: Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) | Production |

@@ -6,7 +6,7 @@ weight: 3
 
 | Dependency | Type | License | URL |
 | --- | --- | --- | --- |
-| poky | OpenEmbedded Metalayer | MIT or GPL-2.0-only | <https://www.yoctoproject.org/software-item/poky/> |
+| poky | OpenEmbedded Metalayer | MIT | <https://www.yoctoproject.org/software-item/poky/> |
 | meta-virtualization | OpenEmbedded Metalayer | MIT | <https://git.yoctoproject.org/meta-virtualization> |
 | meta-networking | OpenEmbedded Metalayer | MIT | <https://git.yoctoproject.org/meta-networking> |
 | meta-rauc | OpenEmbedded Metalayer | MIT | <https://github.com/rauc/meta-rauc> |

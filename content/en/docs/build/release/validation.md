@@ -29,6 +29,6 @@ Steps to validate if a release is properly working:
   - Run `sdv-health` on the shell
   - Verify disk partitions and RAUC status, e.g. `rauc status`
   - Verify network interface and CAN-Bus with `ip addr`
-- Kubernetes
-  - Check status of cluster and pods with `k9s`
+- Container runtime
+  - Check status of containers with `kantui`
 

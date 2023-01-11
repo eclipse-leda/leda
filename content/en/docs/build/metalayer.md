@@ -36,7 +36,7 @@ kas build kas/leda-qemux86-64.yaml --target <recipename>
    |-- eclipse-cyclonedds         // Build recipes for Eclipse CycloneDDS
    |-- northstar                  // Build recipes for Northstar Container Runtime
    |-- packagegroups              // Grouping packages
-   \-- sdv-base                   // SDV Base Bundle: k3s, fstab, can0.network
+   \-- sdv-base                   // SDV Base Bundle: fstab, can0.network
      |--- base-files
      |--- SDV Core Utilities
      \--- SDV Utilities

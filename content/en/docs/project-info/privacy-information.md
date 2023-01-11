@@ -26,8 +26,8 @@ This section describes the measures taken to integrate the requirements of the d
 
 - **Important:** When you use the Eclipse Leda quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it, this includes but is not limited to the following configuration items:
 
-    - Disable system user (root) password and login
-    - Disable SSH login with password
-    - Adding a new Linux user with restricted permissions
-    - Adding SSH key based authentication
-    - Kubernetes Resources: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries
+  * Disable system user (root) password and login
+  * Disable SSH login with password
+  * Adding a new Linux user with restricted permissions
+  * Adding SSH key based authentication
+  * Container Resources and Configurations: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries

@@ -33,7 +33,7 @@ Supported Machines / Build Configurations
 ## Features
 
 - Publish/Subscribe infrastructure for **local messaging and cloud connectivity**
-- Linux **lightweight container runtime** and Kubernetes control plane
+- Lightweight **container runtime**
 - **Vehicle Update Manager** to orchestrate deployments of Vehicle Applications over the air (SOTA)
 - **Self Update Agent** for firmware-over-the-air (FOTA) updates
 - **Example Vehicle Seat Service** implementation

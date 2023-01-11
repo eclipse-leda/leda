@@ -17,8 +17,8 @@ This cheat sheet gives you an overview of common command line commands to intera
 | | Service logs | `journalctl -f -l -t container-management` |
 | | Auto deployments | See `/data/containers/manifests/` |
 | | Restart a container | `kanto-cm restart -n <containername>` |
-| ContainerdD | Show images | `ctr --address /run/k3s/containerd/containerd.sock --namespace=kanto-cm i ls`
-| | Import local archive | `ctr --address /run/k3s/containerd/containerd.sock --namespace=kanto-cm i import <docker.tar>`
+| ContainerdD | Show images | `ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls`
+| | Import local archive | `ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import <docker.tar>`
 | Mosquitto | Show all messages | `mosquitto_sub -v -t '#' -h localhost` |
 | | Send message | `mosquitto_pub -t '<target/topic>' -h localhost -m '{"foo":"bar"}'` |
 | | Connectivity status | `mosquitto_rr --quiet -h localhost -t 'edge/thing/request' -e 'edge/thing/response' -m ''`
