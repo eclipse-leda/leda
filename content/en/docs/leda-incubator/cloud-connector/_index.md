@@ -32,7 +32,7 @@ A native installation has the advantage that no additional container runtime is 
 
 - Add the recipe to the image in your Yocto configuration:
 
-```
+```bash
     IMAGE_INSTALL += "leda-contrib-cloud-connector"
 ```
 

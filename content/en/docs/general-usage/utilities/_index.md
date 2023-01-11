@@ -73,4 +73,3 @@ Usage:
 Example output:
 
 ![KantoUI](https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png)
-
