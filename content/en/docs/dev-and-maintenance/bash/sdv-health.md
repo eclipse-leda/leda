@@ -71,9 +71,9 @@ f8a716f7-d2c5-4165-a081-407a7acb7643 	|vehicledatabroker13                  	|gh
 
 So we use awk to split on pipe (column), strip unecessary tabs. `print $2` then gives us the container name and `print $4` - its status.
 
-sdv-health then proceeds to check if every container specified in the list is available and if its status is `Running`. 
+sdv-health then proceeds to check if every container specified in the list is available and if its status is `Running`.
 
-Note: `Exited` is consired a fail-state.
+Note: `Exited` is considered a fail-state.
 
 
 ## Checking kanto-cm socket
