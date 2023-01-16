@@ -1,10 +1,10 @@
-![Eclipse Leda](static/assets/eclipse-leda.png)
-
 # Eclipse Leda Documentation
+
+![Eclipse Leda](static/assets/eclipse-leda.png)
 
 This repository contains the sources of the main user documentation of the [Eclipse Leda](https://github.com/eclipse-leda/) project.
 
-The rendered documentation is available at https://eclipse-leda.github.io/leda/
+The rendered documentation is available at [https://eclipse-leda.github.io/leda/](https://eclipse-leda.github.io/leda/)
 
 ## Introduction
 
@@ -19,32 +19,31 @@ Eclipse Leda provides a Poky-based reference build pipeline and an OpenEmbedded 
 ## Building the documentation
 
 Pre-Requisites:
-- Hugo 0.96.0 (preinstalled in DevContainer, otherwise see https://gohugo.io/getting-started/installing/)
-- Theme "docsy" (https://www.docsy.dev/): `git clone https://github.com/google/docsy.git themes/docsy && (cd themes/docsy; npm i)`
+
+- Hugo 0.96.0 (preinstalled in DevContainer, otherwise see [Installing Hugo](https://gohugo.io/getting-started/installing/))
+- Theme "docsy" [https://www.docsy.dev/](https://www.docsy.dev/): `git clone https://github.com/google/docsy.git themes/docsy && (cd themes/docsy; npm i)`
 - Docsy Dependencies: `npm i -g postcss postcss-cli autoprefixer`
 
 Building the documentation (in devcontainer):
+
 - Run hugo: `hugo server`
-- Open browser at http://localhost:1313/
+- Open browser at [http://localhost:1313/](http://localhost:1313/)
 
-## Installing Pre-Requisuites
+### Graphic Conversions
 
-
-## Graphic Conversions
-
-See https://www.docsy.dev/docs/adding-content/iconsimages/
+See [Docsy documentation](https://www.docsy.dev/docs/adding-content/iconsimages/)
 
 - Inkspace for logo conversion: `apt-get install inkscape`
 - `inkscape --export-plain-svg assets/icons/logo.svg assets/logo/logo_02_cmyk.eps`
 
-# Contributing
+## Contributing
 
 If you want to contribute bug reports or feature requests, please use *GitHub Issues*.
 
-# License and Copyright
+## License and Copyright
 
 This program and the accompanying materials are made available under the
 terms of the Apache License 2.0 which is available at
-https://www.apache.org/licenses/LICENSE-2.0
+[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 For details, please see our license [LICENSE](LICENSE)

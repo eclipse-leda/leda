@@ -14,20 +14,14 @@ Vehicle Update Manager (VUM) is an extended version of the [Eclipse Kanto Contai
 
 ## Implementation
 
-The desired state comes as a multi document YAML content and it includes a list of Kubernetes resources:
+The desired state comes as a multi document YAML content and it includes a list of container resources:
 
-- Deployments
-- Pods
-- Services
-- ConfigMaps
-- Custom Resources
-  - System-Level Updates
+- Container
+- Configuration
 
 VUM detects the system-level update custom resource and passes it for further processing to the [Self Update Agent](/leda/docs/leda-incubator/self-update-agent/).
 
-The remaining resources are **forwarded to a Kubernetes-compatible control plane** and handled like the well-known kubectl command - creating new resources, updating existing ones or deleting old ones that are no longer present in the desired state manifest.
-
-VUM also monitors the self-update agent and the control plane, and compiles and report the current state of the device, again as a list of Kubernetes resources.
+VUM also monitors the self-update agent and the control plane, and compiles and report the current state of the device.
 
 ## Source Repository
 

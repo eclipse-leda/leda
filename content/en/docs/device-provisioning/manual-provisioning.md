@@ -6,81 +6,46 @@ weight: 2
 
 Follow these steps to do a manual device provisioning:
 
-- Log in to Azure Portal
-- Go to Azure Iot Hub
-- Create a new device (Note: Do **not** create an *edge* device)
-- Copy the *Primary Connection String*
-- Create a Kubernetes Secret with the name `cloudagent` by using `kubectl` on the device
+- Generate the device certificate (eg using openssl) and sign it with your CA.
+- Log in to Azure Portal, Go to Azure Iot Hub and create a new device
+- Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed
+- Copy the device certificate (cert file and key file) to the device to `/data/var/certificate`
+- Restart cloud connector service or container.
 
-Alternatively, on command line:
-- Install Azure CLI: `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
-- Allow automated installation of extensions: `az config set extension.use_dynamic_install=yes_without_prompt`
-- Login to Azure: `az login`
-- Select the correct subscription: `az account set --subscription <<subscription>>`
-- Create device: `az iot hub device-identity create -n {iothub_name} -d {device_id}`
-- Show connection string: `az iot hub device-identity connection-string show -n {iothub_name} -d {device_id} -o tsv`
-- Create a Kubernetes Secret
-```
-ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret generic cloudagent \
-            --from-literal=PrimaryConnectionString='<<Connection String>>'
-```
+## Create a device in Azure IoT Hub
 
-# Configure credentials for private container registries
+For the device to be connectable, it needs to be known to the cloud service first. In these steps, we will create a new device identity by using Azure IoT Hub.
 
-For each private container registry, a separate Secret is needed.
-For GitHub, your Personal Access Token requires the `read:packages` permission.
+**Pre-Requisites**:
 
-```
-ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry ghcr-io \
-    --docker-server=ghcr.io \
-    --docker-username=<your github username> \
-    --docker-password=<your github personal access token>
-```
+- Virtual device must already be started with `runqemu ...` or `leda`
+  
+  *Note: For Raspberry Pi, please follow the manual steps below and adapt the SSH connection options to the IP of your Raspbery Pi.*
+- The virtual device needs to be remotely accessible via ssh port `2222` on the host's `localhost` (Qemu port forwarding in userspace)
+  or via ssh port `22` on the IP address `192.168.7.2` (Qemu virtual networking using TAP network interface)
+- The container runtime needs to have started successfully, check with `sdv-health`
+- A Device has been created in Azure IoT Hub
 
-If you have additional project-specific container registries, you may need to add them as well:
-```
-ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry azurecr \
-    --docker-server=<your cr>.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password>
-```
-The Pod specifications need to reference the image pull secret:
+  *Note: Do **NOT** create an "edge" device.*
 
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: ...
-spec:
-  containers:
-    - name: ...
-      image: ...
-  imagePullSecrets:
-  - name: azurecr
-```
+## Configure authentication on device
 
-## Verifying correct configuration
+For the proper device authentication, the device management backend authority needs to issue a device-specific certificate and sign it. This is a complex process and subject to the specific situation.
 
-- Check that the secret `cloudagent` has been deployed:
-```
-root@qemux86-64:~# kubectl get secrets
-NAME                  TYPE                                  DATA   AGE
-default-token-pmtd9   kubernetes.io/service-account-token   3      47m
-cloudagent            Opaque                                1      10s
-```
-- Check that the SDV Cloud Agent pod has been deployed and started:
-```
-root@qemux86-64:~# kubectl describe pod cloud-connector
-Name:         cloud-connector
-Namespace:    default
-Priority:     0
-Node:         qemux86-64/10.0.2.15
-...
-Status:       Running
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-```
+For the Leda quickstart images, the software configuration is prepared with dummy certificates which need to be replaced.
+
+> ATTENTION: The Leda example device certificates are public and insecure, they only serve demonstration purposes. You need to replace the intermediate certificates and device certificates with your own.
+
+- Generate a device certificate using openssl
+- Sign it with your intermediate CA certificate
+- Put it into `/data/var/certificate/`
+- Restart the cloud connector service or container: `systemctl restart cloud-connector` or `kanto-cm restart -n cloud-connector`
+
+When finished, continue with
+
+- [Deploying a Vehicle App](/leda/docs/app-deployment/)
+- [Performing a Self Update](/leda/docs/device-provisioning/self-update/self-update-tutorial/)
+
+## Private container registries
+
+Please refer to the [Kanto Container Management documentation](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/) on how to configure private container registries.

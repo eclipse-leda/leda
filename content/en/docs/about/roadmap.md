@@ -5,12 +5,16 @@ weight: 1
 ---
 
 - Initial Open Source contribution expected by Q2 2022 (Done)
-- A first milestone build is expected end of 2022
+- A first milestone build is expected end of 2022 (Done)
 - Plan for the first release cycle to be created in Q1/2023
 - Release cycles are planned every 3-6 months
 - Release planning will be conducted together with corresponding Eclipse projects
 
-# Future Work
+## Backlog
+
+The Leda team maintains a backlog roadmap using GitHub projects at [https://github.com/orgs/eclipse-leda/projects/1/views/1](https://github.com/orgs/eclipse-leda/projects/1/views/1)
+
+## Future Work
 
 The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.
 

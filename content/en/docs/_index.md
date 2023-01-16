@@ -19,6 +19,7 @@ Eclipse Leda provides a Poky-based reference build pipeline and an OpenEmbedded 
 {{% readfile "/docs/__shared/usage-overview.md" %}}
 
 Supported Machines / Build Configurations
+
 - Emulated Qemu: x86-64, ARM64, ARM
 - Raspberry Pi 4
 
@@ -33,7 +34,7 @@ Supported Machines / Build Configurations
 ## Features
 
 - Publish/Subscribe infrastructure for **local messaging and cloud connectivity**
-- Linux **lightweight container runtime** and Kubernetes control plane
+- Lightweight **container runtime**
 - **Vehicle Update Manager** to orchestrate deployments of Vehicle Applications over the air (SOTA)
 - **Self Update Agent** for firmware-over-the-air (FOTA) updates
 - **Example Vehicle Seat Service** implementation
@@ -41,11 +42,10 @@ Supported Machines / Build Configurations
 
 See [About - Features](/leda/docs/about/features/) for more details about current implementation and [About - Roadmap](/leda/docs/about/roadmap/) for our future work.
 
-# License and Copyright
+## License and Copyright
 
 This program and the accompanying materials are made available under the
 terms of the Apache License 2.0 which is available at
-https://www.apache.org/licenses/LICENSE-2.0
+[https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 For details, please see our license [NOTICE](https://github.com/eclipse-leda/leda/blob/main/NOTICE.md)
-
