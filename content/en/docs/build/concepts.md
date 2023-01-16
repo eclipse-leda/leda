@@ -39,7 +39,7 @@ Please see [https://github.com/eclipse-leda/meta-leda](https://github.com/eclips
 
 The SDV.EDGE stack is based on a containerized architecture and the intention is to have as much components containerized as possible, to ensure a high degree of isolation and updateability. To ensure some degree of flexibility and control, certain core components may also be installed as native services.
 
-To automatically deploy the containers of the SDV reference implementation and example applications and services, the build configurations will deploy a couple of deployment specifiction files into the auto-deployment folder `/data/containers/manifests`.
+To automatically deploy the containers of the SDV reference implementation and example applications and services, the build configurations will deploy a couple of deployment specifiction files into the auto-deployment folder `/data/var/containers/manifests`.
 
 At start time, these containers will be automatically deployed:
 
