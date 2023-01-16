@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,23 +116,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-0bf6c0e0979d02d6499ec6d58123bc10">DAPR Installation</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-685226a9e960be283b847d67e85319af">Resource Consumptions</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-ad9d3198163762a2c15eca580afe3c37">Utilities</a></li>
+<li>1: <a href="#pg-685226a9e960be283b847d67e85319af">Resource Consumptions</a></li>
 
 
     
@@ -163,95 +147,31 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-0bf6c0e0979d02d6499ec6d58123bc10">1 - DAPR Installation</h1>
+	<h1 id="pg-685226a9e960be283b847d67e85319af">1 - Resource Consumptions</h1>
     
-	<h1 id="initial-configuration">Initial configuration</h1>
-<ul>
-<li>To initialize DAPR, run:</li>
-</ul>
-<pre tabindex="0"><code>export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-/dapr init -k
-</code></pre><ul>
-<li>For accessing private container registries, create <code>/etc/rancher/k3s/registries.yml</code>:
-Example for accessing GitHub Packages container registry at ghcr.io:</li>
-</ul>
-<pre tabindex="0"><code>configs:
-  &#34;ghcr.io&#34;:
-    auth:
-      username: &lt;&lt;github-username&gt;&gt;
-      password: &lt;&lt;github-personal-access-token&gt;&gt;
-</code></pre><p><em>Note:</em> Ensure the Personal Access Token has the permission to access GitHub packages</p>
-<ul>
-<li>Get your Azure IoT Hub Connection String and base64 it:</li>
-</ul>
-<pre tabindex="0"><code>echo &#34;&lt;&lt;AzureIoTHubConnectionString&gt;&gt;&#34; | base64 -w 0
-</code></pre><p>Put the encoded result into <code>/var/lib/rancher/k3s/server/manifest/cloud-connector.secret.yaml</code> (rename from template)</p>
-<ul>
-<li>Verify that credentials have been crated: <code>kubectl get secrets cloudagent</code></li>
-<li>Restart k3s: <code>systemctl restart k3s</code></li>
-<li>Manually start the k3s agent:</li>
-</ul>
-<pre tabindex="0"><code>k3s agent -s https://10.0.2.15:6443 -lb-server-port 6445 -t $(cat /var/lib/rancher/k3s/server/node-token)
-</code></pre>
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-685226a9e960be283b847d67e85319af">2 - Resource Consumptions</h1>
-    
-	<h1 id="baseline-no-apps-installed">Baseline (no apps installed)</h1>
-<p>Baseline: 400 MB
-Baseline after k3s started: 535 MB disk</p>
+	<h2 id="baseline-no-apps-installed">Baseline (no apps installed)</h2>
+<p>Baseline: 400 MB</p>
 <p>Installed components:</p>
 <ul>
-<li>Container Management: runc, containerd, k3s</li>
+<li>Container Management: runc, containerd, container-management</li>
 <li>System Services: systemd, openssh, mosquitto, mosquitto-clients</li>
-<li>No dapr</li>
 <li>No cloud connector or edgecontainerd yet.</li>
 <li>No self update agent</li>
 <li>No containers, no vehicle apps etc.</li>
 </ul>
-<pre tabindex="0"><code>root@qemux86-64:/bin# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       2.5G  506M  1.8G  22% /
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@qemux86-64:/bin# df -h
+</span></span><span style="display:flex;"><span>Filesystem      Size  Used Avail Use% Mounted on
+</span></span><span style="display:flex;"><span>/dev/root       2.5G  506M  1.8G  22% /
+</span></span></code></pre></div><ul>
 <li>Memory Usage: 200MB</li>
 </ul>
-<pre tabindex="0"><code>root@qemux86-64:/var/lib/rancher/k3s/server# free
-              total        used        free      shared  buff/cache   available
-Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G
-Swap:    
-</code></pre><h1 id="with-dapr-and-pods">With dapr and pods</h1>
-<h1 id="with-dapr-preinstalled-no-pods-yet">With DAPR preinstalled, no pods yet</h1>
-<pre tabindex="0"><code>root@qemux86-64:~# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       2.5G  1.3G 1005M  57% /
-</code></pre><pre tabindex="0"><code>root@qemux86-64:~# free -h
-              total        used        free      shared  buff/cache   available
-Mem:           1.9G      812.7M       19.4M       18.1M        1.1G        1.1G
-Swap:             0           0           0
-</code></pre><h1 id="with-dapr-with-cloud-connector-and-vehicle-update-manager">With DAPR, with cloud connector and vehicle update manager</h1>
-<pre tabindex="0"><code>root@qemux86-64:~# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       2.5G  2.2G   90M  97% /
-</code></pre><pre tabindex="0"><code>root@qemux86-64:~# free -h
-              total        used        free      shared  buff/cache   available
-Mem:           1.9G      849.5M      100.8M       26.6M        1.0G        1.1G
-Swap:             0           0           0
-</code></pre><h1 id="details">Details</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@qemux86-64:/# free
+</span></span><span style="display:flex;"><span>            total        used        free      shared  buff/cache   available
+</span></span><span style="display:flex;"><span>Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G
+</span></span><span style="display:flex;"><span>Swap:    
+</span></span></code></pre></div><h2 id="component-details">Component Details</h2>
 <p>Dependencies</p>
 <ul>
-<li>k3s (binary executable only): 140 MB</li>
 <li>cni (container networking): 51 MB</li>
 <li>containerd-ctr: 26 MB</li>
 <li>containerd: 46 MB</li>
@@ -265,7 +185,7 @@ Swap:             0           0           0
 </ul>
 <p>Medium:</p>
 <ul>
-<li>Linux Kernel (Poky minimal): 8 MB</li>
+<li>Linux Kernel (Poky minimal / Leda distro kernel): 8 MB / 21 MB</li>
 <li>oci-image-tool: 9 MB</li>
 <li>oci-runtime-tool: 7 MB</li>
 <li>sshd: 1 MB</li>
@@ -279,36 +199,6 @@ Swap:             0           0           0
 <li>busybox: 1 MB</li>
 </ul>
 
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-ad9d3198163762a2c15eca580afe3c37">3 - Utilities</h1>
-    
-	<h1 id="sdv-core-utils">SDV Core Utils</h1>
-<p>The quickstart image contains the following toolings:</p>
-<ul>
-<li>SDV Device Info</li>
-<li>SDV Health</li>
-<li>CAN Forwarder</li>
-<li>SDV MOTD</li>
-</ul>
-<p>For details, please see <a href="https://github.com/eclipse-leda/leda-utils/">leda-utils</a></p>
-<h1 id="connecting-to-mosquitto">Connecting to Mosquitto</h1>
-<p>If you want to use your favourite MQTT tool with the quickstart image, you can
-connect to the MQTT broker running on the device by using exposed port 31883:</p>
-<pre tabindex="0"><code>$# mosquitto_sub -h 192.168.7.2 -p 31883 -t &#39;#&#39;
-</code></pre>
 </div>
 
 

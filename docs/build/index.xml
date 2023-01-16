@@ -23,32 +23,48 @@
       <description>
         
         
-        &lt;h1 id=&#34;bitbake-and-metalayers&#34;&gt;BitBake and Metalayers&lt;/h1&gt;
-&lt;p&gt;The example build configurations in this repository are based on the official &lt;a href=&#34;https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html&#34;&gt;BitBake Quickstart tutorial&lt;/a&gt; and have been extended to include SDV components.&lt;/p&gt;
-&lt;p&gt;To set up your own BitBake build configuration, follow the BitBake documentation and include &lt;code&gt;meta-leda&lt;/code&gt; in your &lt;code&gt;bblayers.conf&lt;/code&gt; and add the SDV packages into your &lt;code&gt;local.conf&lt;/code&gt;. You may use the the &lt;code&gt;local.conf&lt;/code&gt; files in the &lt;code&gt;build-sdv-*/conf/local.conf&lt;/code&gt; as a guiding reference.&lt;/p&gt;
-&lt;h1 id=&#34;sdv-meta-layer&#34;&gt;SDV Meta Layer&lt;/h1&gt;
+        &lt;p&gt;The example build configurations in this repository are based on the official &lt;a href=&#34;https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html&#34;&gt;BitBake Quickstart tutorial&lt;/a&gt; and have been extended to include Leda SDV components.&lt;/p&gt;
+&lt;h2 id=&#34;build-setup&#34;&gt;Build Setup&lt;/h2&gt;
+&lt;p&gt;To set up your own BitBake build configuration, follow the BitBake documentation and include &lt;code&gt;meta-leda&lt;/code&gt; in your &lt;code&gt;bblayers.conf&lt;/code&gt; and add the SDV packages into your &lt;code&gt;local.conf&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The Leda build is mainly using the kas tool for a simplified maintenance of the BitBake Configuration files. The kas configuration files are located in &lt;code&gt;kas/&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;header&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;distro&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;leda&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;machine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qemux86-64&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sdv-image-all&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repos&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;meta-leda&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-leda/meta-leda&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;refspec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;layers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;meta-leda-bsp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;meta-leda-components&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;meta-leda-distro&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;leda-metalayer&#34;&gt;Leda Metalayer&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;meta-leda&lt;/code&gt; layer conatins the BitBake Classes and Recipes to integrate SDV Components into a BitBake based build setup.&lt;/p&gt;
 &lt;p&gt;Please see &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda&#34;&gt;https://github.com/eclipse-leda/meta-leda&lt;/a&gt; for more information.&lt;/p&gt;
-&lt;h1 id=&#34;recipes-for-kubernetes-pods&#34;&gt;Recipes for Kubernetes Pods&lt;/h1&gt;
-&lt;p&gt;The SDV stack is based on a Kubernetes Control Plane and the intention is to have as much components containerized as possible, to ensure a high degree of isolation and updateability.&lt;/p&gt;
-&lt;p&gt;To automatically deploy the pods of the SDV reference implementation and example applications and services, the build configurations will deploy a couple of Pod specifiction files into the &lt;a href=&#34;https://rancher.com/docs/k3s/latest/en/advanced/#auto-deploying-manifests&#34;&gt;auto-deployment folder of k3s&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;At start time of k3s, these pods will be automatically deployed:&lt;/p&gt;
+&lt;h2 id=&#34;recipes-for-containerized-components&#34;&gt;Recipes for containerized components&lt;/h2&gt;
+&lt;p&gt;The SDV.EDGE stack is based on a containerized architecture and the intention is to have as much components containerized as possible, to ensure a high degree of isolation and updateability. To ensure some degree of flexibility and control, certain core components may also be installed as native services.&lt;/p&gt;
+&lt;p&gt;To automatically deploy the containers of the SDV reference implementation and example applications and services, the build configurations will deploy a couple of deployment specifiction files into the auto-deployment folder &lt;code&gt;/data/var/containers/manifests&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;At start time, these containers will be automatically deployed:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Cloud Connector by &lt;a href=&#34;https://projects.eclipse.org/projects/iot.kanto&#34;&gt;Eclipse Kanto&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Log and Trace by &lt;a href=&#34;https://github.com/open-telemetry/&#34;&gt;OpenTelemetry&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Example Application: &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Seat Adjuster python app&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Vehicle API
+&lt;li&gt;Cloud Connector&lt;/li&gt;
+&lt;li&gt;Self Update Agent&lt;/li&gt;
+&lt;li&gt;Vehicle Update Manager&lt;/li&gt;
+&lt;li&gt;Vehicle API / Vehicle Abstraction Layer
 &lt;ul&gt;
-&lt;li&gt;Data Broker&lt;/li&gt;
+&lt;li&gt;Data Broker (Eclipse Kuksa)&lt;/li&gt;
 &lt;li&gt;Example Seat Service (CAN-bus implementation)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Vehicle Update Manager&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For a full list of pods, see &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/recipes-sdv/sdv-core/files/sdv-core-bundle-pods&#34;&gt;&lt;code&gt;meta-leda/recipes-sdv/sdv-core/files/sdv-core-bundle-pods/&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;recipes-for-containerized-applications&#34;&gt;Recipes for containerized applications&lt;/h1&gt;
+&lt;p&gt;For a full list of containers, see &lt;code&gt;meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;recipes-for-containerized-applications&#34;&gt;Recipes for containerized applications&lt;/h2&gt;
 &lt;p&gt;OpenEmbedded&amp;rsquo;s &lt;a href=&#34;https://layers.openembedded.org/layerindex/branch/master/layer/meta-virtualization/&#34;&gt;meta-virtualization&lt;/a&gt; already contains some recipes and reusabled classes for building virtualization and containerized applications.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;meta-leda&lt;/code&gt; extends that functionality by using &lt;code&gt;skopeo&lt;/code&gt; to package container images. To minimize the runtime requirements (dependencies, disk usage), an approach to pre-load container images and its layers directly into the content storage of the container runtime is followed.&lt;/p&gt;
+&lt;h2 id=&#34;building-containers-with-yocto&#34;&gt;Building containers with Yocto&lt;/h2&gt;
+&lt;p&gt;For components which can either be installed natively or as container, it can be beneficial to build these containers using Yocto as well. An example is in &lt;code&gt;meta-leda-distro-container/recipes-sdv/sdv-containers/cyclonedds-example-container_0.1.bb&lt;/code&gt;.&lt;/p&gt;
 
       </description>
     </item>
@@ -62,84 +78,71 @@
       <description>
         
         
-        &lt;h1 id=&#34;initializing-bitbake-environment&#34;&gt;Initializing BitBake environment&lt;/h1&gt;
-&lt;p&gt;Alternatively, initialize build environment manually. This way, you can invoke multiple build processes in the same context, eg when building individual recipes.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; poky
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; oe-init-build-env ../build-sdv-&amp;lt;target&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake sdv-image-all
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;leda
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;individual-recipes&#34;&gt;Individual recipes&lt;/h1&gt;
+        &lt;h2 id=&#34;initializing-bitbake-environment&#34;&gt;Initializing BitBake environment&lt;/h2&gt;
+&lt;p&gt;Initialize the build environment and start the build for QEMU:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kas build kas/leda-qemux86-64.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;building-specific-recipes&#34;&gt;Building specific recipes&lt;/h2&gt;
 &lt;p&gt;General usage:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; poky
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; oe-init-build-env ../build-sdv-&amp;lt;target&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bitbake &amp;lt;recipe&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;recipes-structure&#34;&gt;Recipes Structure&lt;/h2&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; meta-leda
- \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
- \-- conf                         // Distribution specific configurations, eg version numbers, release codename
- \-- recipes-bsp                  // Board Support Packages, eg specifics for QEMU and Raspberry Pi
- \-- recipes-devtools             // Build tools
- \-- recipes-kernel               // Kernel configuration, eg kernel modules, logging, virtio
- \-- recipes-sdv
-   |-- eclipse-kanto              // Build recipes for Kanto
-   |-- images                     // Definition of three disk images: full, minimal, rescue
-   |-- packagegroups              // Grouping packages
-   \-- sdv-base                   // SDV Base Bundle: k3s, fstab, can0.network
-     |--- base-files
-     |--- SDV Core Utilities
-     |--- DAPR &amp;amp; HELM CLI
-     \--- SDV Utilities
-   |-- sdv-containers              // Container images recipes for pre-caching
-     |--- Cloud Agent
-     |--- Data Broker
-     |--- Feeder CAN
-     |--- OTel Collector
-     |--- Self Update Agent
-     |--- Vehicle Update manager
-     |--- Example Seat Service
-     \--- ...
-   |-- sdv-core                    // SDV Core Bundle
-     |--- SDV Core Bundle Pods     // Kubernetes Deployment files
-     |--- DAPR Initializer         // Initialize HELM and DAPR on first boot
-     \--- Cloud Connector          // Optional: Native installation of Cloud Agent
-   \-- tools                       // Convenience tools for the &amp;#34;full&amp;#34; image, eg nerdctl and k9s
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;sdv-base-bundle&#34;&gt;SDV Base Bundle&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kas build kas/leda-qemux86-64.yaml --target &amp;lt;recipename&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;metalayer-structure&#34;&gt;Metalayer Structure&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; meta-leda-bsp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- conf                         // Distribution specific configurations, eg version numbers, release codename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-bsp                  // Board Support Packages, eg specifics for QEMU and Raspberry Pi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; meta-leda-components
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- conf                         // Distribution specific configurations, eg version numbers, release codename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-sdv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- eclipse-leda               // Build recipes for Eclipse Leda Incubator components
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- eclipse-kuksa              // Build recipes for Eclipse Kuksa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- eclipse-cyclonedds         // Build recipes for Eclipse CycloneDDS
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- northstar                  // Build recipes for Northstar Container Runtime
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- packagegroups              // Grouping packages
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   \-- sdv-base                   // SDV Base Bundle: fstab, can0.network
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- base-files
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- SDV Core Utilities
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     \--- SDV Utilities
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- sdv-containers             // Container images recipes for pre-caching / airgap installation
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- Cloud Agent
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- Data Broker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- Feeder CAN
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- OTel Collector
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- Self Update Agent
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- Vehicle Update manager
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- Example Seat Service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     \--- ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   |-- sdv-core                   // SDV Core Bundle
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     |--- SDV RAUC Bundle         // RAUC Update Bundle Manifest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   \-- tools                      // Convenience tools for the &amp;#34;full&amp;#34; image, eg nerdctl and kantui
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; meta-leda-distro
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- conf                         // Distribution specific configurations, eg version numbers, release codename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-containers           // Container related configuration recipes (containerd, nerdctl)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-core                 // Core recipes (base-files, systemd)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-kernel               // Kernel configuration, eg kernel modules, logging, virtio
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-sdv-distro           // Image definitions
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- wic                          // WIC Kickstarter files - Partition layouts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;meta-leda-distro-container
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- classes                      // Reusable BitBake Classes, eg for offline container image pre-caching
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- conf                         // Distribution specific configurations, eg version numbers, release codename
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \-- recipes-sdv                  // Build containers with Yocto
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;base-bundle&#34;&gt;Base Bundle&lt;/h2&gt;
 &lt;p&gt;Contains the recipes to build and install the minimal set of dependencies for the SDV stack on the edge device. With these minimal components, the SDV stack should be able to bootstrap itself.&lt;/p&gt;
-&lt;p&gt;Example:
-&lt;code&gt;bitbake sdv-core-utils&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;can-bus-kernel-configuration&#34;&gt;CAN-Bus Kernel Configuration&lt;/h3&gt;
 &lt;p&gt;To enable support for CAN bus related modules, the kernel needs to be reconfigured. This is done by the &lt;code&gt;sdv-canbus-modules.inc&lt;/code&gt; include file in the &lt;code&gt;recipes-kernel/linux&lt;/code&gt; folder, which patches Poky&amp;rsquo;s &lt;code&gt;linux-yocto&lt;/code&gt; recipe.&lt;/p&gt;
 &lt;p&gt;Verifying and displaying the current kernel configuration: &lt;code&gt;bitbake -e virtual/kernel&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;To verify the recipe and the kernel configuration: &lt;code&gt;bitbake linux-yocto -c kernel_configcheck -f&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The kernel config file can be found in:
 &lt;code&gt;./tmp/work/qemux86_64-poky-linux/linux-yocto/*/linux-qemux86_64-standard-build/.config&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;sdv-core-bundle&#34;&gt;SDV Core Bundle&lt;/h2&gt;
+&lt;h2 id=&#34;core-bundle&#34;&gt;Core Bundle&lt;/h2&gt;
 &lt;p&gt;Contains the recipes to build and install additional SDV components, which are required for a proper runtime setup.&lt;/p&gt;
-&lt;p&gt;Example:
-&lt;code&gt;bitbake sdv-core-bundle-pods&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;sdv-containers&#34;&gt;SDV Containers&lt;/h2&gt;
+&lt;h2 id=&#34;containers&#34;&gt;Containers&lt;/h2&gt;
 &lt;p&gt;Contains the recipes for pre-installing specific containers into the container management at runtime. This is mainly for pre-caching container image layers onto the device to speed up the initial deployment but can also be used to enable offline usecases.&lt;/p&gt;
-&lt;p&gt;Example:
-&lt;code&gt;bitbake sdv-container-seatservice&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;building-sdv-container-seat-service-container-image&#34;&gt;Building SDV Container Seat Service container image&lt;/h2&gt;
+&lt;h2 id=&#34;build-host-system-requirements&#34;&gt;Build Host System Requirements&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;With dependencies (default): &lt;code&gt;bitbake sdv-container-seatservice&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Without dependencies: &lt;code&gt;bitbake -v -b ../meta-leda/recipes-sdv/sdv-containers/sdv-container-seatservice.bb&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Output in &lt;code&gt;/leda-distro/build-sdv-x86_64/tmp/work/core2-64-poky-linux/sdv-container-seatservice/1.0-r0/deploy-rpms/core2_64/sdv-container-seatservice-1.0-r0.core2_64.rpm&lt;/code&gt; (Example)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;build-configuration&#34;&gt;Build Configuration&lt;/h1&gt;
-&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Yocto Project 3.4 (honister) or higher - required for k3s support in meta-virtualization&lt;/li&gt;
-&lt;li&gt;50GB+ free disk space per build configuration&lt;/li&gt;
+&lt;li&gt;Yocto Project 4.0 (kirkstone) or higher&lt;/li&gt;
+&lt;li&gt;100GB+ free disk space per build configuration&lt;/li&gt;
 &lt;li&gt;Online connection for fetching sources and container images&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;build-scripts&#34;&gt;Build Scripts&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;build-aarch64-qemu.sh&lt;/code&gt; - generix ARM64 for QEMU emulation&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;build-aarch64-rpi4.sh&lt;/code&gt; - ARM64 with Raspberry Pi 4 board support package&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;build-arm-qemu.sh&lt;/code&gt; - generix ARM for QEMU emulation&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;build-x86_64.sh&lt;/code&gt; - generix x64-64 for QEMU emulation&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -177,25 +180,9 @@
 &lt;p&gt;To setup the environment and build the Leda image, please refer to: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/&#34;&gt;Setup development environment&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;running-qemu-from-existing-build&#34;&gt;Running QEMU from existing build&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Switch to the build directory: &lt;code&gt;cd poky &amp;amp;&amp;amp; source oe-init-build-env ../build-sdv-xxx&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Use &lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;quot;-m 2048&amp;quot;&lt;/code&gt; to execute the image. Replace &lt;code&gt;qemux86-64&lt;/code&gt; with one of the machines listed above.
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;slirp&lt;/code&gt; enables user-networking which does not require root privileges on the host. &lt;code&gt;tun&lt;/code&gt; is default but requires setup on the host.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nographic&lt;/code&gt; disables graphical user interface&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;qemuparams&lt;/code&gt; are additional command line parameters for qemu&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;-m 2048&lt;/code&gt; gives 2GB of memory to the qemu instance, required for k3s&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Using &lt;code&gt;tap&lt;/code&gt; networking
-&lt;ul&gt;
-&lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh root@192.168.7.2&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Using &lt;code&gt;slirp&lt;/code&gt; networking
-&lt;ul&gt;
-&lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt, or use &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt; to login remotely to qemu instance&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;kas shell -c &amp;quot;runqemu qemux86-64 ovmf kvm nographic&amp;quot; &amp;lt;kas-configs&amp;gt;&lt;/code&gt; to execute the image.&lt;/li&gt;
+&lt;li&gt;Replace &lt;code&gt;qemux86-64&lt;/code&gt; with one of the other qemu machines, such as &lt;code&gt;qemuarm64&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Use the keyword &lt;code&gt;slirp&lt;/code&gt; to enable user-networking which does not require root privileges on the host. &lt;code&gt;tun&lt;/code&gt; is default but requires setup on the host.&lt;/li&gt;
 &lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;variations-of-runqemu-command-line&#34;&gt;Variations of runqemu command line&lt;/h3&gt;
@@ -211,12 +198,15 @@
 &lt;h2 id=&#34;running-qemu-in-the-background&#34;&gt;Running QEMU in the background&lt;/h2&gt;
 &lt;p&gt;To start QEMU in the background enter, use &lt;code&gt;nohup&lt;/code&gt; and bring the process into the background.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nohup runqemu qemux86-64 nographic &lt;span style=&#34;color:#000&#34;&gt;qemuparams&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-m 2048 -pidfile qemu.pid&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The image is then reachable via &lt;code&gt;ssh root@192.168.72&lt;/code&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The image is then reachable via &lt;code&gt;ssh root@192.168.7.2&lt;/code&gt;
 This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, &lt;code&gt;kill -9 &amp;lt;qemu.pid&amp;gt;&lt;/code&gt; kills the process.&lt;/p&gt;
 &lt;h2 id=&#34;running-with-kas-shell&#34;&gt;Running with kas-shell&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;ve chosen to build the Leda image with kas, you can use the kas-shell to run QEMU, with kas setting up the environment for you. To do that change to the main working directory and run:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kas shell -c &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;runqemu slirp nographic ovmf sdv-image-full&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dhcp-configuration&#34;&gt;DHCP Configuration&lt;/h2&gt;
+&lt;p&gt;As the Leda Quickstart image will try to retrieve its IP address via DHCP broadcast request, it is good to run a DHCP daemon on the host, listening on the respective TAP network interface of QEMU. This will then simulate a LAN with DHCP server and let&amp;rsquo;s us control which IP address gets assigned to multiple QEMU instances.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/blob/main/scripts/run-dhcp.sh&#34;&gt;run-dhcp.sh&lt;/a&gt; utility will run an ISC-DHCP server on the host. The default configuration has a couple of MAC addresses preconfigured.&lt;/p&gt;
+
       </description>
     </item>
     
@@ -366,68 +356,6 @@ Try running with:&lt;/p&gt;
         
         
         
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Incubation Components</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/sdv-private-components/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/build/sdv-private-components/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;building-private-components&#34;&gt;Building private components&lt;/h1&gt;
-&lt;p&gt;Some components are not yet released to the public.&lt;/p&gt;
-&lt;p&gt;To build them, or to integrate them to the image, these components need to be manually downloaded first.&lt;/p&gt;
-&lt;h2 id=&#34;sdv-databroker-cli&#34;&gt;sdv-databroker-cli&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Install GitHub CLI&lt;/li&gt;
-&lt;li&gt;Add to &lt;code&gt;local.conf&lt;/code&gt; to include in image:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;#34; sdv-databroker-cli&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Manually login to GitHub CLI&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    unset GITHUB_TOKEN
-    gh auth login
-&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;Output:
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;? What account do you want to log into? GitHub.com
-? You&amp;#39;re already logged into github.com. Do you want to re-authenticate? Yes
-? What is your preferred protocol for Git operations? HTTPS
-? How would you like to authenticate GitHub CLI? Login with a web browser
-
-! First copy your one-time code: A123-C12B
-Press Enter to open github.com in your browser... 
-✓ Authentication complete.
-- gh config set -h github.com git_protocol https
-✓ Configured git protocol
-✓ Logged in as johndoe
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Manually download the release artifacts:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;    $ gh release download v0.14.0 \
-        --archive=zip \
-        --repo eclipse-leda/incubator-vehicleapi \
-        --dir downloads
-    
-    $ gh release download v0.14.0 \
-        --pattern &amp;#39;bin_release_databroker_*.tar.gz&amp;#39; \
-        --repo eclipse-leda/incubator-vehicleapi \
-        --dir downloads
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Build the recipe:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd poky
-source oe-init-build-env ../build-sdv-x86_64
-bitbake sdv-databroker-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Build the image:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;bitbake sdv-image-minimal
-&lt;/code&gt;&lt;/pre&gt;
       </description>
     </item>
     

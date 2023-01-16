@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
+<li>4: <a href="#pg-09e9389bc1ee795bba0706ccef486884">Utilities</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
 
 
     
@@ -330,7 +349,7 @@ gh release download \
 <h2 id="qemu-x86_64">QEMU x86_64</h2>
 <ul>
 <li>
-<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for Ubuntu:</p>
+<p>Install <a href="https://www.qemu.org/">Qemu</a>, e.g. for Ubuntu:</p>
 <pre><code>sudo apt-get update -y
 sudo apt-get install -y xz-utils qemu-system-x86-64
 </code></pre>
@@ -352,20 +371,18 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 <p>Run QEMU on Windows:</p>
 <pre><code>run-leda.cmd
 </code></pre>
-<p><img src="leda-bootsequence.png" alt=""></p>
+<p><img src="leda-bootsequence.png" alt="Leda boot sequence"></p>
 </li>
 <li>
 <p>Login as <code>root</code> without password on login prompt</p>
 </li>
 <li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code>
-<img src="systemctl-status-k3s.png" alt=""></p>
+<p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code>
-<img src="sdv-health1.png" alt=""></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<img src="sdv-health1.png" alt="sdv-health"></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -374,7 +391,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 <h2 id="qemu-arm-64-bit">QEMU ARM 64-Bit</h2>
 <ul>
 <li>
-<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 64-Bit: <code>sudo apt install qemu-system-aarch64</code></p>
+<p>Install <a href="https://www.qemu.org/">Qemu</a>, e.g. for ARM 64-Bit: <code>sudo apt install qemu-system-aarch64</code></p>
 </li>
 <li>
 <p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
@@ -398,50 +415,11 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 <p>Login as <code>root</code> without password on login prompt</p>
 </li>
 <li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+<p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
-</li>
-<li>
-<p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
-</li>
-</ul>
-<h2 id="qemu-arm-32-bit">QEMU ARM 32-Bit</h2>
-<ul>
-<li>
-<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 32-Bit: <code>sudo apt install qemu-system-arm</code></p>
-</li>
-<li>
-<p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
-</li>
-<li>
-<p>Uncompress the archive</p>
-<pre><code>tar xf eclipse-leda-qemu-arm.tar.xz
-</code></pre>
-</li>
-<li>
-<p>Run QEMU on Linux:</p>
-<pre><code>./run-leda.sh
-</code></pre>
-</li>
-<li>
-<p>Run QEMU on Windows:</p>
-<pre><code>run-leda.cmd
-</code></pre>
-</li>
-<li>
-<p>Login as <code>root</code> without password on login prompt</p>
-</li>
-<li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
-</li>
-<li>
-<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -710,7 +688,7 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 </ul>
 </li>
 <li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+<p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
@@ -746,7 +724,84 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">4 - Cheatsheet</h1>
+	<h1 id="pg-09e9389bc1ee795bba0706ccef486884">4 - Utilities</h1>
+    
+	<p>The quickstart image contains the following utilities:</p>
+<ul>
+<li><strong>sdv-health:</strong> Show SDV software components health status</li>
+<li><strong>kantui:</strong> A text user interface for kanto-cm to manage containers (start, stop, logs)</li>
+<li><strong>sdv-device-info:</strong> Show and update device information</li>
+<li><strong>sdv-motd:</strong> Message-of-the-Day shown after login prompt</li>
+<li><strong>can-forward:</strong> Forwarding a CAN-bus network interface into a containerized Vehicle Application</li>
+<li><strong>kanto-auto-deployer:</strong> Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.</li>
+</ul>
+<p>For details, please see <a href="https://github.com/eclipse-leda/leda-utils/">leda-utils</a></p>
+<h2 id="health-check">Health check</h2>
+<p>The sdv-health utility displays a status overview of some important dependencies and device configurations for the SDV edge stack. The sdv health utility can be configured using the sdv.conf configuration file.</p>
+<p>Usage:</p>
+<pre><code># sdv-health
+</code></pre>
+<p>Example output:</p>
+<p><img src="https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/assets/sdv-health.png" alt="SDV Health Example Output"></p>
+<h3 id="version-information">Version Information</h3>
+<p>The Leda image version and build time will be displayed at the top in the first category:</p>
+<ul>
+<li>OS Release: Year and codename of the release version</li>
+<li>Image Version: Name of the image and more specific version information, such as the git tag or commit id</li>
+<li>Build timestamp in <code>yyyMMddHHmmss</code> notation</li>
+</ul>
+<h3 id="bus-networks">Bus networks</h3>
+<p>If available, vehicle bus network information, such as the status of the CAN-Bus, will be displayed iin its own category. This helps to quickly identify if there problems with the hardware connectivity for automotive bus networks.</p>
+<h3 id="ports">Ports</h3>
+<p>The health utility checks the TCP ports of specific services. This helps to identify if these services are up and running and potentiallyconnectable via external network interfaces.</p>
+<h3 id="services-and-containers">Services and Containers</h3>
+<p>The services category shows the status of required and optional containers. The required containers are supposed to be up and running for the SDV.EDGE stack to be correctly up and running. If any of these core components have a failed state, the functionality is impacted.</p>
+<p>The optional containers are for additional features and for example applications. These containers may not be necessary for each use case and hence will be marked as a warning if they are not up and running. The overview still helps to identify which containers are working properly.</p>
+<h3 id="errors-warnings-failed-states">Errors, Warnings, Failed states</h3>
+<p>When there are errors or warnings related to the status of SDV related components, the health utility will print out these error states, and if available also a more detailed error message.</p>
+<p>In the following example, the health utility helps the troubleshooting process:</p>
+<ul>
+<li>The container runtime is properly started: &ldquo;Kanto CM&rdquo; is OK in the &ldquo;SDV Ports&rdquo; section and the &ldquo;container-management&rdquo; service is OK in the &ldquo;SDV Services&rdquo; section&quot;.</li>
+<li>Some containers are in state &ldquo;OK&rdquo;, which means there is no general issue with the container runtime.</li>
+<li>The cloud connector is in a &ldquo;Stopped&rdquo; state, which indicates that the user manually stopped the container by using &ldquo;kanto-cm stop -n cloud-connector&rdquo;.</li>
+<li>The sua container is in a &ldquo;Exited&rdquo; state, which indicates the process exited with an error code.</li>
+</ul>
+<p><img src="sdv-health-example-errors2.png" alt="SDV Health Example Errors"></p>
+<h2 id="kanto-user-interface">Kanto User Interface</h2>
+<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove containers are available along with a functionality to retrieve the application logs of a selected container.</p>
+<p>Usage:</p>
+<pre><code># kantui
+</code></pre>
+<p>Example output:</p>
+<p><img src="https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png" alt="KantoUI"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">5 - Cheatsheet</h1>
     
 	<p>This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.</p>
 <table>
@@ -779,99 +834,54 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <td><code>loadkeys de</code></td>
 </tr>
 <tr>
-<td>Kubernetes</td>
-<td>Check k3s status</td>
-<td><code>systemctl status k3s</code></td>
+<td>Kanto-CM</td>
+<td>Show all containers</td>
+<td><code>kanto-cm list</code></td>
 </tr>
 <tr>
 <td></td>
-<td>k9s</td>
-<td><code>k9s</code></td>
+<td>User interface</td>
+<td><code>kantui</code></td>
 </tr>
 <tr>
 <td></td>
-<td>k3s service logs</td>
-<td><code>journalctl -f -l -t k3s</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Show all Pods</td>
-<td><code>kubectl get pods -A</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Pod details</td>
-<td><code>kubectl describe pod &lt;podname&gt;</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Pod logs</td>
-<td><code>kubectl logs &lt;podname&gt; &lt;containername&gt;</code></td>
+<td>Service logs</td>
+<td><code>journalctl -f -l -t container-management</code></td>
 </tr>
 <tr>
 <td></td>
 <td>Auto deployments</td>
-<td>See <code>/var/lib/rancher/k3s/server/manifests/</code></td>
+<td>See <code>/data/containers/manifests/</code></td>
 </tr>
 <tr>
 <td></td>
-<td>Delete a Pod</td>
-<td><code>kubectl delete pod &lt;podname&gt;</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Redeplod a Pod</td>
-<td><code>kubectl apply -f &lt;podspec.yaml&gt;</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Shell in a Pod</td>
-<td><code>kubectl exec --stdin --tty &lt;podname&gt; -- /bin/sh</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Cluster IP</td>
-<td><code>kubectl get svc clusterip</code></td>
+<td>Restart a container</td>
+<td><code>kanto-cm restart -n &lt;containername&gt;</code></td>
 </tr>
 <tr>
 <td>ContainerdD</td>
 <td>Show images</td>
-<td><code>ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i ls</code></td>
+<td><code>ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls</code></td>
 </tr>
 <tr>
 <td></td>
 <td>Import local archive</td>
-<td><code>ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i import &lt;docker.tar&gt;</code></td>
-</tr>
-<tr>
-<td>DAPR</td>
-<td>Reinstall</td>
-<td><code>dapr-init.sh</code></td>
+<td><code>ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import &lt;docker.tar&gt;</code></td>
 </tr>
 <tr>
 <td>Mosquitto</td>
 <td>Show all messages</td>
-<td><code>mosquitto_sub -v -t '#' -h &lt;MosquittoClusterIP&gt;'</code></td>
+<td><code>mosquitto_sub -v -t '#' -h localhost</code></td>
 </tr>
 <tr>
 <td></td>
 <td>Send message</td>
-<td><code>mosquitto_pub -t '&lt;target/topic&gt;' -h &lt;MosquittoClusterIP&gt; -m '{&quot;foo&quot;:&quot;bar&quot;}'</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Mosquitto Cluster IP</td>
-<td><code>kubectl get svc mosquitto</code></td>
-</tr>
-<tr>
-<td>Cloud Connectivity</td>
-<td>Cloud agent logs</td>
-<td><code>kubectl get logs sdv-core-cloud-agent</code></td>
+<td><code>mosquitto_pub -t '&lt;target/topic&gt;' -h localhost -m '{&quot;foo&quot;:&quot;bar&quot;}'</code></td>
 </tr>
 <tr>
 <td></td>
 <td>Connectivity status</td>
-<td><code>mosquitto_rr --quiet -h &lt;MosquittoClusterIP&gt; -t 'edge/thing/request' -e 'edge/thing/response' -m ''</code></td>
+<td><code>mosquitto_rr --quiet -h localhost -t 'edge/thing/request' -e 'edge/thing/response' -m ''</code></td>
 </tr>
 <tr>
 <td>RAUC Self Update</td>

@@ -25,147 +25,51 @@
         
         &lt;p&gt;Follow these steps to do a manual device provisioning:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Log in to Azure Portal&lt;/li&gt;
-&lt;li&gt;Go to Azure Iot Hub&lt;/li&gt;
-&lt;li&gt;Create a new device (Note: Do &lt;strong&gt;not&lt;/strong&gt; create an &lt;em&gt;edge&lt;/em&gt; device)&lt;/li&gt;
-&lt;li&gt;Copy the &lt;em&gt;Primary Connection String&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Create a Kubernetes Secret with the name &lt;code&gt;cloudagent&lt;/code&gt; by using &lt;code&gt;kubectl&lt;/code&gt; on the device&lt;/li&gt;
+&lt;li&gt;Generate the device certificate (eg using openssl) and sign it with your CA.&lt;/li&gt;
+&lt;li&gt;Log in to Azure Portal, Go to Azure Iot Hub and create a new device&lt;/li&gt;
+&lt;li&gt;Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed&lt;/li&gt;
+&lt;li&gt;Copy the device certificate (cert file and key file) to the device to &lt;code&gt;/data/var/certificate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restart cloud connector service or container.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Alternatively, on command line:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Install Azure CLI: &lt;code&gt;curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Allow automated installation of extensions: &lt;code&gt;az config set extension.use_dynamic_install=yes_without_prompt&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Login to Azure: &lt;code&gt;az login&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Select the correct subscription: &lt;code&gt;az account set --subscription &amp;lt;&amp;lt;subscription&amp;gt;&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Create device: &lt;code&gt;az iot hub device-identity create -n {iothub_name} -d {device_id}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Show connection string: &lt;code&gt;az iot hub device-identity connection-string show -n {iothub_name} -d {device_id} -o tsv&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Create a Kubernetes Secret&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret generic cloudagent \
-            --from-literal=PrimaryConnectionString=&amp;#39;&amp;lt;&amp;lt;Connection String&amp;gt;&amp;gt;&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;configure-credentials-for-private-container-registries&#34;&gt;Configure credentials for private container registries&lt;/h1&gt;
-&lt;p&gt;For each private container registry, a separate Secret is needed.
-For GitHub, your Personal Access Token requires the &lt;code&gt;read:packages&lt;/code&gt; permission.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry ghcr-io \
-    --docker-server=ghcr.io \
-    --docker-username=&amp;lt;your github username&amp;gt; \
-    --docker-password=&amp;lt;your github personal access token&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you have additional project-specific container registries, you may need to add them as well:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry azurecr \
-    --docker-server=&amp;lt;your cr&amp;gt;.azurecr.io \
-    --docker-username=&amp;lt;username&amp;gt; \
-    --docker-password=&amp;lt;password&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The Pod specifications need to reference the image pull secret:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apiVersion: v1
-kind: Pod
-metadata:
-  name: ...
-spec:
-  containers:
-    - name: ...
-      image: ...
-  imagePullSecrets:
-  - name: azurecr
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;verifying-correct-configuration&#34;&gt;Verifying correct configuration&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Check that the secret &lt;code&gt;cloudagent&lt;/code&gt; has been deployed:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# kubectl get secrets
-NAME                  TYPE                                  DATA   AGE
-default-token-pmtd9   kubernetes.io/service-account-token   3      47m
-cloudagent            Opaque                                1      10s
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Check that the SDV Cloud Agent pod has been deployed and started:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# kubectl describe pod cloud-connector
-Name:         cloud-connector
-Namespace:    default
-Priority:     0
-Node:         qemux86-64/10.0.2.15
-...
-Status:       Running
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Provisioning Raspberry Pi</title>
-      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/provisioning-raspi/</guid>
-      <description>
-        
-        
-        &lt;p&gt;As your Raspberry Pi device might not be reachable via network, you can configure the initial credentials by specifying them as a Kubernetes resource file, copy the files to the FAT32 Boot Partition and then apply them on the offine device.&lt;/p&gt;
-&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;h2 id=&#34;create-a-device-in-azure-iot-hub&#34;&gt;Create a device in Azure IoT Hub&lt;/h2&gt;
+&lt;p&gt;For the device to be connectable, it needs to be known to the cloud service first. In these steps, we will create a new device identity by using Azure IoT Hub.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pre-Requisites&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Online connection to device or physical access to the device&lt;/p&gt;
+&lt;p&gt;Virtual device must already be started with &lt;code&gt;runqemu ...&lt;/code&gt; or &lt;code&gt;leda&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: For Raspberry Pi, please follow the manual steps below and adapt the SSH connection options to the IP of your Raspbery Pi.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Device clock needs to be in sync - Verify with &lt;code&gt;timedatectl&lt;/code&gt; or &lt;code&gt;systemctl status systemd-timesyncd&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The virtual device needs to be remotely accessible via ssh port &lt;code&gt;2222&lt;/code&gt; on the host&amp;rsquo;s &lt;code&gt;localhost&lt;/code&gt; (Qemu port forwarding in userspace)
+or via ssh port &lt;code&gt;22&lt;/code&gt; on the IP address &lt;code&gt;192.168.7.2&lt;/code&gt; (Qemu virtual networking using TAP network interface)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Installed &lt;code&gt;kubectl&lt;/code&gt; on your workstation - See &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/&#34;&gt;Installing kubectl&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; If you do not have kubectl at hand, an alternative way is to &lt;a href=&#34;https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/&#34;&gt;deploy secrets using Kubernetes Configuration files&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The container runtime needs to have started successfully, check with &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A Device has been created in Azure IoT Hub&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Do &lt;strong&gt;NOT&lt;/strong&gt; create an &amp;ldquo;edge&amp;rdquo; device.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;secret-for-cloud-connector&#34;&gt;Secret for Cloud Connector&lt;/h2&gt;
+&lt;h2 id=&#34;configure-authentication-on-device&#34;&gt;Configure authentication on device&lt;/h2&gt;
+&lt;p&gt;For the proper device authentication, the device management backend authority needs to issue a device-specific certificate and sign it. This is a complex process and subject to the specific situation.&lt;/p&gt;
+&lt;p&gt;For the Leda quickstart images, the software configuration is prepared with dummy certificates which need to be replaced.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ATTENTION: The Leda example device certificates are public and insecure, they only serve demonstration purposes. You need to replace the intermediate certificates and device certificates with your own.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;Put the SD-Card into your card reader
+&lt;li&gt;Generate a device certificate using openssl&lt;/li&gt;
+&lt;li&gt;Sign it with your intermediate CA certificate&lt;/li&gt;
+&lt;li&gt;Put it into &lt;code&gt;/data/var/certificate/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restart the cloud connector service or container: &lt;code&gt;systemctl restart cloud-connector&lt;/code&gt; or &lt;code&gt;kanto-cm restart -n cloud-connector&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When finished, continue with&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Windows: Look for a new drive in Windows Explorer &lt;code&gt;F: [boot]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Linux: Mount the SD Card&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/self-update/self-update-tutorial/&#34;&gt;Performing a Self Update&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Create a new secret file for the Cloud Connection:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ kubectl create secret generic cloudagent \
- --dry-run=client \
- --from-literal=PrimaryConnectionString=&amp;#34;{{Connection String}}&amp;#34; \
- -o yaml &amp;gt; cloudagent-secret.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;For each private Container Registry, create an an additional yaml file to specify the credentials:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ kubectl create secret docker-registry ghcr-io \
---dry-run=client \
---docker-server=ghcr.io \
---docker-username=&amp;#34;&amp;lt;USERNAME&amp;gt;&amp;#34; \
---docker-password=&amp;#34;&amp;lt;PASSWORD&amp;gt;&amp;#34; \
--o yaml &amp;gt; ghcr-io-secret.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Copy the secret files to the boot partition of the SD Card&lt;/li&gt;
-&lt;li&gt;Boot the SD-Card on the Raspberry Pi&lt;/li&gt;
-&lt;li&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/li&gt;
-&lt;li&gt;Apply the Kubernetes configuration specifications:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@raspberrypi4-64:~# kubectl apply -f /boot/cloudagent-secret.yaml
-root@raspberrypi4-64:~# kubectl apply -f /boot/ghcr-io-secret.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;You may need to restart the pods for the changes to take effect:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@raspberrypi4-64:~# kubectl delete pod cloud-connector
-root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/cloud-connector.podspec.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
-stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/app-deployment/&#34;&gt;Deploying a Vehicle App&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;private-container-registries&#34;&gt;Private container registries&lt;/h2&gt;
+&lt;p&gt;Please refer to the &lt;a href=&#34;https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/&#34;&gt;Kanto Container Management documentation&lt;/a&gt; on how to configure private container registries.&lt;/p&gt;
 
       </description>
     </item>
@@ -181,14 +85,14 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
         
         &lt;p&gt;The &lt;em&gt;Vehicle Update Manager&lt;/em&gt; delegates two different types of updates:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The &lt;em&gt;Desired State&lt;/em&gt; on the Kubernetes layer&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;Desired State&lt;/em&gt; on the container layer&lt;/li&gt;
 &lt;li&gt;The &lt;em&gt;Self Update&lt;/em&gt; on operating system layer&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;vehicle-update-manager-arch.png&#34; alt=&#34;Vehicle Update Manager Architecture Overview&#34;&gt;&lt;/p&gt;
-&lt;h1 id=&#34;desired-state&#34;&gt;Desired State&lt;/h1&gt;
-&lt;p&gt;The &lt;em&gt;Desired State&lt;/em&gt; is applied at runtime on the Kubernetes cluster layer.&lt;/p&gt;
+&lt;h2 id=&#34;desired-state&#34;&gt;Desired State&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;Desired State&lt;/em&gt; is applied at runtime on the container layer.&lt;/p&gt;
 &lt;p&gt;This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.&lt;/p&gt;
-&lt;h1 id=&#34;self-update&#34;&gt;Self Update&lt;/h1&gt;
+&lt;h2 id=&#34;self-update&#34;&gt;Self Update&lt;/h2&gt;
 &lt;p&gt;The &lt;em&gt;Self Update&lt;/em&gt; is applied on reboot of the device only.&lt;/p&gt;
 &lt;p&gt;This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.&lt;/p&gt;
 
@@ -207,10 +111,10 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
         &lt;p&gt;In general, the self-update mechanism for operating system level updates is done with two separate partitions. While one partition is the actively booted partition and in use, the other partition can be updated by writing a partition image to it, as it is unused or inactive.&lt;/p&gt;
 &lt;p&gt;Once the download and writing is done, a reboot is triggered and the boot loader will now switch to the newly updated partition.&lt;/p&gt;
 &lt;p&gt;If the booting of the updated partition fails, the self update mechanism can revert back to the previous partition or boot to a rescue partition.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;leda-self-update.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;leda-self-update.png&#34; alt=&#34;Leda Self Update&#34;&gt;&lt;/p&gt;
 &lt;p&gt;As updating the running operating system cannot be done at runtime, the approach requires additional disk space, a second partition and also requires the device to be rebooted for the updates to take effect.&lt;/p&gt;
 &lt;p&gt;In a vehicle, the self-updater cannot decide on its own when to do a reboot, as the vehicle must be in a safe condition (eg parked, state of charge etc.). Hence, the trigger for performaing the switch to another slot and a subsequent reboot is handed over to a higher level component, such as the vehicle update manager, which may in turn rely on driver feedback or other conditions.&lt;/p&gt;
-&lt;h1 id=&#34;implementation-with-rauc-update-service&#34;&gt;Implementation with RAUC Update Service&lt;/h1&gt;
+&lt;h2 id=&#34;implementation-with-rauc-update-service&#34;&gt;Implementation with RAUC Update Service&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.rauc.io/&#34;&gt;RAUC&lt;/a&gt; is a lightweight update client that runs on your embedded device and reliably controls the procedure of updating your device with a new firmware revision.&lt;/p&gt;
 &lt;p&gt;For general usage of the RAUC tool, please see the &lt;a href=&#34;https://rauc.readthedocs.io/en/latest/using.html&#34;&gt;RAUC User manual&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;reference-configuration&#34;&gt;Reference configuration&lt;/h2&gt;
@@ -218,11 +122,11 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;The Leda quickstart image contains the following disk partitions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;a small rescue partition&lt;/li&gt;
-&lt;li&gt;a full SDV installation with a Kubernetes Control Plane (Server + Agent as single node), pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and k9s.&lt;/li&gt;
-&lt;li&gt;a minimal SDV installation with a Kubernetes Control Plane (Server + Agent as single node), but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.&lt;/li&gt;
+&lt;li&gt;a full SDV installation with a container runtime, pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and kantui.&lt;/li&gt;
+&lt;li&gt;a minimal SDV installation with a container runtime, but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.&lt;/li&gt;
 &lt;li&gt;additional boot and data partitions for keeping system state information&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;*Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions which contain the Kubernetes Control Plane will use the same shared data partition for the Kubernetes Cluster information. *&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions will use the same shared data partition for the container persistent state.&lt;/em&gt;&lt;/p&gt;
 
       </description>
     </item>

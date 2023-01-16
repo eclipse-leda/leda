@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -181,8 +181,7 @@ git-credential-manager-core configure
     
 	<h1 id="pg-71f44dd882af01efbed1f4ad8361d98b">1 - Advanced topics</h1>
     
-	<h1 id="setting-up-github-codespaces">Setting up GitHub Codespaces</h1>
-<h2 id="git-authentication">Git Authentication</h2>
+	<h2 id="git-authentication">Git Authentication</h2>
 <p>For private repositories, we need to separately authenticate against the submodule repositories, as
 GitHub Codespaces will only inject a token with access rights to the current repository.</p>
 <ol>
@@ -191,7 +190,7 @@ GitHub Codespaces will only inject a token with access rights to the current rep
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> ~
 </span></span></code></pre></div></li>
 <li>
-<p>Install <a href="https://github.com/GitCredentialManager/git-credential-manager">https://github.com/GitCredentialManager/git-credential-manager</a></p>
+<p>Install <a href="https://github.com/GitCredentialManager/git-credential-manager">Git Credential Manager</a></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
 </span></span><span style="display:flex;"><span>sh ./install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
 </span></span><span style="display:flex;"><span>git-credential-manager-core configure
@@ -205,41 +204,14 @@ GitHub Codespaces will only inject a token with access rights to the current rep
 </ol>
 <h2 id="update-the-submodules">Update the submodules</h2>
 <p>Run <code>git submodule update --recursive</code></p>
-<p>See <a href="https://github.com/microsoft/vscode/issues/109050">https://github.com/microsoft/vscode/issues/109050</a> for details.</p>
+<p>See <a href="https://github.com/microsoft/vscode/issues/109050">VSCode Issue #109050</a> for details.</p>
 <h2 id="setup-skopeo">Setup skopeo</h2>
 <p>Skopeo is needed to download various files during the build:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /run/containers/1000
 </span></span><span style="display:flex;"><span>sudo chmod a+w /run/containers/1000
 </span></span><span style="display:flex;"><span>skopeo login ghcr.io --authfile ~/auth.json --username &lt;your GitHub User&gt; 
 </span></span></code></pre></div><p>Enter your token when asked for the password.</p>
-<h2 id="run-the-build">Run the build</h2>
-<p>Now the actual build can be started:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> /workspace/leda-distro/poky
-</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env ../build-sdv-x86_64/
-</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> /workspace/leda-distro
-</span></span><span style="display:flex;"><span>./build-x86_64.sh
-</span></span></code></pre></div><h2 id="run-qemu">Run qemu</h2>
-<p>Start qemu with the new image:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>runqemu qemux86-64 nographic slirp <span style="color:#000">qemuparams</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-m 2048&#34;</span>
-</span></span></code></pre></div><h2 id="start-the-k3s-pods">Start the k3s pods</h2>
-<p>Create the secret ConnectionString for the cloudconnector:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret generic cloudagent <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>            --from-literal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">PrimaryConnectionString</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;&lt;&lt;&lt;ConnectionString&gt;&gt;&gt;&#39;</span>
-</span></span></code></pre></div><p>Create the secret needed to pull images from ghcr:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret docker-registry ghcr-io <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-server<span style="color:#ce5c00;font-weight:bold">=</span>ghcr.io <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-username<span style="color:#ce5c00;font-weight:bold">=</span>&lt;your github username&gt; <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-password<span style="color:#ce5c00;font-weight:bold">=</span>&lt;your github personal access token&gt;
-</span></span></code></pre></div><p>check the pods, you should now have them running:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@qemux86-64:~# kubectl get pods
-</span></span><span style="display:flex;"><span>NAME                                  READY   STATUS    RESTARTS   AGE
-</span></span><span style="display:flex;"><span>sdv-core-vehicle-update-manager-pod   1/1     Running   <span style="color:#0000cf;font-weight:bold">1</span>          127m
-</span></span><span style="display:flex;"><span>mosquitto-76bcf4956f-bpncv            1/1     Running   <span style="color:#0000cf;font-weight:bold">1</span>          127m
-</span></span><span style="display:flex;"><span>cloud-connector                       1/1     Running   <span style="color:#0000cf;font-weight:bold">18</span>         37m
-</span></span></code></pre></div><h2 id="subscribe-to-a-topic-with-the-mosquitto-in-the-pod">Subscribe to a topic with the mosquitto in the pod:</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl <span style="color:#204a87">exec</span> --stdin --tty mosquitto -- /bin/sh
-</span></span><span style="display:flex;"><span>mosquitto_sub -v -t <span style="color:#4e9a06">&#39;#&#39;</span>
-</span></span></code></pre></div>
+
 </div>
 
 

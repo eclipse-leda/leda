@@ -29,14 +29,14 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/project-info/security/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-12T09:46:04+01:00" />
+<meta property="article:modified_time" content="2023-01-16T11:50:55+01:00" />
 
 <meta itemprop="name" content="Security Policy">
 <meta itemprop="description" content="This project implements the Eclipse Foundation Security Policy
  https://www.eclipse.org/security  Reporting a Vulnerability Please report vulnerabilities to the Eclipse Foundation Security Team at security@eclipse.org
 Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yocto 3.4 (Honister) EOL   Yocto 3.3 Untested   Yocto &lt; 3.3 No    Important: When you use the quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-12T09:46:04+01:00" />
-<meta itemprop="wordCount" content="147">
+<meta itemprop="dateModified" content="2023-01-16T11:50:55+01:00" />
+<meta itemprop="wordCount" content="126">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Security Policy"/>
 <meta name="twitter:description" content="This project implements the Eclipse Foundation Security Policy
@@ -80,7 +80,7 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -105,7 +105,7 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,6 +170,10 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
   <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilities-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
+  <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
   <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
   <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
@@ -184,10 +188,6 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningmanual-provisioning-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check"/>
   <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="">Manual Provisioning</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningprovisioning-raspi-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
-  <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
@@ -323,24 +323,12 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
   <label for="m-ledadocsbuildmisc-check"><a href="/leda/docs/build/misc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildmisc"><span class="">Miscellaneous</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdapr-init-li">
-  <input type="checkbox" id="m-ledadocsbuildmiscdapr-init-check"/>
-  <label for="m-ledadocsbuildmiscdapr-init-check"><a href="/leda/docs/build/misc/dapr-init/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdapr-init"><span class="">DAPR Installation</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
   <input type="checkbox" id="m-ledadocsbuildmiscdiskusage-check"/>
   <label for="m-ledadocsbuildmiscdiskusage-check"><a href="/leda/docs/build/misc/diskusage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdiskusage"><span class="">Resource Consumptions</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmisctools-li">
-  <input type="checkbox" id="m-ledadocsbuildmisctools-check"/>
-  <label for="m-ledadocsbuildmisctools-check"><a href="/leda/docs/build/misc/tools/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmisctools"><span class="">Utilities</span></a></label>
-  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildsdv-private-components-li">
-  <input type="checkbox" id="m-ledadocsbuildsdv-private-components-check"/>
-  <label for="m-ledadocsbuildsdv-private-components-check"><a href="/leda/docs/build/sdv-private-components/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildsdv-private-components"><span class="">Incubation Components</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildrelease-li">
   <input type="checkbox" id="m-ledadocsbuildrelease-check"/>
   <label for="m-ledadocsbuildrelease-check"><a href="/leda/docs/build/release/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrelease"><span class="">Releasing</span></a></label>
@@ -453,7 +441,6 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
     <li><a href="#configuration-items">Configuration Items</a>
       <ul>
         <li><a href="#device-identity-for-cloud-connector">Device Identity for Cloud Connector</a></li>
-        <li><a href="#kubernetes-secrets-encryption">Kubernetes Secrets Encryption</a></li>
       </ul>
     </li>
   </ul>
@@ -568,10 +555,10 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
 <li>Disable SSH login with password</li>
 <li>Adding a new Linux user with restricted permissions</li>
 <li>Adding SSH key based authentication</li>
-<li>Kubernetes Resources: Secrets
+<li>Container Secrets
 <ul>
-<li>Device Identity Certificates for Cloud Connection</li>
-<li>Access credentials for private Container Registries</li>
+<li>Device identity certificates for cloud connection</li>
+<li>Access credentials for private container registries</li>
 </ul>
 </li>
 </ul>
@@ -593,28 +580,6 @@ Supported Yocto Versions    Version Supported     Yocto 4.x (Kirkstone) Yes   Yo
 <tr>
 <td>Certificates</td>
 <td>X.509 Certificates</td>
-<td>Production</td>
-</tr>
-</tbody>
-</table>
-<h3 id="kubernetes-secrets-encryption">Kubernetes Secrets Encryption</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Implementation</th>
-<th>Intended use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Plain text</td>
-<td>Base64 Encoding</td>
-<td>Development</td>
-</tr>
-<tr>
-<td>Encrypted</td>
-<td><a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">Kubernetes: Encrypting Secret Data at Rest</a></td>
 <td>Production</td>
 </tr>
 </tbody>

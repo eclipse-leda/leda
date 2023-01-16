@@ -20,28 +20,24 @@
 
 <title>Manual Provisioning | Eclipse Leda Documentation</title>
 <meta name="description" content="Follow these steps to do a manual device provisioning:
- Log in to Azure Portal Go to Azure Iot Hub Create a new device (Note: Do not create an edge device) Copy the Primary Connection String Create a Kubernetes Secret with the name cloudagent by using kubectl on the device  Alternatively, on command line:
- Install Azure CLI: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash Allow automated installation of extensions: az config set extension.">
+ Generate the device certificate (eg using openssl) and sign it with your CA. Log in to Azure Portal, Go to Azure Iot Hub and create a new device Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed Copy the device certificate (cert file and key file) to the device to /data/var/certificate Restart cloud connector service or container.  Create a device in Azure IoT Hub For the device to be connectable, it needs to be known to the cloud service first.">
 <meta property="og:title" content="Manual Provisioning" />
 <meta property="og:description" content="Follow these steps to do a manual device provisioning:
- Log in to Azure Portal Go to Azure Iot Hub Create a new device (Note: Do not create an edge device) Copy the Primary Connection String Create a Kubernetes Secret with the name cloudagent by using kubectl on the device  Alternatively, on command line:
- Install Azure CLI: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash Allow automated installation of extensions: az config set extension." />
+ Generate the device certificate (eg using openssl) and sign it with your CA. Log in to Azure Portal, Go to Azure Iot Hub and create a new device Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed Copy the device certificate (cert file and key file) to the device to /data/var/certificate Restart cloud connector service or container.  Create a device in Azure IoT Hub For the device to be connectable, it needs to be known to the cloud service first." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-12T09:46:04+01:00" />
+<meta property="article:modified_time" content="2023-01-16T11:50:55+01:00" />
 
 <meta itemprop="name" content="Manual Provisioning">
 <meta itemprop="description" content="Follow these steps to do a manual device provisioning:
- Log in to Azure Portal Go to Azure Iot Hub Create a new device (Note: Do not create an edge device) Copy the Primary Connection String Create a Kubernetes Secret with the name cloudagent by using kubectl on the device  Alternatively, on command line:
- Install Azure CLI: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash Allow automated installation of extensions: az config set extension."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-12T09:46:04+01:00" />
-<meta itemprop="wordCount" content="299">
+ Generate the device certificate (eg using openssl) and sign it with your CA. Log in to Azure Portal, Go to Azure Iot Hub and create a new device Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed Copy the device certificate (cert file and key file) to the device to /data/var/certificate Restart cloud connector service or container.  Create a device in Azure IoT Hub For the device to be connectable, it needs to be known to the cloud service first."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-01-16T11:50:55+01:00" />
+<meta itemprop="wordCount" content="349">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manual Provisioning"/>
 <meta name="twitter:description" content="Follow these steps to do a manual device provisioning:
- Log in to Azure Portal Go to Azure Iot Hub Create a new device (Note: Do not create an edge device) Copy the Primary Connection String Create a Kubernetes Secret with the name cloudagent by using kubectl on the device  Alternatively, on command line:
- Install Azure CLI: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash Allow automated installation of extensions: az config set extension."/>
+ Generate the device certificate (eg using openssl) and sign it with your CA. Log in to Azure Portal, Go to Azure Iot Hub and create a new device Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed Copy the device certificate (cert file and key file) to the device to /data/var/certificate Restart cloud connector service or container.  Create a device in Azure IoT Hub For the device to be connectable, it needs to be known to the cloud service first."/>
 
 
 
@@ -80,7 +76,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -105,7 +101,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,6 +166,10 @@
   <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilities-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
+  <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
   <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
   <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
@@ -184,10 +184,6 @@
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsdevice-provisioningmanual-provisioning-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check" checked/>
   <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="td-sidebar-nav-active-item">Manual Provisioning</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningprovisioning-raspi-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
-  <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
@@ -323,24 +319,12 @@
   <label for="m-ledadocsbuildmisc-check"><a href="/leda/docs/build/misc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildmisc"><span class="">Miscellaneous</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdapr-init-li">
-  <input type="checkbox" id="m-ledadocsbuildmiscdapr-init-check"/>
-  <label for="m-ledadocsbuildmiscdapr-init-check"><a href="/leda/docs/build/misc/dapr-init/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdapr-init"><span class="">DAPR Installation</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
   <input type="checkbox" id="m-ledadocsbuildmiscdiskusage-check"/>
   <label for="m-ledadocsbuildmiscdiskusage-check"><a href="/leda/docs/build/misc/diskusage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdiskusage"><span class="">Resource Consumptions</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmisctools-li">
-  <input type="checkbox" id="m-ledadocsbuildmisctools-check"/>
-  <label for="m-ledadocsbuildmisctools-check"><a href="/leda/docs/build/misc/tools/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmisctools"><span class="">Utilities</span></a></label>
-  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildsdv-private-components-li">
-  <input type="checkbox" id="m-ledadocsbuildsdv-private-components-check"/>
-  <label for="m-ledadocsbuildsdv-private-components-check"><a href="/leda/docs/build/sdv-private-components/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildsdv-private-components"><span class="">Incubation Components</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildrelease-li">
   <input type="checkbox" id="m-ledadocsbuildrelease-check"/>
   <label for="m-ledadocsbuildrelease-check"><a href="/leda/docs/build/release/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrelease"><span class="">Releasing</span></a></label>
@@ -448,7 +432,9 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#verifying-correct-configuration">Verifying correct configuration</a></li>
+    <li><a href="#create-a-device-in-azure-iot-hub">Create a device in Azure IoT Hub</a></li>
+    <li><a href="#configure-authentication-on-device">Configure authentication on device</a></li>
+    <li><a href="#private-container-registries">Private container registries</a></li>
   </ul>
 </nav>
       </div>
@@ -522,72 +508,52 @@
 	</header>    
 	<p>Follow these steps to do a manual device provisioning:</p>
 <ul>
-<li>Log in to Azure Portal</li>
-<li>Go to Azure Iot Hub</li>
-<li>Create a new device (Note: Do <strong>not</strong> create an <em>edge</em> device)</li>
-<li>Copy the <em>Primary Connection String</em></li>
-<li>Create a Kubernetes Secret with the name <code>cloudagent</code> by using <code>kubectl</code> on the device</li>
+<li>Generate the device certificate (eg using openssl) and sign it with your CA.</li>
+<li>Log in to Azure Portal, Go to Azure Iot Hub and create a new device</li>
+<li>Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed</li>
+<li>Copy the device certificate (cert file and key file) to the device to <code>/data/var/certificate</code></li>
+<li>Restart cloud connector service or container.</li>
 </ul>
-<p>Alternatively, on command line:</p>
+<h2 id="create-a-device-in-azure-iot-hub">Create a device in Azure IoT Hub</h2>
+<p>For the device to be connectable, it needs to be known to the cloud service first. In these steps, we will create a new device identity by using Azure IoT Hub.</p>
+<p><strong>Pre-Requisites</strong>:</p>
 <ul>
-<li>Install Azure CLI: <code>curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash</code></li>
-<li>Allow automated installation of extensions: <code>az config set extension.use_dynamic_install=yes_without_prompt</code></li>
-<li>Login to Azure: <code>az login</code></li>
-<li>Select the correct subscription: <code>az account set --subscription &lt;&lt;subscription&gt;&gt;</code></li>
-<li>Create device: <code>az iot hub device-identity create -n {iothub_name} -d {device_id}</code></li>
-<li>Show connection string: <code>az iot hub device-identity connection-string show -n {iothub_name} -d {device_id} -o tsv</code></li>
-<li>Create a Kubernetes Secret</li>
+<li>
+<p>Virtual device must already be started with <code>runqemu ...</code> or <code>leda</code></p>
+<p><em>Note: For Raspberry Pi, please follow the manual steps below and adapt the SSH connection options to the IP of your Raspbery Pi.</em></p>
+</li>
+<li>
+<p>The virtual device needs to be remotely accessible via ssh port <code>2222</code> on the host&rsquo;s <code>localhost</code> (Qemu port forwarding in userspace)
+or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu virtual networking using TAP network interface)</p>
+</li>
+<li>
+<p>The container runtime needs to have started successfully, check with <code>sdv-health</code></p>
+</li>
+<li>
+<p>A Device has been created in Azure IoT Hub</p>
+<p><em>Note: Do <strong>NOT</strong> create an &ldquo;edge&rdquo; device.</em></p>
+</li>
 </ul>
-<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret generic cloudagent \
-            --from-literal=PrimaryConnectionString=&#39;&lt;&lt;Connection String&gt;&gt;&#39;
-</code></pre><h1 id="configure-credentials-for-private-container-registries">Configure credentials for private container registries</h1>
-<p>For each private container registry, a separate Secret is needed.
-For GitHub, your Personal Access Token requires the <code>read:packages</code> permission.</p>
-<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry ghcr-io \
-    --docker-server=ghcr.io \
-    --docker-username=&lt;your github username&gt; \
-    --docker-password=&lt;your github personal access token&gt;
-</code></pre><p>If you have additional project-specific container registries, you may need to add them as well:</p>
-<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry azurecr \
-    --docker-server=&lt;your cr&gt;.azurecr.io \
-    --docker-username=&lt;username&gt; \
-    --docker-password=&lt;password&gt;
-</code></pre><p>The Pod specifications need to reference the image pull secret:</p>
-<pre tabindex="0"><code>apiVersion: v1
-kind: Pod
-metadata:
-  name: ...
-spec:
-  containers:
-    - name: ...
-      image: ...
-  imagePullSecrets:
-  - name: azurecr
-</code></pre><h2 id="verifying-correct-configuration">Verifying correct configuration</h2>
+<h2 id="configure-authentication-on-device">Configure authentication on device</h2>
+<p>For the proper device authentication, the device management backend authority needs to issue a device-specific certificate and sign it. This is a complex process and subject to the specific situation.</p>
+<p>For the Leda quickstart images, the software configuration is prepared with dummy certificates which need to be replaced.</p>
+<blockquote>
+<p>ATTENTION: The Leda example device certificates are public and insecure, they only serve demonstration purposes. You need to replace the intermediate certificates and device certificates with your own.</p>
+</blockquote>
 <ul>
-<li>Check that the secret <code>cloudagent</code> has been deployed:</li>
+<li>Generate a device certificate using openssl</li>
+<li>Sign it with your intermediate CA certificate</li>
+<li>Put it into <code>/data/var/certificate/</code></li>
+<li>Restart the cloud connector service or container: <code>systemctl restart cloud-connector</code> or <code>kanto-cm restart -n cloud-connector</code></li>
 </ul>
-<pre tabindex="0"><code>root@qemux86-64:~# kubectl get secrets
-NAME                  TYPE                                  DATA   AGE
-default-token-pmtd9   kubernetes.io/service-account-token   3      47m
-cloudagent            Opaque                                1      10s
-</code></pre><ul>
-<li>Check that the SDV Cloud Agent pod has been deployed and started:</li>
+<p>When finished, continue with</p>
+<ul>
+<li><a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></li>
+<li><a href="/leda/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
 </ul>
-<pre tabindex="0"><code>root@qemux86-64:~# kubectl describe pod cloud-connector
-Name:         cloud-connector
-Namespace:    default
-Priority:     0
-Node:         qemux86-64/10.0.2.15
-...
-Status:       Running
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-</code></pre>
+<h2 id="private-container-registries">Private container registries</h2>
+<p>Please refer to the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/">Kanto Container Management documentation</a> on how to configure private container registries.</p>
+
 	
 	
 	

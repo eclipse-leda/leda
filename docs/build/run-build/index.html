@@ -20,24 +20,24 @@
 
 <title>Run the build | Eclipse Leda Documentation</title>
 <meta name="description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
-Running QEMU from existing build  Switch to the build directory: cd poky &amp;amp;&amp;amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&amp;quot;-m 2048&amp;quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host.">
+Running QEMU from existing build  Use kas shell -c &amp;quot;runqemu qemux86-64 ovmf kvm nographic&amp;quot; &amp;lt;kas-configs&amp;gt; to execute the image. Replace qemux86-64 with one of the other qemu machines, such as qemuarm64 Use the keyword slirp to enable user-networking which does not require root privileges on the host. tun is default but requires setup on the host.">
 <meta property="og:title" content="Run the build" />
 <meta property="og:description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
-Running QEMU from existing build  Switch to the build directory: cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host." />
+Running QEMU from existing build  Use kas shell -c &quot;runqemu qemux86-64 ovmf kvm nographic&quot; &lt;kas-configs&gt; to execute the image. Replace qemux86-64 with one of the other qemu machines, such as qemuarm64 Use the keyword slirp to enable user-networking which does not require root privileges on the host. tun is default but requires setup on the host." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/run-build/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-12T09:46:04+01:00" />
+<meta property="article:modified_time" content="2023-01-16T11:50:55+01:00" />
 
 <meta itemprop="name" content="Run the build">
 <meta itemprop="description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
-Running QEMU from existing build  Switch to the build directory: cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-12T09:46:04+01:00" />
-<meta itemprop="wordCount" content="308">
+Running QEMU from existing build  Use kas shell -c &quot;runqemu qemux86-64 ovmf kvm nographic&quot; &lt;kas-configs&gt; to execute the image. Replace qemux86-64 with one of the other qemu machines, such as qemuarm64 Use the keyword slirp to enable user-networking which does not require root privileges on the host. tun is default but requires setup on the host."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-01-16T11:50:55+01:00" />
+<meta itemprop="wordCount" content="318">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run the build"/>
 <meta name="twitter:description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
-Running QEMU from existing build  Switch to the build directory: cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx Use runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot; to execute the image. Replace qemux86-64 with one of the machines listed above.  slirp enables user-networking which does not require root privileges on the host. tun is default but requires setup on the host."/>
+Running QEMU from existing build  Use kas shell -c &quot;runqemu qemux86-64 ovmf kvm nographic&quot; &lt;kas-configs&gt; to execute the image. Replace qemux86-64 with one of the other qemu machines, such as qemuarm64 Use the keyword slirp to enable user-networking which does not require root privileges on the host. tun is default but requires setup on the host."/>
 
 
 
@@ -76,7 +76,7 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -101,7 +101,7 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -166,6 +166,10 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
   <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilities-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
+  <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
   <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
   <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
@@ -180,10 +184,6 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningmanual-provisioning-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check"/>
   <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="">Manual Provisioning</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningprovisioning-raspi-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
-  <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
@@ -319,24 +319,12 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
   <label for="m-ledadocsbuildmisc-check"><a href="/leda/docs/build/misc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildmisc"><span class="">Miscellaneous</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdapr-init-li">
-  <input type="checkbox" id="m-ledadocsbuildmiscdapr-init-check"/>
-  <label for="m-ledadocsbuildmiscdapr-init-check"><a href="/leda/docs/build/misc/dapr-init/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdapr-init"><span class="">DAPR Installation</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
   <input type="checkbox" id="m-ledadocsbuildmiscdiskusage-check"/>
   <label for="m-ledadocsbuildmiscdiskusage-check"><a href="/leda/docs/build/misc/diskusage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdiskusage"><span class="">Resource Consumptions</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmisctools-li">
-  <input type="checkbox" id="m-ledadocsbuildmisctools-check"/>
-  <label for="m-ledadocsbuildmisctools-check"><a href="/leda/docs/build/misc/tools/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmisctools"><span class="">Utilities</span></a></label>
-  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildsdv-private-components-li">
-  <input type="checkbox" id="m-ledadocsbuildsdv-private-components-check"/>
-  <label for="m-ledadocsbuildsdv-private-components-check"><a href="/leda/docs/build/sdv-private-components/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildsdv-private-components"><span class="">Incubation Components</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildrelease-li">
   <input type="checkbox" id="m-ledadocsbuildrelease-check"/>
   <label for="m-ledadocsbuildrelease-check"><a href="/leda/docs/build/release/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrelease"><span class="">Releasing</span></a></label>
@@ -452,6 +440,7 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
     </li>
     <li><a href="#running-qemu-in-the-background">Running QEMU in the background</a></li>
     <li><a href="#running-with-kas-shell">Running with kas-shell</a></li>
+    <li><a href="#dhcp-configuration">DHCP Configuration</a></li>
   </ul>
 </nav>
       </div>
@@ -527,25 +516,9 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
 <p>To setup the environment and build the Leda image, please refer to: <a href="/leda/docs/build/devenv/">Setup development environment</a>.</p>
 <h2 id="running-qemu-from-existing-build">Running QEMU from existing build</h2>
 <ul>
-<li>Switch to the build directory: <code>cd poky &amp;&amp; source oe-init-build-env ../build-sdv-xxx</code></li>
-<li>Use <code>runqemu qemux86-64 nographic slirp qemuparams=&quot;-m 2048&quot;</code> to execute the image. Replace <code>qemux86-64</code> with one of the machines listed above.
-<ul>
-<li><code>slirp</code> enables user-networking which does not require root privileges on the host. <code>tun</code> is default but requires setup on the host.</li>
-<li><code>nographic</code> disables graphical user interface</li>
-<li><code>qemuparams</code> are additional command line parameters for qemu</li>
-<li><code>-m 2048</code> gives 2GB of memory to the qemu instance, required for k3s</li>
-</ul>
-</li>
-<li>Using <code>tap</code> networking
-<ul>
-<li>Login as <code>root</code> without password on login prompt, or use <code>ssh root@192.168.7.2</code> to login remotely to qemu instance</li>
-</ul>
-</li>
-<li>Using <code>slirp</code> networking
-<ul>
-<li>Login as <code>root</code> without password on login prompt, or use <code>ssh -p 2222 root@localhost</code> to login remotely to qemu instance</li>
-</ul>
-</li>
+<li>Use <code>kas shell -c &quot;runqemu qemux86-64 ovmf kvm nographic&quot; &lt;kas-configs&gt;</code> to execute the image.</li>
+<li>Replace <code>qemux86-64</code> with one of the other qemu machines, such as <code>qemuarm64</code></li>
+<li>Use the keyword <code>slirp</code> to enable user-networking which does not require root privileges on the host. <code>tun</code> is default but requires setup on the host.</li>
 <li>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
 </ul>
 <h3 id="variations-of-runqemu-command-line">Variations of runqemu command line</h3>
@@ -561,12 +534,15 @@ Running QEMU from existing build  Switch to the build directory: cd poky &amp;&a
 <h2 id="running-qemu-in-the-background">Running QEMU in the background</h2>
 <p>To start QEMU in the background enter, use <code>nohup</code> and bring the process into the background.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nohup runqemu qemux86-64 nographic <span style="color:#000">qemuparams</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-m 2048 -pidfile qemu.pid&#34;</span> <span style="color:#000;font-weight:bold">&amp;</span>
-</span></span></code></pre></div><p>The image is then reachable via <code>ssh root@192.168.72</code>
+</span></span></code></pre></div><p>The image is then reachable via <code>ssh root@192.168.7.2</code>
 This will write a file qemu.pid in the current directory including the process ID of QEMU. Once done, <code>kill -9 &lt;qemu.pid&gt;</code> kills the process.</p>
 <h2 id="running-with-kas-shell">Running with kas-shell</h2>
 <p>If you&rsquo;ve chosen to build the Leda image with kas, you can use the kas-shell to run QEMU, with kas setting up the environment for you. To do that change to the main working directory and run:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kas shell -c <span style="color:#4e9a06">&#39;runqemu slirp nographic ovmf sdv-image-full&#39;</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="dhcp-configuration">DHCP Configuration</h2>
+<p>As the Leda Quickstart image will try to retrieve its IP address via DHCP broadcast request, it is good to run a DHCP daemon on the host, listening on the respective TAP network interface of QEMU. This will then simulate a LAN with DHCP server and let&rsquo;s us control which IP address gets assigned to multiple QEMU instances.</p>
+<p>The <a href="https://github.com/eclipse-leda/leda-distro/blob/main/scripts/run-dhcp.sh">run-dhcp.sh</a> utility will run an ISC-DHCP server on the host. The default configuration has a couple of MAC addresses preconfigured.</p>
+
 	
 	
 	

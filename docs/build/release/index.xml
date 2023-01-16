@@ -23,7 +23,7 @@
       <description>
         
         
-        &lt;h1 id=&#34;validating-the-release&#34;&gt;Validating the release&lt;/h1&gt;
+        &lt;h2 id=&#34;validating-the-release&#34;&gt;Validating the release&lt;/h2&gt;
 &lt;p&gt;Steps to validate if a release is properly working:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -59,9 +59,9 @@
 &lt;li&gt;Verify network interface and CAN-Bus with &lt;code&gt;ip addr&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Kubernetes
+&lt;li&gt;Container runtime
 &lt;ul&gt;
-&lt;li&gt;Check status of cluster and pods with &lt;code&gt;k9s&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check status of containers with &lt;code&gt;kantui&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -192,13 +192,13 @@ This is the multi-page printable view of this section.
 <li>device identification and authentication for cloud connectivity by using TLS device certificates</li>
 </ul>
 </li>
-<li>Linux <strong>container runtime</strong> and <strong>Kubernetes control plane</strong>
+<li><strong>Container runtime</strong>
 <ul>
-<li>a Kubernetes-compliant control plane to orchestrate worker nodes, services, container pods and deployments.</li>
-<li><a href="https://k3s.io/">k3s</a> as the current implementation of the control plane and <a href="https://containerd.io/">containerd.io</a> as the default container runtime. Both layers of container runtimes can be exchanged with other implementations</li>
+<li>An OCI-compliant container orchestration for vehicle applications and services by <a href="https://github.com/eclipse-kanto/">Eclipse Kanto</a></li>
+<li><a href="https://containerd.io/">containerd.io</a> as the default container runtime. Both layers of container runtimes can be exchanged with other implementations</li>
 </ul>
 </li>
-<li>A <strong>Vehicle Update Manager</strong> to orchestrate deployments of Vehicle Applications, configurations and base operating system updates via Kubernetes-standardized protocol specifications</li>
+<li>A <strong>Vehicle Update Manager</strong> to orchestrate deployments of Vehicle Applications, configurations and base operating system updates</li>
 <li>An example Vehicle Seat Service implementation to showcase
 <ul>
 <li>the <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> programming model,</li>
@@ -242,46 +242,18 @@ This is the multi-page printable view of this section.
     
 	<p>The project aims to provide <strong>an integration point for Open Source components for the Software Defined Vehicle</strong>. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.</p>
 <p>The following document will list some of these requirements and give an explanation on why they are met in the Leda quickstart distribution.</p>
-<h1 id="overview">Overview</h1>
+<h2 id="overview">Overview</h2>
 <ul>
 <li>Provide an example operating system and configuration for constrained in-vehicle devices</li>
 <li>Integrate software-defined-vehicle Open Source components to showcase the available features and their state of maturity</li>
 <li>Demonstrate the use and interaction of open protocols and specifications, such as
 <ul>
-<li>the Kubernetes specifications</li>
+<li>the specifications from the <a href="https://www.covesa.global/">The Connected Vehicle Systems Alliance (COVESA)</a></li>
 <li>OpenTelemetry specs and components</li>
 <li>Eclipse IoT related specifications for software rollouts and digital twin representations</li>
-<li>open specifications from the <a href="https://www.covesa.global/">The Connected Vehicle Systems Alliance (COVESA)</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="background-information">Background Information</h2>
-<table>
-<thead>
-<tr>
-<th>Requirement</th>
-<th>Met</th>
-<th>Context information</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Footprint Constraints</td>
-<td>Yes</td>
-<td>Embedded in-vehicle devices have constrained resources such as CPU power, disk space, memory etc. Desktop operating systems use as much space as possible, thereas in-vehicle operating systems are as small as possible, omitting a lot of unnecessary tooling such as package managers or convenience tools for administrators, documenation (man pages) etc. Leda provides two different types of operating system images: one for quickstart and demo cases with some tooling, and a another minimal image which only contains the necessary software components for remote usage. <p></p>SDV Rescue Image is about 130MB<br>SDV Minimal Image is about 300MB <br>SDV Full Image (with convenience tools and pre-cached containers) is about 900MB<p></p><em>Note: Future roadmap includes more footprint optimizations</em></td>
-</tr>
-<tr>
-<td>Hardened system</td>
-<td>Partly</td>
-<td>A vehicle device and its operating system are vulnerable targets in the same way as any other computer, especially once they are connected to the internet. Classically, such in-vehicle devices were hardened down once with additional audit logging for any kind of network traffic. In a connected world, these devices now become mostly always-on devices and behave like any other Internet of Things devices. Special care is to be taken to guard them against vulnerabilities by keeping these devices up-to-date, establish continuous automated monitoring and other methodologies known from DevSecOps.<p></p>As Leda is supposed to be used for quickly starting and evaluating SDV software, we balance these type of requirements. For example, installing system updates in Leda is only possible with signed update bundles, but the demo uses a self-signed certificate. For production use, these self-signed certificates would of course be replaced by the manufacturer&rsquo;s real certificates.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
 </div>
 
@@ -301,12 +273,14 @@ This is the multi-page printable view of this section.
     
 	<ul>
 <li>Initial Open Source contribution expected by Q2 2022 (Done)</li>
-<li>A first milestone build is expected end of 2022</li>
+<li>A first milestone build is expected end of 2022 (Done)</li>
 <li>Plan for the first release cycle to be created in Q1/2023</li>
 <li>Release cycles are planned every 3-6 months</li>
 <li>Release planning will be conducted together with corresponding Eclipse projects</li>
 </ul>
-<h1 id="future-work">Future Work</h1>
+<h2 id="backlog">Backlog</h2>
+<p>The Leda team maintains a backlog roadmap using GitHub projects at <a href="https://github.com/orgs/eclipse-leda/projects/1/views/1">https://github.com/orgs/eclipse-leda/projects/1/views/1</a></p>
+<h2 id="future-work">Future Work</h2>
 <p>The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.</p>
 <p>Exemplary future work:</p>
 <ul>

@@ -102,7 +102,7 @@ gh release download \
 &lt;h2 id=&#34;qemu-x86_64&#34;&gt;QEMU x86_64&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for Ubuntu:&lt;/p&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://www.qemu.org/&#34;&gt;Qemu&lt;/a&gt;, e.g. for Ubuntu:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sudo apt-get update -y
 sudo apt-get install -y xz-utils qemu-system-x86-64
 &lt;/code&gt;&lt;/pre&gt;
@@ -124,20 +124,18 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 &lt;p&gt;Run QEMU on Windows:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;run-leda.cmd
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;leda-bootsequence.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;leda-bootsequence.png&#34; alt=&#34;Leda boot sequence&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;
-&lt;img src=&#34;systemctl-status-k3s.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Verify and wait until container runtime is started: &lt;code&gt;systemctl status container-management&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;
-&lt;img src=&#34;sdv-health1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
-stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;img src=&#34;sdv-health1.png&#34; alt=&#34;sdv-health&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to stay in &lt;strong&gt;FAILED&lt;/strong&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
@@ -146,7 +144,7 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;h2 id=&#34;qemu-arm-64-bit&#34;&gt;QEMU ARM 64-Bit&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 64-Bit: &lt;code&gt;sudo apt install qemu-system-aarch64&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://www.qemu.org/&#34;&gt;Qemu&lt;/a&gt;, e.g. for ARM 64-Bit: &lt;code&gt;sudo apt install qemu-system-aarch64&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
@@ -170,50 +168,11 @@ stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long 
 &lt;p&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Verify and wait until container runtime is started: &lt;code&gt;systemctl status container-management&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
-stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;qemu-arm-32-bit&#34;&gt;QEMU ARM 32-Bit&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Install Qemu &lt;a href=&#34;https://www.qemu.org/&#34;&gt;https://www.qemu.org/&lt;/a&gt;, e.g. for ARM 32-Bit: &lt;code&gt;sudo apt install qemu-system-arm&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Uncompress the archive&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;tar xf eclipse-leda-qemu-arm.tar.xz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Run QEMU on Linux:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;./run-leda.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Run QEMU on Windows:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;run-leda.cmd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Login as &lt;code&gt;root&lt;/code&gt; without password on login prompt&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to
-stay in &lt;em&gt;&lt;strong&gt;FAILED&lt;/strong&gt;&lt;/em&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to stay in &lt;strong&gt;FAILED&lt;/strong&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
@@ -295,7 +254,7 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Verify and wait until k3s is started: &lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Verify and wait until container runtime is started: &lt;code&gt;systemctl status container-management&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
@@ -304,6 +263,67 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Utilities</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The quickstart image contains the following utilities:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sdv-health:&lt;/strong&gt; Show SDV software components health status&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kantui:&lt;/strong&gt; A text user interface for kanto-cm to manage containers (start, stop, logs)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-device-info:&lt;/strong&gt; Show and update device information&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-motd:&lt;/strong&gt; Message-of-the-Day shown after login prompt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;can-forward:&lt;/strong&gt; Forwarding a CAN-bus network interface into a containerized Vehicle Application&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kanto-auto-deployer:&lt;/strong&gt; Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For details, please see &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/&#34;&gt;leda-utils&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;health-check&#34;&gt;Health check&lt;/h2&gt;
+&lt;p&gt;The sdv-health utility displays a status overview of some important dependencies and device configurations for the SDV edge stack. The sdv health utility can be configured using the sdv.conf configuration file.&lt;/p&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# sdv-health
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/assets/sdv-health.png&#34; alt=&#34;SDV Health Example Output&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;version-information&#34;&gt;Version Information&lt;/h3&gt;
+&lt;p&gt;The Leda image version and build time will be displayed at the top in the first category:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS Release: Year and codename of the release version&lt;/li&gt;
+&lt;li&gt;Image Version: Name of the image and more specific version information, such as the git tag or commit id&lt;/li&gt;
+&lt;li&gt;Build timestamp in &lt;code&gt;yyyMMddHHmmss&lt;/code&gt; notation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;bus-networks&#34;&gt;Bus networks&lt;/h3&gt;
+&lt;p&gt;If available, vehicle bus network information, such as the status of the CAN-Bus, will be displayed iin its own category. This helps to quickly identify if there problems with the hardware connectivity for automotive bus networks.&lt;/p&gt;
+&lt;h3 id=&#34;ports&#34;&gt;Ports&lt;/h3&gt;
+&lt;p&gt;The health utility checks the TCP ports of specific services. This helps to identify if these services are up and running and potentiallyconnectable via external network interfaces.&lt;/p&gt;
+&lt;h3 id=&#34;services-and-containers&#34;&gt;Services and Containers&lt;/h3&gt;
+&lt;p&gt;The services category shows the status of required and optional containers. The required containers are supposed to be up and running for the SDV.EDGE stack to be correctly up and running. If any of these core components have a failed state, the functionality is impacted.&lt;/p&gt;
+&lt;p&gt;The optional containers are for additional features and for example applications. These containers may not be necessary for each use case and hence will be marked as a warning if they are not up and running. The overview still helps to identify which containers are working properly.&lt;/p&gt;
+&lt;h3 id=&#34;errors-warnings-failed-states&#34;&gt;Errors, Warnings, Failed states&lt;/h3&gt;
+&lt;p&gt;When there are errors or warnings related to the status of SDV related components, the health utility will print out these error states, and if available also a more detailed error message.&lt;/p&gt;
+&lt;p&gt;In the following example, the health utility helps the troubleshooting process:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The container runtime is properly started: &amp;ldquo;Kanto CM&amp;rdquo; is OK in the &amp;ldquo;SDV Ports&amp;rdquo; section and the &amp;ldquo;container-management&amp;rdquo; service is OK in the &amp;ldquo;SDV Services&amp;rdquo; section&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Some containers are in state &amp;ldquo;OK&amp;rdquo;, which means there is no general issue with the container runtime.&lt;/li&gt;
+&lt;li&gt;The cloud connector is in a &amp;ldquo;Stopped&amp;rdquo; state, which indicates that the user manually stopped the container by using &amp;ldquo;kanto-cm stop -n cloud-connector&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;The sua container is in a &amp;ldquo;Exited&amp;rdquo; state, which indicates the process exited with an error code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;sdv-health-example-errors2.png&#34; alt=&#34;SDV Health Example Errors&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kanto-user-interface&#34;&gt;Kanto User Interface&lt;/h2&gt;
+&lt;p&gt;The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove containers are available along with a functionality to retrieve the application logs of a selected container.&lt;/p&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# kantui
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png&#34; alt=&#34;KantoUI&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -348,99 +368,54 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;td&gt;&lt;code&gt;loadkeys de&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Kubernetes&lt;/td&gt;
-&lt;td&gt;Check k3s status&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;systemctl status k3s&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Kanto-CM&lt;/td&gt;
+&lt;td&gt;Show all containers&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kanto-cm list&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;k9s&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;k9s&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;User interface&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kantui&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;k3s service logs&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;journalctl -f -l -t k3s&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Show all Pods&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl get pods -A&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Pod details&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl describe pod &amp;lt;podname&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Pod logs&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl logs &amp;lt;podname&amp;gt; &amp;lt;containername&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Service logs&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;journalctl -f -l -t container-management&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Auto deployments&lt;/td&gt;
-&lt;td&gt;See &lt;code&gt;/var/lib/rancher/k3s/server/manifests/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;See &lt;code&gt;/data/containers/manifests/&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Delete a Pod&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl delete pod &amp;lt;podname&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Redeplod a Pod&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl apply -f &amp;lt;podspec.yaml&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Shell in a Pod&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl exec --stdin --tty &amp;lt;podname&amp;gt; -- /bin/sh&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Cluster IP&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl get svc clusterip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Restart a container&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kanto-cm restart -n &amp;lt;containername&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;ContainerdD&lt;/td&gt;
 &lt;td&gt;Show images&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i ls&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Import local archive&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ctr --address /run/k3s/containerd/containerd.sock --namespace=k8s.io i import &amp;lt;docker.tar&amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;DAPR&lt;/td&gt;
-&lt;td&gt;Reinstall&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;dapr-init.sh&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import &amp;lt;docker.tar&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Mosquitto&lt;/td&gt;
 &lt;td&gt;Show all messages&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;mosquitto_sub -v -t &#39;#&#39; -h &amp;lt;MosquittoClusterIP&amp;gt;&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mosquitto_sub -v -t &#39;#&#39; -h localhost&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Send message&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;mosquitto_pub -t &#39;&amp;lt;target/topic&amp;gt;&#39; -h &amp;lt;MosquittoClusterIP&amp;gt; -m &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Mosquitto Cluster IP&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl get svc mosquitto&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Cloud Connectivity&lt;/td&gt;
-&lt;td&gt;Cloud agent logs&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;kubectl get logs sdv-core-cloud-agent&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mosquitto_pub -t &#39;&amp;lt;target/topic&amp;gt;&#39; -h localhost -m &#39;{&amp;quot;foo&amp;quot;:&amp;quot;bar&amp;quot;}&#39;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Connectivity status&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;mosquitto_rr --quiet -h &amp;lt;MosquittoClusterIP&amp;gt; -t &#39;edge/thing/request&#39; -e &#39;edge/thing/response&#39; -m &#39;&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;mosquitto_rr --quiet -h localhost -t &#39;edge/thing/request&#39; -e &#39;edge/thing/response&#39; -m &#39;&#39;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;RAUC Self Update&lt;/td&gt;

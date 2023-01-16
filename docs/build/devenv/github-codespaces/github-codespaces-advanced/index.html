@@ -19,35 +19,35 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
 <title>Advanced topics | Eclipse Leda Documentation</title>
-<meta name="description" content="Setting up GitHub Codespaces Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
+<meta name="description" content="Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
   Change to the users home directory
-cd ~   Install https://github.com/GitCredentialManager/git-credential-manager
+cd ~   Install Git Credential Manager
 curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;amp;&amp;amp; sh ./install-from-source.sh &amp;amp;&amp;amp; git-credential-manager-core configure   Configure a credential store typ, e.g. git config --global credential.credentialStore plaintext
   Verify with git config --global -l, it should show git-credential-manager-core as the credential helper.">
 <meta property="og:title" content="Advanced topics" />
-<meta property="og:description" content="Setting up GitHub Codespaces Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
+<meta property="og:description" content="Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
   Change to the users home directory
-cd ~   Install https://github.com/GitCredentialManager/git-credential-manager
+cd ~   Install Git Credential Manager
 curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;&amp; sh ./install-from-source.sh &amp;&amp; git-credential-manager-core configure   Configure a credential store typ, e.g. git config --global credential.credentialStore plaintext
   Verify with git config --global -l, it should show git-credential-manager-core as the credential helper." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-12T09:46:04+01:00" />
+<meta property="article:modified_time" content="2023-01-16T11:50:55+01:00" />
 
 <meta itemprop="name" content="Advanced topics">
-<meta itemprop="description" content="Setting up GitHub Codespaces Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
+<meta itemprop="description" content="Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
   Change to the users home directory
-cd ~   Install https://github.com/GitCredentialManager/git-credential-manager
+cd ~   Install Git Credential Manager
 curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;&amp; sh ./install-from-source.sh &amp;&amp; git-credential-manager-core configure   Configure a credential store typ, e.g. git config --global credential.credentialStore plaintext
   Verify with git config --global -l, it should show git-credential-manager-core as the credential helper."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-12T09:46:04+01:00" />
-<meta itemprop="wordCount" content="256">
+<meta itemprop="dateModified" content="2023-01-16T11:50:55+01:00" />
+<meta itemprop="wordCount" content="126">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Advanced topics"/>
-<meta name="twitter:description" content="Setting up GitHub Codespaces Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
+<meta name="twitter:description" content="Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
   Change to the users home directory
-cd ~   Install https://github.com/GitCredentialManager/git-credential-manager
+cd ~   Install Git Credential Manager
 curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;&amp; sh ./install-from-source.sh &amp;&amp; git-credential-manager-core configure   Configure a credential store typ, e.g. git config --global credential.credentialStore plaintext
   Verify with git config --global -l, it should show git-credential-manager-core as the credential helper."/>
 
@@ -88,7 +88,7 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -113,7 +113,7 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -178,6 +178,10 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
   <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilities-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
+  <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
   <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
   <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
@@ -192,10 +196,6 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningmanual-provisioning-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check"/>
   <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="">Manual Provisioning</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningprovisioning-raspi-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
-  <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
@@ -331,24 +331,12 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
   <label for="m-ledadocsbuildmisc-check"><a href="/leda/docs/build/misc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildmisc"><span class="">Miscellaneous</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdapr-init-li">
-  <input type="checkbox" id="m-ledadocsbuildmiscdapr-init-check"/>
-  <label for="m-ledadocsbuildmiscdapr-init-check"><a href="/leda/docs/build/misc/dapr-init/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdapr-init"><span class="">DAPR Installation</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
   <input type="checkbox" id="m-ledadocsbuildmiscdiskusage-check"/>
   <label for="m-ledadocsbuildmiscdiskusage-check"><a href="/leda/docs/build/misc/diskusage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdiskusage"><span class="">Resource Consumptions</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmisctools-li">
-  <input type="checkbox" id="m-ledadocsbuildmisctools-check"/>
-  <label for="m-ledadocsbuildmisctools-check"><a href="/leda/docs/build/misc/tools/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmisctools"><span class="">Utilities</span></a></label>
-  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildsdv-private-components-li">
-  <input type="checkbox" id="m-ledadocsbuildsdv-private-components-check"/>
-  <label for="m-ledadocsbuildsdv-private-components-check"><a href="/leda/docs/build/sdv-private-components/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildsdv-private-components"><span class="">Incubation Components</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildrelease-li">
   <input type="checkbox" id="m-ledadocsbuildrelease-check"/>
   <label for="m-ledadocsbuildrelease-check"><a href="/leda/docs/build/release/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrelease"><span class="">Releasing</span></a></label>
@@ -459,10 +447,6 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
     <li><a href="#git-authentication">Git Authentication</a></li>
     <li><a href="#update-the-submodules">Update the submodules</a></li>
     <li><a href="#setup-skopeo">Setup skopeo</a></li>
-    <li><a href="#run-the-build">Run the build</a></li>
-    <li><a href="#run-qemu">Run qemu</a></li>
-    <li><a href="#start-the-k3s-pods">Start the k3s pods</a></li>
-    <li><a href="#subscribe-to-a-topic-with-the-mosquitto-in-the-pod">Subscribe to a topic with the mosquitto in the pod:</a></li>
   </ul>
 </nav>
       </div>
@@ -540,8 +524,7 @@ curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-m
 
 		
 	</header>    
-	<h1 id="setting-up-github-codespaces">Setting up GitHub Codespaces</h1>
-<h2 id="git-authentication">Git Authentication</h2>
+	<h2 id="git-authentication">Git Authentication</h2>
 <p>For private repositories, we need to separately authenticate against the submodule repositories, as
 GitHub Codespaces will only inject a token with access rights to the current repository.</p>
 <ol>
@@ -550,7 +533,7 @@ GitHub Codespaces will only inject a token with access rights to the current rep
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> ~
 </span></span></code></pre></div></li>
 <li>
-<p>Install <a href="https://github.com/GitCredentialManager/git-credential-manager">https://github.com/GitCredentialManager/git-credential-manager</a></p>
+<p>Install <a href="https://github.com/GitCredentialManager/git-credential-manager">Git Credential Manager</a></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
 </span></span><span style="display:flex;"><span>sh ./install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
 </span></span><span style="display:flex;"><span>git-credential-manager-core configure
@@ -564,41 +547,14 @@ GitHub Codespaces will only inject a token with access rights to the current rep
 </ol>
 <h2 id="update-the-submodules">Update the submodules</h2>
 <p>Run <code>git submodule update --recursive</code></p>
-<p>See <a href="https://github.com/microsoft/vscode/issues/109050">https://github.com/microsoft/vscode/issues/109050</a> for details.</p>
+<p>See <a href="https://github.com/microsoft/vscode/issues/109050">VSCode Issue #109050</a> for details.</p>
 <h2 id="setup-skopeo">Setup skopeo</h2>
 <p>Skopeo is needed to download various files during the build:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /run/containers/1000
 </span></span><span style="display:flex;"><span>sudo chmod a+w /run/containers/1000
 </span></span><span style="display:flex;"><span>skopeo login ghcr.io --authfile ~/auth.json --username &lt;your GitHub User&gt; 
 </span></span></code></pre></div><p>Enter your token when asked for the password.</p>
-<h2 id="run-the-build">Run the build</h2>
-<p>Now the actual build can be started:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> /workspace/leda-distro/poky
-</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env ../build-sdv-x86_64/
-</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> /workspace/leda-distro
-</span></span><span style="display:flex;"><span>./build-x86_64.sh
-</span></span></code></pre></div><h2 id="run-qemu">Run qemu</h2>
-<p>Start qemu with the new image:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>runqemu qemux86-64 nographic slirp <span style="color:#000">qemuparams</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-m 2048&#34;</span>
-</span></span></code></pre></div><h2 id="start-the-k3s-pods">Start the k3s pods</h2>
-<p>Create the secret ConnectionString for the cloudconnector:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret generic cloudagent <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>            --from-literal<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">PrimaryConnectionString</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;&lt;&lt;&lt;ConnectionString&gt;&gt;&gt;&#39;</span>
-</span></span></code></pre></div><p>Create the secret needed to pull images from ghcr:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create secret docker-registry ghcr-io <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-server<span style="color:#ce5c00;font-weight:bold">=</span>ghcr.io <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-username<span style="color:#ce5c00;font-weight:bold">=</span>&lt;your github username&gt; <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --docker-password<span style="color:#ce5c00;font-weight:bold">=</span>&lt;your github personal access token&gt;
-</span></span></code></pre></div><p>check the pods, you should now have them running:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@qemux86-64:~# kubectl get pods
-</span></span><span style="display:flex;"><span>NAME                                  READY   STATUS    RESTARTS   AGE
-</span></span><span style="display:flex;"><span>sdv-core-vehicle-update-manager-pod   1/1     Running   <span style="color:#0000cf;font-weight:bold">1</span>          127m
-</span></span><span style="display:flex;"><span>mosquitto-76bcf4956f-bpncv            1/1     Running   <span style="color:#0000cf;font-weight:bold">1</span>          127m
-</span></span><span style="display:flex;"><span>cloud-connector                       1/1     Running   <span style="color:#0000cf;font-weight:bold">18</span>         37m
-</span></span></code></pre></div><h2 id="subscribe-to-a-topic-with-the-mosquitto-in-the-pod">Subscribe to a topic with the mosquitto in the pod:</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl <span style="color:#204a87">exec</span> --stdin --tty mosquitto -- /bin/sh
-</span></span><span style="display:flex;"><span>mosquitto_sub -v -t <span style="color:#4e9a06">&#39;#&#39;</span>
-</span></span></code></pre></div>
+
 	
 	
 	

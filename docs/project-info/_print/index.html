@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -281,7 +281,7 @@ more.</p>
 <tr>
 <td>poky</td>
 <td>OpenEmbedded Metalayer</td>
-<td>MIT or GPL-2.0-only</td>
+<td>MIT</td>
 <td><a href="https://www.yoctoproject.org/software-item/poky/">https://www.yoctoproject.org/software-item/poky/</a></td>
 </tr>
 <tr>
@@ -680,7 +680,7 @@ Contributor Agreement (ECA) on file.</p>
 <li>Disable SSH login with password</li>
 <li>Adding a new Linux user with restricted permissions</li>
 <li>Adding SSH key based authentication</li>
-<li>Kubernetes Resources: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries</li>
+<li>Container Resources and Configurations: Secrets, such as Device Identity Certificates for Cloud Connection and Access credentials for private Container Registries</li>
 </ul>
 </li>
 </ul>
@@ -742,10 +742,10 @@ Contributor Agreement (ECA) on file.</p>
 <li>Disable SSH login with password</li>
 <li>Adding a new Linux user with restricted permissions</li>
 <li>Adding SSH key based authentication</li>
-<li>Kubernetes Resources: Secrets
+<li>Container Secrets
 <ul>
-<li>Device Identity Certificates for Cloud Connection</li>
-<li>Access credentials for private Container Registries</li>
+<li>Device identity certificates for cloud connection</li>
+<li>Access credentials for private container registries</li>
 </ul>
 </li>
 </ul>
@@ -767,28 +767,6 @@ Contributor Agreement (ECA) on file.</p>
 <tr>
 <td>Certificates</td>
 <td>X.509 Certificates</td>
-<td>Production</td>
-</tr>
-</tbody>
-</table>
-<h3 id="kubernetes-secrets-encryption">Kubernetes Secrets Encryption</h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Implementation</th>
-<th>Intended use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Plain text</td>
-<td>Base64 Encoding</td>
-<td>Development</td>
-</tr>
-<tr>
-<td>Encrypted</td>
-<td><a href="https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/">Kubernetes: Encrypting Secret Data at Rest</a></td>
 <td>Production</td>
 </tr>
 </tbody>

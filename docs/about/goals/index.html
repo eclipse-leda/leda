@@ -27,13 +27,13 @@ The following document will list some of these requirements and give an explanat
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/about/goals/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-12T09:46:04+01:00" />
+<meta property="article:modified_time" content="2023-01-16T11:50:55+01:00" />
 
 <meta itemprop="name" content="Goals">
 <meta itemprop="description" content="The project aims to provide an integration point for Open Source components for the Software Defined Vehicle. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.
 The following document will list some of these requirements and give an explanation on why they are met in the Leda quickstart distribution."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-12T09:46:04+01:00" />
-<meta itemprop="wordCount" content="425">
+<meta itemprop="dateModified" content="2023-01-16T11:50:55+01:00" />
+<meta itemprop="wordCount" content="148">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Goals"/>
 <meta name="twitter:description" content="The project aims to provide an integration point for Open Source components for the Software Defined Vehicle. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.
@@ -76,7 +76,7 @@ The following document will list some of these requirements and give an explanat
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -101,7 +101,7 @@ The following document will list some of these requirements and give an explanat
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -166,6 +166,10 @@ The following document will list some of these requirements and give an explanat
   <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilities-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
+  <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
   <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
   <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
@@ -180,10 +184,6 @@ The following document will list some of these requirements and give an explanat
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningmanual-provisioning-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check"/>
   <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="">Manual Provisioning</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningprovisioning-raspi-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioningprovisioning-raspi-check"/>
-  <label for="m-ledadocsdevice-provisioningprovisioning-raspi-check"><a href="/leda/docs/device-provisioning/provisioning-raspi/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningprovisioning-raspi"><span class="">Provisioning Raspberry Pi</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
@@ -319,24 +319,12 @@ The following document will list some of these requirements and give an explanat
   <label for="m-ledadocsbuildmisc-check"><a href="/leda/docs/build/misc/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildmisc"><span class="">Miscellaneous</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdapr-init-li">
-  <input type="checkbox" id="m-ledadocsbuildmiscdapr-init-check"/>
-  <label for="m-ledadocsbuildmiscdapr-init-check"><a href="/leda/docs/build/misc/dapr-init/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdapr-init"><span class="">DAPR Installation</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmiscdiskusage-li">
   <input type="checkbox" id="m-ledadocsbuildmiscdiskusage-check"/>
   <label for="m-ledadocsbuildmiscdiskusage-check"><a href="/leda/docs/build/misc/diskusage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmiscdiskusage"><span class="">Resource Consumptions</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildmisctools-li">
-  <input type="checkbox" id="m-ledadocsbuildmisctools-check"/>
-  <label for="m-ledadocsbuildmisctools-check"><a href="/leda/docs/build/misc/tools/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildmisctools"><span class="">Utilities</span></a></label>
-  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildsdv-private-components-li">
-  <input type="checkbox" id="m-ledadocsbuildsdv-private-components-check"/>
-  <label for="m-ledadocsbuildsdv-private-components-check"><a href="/leda/docs/build/sdv-private-components/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildsdv-private-components"><span class="">Incubation Components</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildrelease-li">
   <input type="checkbox" id="m-ledadocsbuildrelease-check"/>
   <label for="m-ledadocsbuildrelease-check"><a href="/leda/docs/build/release/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildrelease"><span class="">Releasing</span></a></label>
@@ -444,7 +432,7 @@ The following document will list some of these requirements and give an explanat
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#background-information">Background Information</a></li>
+    <li><a href="#overview">Overview</a></li>
   </ul>
 </nav>
       </div>
@@ -518,46 +506,18 @@ The following document will list some of these requirements and give an explanat
 	</header>    
 	<p>The project aims to provide <strong>an integration point for Open Source components for the Software Defined Vehicle</strong>. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.</p>
 <p>The following document will list some of these requirements and give an explanation on why they are met in the Leda quickstart distribution.</p>
-<h1 id="overview">Overview</h1>
+<h2 id="overview">Overview</h2>
 <ul>
 <li>Provide an example operating system and configuration for constrained in-vehicle devices</li>
 <li>Integrate software-defined-vehicle Open Source components to showcase the available features and their state of maturity</li>
 <li>Demonstrate the use and interaction of open protocols and specifications, such as
 <ul>
-<li>the Kubernetes specifications</li>
+<li>the specifications from the <a href="https://www.covesa.global/">The Connected Vehicle Systems Alliance (COVESA)</a></li>
 <li>OpenTelemetry specs and components</li>
 <li>Eclipse IoT related specifications for software rollouts and digital twin representations</li>
-<li>open specifications from the <a href="https://www.covesa.global/">The Connected Vehicle Systems Alliance (COVESA)</a></li>
 </ul>
 </li>
 </ul>
-<h2 id="background-information">Background Information</h2>
-<table>
-<thead>
-<tr>
-<th>Requirement</th>
-<th>Met</th>
-<th>Context information</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Footprint Constraints</td>
-<td>Yes</td>
-<td>Embedded in-vehicle devices have constrained resources such as CPU power, disk space, memory etc. Desktop operating systems use as much space as possible, thereas in-vehicle operating systems are as small as possible, omitting a lot of unnecessary tooling such as package managers or convenience tools for administrators, documenation (man pages) etc. Leda provides two different types of operating system images: one for quickstart and demo cases with some tooling, and a another minimal image which only contains the necessary software components for remote usage. <p></p>SDV Rescue Image is about 130MB<br>SDV Minimal Image is about 300MB <br>SDV Full Image (with convenience tools and pre-cached containers) is about 900MB<p></p><em>Note: Future roadmap includes more footprint optimizations</em></td>
-</tr>
-<tr>
-<td>Hardened system</td>
-<td>Partly</td>
-<td>A vehicle device and its operating system are vulnerable targets in the same way as any other computer, especially once they are connected to the internet. Classically, such in-vehicle devices were hardened down once with additional audit logging for any kind of network traffic. In a connected world, these devices now become mostly always-on devices and behave like any other Internet of Things devices. Special care is to be taken to guard them against vulnerabilities by keeping these devices up-to-date, establish continuous automated monitoring and other methodologies known from DevSecOps.<p></p>As Leda is supposed to be used for quickly starting and evaluating SDV software, we balance these type of requirements. For example, installing system updates in Leda is only possible with signed update bundles, but the demo uses a self-signed certificate. For production use, these self-signed certificates would of course be replaced by the manufacturer&rsquo;s real certificates.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
 	
 	

@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -143,7 +143,7 @@ This is the multi-page printable view of this section.
 <h2 id="qemu-x86_64">QEMU x86_64</h2>
 <ul>
 <li>
-<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for Ubuntu:</p>
+<p>Install <a href="https://www.qemu.org/">Qemu</a>, e.g. for Ubuntu:</p>
 <pre><code>sudo apt-get update -y
 sudo apt-get install -y xz-utils qemu-system-x86-64
 </code></pre>
@@ -165,20 +165,18 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 <p>Run QEMU on Windows:</p>
 <pre><code>run-leda.cmd
 </code></pre>
-<p><img src="leda-bootsequence.png" alt=""></p>
+<p><img src="leda-bootsequence.png" alt="Leda boot sequence"></p>
 </li>
 <li>
 <p>Login as <code>root</code> without password on login prompt</p>
 </li>
 <li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code>
-<img src="systemctl-status-k3s.png" alt=""></p>
+<p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code>
-<img src="sdv-health1.png" alt=""></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<img src="sdv-health1.png" alt="sdv-health"></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -187,7 +185,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 <h2 id="qemu-arm-64-bit">QEMU ARM 64-Bit</h2>
 <ul>
 <li>
-<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 64-Bit: <code>sudo apt install qemu-system-aarch64</code></p>
+<p>Install <a href="https://www.qemu.org/">Qemu</a>, e.g. for ARM 64-Bit: <code>sudo apt install qemu-system-aarch64</code></p>
 </li>
 <li>
 <p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
@@ -211,50 +209,11 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 <p>Login as <code>root</code> without password on login prompt</p>
 </li>
 <li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
+<p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
-</li>
-<li>
-<p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
-</li>
-</ul>
-<h2 id="qemu-arm-32-bit">QEMU ARM 32-Bit</h2>
-<ul>
-<li>
-<p>Install Qemu <a href="https://www.qemu.org/">https://www.qemu.org/</a>, e.g. for ARM 32-Bit: <code>sudo apt install qemu-system-arm</code></p>
-</li>
-<li>
-<p>Download <a href="/leda/docs/general-usage/download-releases/">latest Eclipse Leda release</a></p>
-</li>
-<li>
-<p>Uncompress the archive</p>
-<pre><code>tar xf eclipse-leda-qemu-arm.tar.xz
-</code></pre>
-</li>
-<li>
-<p>Run QEMU on Linux:</p>
-<pre><code>./run-leda.sh
-</code></pre>
-</li>
-<li>
-<p>Run QEMU on Windows:</p>
-<pre><code>run-leda.cmd
-</code></pre>
-</li>
-<li>
-<p>Login as <code>root</code> without password on login prompt</p>
-</li>
-<li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
-</li>
-<li>
-<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>

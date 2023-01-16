@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -124,15 +124,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-1d2bfbb96ea7961bad79d1c54d64e56a">Provisioning Raspberry Pi</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-b841cdcaabc5e1bd7476de818736b5bd">Vehicle Update Manager</a></li>
+<li>2: <a href="#pg-b841cdcaabc5e1bd7476de818736b5bd">Vehicle Update Manager</a></li>
 
 
     
@@ -147,7 +139,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1: <a href="#pg-42e18573332f97451f15ebcfa61573ab">Configuration</a></li>
+<li>2.1: <a href="#pg-42e18573332f97451f15ebcfa61573ab">Configuration</a></li>
 
 
     
@@ -155,7 +147,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.2: <a href="#pg-a9d83955f4af71a310e5e508cd17161e">Message Flow</a></li>
+<li>2.2: <a href="#pg-a9d83955f4af71a310e5e508cd17161e">Message Flow</a></li>
 
 
     
@@ -167,7 +159,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-679c6c584dc366c660841bdd65d2af73">Self Updates</a></li>
+<li>3: <a href="#pg-679c6c584dc366c660841bdd65d2af73">Self Updates</a></li>
 
 
     
@@ -182,7 +174,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.1: <a href="#pg-cb55165363d95c91e0f19399fa5b280b">Self Update Tutorial</a></li>
+<li>3.1: <a href="#pg-cb55165363d95c91e0f19399fa5b280b">Self Update Tutorial</a></li>
 
 
     
@@ -190,7 +182,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.2: <a href="#pg-fdfe9e0ec285454b4f0c580b5cd46e62">RAUC Integration</a></li>
+<li>3.2: <a href="#pg-fdfe9e0ec285454b4f0c580b5cd46e62">RAUC Integration</a></li>
 
 
     
@@ -198,7 +190,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.3: <a href="#pg-330a7bfc4527a76419775bc5ddc1265b">API Reference</a></li>
+<li>3.3: <a href="#pg-330a7bfc4527a76419775bc5ddc1265b">API Reference</a></li>
 
 
     
@@ -226,9 +218,40 @@ This is the multi-page printable view of this section.
       <p>The device needs to be configured before it can make a connection to the cloud.</p>
 <p>The following initial configuration steps are required:</p>
 <ul>
-<li>Create a device in Azure IoT Hub</li>
+<li>Create a device in the cloud backend, such as Azure IoT Hub</li>
 <li>Configure authentication on device</li>
 <li>Configure credentials for accessing private container registries</li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-57ce4bccb0846f692ca5d3289bd50697">1 - Manual Provisioning</h1>
+    
+	<p>Follow these steps to do a manual device provisioning:</p>
+<ul>
+<li>Generate the device certificate (eg using openssl) and sign it with your CA.</li>
+<li>Log in to Azure Portal, Go to Azure Iot Hub and create a new device</li>
+<li>Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed</li>
+<li>Copy the device certificate (cert file and key file) to the device to <code>/data/var/certificate</code></li>
+<li>Restart cloud connector service or container.</li>
 </ul>
 <h2 id="create-a-device-in-azure-iot-hub">Create a device in Azure IoT Hub</h2>
 <p>For the device to be connectable, it needs to be known to the cloud service first. In these steps, we will create a new device identity by using Azure IoT Hub.</p>
@@ -243,237 +266,32 @@ This is the multi-page printable view of this section.
 or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu virtual networking using TAP network interface)</p>
 </li>
 <li>
-<p>The k3s service needs to have started successfully, check with <code>systemctl status k3s</code></p>
+<p>The container runtime needs to have started successfully, check with <code>sdv-health</code></p>
 </li>
 <li>
 <p>A Device has been created in Azure IoT Hub</p>
-<p><em>Note: Do <strong>not</strong> create an</em>edge<em>device.</em></p>
+<p><em>Note: Do <strong>NOT</strong> create an &ldquo;edge&rdquo; device.</em></p>
 </li>
 </ul>
-<h2 id="script-on-host-system">Script on host system</h2>
-<p><em>Note: For Linux hosts only. Alternatively, you can perform the steps <a href="/leda/docs/device-provisioning/manual-provisioning/">manually on command line</a>.</em></p>
-<p>Pre-Requisite:</p>
+<h2 id="configure-authentication-on-device">Configure authentication on device</h2>
+<p>For the proper device authentication, the device management backend authority needs to issue a device-specific certificate and sign it. This is a complex process and subject to the specific situation.</p>
+<p>For the Leda quickstart images, the software configuration is prepared with dummy certificates which need to be replaced.</p>
+<blockquote>
+<p>ATTENTION: The Leda example device certificates are public and insecure, they only serve demonstration purposes. You need to replace the intermediate certificates and device certificates with your own.</p>
+</blockquote>
 <ul>
-<li>
-<p>Install <code>jq</code> and <code>dialog</code> on your host:</p>
-<pre><code>apt-get install jq dialog
-</code></pre>
-</li>
-<li>
-<p>Run the provisioning script on your host system</p>
-<pre><code>./provision-device.sh
-</code></pre>
-</li>
+<li>Generate a device certificate using openssl</li>
+<li>Sign it with your intermediate CA certificate</li>
+<li>Put it into <code>/data/var/certificate/</code></li>
+<li>Restart the cloud connector service or container: <code>systemctl restart cloud-connector</code> or <code>kanto-cm restart -n cloud-connector</code></li>
 </ul>
-<p>The script will:</p>
-<ul>
-<li>Remotely connect to the QEMU instance via <code>root@192.168.7.2</code></li>
-<li>Install Azure CLI</li>
-<li>Ask you to login to Azure using the Device Code Flow</li>
-<li>Ask which Azure Subscription to use</li>
-<li>Ask which Azure IoT Hub the device shall connect to</li>
-<li>Ask which existing device to use or to create a new device</li>
-<li>Generate and retrieve the connection string secret</li>
-<li>Deploy the connection string to device as Kubernetes secret</li>
-</ul>
-<p><em>Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.</em></p>
 <p>When finished, continue with</p>
 <ul>
 <li><a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></li>
 <li><a href="/leda/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
 </ul>
-<h2 id="script-on-guest-system">Script on guest system</h2>
-<p><em>Note: When running the device provisioning from the guest, you need to manually retrieve the device secrets first.</em></p>
-<ul>
-<li>
-<p>Run the provisioning script on the guest system</p>
-<pre><code>sdv-provision
-</code></pre>
-</li>
-</ul>
-<p>The script will:</p>
-<ul>
-<li>Ask for an Azure IoT device <em>Connection String</em></li>
-<li>Ask for credentials to access private container registries (&lsquo;imagePullSecret&rsquo;)</li>
-<li>Deploy the connection string as Kubernetes secret</li>
-<li>Deploy the imagePullSecret as Kubernetes secret</li>
-</ul>
-<p><em>Note: Kubernetes will take some time before reconsidering a redeployment of failed pods. If you want to force a redeployment, use k9s to delete the failed pods. The Deployments will then ensure to recreate the pods with the new configurations.</em></p>
-<p>When finished, continue with</p>
-<ul>
-<li><a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></li>
-<li><a href="/leda/docs/device-provisioning/self-update/self-update-tutorial/">Performing a Self Update</a></li>
-</ul>
-
-</div>
-</div>
-
-
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-57ce4bccb0846f692ca5d3289bd50697">1 - Manual Provisioning</h1>
-    
-	<p>Follow these steps to do a manual device provisioning:</p>
-<ul>
-<li>Log in to Azure Portal</li>
-<li>Go to Azure Iot Hub</li>
-<li>Create a new device (Note: Do <strong>not</strong> create an <em>edge</em> device)</li>
-<li>Copy the <em>Primary Connection String</em></li>
-<li>Create a Kubernetes Secret with the name <code>cloudagent</code> by using <code>kubectl</code> on the device</li>
-</ul>
-<p>Alternatively, on command line:</p>
-<ul>
-<li>Install Azure CLI: <code>curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash</code></li>
-<li>Allow automated installation of extensions: <code>az config set extension.use_dynamic_install=yes_without_prompt</code></li>
-<li>Login to Azure: <code>az login</code></li>
-<li>Select the correct subscription: <code>az account set --subscription &lt;&lt;subscription&gt;&gt;</code></li>
-<li>Create device: <code>az iot hub device-identity create -n {iothub_name} -d {device_id}</code></li>
-<li>Show connection string: <code>az iot hub device-identity connection-string show -n {iothub_name} -d {device_id} -o tsv</code></li>
-<li>Create a Kubernetes Secret</li>
-</ul>
-<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret generic cloudagent \
-            --from-literal=PrimaryConnectionString=&#39;&lt;&lt;Connection String&gt;&gt;&#39;
-</code></pre><h1 id="configure-credentials-for-private-container-registries">Configure credentials for private container registries</h1>
-<p>For each private container registry, a separate Secret is needed.
-For GitHub, your Personal Access Token requires the <code>read:packages</code> permission.</p>
-<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry ghcr-io \
-    --docker-server=ghcr.io \
-    --docker-username=&lt;your github username&gt; \
-    --docker-password=&lt;your github personal access token&gt;
-</code></pre><p>If you have additional project-specific container registries, you may need to add them as well:</p>
-<pre tabindex="0"><code>ssh -p 2222 root@localhost /usr/local/bin/kubectl create secret docker-registry azurecr \
-    --docker-server=&lt;your cr&gt;.azurecr.io \
-    --docker-username=&lt;username&gt; \
-    --docker-password=&lt;password&gt;
-</code></pre><p>The Pod specifications need to reference the image pull secret:</p>
-<pre tabindex="0"><code>apiVersion: v1
-kind: Pod
-metadata:
-  name: ...
-spec:
-  containers:
-    - name: ...
-      image: ...
-  imagePullSecrets:
-  - name: azurecr
-</code></pre><h2 id="verifying-correct-configuration">Verifying correct configuration</h2>
-<ul>
-<li>Check that the secret <code>cloudagent</code> has been deployed:</li>
-</ul>
-<pre tabindex="0"><code>root@qemux86-64:~# kubectl get secrets
-NAME                  TYPE                                  DATA   AGE
-default-token-pmtd9   kubernetes.io/service-account-token   3      47m
-cloudagent            Opaque                                1      10s
-</code></pre><ul>
-<li>Check that the SDV Cloud Agent pod has been deployed and started:</li>
-</ul>
-<pre tabindex="0"><code>root@qemux86-64:~# kubectl describe pod cloud-connector
-Name:         cloud-connector
-Namespace:    default
-Priority:     0
-Node:         qemux86-64/10.0.2.15
-...
-Status:       Running
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             True 
-  ContainersReady   True 
-  PodScheduled      True 
-</code></pre>
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-1d2bfbb96ea7961bad79d1c54d64e56a">2 - Provisioning Raspberry Pi</h1>
-    
-	<p>As your Raspberry Pi device might not be reachable via network, you can configure the initial credentials by specifying them as a Kubernetes resource file, copy the files to the FAT32 Boot Partition and then apply them on the offine device.</p>
-<h2 id="pre-requisites">Pre-Requisites</h2>
-<ul>
-<li>
-<p>Online connection to device or physical access to the device</p>
-</li>
-<li>
-<p>Device clock needs to be in sync - Verify with <code>timedatectl</code> or <code>systemctl status systemd-timesyncd</code></p>
-</li>
-<li>
-<p>Installed <code>kubectl</code> on your workstation - See <a href="https://kubernetes.io/docs/tasks/tools/">Installing kubectl</a></p>
-<p><em>Note:</em> If you do not have kubectl at hand, an alternative way is to <a href="https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/">deploy secrets using Kubernetes Configuration files</a>.</p>
-</li>
-</ul>
-<h2 id="secret-for-cloud-connector">Secret for Cloud Connector</h2>
-<ul>
-<li>Put the SD-Card into your card reader
-<ul>
-<li>Windows: Look for a new drive in Windows Explorer <code>F: [boot]</code></li>
-<li>Linux: Mount the SD Card</li>
-</ul>
-</li>
-<li>Create a new secret file for the Cloud Connection:</li>
-</ul>
-<pre tabindex="0"><code>$ kubectl create secret generic cloudagent \
- --dry-run=client \
- --from-literal=PrimaryConnectionString=&#34;{{Connection String}}&#34; \
- -o yaml &gt; cloudagent-secret.yaml
-</code></pre><ul>
-<li>For each private Container Registry, create an an additional yaml file to specify the credentials:</li>
-</ul>
-<pre tabindex="0"><code>$ kubectl create secret docker-registry ghcr-io \
---dry-run=client \
---docker-server=ghcr.io \
---docker-username=&#34;&lt;USERNAME&gt;&#34; \
---docker-password=&#34;&lt;PASSWORD&gt;&#34; \
--o yaml &gt; ghcr-io-secret.yaml
-</code></pre><ul>
-<li>Copy the secret files to the boot partition of the SD Card</li>
-<li>Boot the SD-Card on the Raspberry Pi</li>
-<li>Login as <code>root</code> without password on login prompt</li>
-<li>Apply the Kubernetes configuration specifications:</li>
-</ul>
-<pre tabindex="0"><code>root@raspberrypi4-64:~# kubectl apply -f /boot/cloudagent-secret.yaml
-root@raspberrypi4-64:~# kubectl apply -f /boot/ghcr-io-secret.yaml
-</code></pre><ul>
-<li>You may need to restart the pods for the changes to take effect:</li>
-</ul>
-<pre tabindex="0"><code>root@raspberrypi4-64:~# kubectl delete pod cloud-connector
-root@raspberrypi4-64:~# kubectl apply -f /var/lib/rancher/k3s/server/manifests/cloud-connector.podspec.yaml
-</code></pre><ul>
-<li>
-<p>Verify and wait until k3s is started: <code>systemctl status k3s</code></p>
-</li>
-<li>
-<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to
-stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
-</li>
-<li>
-<p>Continue with <a href="/leda/docs/app-deployment/">Deploying a Vehicle App</a></p>
-</li>
-</ul>
+<h2 id="private-container-registries">Private container registries</h2>
+<p>Please refer to the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/">Kanto Container Management documentation</a> on how to configure private container registries.</p>
 
 </div>
 
@@ -489,18 +307,18 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b841cdcaabc5e1bd7476de818736b5bd">3 - Vehicle Update Manager</h1>
+	<h1 id="pg-b841cdcaabc5e1bd7476de818736b5bd">2 - Vehicle Update Manager</h1>
     
 	<p>The <em>Vehicle Update Manager</em> delegates two different types of updates:</p>
 <ol>
-<li>The <em>Desired State</em> on the Kubernetes layer</li>
+<li>The <em>Desired State</em> on the container layer</li>
 <li>The <em>Self Update</em> on operating system layer</li>
 </ol>
 <p><img src="vehicle-update-manager-arch.png" alt="Vehicle Update Manager Architecture Overview"></p>
-<h1 id="desired-state">Desired State</h1>
-<p>The <em>Desired State</em> is applied at runtime on the Kubernetes cluster layer.</p>
+<h2 id="desired-state">Desired State</h2>
+<p>The <em>Desired State</em> is applied at runtime on the container layer.</p>
 <p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.</p>
-<h1 id="self-update">Self Update</h1>
+<h2 id="self-update">Self Update</h2>
 <p>The <em>Self Update</em> is applied on reboot of the device only.</p>
 <p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.</p>
 
@@ -526,7 +344,7 @@ stay in <em><strong>FAILED</strong></em> status as long as the <strong>Device Pr
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-42e18573332f97451f15ebcfa61573ab">3.1 - Configuration</h1>
+	<h1 id="pg-42e18573332f97451f15ebcfa61573ab">2.1 - Configuration</h1>
     
 	<p>The vehicle update manager container requires the following configuration:</p>
 <ul>
@@ -632,7 +450,7 @@ spec:
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a9d83955f4af71a310e5e508cd17161e">3.2 - Message Flow</h1>
+	<h1 id="pg-a9d83955f4af71a310e5e508cd17161e">2.2 - Message Flow</h1>
     
 	<p>The following message flow is an example for the <em>Self Update</em> use case.
 The message is triggered by command line via Azure IoT Hub.</p>
@@ -791,15 +609,15 @@ state:
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-679c6c584dc366c660841bdd65d2af73">4 - Self Updates</h1>
+	<h1 id="pg-679c6c584dc366c660841bdd65d2af73">3 - Self Updates</h1>
     
 	<p>In general, the self-update mechanism for operating system level updates is done with two separate partitions. While one partition is the actively booted partition and in use, the other partition can be updated by writing a partition image to it, as it is unused or inactive.</p>
 <p>Once the download and writing is done, a reboot is triggered and the boot loader will now switch to the newly updated partition.</p>
 <p>If the booting of the updated partition fails, the self update mechanism can revert back to the previous partition or boot to a rescue partition.</p>
-<p><img src="leda-self-update.png" alt=""></p>
+<p><img src="leda-self-update.png" alt="Leda Self Update"></p>
 <p>As updating the running operating system cannot be done at runtime, the approach requires additional disk space, a second partition and also requires the device to be rebooted for the updates to take effect.</p>
 <p>In a vehicle, the self-updater cannot decide on its own when to do a reboot, as the vehicle must be in a safe condition (eg parked, state of charge etc.). Hence, the trigger for performaing the switch to another slot and a subsequent reboot is handed over to a higher level component, such as the vehicle update manager, which may in turn rely on driver feedback or other conditions.</p>
-<h1 id="implementation-with-rauc-update-service">Implementation with RAUC Update Service</h1>
+<h2 id="implementation-with-rauc-update-service">Implementation with RAUC Update Service</h2>
 <p><a href="https://www.rauc.io/">RAUC</a> is a lightweight update client that runs on your embedded device and reliably controls the procedure of updating your device with a new firmware revision.</p>
 <p>For general usage of the RAUC tool, please see the <a href="https://rauc.readthedocs.io/en/latest/using.html">RAUC User manual</a></p>
 <h2 id="reference-configuration">Reference configuration</h2>
@@ -807,11 +625,11 @@ state:
 <p>The Leda quickstart image contains the following disk partitions:</p>
 <ul>
 <li>a small rescue partition</li>
-<li>a full SDV installation with a Kubernetes Control Plane (Server + Agent as single node), pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and k9s.</li>
-<li>a minimal SDV installation with a Kubernetes Control Plane (Server + Agent as single node), but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.</li>
+<li>a full SDV installation with a container runtime, pre-loaded SDV container images and deployment specifications and additional developer tools such as nerdctl and kantui.</li>
+<li>a minimal SDV installation with a container runtime, but no additional examples or developer tools. This partition is used to demonstrate the self-update functionality.</li>
 <li>additional boot and data partitions for keeping system state information</li>
 </ul>
-<p>*Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions which contain the Kubernetes Control Plane will use the same shared data partition for the Kubernetes Cluster information. *</p>
+<p><em>Note: All three rootfs partitions (rootfs) initially contain the same identical copies of the base operating system. Both SDV Root partitions will use the same shared data partition for the container persistent state.</em></p>
 
 </div>
 
@@ -835,7 +653,7 @@ state:
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-cb55165363d95c91e0f19399fa5b280b">4.1 - Self Update Tutorial</h1>
+	<h1 id="pg-cb55165363d95c91e0f19399fa5b280b">3.1 - Self Update Tutorial</h1>
     
 	<p>This chapter describes the steps necessary to perform a local (without cloud) self update of the operating system.</p>
 <p><img src="../self-update-arch.png" alt=""></p>
@@ -926,7 +744,7 @@ state:
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fdfe9e0ec285454b4f0c580b5cd46e62">4.2 - RAUC Integration</h1>
+	<h1 id="pg-fdfe9e0ec285454b4f0c580b5cd46e62">3.2 - RAUC Integration</h1>
     
 	<p>Leda integrates <a href="https://rauc.io/">RAUC</a> as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.</p>
 <h2 id="checking-the-rauc-status">Checking the RAUC Status</h2>
@@ -1057,7 +875,7 @@ part /data --fixed-size 4G --fstype=ext4 --label data
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-330a7bfc4527a76419775bc5ddc1265b">4.3 - API Reference</h1>
+	<h1 id="pg-330a7bfc4527a76419775bc5ddc1265b">3.3 - API Reference</h1>
     
 	<p>The self update agent (SUA) is a component responsible for the OS Update process.  SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses <a href="https://rauc.io/">RAUC</a> to perform the update.</p>
 <p>Following sequence diagram shows the happy path example of communication between components.</p>

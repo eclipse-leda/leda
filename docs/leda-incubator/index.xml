@@ -32,6 +32,27 @@
 &lt;p&gt;&lt;img src=&#34;./cloud-connector-runtime.png&#34; alt=&#34;Cloud Connector Runtime View&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;source-repository&#34;&gt;Source Repository&lt;/h2&gt;
 &lt;p&gt;Source Repository: &lt;a href=&#34;https://github.com/eclipse-leda/leda-contrib-cloud-connector&#34;&gt;https://github.com/eclipse-leda/leda-contrib-cloud-connector&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;building-and-deployment&#34;&gt;Building and Deployment&lt;/h2&gt;
+&lt;p&gt;The Cloud Connector can either be installed natively into the system image by using the respective Yocto recipe &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/leda-contrib-cloud-connector_git.bb&#34;&gt;leda-contrib-cloud-connector_git.bb&lt;/a&gt;, or the cloud connector can be deployed as a &lt;a href=&#34;https://github.com/eclipse-leda/leda-contrib-cloud-connector/pkgs/container/leda-contrib-cloud-connector%2Fcloudconnector&#34;&gt;container&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;native-installation&#34;&gt;Native Installation&lt;/h3&gt;
+&lt;p&gt;A native installation has the advantage that no additional container runtime is required. In some vehicle system architectures, there are separate devices for connectivity and for general computation. The actual physical device for connectivity may hence have less ressources available which then requires a native installation of such core components.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the recipe to the image in your Yocto configuration:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;IMAGE_INSTALL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;leda-contrib-cloud-connector&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Override the configuration in &lt;code&gt;/etc/cloud-connector/config.json&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create the device certificate&lt;/li&gt;
+&lt;li&gt;The cloud-connector can be managed (start, stop, restart) using systemd: &lt;code&gt;systemctl restart cloud-connector&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;container-installation&#34;&gt;Container Installation&lt;/h3&gt;
+&lt;p&gt;When the connectivity components can be deployed on the more generic compute module, where a container runtime is available, the cloud connector can also be deployed as a container. This is the default for the Eclipse Leda quickstart images.&lt;/p&gt;
+&lt;p&gt;Initial deployment and configuration steps are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On first start, the auto deployment will deploy and start the cloud connector container automatically, but with invalid default values or missing device certificates.&lt;/li&gt;
+&lt;li&gt;The user needs to adapt the device authentication to suit his needs, e.g. creating and providing a device certificate. Check the &lt;code&gt;/data/containers/cloud-connector.json&lt;/code&gt; deployment descriptor for the correct location of the certificate files.&lt;/li&gt;
+&lt;li&gt;After this configuration has been done once, the container needs to be restarted using the Kanto CLI: &lt;code&gt;kanto-cm restart -n cloud-connector&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
@@ -59,6 +80,25 @@
 &lt;h2 id=&#34;implementation-and-deployment&#34;&gt;Implementation and Deployment&lt;/h2&gt;
 &lt;p&gt;SUA is using the RAUC framework via D-Bus calls, but it is designed in a way that switching to other updating solution shall be possible. SUA may be controlled by an external higher-level orchestration component via defined MQTT messages, which carry necessary for update data, such as version and URL of the update bundle. Update process feedback and the end result are also communicated via defined MQTT messages. Software Update Agent is implemented in C++ and configured to be running inside of a container.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./self-update-agent-deploy.png&#34; alt=&#34;Self Update Agent Runtime Deployment Diagram&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;building&#34;&gt;Building&lt;/h2&gt;
+&lt;p&gt;SUA can either be installed natively into the system image by using the respective Yocto recipe &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/leda-contrib-self-update-agent_git.bb&#34;&gt;leda-contrib-self-update-agent_git.bb&lt;/a&gt;, or can be deployed as a &lt;a href=&#34;https://github.com/eclipse-leda/leda-contrib-self-update-agent/pkgs/container/leda-contrib-self-update-agent%2Fself-update-agent&#34;&gt;container&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;native-installation&#34;&gt;Native Installation&lt;/h3&gt;
+&lt;p&gt;A native installation has the advantage that no additional container runtime is required. In some vehicle system architectures, there are separate devices for connectivity and for general computation. The actual physical device for connectivity may hence have less ressources available which then requires a native installation of such core components.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the recipe to the image in your Yocto configuration:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;IMAGE_INSTALL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;leda-contrib-self-update-agent&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;The self update agent can be managed (start, stop, restart) using systemd: &lt;code&gt;systemctl restart self-update-agent&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;container-installation&#34;&gt;Container Installation&lt;/h3&gt;
+&lt;p&gt;When the component can be deployed on the more generic compute module, where a container runtime is available, the self update agent can also be deployed as a container. This is the default for the Eclipse Leda quickstart images.&lt;/p&gt;
+&lt;p&gt;Initial deployment and configuration steps are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On first start, the auto deployment will deploy and start the self update agent container automatically.&lt;/li&gt;
+&lt;li&gt;The self update agent will then connect to the locally running mosquitto server, awaiting update requests.&lt;/li&gt;
+&lt;li&gt;The default configuration will use the location &lt;code&gt;/data/selfupdates/&lt;/code&gt; to write and read update files.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;source-repository&#34;&gt;Source Repository&lt;/h2&gt;
 &lt;p&gt;Source Repository: &lt;a href=&#34;https://github.com/eclipse-leda/leda-contrib-self-update-agent&#34;&gt;https://github.com/eclipse-leda/leda-contrib-self-update-agent&lt;/a&gt;&lt;/p&gt;
 
@@ -79,21 +119,13 @@
 &lt;p&gt;Vehicle Update Manager (VUM) is an extended version of the &lt;a href=&#34;https://github.com/eclipse-kanto/container-management&#34;&gt;Eclipse Kanto Container Manager&lt;/a&gt; that is being able to &lt;strong&gt;handle new desired state for the software on the whole vehicle device&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./vehicle-update-manager-arch.png&#34; alt=&#34;Vehicle Update Manager Scope&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;
-&lt;p&gt;The desired state comes as a multi document YAML content and it includes a list of Kubernetes resources:&lt;/p&gt;
+&lt;p&gt;The desired state comes as a multi document YAML content and it includes a list of container resources:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Deployments&lt;/li&gt;
-&lt;li&gt;Pods&lt;/li&gt;
-&lt;li&gt;Services&lt;/li&gt;
-&lt;li&gt;ConfigMaps&lt;/li&gt;
-&lt;li&gt;Custom Resources
-&lt;ul&gt;
-&lt;li&gt;System-Level Updates&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;Container&lt;/li&gt;
+&lt;li&gt;Configuration&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;VUM detects the system-level update custom resource and passes it for further processing to the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/leda-incubator/self-update-agent/&#34;&gt;Self Update Agent&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The remaining resources are &lt;strong&gt;forwarded to a Kubernetes-compatible control plane&lt;/strong&gt; and handled like the well-known kubectl command - creating new resources, updating existing ones or deleting old ones that are no longer present in the desired state manifest.&lt;/p&gt;
-&lt;p&gt;VUM also monitors the self-update agent and the control plane, and compiles and report the current state of the device, again as a list of Kubernetes resources.&lt;/p&gt;
+&lt;p&gt;VUM also monitors the self-update agent and the control plane, and compiles and report the current state of the device.&lt;/p&gt;
 &lt;h2 id=&#34;source-repository&#34;&gt;Source Repository&lt;/h2&gt;
 &lt;p&gt;Source Repository: &lt;a href=&#34;https://github.com/eclipse-leda/leda-contrib-vehicle-update-manager&#34;&gt;https://github.com/eclipse-leda/leda-contrib-vehicle-update-manager&lt;/a&gt;&lt;/p&gt;
 

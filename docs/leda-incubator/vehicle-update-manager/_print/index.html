@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -123,21 +123,13 @@ This is the multi-page printable view of this section.
 <p>Vehicle Update Manager (VUM) is an extended version of the <a href="https://github.com/eclipse-kanto/container-management">Eclipse Kanto Container Manager</a> that is being able to <strong>handle new desired state for the software on the whole vehicle device</strong>.</p>
 <p><img src="./vehicle-update-manager-arch.png" alt="Vehicle Update Manager Scope"></p>
 <h2 id="implementation">Implementation</h2>
-<p>The desired state comes as a multi document YAML content and it includes a list of Kubernetes resources:</p>
+<p>The desired state comes as a multi document YAML content and it includes a list of container resources:</p>
 <ul>
-<li>Deployments</li>
-<li>Pods</li>
-<li>Services</li>
-<li>ConfigMaps</li>
-<li>Custom Resources
-<ul>
-<li>System-Level Updates</li>
-</ul>
-</li>
+<li>Container</li>
+<li>Configuration</li>
 </ul>
 <p>VUM detects the system-level update custom resource and passes it for further processing to the <a href="/leda/docs/leda-incubator/self-update-agent/">Self Update Agent</a>.</p>
-<p>The remaining resources are <strong>forwarded to a Kubernetes-compatible control plane</strong> and handled like the well-known kubectl command - creating new resources, updating existing ones or deleting old ones that are no longer present in the desired state manifest.</p>
-<p>VUM also monitors the self-update agent and the control plane, and compiles and report the current state of the device, again as a list of Kubernetes resources.</p>
+<p>VUM also monitors the self-update agent and the control plane, and compiles and report the current state of the device.</p>
 <h2 id="source-repository">Source Repository</h2>
 <p>Source Repository: <a href="https://github.com/eclipse-leda/leda-contrib-vehicle-update-manager">https://github.com/eclipse-leda/leda-contrib-vehicle-update-manager</a></p>
 

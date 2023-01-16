@@ -15,46 +15,6 @@
     
     
     <item>
-      <title>Docs: DAPR Installation</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/dapr-init/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;initial-configuration&#34;&gt;Initial configuration&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;To initialize DAPR, run:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-/dapr init -k
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;For accessing private container registries, create &lt;code&gt;/etc/rancher/k3s/registries.yml&lt;/code&gt;:
-Example for accessing GitHub Packages container registry at ghcr.io:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;configs:
-  &amp;#34;ghcr.io&amp;#34;:
-    auth:
-      username: &amp;lt;&amp;lt;github-username&amp;gt;&amp;gt;
-      password: &amp;lt;&amp;lt;github-personal-access-token&amp;gt;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Ensure the Personal Access Token has the permission to access GitHub packages&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Get your Azure IoT Hub Connection String and base64 it:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;&amp;lt;&amp;lt;AzureIoTHubConnectionString&amp;gt;&amp;gt;&amp;#34; | base64 -w 0
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Put the encoded result into &lt;code&gt;/var/lib/rancher/k3s/server/manifest/cloud-connector.secret.yaml&lt;/code&gt; (rename from template)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Verify that credentials have been crated: &lt;code&gt;kubectl get secrets cloudagent&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Restart k3s: &lt;code&gt;systemctl restart k3s&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Manually start the k3s agent:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;k3s agent -s https://10.0.2.15:6443 -lb-server-port 6445 -t $(cat /var/lib/rancher/k3s/server/node-token)
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Resource Consumptions</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -63,49 +23,29 @@ Example for accessing GitHub Packages container registry at ghcr.io:&lt;/li&gt;
       <description>
         
         
-        &lt;h1 id=&#34;baseline-no-apps-installed&#34;&gt;Baseline (no apps installed)&lt;/h1&gt;
-&lt;p&gt;Baseline: 400 MB
-Baseline after k3s started: 535 MB disk&lt;/p&gt;
+        &lt;h2 id=&#34;baseline-no-apps-installed&#34;&gt;Baseline (no apps installed)&lt;/h2&gt;
+&lt;p&gt;Baseline: 400 MB&lt;/p&gt;
 &lt;p&gt;Installed components:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Container Management: runc, containerd, k3s&lt;/li&gt;
+&lt;li&gt;Container Management: runc, containerd, container-management&lt;/li&gt;
 &lt;li&gt;System Services: systemd, openssh, mosquitto, mosquitto-clients&lt;/li&gt;
-&lt;li&gt;No dapr&lt;/li&gt;
 &lt;li&gt;No cloud connector or edgecontainerd yet.&lt;/li&gt;
 &lt;li&gt;No self update agent&lt;/li&gt;
 &lt;li&gt;No containers, no vehicle apps etc.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:/bin# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       2.5G  506M  1.8G  22% /
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/bin# df -h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Filesystem      Size  Used Avail Use% Mounted on
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/root       2.5G  506M  1.8G  22% /
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Memory Usage: 200MB&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:/var/lib/rancher/k3s/server# free
-              total        used        free      shared  buff/cache   available
-Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G
-Swap:    
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;with-dapr-and-pods&#34;&gt;With dapr and pods&lt;/h1&gt;
-&lt;h1 id=&#34;with-dapr-preinstalled-no-pods-yet&#34;&gt;With DAPR preinstalled, no pods yet&lt;/h1&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       2.5G  1.3G 1005M  57% /
-&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# free -h
-              total        used        free      shared  buff/cache   available
-Mem:           1.9G      812.7M       19.4M       18.1M        1.1G        1.1G
-Swap:             0           0           0
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;with-dapr-with-cloud-connector-and-vehicle-update-manager&#34;&gt;With DAPR, with cloud connector and vehicle update manager&lt;/h1&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/root       2.5G  2.2G   90M  97% /
-&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@qemux86-64:~# free -h
-              total        used        free      shared  buff/cache   available
-Mem:           1.9G      849.5M      100.8M       26.6M        1.0G        1.1G
-Swap:             0           0           0
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;details&#34;&gt;Details&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/# free
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            total        used        free      shared  buff/cache   available
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Swap:    
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;component-details&#34;&gt;Component Details&lt;/h2&gt;
 &lt;p&gt;Dependencies&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;k3s (binary executable only): 140 MB&lt;/li&gt;
 &lt;li&gt;cni (container networking): 51 MB&lt;/li&gt;
 &lt;li&gt;containerd-ctr: 26 MB&lt;/li&gt;
 &lt;li&gt;containerd: 46 MB&lt;/li&gt;
@@ -119,7 +59,7 @@ Swap:             0           0           0
 &lt;/ul&gt;
 &lt;p&gt;Medium:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Linux Kernel (Poky minimal): 8 MB&lt;/li&gt;
+&lt;li&gt;Linux Kernel (Poky minimal / Leda distro kernel): 8 MB / 21 MB&lt;/li&gt;
 &lt;li&gt;oci-image-tool: 9 MB&lt;/li&gt;
 &lt;li&gt;oci-runtime-tool: 7 MB&lt;/li&gt;
 &lt;li&gt;sshd: 1 MB&lt;/li&gt;
@@ -133,32 +73,6 @@ Swap:             0           0           0
 &lt;li&gt;busybox: 1 MB&lt;/li&gt;
 &lt;/ul&gt;
 
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Utilities</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/misc/tools/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/tools/</guid>
-      <description>
-        
-        
-        &lt;h1 id=&#34;sdv-core-utils&#34;&gt;SDV Core Utils&lt;/h1&gt;
-&lt;p&gt;The quickstart image contains the following toolings:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SDV Device Info&lt;/li&gt;
-&lt;li&gt;SDV Health&lt;/li&gt;
-&lt;li&gt;CAN Forwarder&lt;/li&gt;
-&lt;li&gt;SDV MOTD&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For details, please see &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/&#34;&gt;leda-utils&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;connecting-to-mosquitto&#34;&gt;Connecting to Mosquitto&lt;/h1&gt;
-&lt;p&gt;If you want to use your favourite MQTT tool with the quickstart image, you can
-connect to the MQTT broker running on the device by using exposed port 31883:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$# mosquitto_sub -h 192.168.7.2 -p 31883 -t &amp;#39;#&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;
       </description>
     </item>
     

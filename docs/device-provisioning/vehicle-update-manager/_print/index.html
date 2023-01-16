@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.57f188f2d29618d850b2b0209778d127.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ff47e87ab9d4c729cae66252504825a2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -136,14 +136,14 @@ This is the multi-page printable view of this section.
 <div class="content">
       <p>The <em>Vehicle Update Manager</em> delegates two different types of updates:</p>
 <ol>
-<li>The <em>Desired State</em> on the Kubernetes layer</li>
+<li>The <em>Desired State</em> on the container layer</li>
 <li>The <em>Self Update</em> on operating system layer</li>
 </ol>
 <p><img src="vehicle-update-manager-arch.png" alt="Vehicle Update Manager Architecture Overview"></p>
-<h1 id="desired-state">Desired State</h1>
-<p>The <em>Desired State</em> is applied at runtime on the Kubernetes cluster layer.</p>
+<h2 id="desired-state">Desired State</h2>
+<p>The <em>Desired State</em> is applied at runtime on the container layer.</p>
 <p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.</p>
-<h1 id="self-update">Self Update</h1>
+<h2 id="self-update">Self Update</h2>
 <p>The <em>Self Update</em> is applied on reboot of the device only.</p>
 <p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.</p>
 
