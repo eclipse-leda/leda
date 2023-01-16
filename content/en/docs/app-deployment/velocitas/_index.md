@@ -12,7 +12,7 @@ For local deployment without a cloud backend, deployment specifications for [Ecl
 To update an existing container when the configuration has changed, delete the container and restart kanto-auto-deployer:
 
     kanto-cm remove -n myapp-example
-    # Edit /data/containers/manifests/myapp.json
+    # Edit /data/var/containers/manifests/myapp.json
     kanto-auto-deployer
 
 ## Example Deployment Specification
