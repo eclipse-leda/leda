@@ -48,7 +48,7 @@ To update an existing container when the configuration has changed, delete the c
         "port_mappings": [
             {
               "protocol": "tcp",
-              "container_port": 50151,
+              "container_port": 30151,
               "host_ip": "localhost",
               "host_port": 50151,
               "host_port_end": 50151
