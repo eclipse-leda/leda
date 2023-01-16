@@ -48,7 +48,7 @@ Initial deployment and configuration steps are:
 
 - On first start, the auto deployment will deploy and start the self update agent container automatically.
 - The self update agent will then connect to the locally running mosquitto server, awaiting update requests.
-- The default configuration will use the location `/data/self-update-images/` to write and read update files.
+- The default configuration will use the location `/data/selfupdates/` to write and read update files.
 
 ## Source Repository
 

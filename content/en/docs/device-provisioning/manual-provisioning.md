@@ -9,7 +9,7 @@ Follow these steps to do a manual device provisioning:
 - Generate the device certificate (eg using openssl) and sign it with your CA.
 - Log in to Azure Portal, Go to Azure Iot Hub and create a new device
 - Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed
-- Copy the device certificate (cert file and key file) to the device to `/data/certificate`
+- Copy the device certificate (cert file and key file) to the device to `/data/var/certificate`
 - Restart cloud connector service or container.
 
 ## Create a device in Azure IoT Hub
@@ -38,7 +38,7 @@ For the Leda quickstart images, the software configuration is prepared with dumm
 
 - Generate a device certificate using openssl
 - Sign it with your intermediate CA certificate
-- Put it into `/data/certificate/`
+- Put it into `/data/var/certificate/`
 - Restart the cloud connector service or container: `systemctl restart cloud-connector` or `kanto-cm restart -n cloud-connector`
 
 When finished, continue with
