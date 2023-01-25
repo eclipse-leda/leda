@@ -63,4 +63,5 @@ Or alternatively use:
 ```shell
 $ kantui
 ```
+
 And restart the container from the TUI.
