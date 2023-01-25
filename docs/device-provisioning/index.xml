@@ -75,6 +75,64 @@ or via ssh port &lt;code&gt;22&lt;/code&gt; on the IP address &lt;code&gt;192.16
     </item>
     
     <item>
+      <title>Docs: Provisioning with sdv-provision</title>
+      <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/script-provisioning/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/device-provisioning/script-provisioning/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Meta-leda and the Leda-quickstart image provide a utility &lt;code&gt;sdv-provision&lt;/code&gt; that simplifies the device provisioning procedure.&lt;/p&gt;
+&lt;h2 id=&#34;connecting-to-the-device&#34;&gt;Connecting to the device&lt;/h2&gt;
+&lt;p&gt;Since the procedure includes copying and pasting device IDs, it is recommended to connect to the device over a ssh connection. &lt;code&gt;sdv-motd&lt;/code&gt; provides an
+easy way to find your device&amp;rsquo;s ip. More information on connecting via ssh can be found &lt;a href=&#34;../manual-provisioning#create-a-device-in-azure-iot-hub&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;provisioning-via-a-connection-string&#34;&gt;Provisioning via a connection string&lt;/h2&gt;
+&lt;h3 id=&#34;device-side&#34;&gt;Device-side&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;After connecting via ssh run &lt;code&gt;sdv-provision&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# sdv-provision
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking Eclipse Leda Device Provisioning configuration...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Certificates directory exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking Device ID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Based on network device: eth0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- File does not exist, creating: /etc/deviceid
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Device ID: XX-XX-XX-XX-XX-XX
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking whether either IdScope or ConnectionString is configured
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Neither Id Scope file nor ConnectionString found, needs manual configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Do you want to use the global Azure IoT Device Provisioning Service &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;DPS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; by using an Id Scope, or &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;do&lt;/span&gt; you want to use a direct connection to a specific Azure IoT Hub using a Connection String?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;d&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; Azure IoT Device Provisioning Service &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;DPS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; with Id Scope
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;h&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; Azure IoT Hub with Connection String
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Choose:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Note the generated Device ID (XX-XX-XX-XX-XX-XX).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Type h /Azure IoT Hub with Connection String/ and press Enter.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Paste your Azure IoT Hub Connection String: &lt;code&gt;HostName=&amp;lt;IoT Hub in Azure&amp;gt;.azure-devices.net;DeviceId=&amp;lt;XX-XX-XX-XX-XX-XX&amp;gt;&lt;/code&gt; and press enter. Where &lt;code&gt;&amp;lt;IoT Hub in Azure&amp;gt;&lt;/code&gt; is your Azure IoT Hub name.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;azure-portal&#34;&gt;Azure Portal&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://portal.azure.com/&#34;&gt;https://portal.azure.com/&lt;/a&gt; and to your Azure IoT Hub named &lt;code&gt;&amp;lt;IoT Hub in Azure&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Choose &lt;code&gt;Devices -&amp;gt; Add Device&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Enter the Device ID &lt;code&gt;XX-XX-XX-XX-XX-XX&lt;/code&gt; generated on the previous step as Device ID.&lt;/li&gt;
+&lt;li&gt;Pick &lt;code&gt;X.508 Self Signed&lt;/code&gt; and paste the two thumbprints generated by &lt;code&gt;sdv-provision&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Save.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;device-side-1&#34;&gt;Device-Side&lt;/h3&gt;
+&lt;p&gt;After all of the above steps have been completed, connect back to your device and restart the cloudconnector container by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm restart -n cloudconnector
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Vehicle Update Manager</title>
       <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

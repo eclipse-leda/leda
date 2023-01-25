@@ -18,26 +18,30 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Cheatsheet | Eclipse Leda Documentation</title>
-<meta name="description" content="This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.
-   Category Task Command     General Overall info sdv-health    Show device info sdv-device-info    Device provisioning sdv-provision    Switch Keyboard layout loadkeys de   Kanto-CM Show all containers kanto-cm list    User interface kantui    Service logs journalctl -f -l -t container-management    Auto deployments See /data/containers/manifests/    Restart a container kanto-cm restart -n &amp;lt;containername&amp;gt;   ContainerdD Show images ctr --address /data/run/containerd/containerd/containerd.">
-<meta property="og:title" content="Cheatsheet" />
-<meta property="og:description" content="This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.
-   Category Task Command     General Overall info sdv-health    Show device info sdv-device-info    Device provisioning sdv-provision    Switch Keyboard layout loadkeys de   Kanto-CM Show all containers kanto-cm list    User interface kantui    Service logs journalctl -f -l -t container-management    Auto deployments See /data/containers/manifests/    Restart a container kanto-cm restart -n &lt;containername&gt;   ContainerdD Show images ctr --address /data/run/containerd/containerd/containerd." />
+<title>Provisioning with sdv-provision | Eclipse Leda Documentation</title>
+<meta name="description" content="Meta-leda and the Leda-quickstart image provide a utility sdv-provision that simplifies the device provisioning procedure.
+Connecting to the device Since the procedure includes copying and pasting device IDs, it is recommended to connect to the device over a ssh connection. sdv-motd provides an easy way to find your device&amp;rsquo;s ip. More information on connecting via ssh can be found here.
+Provisioning via a connection string Device-side   After connecting via ssh run sdv-provision.">
+<meta property="og:title" content="Provisioning with sdv-provision" />
+<meta property="og:description" content="Meta-leda and the Leda-quickstart image provide a utility sdv-provision that simplifies the device provisioning procedure.
+Connecting to the device Since the procedure includes copying and pasting device IDs, it is recommended to connect to the device over a ssh connection. sdv-motd provides an easy way to find your device&rsquo;s ip. More information on connecting via ssh can be found here.
+Provisioning via a connection string Device-side   After connecting via ssh run sdv-provision." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/cheatsheet/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/script-provisioning/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
 <meta property="article:modified_time" content="2023-01-25T13:43:36+02:00" />
 
-<meta itemprop="name" content="Cheatsheet">
-<meta itemprop="description" content="This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.
-   Category Task Command     General Overall info sdv-health    Show device info sdv-device-info    Device provisioning sdv-provision    Switch Keyboard layout loadkeys de   Kanto-CM Show all containers kanto-cm list    User interface kantui    Service logs journalctl -f -l -t container-management    Auto deployments See /data/containers/manifests/    Restart a container kanto-cm restart -n &lt;containername&gt;   ContainerdD Show images ctr --address /data/run/containerd/containerd/containerd."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="name" content="Provisioning with sdv-provision">
+<meta itemprop="description" content="Meta-leda and the Leda-quickstart image provide a utility sdv-provision that simplifies the device provisioning procedure.
+Connecting to the device Since the procedure includes copying and pasting device IDs, it is recommended to connect to the device over a ssh connection. sdv-motd provides an easy way to find your device&rsquo;s ip. More information on connecting via ssh can be found here.
+Provisioning via a connection string Device-side   After connecting via ssh run sdv-provision."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
 <meta itemprop="dateModified" content="2023-01-25T13:43:36+02:00" />
-<meta itemprop="wordCount" content="135">
+<meta itemprop="wordCount" content="295">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cheatsheet"/>
-<meta name="twitter:description" content="This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.
-   Category Task Command     General Overall info sdv-health    Show device info sdv-device-info    Device provisioning sdv-provision    Switch Keyboard layout loadkeys de   Kanto-CM Show all containers kanto-cm list    User interface kantui    Service logs journalctl -f -l -t container-management    Auto deployments See /data/containers/manifests/    Restart a container kanto-cm restart -n &lt;containername&gt;   ContainerdD Show images ctr --address /data/run/containerd/containerd/containerd."/>
+<meta name="twitter:title" content="Provisioning with sdv-provision"/>
+<meta name="twitter:description" content="Meta-leda and the Leda-quickstart image provide a utility sdv-provision that simplifies the device provisioning procedure.
+Connecting to the device Since the procedure includes copying and pasting device IDs, it is recommended to connect to the device over a ssh connection. sdv-motd provides an easy way to find your device&rsquo;s ip. More information on connecting via ssh can be found here.
+Provisioning via a connection string Device-side   After connecting via ssh run sdv-provision."/>
 
 
 
@@ -138,8 +142,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usage-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usage-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usage-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usage-check"/>
   <label for="m-ledadocsgeneral-usage-check"><a href="/leda/docs/general-usage/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usage"><span class="">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -170,14 +174,14 @@
   <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
   <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsgeneral-usagecheatsheet-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check" checked/>
-  <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="td-sidebar-nav-active-item">Cheatsheet</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
+  <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioning-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioning-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsdevice-provisioning-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioning-check" checked/>
   <label for="m-ledadocsdevice-provisioning-check"><a href="/leda/docs/device-provisioning/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioning"><span class="">Device Provisioning</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -185,9 +189,9 @@
   <input type="checkbox" id="m-ledadocsdevice-provisioningmanual-provisioning-check"/>
   <label for="m-ledadocsdevice-provisioningmanual-provisioning-check"><a href="/leda/docs/device-provisioning/manual-provisioning/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningmanual-provisioning"><span class="">Manual Provisioning</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningscript-provisioning-li">
-  <input type="checkbox" id="m-ledadocsdevice-provisioningscript-provisioning-check"/>
-  <label for="m-ledadocsdevice-provisioningscript-provisioning-check"><a href="/leda/docs/device-provisioning/script-provisioning/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningscript-provisioning"><span class="">Provisioning with sdv-provision</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsdevice-provisioningscript-provisioning-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningscript-provisioning-check" checked/>
+  <label for="m-ledadocsdevice-provisioningscript-provisioning-check"><a href="/leda/docs/device-provisioning/script-provisioning/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningscript-provisioning"><span class="td-sidebar-nav-active-item">Provisioning with sdv-provision</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdevice-provisioningvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningvehicle-update-manager-check"/>
@@ -429,11 +433,25 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/general-usage/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/device-provisioning/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
-            
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#connecting-to-the-device">Connecting to the device</a></li>
+    <li><a href="#provisioning-via-a-connection-string">Provisioning via a connection string</a>
+      <ul>
+        <li><a href="#device-side">Device-side</a></li>
+        <li><a href="#azure-portal">Azure Portal</a></li>
+        <li><a href="#device-side-1">Device-Side</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
             
 
 	
@@ -473,16 +491,16 @@
     <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/">Getting Started</a>
+    <a href="https://eclipse-leda.github.io/leda/docs/device-provisioning/">Device Provisioning</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/cheatsheet/" aria-disabled="true" class="btn-link disabled">Cheatsheet</a>
+    <a href="https://eclipse-leda.github.io/leda/docs/device-provisioning/script-provisioning/" aria-disabled="true" class="btn-link disabled">Provisioning with sdv-provision</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Cheatsheet</h1>
+	<h1>Provisioning with sdv-provision</h1>
 	
 	<header class="article-meta">
 		
@@ -501,99 +519,52 @@
 
 		
 	</header>    
-	<p>This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.</p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Task</th>
-<th>Command</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>General</td>
-<td>Overall info</td>
-<td><code>sdv-health</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Show device info</td>
-<td><code>sdv-device-info</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Device provisioning</td>
-<td><code>sdv-provision</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Switch Keyboard layout</td>
-<td><code>loadkeys de</code></td>
-</tr>
-<tr>
-<td>Kanto-CM</td>
-<td>Show all containers</td>
-<td><code>kanto-cm list</code></td>
-</tr>
-<tr>
-<td></td>
-<td>User interface</td>
-<td><code>kantui</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Service logs</td>
-<td><code>journalctl -f -l -t container-management</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Auto deployments</td>
-<td>See <code>/data/containers/manifests/</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Restart a container</td>
-<td><code>kanto-cm restart -n &lt;containername&gt;</code></td>
-</tr>
-<tr>
-<td>ContainerdD</td>
-<td>Show images</td>
-<td><code>ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Import local archive</td>
-<td><code>ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import &lt;docker.tar&gt;</code></td>
-</tr>
-<tr>
-<td>Mosquitto</td>
-<td>Show all messages</td>
-<td><code>mosquitto_sub -v -t '#' -h localhost</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Send message</td>
-<td><code>mosquitto_pub -t '&lt;target/topic&gt;' -h localhost -m '{&quot;foo&quot;:&quot;bar&quot;}'</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Connectivity status</td>
-<td><code>mosquitto_rr --quiet -h localhost -t 'edge/thing/request' -e 'edge/thing/response' -m ''</code></td>
-</tr>
-<tr>
-<td>RAUC Self Update</td>
-<td>Current boot status</td>
-<td><code>rauc status</code></td>
-</tr>
-<tr>
-<td></td>
-<td>Switch to other boot slot</td>
-<td><code>rauc status mark-active other</code></td>
-</tr>
-</tbody>
-</table>
-
+	<p>Meta-leda and the Leda-quickstart image provide a utility <code>sdv-provision</code> that simplifies the device provisioning procedure.</p>
+<h2 id="connecting-to-the-device">Connecting to the device</h2>
+<p>Since the procedure includes copying and pasting device IDs, it is recommended to connect to the device over a ssh connection. <code>sdv-motd</code> provides an
+easy way to find your device&rsquo;s ip. More information on connecting via ssh can be found <a href="../manual-provisioning#create-a-device-in-azure-iot-hub">here</a>.</p>
+<h2 id="provisioning-via-a-connection-string">Provisioning via a connection string</h2>
+<h3 id="device-side">Device-side</h3>
+<ol>
+<li>
+<p>After connecting via ssh run <code>sdv-provision</code>.</p>
+<p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# sdv-provision
+</span></span><span style="display:flex;"><span>Checking Eclipse Leda Device Provisioning configuration...
+</span></span><span style="display:flex;"><span>- Certificates directory exists
+</span></span><span style="display:flex;"><span>Checking Device ID
+</span></span><span style="display:flex;"><span>- Based on network device: eth0
+</span></span><span style="display:flex;"><span>- File does not exist, creating: /etc/deviceid
+</span></span><span style="display:flex;"><span>- Device ID: XX-XX-XX-XX-XX-XX
+</span></span><span style="display:flex;"><span>Checking whether either IdScope or ConnectionString is configured
+</span></span><span style="display:flex;"><span>- Neither Id Scope file nor ConnectionString found, needs manual configuration
+</span></span><span style="display:flex;"><span>Do you want to use the global Azure IoT Device Provisioning Service <span style="color:#ce5c00;font-weight:bold">(</span>DPS<span style="color:#ce5c00;font-weight:bold">)</span> by using an Id Scope, or <span style="color:#204a87;font-weight:bold">do</span> you want to use a direct connection to a specific Azure IoT Hub using a Connection String?
+</span></span><span style="display:flex;"><span>d<span style="color:#ce5c00;font-weight:bold">)</span> Azure IoT Device Provisioning Service <span style="color:#ce5c00;font-weight:bold">(</span>DPS<span style="color:#ce5c00;font-weight:bold">)</span> with Id Scope
+</span></span><span style="display:flex;"><span>h<span style="color:#ce5c00;font-weight:bold">)</span> Azure IoT Hub with Connection String
+</span></span><span style="display:flex;"><span>Choose:
+</span></span></code></pre></div></li>
+<li>
+<p>Note the generated Device ID (XX-XX-XX-XX-XX-XX).</p>
+</li>
+<li>
+<p>Type h /Azure IoT Hub with Connection String/ and press Enter.</p>
+</li>
+<li>
+<p>Paste your Azure IoT Hub Connection String: <code>HostName=&lt;IoT Hub in Azure&gt;.azure-devices.net;DeviceId=&lt;XX-XX-XX-XX-XX-XX&gt;</code> and press enter. Where <code>&lt;IoT Hub in Azure&gt;</code> is your Azure IoT Hub name.</p>
+</li>
+</ol>
+<h3 id="azure-portal">Azure Portal</h3>
+<ol>
+<li>Go to <a href="https://portal.azure.com/">https://portal.azure.com/</a> and to your Azure IoT Hub named <code>&lt;IoT Hub in Azure&gt;</code>.</li>
+<li>Choose <code>Devices -&gt; Add Device</code>.</li>
+<li>Enter the Device ID <code>XX-XX-XX-XX-XX-XX</code> generated on the previous step as Device ID.</li>
+<li>Pick <code>X.508 Self Signed</code> and paste the two thumbprints generated by <code>sdv-provision</code>.</li>
+<li>Save.</li>
+</ol>
+<h3 id="device-side-1">Device-Side</h3>
+<p>After all of the above steps have been completed, connect back to your device and restart the cloudconnector container by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm restart -n cloudconnector
+</span></span></code></pre></div>
 	
 	
 	
