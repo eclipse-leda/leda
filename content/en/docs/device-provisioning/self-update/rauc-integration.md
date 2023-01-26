@@ -132,6 +132,18 @@ menuentry "SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)" {
 }
 ```
 
+## U-Boot Bootloader Configuration
+
+Similarly to GRUB, integration of RAUC with U-Boot requires custom boot scripting. A highly detailed explaination can, again, be found in the official [RAUC Documentation - Integration - U-Boot](https://rauc.readthedocs.io/en/latest/integration.html#id5).
+
+Meta-Leda provides such integration recipes and scripts for all U-boot based targets, for which a Leda Quickstart image is available (qemuarm64, qemuarm and rpi4-64). For example:
+
+- [Main uboot_%.bbappend](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/u-boot_%25.bbappend)
+- [Qemuarm custom script integration recipe](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm.inc)
+- [Qemuarm custom boot.scr](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm/boot.cmd.in)
+
+*Note: A custom U-Boot device defconfig might be required for some devices to be integrated with RAUC. Leda Quickstart images patch the default defconfigs for qemuarm64 and qemuarm to save the U-Boot environment in a VFAT BOOT partition.*
+
 ## Disk Partitioning with OpenEmbedded Image Creator (WIC)
 
 The [OpenEmbedded Image Creator](https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic) is used in BitBake to actually create full disk images with multiple partitions.

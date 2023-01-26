@@ -27,8 +27,6 @@ After successfully setting up your DevContainer you can build Leda either with k
 - To build manually: [Building manually](/leda/docs/build/devenv/build-kas-manually/#building-manually)
 
 
-## Visual Studio DevContainer Setup
-
 ## Authentication
 
 The build process requires online connection and you must be authenticated to access private repositories.

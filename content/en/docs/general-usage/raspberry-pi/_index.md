@@ -6,7 +6,7 @@ weight: 1
 
 What you need:
 
-- A Raspberry Pi 4 with 2 GiB of RAM or more, recommended is 8 GiB
+- A Raspberry Pi 4B (64 Bit) with 2 GiB of RAM or more, recommended is 8 GiB
 - Network connection (Ethernet or Wifi) with transparent internet access
 - Optional keyboard and display (makes it easier to troubleshoot)
 
@@ -23,9 +23,9 @@ Steps:
   - On Linux:
     - Install bmap tools: `sudo apt-get install -y bmap-tools`
     - Insert SD Card and check which device is mounted: `sudo fdisk -l`
-    - Unmount the device: `sudo umount /dev/sd[X]`
-    - `sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]`
-    - *Note:  Using `bmap` is faster but works the same as with plain `dd if=<wic-file> of=dev/sd[x]`.*
+    - Unmount the device: `sudo umount /dev/mmcblk[X]`
+    - `sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/mmcblk[X]`
+    - *Note:  Using `bmap` is **much** faster but works the same as with plain `dd if=<wic-file> of=dev/mmcblk[x]`.*
   - On Windows:
     - [Raspberry Pi Imager](https://www.raspberrypi.org/documentation/installation/installing-images/)
     - [Balena Etcher](https://www.balena.io/etcher/)

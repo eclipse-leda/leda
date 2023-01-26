@@ -10,7 +10,8 @@ The following pages are meant to serve as both internal documentation and genera
 
 ## Bash
 
-Leda uses bash as its main shell, thus all scripts should be bash-compatible (use the `#!/bin/bash` shebang). As a Poky+OE-based distro we use BusyBox for core-utils.
+Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the `#!/bin/sh` shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for *"bashisms"* in your scripts, the
+`checkbashisms` tool might be useful.
 
 [**Utility-Specific Pages**](bash/)
 

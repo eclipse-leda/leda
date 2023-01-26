@@ -39,7 +39,7 @@ For the Leda quickstart images, the software configuration is prepared with dumm
 - Generate a device certificate using openssl
 - Sign it with your intermediate CA certificate
 - Put it into `/data/var/certificate/`
-- Restart the cloud connector service or container: `systemctl restart cloud-connector` or `kanto-cm restart -n cloud-connector`
+- Restart the cloud connector service or container: `systemctl restart cloud-connector` or `kanto-cm stop -n cloudconnector --force; kanto-cm start -n cloudconnector`
 
 When finished, continue with
 

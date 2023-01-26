@@ -36,9 +36,10 @@ If you want to execute the image without building first, grab the latest release
 - Login as `root` without password on login prompt
 - Verify and wait until container runtime is started: `systemctl status container-management`
 - *Optional:* Check the system health: `sdv-health`
+
   ![sdv-health](sdv-health1.png)
 
-  *Note: The status of some pods and the cloud connector are expected to stay in **FAILED** status as long as the **Device Provisioning** steps are not completed.*
+  *Note: The status of some containers (e.g. cloud connector) are expected to stay in **FAILED** status as long as the **Device Provisioning** steps are not completed.*
 
 - Continue with [Device Provisioning](/leda/docs/device-provisioning/)
 
@@ -62,6 +63,6 @@ If you want to execute the image without building first, grab the latest release
 - Verify and wait until container runtime is started: `systemctl status container-management`
 - *Optional:* Check the system health: `sdv-health`
 
-  *Note: The status of some pods and the cloud connector are expected to stay in **FAILED** status as long as the **Device Provisioning** steps are not completed.*
+  *Note: The status of some containers (e.g. cloud connector) are expected to stay in **FAILED** status as long as the **Device Provisioning** steps are not completed.*
 
 - Continue with [Device Provisioning](/leda/docs/device-provisioning/)

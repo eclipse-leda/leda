@@ -14,7 +14,7 @@ With `sshfs`, you can mount a local directory to a remote directory via SSH.
 Installation of needed packages:
 
 - Run `apt-get install sshfs` on your host
-- Enable `CORE_IMAGE_EXTRA_INSTALL += " openssh-sftp-server"` in `local.conf` of your image
+- Enable `CORE_IMAGE_EXTRA_INSTALL += " openssh-sftp-server"` in `local.conf` of your image (e.g. in the local_conf_header section in your kas file)
 - Verify SFTP connection working with `sftp -P 2222 root@localhost`
 
 ## Transfering files from host to guest
