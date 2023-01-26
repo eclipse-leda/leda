@@ -21,11 +21,11 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
    - Terminal 1: To view the progress, watch the MQTT topics `selfupdate/desiredstate` and `selfupdate/desiredstatefeedback`:
 
-         mosquitto_sub -h 192.168.7.2 -p 31883 -t "selfupdate/#"
+         mosquitto_sub -h 192.168.7.2 -p 1883 -t "selfupdate/#"
 
    - Terminal 2: Trigger the actual self update process by publishing an MQTT message to `selfupdate/desiredstate`:
 
-         mosquitto_pub -h 192.168.7.2 -p 31883 -t "selfupdate/desiredstate" -f start-update-example.yaml
+         mosquitto_pub -h 192.168.7.2 -p 1883 -t "selfupdate/desiredstate" -f start-update-example.yaml
 
 - Switch to a terminal in the guest
 - On guest: After the self update process completed, check the status:

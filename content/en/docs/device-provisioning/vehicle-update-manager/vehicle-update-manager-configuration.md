@@ -4,6 +4,8 @@ date: 2022-072109T14:24:56+05:30
 weight: 1
 ---
 
+**Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM**
+
 The vehicle update manager container requires the following configuration:
 - Container needs to run in **privileged mode** to enable automatic reboot.
 

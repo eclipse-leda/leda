@@ -7,7 +7,7 @@ weight: 5
 The quickstart image contains the following utilities:
 
 - **sdv-health:** Show SDV software components health status
-- **kantui:** A text user interface for kanto-cm to manage containers (start, stop, logs)
+- **kantui:** A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)
 - **sdv-device-info:** Show and update device information
 - **sdv-motd:** Message-of-the-Day shown after login prompt
 - **can-forward:** Forwarding a CAN-bus network interface into a containerized Vehicle Application
@@ -64,7 +64,7 @@ In the following example, the health utility helps the troubleshooting process:
 
 ## Kanto User Interface
 
-The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove containers are available along with a functionality to retrieve the application logs of a selected container.
+The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.
 
 Usage:
 
@@ -72,4 +72,4 @@ Usage:
 
 Example output:
 
-![KantoUI](https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png)
+![KantoUI](kantui-large.png)
