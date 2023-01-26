@@ -159,7 +159,7 @@ With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote
 &lt;p&gt;Installation of needed packages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Run &lt;code&gt;apt-get install sshfs&lt;/code&gt; on your host&lt;/li&gt;
-&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image&lt;/li&gt;
+&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image (e.g. in the local_conf_header section in your kas file)&lt;/li&gt;
 &lt;li&gt;Verify SFTP connection working with &lt;code&gt;sftp -P 2222 root@localhost&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;transfering-files-from-host-to-guest&#34;&gt;Transfering files from host to guest&lt;/h2&gt;

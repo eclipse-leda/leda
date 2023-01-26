@@ -99,10 +99,10 @@
     
     <item>
       <title>Docs: sdv-health</title>
-      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-health/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/sdv-health/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-health/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/sdv-health/</guid>
       <description>
         
         
@@ -160,21 +160,6 @@
 &lt;p&gt;Note: &lt;code&gt;Exited&lt;/code&gt; is considered a fail-state.&lt;/p&gt;
 &lt;h2 id=&#34;checking-kanto-cm-socket&#34;&gt;Checking kanto-cm socket&lt;/h2&gt;
 &lt;p&gt;This is a simple &lt;code&gt;test -s&lt;/code&gt; check for the default socket path.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: sdv-provision</title>
-      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-provision/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-provision/</guid>
-      <description>
-        
-        
-        &lt;p&gt;This tool is currently not available since it depends on the k3s secret-store. As of the migration
-to kanto-cm this functionallity was lost and the Leda team is currently developing a new secret-store solution.&lt;/p&gt;
 
       </description>
     </item>
@@ -613,12 +598,12 @@ ip link show type can
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Terminal 1: To view the progress, watch the MQTT topics &lt;code&gt;selfupdate/desiredstate&lt;/code&gt; and &lt;code&gt;selfupdate/desiredstatefeedback&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mosquitto_sub -h 192.168.7.2 -p 31883 -t &amp;quot;selfupdate/#&amp;quot;
+&lt;pre&gt;&lt;code&gt;mosquitto_sub -h 192.168.7.2 -p 1883 -t &amp;quot;selfupdate/#&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Terminal 2: Trigger the actual self update process by publishing an MQTT message to &lt;code&gt;selfupdate/desiredstate&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mosquitto_pub -h 192.168.7.2 -p 31883 -t &amp;quot;selfupdate/desiredstate&amp;quot; -f start-update-example.yaml
+&lt;pre&gt;&lt;code&gt;mosquitto_pub -h 192.168.7.2 -p 1883 -t &amp;quot;selfupdate/desiredstate&amp;quot; -f start-update-example.yaml
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -689,7 +674,7 @@ With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote
 &lt;p&gt;Installation of needed packages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Run &lt;code&gt;apt-get install sshfs&lt;/code&gt; on your host&lt;/li&gt;
-&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image&lt;/li&gt;
+&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image (e.g. in the local_conf_header section in your kas file)&lt;/li&gt;
 &lt;li&gt;Verify SFTP connection working with &lt;code&gt;sftp -P 2222 root@localhost&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;transfering-files-from-host-to-guest&#34;&gt;Transfering files from host to guest&lt;/h2&gt;
@@ -794,7 +779,6 @@ With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote
 &lt;p&gt;To build manually: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/build-kas-manually/#building-manually&#34;&gt;Building manually&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
 &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
 &lt;p&gt;The build process requires online connection and you must be authenticated to access private repositories.&lt;/p&gt;
 &lt;ol&gt;
@@ -822,7 +806,8 @@ With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote
       <description>
         
         
-        &lt;p&gt;The vehicle update manager container requires the following configuration:&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The vehicle update manager container requires the following configuration:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Container needs to run in &lt;strong&gt;privileged mode&lt;/strong&gt; to enable automatic reboot.&lt;/p&gt;
@@ -1058,7 +1043,7 @@ or via ssh port &lt;code&gt;22&lt;/code&gt; on the IP address &lt;code&gt;192.16
 &lt;li&gt;Generate a device certificate using openssl&lt;/li&gt;
 &lt;li&gt;Sign it with your intermediate CA certificate&lt;/li&gt;
 &lt;li&gt;Put it into &lt;code&gt;/data/var/certificate/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Restart the cloud connector service or container: &lt;code&gt;systemctl restart cloud-connector&lt;/code&gt; or &lt;code&gt;kanto-cm restart -n cloud-connector&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restart the cloud connector service or container: &lt;code&gt;systemctl restart cloud-connector&lt;/code&gt; or &lt;code&gt;kanto-cm stop -n cloudconnector --force; kanto-cm start -n cloudconnector&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;When finished, continue with&lt;/p&gt;
 &lt;ul&gt;
@@ -1255,7 +1240,16 @@ menuentry &amp;#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&amp;#34; {
 menuentry &amp;#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&amp;#34; {
     linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;disk-partitioning-with-openembedded-image-creator-wic&#34;&gt;Disk Partitioning with OpenEmbedded Image Creator (WIC)&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;u-boot-bootloader-configuration&#34;&gt;U-Boot Bootloader Configuration&lt;/h2&gt;
+&lt;p&gt;Similarly to GRUB, integration of RAUC with U-Boot requires custom boot scripting. A highly detailed explaination can, again, be found in the official &lt;a href=&#34;https://rauc.readthedocs.io/en/latest/integration.html#id5&#34;&gt;RAUC Documentation - Integration - U-Boot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Meta-Leda provides such integration recipes and scripts for all U-boot based targets, for which a Leda Quickstart image is available (qemuarm64, qemuarm and rpi4-64). For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/u-boot_%25.bbappend&#34;&gt;Main uboot_%.bbappend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm.inc&#34;&gt;Qemuarm custom script integration recipe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm/boot.cmd.in&#34;&gt;Qemuarm custom boot.scr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Note: A custom U-Boot device defconfig might be required for some devices to be integrated with RAUC. Leda Quickstart images patch the default defconfigs for qemuarm64 and qemuarm to save the U-Boot environment in a VFAT BOOT partition.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;disk-partitioning-with-openembedded-image-creator-wic&#34;&gt;Disk Partitioning with OpenEmbedded Image Creator (WIC)&lt;/h2&gt;
 &lt;p&gt;The &lt;a href=&#34;https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic&#34;&gt;OpenEmbedded Image Creator&lt;/a&gt; is used in BitBake to actually create full disk images with multiple partitions.&lt;/p&gt;
 &lt;p&gt;These disk images are machine specific and the structure of the partitions are configured in &lt;a href=&#34;https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart&#34;&gt;OpenEmbedded Kickstart&lt;/a&gt; files (&lt;code&gt;*.wks&lt;/code&gt;).&lt;/p&gt;
 &lt;h3 id=&#34;excerpt-qemux86-grub-efiwks&#34;&gt;Excerpt &lt;code&gt;qemux86-grub-efi.wks&lt;/code&gt;&lt;/h3&gt;

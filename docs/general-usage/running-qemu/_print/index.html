@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -174,9 +174,9 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 <p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
-<p><em>Optional:</em> Check the system health: <code>sdv-health</code>
-<img src="sdv-health1.png" alt="sdv-health"></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
+<p><img src="sdv-health1.png" alt="sdv-health"></p>
+<p><em>Note: The status of some containers (e.g. cloud connector) are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -213,7 +213,7 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<p><em>Note: The status of some containers (e.g. cloud connector) are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -382,7 +382,7 @@ With <code>sshfs</code>, you can mount a local directory to a remote directory v
 <p>Installation of needed packages:</p>
 <ul>
 <li>Run <code>apt-get install sshfs</code> on your host</li>
-<li>Enable <code>CORE_IMAGE_EXTRA_INSTALL += &quot; openssh-sftp-server&quot;</code> in <code>local.conf</code> of your image</li>
+<li>Enable <code>CORE_IMAGE_EXTRA_INSTALL += &quot; openssh-sftp-server&quot;</code> in <code>local.conf</code> of your image (e.g. in the local_conf_header section in your kas file)</li>
 <li>Verify SFTP connection working with <code>sftp -P 2222 root@localhost</code></li>
 </ul>
 <h2 id="transfering-files-from-host-to-guest">Transfering files from host to guest</h2>

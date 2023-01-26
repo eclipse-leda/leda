@@ -133,9 +133,9 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 &lt;p&gt;Verify and wait until container runtime is started: &lt;code&gt;systemctl status container-management&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;
-&lt;img src=&#34;sdv-health1.png&#34; alt=&#34;sdv-health&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to stay in &lt;strong&gt;FAILED&lt;/strong&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;sdv-health1.png&#34; alt=&#34;sdv-health&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some containers (e.g. cloud connector) are expected to stay in &lt;strong&gt;FAILED&lt;/strong&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
@@ -172,7 +172,7 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: The status of some pods and the cloud connector are expected to stay in &lt;strong&gt;FAILED&lt;/strong&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: The status of some containers (e.g. cloud connector) are expected to stay in &lt;strong&gt;FAILED&lt;/strong&gt; status as long as the &lt;strong&gt;Device Provisioning&lt;/strong&gt; steps are not completed.&lt;/em&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
@@ -193,7 +193,7 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
         
         &lt;p&gt;What you need:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A Raspberry Pi 4 with 2 GiB of RAM or more, recommended is 8 GiB&lt;/li&gt;
+&lt;li&gt;A Raspberry Pi 4B (64 Bit) with 2 GiB of RAM or more, recommended is 8 GiB&lt;/li&gt;
 &lt;li&gt;Network connection (Ethernet or Wifi) with transparent internet access&lt;/li&gt;
 &lt;li&gt;Optional keyboard and display (makes it easier to troubleshoot)&lt;/li&gt;
 &lt;/ul&gt;
@@ -216,9 +216,9 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;ul&gt;
 &lt;li&gt;Install bmap tools: &lt;code&gt;sudo apt-get install -y bmap-tools&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Insert SD Card and check which device is mounted: &lt;code&gt;sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Unmount the device: &lt;code&gt;sudo umount /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Note:  Using &lt;code&gt;bmap&lt;/code&gt; is faster but works the same as with plain &lt;code&gt;dd if=&amp;lt;wic-file&amp;gt; of=dev/sd[x]&lt;/code&gt;.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Unmount the device: &lt;code&gt;sudo umount /dev/mmcblk[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/mmcblk[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Note:  Using &lt;code&gt;bmap&lt;/code&gt; is &lt;strong&gt;much&lt;/strong&gt; faster but works the same as with plain &lt;code&gt;dd if=&amp;lt;wic-file&amp;gt; of=dev/mmcblk[x]&lt;/code&gt;.&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;On Windows:
@@ -279,7 +279,7 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
         &lt;p&gt;The quickstart image contains the following utilities:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;sdv-health:&lt;/strong&gt; Show SDV software components health status&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;kantui:&lt;/strong&gt; A text user interface for kanto-cm to manage containers (start, stop, logs)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kantui:&lt;/strong&gt; A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;sdv-device-info:&lt;/strong&gt; Show and update device information&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;sdv-motd:&lt;/strong&gt; Message-of-the-Day shown after login prompt&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;can-forward:&lt;/strong&gt; Forwarding a CAN-bus network interface into a containerized Vehicle Application&lt;/li&gt;
@@ -318,12 +318,12 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;sdv-health-example-errors2.png&#34; alt=&#34;SDV Health Example Errors&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;kanto-user-interface&#34;&gt;Kanto User Interface&lt;/h2&gt;
-&lt;p&gt;The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove containers are available along with a functionality to retrieve the application logs of a selected container.&lt;/p&gt;
+&lt;p&gt;The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.&lt;/p&gt;
 &lt;p&gt;Usage:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# kantui
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Example output:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png&#34; alt=&#34;KantoUI&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;kantui-large.png&#34; alt=&#34;KantoUI&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>

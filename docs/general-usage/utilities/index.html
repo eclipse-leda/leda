@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -340,22 +340,7 @@
   <label for="m-ledadocsdev-and-maintenance-check"><a href="/leda/docs/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancebash-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebash-check"/>
-  <label for="m-ledadocsdev-and-maintenancebash-check"><a href="/leda/docs/dev-and-maintenance/bash/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancebash"><span class="">Bash Utils</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancebashsdv-health-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebashsdv-health-check"/>
-  <label for="m-ledadocsdev-and-maintenancebashsdv-health-check"><a href="/leda/docs/dev-and-maintenance/bash/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancebashsdv-health"><span class="">sdv-health</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancebashsdv-provision-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebashsdv-provision-check"/>
-  <label for="m-ledadocsdev-and-maintenancebashsdv-provision-check"><a href="/leda/docs/dev-and-maintenance/bash/sdv-provision/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancebashsdv-provision"><span class="">sdv-provision</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
   <input type="checkbox" id="m-ledadocsdev-and-maintenancerust-check"/>
   <label for="m-ledadocsdev-and-maintenancerust-check"><a href="/leda/docs/dev-and-maintenance/rust/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancerust"><span class="">Rust Utils</span></a></label>
   
@@ -371,6 +356,17 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkantui-li">
   <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkantui-check"/>
   <label for="m-ledadocsdev-and-maintenancerustkantui-check"><a href="/leda/docs/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenanceshell-li">
+  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshell-check"/>
+  <label for="m-ledadocsdev-and-maintenanceshell-check"><a href="/leda/docs/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenanceshellsdv-health-li">
+  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshellsdv-health-check"/>
+  <label for="m-ledadocsdev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
   
 </li>
   </ul>
@@ -513,7 +509,7 @@
 	<p>The quickstart image contains the following utilities:</p>
 <ul>
 <li><strong>sdv-health:</strong> Show SDV software components health status</li>
-<li><strong>kantui:</strong> A text user interface for kanto-cm to manage containers (start, stop, logs)</li>
+<li><strong>kantui:</strong> A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)</li>
 <li><strong>sdv-device-info:</strong> Show and update device information</li>
 <li><strong>sdv-motd:</strong> Message-of-the-Day shown after login prompt</li>
 <li><strong>can-forward:</strong> Forwarding a CAN-bus network interface into a containerized Vehicle Application</li>
@@ -552,12 +548,12 @@
 </ul>
 <p><img src="sdv-health-example-errors2.png" alt="SDV Health Example Errors"></p>
 <h2 id="kanto-user-interface">Kanto User Interface</h2>
-<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove containers are available along with a functionality to retrieve the application logs of a selected container.</p>
+<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.</p>
 <p>Usage:</p>
 <pre><code># kantui
 </code></pre>
 <p>Example output:</p>
-<p><img src="https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png" alt="KantoUI"></p>
+<p><img src="kantui-large.png" alt="KantoUI"></p>
 
         <div class="section-index">
     

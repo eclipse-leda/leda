@@ -61,7 +61,7 @@ or via ssh port &lt;code&gt;22&lt;/code&gt; on the IP address &lt;code&gt;192.16
 &lt;li&gt;Generate a device certificate using openssl&lt;/li&gt;
 &lt;li&gt;Sign it with your intermediate CA certificate&lt;/li&gt;
 &lt;li&gt;Put it into &lt;code&gt;/data/var/certificate/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Restart the cloud connector service or container: &lt;code&gt;systemctl restart cloud-connector&lt;/code&gt; or &lt;code&gt;kanto-cm restart -n cloud-connector&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restart the cloud connector service or container: &lt;code&gt;systemctl restart cloud-connector&lt;/code&gt; or &lt;code&gt;kanto-cm stop -n cloudconnector --force; kanto-cm start -n cloudconnector&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;When finished, continue with&lt;/p&gt;
 &lt;ul&gt;

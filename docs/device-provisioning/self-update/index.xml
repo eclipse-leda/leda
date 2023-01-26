@@ -41,12 +41,12 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Terminal 1: To view the progress, watch the MQTT topics &lt;code&gt;selfupdate/desiredstate&lt;/code&gt; and &lt;code&gt;selfupdate/desiredstatefeedback&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mosquitto_sub -h 192.168.7.2 -p 31883 -t &amp;quot;selfupdate/#&amp;quot;
+&lt;pre&gt;&lt;code&gt;mosquitto_sub -h 192.168.7.2 -p 1883 -t &amp;quot;selfupdate/#&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Terminal 2: Trigger the actual self update process by publishing an MQTT message to &lt;code&gt;selfupdate/desiredstate&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;mosquitto_pub -h 192.168.7.2 -p 31883 -t &amp;quot;selfupdate/desiredstate&amp;quot; -f start-update-example.yaml
+&lt;pre&gt;&lt;code&gt;mosquitto_pub -h 192.168.7.2 -p 1883 -t &amp;quot;selfupdate/desiredstate&amp;quot; -f start-update-example.yaml
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -206,7 +206,16 @@ menuentry &amp;#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&amp;#34; {
 menuentry &amp;#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&amp;#34; {
     linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;disk-partitioning-with-openembedded-image-creator-wic&#34;&gt;Disk Partitioning with OpenEmbedded Image Creator (WIC)&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;u-boot-bootloader-configuration&#34;&gt;U-Boot Bootloader Configuration&lt;/h2&gt;
+&lt;p&gt;Similarly to GRUB, integration of RAUC with U-Boot requires custom boot scripting. A highly detailed explaination can, again, be found in the official &lt;a href=&#34;https://rauc.readthedocs.io/en/latest/integration.html#id5&#34;&gt;RAUC Documentation - Integration - U-Boot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Meta-Leda provides such integration recipes and scripts for all U-boot based targets, for which a Leda Quickstart image is available (qemuarm64, qemuarm and rpi4-64). For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/u-boot_%25.bbappend&#34;&gt;Main uboot_%.bbappend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm.inc&#34;&gt;Qemuarm custom script integration recipe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm/boot.cmd.in&#34;&gt;Qemuarm custom boot.scr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Note: A custom U-Boot device defconfig might be required for some devices to be integrated with RAUC. Leda Quickstart images patch the default defconfigs for qemuarm64 and qemuarm to save the U-Boot environment in a VFAT BOOT partition.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;disk-partitioning-with-openembedded-image-creator-wic&#34;&gt;Disk Partitioning with OpenEmbedded Image Creator (WIC)&lt;/h2&gt;
 &lt;p&gt;The &lt;a href=&#34;https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic&#34;&gt;OpenEmbedded Image Creator&lt;/a&gt; is used in BitBake to actually create full disk images with multiple partitions.&lt;/p&gt;
 &lt;p&gt;These disk images are machine specific and the structure of the partitions are configured in &lt;a href=&#34;https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart&#34;&gt;OpenEmbedded Kickstart&lt;/a&gt; files (&lt;code&gt;*.wks&lt;/code&gt;).&lt;/p&gt;
 &lt;h3 id=&#34;excerpt-qemux86-grub-efiwks&#34;&gt;Excerpt &lt;code&gt;qemux86-grub-efi.wks&lt;/code&gt;&lt;/h3&gt;

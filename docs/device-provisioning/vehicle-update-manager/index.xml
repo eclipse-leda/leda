@@ -22,7 +22,8 @@
       <description>
         
         
-        &lt;p&gt;The vehicle update manager container requires the following configuration:&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The vehicle update manager container requires the following configuration:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Container needs to run in &lt;strong&gt;privileged mode&lt;/strong&gt; to enable automatic reboot.&lt;/p&gt;

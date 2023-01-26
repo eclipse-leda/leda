@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-896d57fa236562c8536a6b834c4da1e3">Bash Utils</a></li>
+<li>1: <a href="#pg-7336068403919c0ccab181152f90f9f3">Rust Utils</a></li>
 
 
     
@@ -131,7 +131,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.1: <a href="#pg-92dbf3a39005606ed9d722879aa470bd">sdv-health</a></li>
+<li>1.1: <a href="#pg-33f91b2fc89ef97025af47753b1ed937">Communicating with Кanto-CM via gRPC</a></li>
 
 
     
@@ -139,7 +139,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.2: <a href="#pg-96df1b506e06fb839be504168659c0ba">sdv-provision</a></li>
+<li>1.2: <a href="#pg-ac02ac8b874bcee4f06abc9b58783bab">Kanto Auto deployer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.3: <a href="#pg-9feb9c069ad717170d570f2dd4dafaf8">Kantui</a></li>
 
 
     
@@ -151,7 +159,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-7336068403919c0ccab181152f90f9f3">Rust Utils</a></li>
+<li>2: <a href="#pg-7780f06c6a43df6e5abead0e9f39460b">Shell Utils</a></li>
 
 
     
@@ -166,23 +174,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-33f91b2fc89ef97025af47753b1ed937">Communicating with Кanto-CM via gRPC</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2.2: <a href="#pg-ac02ac8b874bcee4f06abc9b58783bab">Kanto Auto deployer</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2.3: <a href="#pg-9feb9c069ad717170d570f2dd4dafaf8">Kantui</a></li>
+<li>2.1: <a href="#pg-3718134a190d46962dc0c33716ea6ed2">sdv-health</a></li>
 
 
     
@@ -199,7 +191,8 @@ This is the multi-page printable view of this section.
       <p>The Leda teams provides some custom utilities that allow for a more integrated end-user experience. They can be found in the main leda-utils repository on GitHub: <a href="https://github.com/eclipse-leda/leda-utils">eclipse-leda/leda-utils</a>.</p>
 <p>The following pages are meant to serve as both internal documentation and general guidelines when developing for Leda.</p>
 <h2 id="bash">Bash</h2>
-<p>Leda uses bash as its main shell, thus all scripts should be bash-compatible (use the <code>#!/bin/bash</code> shebang). As a Poky+OE-based distro we use BusyBox for core-utils.</p>
+<p>Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the <code>#!/bin/sh</code> shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for <em>&ldquo;bashisms&rdquo;</em> in your scripts, the
+<code>checkbashisms</code> tool might be useful.</p>
 <p><a href="bash/"><strong>Utility-Specific Pages</strong></a></p>
 <p>The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base">meta-leda/meta-leda-components/recipes-sdv/sdv-base</a>.</p>
 <h2 id="rust">Rust</h2>
@@ -258,7 +251,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-896d57fa236562c8536a6b834c4da1e3">1 - Bash Utils</h1>
+	<h1 id="pg-7336068403919c0ccab181152f90f9f3">1 - Rust Utils</h1>
     
 	
 </div>
@@ -283,126 +276,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-92dbf3a39005606ed9d722879aa470bd">1.1 - sdv-health</h1>
-    
-	<p>A general utility for monitoring the status of important sdv services/containers/devices.</p>
-<h2 id="checking-the-status-of-kanto-cm-containers">Checking the status of kanto-cm containers</h2>
-<p>Kanto CM containers are split into two groups - required and optional. Both groups are checked, but only a warning is issued when an optional container is missing/not working.</p>
-<p>General code for checking the status is:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> -n <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_CONTAINERS_OPT</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87">printf</span> -- <span style="color:#4e9a06">&#34;</span><span style="color:#000">$SEPARATOR</span><span style="color:#4e9a06">\n&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87">printf</span> -- <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">COL_WHITE</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">[Kanto CM Containers (OPTIONAL)]</span><span style="color:#4e9a06">${</span><span style="color:#000">COL_NC</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">\n&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[[</span> <span style="color:#4e9a06">${</span><span style="color:#000">CM_STATUS</span><span style="color:#4e9a06">}</span> !<span style="color:#ce5c00;font-weight:bold">=</span> *<span style="color:#4e9a06">&#34;inactive&#34;</span>*  <span style="color:#ce5c00;font-weight:bold">]]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>		
-</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># &#34;Optional containers&#34;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># removes tabs, splits on pipe and takes the container name column ($2)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">FOUND_CONTAINERS</span><span style="color:#ce5c00;font-weight:bold">=(</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_LIST</span><span style="color:#4e9a06">&#34;</span> <span style="color:#000;font-weight:bold">|</span> awk -F<span style="color:#4e9a06">&#39;|&#39;</span> <span style="color:#4e9a06">&#39;{gsub(/\t/, &#34;&#34;); print $2}&#39;</span><span style="color:#204a87;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># array with all kanto container names</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># removes tabs, splits on pipe and takes the container status colum ($4)</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">FOUND_CONTAINERS_STATES</span><span style="color:#ce5c00;font-weight:bold">=(</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_LIST</span><span style="color:#4e9a06">&#34;</span> <span style="color:#000;font-weight:bold">|</span> awk -F<span style="color:#4e9a06">&#39;|&#39;</span> <span style="color:#4e9a06">&#39;{gsub(/\t/, &#34;&#34;); print $4}&#39;</span><span style="color:#204a87;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># array with all kanto container states</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#000">KANTO_CM_CONTAINERS_ARR</span><span style="color:#ce5c00;font-weight:bold">=(</span> <span style="color:#000">$KANTO_CM_CONTAINERS_OPT</span> <span style="color:#ce5c00;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#204a87;font-weight:bold">for</span> expectedCtr in <span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CM_CONTAINERS_ARR</span><span style="color:#000;font-weight:bold">[@]</span><span style="color:#4e9a06">}</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">do</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#000">CTR_IDX</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span>get_array_element_index <span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">${</span><span style="color:#000">FOUND_CONTAINERS</span><span style="color:#000;font-weight:bold">[@]</span><span style="color:#4e9a06">}</span><span style="color:#204a87;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> ! -z <span style="color:#000">$CTR_IDX</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">${</span><span style="color:#000">FOUND_CONTAINERS_STATES</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">$CTR_IDX</span><span style="color:#000;font-weight:bold">]</span><span style="color:#4e9a06">}</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$status</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Running&#34;</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
-</span></span><span style="display:flex;"><span>					<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_OK</span><span style="color:#4e9a06">\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">else</span>
-</span></span><span style="display:flex;"><span>					<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_WARN</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$status</span><span style="color:#4e9a06">&#34;</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">fi</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">else</span>
-</span></span><span style="display:flex;"><span>				<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_WARN</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#4e9a06">&#34;NOT FOUND&#34;</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">fi</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#204a87;font-weight:bold">done</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">else</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_FAIL</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;Kanto Container Management&#34;</span> <span style="color:#4e9a06">&#34;Unavailable&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">fi</span>
-</span></span></code></pre></div><p>Here it is important to know that <code>kanto-cm list</code> outputs the list of containers in a different order every time it&rsquo;s called. That is why, <code>kanto-cm list</code> is invoked once and its output is stored in a variable:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
-</span></span></code></pre></div><p>Output:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ID                                   	<span style="color:#000;font-weight:bold">|</span>Name                                 	<span style="color:#000;font-weight:bold">|</span>Image                                                       	<span style="color:#000;font-weight:bold">|</span>Status    	<span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code 	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------	<span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>d0cf1367-996d-4c83-bcc5-37d6acba9966 	<span style="color:#000;font-weight:bold">|</span>feedercan                            	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:04:28.340430098Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f58425b0-9260-4a15-a6fc-5c59f8840839 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f8a716f7-d2c5-4165-a081-407a7acb7643 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-05T11:38:02.0213865Z    <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>627f068a-b9eb-400b-826b-868f6b79e9d8 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:03:58.144873827Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>62ba3e6f-af01-4518-8393-00a5ba553062 	<span style="color:#000;font-weight:bold">|</span>databroker                           	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-07T11:38:28.418199429Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>753a0b10-d72a-4065-8c27-758ed9a77c2d 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span></code></pre></div><p>So we use awk to split on pipe (column), strip unecessary tabs. <code>print $2</code> then gives us the container name and <code>print $4</code> - its status.</p>
-<p>sdv-health then proceeds to check if every container specified in the list is available and if its status is <code>Running</code>.</p>
-<p>Note: <code>Exited</code> is considered a fail-state.</p>
-<h2 id="checking-kanto-cm-socket">Checking kanto-cm socket</h2>
-<p>This is a simple <code>test -s</code> check for the default socket path.</p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-96df1b506e06fb839be504168659c0ba">1.2 - sdv-provision</h1>
-    
-	<p>This tool is currently not available since it depends on the k3s secret-store. As of the migration
-to kanto-cm this functionallity was lost and the Leda team is currently developing a new secret-store solution.</p>
-
-</div>
-
-
-
-    
-	
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-7336068403919c0ccab181152f90f9f3">2 - Rust Utils</h1>
-    
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-33f91b2fc89ef97025af47753b1ed937">2.1 - Communicating with Кanto-CM via gRPC</h1>
+	<h1 id="pg-33f91b2fc89ef97025af47753b1ed937">1.1 - Communicating with Кanto-CM via gRPC</h1>
     
 	<p>Kanto container management binds to a unix socket (default: <code>/run/container-management/container-management.sock</code>) and exposes a gRPC interface which can be used to obtain all the functionality of the <code>kanto-cm</code> cli programatically.</p>
 <p>The easiest way to access this API through Rust is by creating a new Rust crate:</p>
@@ -489,7 +363,7 @@ to kanto-cm this functionallity was lost and the Leda team is currently developi
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ac02ac8b874bcee4f06abc9b58783bab">2.2 - Kanto Auto deployer</h1>
+	<h1 id="pg-ac02ac8b874bcee4f06abc9b58783bab">1.2 - Kanto Auto deployer</h1>
     
 	<p><strong>TLDR</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
 <p>Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the <code>/var/lib/rancher/k3s/server/manifests</code> directory.</p>
@@ -589,7 +463,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9feb9c069ad717170d570f2dd4dafaf8">2.3 - Kantui</h1>
+	<h1 id="pg-9feb9c069ad717170d570f2dd4dafaf8">1.3 - Kantui</h1>
     
 	<p>The k8s ecosystem comes with a lot of utilies that allow for the easier management of containers (such as k9s). The <a href="https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-tui">kantui util</a> aims to be a &ldquo;nice&rdquo; text user interface that lets the user start/stop/remove/get logs of deployed containers in kanto-cm.</p>
 <p><img src="https://github.com/eclipse-leda/leda-utils/blob/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png?raw=true" alt="kantui screenshot"></p>
@@ -622,6 +496,106 @@ If the container is already deployed the manifest is ignored.</p>
 <p>Reorganize the code a bit, move all generic functionally in the lib.rs.</p>
 </li>
 </ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7780f06c6a43df6e5abead0e9f39460b">2 - Shell Utils</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-3718134a190d46962dc0c33716ea6ed2">2.1 - sdv-health</h1>
+    
+	<p>A general utility for monitoring the status of important sdv services/containers/devices.</p>
+<h2 id="checking-the-status-of-kanto-cm-containers">Checking the status of kanto-cm containers</h2>
+<p>Kanto CM containers are split into two groups - required and optional. Both groups are checked, but only a warning is issued when an optional container is missing/not working.</p>
+<p>General code for checking the status is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> -n <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_CONTAINERS_OPT</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87">printf</span> -- <span style="color:#4e9a06">&#34;</span><span style="color:#000">$SEPARATOR</span><span style="color:#4e9a06">\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87">printf</span> -- <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">COL_WHITE</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">[Kanto CM Containers (OPTIONAL)]</span><span style="color:#4e9a06">${</span><span style="color:#000">COL_NC</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">\n&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[[</span> <span style="color:#4e9a06">${</span><span style="color:#000">CM_STATUS</span><span style="color:#4e9a06">}</span> !<span style="color:#ce5c00;font-weight:bold">=</span> *<span style="color:#4e9a06">&#34;inactive&#34;</span>*  <span style="color:#ce5c00;font-weight:bold">]]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># &#34;Optional containers&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># removes tabs, splits on pipe and takes the container name column ($2)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">FOUND_CONTAINERS</span><span style="color:#ce5c00;font-weight:bold">=(</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_LIST</span><span style="color:#4e9a06">&#34;</span> <span style="color:#000;font-weight:bold">|</span> awk -F<span style="color:#4e9a06">&#39;|&#39;</span> <span style="color:#4e9a06">&#39;{gsub(/\t/, &#34;&#34;); print $2}&#39;</span><span style="color:#204a87;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># array with all kanto container names</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># removes tabs, splits on pipe and takes the container status colum ($4)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">FOUND_CONTAINERS_STATES</span><span style="color:#ce5c00;font-weight:bold">=(</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_LIST</span><span style="color:#4e9a06">&#34;</span> <span style="color:#000;font-weight:bold">|</span> awk -F<span style="color:#4e9a06">&#39;|&#39;</span> <span style="color:#4e9a06">&#39;{gsub(/\t/, &#34;&#34;); print $4}&#39;</span><span style="color:#204a87;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># array with all kanto container states</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">KANTO_CM_CONTAINERS_ARR</span><span style="color:#ce5c00;font-weight:bold">=(</span> <span style="color:#000">$KANTO_CM_CONTAINERS_OPT</span> <span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87;font-weight:bold">for</span> expectedCtr in <span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CM_CONTAINERS_ARR</span><span style="color:#000;font-weight:bold">[@]</span><span style="color:#4e9a06">}</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000">CTR_IDX</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span>get_array_element_index <span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">${</span><span style="color:#000">FOUND_CONTAINERS</span><span style="color:#000;font-weight:bold">[@]</span><span style="color:#4e9a06">}</span><span style="color:#204a87;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> ! -z <span style="color:#000">$CTR_IDX</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">${</span><span style="color:#000">FOUND_CONTAINERS_STATES</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">$CTR_IDX</span><span style="color:#000;font-weight:bold">]</span><span style="color:#4e9a06">}</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$status</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Running&#34;</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_OK</span><span style="color:#4e9a06">\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_WARN</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$status</span><span style="color:#4e9a06">&#34;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_WARN</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#4e9a06">&#34;NOT FOUND&#34;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_FAIL</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;Kanto Container Management&#34;</span> <span style="color:#4e9a06">&#34;Unavailable&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">fi</span>
+</span></span></code></pre></div><p>Here it is important to know that <code>kanto-cm list</code> outputs the list of containers in a different order every time it&rsquo;s called. That is why, <code>kanto-cm list</code> is invoked once and its output is stored in a variable:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID                                   	<span style="color:#000;font-weight:bold">|</span>Name                                 	<span style="color:#000;font-weight:bold">|</span>Image                                                       	<span style="color:#000;font-weight:bold">|</span>Status    	<span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code 	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------	<span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>d0cf1367-996d-4c83-bcc5-37d6acba9966 	<span style="color:#000;font-weight:bold">|</span>feedercan                            	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:04:28.340430098Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>f58425b0-9260-4a15-a6fc-5c59f8840839 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>f8a716f7-d2c5-4165-a081-407a7acb7643 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-05T11:38:02.0213865Z    <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>627f068a-b9eb-400b-826b-868f6b79e9d8 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:03:58.144873827Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>62ba3e6f-af01-4518-8393-00a5ba553062 	<span style="color:#000;font-weight:bold">|</span>databroker                           	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-07T11:38:28.418199429Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>753a0b10-d72a-4065-8c27-758ed9a77c2d 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span></code></pre></div><p>So we use awk to split on pipe (column), strip unecessary tabs. <code>print $2</code> then gives us the container name and <code>print $4</code> - its status.</p>
+<p>sdv-health then proceeds to check if every container specified in the list is available and if its status is <code>Running</code>.</p>
+<p>Note: <code>Exited</code> is considered a fail-state.</p>
+<h2 id="checking-kanto-cm-socket">Checking kanto-cm socket</h2>
+<p>This is a simple <code>test -s</code> check for the default socket path.</p>
 
 </div>
 

@@ -31,15 +31,15 @@ root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/rauc-integration/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-25T17:24:51+02:00" />
+<meta property="article:modified_time" content="2023-01-26T15:36:18+02:00" />
 
 <meta itemprop="name" content="RAUC Integration">
 <meta itemprop="description" content="Leda integrates RAUC as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.
 Checking the RAUC Status Get the current RAUC boot status:
 rauc status  Example output:
 root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu86-64 Variant: Booted from: rootfs.1 (SDV_B) === Bootloader === Activated: rootfs.1 (SDV_B) === Slot States === o [rootfs."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-25T17:24:51+02:00" />
-<meta itemprop="wordCount" content="461">
+<meta itemprop="dateModified" content="2023-01-26T15:36:18+02:00" />
+<meta itemprop="wordCount" content="567">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RAUC Integration"/>
 <meta name="twitter:description" content="Leda integrates RAUC as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.
@@ -84,7 +84,7 @@ root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -109,7 +109,7 @@ root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -355,22 +355,7 @@ root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu
   <label for="m-ledadocsdev-and-maintenance-check"><a href="/leda/docs/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancebash-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebash-check"/>
-  <label for="m-ledadocsdev-and-maintenancebash-check"><a href="/leda/docs/dev-and-maintenance/bash/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancebash"><span class="">Bash Utils</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancebashsdv-health-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebashsdv-health-check"/>
-  <label for="m-ledadocsdev-and-maintenancebashsdv-health-check"><a href="/leda/docs/dev-and-maintenance/bash/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancebashsdv-health"><span class="">sdv-health</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancebashsdv-provision-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebashsdv-provision-check"/>
-  <label for="m-ledadocsdev-and-maintenancebashsdv-provision-check"><a href="/leda/docs/dev-and-maintenance/bash/sdv-provision/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancebashsdv-provision"><span class="">sdv-provision</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
   <input type="checkbox" id="m-ledadocsdev-and-maintenancerust-check"/>
   <label for="m-ledadocsdev-and-maintenancerust-check"><a href="/leda/docs/dev-and-maintenance/rust/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancerust"><span class="">Rust Utils</span></a></label>
   
@@ -386,6 +371,17 @@ root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkantui-li">
   <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkantui-check"/>
   <label for="m-ledadocsdev-and-maintenancerustkantui-check"><a href="/leda/docs/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenanceshell-li">
+  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshell-check"/>
+  <label for="m-ledadocsdev-and-maintenanceshell-check"><a href="/leda/docs/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenanceshellsdv-health-li">
+  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshellsdv-health-check"/>
+  <label for="m-ledadocsdev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
   
 </li>
   </ul>
@@ -450,6 +446,7 @@ root@qemux86-64:~# rauc status === System Info === Compatible: Eclipse Leda qemu
     <li><a href="#customizations">Customizations</a></li>
     <li><a href="#rauc-system-configuration">RAUC System Configuration</a></li>
     <li><a href="#grub-bootloader-configuration">GRUB Bootloader Configuration</a></li>
+    <li><a href="#u-boot-bootloader-configuration">U-Boot Bootloader Configuration</a></li>
     <li><a href="#disk-partitioning-with-openembedded-image-creator-wic">Disk Partitioning with OpenEmbedded Image Creator (WIC)</a>
       <ul>
         <li><a href="#excerpt-qemux86-grub-efiwks">Excerpt <code>qemux86-grub-efi.wks</code></a></li>
@@ -625,7 +622,16 @@ menuentry &#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&#34; {
 menuentry &#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&#34; {
     linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
 }
-</code></pre><h2 id="disk-partitioning-with-openembedded-image-creator-wic">Disk Partitioning with OpenEmbedded Image Creator (WIC)</h2>
+</code></pre><h2 id="u-boot-bootloader-configuration">U-Boot Bootloader Configuration</h2>
+<p>Similarly to GRUB, integration of RAUC with U-Boot requires custom boot scripting. A highly detailed explaination can, again, be found in the official <a href="https://rauc.readthedocs.io/en/latest/integration.html#id5">RAUC Documentation - Integration - U-Boot</a>.</p>
+<p>Meta-Leda provides such integration recipes and scripts for all U-boot based targets, for which a Leda Quickstart image is available (qemuarm64, qemuarm and rpi4-64). For example:</p>
+<ul>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/u-boot_%25.bbappend">Main uboot_%.bbappend</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm.inc">Qemuarm custom script integration recipe</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm/boot.cmd.in">Qemuarm custom boot.scr</a></li>
+</ul>
+<p><em>Note: A custom U-Boot device defconfig might be required for some devices to be integrated with RAUC. Leda Quickstart images patch the default defconfigs for qemuarm64 and qemuarm to save the U-Boot environment in a VFAT BOOT partition.</em></p>
+<h2 id="disk-partitioning-with-openembedded-image-creator-wic">Disk Partitioning with OpenEmbedded Image Creator (WIC)</h2>
 <p>The <a href="https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic">OpenEmbedded Image Creator</a> is used in BitBake to actually create full disk images with multiple partitions.</p>
 <p>These disk images are machine specific and the structure of the partitions are configured in <a href="https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart">OpenEmbedded Kickstart</a> files (<code>*.wks</code>).</p>
 <h3 id="excerpt-qemux86-grub-efiwks">Excerpt <code>qemux86-grub-efi.wks</code></h3>

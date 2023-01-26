@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse Leda Documentation – Bash Utils</title>
-    <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/</link>
-    <description>Recent content in Bash Utils on Eclipse Leda Documentation</description>
+    <title>Eclipse Leda Documentation – Shell Utils</title>
+    <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/</link>
+    <description>Recent content in Shell Utils on Eclipse Leda Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 03 Jan 2023 17:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: sdv-health</title>
-      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-health/</link>
+      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/sdv-health/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-health/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/sdv-health/</guid>
       <description>
         
         
@@ -77,21 +77,6 @@
 &lt;p&gt;Note: &lt;code&gt;Exited&lt;/code&gt; is considered a fail-state.&lt;/p&gt;
 &lt;h2 id=&#34;checking-kanto-cm-socket&#34;&gt;Checking kanto-cm socket&lt;/h2&gt;
 &lt;p&gt;This is a simple &lt;code&gt;test -s&lt;/code&gt; check for the default socket path.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: sdv-provision</title>
-      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-provision/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/sdv-provision/</guid>
-      <description>
-        
-        
-        &lt;p&gt;This tool is currently not available since it depends on the k3s secret-store. As of the migration
-to kanto-cm this functionallity was lost and the Leda team is currently developing a new secret-store solution.&lt;/p&gt;
 
       </description>
     </item>

@@ -132,7 +132,6 @@ Congratulation, you are done!&lt;/p&gt;
 &lt;p&gt;To build manually: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/build/devenv/build-kas-manually/#building-manually&#34;&gt;Building manually&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;visual-studio-devcontainer-setup&#34;&gt;Visual Studio DevContainer Setup&lt;/h2&gt;
 &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
 &lt;p&gt;The build process requires online connection and you must be authenticated to access private repositories.&lt;/p&gt;
 &lt;ol&gt;

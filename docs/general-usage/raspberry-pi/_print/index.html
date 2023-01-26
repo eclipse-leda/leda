@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@ This is the multi-page printable view of this section.
 <div class="content">
       <p>What you need:</p>
 <ul>
-<li>A Raspberry Pi 4 with 2 GiB of RAM or more, recommended is 8 GiB</li>
+<li>A Raspberry Pi 4B (64 Bit) with 2 GiB of RAM or more, recommended is 8 GiB</li>
 <li>Network connection (Ethernet or Wifi) with transparent internet access</li>
 <li>Optional keyboard and display (makes it easier to troubleshoot)</li>
 </ul>
@@ -143,9 +143,9 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <ul>
 <li>Install bmap tools: <code>sudo apt-get install -y bmap-tools</code></li>
 <li>Insert SD Card and check which device is mounted: <code>sudo fdisk -l</code></li>
-<li>Unmount the device: <code>sudo umount /dev/sd[X]</code></li>
-<li><code>sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]</code></li>
-<li><em>Note:  Using <code>bmap</code> is faster but works the same as with plain <code>dd if=&lt;wic-file&gt; of=dev/sd[x]</code>.</em></li>
+<li>Unmount the device: <code>sudo umount /dev/mmcblk[X]</code></li>
+<li><code>sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/mmcblk[X]</code></li>
+<li><em>Note:  Using <code>bmap</code> is <strong>much</strong> faster but works the same as with plain <code>dd if=&lt;wic-file&gt; of=dev/mmcblk[x]</code>.</em></li>
 </ul>
 </li>
 <li>On Windows:

@@ -27,12 +27,12 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-01-25T17:24:51+02:00" />
+<meta property="article:modified_time" content="2023-01-26T15:36:18+02:00" />
 
 <meta itemprop="name" content="Message Flow">
 <meta itemprop="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
 sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops - backend: Rollout Campaign backend -- vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum -- sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua -- sua: Downloading sua -- vum: selfupdate/desiredstatefeedback vum -- backend: progress end loop Installation sua -- device: Installing Note right of device: RAUC Update Bundle sua -- vum: selfupdate/desiredstatefeedback vum -- backend: progress end sua -- vum: Installed rect rgb(100, 255, 150) sua -- backend: FINISHED_SUCCESS end opt Reboot vum -- device: SysRq Reboot end  Messages The following describes the message flow with example messages in more detail.">
-<meta itemprop="dateModified" content="2023-01-25T17:24:51+02:00" />
+<meta itemprop="dateModified" content="2023-01-26T15:36:18+02:00" />
 <meta itemprop="wordCount" content="414">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Message Flow"/>
@@ -76,7 +76,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -101,7 +101,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -347,22 +347,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
   <label for="m-ledadocsdev-and-maintenance-check"><a href="/leda/docs/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancebash-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebash-check"/>
-  <label for="m-ledadocsdev-and-maintenancebash-check"><a href="/leda/docs/dev-and-maintenance/bash/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancebash"><span class="">Bash Utils</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancebashsdv-health-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebashsdv-health-check"/>
-  <label for="m-ledadocsdev-and-maintenancebashsdv-health-check"><a href="/leda/docs/dev-and-maintenance/bash/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancebashsdv-health"><span class="">sdv-health</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancebashsdv-provision-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancebashsdv-provision-check"/>
-  <label for="m-ledadocsdev-and-maintenancebashsdv-provision-check"><a href="/leda/docs/dev-and-maintenance/bash/sdv-provision/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancebashsdv-provision"><span class="">sdv-provision</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
   <input type="checkbox" id="m-ledadocsdev-and-maintenancerust-check"/>
   <label for="m-ledadocsdev-and-maintenancerust-check"><a href="/leda/docs/dev-and-maintenance/rust/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancerust"><span class="">Rust Utils</span></a></label>
   
@@ -378,6 +363,17 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkantui-li">
   <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkantui-check"/>
   <label for="m-ledadocsdev-and-maintenancerustkantui-check"><a href="/leda/docs/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenanceshell-li">
+  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshell-check"/>
+  <label for="m-ledadocsdev-and-maintenanceshell-check"><a href="/leda/docs/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenanceshellsdv-health-li">
+  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshellsdv-health-check"/>
+  <label for="m-ledadocsdev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
   
 </li>
   </ul>

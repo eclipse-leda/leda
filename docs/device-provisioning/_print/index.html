@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -291,7 +291,7 @@ or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu
 <li>Generate a device certificate using openssl</li>
 <li>Sign it with your intermediate CA certificate</li>
 <li>Put it into <code>/data/var/certificate/</code></li>
-<li>Restart the cloud connector service or container: <code>systemctl restart cloud-connector</code> or <code>kanto-cm restart -n cloud-connector</code></li>
+<li>Restart the cloud connector service or container: <code>systemctl restart cloud-connector</code> or <code>kanto-cm stop -n cloudconnector --force; kanto-cm start -n cloudconnector</code></li>
 </ul>
 <p>When finished, continue with</p>
 <ul>
@@ -420,7 +420,8 @@ easy way to find your device&rsquo;s ip. More information on connecting via ssh 
     
 	<h1 id="pg-42e18573332f97451f15ebcfa61573ab">3.1 - Configuration</h1>
     
-	<p>The vehicle update manager container requires the following configuration:</p>
+	<p><strong>Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM</strong></p>
+<p>The vehicle update manager container requires the following configuration:</p>
 <ul>
 <li>
 <p>Container needs to run in <strong>privileged mode</strong> to enable automatic reboot.</p>
@@ -747,12 +748,12 @@ state:
 <ul>
 <li>
 <p>Terminal 1: To view the progress, watch the MQTT topics <code>selfupdate/desiredstate</code> and <code>selfupdate/desiredstatefeedback</code>:</p>
-<pre><code>mosquitto_sub -h 192.168.7.2 -p 31883 -t &quot;selfupdate/#&quot;
+<pre><code>mosquitto_sub -h 192.168.7.2 -p 1883 -t &quot;selfupdate/#&quot;
 </code></pre>
 </li>
 <li>
 <p>Terminal 2: Trigger the actual self update process by publishing an MQTT message to <code>selfupdate/desiredstate</code>:</p>
-<pre><code>mosquitto_pub -h 192.168.7.2 -p 31883 -t &quot;selfupdate/desiredstate&quot; -f start-update-example.yaml
+<pre><code>mosquitto_pub -h 192.168.7.2 -p 1883 -t &quot;selfupdate/desiredstate&quot; -f start-update-example.yaml
 </code></pre>
 </li>
 </ul>
@@ -916,7 +917,16 @@ menuentry &#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&#34; {
 menuentry &#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&#34; {
     linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
 }
-</code></pre><h2 id="disk-partitioning-with-openembedded-image-creator-wic">Disk Partitioning with OpenEmbedded Image Creator (WIC)</h2>
+</code></pre><h2 id="u-boot-bootloader-configuration">U-Boot Bootloader Configuration</h2>
+<p>Similarly to GRUB, integration of RAUC with U-Boot requires custom boot scripting. A highly detailed explaination can, again, be found in the official <a href="https://rauc.readthedocs.io/en/latest/integration.html#id5">RAUC Documentation - Integration - U-Boot</a>.</p>
+<p>Meta-Leda provides such integration recipes and scripts for all U-boot based targets, for which a Leda Quickstart image is available (qemuarm64, qemuarm and rpi4-64). For example:</p>
+<ul>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/u-boot_%25.bbappend">Main uboot_%.bbappend</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm.inc">Qemuarm custom script integration recipe</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm/boot.cmd.in">Qemuarm custom boot.scr</a></li>
+</ul>
+<p><em>Note: A custom U-Boot device defconfig might be required for some devices to be integrated with RAUC. Leda Quickstart images patch the default defconfigs for qemuarm64 and qemuarm to save the U-Boot environment in a VFAT BOOT partition.</em></p>
+<h2 id="disk-partitioning-with-openembedded-image-creator-wic">Disk Partitioning with OpenEmbedded Image Creator (WIC)</h2>
 <p>The <a href="https://www.yoctoproject.org/docs/current/dev-manual/dev-manual.html#creating-partitioned-images-using-wic">OpenEmbedded Image Creator</a> is used in BitBake to actually create full disk images with multiple partitions.</p>
 <p>These disk images are machine specific and the structure of the partitions are configured in <a href="https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart">OpenEmbedded Kickstart</a> files (<code>*.wks</code>).</p>
 <h3 id="excerpt-qemux86-grub-efiwks">Excerpt <code>qemux86-grub-efi.wks</code></h3>

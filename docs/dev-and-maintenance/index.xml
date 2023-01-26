@@ -15,11 +15,11 @@
     
     
     <item>
-      <title>Docs: Bash Utils</title>
-      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/</link>
+      <title>Docs: Rust Utils</title>
+      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/bash/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/</guid>
       <description>
         
         
@@ -28,11 +28,11 @@
     </item>
     
     <item>
-      <title>Docs: Rust Utils</title>
-      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/</link>
+      <title>Docs: Shell Utils</title>
+      <link>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/</guid>
       <description>
         
         

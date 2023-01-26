@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2e2a60e52aba9ed9d871f18c8b9ec8e0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -380,9 +380,9 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 <p>Verify and wait until container runtime is started: <code>systemctl status container-management</code></p>
 </li>
 <li>
-<p><em>Optional:</em> Check the system health: <code>sdv-health</code>
-<img src="sdv-health1.png" alt="sdv-health"></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
+<p><img src="sdv-health1.png" alt="sdv-health"></p>
+<p><em>Note: The status of some containers (e.g. cloud connector) are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -419,7 +419,7 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 </li>
 <li>
 <p><em>Optional:</em> Check the system health: <code>sdv-health</code></p>
-<p><em>Note: The status of some pods and the cloud connector are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
+<p><em>Note: The status of some containers (e.g. cloud connector) are expected to stay in <strong>FAILED</strong> status as long as the <strong>Device Provisioning</strong> steps are not completed.</em></p>
 </li>
 <li>
 <p>Continue with <a href="/leda/docs/device-provisioning/">Device Provisioning</a></p>
@@ -590,7 +590,7 @@ With <code>sshfs</code>, you can mount a local directory to a remote directory v
 <p>Installation of needed packages:</p>
 <ul>
 <li>Run <code>apt-get install sshfs</code> on your host</li>
-<li>Enable <code>CORE_IMAGE_EXTRA_INSTALL += &quot; openssh-sftp-server&quot;</code> in <code>local.conf</code> of your image</li>
+<li>Enable <code>CORE_IMAGE_EXTRA_INSTALL += &quot; openssh-sftp-server&quot;</code> in <code>local.conf</code> of your image (e.g. in the local_conf_header section in your kas file)</li>
 <li>Verify SFTP connection working with <code>sftp -P 2222 root@localhost</code></li>
 </ul>
 <h2 id="transfering-files-from-host-to-guest">Transfering files from host to guest</h2>
@@ -627,7 +627,7 @@ With <code>sshfs</code>, you can mount a local directory to a remote directory v
     
 	<p>What you need:</p>
 <ul>
-<li>A Raspberry Pi 4 with 2 GiB of RAM or more, recommended is 8 GiB</li>
+<li>A Raspberry Pi 4B (64 Bit) with 2 GiB of RAM or more, recommended is 8 GiB</li>
 <li>Network connection (Ethernet or Wifi) with transparent internet access</li>
 <li>Optional keyboard and display (makes it easier to troubleshoot)</li>
 </ul>
@@ -650,9 +650,9 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <ul>
 <li>Install bmap tools: <code>sudo apt-get install -y bmap-tools</code></li>
 <li>Insert SD Card and check which device is mounted: <code>sudo fdisk -l</code></li>
-<li>Unmount the device: <code>sudo umount /dev/sd[X]</code></li>
-<li><code>sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/sd[X]</code></li>
-<li><em>Note:  Using <code>bmap</code> is faster but works the same as with plain <code>dd if=&lt;wic-file&gt; of=dev/sd[x]</code>.</em></li>
+<li>Unmount the device: <code>sudo umount /dev/mmcblk[X]</code></li>
+<li><code>sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/mmcblk[X]</code></li>
+<li><em>Note:  Using <code>bmap</code> is <strong>much</strong> faster but works the same as with plain <code>dd if=&lt;wic-file&gt; of=dev/mmcblk[x]</code>.</em></li>
 </ul>
 </li>
 <li>On Windows:
@@ -729,7 +729,7 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 	<p>The quickstart image contains the following utilities:</p>
 <ul>
 <li><strong>sdv-health:</strong> Show SDV software components health status</li>
-<li><strong>kantui:</strong> A text user interface for kanto-cm to manage containers (start, stop, logs)</li>
+<li><strong>kantui:</strong> A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)</li>
 <li><strong>sdv-device-info:</strong> Show and update device information</li>
 <li><strong>sdv-motd:</strong> Message-of-the-Day shown after login prompt</li>
 <li><strong>can-forward:</strong> Forwarding a CAN-bus network interface into a containerized Vehicle Application</li>
@@ -768,12 +768,12 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 </ul>
 <p><img src="sdv-health-example-errors2.png" alt="SDV Health Example Errors"></p>
 <h2 id="kanto-user-interface">Kanto User Interface</h2>
-<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove containers are available along with a functionality to retrieve the application logs of a selected container.</p>
+<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.</p>
 <p>Usage:</p>
 <pre><code># kantui
 </code></pre>
 <p>Example output:</p>
-<p><img src="https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png" alt="KantoUI"></p>
+<p><img src="kantui-large.png" alt="KantoUI"></p>
 
 </div>
 
