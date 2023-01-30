@@ -13,7 +13,7 @@ The following pages are meant to serve as both internal documentation and genera
 Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the `#!/bin/sh` shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for *"bashisms"* in your scripts, the
 `checkbashisms` tool might be useful.
 
-[**Utility-Specific Pages**](bash/)
+[**Utility-Specific Pages**](shell/)
 
 The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: [meta-leda/meta-leda-components/recipes-sdv/sdv-base](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base).
 
