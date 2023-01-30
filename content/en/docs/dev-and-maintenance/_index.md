@@ -1,7 +1,7 @@
 ---
 title: "Developing and Maintaining Utils"
 date: 2023-01-03T17:24:56+05:30
-weight: 10
+weight: 11
 ---
 
 The Leda teams provides some custom utilities that allow for a more integrated end-user experience. They can be found in the main leda-utils repository on GitHub: [eclipse-leda/leda-utils](https://github.com/eclipse-leda/leda-utils).
