@@ -185,7 +185,7 @@ The only Leda quickstart image that uses GRUB as a bootloader is for qemux86_64.
 
 ### U-Boot
 
-*Note: The following sub-sections are based on the official [U-Boot source](https://source.denx.de/u-boot/u-boot) on which the OE recipes use. Your BSP may provide another hardware-specific fork of U-Boot that may or may not be entirely compatible with this integration guide. (e.g. fw_utils not being available)*
+*Note: The following sub-sections are based on the official [U-Boot source](https://source.denx.de/u-boot/u-boot) which the OE recipes use. Your BSP may provide another hardware-specific fork of U-Boot that may or may not be entirely compatible with this integration guide. (e.g. fw_utils not being available)*
 
 The rpi4-64 target, similar to qemux86_64, directly uses [meta-rauc-community/meta-rauc-raspberrypi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi) which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot-based targets is not available and has to be manually created. That is why, [meta-rauc-community/meta-rauc-sunxi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi) might provide a better example in a more general case.
 
