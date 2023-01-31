@@ -258,6 +258,6 @@ Run `kas build` in the root of your repository and wait for the build to finish 
 
 Flash:
 
-Obtain the `image-name.wic.bz2` and `image-name.wic.bmap` files from the `tmp/deploy/images` directory. Mount your storage and use bmaptool to quickly flash the built image. More information on flashing can be found in the [Running on Raspberry Pi](../general-usage/raspberry-pi/) section of this documentation.
+Obtain the `image-name.wic.bz2` and `image-name.wic.bmap` files from the `tmp/deploy/images` directory. Mount your storage and use bmaptool to quickly flash the built image. More information on flashing can be found in the [Running on Raspberry Pi](../../general-usage/raspberry-pi/) section of this documentation.
 
 If everything works as intended you should see in the U-Boot output that it found `/boot.scr` and started executing it. This should lead to a successful boot of your custom Linux distro image with the RAUC-mark-good.service being marked as \[<span class="-text-green">OK</span>\] in the systemd logs (if your distro uses systemd).
