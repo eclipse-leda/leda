@@ -6,7 +6,7 @@ weight: 10
 
 
 
-The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as a experimentation and development platform, but is not production-ready. The focus of the meta-leda is to offer reusable components for custom SDV images.
+The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as an experimentation and development platform but is not production-ready. The focus of the meta-leda is to offer reusable components for custom SDV images.
 
 This documentation section is aimed at anyone who wishes to build such a custom image.
 
@@ -87,10 +87,10 @@ part --source rootfs --rootfs-dir=sdv-image-minimal  --ondisk vda --fstype=ext4 
 part --fixed-size 2048M --source rootfs --rootfs-dir=sdv-image-data --ondisk vda --fstype=ext4 --label data --align 4096
 ```
 
-As you can see it directly implements the partition scheme described above. The partition table is defined with the `bootloader --ptable gpt` line and every line after that corresponds to a partition from the diagaram above.
+As you can see it directly implements the partition scheme described above. The partition table is defined with the `bootloader --ptable gpt` line and every line after that corresponds to a partition from the diagram above.
 Please note, that the order in which the `part` lines in the **wks**-file appear would be the order of the partitions.
 
-Here it is important to note that for the the VFAT boot partition the label should be uppercase and you should add the `--use-uuid` option. Otherwise it might not be mounted properly in the final Linux distro.
+Here it is important to note that for the VFAT boot partition the label should be uppercase and you should add the `--use-uuid` option. Otherwise, it might not be mounted properly in the final Linux distro.
 
 ## FSTAB
 
@@ -139,7 +139,7 @@ The only Leda quickstart image that uses GRUB as a bootloader is for qemux86_64.
 
 ### U-Boot
 
-The rpi4-64 target, similar to qemux86_64, directly uses [meta-rauc-community/meta-rauc-raspberrypi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi) which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot based targets is not available and has to be manually created. That is why, [meta-rauc-community/meta-rauc-sunxi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi) might provide a better example in a more general case.
+The rpi4-64 target, similar to qemux86_64, directly uses [meta-rauc-community/meta-rauc-raspberrypi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi) which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot-based targets is not available and has to be manually created. That is why, [meta-rauc-community/meta-rauc-sunxi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi) might provide a better example in a more general case.
 
 The Leda quickstart images that use U-boot as a bootloader are based on the ideas in `meta-rauc-sunxi`. We will now go into more detail on how to integrate such a U-Boot target that requires a more "from-scratch" integration.
 
@@ -200,4 +200,4 @@ Given the following:
 
 4. You have installed fw_printenv/fw_setenv and properly setup the /etc/fw_env.config file
 
-The RAUC mark-good-service should should successfully go through and mark both RAUC slots as "GOOD".
+The RAUC mark-good-service should successfully go through and mark both RAUC slots as "GOOD".
