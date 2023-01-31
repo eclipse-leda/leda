@@ -45,12 +45,20 @@ Kanto auto deployer uses the exact same structure for its manifests as the inter
         },
         "runtime": "io.containerd.runc.v2",
         "extra_hosts": [],
-        "port_mappings": [],
+        "port_mappings": [
+            {
+              "protocol": "tcp",
+              "container_port": 55555,
+              "host_ip": "localhost",
+              "host_port": 30555,
+              "host_port_end": 30555
+            }
+        ],
         "log_config": {
             "driver_config": {
                 "type": "json-file",
                 "max_files": 2,
-                "max_size": "100M",
+                "max_size": "1M",
                 "root_dir": ""
             },
             "mode_config": {
@@ -68,7 +76,13 @@ Kanto auto deployer uses the exact same structure for its manifests as the inter
         "stdin_once": false,
         "tty": false
     },
-    "config": null,
+    "config": {
+        "env": [
+            "RUST_LOG=info",
+            "vehicle_data_broker=debug"
+        ],
+        "cmd": []
+    },
     "network_settings": null,
     "state": {
         "pid": -1,
