@@ -6,7 +6,7 @@ weight: 10
 
 
 
-The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as an experimentation and development platform but is not production-ready. The focus of the meta-leda is to offer reusable components for custom SDV images.
+The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as an experimentation and development platform but is not production-ready. The focus of the meta-leda meta-layer is to offer reusable components for custom SDV images.
 
 This documentation section is aimed at anyone who wishes to build such a custom image.
 
