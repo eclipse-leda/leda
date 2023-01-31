@@ -220,7 +220,7 @@ Generally, as a starting point, you can use one of the custom scripts in meta-ra
 
 As it can be seen in the examples, after the "slot retries counting" part of the script is done, the `root=` and `rauc.slot=` kernel command line arguments are set, the U-Boot environment is saved in the VFAT boot partition as uboot.env and the selected image is booted.
 
-Then, from userspace RAUC reads the kernel command line (/proc/cmdline) and the uboot.env (through the fw_printenv/fw_setenv utilities) and decides (based on that) whether a slot is "Good" or "Bad".
+Then, from userspace RAUC reads the kernel command line (/proc/cmdline) and the uboot.env (through the fw_printenv/fw_setenv utilities) and decides (based on that) whether a slot is "<span class="-text-green">Good</span>" or "<span class="-text-red">Bad</span>".
 
 #### fw_env.config
 
@@ -248,7 +248,7 @@ Given the following:
 
 4. You have installed fw_printenv/fw_setenv and properly setup the /etc/fw_env.config file.
 
-The RAUC mark-good-service should successfully go through and mark both RAUC slots as "GOOD".
+The RAUC mark-good-service should successfully go through and mark both RAUC slots as "<span class="-text-green">GOOD</span>".
 
 ## Final steps - building and flashing
 
@@ -260,4 +260,4 @@ Flash:
 
 Obtain the `image-name.wic.bz2` and `image-name.wic.bmap` files from the `tmp/deploy/images` directory. Mount your storage and use bmaptool to quickly flash the built image. More information on flashing can be found in the [Running on Raspberry Pi](../general-usage/raspberry-pi/) section of this documentation.
 
-If everything works as intended you should see in the U-Boot output that it found `/boot.scr` and started executing it. This should lead to a successful boot of your custom Linux distro image with the RAUC-mark-good.service being marked as \[OK\] in the systemd logs (if your distro uses systemd).
+If everything works as intended you should see in the U-Boot output that it found `/boot.scr` and started executing it. This should lead to a successful boot of your custom Linux distro image with the RAUC-mark-good.service being marked as \[<span class="-text-green">OK</span>\] in the systemd logs (if your distro uses systemd).
