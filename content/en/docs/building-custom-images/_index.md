@@ -55,7 +55,7 @@ The Leda quickstart image uses RAUC as a way to do A/B partition type updates. W
 |            |             |             |             |             |             |
 |            |             |             |             |             |             |
 |    VFAT    |    NO-FS    |    EXT4     |    EXT4     |    EXT4     |    EXT4     |
-|   (BOOT)   |  (GRUVENV)  |   (RESCUE)  |   (SDV_A)   |   (SDV_B)   |   (DATA)    |
+|   (BOOT)   |  (GRUBENV)  |   (RESCUE)  |   (SDV_A)   |   (SDV_B)   |   (DATA)    |
 |            |             |             |             |             |             |
 |            |             |             |             |             |             |
  ----------------------------------------------------------------------------------
