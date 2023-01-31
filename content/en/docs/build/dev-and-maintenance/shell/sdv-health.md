@@ -58,14 +58,16 @@ Output:
 
 ```shell
 
-ID                                   	|Name                                 	|Image                                                       	|Status    	|Finished At                     |Exit Code 	|
--------------------------------------	|-------------------------------------	|------------------------------------------------------------	|----------	|------------------------------  |----------	|
-d0cf1367-996d-4c83-bcc5-37d6acba9966 	|feedercan                            	|ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	|Running   	|2022-12-30T23:04:28.340430098Z  |0         	|
-f58425b0-9260-4a15-a6fc-5c59f8840839 	|vehicledatabroker13                  	|ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	|Created   	|                                |0         	|
-f8a716f7-d2c5-4165-a081-407a7acb7643 	|vehicledatabroker13                  	|ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	|Stopped   	|2022-12-05T11:38:02.0213865Z    |137       	|
-627f068a-b9eb-400b-826b-868f6b79e9d8 	|vehicledatabroker13                  	|ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	|Running   	|2022-12-30T23:03:58.144873827Z  |0         	|
-62ba3e6f-af01-4518-8393-00a5ba553062 	|databroker                           	|ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	|Stopped   	|2022-12-07T11:38:28.418199429Z  |137       	|
-753a0b10-d72a-4065-8c27-758ed9a77c2d 	|vehicledatabroker13                  	|ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	|Created   	|                                |0         	|
+
+ID                                      |Name                                   |Image                                                                                                                          |Status         |Finished At                     |Exit Code   |
+-------------------------------------   |-------------------------------------  |------------------------------------------------------------                                                                   |----------     |------------------------------  |----------  |
+d82a406e-80d7-4d2c-8044-3799544fc39a    |vum                                    |ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager:main-1d8dca55a755c4b3c7bc06eabfa06ad49e068a48    |Running        |                                |0           |
+0f079856-767c-4e8d-b4df-a2323392849f    |cloudconnector                         |ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector:main-47c01227a620a3dbd85b66e177205c06c0f7a52e                 |Exited         |2023-01-31T11:58:01.564126452Z  |1           |
+e4cf317e-c2d3-42c7-8f12-8ecf6f9d5d7a    |databroker                             |ghcr.io/eclipse/kuksa.val/databroker:0.2.5                                                                                     |Running        |                                |0           |
+6440a9b6-4fb8-4735-b3de-484286ac705b    |feedercan                              |ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1                                                                               |Running        |                                |0           |
+efbd572b-3331-4f19-9b17-7c69511ec5ca    |hvacservice-example                    |ghcr.io/eclipse/kuksa.val.services/hvac_service:v0.1.0                                                                         |Running        |                                |0           |
+6d9a6f07-1659-4b51-9ddb-6e9ade64f2fd    |seatservice-example                    |ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0                                                                         |Running        |                                |0           |
+06b0ddf2-7c91-41e4-9a00-4213ee361cdf    |sua                                    |ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent:build-12                                                 |Running        |                                |0           |
 
 ```
 
