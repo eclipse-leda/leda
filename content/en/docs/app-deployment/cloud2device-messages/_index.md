@@ -1,7 +1,7 @@
 ---
 title: "Cloud2Device Messages"
 date: 2022-05-09T14:24:56+05:30
-weight: 10
+weight: 20
 ---
 
 ![c2d-overview](c2d-architecture-overview.png)

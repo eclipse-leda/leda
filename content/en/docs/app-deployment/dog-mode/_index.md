@@ -26,8 +26,8 @@ The focus on this example is to show how an additional application can reuse exi
 
 1. Follow the Velocitas tutorial: build and deploy your clone of the [dog mode example](https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/dog_mode/)
 2. Download and run the Leda quickstart image
-3. Deploy your seat adjuster application to the container runtime, either manually by using `kanto-cm create` or by providing a deployment descriptor in `/var/containers/manifests`. An example deployment descriptor can be found in [meta-leda-components](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json)
-4. Ensure the databroker and the seat service containers are running and you know how to check their log files
+3. Deploy the application to the container runtime, either manually by using `kanto-cm create` or by providing a deployment descriptor in `/var/containers/manifests`. An example deployment descriptor can be found in [meta-leda-components](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json). Details on the deployment can be found in [Leda Vehicle Applications](/leda/docs/app-deployment/velocitas/)
+4. Ensure the databroker and the service containers are running and you know how to check their log files
 5. Monitor vehicle data: `mosquitto_sub -t dogmode/display`
 6. Enable dog mode by using the `databroker-cli`
 

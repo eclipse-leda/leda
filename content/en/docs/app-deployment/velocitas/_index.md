@@ -1,6 +1,7 @@
 ---
 title: "Velocitas VApps"
 date: 2022-05-09T14:24:56+05:30
+weight: 10
 ---
 
 For local deployment without a cloud backend, deployment specifications for [Eclipse Velocitas](https://projects.eclipse.org/projects/automotive.velocitas) Vehicle Apps may be put directly onto the device.

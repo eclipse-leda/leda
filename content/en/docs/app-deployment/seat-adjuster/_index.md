@@ -1,7 +1,7 @@
 ---
 title: "Seat Adjuster"
 date: 2022-05-09T14:24:56+05:30
-weight: 2
+weight: 1
 ---
 
 The **Seat Adjuster** use case has been derived from the [Eclipse Velocitas Seat Adjuster example](https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/seat_adjuster/), the [Eclipse Kuksa.VAL Seat Service example](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service) and the [Digital.Playground Prototyping Library](https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh)
@@ -28,7 +28,7 @@ This example focuses on the technical aspect, namely the interface between such 
 
 1. Follow the Velocitas tutorial: build and deploy your clone of the [seat adjuster example](https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/seat_adjuster/)
 2. Download and run the Leda quickstart image
-3. Deploy your seat adjuster application to the container runtime, either manually by using `kanto-cm create` or by providing a deployment descriptor in `/var/containers/manifests`. An example deployment descriptor can be found in [meta-leda-components](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json)
+3. Deploy your seat adjuster application to the container runtime, either manually by using `kanto-cm create` or by providing a deployment descriptor in `/var/containers/manifests`. An example deployment descriptor can be found in [meta-leda-components](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json). Details on the deployment can be found in [Leda Vehicle Applications](/leda/docs/app-deployment/velocitas/)
 4. Ensure the databroker and the seat service containers are running and you know how to check their log files
 5. Publish an MQTT message for the seat adjuster application, e.g. `mosquitto_pub -t seatadjuster/setPosition/request -f seat-request.json` and a possible payload like this:
 
