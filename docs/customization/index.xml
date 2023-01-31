@@ -1,0 +1,237 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Customizing</title>
+    <link>https://eclipse-leda.github.io/leda/docs/customization/</link>
+    <description>Recent content in Customizing on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 03 Jan 2023 17:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/customization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Custom Distros</title>
+      <link>https://eclipse-leda.github.io/leda/docs/customization/custom-images/</link>
+      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/customization/custom-images/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as an experimentation and development platform but is not production-ready. The focus of the meta-leda meta-layer is to offer reusable components for custom SDV images.&lt;/p&gt;
+&lt;p&gt;This documentation section is aimed at anyone who wishes to build such a custom image.&lt;/p&gt;
+&lt;h2 id=&#34;hardware&#34;&gt;Hardware&lt;/h2&gt;
+&lt;p&gt;The Leda Quickstart image directly provides BSP-recipes for the following platforms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;QEMUx86-64 (64 bit)&lt;/li&gt;
+&lt;li&gt;QEMUARM64 (64 bit)&lt;/li&gt;
+&lt;li&gt;QEMUARM (32 bit)&lt;/li&gt;
+&lt;li&gt;Raspberry Pi 4B (64 bit)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Other hardware would require customizing your image with additional BSP-layers.&lt;/p&gt;
+&lt;h2 id=&#34;kas-and-meta-layers&#34;&gt;kas and meta-layers&lt;/h2&gt;
+&lt;p&gt;We recommend (and use for the quickstart image) the &lt;a href=&#34;https://github.com/siemens/kas&#34;&gt;kas tool&lt;/a&gt; developed by Siemens as a way to help with reproducible builds. It is, however, not required and you would still need to
+define your own distro meta-layer on top of meta-leda. The Leda quickstart image kas-files can be found here: &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/tree/main/kas&#34;&gt;leda-distro/kas&lt;/a&gt;. Most of the distro-configuration can be found
+in the &lt;code&gt;common-kirkstone.yaml&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Other than meta-leda you will need the following external meta-layers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.yoctoproject.org/git/poky&#34;&gt;Poky&lt;/a&gt; - The base poky distro&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.openembedded.org/meta-openembedded&#34;&gt;meta-openembedded&lt;/a&gt; - Busybox, systemd, and other core packages&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rauc/meta-rauc&#34;&gt;meta-rauc&lt;/a&gt; - RAUC integration&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-kanto/meta-kanto&#34;&gt;meta-kanto&lt;/a&gt; - Kanto container management&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git.yoctoproject.org/meta-virtualization&#34;&gt;meta-virtualization&lt;/a&gt; - containerd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;From here on we will assume that you are working with kas as your main build tool.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-your-custom-image&#34;&gt;Setting up your custom image&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new repository for your distro. Create a top-level container meta-layer that would contain your distro-specific configurations which will be explained below.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the root of the repository create a &lt;code&gt;.config.yaml&lt;/code&gt; that would be used by kas to build your image. The minimal kas-config file can be found in the tool&amp;rsquo;s official documentation &lt;a href=&#34;https://kas.readthedocs.io/en/latest/userguide.html#project-configuration&#34;&gt;Project Configuration&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Referencing &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/blob/main/kas/common-kirkstone.yaml&#34;&gt;leda-distro/kas/common-kirkstone.yaml&lt;/a&gt;, add to this minimal configuration all required meta-layers from above and sub-layers from meta-leda you will need.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add your custom container layer (you can reference meta-layers by path in kas) to the kas-config. Reference: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/kas/.config-components.yaml&#34;&gt;meta-leda/kas/.config-components.yaml&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;From this point on you can use &lt;code&gt;kas build&lt;/code&gt; from the root of your repository or &lt;code&gt;kas build /path/to/.config.yaml&lt;/code&gt; from anywhere to start the build process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;general-distro-configuration&#34;&gt;General distro configuration&lt;/h2&gt;
+&lt;p&gt;The place you should start is by configuring your custom distribution. The BitBake mechanism for doing so can be found in the official BitBake documentation: &lt;a href=&#34;https://docs.yoctoproject.org/dev/dev-manual/custom-distribution.html#creating-your-own-distribution&#34;&gt;22 Creating Your Own Distribution&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As a working example, you can use the Leda-distro config file: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-distro/conf/distro/leda.conf&#34;&gt;meta-leda/meta-leda-distro/conf/distro/leda.conf&lt;/a&gt;. We will now go through some of the lines in the &lt;em&gt;leda.conf&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require conf/distro/include/buildinfo.inc &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# -&amp;gt; Defines entries for /etc/build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require conf/distro/include/leda-distro-features.inc &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# -&amp;gt; Defines the quickstart image features. Use it as a guide for your distro.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require conf/distro/include/leda-package-blacklist.inc &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# -&amp;gt; Defines blacklisted packages (e.g. alsa)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;include conf/machine/&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MACHINE&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;-extra.conf &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# -&amp;gt; Defines ${MACHINE}-specific configuration files FSTAB, wks, etc. Would be elaborated on further down.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;QB_KERNEL_CMDLINE_APPEND&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;net.ifnames=0 panic=5 ip=dhcp ip=192.168.7.2::192.168.7.1:255.255.255.0::eth0:off rootwait&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# -&amp;gt; QEMU-specific kernel command line with which all images/partitions are booted&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The only &lt;strong&gt;required&lt;/strong&gt; contents of your distro-config file are the following (all other includes and distro features are optional):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# in the main leda.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;distro_name&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# should be the same as the &amp;lt;distro_name&amp;gt;.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;long_distro_name&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO_VERSION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;version&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO_CODENAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;distro_codename&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# imported with require conf/distro/include/leda-distro-features.inc in Leda Quickstart&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DISTRO_FEATURES:append &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; virtualization&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# required for containerd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DISTRO_FEATURES:append &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; sdv&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# required by the sdv-packagegroups&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DISTRO_FEATURES:append &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; rauc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# required for the rauc integration&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;machine-specific-configs&#34;&gt;Machine-specific configs&lt;/h3&gt;
+&lt;p&gt;The &amp;ldquo;extra&amp;rdquo; machine specific-configs the meta-leda-bsp layer provides can be found here: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/conf/machine&#34;&gt;meta-leda-bsp/conf/machine&lt;/a&gt;. These files here provide examples on how to configure machine specific options such as the Linux Kernel image type, bootloader configuration, etc. E.g. if you need a working example of how to set up U-Boot for your machine, you might reference &lt;code&gt;common-qemu-arm.inc&lt;/code&gt; since the Leda quickstart QEMUARM (64bit and 32bit) images use U-Boot as a bootloader.&lt;/p&gt;
+&lt;h2 id=&#34;partitioning-your-storage&#34;&gt;Partitioning your storage&lt;/h2&gt;
+&lt;p&gt;The Leda quickstart image uses RAUC as a way to do A/B partition type updates. We also add a third &amp;ldquo;rescue&amp;rdquo; partition and a persistent &amp;ldquo;data&amp;rdquo; partition. Generally, the Leda quickstart image partitions its storage as so:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ----------------------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|            |             |             |             |             |             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|            |             |             |             |             |             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|    VFAT    |    NO-FS    |    EXT4     |    EXT4     |    EXT4     |    EXT4     |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|   (BOOT)   |  (GRUBENV)  |   (RESCUE)  |   (SDV_A)   |   (SDV_B)   |   (DATA)    |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|            |             |             |             |             |             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|            |             |             |             |             |             |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ----------------------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where the partitions &lt;strong&gt;SDV_A&lt;/strong&gt; and &lt;strong&gt;SDV_B&lt;/strong&gt; are managed/updated by RAUC. They are read-only (&lt;strong&gt;SDV_A&lt;/strong&gt; has the &lt;em&gt;sdv-image-full&lt;/em&gt; image installed, &lt;strong&gt;SDV_B&lt;/strong&gt; - &lt;em&gt;sdv-image-minimal&lt;/em&gt;). All container/user data is in the last &lt;strong&gt;DATA&lt;/strong&gt; partition (grows dynamically to fill out the storage). The boot partition contains the U-Boot/Grub bootloaders and their environment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GRUBENV&lt;/strong&gt; is reserved for future boot-partition updates and saving the GRUB/U-Boot environment. Currently &lt;em&gt;unused&lt;/em&gt; in the Leda quickstart image.&lt;/p&gt;
+&lt;p&gt;In the &lt;strong&gt;RESCUE&lt;/strong&gt; partition the &lt;em&gt;sdv-image-rescue&lt;/em&gt; image is installed, which is a &amp;ldquo;fallback&amp;rdquo; image for recovering the system if both partitions &lt;strong&gt;SDV_A&lt;/strong&gt; and &lt;strong&gt;SDV_B&lt;/strong&gt; get corrupted.&lt;/p&gt;
+&lt;p&gt;This partition scheme has to be seen, as of course, a &lt;em&gt;suggestion&lt;/em&gt; (you are free to use any RAUC-compatible one) but is important for understanding the later sections on this page.&lt;/p&gt;
+&lt;h2 id=&#34;wicwks&#34;&gt;WIC/WKS&lt;/h2&gt;
+&lt;p&gt;To partition your storage you will need to define your custom &lt;strong&gt;.wks&lt;/strong&gt;-file that defines the partition table type, the bootloader, and the order and size of partitions.&lt;/p&gt;
+&lt;p&gt;More details on OpenEmbedded Kickstart files can be found in the official documentation for Yocto: &lt;a href=&#34;https://docs.yoctoproject.org/ref-manual/kickstart.html&#34;&gt;OpenEmbedded Kickstart (.wks) Reference&lt;/a&gt;. In short, &lt;strong&gt;.wks&lt;/strong&gt;-files provide a reproducible way to partition your storage.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;IMPORTANT: the path to your &lt;strong&gt;.wks&lt;/strong&gt;-file should be provided via the &lt;strong&gt;WKS_FILES=&lt;/strong&gt; BitBake variable. For example, in the quickstart image for QEMUARM64 this variable is set in &lt;code&gt;qemuarm64-extra.conf&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Again, example &lt;strong&gt;.wks/.wks.in&lt;/strong&gt; files are provided in &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-distro/wic&#34;&gt;meta-leda/meta-leda-distro/wic&lt;/a&gt;. We will now take a look at the qemuarm64 &lt;strong&gt;.wks&lt;/strong&gt;-file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bootloader --ptable gpt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --source bootimg-partition --ondisk vda --fstype=vfat --label BOOT --active --align 4096 --size 100 --use-uuid
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Second Bootloader Partition (empty, for future updates)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --fixed-size 10M --ondisk vda --align 4096 --no-table
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Empty partition (on x86, this is grubenv - we store RAUC Status here as well)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --fixed-size 10M --ondisk vda --align 4096
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --source rootfs --rootfs-dir=sdv-image-rescue --ondisk vda --fstype=ext4 --label rescue --align 1024
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --source rootfs --rootfs-dir=sdv-image-full --ondisk vda --fstype=ext4 --label root_a --align 4096
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --source rootfs --rootfs-dir=sdv-image-minimal  --ondisk vda --fstype=ext4 --label root_b --align 4096
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;part --fixed-size 2048M --source rootfs --rootfs-dir=sdv-image-data --ondisk vda --fstype=ext4 --label data --align 4096
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see it directly implements the partition scheme described above. The partition table type is defined with the &lt;code&gt;bootloader --ptable gpt&lt;/code&gt; line and every line after that corresponds to a partition from the diagram above.
+Please note, that the order in which the &lt;code&gt;part&lt;/code&gt; lines in the &lt;strong&gt;.wks&lt;/strong&gt;-file appear would be the order of the partitions.&lt;/p&gt;
+&lt;p&gt;Here it is important to note that for the VFAT boot partition the label should be uppercase and you should add the &lt;code&gt;--use-uuid&lt;/code&gt; option. Otherwise, it might not be mounted properly in the final Linux distro.&lt;/p&gt;
+&lt;h2 id=&#34;fstab&#34;&gt;FSTAB&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;.wks&lt;/strong&gt;-files partition your storage, define partition tables, filesystem types and install images, but do nothing about actually mounting said partitions in the Linux userspace. This is the job of the FSTAB file. More information about writing a FSTAB file can be found in the &lt;a href=&#34;https://man7.org/linux/man-pages/man5/fstab.5.html&#34;&gt;Linux FSTAB manpage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;FSTAB files are installed through the OE-core recipe &lt;code&gt;base-files_&amp;lt;version&amp;gt;.bb&lt;/code&gt;. To install a custom FSTAB in your image create a &lt;code&gt;recipes-core/base-files&lt;/code&gt; directory in your container meta-layer and create a &lt;code&gt;base-files_%.bbappend&lt;/code&gt; inside.
+Use this &lt;em&gt;.bbappend&lt;/em&gt; to prepend the directory containing your custom FSTAB to the &lt;code&gt;FILESEXTRAPATHS&lt;/code&gt; list for that recipe.&lt;/p&gt;
+&lt;p&gt;An example can be found in &lt;code&gt;meta-leda/meta-leda-distro/recipes-core/base-files/&lt;/code&gt; where you would find the needed &lt;code&gt;.bbappend&lt;/code&gt; file and the &lt;code&gt;meta-leda/meta-leda-distro/recipes-core/base-files/base-files/&amp;lt;machine&amp;gt;&lt;/code&gt; directory containing the actual FSTAB files.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s investigate the Leda &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-distro/recipes-core/base-files/base-files/qemuarm64/fstab&#34;&gt;qemuarm64 FSTAB&lt;/a&gt; as an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Eclipse Leda - fstab for qemuarm64 RAUC redundant boot setup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/root            /                    auto       defaults,noatime              1  1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proc                 /proc                proc       defaults              0  0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;devpts               /dev/pts             devpts     mode=0620,ptmxmode=0666,gid=5      0  0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,strictatime 0  0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tmpfs                /var/volatile        tmpfs      defaults              0  0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Add mount for boot, grubenv and data partition
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LABEL=BOOT           /boot                vfat       defaults,nofail,noatime  0  0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LABEL=grubenv        /grubenv             auto       defaults,nofail,noatime  0  0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LABEL=data           /data                auto       defaults,nofail,noatime  0  2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here only the BOOT, grubenv, and data partitions are mounted by label.&lt;/p&gt;
+&lt;p&gt;The root partition depends on the image (sdv-image-full/minimal/rescue) that has been currently booted. Here /dev/root is a &amp;ldquo;special variable&amp;rdquo; that is set from the &lt;code&gt;root=&lt;/code&gt; option in the kernel command line. This is important to be able
+to boot from the different partitions via a custom bootloader script (and as a consequence these partitions are to be managed by RAUC).&lt;/p&gt;
+&lt;h2 id=&#34;integrating-rauc&#34;&gt;Integrating RAUC&lt;/h2&gt;
+&lt;p&gt;Whether you are using GRUB or U-Boot, integrating RAUC requires custom bootloader scripting. The official documentation for integrating RAUC can be found here: &lt;a href=&#34;https://rauc.readthedocs.io/en/latest/integration.html&#34;&gt;6. Integration&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This documentation can, however, be quite complicated. Concise, self-contained examples for proper integration of the most popular targets can be found in the &lt;a href=&#34;https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-qemux86&#34;&gt;meta-rauc-community&lt;/a&gt; repository.&lt;/p&gt;
+&lt;h3 id=&#34;the-rauc-system-config-file&#34;&gt;The RAUC system config file&lt;/h3&gt;
+&lt;p&gt;Irrespective of your bootloader, you need to provide a RAUC system.conf file describing the slots, the bootloader, certificates, etc. This is best explained via an example: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf&#34;&gt;meta-leda/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;grub&#34;&gt;GRUB&lt;/h3&gt;
+&lt;p&gt;The only Leda quickstart image that uses GRUB as a bootloader is for qemux86_64. It directly uses the &lt;a href=&#34;https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-qemux86&#34;&gt;meta-rauc-community/meta-rauc-qemux86/&lt;/a&gt; meta-layer.&lt;/p&gt;
+&lt;h3 id=&#34;u-boot&#34;&gt;U-Boot&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Note: The following sub-sections are based on the official &lt;a href=&#34;https://source.denx.de/u-boot/u-boot&#34;&gt;U-Boot source&lt;/a&gt; which the OE recipes use. Your BSP may provide another hardware-specific fork of U-Boot that may or may not be entirely compatible with this integration guide. (e.g. fw_utils not being available)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The rpi4-64 target, similar to qemux86_64, directly uses &lt;a href=&#34;https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi&#34;&gt;meta-rauc-community/meta-rauc-raspberrypi&lt;/a&gt; which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot-based targets is not available and has to be manually created. That is why, &lt;a href=&#34;https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi&#34;&gt;meta-rauc-community/meta-rauc-sunxi&lt;/a&gt; might provide a better example in a more general case.&lt;/p&gt;
+&lt;p&gt;The Leda quickstart images that use U-boot as a bootloader are based on the ideas in &lt;code&gt;meta-rauc-sunxi&lt;/code&gt;. We will now go into more detail on how to integrate such a U-Boot target that requires a more &amp;ldquo;from-scratch&amp;rdquo; integration.&lt;/p&gt;
+&lt;h4 id=&#34;the-u-boot-environment-and-slot-counting&#34;&gt;The U-Boot environment and &amp;ldquo;slot-counting&amp;rdquo;&lt;/h4&gt;
+&lt;p&gt;RAUC &amp;ldquo;talks&amp;rdquo; to the bootloader and tracks how many times you have tried to boot a slot via the &lt;strong&gt;bootloader&lt;/strong&gt; environment variables &amp;ldquo;BOOT_ORDER&amp;rdquo; and &amp;ldquo;BOOT_&amp;lt;SLOT_NAME&amp;gt;_LEFT&amp;rdquo;. Thus, U-Boot should be able to save its environment in a file
+(&lt;code&gt;uboot.env&lt;/code&gt;) somewhere that can be read by RAUC from userspace (the booted Linux image). This can be the VFAT BOOT partition, a flash chip, EEPROM, etc. which can be mounted in userspace and read by RAUC.&lt;/p&gt;
+&lt;p&gt;Note that while most of the steps for each of these storage options are the same, they might need some specific configuration. For example, the build for the Leda Quickstart QEMUARM64 patches the U-Boot defconfig file to point U-Boot to save its environment in the VFAT BOOT partition &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm64/env_in_fat_qemuarm.patch&#34;&gt;env_in_fat_qemuarm.patch&lt;/a&gt;. You can instead directly provide a custom defconfig in your machine-specific config (ref: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/conf/machine/qemuarm64-extra.conf#L8&#34;&gt;qemuarm64-extra.conf&lt;/a&gt;).&lt;/p&gt;
+&lt;h4 id=&#34;uboot_bbappend&#34;&gt;uboot_%.bbappend&lt;/h4&gt;
+&lt;p&gt;After ensuring that the device containing the U-Boot environment is correctly mounted in userspace (e.g. the BOOT partition as /boot). Create a custom &lt;code&gt;uboot_%.bbappend&lt;/code&gt; file and as an example, you can use &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm64.inc&#34;&gt;meta-leda/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm64.inc&lt;/a&gt;. This .bbappend should, generally do two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Take your custom &lt;code&gt;boot.cmd.in&lt;/code&gt; script and compile it to a boot.scr  (or boot.scr.uimg) file with mkimage.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the &lt;code&gt;fw_env.config&lt;/code&gt; file in /etc/fw_env.config.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional: Apply any patches, custom settings, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Note: if you are building for more than one U-Boot-based target extensive use of machine-specific overrides is recommended.&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;custom-bootscr&#34;&gt;Custom boot.scr&lt;/h4&gt;
+&lt;p&gt;If a custom boot.scr that was compiled with the &lt;em&gt;mkimage&lt;/em&gt; tool is in the same partition as the U-Boot binary, U-Boot will run that on boot. This is the point of integration of RAUC and U-Boot. All concepts behind setting up such a script are explained in the &lt;a href=&#34;https://github.com/rauc/rauc/blob/8216e0df6c716a87406df676295af94b77814e5e/docs/integration.rst#id27&#34;&gt;rauc documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Generally, as a starting point, you can use one of the custom scripts in meta-rauc-community or those in meta-leda: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm64/boot.cmd.in&#34;&gt;meta-leda/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm64/boot.cmd.in&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT: Be consistent with your slot names!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As it can be seen in the examples, after the &amp;ldquo;slot retries counting&amp;rdquo; part of the script is done, the &lt;code&gt;root=&lt;/code&gt; and &lt;code&gt;rauc.slot=&lt;/code&gt; kernel command line arguments are set, the U-Boot environment is saved in the VFAT boot partition as uboot.env and the selected image is booted.&lt;/p&gt;
+&lt;p&gt;Then, from userspace RAUC reads the kernel command line (/proc/cmdline) and the uboot.env (through the fw_printenv/fw_setenv utilities) and decides (based on that) whether a slot is &amp;ldquo;&lt;span class=&#34;-text-green&#34;&gt;Good&lt;/span&gt;&amp;rdquo; or &amp;ldquo;&lt;span class=&#34;-text-red&#34;&gt;Bad&lt;/span&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h4 id=&#34;fw_envconfig&#34;&gt;fw_env.config&lt;/h4&gt;
+&lt;p&gt;For RAUC to be able to read and modify the U-Boot environment from userspace, it needs the fw_printenv/fw_setenv utilities to be installed in the distro. This can be done by installing the packages: &lt;code&gt;&amp;quot;u-boot-fw-utils u-boot-env libubootenv&amp;quot;&lt;/code&gt; through IMAGE_INSTALL or RDEPENDS in a recipe.&lt;/p&gt;
+&lt;p&gt;This, however, is not enough since these utilities, in turn, have to be configured to know where U-Boot stores its environment. This is done through the /etc/fw_env.config file. An example of such a file with all of its different variations can be seen here &lt;a href=&#34;https://github.com/ARM-software/u-boot/blob/master/tools/env/fw_env.config&#34;&gt;fw_env.config&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The one for Leda quickstart contains a single line:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/boot/uboot.env 0x0000  0x4000
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you are unsure of the environment size and the device offset, check the defconfig file for your machine, where these two values should be specified as U-Boot compile-time configuration parameters.&lt;/p&gt;
+&lt;h4 id=&#34;conclusion-u-boot---rauc-integration-checklist&#34;&gt;Conclusion (U-Boot &amp;lt;-&amp;gt; RAUC integration checklist)&lt;/h4&gt;
+&lt;p&gt;Given the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;You have setup U-Boot to save its environment in a known place (device, partition, etc).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This device storing the U-Boot environment is mounted in userspace.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You have provided a custom boot-script that does the RAUC slot counting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You have installed fw_printenv/fw_setenv and properly setup the /etc/fw_env.config file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The RAUC mark-good-service should successfully go through and mark both RAUC slots as &amp;ldquo;&lt;span class=&#34;-text-green&#34;&gt;GOOD&lt;/span&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;final-steps---building-and-flashing&#34;&gt;Final steps - building and flashing&lt;/h2&gt;
+&lt;p&gt;Build:&lt;/p&gt;
+&lt;p&gt;Run &lt;code&gt;kas build&lt;/code&gt; in the root of your repository and wait for the build to finish successfully. If any BitBake errors occur during the build process, you need to fix them before a final flashable image can be built.&lt;/p&gt;
+&lt;p&gt;Flash:&lt;/p&gt;
+&lt;p&gt;Obtain the &lt;code&gt;image-name.wic.bz2&lt;/code&gt; and &lt;code&gt;image-name.wic.bmap&lt;/code&gt; files from the &lt;code&gt;tmp/deploy/images&lt;/code&gt; directory. Mount your storage and use bmaptool to quickly flash the built image. More information on flashing can be found in the &lt;a href=&#34;../../general-usage/raspberry-pi/&#34;&gt;Running on Raspberry Pi&lt;/a&gt; section of this documentation.&lt;/p&gt;
+&lt;p&gt;If everything works as intended you should see in the U-Boot output that it found &lt;code&gt;/boot.scr&lt;/code&gt; and started executing it. This should lead to a successful boot of your custom Linux distro image with the RAUC-mark-good.service being marked as [&lt;span class=&#34;-text-green&#34;&gt;OK&lt;/span&gt;] in the systemd logs (if your distro uses systemd).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Deploying Containers</title>
+      <link>https://eclipse-leda.github.io/leda/docs/customization/deploying-containers/</link>
+      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/customization/deploying-containers/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;kanto-container-management-kanto-cm-init-dir&#34;&gt;Kanto Container Management (kanto-cm) init-dir&lt;/h2&gt;
+&lt;p&gt;Kanto-cm provides a mechanism to automatically deploy containers based on json-manifests stored in a so-called &lt;code&gt;init_dir&lt;/code&gt; on boot. The template can be found in the kanto-cm documentation: &lt;a href=&#34;https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/#template&#34;&gt;Template&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A &amp;ldquo;filled in&amp;rdquo; template can be found in meta-leda (e.g. meta &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/2cb683a9606c01a73fc4f4d01df92a23a2cd2b9c/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core/databroker.json&#34;&gt;meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core/databroker.json&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;The directory for these manifests is set during image build time through the BitBake variable &lt;code&gt;KANTO_MANIFESTS_DIR&lt;/code&gt;. By default, the Leda Quickstart image sets this directory to &lt;code&gt;/data/var/containers/manifests&lt;/code&gt;. Since this is a directory mounted on the persistent &lt;strong&gt;data&lt;/strong&gt;-partition you can add custom manifests/customize the default ones after an image has been built. These changes &lt;strong&gt;will not be affected&lt;/strong&gt; by a RAUC update.&lt;/p&gt;
+&lt;p&gt;A standard set of containers is deployed with meta-leda, the manifests for which can be found in &lt;code&gt;meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core&lt;/code&gt; and &lt;code&gt;meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important: The manifests in the kanto-cm init-dir are checked only &lt;em&gt;ONCE&lt;/em&gt;  - on service start-up. If you add/change a manifest you would need to restart the whole &amp;ldquo;container-management&amp;rdquo; service for your changes to take effect.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kanto-auto-deployer&#34;&gt;Kanto-auto-deployer&lt;/h2&gt;
+&lt;p&gt;This service has been implemented as a stopgap solution by the Leda team before the kanto-cm init-dir mechanism was implemented by the Kanto team. In-depth documentation on its operation and development can be found in the &lt;a href=&#34;../../build/dev-and-maintenance/rust/kanto-auto-deployer&#34;&gt;Kanto Auto deployer&lt;/a&gt;. This runs as a one-shot service on boot and checks the directory defined in the BitBake variable &lt;code&gt;KANTO_MANIFESTS_DEV_DIR&lt;/code&gt; in the distro config recipes. By default, the Leda quickstart images use &lt;code&gt;KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests_dev&amp;quot;&lt;/code&gt;. So, these manifest are again stored in the persistent &lt;strong&gt;data&lt;/strong&gt;-partition and can be modified after the image has been deployed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important: the &lt;a href=&#34;../../build/dev-and-maintenance/rust/kanto-auto-deployer#manifest-structure&#34;&gt;manifest template&lt;/a&gt; used for this service is similar to the one for the kanto-cm native mechanism, but is, in fact, different. Kanto-auto-deployer uses the kanto-cm internal state representation.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A standard set of &lt;em&gt;dev&lt;/em&gt;-containers is deployed with meta-leda, the manifests for which can be found in &lt;code&gt;meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core_dev&lt;/code&gt; and &lt;code&gt;meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example_dev/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The advantage of this service is that it can be restarted very quickly (&lt;code&gt;systemctl restart kanto-auto-deployer&lt;/code&gt;), without having to restart the &lt;em&gt;whole&lt;/em&gt; container-management service. This allows for rapid testing when deploying a new container. Due to the similarity of both manifests, the kanto-auto-deployer-style manifest can later be easily migrated to the kanto ini-dir style-one.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -4,8 +4,6 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.98.0" />
-<link rel="alternate" type="text/html" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/_print/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/index.xml">
 <meta name="robots" content="index, follow">
 
 
@@ -20,17 +18,30 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Rust Utils | Eclipse Leda Documentation</title>
-<meta name="description" content="">
-<meta property="og:title" content="Rust Utils" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/" />
+<title>Kanto Auto deployer | Eclipse Leda Documentation</title>
+<meta name="description" content="TLDR: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the kanto-containers directory and re-build.
+Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&amp;rsquo; automated deployment of k8s-manifests found in the /var/lib/rancher/k3s/server/manifests directory.
+This can be worked around via a bash script for each container that runs on boot and makes sure it&amp;rsquo;s deployed.">
+<meta property="og:title" content="Kanto Auto deployer" />
+<meta property="og:description" content="TLDR: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the kanto-containers directory and re-build.
+Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the /var/lib/rancher/k3s/server/manifests directory.
+This can be worked around via a bash script for each container that runs on boot and makes sure it&rsquo;s deployed." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-01-03T17:24:56+05:30" />
+<meta property="article:modified_time" content="2023-01-31T16:26:28+01:00" />
 
-<meta itemprop="name" content="Rust Utils">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Rust Utils"/>
-<meta name="twitter:description" content=""/>
+<meta itemprop="name" content="Kanto Auto deployer">
+<meta itemprop="description" content="TLDR: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the kanto-containers directory and re-build.
+Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the /var/lib/rancher/k3s/server/manifests directory.
+This can be worked around via a bash script for each container that runs on boot and makes sure it&rsquo;s deployed."><meta itemprop="datePublished" content="2023-01-03T17:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-01-31T16:26:28+01:00" />
+<meta itemprop="wordCount" content="486">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kanto Auto deployer"/>
+<meta name="twitter:description" content="TLDR: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the kanto-containers directory and re-build.
+Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the /var/lib/rancher/k3s/server/manifests directory.
+This can be worked around via a bash script for each container that runs on boot and makes sure it&rsquo;s deployed."/>
 
 
 
@@ -48,7 +59,7 @@
   crossorigin="anonymous"></script>
 
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
   <a class="navbar-brand" href="/leda/"><span class="navbar-brand__logo navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="30 270 300 300" id="svg2"><defs id="defs6"><clipPath id="clipPath24" clipPathUnits="userSpaceOnUse"><path id="path22" d="m5116.71 2737.03v81.36c0 51.02 13.61 71.72 55.28 74.55h288.29v-182.27c-4.26-34.29-16.73-48.19-55.28-48.19h-226.21c-47.05.0-62.08 20.69-62.08 74.55zm-139.46 17.86c0-128.41 84.19-198.71 222.24-198.71h42.8c107.43.0 184.82 2.84 217.99 84.19v-84.19h137.76v534.05c0 128.13-97.8 198.71-235.85 198.71H5051.8v-106.3h360c36 0 48.48-23.52 48.48-60.66v-122.74h-260.79c-138.05.0-222.24-70.59-222.24-198.71zm-332.5-44.22c-3.97-34.29-16.44-48.19-55-48.19h-225.07c-46.76.0-62.08 20.69-62.08 74.55v371.06c0 51.03 13.9 71.71 55.28 74.55h231.87c41.39-2.84 55-23.52 55-74.55zm139.46 854.08h-138.04v-360c-33.17 81.36-110.28 84.19-217.99 84.19h-42.8c-137.77.0-221.96-70.58-221.96-198.71v-335.34c0-128.41 84.19-198.71 221.96-198.71h42.8c107.71.0 184.82 2.84 217.99 84.19v-84.19h138.04zm-925.8-587.62h-362.83v144.85c0 28.91 12.47 60.66 48.2 60.66h266.45c35.71.0 48.18-31.75 48.18-60.66zm139.47-106.3v219.4c0 128.13-98.08 198.71-236.13 198.71h-169.51c-138.04.0-235.84-70.58-235.84-198.71v-335.34c0-128.41 97.8-198.71 235.84-198.71h405.64v106.3h-454.1c-35.73.0-48.2 23.54-48.2 60.66v147.69zM2642.92 2556.18h630.71v117.36h-483.02v794.55h-147.69z"/></clipPath><linearGradient id="linearGradient34" spreadMethod="pad" gradientTransform="matrix(2955.12,0,0,-2955.12,2642.92,3060.47)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop26" offset="0" style="stop-opacity:1;stop-color:#77add1"/><stop id="stop28" offset=".189014" style="stop-opacity:1;stop-color:#64c6ee"/><stop id="stop30" offset=".994475" style="stop-opacity:1;stop-color:#7b3199"/><stop id="stop32" offset="1" style="stop-opacity:1;stop-color:#7b3199"/></linearGradient><linearGradient id="linearGradient44" spreadMethod="pad" gradientTransform="matrix(1875.15,0,0,-1875.15,364.686,2981.28)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop38" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop40" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop42" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient><clipPath id="clipPath54" clipPathUnits="userSpaceOnUse"><path id="path52" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31z"/></clipPath><linearGradient id="linearGradient70" spreadMethod="pad" gradientTransform="matrix(1417.96,0,0,-1417.96,477.178,2901.88)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop56" offset="0" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop58" offset=".11811164" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop60" offset=".509456" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop62" offset=".76356415" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop64" offset=".994475" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop66" offset=".99510668" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop68" offset="1" style="stop-opacity:1;stop-color:#4e9133"/></linearGradient><linearGradient id="linearGradient80" spreadMethod="pad" gradientTransform="matrix(942.78,0,0,-942.78,720.659,3019.8)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop74" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop76" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop78" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,795.04)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path46" style="fill:url(#linearGradient44);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m462.512 2989.03c1.133-223.65 47.902-452.13 142.867-685.13 24.66-60.94 67.465-109.13 120.187-139.47 52.727-30.61 115.657-43.93 180.852-35.14 236.122 32.03 453.262 104.03 650.552 218.55 193.89 112.53 368.79 266.17 523.27 463.18 41.11 52.15 61.8 113.67 61.8 174.9.28 61.51-20.13 123.02-60.95 175.18-145.7 186.8-317.19 337.89-515.62 450.99-194.74 110.83-415.84 185.1-665.005 220.82-65.481 9.36-128.692-3.4-181.699-33.74C665.758 3768.85 622.672 3720.94 597.441 3660c-90.14-219.4-136.062-443.06-134.929-670.97zm51.875-721.98c-99.5 244.06-148.535 484.73-149.668 721.42-1.418 241.23 47.054 477.63 142.297 708.66 33.73 81.92 91.843 146.27 163.273 187.08 71.719 40.82 156.473 58.11 244.066 45.64 261.355-37.13 494.075-115.65 699.595-232.72 209.76-119.34 390.61-278.65 544.25-475.66 54.71-70.01 81.92-152.78 81.63-235.55.0-83.06-27.49-165.83-82.2-235.56-162.42-206.65-346.68-368.5-551.62-487.27-208.35-121.05-437.67-197.02-686.549-230.75-87.313-11.9-171.785 5.95-242.934 47.05-71.433 41.39-128.976 106.02-162.14 187.66v0"/><g id="g48"><g clip-path="url(#clipPath54)" id="g50"><path id="path72" style="fill:url(#linearGradient70);fill-opacity:1;fill-rule:nonzero;stroke:none" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31v0"/></g></g><path id="path82" style="fill:url(#linearGradient80);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m935.898 3147.21c-54.71-85.89-93.543-185.38-115.085-298.77-4.821-24.94-1.418-49.33 9.07-69.74 10.207-20.69 27.496-37.98 49.605-48.75 97.508-46.78 197.292-73.42 300.192-78.81 101.19-5.1 205.51 9.92 312.94 46.78 23.81 8.21 42.81 23.53 55.56 42.8 12.48 19.56 18.71 43.37 16.44 68.88-9.07 108.28-36.57 208.92-83.9 301.61-46.49 91.28-111.97 175.18-197.58 251.15-18.71 16.44-41.1 25.51-63.78 26.93-22.67 1.13-45.92-5.11-66.33-19.28-88.72-61.51-161.292-135.78-217.132-222.8zM724.434 2866.87c24.093 125.28 67.461 236.12 128.976 332.78 63.211 98.93 144.563 182.27 243.5 250.87 38.83 27.21 83.9 39.11 128.12 36.56 44.22-2.55 87.31-19.84 123.03-51.59 95.24-84.47 168.37-178.01 220.25-279.78 53-104.31 84.19-217.14 94.39-337.89 3.97-47.61-8.22-92.98-32.6-130.39-24.09-37.42-60.66-66.9-105.45-82.21-119.34-41.1-236.12-57.83-349.79-51.87-115.94 6.24-228.473 36-337.325 88.44-42.805 20.41-75.398 53.29-95.242 92.98-19.848 39.68-26.648 85.6-17.859 132.1v0"/></g></g></svg></span><span class="navbar-brand__name">Eclipse Leda Documentation</span></a>
@@ -69,7 +80,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -94,7 +105,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -252,8 +263,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuild-li">
-  <input type="checkbox" id="m-ledadocsbuild-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsbuild-li">
+  <input type="checkbox" id="m-ledadocsbuild-check" checked/>
   <label for="m-ledadocsbuild-check"><a href="/leda/docs/build/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuild"><span class="">Building Leda</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -337,43 +348,58 @@
   
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsbuilddev-and-maintenance-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenance-check" checked/>
+  <label for="m-ledadocsbuilddev-and-maintenance-check"><a href="/leda/docs/build/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsbuilddev-and-maintenancerust-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerust-check" checked/>
+  <label for="m-ledadocsbuilddev-and-maintenancerust-check"><a href="/leda/docs/build/dev-and-maintenance/rust/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddev-and-maintenancerust"><span class="">Rust Utils</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc-check"><a href="/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc"><span class="">Communicating with Кanto-CM via gRPC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer-check" checked/>
+  <label for="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer-check"><a href="/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer"><span class="td-sidebar-nav-active-item">Kanto Auto deployer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenancerustkantui-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerustkantui-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenancerustkantui-check"><a href="/leda/docs/build/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
+  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsdev-and-maintenance-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenance-check" checked/>
-  <label for="m-ledadocsdev-and-maintenance-check"><a href="/leda/docs/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddev-and-maintenanceshell-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenanceshell-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenanceshell-check"><a href="/leda/docs/build/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenanceshellsdv-health-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenanceshellsdv-health-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/build/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocscustomization-li">
+  <input type="checkbox" id="m-ledadocscustomization-check"/>
+  <label for="m-ledadocscustomization-check"><a href="/leda/docs/customization/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomization"><span class="">Customizing</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsdev-and-maintenancerust-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerust-check" checked/>
-  <label for="m-ledadocsdev-and-maintenancerust-check"><a href="/leda/docs/dev-and-maintenance/rust/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancerust"><span class="td-sidebar-nav-active-item">Rust Utils</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocscustomizationcustom-images-li">
+  <input type="checkbox" id="m-ledadocscustomizationcustom-images-check"/>
+  <label for="m-ledadocscustomizationcustom-images-check"><a href="/leda/docs/customization/custom-images/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationcustom-images"><span class="">Custom Distros</span></a></label>
   
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc-check"/>
-  <label for="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc-check"><a href="/leda/docs/dev-and-maintenance/rust/notes-on-kanto-grpc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc"><span class="">Communicating with Кanto-CM via gRPC</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocscustomizationdeploying-containers-li">
+  <input type="checkbox" id="m-ledadocscustomizationdeploying-containers-check"/>
+  <label for="m-ledadocscustomizationdeploying-containers-check"><a href="/leda/docs/customization/deploying-containers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationdeploying-containers"><span class="">Deploying Containers</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkanto-auto-deployer-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkanto-auto-deployer-check"/>
-  <label for="m-ledadocsdev-and-maintenancerustkanto-auto-deployer-check"><a href="/leda/docs/dev-and-maintenance/rust/kanto-auto-deployer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkanto-auto-deployer"><span class="">Kanto Auto deployer</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkantui-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkantui-check"/>
-  <label for="m-ledadocsdev-and-maintenancerustkantui-check"><a href="/leda/docs/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenanceshell-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshell-check"/>
-  <label for="m-ledadocsdev-and-maintenanceshell-check"><a href="/leda/docs/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenanceshellsdv-health-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshellsdv-health-check"/>
-  <label for="m-ledadocsdev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
-  
-</li>
-  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsproject-info-li">
@@ -422,11 +448,19 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
-            
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#manifest-structure">Manifest structure</a></li>
+    <li><a href="#container-deployment-in-leda">Container deployment in Leda</a></li>
+  </ul>
+</nav>
+      </div>
+    
             
 
 	
@@ -466,17 +500,23 @@
     <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/">Developing and Maintaining Utils</a>
+    <a href="https://eclipse-leda.github.io/leda/docs/build/">Building Leda</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/">Developing and Maintaining Utils</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/">Rust Utils</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/rust/" aria-disabled="true" class="btn-link disabled">Rust Utils</a>
+    <a href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/" aria-disabled="true" class="btn-link disabled">Kanto Auto deployer</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Rust Utils</h1>
-  
+	<h1>Kanto Auto deployer</h1>
+	
 	<header class="article-meta">
 		
 
@@ -493,50 +533,110 @@
   
 
 		
-	</header>
-	
-        <div class="section-index">
-    
-    
-    
-    
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-            <div class="entry">
-                <h5>
-                    <a href="/leda/docs/dev-and-maintenance/rust/notes-on-kanto-grpc/">Communicating with Кanto-CM via gRPC</a>
-                </h5>
-                <p></p>
-            </div>
-        
-            
-            <div class="entry">
-                <h5>
-                    <a href="/leda/docs/dev-and-maintenance/rust/kanto-auto-deployer/">Kanto Auto deployer</a>
-                </h5>
-                <p></p>
-            </div>
-        
-            
-            <div class="entry">
-                <h5>
-                    <a href="/leda/docs/dev-and-maintenance/rust/kantui/">Kantui</a>
-                </h5>
-                <p></p>
-            </div>
-        
-    
-</div>
+	</header>    
+	<p><strong>TLDR</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
+<p>Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the <code>/var/lib/rancher/k3s/server/manifests</code> directory.</p>
+<p>This can be worked around via a bash script for each container that runs on boot and makes sure it&rsquo;s deployed. Even though this approach is functional it is not very structured and would require a lot repeating code.</p>
+<p>That is why the &ldquo;<a href="https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-auto-deployer">Kanto Auto deployer</a>&rdquo; tool was developed. It directly implements the ideas in <a href="../notes-on-kanto-grpc">Communicating with Кanto-CM via gRPC</a>.</p>
+<p>The compiled binary takes a path to a directory containing the json manifests, parses them into Rust structures and sends gRPC requests to kanto container management to deploy these containers.
+If the container is already deployed the manifest is ignored.</p>
+<h2 id="manifest-structure">Manifest structure</h2>
+<p>Kanto auto deployer uses the exact same structure for its manifests as the internal representation of container state in kanto container management. For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val/databroker:0.2.5&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;decrypt_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domain_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;resolv_conf_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hosts_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hostname_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;mounts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hooks&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;devices&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bridge&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restart_policy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;maximum_retry_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;retry_timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;unless-stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;protocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;container_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">55555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_ip&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port_end&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;blocking&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_buffer_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;resources&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;io_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stderr&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stdin&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stdout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;open_stdin&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;stdin_once&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;tty&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;vehicle_data_broker=debug&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;network_settings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;started_at&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;error&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;exit_code&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;finished_at&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;exited&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;dead&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restarting&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;paused&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;running&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;oom_killed&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;created&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;manually_stopped&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;restart_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The only difference to the actual internal state representation is that fields in the manifest can be left empty (<code>&quot;&quot;</code>) if they are not important for the deployment. These values will be filled in with defaults by kanto-cm after deployment.</p>
+<p>For example, you do not need to specify the container &ldquo;id&rdquo; in the manifest, as an unique uuid would be assigned automatically after deployment.</p>
+<h2 id="container-deployment-in-leda">Container deployment in Leda</h2>
+<p>Kanto-auto-deployer runs as a one-shot service on boot that goes through the manifest folder (default: <code>/var/containers/manifests</code>) and deploys required containers.</p>
+<p>The Bitbake recipe for building and installing the auto deployer service can be found at <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-auto-deployer_git.bb">kanto-auto-deployer_git.bb</a>.</p>
+<p>This recipe also takes all manifests in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and installs them in the directory specified by the <code>KANTO_MANIFESTS_DIR</code> BitBake variable (weak default: <code>/var/containers/manifests</code>).</p>
+<p><strong>Important</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
 
 	
 	
 	
 </div>
+
 
           </main>
         </div>

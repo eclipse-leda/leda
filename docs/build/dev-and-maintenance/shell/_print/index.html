@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.98.0" />
-<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/index.xml">
+<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/shell/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/shell/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
 
@@ -25,7 +25,7 @@
 <meta property="og:title" content="Shell Utils" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/shell/" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/shell/" />
 
 <meta itemprop="name" content="Shell Utils">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -93,7 +93,7 @@
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/leda/docs/dev-and-maintenance/shell/">Return to the regular view of this page</a>.
+<a href="/leda/docs/build/dev-and-maintenance/shell/">Return to the regular view of this page</a>.
 </p>
 </div>
 
@@ -116,7 +116,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-3718134a190d46962dc0c33716ea6ed2">sdv-health</a></li>
+<li>1: <a href="#pg-6db933c8beae49618c83597c4bad0cde">sdv-health</a></li>
 
 
     
@@ -147,7 +147,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-3718134a190d46962dc0c33716ea6ed2">1 - sdv-health</h1>
+	<h1 id="pg-6db933c8beae49618c83597c4bad0cde">1 - sdv-health</h1>
     
 	<p>A general utility for monitoring the status of important sdv services/containers/devices.</p>
 <h2 id="checking-the-status-of-kanto-cm-containers">Checking the status of kanto-cm containers</h2>
@@ -190,14 +190,16 @@ This is the multi-page printable view of this section.
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Output:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ID                                   	<span style="color:#000;font-weight:bold">|</span>Name                                 	<span style="color:#000;font-weight:bold">|</span>Image                                                       	<span style="color:#000;font-weight:bold">|</span>Status    	<span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code 	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------	<span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>d0cf1367-996d-4c83-bcc5-37d6acba9966 	<span style="color:#000;font-weight:bold">|</span>feedercan                            	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:04:28.340430098Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f58425b0-9260-4a15-a6fc-5c59f8840839 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f8a716f7-d2c5-4165-a081-407a7acb7643 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-05T11:38:02.0213865Z    <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>627f068a-b9eb-400b-826b-868f6b79e9d8 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:03:58.144873827Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>62ba3e6f-af01-4518-8393-00a5ba553062 	<span style="color:#000;font-weight:bold">|</span>databroker                           	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-07T11:38:28.418199429Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>753a0b10-d72a-4065-8c27-758ed9a77c2d 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID                                      <span style="color:#000;font-weight:bold">|</span>Name                                   <span style="color:#000;font-weight:bold">|</span>Image                                                                                                                          <span style="color:#000;font-weight:bold">|</span>Status         <span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code   <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>-------------------------------------   <span style="color:#000;font-weight:bold">|</span>-------------------------------------  <span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------                                                                   <span style="color:#000;font-weight:bold">|</span>----------     <span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------  <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>d82a406e-80d7-4d2c-8044-3799544fc39a    <span style="color:#000;font-weight:bold">|</span>vum                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager:main-1d8dca55a755c4b3c7bc06eabfa06ad49e068a48    <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>0f079856-767c-4e8d-b4df-a2323392849f    <span style="color:#000;font-weight:bold">|</span>cloudconnector                         <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector:main-47c01227a620a3dbd85b66e177205c06c0f7a52e                 <span style="color:#000;font-weight:bold">|</span>Exited         <span style="color:#000;font-weight:bold">|</span>2023-01-31T11:58:01.564126452Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">1</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>e4cf317e-c2d3-42c7-8f12-8ecf6f9d5d7a    <span style="color:#000;font-weight:bold">|</span>databroker                             <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                                                                                     <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6440a9b6-4fb8-4735-b3de-484286ac705b    <span style="color:#000;font-weight:bold">|</span>feedercan                              <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1                                                                               <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>efbd572b-3331-4f19-9b17-7c69511ec5ca    <span style="color:#000;font-weight:bold">|</span>hvacservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/hvac_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6d9a6f07-1659-4b51-9ddb-6e9ade64f2fd    <span style="color:#000;font-weight:bold">|</span>seatservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>06b0ddf2-7c91-41e4-9a00-4213ee361cdf    <span style="color:#000;font-weight:bold">|</span>sua                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent:build-12                                                 <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
 </span></span></code></pre></div><p>So we use awk to split on pipe (column), strip unecessary tabs. <code>print $2</code> then gives us the container name and <code>print $4</code> - its status.</p>
 <p>sdv-health then proceeds to check if every container specified in the list is available and if its status is <code>Running</code>.</p>
 <p>Note: <code>Exited</code> is considered a fail-state.</p>

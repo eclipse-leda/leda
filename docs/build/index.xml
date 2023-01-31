@@ -451,5 +451,60 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
       </description>
     </item>
     
+    <item>
+      <title>Docs: Developing and Maintaining Utils</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/</link>
+      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Leda teams provides some custom utilities that allow for a more integrated end-user experience. They can be found in the main leda-utils repository on GitHub: &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils&#34;&gt;eclipse-leda/leda-utils&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The following pages are meant to serve as both internal documentation and general guidelines when developing for Leda.&lt;/p&gt;
+&lt;h2 id=&#34;bash&#34;&gt;Bash&lt;/h2&gt;
+&lt;p&gt;Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the &lt;code&gt;#!/bin/sh&lt;/code&gt; shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for &lt;em&gt;&amp;ldquo;bashisms&amp;rdquo;&lt;/em&gt; in your scripts, the
+&lt;code&gt;checkbashisms&lt;/code&gt; tool might be useful.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;shell/&#34;&gt;&lt;strong&gt;Utility-Specific Pages&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base&#34;&gt;meta-leda/meta-leda-components/recipes-sdv/sdv-base&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;rust&#34;&gt;Rust&lt;/h2&gt;
+&lt;p&gt;The current &lt;em&gt;main&lt;/em&gt; branch for leda-distro (and meta-leda) is based on the Kirkstone Yocto/Poky release.&lt;/p&gt;
+&lt;h3 id=&#34;toolchain-version&#34;&gt;Toolchain version&lt;/h3&gt;
+&lt;p&gt;The version of the Rust toolchain available in OE (Kirkstone) is &lt;strong&gt;1.59.0&lt;/strong&gt;. Make sure to target &lt;strong&gt;1.59.0&lt;/strong&gt; (or earlier) when developing Rust-based utils for leda. To set &lt;strong&gt;1.59.0&lt;/strong&gt; as your default Rust version on your development machine:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rustup install 1.59.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rustup default 1.59.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cargo 1.59.0 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;49d8809dc 2022-02-10&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;generating-bitbake-recipes-with-cargo-bitbake&#34;&gt;Generating bitbake recipes with cargo-bitbake&lt;/h3&gt;
+&lt;p&gt;After making sure your toolchain is on version &lt;strong&gt;1.59.0&lt;/strong&gt; go trough a clean build of your Rust binary:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &amp;lt;rust_project_dir&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo clean
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ rm Cargo.lock
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo build --release
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will make sure the Cargo.lock is re-generated with packages matching the Rust version. The &lt;code&gt;cargo.bbclass&lt;/code&gt; on which Rust recipes are based, requires all Rust crates + their version (matching the Cargo.toml) to be specified as a &amp;ldquo;SRC_URI +=&amp;rdquo;. This can become tedious and error-prone if done by hand. That&amp;rsquo;s why meta-rust provides a tool called &lt;code&gt;cargo-bitbake&lt;/code&gt; that generates a minimal recipe with all the crates it finds in the &lt;code&gt;Cargo.lock&lt;/code&gt; files of the project.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo install --locked cargo-bitbake
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &amp;lt;rust_project_dir&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo bitbake
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will generate a recipe in the project root which you can use as a starting point.&lt;/p&gt;
+&lt;p&gt;Example: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kantui_git.bb&#34;&gt;kantui_git.bb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note this recipe will only build your Rust crate. To deploy/install your binary you have to define a &lt;code&gt;.inc&lt;/code&gt; file with the same name as the recipe that would handle the installation.&lt;/p&gt;
+&lt;p&gt;Example: &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kantui.inc&#34;&gt;kantui.inc&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;known-bugs&#34;&gt;Known bugs&lt;/h3&gt;
+&lt;p&gt;The built-in &lt;code&gt;proc_macros&lt;/code&gt; crate is not being imported properly by meta-rust (Kirkstone), thus breaking all library crates that define a proc_macro (&lt;a href=&#34;https://github.com/meta-rust/meta-rust/issues/266&#34;&gt;meta-rust issue 266&lt;/a&gt;). To fix this create a &lt;code&gt;libstd-rs_%.bbappend&lt;/code&gt; file containing the single line:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;S&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;RUSTSRC&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;/library/test&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;meta-leda already provides this fix &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/libstd-rs_%25.bbappend&#34;&gt;here&lt;/a&gt;, so it should not be necessary to implement it again.&lt;/p&gt;
+&lt;h3 id=&#34;fat-link-time-optimization&#34;&gt;&amp;ldquo;Fat&amp;rdquo; Link time optimization&lt;/h3&gt;
+&lt;p&gt;LTO is a nice feature of LLVM that can optimize even through language boundaries at link-time, but leads to longer overall build times. That is why Rust by default uses &amp;ldquo;thin&amp;rdquo; LTO which may result in larger/slower binaries. &amp;ldquo;Fat&amp;rdquo; LTO can be enabled when building release binaries by adding to the &lt;code&gt;Cargo.toml&lt;/code&gt; file the following section:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;profile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;release&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;lto&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For &lt;a href=&#34;rust/kantui&#34;&gt;kantui&lt;/a&gt; this leads to reduction of the final binary size from ~8 MiB to ~5 MiB.&lt;/p&gt;
+&lt;p&gt;More information on profile-optimizations can be found &lt;a href=&#34;https://doc.rust-lang.org/cargo/reference/profiles.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Stripping the debug symbols completely results in further binary size reduction, but BitBake fails with a QA problem when deploying stripped binaries.&lt;/p&gt;
+&lt;h3 id=&#34;rust-based-utilities&#34;&gt;Rust-based utilities&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;rust/&#34;&gt;&lt;strong&gt;Utility-Specific Pages&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

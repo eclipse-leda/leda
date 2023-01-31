@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.98.0" />
-<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/index.xml">
+<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
 
@@ -25,7 +25,7 @@
 <meta property="og:title" content="Developing and Maintaining Utils" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/dev-and-maintenance/" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/" />
 
 <meta itemprop="name" content="Developing and Maintaining Utils">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -93,7 +93,7 @@
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/leda/docs/dev-and-maintenance/">Return to the regular view of this page</a>.
+<a href="/leda/docs/build/dev-and-maintenance/">Return to the regular view of this page</a>.
 </p>
 </div>
 
@@ -116,7 +116,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-7336068403919c0ccab181152f90f9f3">Rust Utils</a></li>
+<li>1: <a href="#pg-d807daac010fe21775fe6dc4f7bef15d">Rust Utils</a></li>
 
 
     
@@ -131,7 +131,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.1: <a href="#pg-33f91b2fc89ef97025af47753b1ed937">Communicating with Кanto-CM via gRPC</a></li>
+<li>1.1: <a href="#pg-a15bf08ceb9050ab919c4dd1e39f4581">Communicating with Кanto-CM via gRPC</a></li>
 
 
     
@@ -139,7 +139,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.2: <a href="#pg-ac02ac8b874bcee4f06abc9b58783bab">Kanto Auto deployer</a></li>
+<li>1.2: <a href="#pg-4ceae03484d6716691789648aa48571f">Kanto Auto deployer</a></li>
 
 
     
@@ -147,7 +147,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.3: <a href="#pg-9feb9c069ad717170d570f2dd4dafaf8">Kantui</a></li>
+<li>1.3: <a href="#pg-1a1d75c926eacba3c473eb373af6186f">Kantui</a></li>
 
 
     
@@ -159,7 +159,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-7780f06c6a43df6e5abead0e9f39460b">Shell Utils</a></li>
+<li>2: <a href="#pg-4f521ffe9ea62a6a0abf7d17bb18e912">Shell Utils</a></li>
 
 
     
@@ -174,7 +174,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-3718134a190d46962dc0c33716ea6ed2">sdv-health</a></li>
+<li>2.1: <a href="#pg-6db933c8beae49618c83597c4bad0cde">sdv-health</a></li>
 
 
     
@@ -193,7 +193,7 @@ This is the multi-page printable view of this section.
 <h2 id="bash">Bash</h2>
 <p>Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the <code>#!/bin/sh</code> shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for <em>&ldquo;bashisms&rdquo;</em> in your scripts, the
 <code>checkbashisms</code> tool might be useful.</p>
-<p><a href="bash/"><strong>Utility-Specific Pages</strong></a></p>
+<p><a href="shell/"><strong>Utility-Specific Pages</strong></a></p>
 <p>The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base">meta-leda/meta-leda-components/recipes-sdv/sdv-base</a>.</p>
 <h2 id="rust">Rust</h2>
 <p>The current <em>main</em> branch for leda-distro (and meta-leda) is based on the Kirkstone Yocto/Poky release.</p>
@@ -251,7 +251,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7336068403919c0ccab181152f90f9f3">1 - Rust Utils</h1>
+	<h1 id="pg-d807daac010fe21775fe6dc4f7bef15d">1 - Rust Utils</h1>
     
 	
 </div>
@@ -276,7 +276,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-33f91b2fc89ef97025af47753b1ed937">1.1 - Communicating with Кanto-CM via gRPC</h1>
+	<h1 id="pg-a15bf08ceb9050ab919c4dd1e39f4581">1.1 - Communicating with Кanto-CM via gRPC</h1>
     
 	<p>Kanto container management binds to a unix socket (default: <code>/run/container-management/container-management.sock</code>) and exposes a gRPC interface which can be used to obtain all the functionality of the <code>kanto-cm</code> cli programatically.</p>
 <p>The easiest way to access this API through Rust is by creating a new Rust crate:</p>
@@ -363,7 +363,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ac02ac8b874bcee4f06abc9b58783bab">1.2 - Kanto Auto deployer</h1>
+	<h1 id="pg-4ceae03484d6716691789648aa48571f">1.2 - Kanto Auto deployer</h1>
     
 	<p><strong>TLDR</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
 <p>Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the <code>/var/lib/rancher/k3s/server/manifests</code> directory.</p>
@@ -398,12 +398,20 @@ If the container is already deployed the manifest is ignored.</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;protocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;container_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">55555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_ip&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port_end&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;100M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
@@ -421,7 +429,13 @@ If the container is already deployed the manifest is ignored.</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;stdin_once&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;tty&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;vehicle_data_broker=debug&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;network_settings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">,</span>
@@ -463,7 +477,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9feb9c069ad717170d570f2dd4dafaf8">1.3 - Kantui</h1>
+	<h1 id="pg-1a1d75c926eacba3c473eb373af6186f">1.3 - Kantui</h1>
     
 	<p>The k8s ecosystem comes with a lot of utilies that allow for the easier management of containers (such as k9s). The <a href="https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-tui">kantui util</a> aims to be a &ldquo;nice&rdquo; text user interface that lets the user start/stop/remove/get logs of deployed containers in kanto-cm.</p>
 <p><img src="https://github.com/eclipse-leda/leda-utils/blob/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png?raw=true" alt="kantui screenshot"></p>
@@ -515,7 +529,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7780f06c6a43df6e5abead0e9f39460b">2 - Shell Utils</h1>
+	<h1 id="pg-4f521ffe9ea62a6a0abf7d17bb18e912">2 - Shell Utils</h1>
     
 	
 </div>
@@ -540,7 +554,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-3718134a190d46962dc0c33716ea6ed2">2.1 - sdv-health</h1>
+	<h1 id="pg-6db933c8beae49618c83597c4bad0cde">2.1 - sdv-health</h1>
     
 	<p>A general utility for monitoring the status of important sdv services/containers/devices.</p>
 <h2 id="checking-the-status-of-kanto-cm-containers">Checking the status of kanto-cm containers</h2>
@@ -583,14 +597,16 @@ If the container is already deployed the manifest is ignored.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Output:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ID                                   	<span style="color:#000;font-weight:bold">|</span>Name                                 	<span style="color:#000;font-weight:bold">|</span>Image                                                       	<span style="color:#000;font-weight:bold">|</span>Status    	<span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code 	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------	<span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>d0cf1367-996d-4c83-bcc5-37d6acba9966 	<span style="color:#000;font-weight:bold">|</span>feedercan                            	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:04:28.340430098Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f58425b0-9260-4a15-a6fc-5c59f8840839 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f8a716f7-d2c5-4165-a081-407a7acb7643 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-05T11:38:02.0213865Z    <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>627f068a-b9eb-400b-826b-868f6b79e9d8 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:03:58.144873827Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>62ba3e6f-af01-4518-8393-00a5ba553062 	<span style="color:#000;font-weight:bold">|</span>databroker                           	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-07T11:38:28.418199429Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>753a0b10-d72a-4065-8c27-758ed9a77c2d 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID                                      <span style="color:#000;font-weight:bold">|</span>Name                                   <span style="color:#000;font-weight:bold">|</span>Image                                                                                                                          <span style="color:#000;font-weight:bold">|</span>Status         <span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code   <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>-------------------------------------   <span style="color:#000;font-weight:bold">|</span>-------------------------------------  <span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------                                                                   <span style="color:#000;font-weight:bold">|</span>----------     <span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------  <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>d82a406e-80d7-4d2c-8044-3799544fc39a    <span style="color:#000;font-weight:bold">|</span>vum                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager:main-1d8dca55a755c4b3c7bc06eabfa06ad49e068a48    <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>0f079856-767c-4e8d-b4df-a2323392849f    <span style="color:#000;font-weight:bold">|</span>cloudconnector                         <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector:main-47c01227a620a3dbd85b66e177205c06c0f7a52e                 <span style="color:#000;font-weight:bold">|</span>Exited         <span style="color:#000;font-weight:bold">|</span>2023-01-31T11:58:01.564126452Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">1</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>e4cf317e-c2d3-42c7-8f12-8ecf6f9d5d7a    <span style="color:#000;font-weight:bold">|</span>databroker                             <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                                                                                     <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6440a9b6-4fb8-4735-b3de-484286ac705b    <span style="color:#000;font-weight:bold">|</span>feedercan                              <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1                                                                               <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>efbd572b-3331-4f19-9b17-7c69511ec5ca    <span style="color:#000;font-weight:bold">|</span>hvacservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/hvac_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6d9a6f07-1659-4b51-9ddb-6e9ade64f2fd    <span style="color:#000;font-weight:bold">|</span>seatservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>06b0ddf2-7c91-41e4-9a00-4213ee361cdf    <span style="color:#000;font-weight:bold">|</span>sua                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent:build-12                                                 <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
 </span></span></code></pre></div><p>So we use awk to split on pipe (column), strip unecessary tabs. <code>print $2</code> then gives us the container name and <code>print $4</code> - its status.</p>
 <p>sdv-health then proceeds to check if every container specified in the list is available and if its status is <code>Running</code>.</p>
 <p>Note: <code>Exited</code> is considered a fail-state.</p>

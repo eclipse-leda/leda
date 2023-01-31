@@ -29,13 +29,13 @@ Pre-Requisites Installation of needed packages:
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-31T09:47:14+01:00" />
+<meta property="article:modified_time" content="2023-01-31T16:26:28+01:00" />
 
 <meta itemprop="name" content="Transferring Files">
 <meta itemprop="description" content="Sharing a directory with the guest When you want to copy files between the host and the guest, an easy way is to use an SFTP tunnel. With sshfs, you can mount a local directory to a remote directory via SSH.
 Pre-Requisites Installation of needed packages:
  Run apt-get install sshfs on your host Enable CORE_IMAGE_EXTRA_INSTALL &#43;= &quot; openssh-sftp-server&quot; in local.conf of your image (e.g. in the local_conf_header section in your kas file) Verify SFTP connection working with sftp -P 2222 root@localhost  Transfering files from host to guest When you want to copy files from the host to the guest, an easy way is to use an SFTP tunnel."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-31T09:47:14+01:00" />
+<meta itemprop="dateModified" content="2023-01-31T16:26:28+01:00" />
 <meta itemprop="wordCount" content="199">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Transferring Files"/>
@@ -80,7 +80,7 @@ Pre-Requisites Installation of needed packages:
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -105,7 +105,7 @@ Pre-Requisites Installation of needed packages:
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -348,43 +348,58 @@ Pre-Requisites Installation of needed packages:
   
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddev-and-maintenance-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenance-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenance-check"><a href="/leda/docs/build/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddev-and-maintenancerust-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerust-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenancerust-check"><a href="/leda/docs/build/dev-and-maintenance/rust/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddev-and-maintenancerust"><span class="">Rust Utils</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc-check"><a href="/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenancerustnotes-on-kanto-grpc"><span class="">Communicating with Кanto-CM via gRPC</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer-check"><a href="/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenancerustkanto-auto-deployer"><span class="">Kanto Auto deployer</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenancerustkantui-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenancerustkantui-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenancerustkantui-check"><a href="/leda/docs/build/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
+  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenance-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenance-check"/>
-  <label for="m-ledadocsdev-and-maintenance-check"><a href="/leda/docs/dev-and-maintenance/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenance"><span class="">Developing and Maintaining Utils</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuilddev-and-maintenanceshell-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenanceshell-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenanceshell-check"><a href="/leda/docs/build/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddev-and-maintenanceshellsdv-health-li">
+  <input type="checkbox" id="m-ledadocsbuilddev-and-maintenanceshellsdv-health-check"/>
+  <label for="m-ledadocsbuilddev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/build/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocscustomization-li">
+  <input type="checkbox" id="m-ledadocscustomization-check"/>
+  <label for="m-ledadocscustomization-check"><a href="/leda/docs/customization/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomization"><span class="">Customizing</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenancerust-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerust-check"/>
-  <label for="m-ledadocsdev-and-maintenancerust-check"><a href="/leda/docs/dev-and-maintenance/rust/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenancerust"><span class="">Rust Utils</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocscustomizationcustom-images-li">
+  <input type="checkbox" id="m-ledadocscustomizationcustom-images-check"/>
+  <label for="m-ledadocscustomizationcustom-images-check"><a href="/leda/docs/customization/custom-images/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationcustom-images"><span class="">Custom Distros</span></a></label>
   
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc-check"/>
-  <label for="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc-check"><a href="/leda/docs/dev-and-maintenance/rust/notes-on-kanto-grpc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustnotes-on-kanto-grpc"><span class="">Communicating with Кanto-CM via gRPC</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocscustomizationdeploying-containers-li">
+  <input type="checkbox" id="m-ledadocscustomizationdeploying-containers-check"/>
+  <label for="m-ledadocscustomizationdeploying-containers-check"><a href="/leda/docs/customization/deploying-containers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationdeploying-containers"><span class="">Deploying Containers</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkanto-auto-deployer-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkanto-auto-deployer-check"/>
-  <label for="m-ledadocsdev-and-maintenancerustkanto-auto-deployer-check"><a href="/leda/docs/dev-and-maintenance/rust/kanto-auto-deployer/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkanto-auto-deployer"><span class="">Kanto Auto deployer</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenancerustkantui-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenancerustkantui-check"/>
-  <label for="m-ledadocsdev-and-maintenancerustkantui-check"><a href="/leda/docs/dev-and-maintenance/rust/kantui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenancerustkantui"><span class="">Kantui</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsdev-and-maintenanceshell-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshell-check"/>
-  <label for="m-ledadocsdev-and-maintenanceshell-check"><a href="/leda/docs/dev-and-maintenance/shell/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsdev-and-maintenanceshell"><span class="">Shell Utils</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdev-and-maintenanceshellsdv-health-li">
-  <input type="checkbox" id="m-ledadocsdev-and-maintenanceshellsdv-health-check"/>
-  <label for="m-ledadocsdev-and-maintenanceshellsdv-health-check"><a href="/leda/docs/dev-and-maintenance/shell/sdv-health/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdev-and-maintenanceshellsdv-health"><span class="">sdv-health</span></a></label>
-  
-</li>
-  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsproject-info-li">

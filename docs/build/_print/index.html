@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -320,6 +320,95 @@ This is the multi-page printable view of this section.
 <li>9.1: <a href="#pg-36dea19e60b747437042ee148647e878">Validating</a></li>
 
 
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-c94e454d5004f1527a7e3bb4f39a40e3">Developing and Maintaining Utils</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>10.1: <a href="#pg-d807daac010fe21775fe6dc4f7bef15d">Rust Utils</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>10.1.1: <a href="#pg-a15bf08ceb9050ab919c4dd1e39f4581">Communicating with Кanto-CM via gRPC</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10.1.2: <a href="#pg-4ceae03484d6716691789648aa48571f">Kanto Auto deployer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>10.1.3: <a href="#pg-1a1d75c926eacba3c473eb373af6186f">Kantui</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>10.2: <a href="#pg-4f521ffe9ea62a6a0abf7d17bb18e912">Shell Utils</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>10.2.1: <a href="#pg-6db933c8beae49618c83597c4bad0cde">sdv-health</a></li>
+
+
+    
+  
+
+    </ul>
     
   
 
@@ -1347,6 +1436,457 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 </div>
 
 
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c94e454d5004f1527a7e3bb4f39a40e3">10 - Developing and Maintaining Utils</h1>
+    
+	<p>The Leda teams provides some custom utilities that allow for a more integrated end-user experience. They can be found in the main leda-utils repository on GitHub: <a href="https://github.com/eclipse-leda/leda-utils">eclipse-leda/leda-utils</a>.</p>
+<p>The following pages are meant to serve as both internal documentation and general guidelines when developing for Leda.</p>
+<h2 id="bash">Bash</h2>
+<p>Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the <code>#!/bin/sh</code> shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for <em>&ldquo;bashisms&rdquo;</em> in your scripts, the
+<code>checkbashisms</code> tool might be useful.</p>
+<p><a href="shell/"><strong>Utility-Specific Pages</strong></a></p>
+<p>The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base">meta-leda/meta-leda-components/recipes-sdv/sdv-base</a>.</p>
+<h2 id="rust">Rust</h2>
+<p>The current <em>main</em> branch for leda-distro (and meta-leda) is based on the Kirkstone Yocto/Poky release.</p>
+<h3 id="toolchain-version">Toolchain version</h3>
+<p>The version of the Rust toolchain available in OE (Kirkstone) is <strong>1.59.0</strong>. Make sure to target <strong>1.59.0</strong> (or earlier) when developing Rust-based utils for leda. To set <strong>1.59.0</strong> as your default Rust version on your development machine:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ rustup install 1.59.0
+</span></span><span style="display:flex;"><span>$ rustup default 1.59.0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cargo --version
+</span></span><span style="display:flex;"><span>cargo 1.59.0 <span style="color:#ce5c00;font-weight:bold">(</span>49d8809dc 2022-02-10<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="generating-bitbake-recipes-with-cargo-bitbake">Generating bitbake recipes with cargo-bitbake</h3>
+<p>After making sure your toolchain is on version <strong>1.59.0</strong> go trough a clean build of your Rust binary:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ <span style="color:#204a87">cd</span> &lt;rust_project_dir&gt;
+</span></span><span style="display:flex;"><span>$ cargo clean
+</span></span><span style="display:flex;"><span>$ rm Cargo.lock
+</span></span><span style="display:flex;"><span>$ cargo build --release
+</span></span></code></pre></div><p>This will make sure the Cargo.lock is re-generated with packages matching the Rust version. The <code>cargo.bbclass</code> on which Rust recipes are based, requires all Rust crates + their version (matching the Cargo.toml) to be specified as a &ldquo;SRC_URI +=&rdquo;. This can become tedious and error-prone if done by hand. That&rsquo;s why meta-rust provides a tool called <code>cargo-bitbake</code> that generates a minimal recipe with all the crates it finds in the <code>Cargo.lock</code> files of the project.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cargo install --locked cargo-bitbake
+</span></span><span style="display:flex;"><span>$ <span style="color:#204a87">cd</span> &lt;rust_project_dir&gt;
+</span></span><span style="display:flex;"><span>$ cargo bitbake
+</span></span></code></pre></div><p>This will generate a recipe in the project root which you can use as a starting point.</p>
+<p>Example: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kantui_git.bb">kantui_git.bb</a></p>
+<p>Note this recipe will only build your Rust crate. To deploy/install your binary you have to define a <code>.inc</code> file with the same name as the recipe that would handle the installation.</p>
+<p>Example: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kantui.inc">kantui.inc</a></p>
+<h3 id="known-bugs">Known bugs</h3>
+<p>The built-in <code>proc_macros</code> crate is not being imported properly by meta-rust (Kirkstone), thus breaking all library crates that define a proc_macro (<a href="https://github.com/meta-rust/meta-rust/issues/266">meta-rust issue 266</a>). To fix this create a <code>libstd-rs_%.bbappend</code> file containing the single line:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">S</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">RUSTSRC</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">/library/test&#34;</span>
+</span></span></code></pre></div><p>meta-leda already provides this fix <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/libstd-rs_%25.bbappend">here</a>, so it should not be necessary to implement it again.</p>
+<h3 id="fat-link-time-optimization">&ldquo;Fat&rdquo; Link time optimization</h3>
+<p>LTO is a nice feature of LLVM that can optimize even through language boundaries at link-time, but leads to longer overall build times. That is why Rust by default uses &ldquo;thin&rdquo; LTO which may result in larger/slower binaries. &ldquo;Fat&rdquo; LTO can be enabled when building release binaries by adding to the <code>Cargo.toml</code> file the following section:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">profile</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">release</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">lto</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">true</span>
+</span></span></code></pre></div><p>For <a href="rust/kantui">kantui</a> this leads to reduction of the final binary size from ~8 MiB to ~5 MiB.</p>
+<p>More information on profile-optimizations can be found <a href="https://doc.rust-lang.org/cargo/reference/profiles.html">here</a>.</p>
+<p><strong>Note</strong>: Stripping the debug symbols completely results in further binary size reduction, but BitBake fails with a QA problem when deploying stripped binaries.</p>
+<h3 id="rust-based-utilities">Rust-based utilities</h3>
+<p><a href="rust/"><strong>Utility-Specific Pages</strong></a></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d807daac010fe21775fe6dc4f7bef15d">10.1 - Rust Utils</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-a15bf08ceb9050ab919c4dd1e39f4581">10.1.1 - Communicating with Кanto-CM via gRPC</h1>
+    
+	<p>Kanto container management binds to a unix socket (default: <code>/run/container-management/container-management.sock</code>) and exposes a gRPC interface which can be used to obtain all the functionality of the <code>kanto-cm</code> cli programatically.</p>
+<p>The easiest way to access this API through Rust is by creating a new Rust crate:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cargo new talk-to-kanto
+</span></span></code></pre></div><h2 id="dependencies">Dependencies</h2>
+<p>The most feature-rich gRPC library for Rust right now is tonic. Add the following to your <code>Cargo.toml</code> to make tonic and the tokio async runtime available to your crate. Tower and hyper are needed to be able to bind to the unix socket.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">dependencies</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">prost</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.11&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">tokio</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;1.0&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;rt-multi-thread&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;time&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;fs&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;macros&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;net&#34;</span><span style="color:#000;font-weight:bold">,]</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">tokio-stream</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;net&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">tonic</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.8.2&#34;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">tower</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.4&#34;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">http</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">hyper</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.14&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;full&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serde</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;1.0.147&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;derive&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">serde_json</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;1.0.89&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">default-features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;alloc&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">build-dependencies</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">tonic-build</span> <span style="color:#000;font-weight:bold">=</span>  <span style="color:#4e9a06">&#34;0.8.2&#34;</span>
+</span></span></code></pre></div><h2 id="compiling-protobufs">Compiling protobufs</h2>
+<p>The easiest way to obtain the kanto-cm <code>.proto</code> files is to add the container management repo in your project root as a git submodule:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ git submodule init
+</span></span><span style="display:flex;"><span>$ git submodule add https://github.com/eclipse-kanto/container-management.git
+</span></span><span style="display:flex;"><span>$ git submodule update --init --recursive
+</span></span></code></pre></div><p>You should now have the <code>container-management</code> repository available.</p>
+<p>To build the <code>.proto</code> files during compile time, define a custom <code>build.rs</code> in the project root</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ touch build.rs
+</span></span></code></pre></div><p>Add the following main function to the <code>build.rs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">fn</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span><span style="color:#f8f8f8;text-decoration:underline"> </span>-&gt; <span style="color:#204a87">Result</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000;font-weight:bold">(),</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87">Box</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">dyn</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">std</span>::<span style="color:#000">error</span>::<span style="color:#000">Error</span><span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">{</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tonic_build</span>::<span style="color:#000">configure</span><span style="color:#000;font-weight:bold">()</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">build_server</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">include_file</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;mod.rs&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">type_attribute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;#[derive(serde::Serialize, serde::Deserialize)]&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">compile</span><span style="color:#000;font-weight:bold">(</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;api/services/containers/containers.proto&#34;</span><span style="color:#000;font-weight:bold">],</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;container-management/containerm/&#34;</span><span style="color:#000;font-weight:bold">],</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">?</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87">Ok</span><span style="color:#000;font-weight:bold">(())</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>Here it is important to know that tonic does not like deeply nested protobufs such as those for kanto-cm. That is why the line <code>.include_file(&quot;mod.rs&quot;)</code> re-exports everything in a seperate module which can later be included in the main.rs file.</p>
+<p><code>&quot;#[derive(serde::Serialize, serde::Deserialize)]&quot;</code> makes all structures (de-)serializable via serde.</p>
+<h2 id="importing-generated-rust-modules">Importing generated Rust modules</h2>
+<p>Now in <code>src/main.rs</code> add the following to import the generated Rust modules:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">pub</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">mod</span> <span style="color:#000">cm</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">{</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">tonic</span>::<span style="color:#000">include_proto</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;mod&#34;</span><span style="color:#000;font-weight:bold">);</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000;font-weight:bold">}</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">use</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cm</span>::<span style="color:#000">github</span>::<span style="color:#000">com</span>::<span style="color:#000">eclipse_kanto</span>::<span style="color:#000">container_management</span>::<span style="color:#000">containerm</span>::<span style="color:#000">api</span>::<span style="color:#000">services</span>::<span style="color:#000">containers</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">as</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cm_services</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">use</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cm</span>::<span style="color:#000">github</span>::<span style="color:#000">com</span>::<span style="color:#000">eclipse_kanto</span>::<span style="color:#000">container_management</span>::<span style="color:#000">containerm</span>::<span style="color:#000">api</span>::<span style="color:#000">types</span>::<span style="color:#000">containers</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">as</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cm_types</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>Now all kanto-cm services as namespaced under <code>cm_services</code>.</p>
+<h2 id="obtaining-a-unix-socket-channel">Obtaining a unix socket channel</h2>
+<p>To obtain a unix socket channel:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">use</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tokio</span>::<span style="color:#000">net</span>::<span style="color:#000">UnixStream</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">use</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tonic</span>::<span style="color:#000">transport</span>::<span style="color:#000;font-weight:bold">{</span><span style="color:#000">Endpoint</span><span style="color:#000;font-weight:bold">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Uri</span><span style="color:#000;font-weight:bold">};</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">use</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tower</span>::<span style="color:#000">service_fn</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">let</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">socket_path</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/run/container-management/container-management.sock&#34;</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">let</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">channel</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Endpoint</span>::<span style="color:#000">try_from</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;http://[::]:50051&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">connect_with_connector</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">service_fn</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">move</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">|</span><span style="color:#000">_</span>: <span style="color:#000">Uri</span><span style="color:#ce5c00;font-weight:bold">|</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">UnixStream</span>::<span style="color:#000">connect</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">socket_path</span><span style="color:#000;font-weight:bold">)))</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">await</span><span style="color:#ce5c00;font-weight:bold">?</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>This is a bit of a hack, because currently, tonic+tower don&rsquo;t support binding directly to an unix socket. Thus in this case we attemp to make an http connection to a non-existent service on port <code>5051</code>. When this fails, the fallback method <code>connect_with_connector()</code> is called where a tokio UnixStream is returned and the communication channel is generated from that.</p>
+<h2 id="making-a-simple-grpc-call-to-kanto-cm">Making a simple gRPC call to kanto-cm</h2>
+<p>All that is left is to use the opened channel to issue a simple &ldquo;list containers&rdquo; request to kanto.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Generate a CM client, that handles containers-related requests (see protobufs)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">let</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">mut</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">client</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cm_services</span>::<span style="color:#000">containers_client</span>::<span style="color:#000">ContainersClient</span>::<span style="color:#000">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">);</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">let</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">request</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tonic</span>::<span style="color:#000">Request</span>::<span style="color:#000">new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">cm_services</span>::<span style="color:#000">ListContainersRequest</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">{});</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">let</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">response</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">client</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">).</span><span style="color:#204a87;font-weight:bold">await</span><span style="color:#ce5c00;font-weight:bold">?</span><span style="color:#000;font-weight:bold">;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>Since we made all tonic-generated structures (de-)serializable we can use <code>serde_json::to_string()</code> to print the response as a json string.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Rust" data-lang="Rust"><span style="display:flex;"><span><span style="color:#000">println!</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;{}&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">serde_json</span>::<span style="color:#000">to_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">?</span><span style="color:#000;font-weight:bold">);</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4ceae03484d6716691789648aa48571f">10.1.2 - Kanto Auto deployer</h1>
+    
+	<p><strong>TLDR</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
+<p>Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the <code>/var/lib/rancher/k3s/server/manifests</code> directory.</p>
+<p>This can be worked around via a bash script for each container that runs on boot and makes sure it&rsquo;s deployed. Even though this approach is functional it is not very structured and would require a lot repeating code.</p>
+<p>That is why the &ldquo;<a href="https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-auto-deployer">Kanto Auto deployer</a>&rdquo; tool was developed. It directly implements the ideas in <a href="../notes-on-kanto-grpc">Communicating with Кanto-CM via gRPC</a>.</p>
+<p>The compiled binary takes a path to a directory containing the json manifests, parses them into Rust structures and sends gRPC requests to kanto container management to deploy these containers.
+If the container is already deployed the manifest is ignored.</p>
+<h2 id="manifest-structure">Manifest structure</h2>
+<p>Kanto auto deployer uses the exact same structure for its manifests as the internal representation of container state in kanto container management. For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val/databroker:0.2.5&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;decrypt_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domain_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;resolv_conf_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hosts_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hostname_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;mounts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hooks&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;devices&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bridge&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restart_policy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;maximum_retry_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;retry_timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;unless-stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;protocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;container_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">55555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_ip&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port_end&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;blocking&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_buffer_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;resources&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;io_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stderr&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stdin&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stdout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;open_stdin&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;stdin_once&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;tty&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;vehicle_data_broker=debug&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;network_settings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;started_at&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;error&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;exit_code&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;finished_at&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;exited&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;dead&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restarting&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;paused&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;running&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;oom_killed&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;created&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;manually_stopped&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;restart_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The only difference to the actual internal state representation is that fields in the manifest can be left empty (<code>&quot;&quot;</code>) if they are not important for the deployment. These values will be filled in with defaults by kanto-cm after deployment.</p>
+<p>For example, you do not need to specify the container &ldquo;id&rdquo; in the manifest, as an unique uuid would be assigned automatically after deployment.</p>
+<h2 id="container-deployment-in-leda">Container deployment in Leda</h2>
+<p>Kanto-auto-deployer runs as a one-shot service on boot that goes through the manifest folder (default: <code>/var/containers/manifests</code>) and deploys required containers.</p>
+<p>The Bitbake recipe for building and installing the auto deployer service can be found at <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-auto-deployer_git.bb">kanto-auto-deployer_git.bb</a>.</p>
+<p>This recipe also takes all manifests in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and installs them in the directory specified by the <code>KANTO_MANIFESTS_DIR</code> BitBake variable (weak default: <code>/var/containers/manifests</code>).</p>
+<p><strong>Important</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1a1d75c926eacba3c473eb373af6186f">10.1.3 - Kantui</h1>
+    
+	<p>The k8s ecosystem comes with a lot of utilies that allow for the easier management of containers (such as k9s). The <a href="https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-tui">kantui util</a> aims to be a &ldquo;nice&rdquo; text user interface that lets the user start/stop/remove/get logs of deployed containers in kanto-cm.</p>
+<p><img src="https://github.com/eclipse-leda/leda-utils/blob/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png?raw=true" alt="kantui screenshot"></p>
+<h2 id="development-notes">Development notes</h2>
+<p>This tool is again based on the ideas in <a href="../notes-on-kanto-grpc">Communicating with Кanto-CM via gRPC</a>.</p>
+<p>It spins up two threads - an UI thread (drawing/updating UI) and an IO thread (communicating with kanto-cm via gRPC). The communication between these two threads happens over an <a href="https://crates.io/crates/async-priority-channel">async-priority-channel</a> with <code>ListContainers</code> request having a lower priority than <code>Start/Stop/Remove/Get Logs</code> (&ldquo;user interaction&rdquo;) requests.</p>
+<p>This in an &ldquo;eventually fair&rdquo; mechanism of communication. That way even if kanto-cm is handling a slow request (such as stopping a container that does not respect SIGTERM) the UI thread is never blocked, allowing for a responsive-feeling UI. The size of the channel is 5 requests and the UI is running at 30 fps. Thus even if the UI gets out-of-sync with the actual state of container management it would be &ldquo;only&rdquo; for 5 out 30 frames.</p>
+<h2 id="cursive-and-ncurses-rs">Cursive and ncurses-rs</h2>
+<p>The <a href="https://crates.io/crates/cursive">cursive</a> crate is used as a high level &ldquo;framework&rdquo; as it allows very easy handling of UI events via callbacks, though this might be prone to callback hell.</p>
+<p>The default backend for cursive is ncurses-rs which a very thin Rust wrapper over the standart ncurses library. This in theory would be the optimal backend for our case as ncurses is a very old and stable library that has buffering (other backends lead to flickering of the UI on updates) and is dynamically linked (smaller final binary size).</p>
+<p>The ncurses-rs wrapper however is <strong>not well-suited to cross-compilation</strong> as it has a custom build.rs that generates a small C program, compiles it for the target and tries to run it on the host. The only reason for this C program to exist is to check the width of the <em>char</em> type. Obviously, the char type on the host and the target might be of different width and this binary might not even run on the host machine if the host and target architectures are different.</p>
+<p>After coming to the conclusion that the ncurses-rs backend was not suitable, kantui was migrated to the termion backend + the <a href="https://crates.io/crates/cursive_buffered_backend">cursive_buffered_backend</a> crate which mitigates the flickering issue.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">dependencies</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">cursive_buffered_backend</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.5.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">dependencies</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">cursive</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">default-features</span><span style="color:#000;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">version</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;0.16.2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">features</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;termion-backend&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>This completely drops the need for ncurses-rs but results in a slightly bigger binary (all statically linked).</p>
+<h2 id="bitbake-recipe">Bitbake Recipe</h2>
+<p>The recipe was created following the guidelines in <a href="../../#generating-bitbake-recipes-with-cargo-bitbake">Generating bitbake recipes with cargo-bitbake</a> and can be found in <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda">meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/</a>.</p>
+<h2 id="future-improvement-notes">Future improvement notes</h2>
+<ul>
+<li>
+<p>The gRPC channel can get blocked thus effectively &ldquo;blocking&rdquo; the IO-thread until it is freed-up again. Maybe open a new channel for each request (slow/resource heavy)?</p>
+</li>
+<li>
+<p>Reorganize the code a bit, move all generic functionally in the lib.rs.</p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4f521ffe9ea62a6a0abf7d17bb18e912">10.2 - Shell Utils</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-6db933c8beae49618c83597c4bad0cde">10.2.1 - sdv-health</h1>
+    
+	<p>A general utility for monitoring the status of important sdv services/containers/devices.</p>
+<h2 id="checking-the-status-of-kanto-cm-containers">Checking the status of kanto-cm containers</h2>
+<p>Kanto CM containers are split into two groups - required and optional. Both groups are checked, but only a warning is issued when an optional container is missing/not working.</p>
+<p>General code for checking the status is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> -n <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_CONTAINERS_OPT</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87">printf</span> -- <span style="color:#4e9a06">&#34;</span><span style="color:#000">$SEPARATOR</span><span style="color:#4e9a06">\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87">printf</span> -- <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">COL_WHITE</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">[Kanto CM Containers (OPTIONAL)]</span><span style="color:#4e9a06">${</span><span style="color:#000">COL_NC</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">\n&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[[</span> <span style="color:#4e9a06">${</span><span style="color:#000">CM_STATUS</span><span style="color:#4e9a06">}</span> !<span style="color:#ce5c00;font-weight:bold">=</span> *<span style="color:#4e9a06">&#34;inactive&#34;</span>*  <span style="color:#ce5c00;font-weight:bold">]]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># &#34;Optional containers&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># removes tabs, splits on pipe and takes the container name column ($2)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">FOUND_CONTAINERS</span><span style="color:#ce5c00;font-weight:bold">=(</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_LIST</span><span style="color:#4e9a06">&#34;</span> <span style="color:#000;font-weight:bold">|</span> awk -F<span style="color:#4e9a06">&#39;|&#39;</span> <span style="color:#4e9a06">&#39;{gsub(/\t/, &#34;&#34;); print $2}&#39;</span><span style="color:#204a87;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># array with all kanto container names</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#8f5902;font-style:italic"># removes tabs, splits on pipe and takes the container status colum ($4)</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">FOUND_CONTAINERS_STATES</span><span style="color:#ce5c00;font-weight:bold">=(</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$KANTO_CM_LIST</span><span style="color:#4e9a06">&#34;</span> <span style="color:#000;font-weight:bold">|</span> awk -F<span style="color:#4e9a06">&#39;|&#39;</span> <span style="color:#4e9a06">&#39;{gsub(/\t/, &#34;&#34;); print $4}&#39;</span><span style="color:#204a87;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic"># array with all kanto container states</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#000">KANTO_CM_CONTAINERS_ARR</span><span style="color:#ce5c00;font-weight:bold">=(</span> <span style="color:#000">$KANTO_CM_CONTAINERS_OPT</span> <span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87;font-weight:bold">for</span> expectedCtr in <span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CM_CONTAINERS_ARR</span><span style="color:#000;font-weight:bold">[@]</span><span style="color:#4e9a06">}</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">do</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#000">CTR_IDX</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span>get_array_element_index <span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">${</span><span style="color:#000">FOUND_CONTAINERS</span><span style="color:#000;font-weight:bold">[@]</span><span style="color:#4e9a06">}</span><span style="color:#204a87;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> ! -z <span style="color:#000">$CTR_IDX</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">${</span><span style="color:#000">FOUND_CONTAINERS_STATES</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">$CTR_IDX</span><span style="color:#000;font-weight:bold">]</span><span style="color:#4e9a06">}</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#ce5c00;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$status</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Running&#34;</span> <span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">then</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_OK</span><span style="color:#4e9a06">\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_WARN</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#000">$status</span><span style="color:#4e9a06">&#34;</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_WARN</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">expectedCtr</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span> <span style="color:#4e9a06">&#34;NOT FOUND&#34;</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#204a87;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87;font-weight:bold">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#204a87">printf</span> <span style="color:#4e9a06">&#34;  * %-40s : </span><span style="color:#000">$TEXT_FAIL</span><span style="color:#4e9a06"> (%s)\n&#34;</span> <span style="color:#4e9a06">&#34;Kanto Container Management&#34;</span> <span style="color:#4e9a06">&#34;Unavailable&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#204a87;font-weight:bold">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">fi</span>
+</span></span></code></pre></div><p>Here it is important to know that <code>kanto-cm list</code> outputs the list of containers in a different order every time it&rsquo;s called. That is why, <code>kanto-cm list</code> is invoked once and its output is stored in a variable:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID                                      <span style="color:#000;font-weight:bold">|</span>Name                                   <span style="color:#000;font-weight:bold">|</span>Image                                                                                                                          <span style="color:#000;font-weight:bold">|</span>Status         <span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code   <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>-------------------------------------   <span style="color:#000;font-weight:bold">|</span>-------------------------------------  <span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------                                                                   <span style="color:#000;font-weight:bold">|</span>----------     <span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------  <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>d82a406e-80d7-4d2c-8044-3799544fc39a    <span style="color:#000;font-weight:bold">|</span>vum                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager:main-1d8dca55a755c4b3c7bc06eabfa06ad49e068a48    <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>0f079856-767c-4e8d-b4df-a2323392849f    <span style="color:#000;font-weight:bold">|</span>cloudconnector                         <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector:main-47c01227a620a3dbd85b66e177205c06c0f7a52e                 <span style="color:#000;font-weight:bold">|</span>Exited         <span style="color:#000;font-weight:bold">|</span>2023-01-31T11:58:01.564126452Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">1</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>e4cf317e-c2d3-42c7-8f12-8ecf6f9d5d7a    <span style="color:#000;font-weight:bold">|</span>databroker                             <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                                                                                     <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6440a9b6-4fb8-4735-b3de-484286ac705b    <span style="color:#000;font-weight:bold">|</span>feedercan                              <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1                                                                               <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>efbd572b-3331-4f19-9b17-7c69511ec5ca    <span style="color:#000;font-weight:bold">|</span>hvacservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/hvac_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6d9a6f07-1659-4b51-9ddb-6e9ade64f2fd    <span style="color:#000;font-weight:bold">|</span>seatservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>06b0ddf2-7c91-41e4-9a00-4213ee361cdf    <span style="color:#000;font-weight:bold">|</span>sua                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent:build-12                                                 <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span></code></pre></div><p>So we use awk to split on pipe (column), strip unecessary tabs. <code>print $2</code> then gives us the container name and <code>print $4</code> - its status.</p>
+<p>sdv-health then proceeds to check if every container specified in the list is available and if its status is <code>Running</code>.</p>
+<p>Note: <code>Exited</code> is considered a fail-state.</p>
+<h2 id="checking-kanto-cm-socket">Checking kanto-cm socket</h2>
+<p>This is a simple <code>test -s</code> check for the default socket path.</p>
+
+</div>
+
+
+
+    
+	
+  
 
     
 	

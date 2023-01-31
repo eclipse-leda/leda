@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -768,6 +768,60 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+    
+    
+	
+<li>6.10: <a href="#pg-c94e454d5004f1527a7e3bb4f39a40e3">Developing and Maintaining Utils</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>6.10.1: <a href="#pg-d807daac010fe21775fe6dc4f7bef15d">Rust Utils</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>6.10.1.1: <a href="#pg-a15bf08ceb9050ab919c4dd1e39f4581">Communicating with Кanto-CM via gRPC</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.10.1.2: <a href="#pg-4ceae03484d6716691789648aa48571f">Kanto Auto deployer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.10.1.3: <a href="#pg-1a1d75c926eacba3c473eb373af6186f">Kantui</a></li>
+
+
+    
+  
 
     </ul>
     
@@ -775,7 +829,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7: <a href="#pg-41f7e863359b43b3861eb0e1d517c4dd">Developing and Maintaining Utils</a></li>
+<li>6.10.2: <a href="#pg-4f521ffe9ea62a6a0abf7d17bb18e912">Shell Utils</a></li>
 
 
     
@@ -790,40 +844,17 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.1: <a href="#pg-7336068403919c0ccab181152f90f9f3">Rust Utils</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>7.1.1: <a href="#pg-33f91b2fc89ef97025af47753b1ed937">Communicating with Кanto-CM via gRPC</a></li>
+<li>6.10.2.1: <a href="#pg-6db933c8beae49618c83597c4bad0cde">sdv-health</a></li>
 
 
     
   
-    
-    
-	
-<li>7.1.2: <a href="#pg-ac02ac8b874bcee4f06abc9b58783bab">Kanto Auto deployer</a></li>
 
-
+    </ul>
     
   
-    
-    
-	
-<li>7.1.3: <a href="#pg-9feb9c069ad717170d570f2dd4dafaf8">Kantui</a></li>
 
-
+    </ul>
     
   
 
@@ -833,7 +864,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.2: <a href="#pg-7780f06c6a43df6e5abead0e9f39460b">Shell Utils</a></li>
+<li>7: <a href="#pg-86721597a78c875c0c696bd18f935eb3">Customizing</a></li>
 
 
     
@@ -848,10 +879,36 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7.2.1: <a href="#pg-3718134a190d46962dc0c33716ea6ed2">sdv-health</a></li>
+<li>7.1: <a href="#pg-c753192d51f1964217336da765a28ba7">Custom Distros</a></li>
 
 
     
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>7.2: <a href="#pg-20bb2af83c47c818220bae4f2b8b24f7">Deploying Containers</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
   
 
     </ul>
@@ -4343,10 +4400,6 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
     
 	
   
-
-    
-	
-  
     
     
 	
@@ -4354,14 +4407,14 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-41f7e863359b43b3861eb0e1d517c4dd">7 - Developing and Maintaining Utils</h1>
+	<h1 id="pg-c94e454d5004f1527a7e3bb4f39a40e3">6.10 - Developing and Maintaining Utils</h1>
     
 	<p>The Leda teams provides some custom utilities that allow for a more integrated end-user experience. They can be found in the main leda-utils repository on GitHub: <a href="https://github.com/eclipse-leda/leda-utils">eclipse-leda/leda-utils</a>.</p>
 <p>The following pages are meant to serve as both internal documentation and general guidelines when developing for Leda.</p>
 <h2 id="bash">Bash</h2>
 <p>Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the <code>#!/bin/sh</code> shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for <em>&ldquo;bashisms&rdquo;</em> in your scripts, the
 <code>checkbashisms</code> tool might be useful.</p>
-<p><a href="bash/"><strong>Utility-Specific Pages</strong></a></p>
+<p><a href="shell/"><strong>Utility-Specific Pages</strong></a></p>
 <p>The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base">meta-leda/meta-leda-components/recipes-sdv/sdv-base</a>.</p>
 <h2 id="rust">Rust</h2>
 <p>The current <em>main</em> branch for leda-distro (and meta-leda) is based on the Kirkstone Yocto/Poky release.</p>
@@ -4421,7 +4474,7 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7336068403919c0ccab181152f90f9f3">7.1 - Rust Utils</h1>
+	<h1 id="pg-d807daac010fe21775fe6dc4f7bef15d">6.10.1 - Rust Utils</h1>
     
 	
 </div>
@@ -4446,7 +4499,7 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 
 <div class="td-content" style="">
     
-	<h1 id="pg-33f91b2fc89ef97025af47753b1ed937">7.1.1 - Communicating with Кanto-CM via gRPC</h1>
+	<h1 id="pg-a15bf08ceb9050ab919c4dd1e39f4581">6.10.1.1 - Communicating with Кanto-CM via gRPC</h1>
     
 	<p>Kanto container management binds to a unix socket (default: <code>/run/container-management/container-management.sock</code>) and exposes a gRPC interface which can be used to obtain all the functionality of the <code>kanto-cm</code> cli programatically.</p>
 <p>The easiest way to access this API through Rust is by creating a new Rust crate:</p>
@@ -4533,7 +4586,7 @@ patch             = main:a041dad5be9444d55491b57cb6a669a44196566d -- modified
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ac02ac8b874bcee4f06abc9b58783bab">7.1.2 - Kanto Auto deployer</h1>
+	<h1 id="pg-4ceae03484d6716691789648aa48571f">6.10.1.2 - Kanto Auto deployer</h1>
     
 	<p><strong>TLDR</strong>: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers">kanto-containers</a> directory and re-build.</p>
 <p>Kanto-CM does not provide (currently) an out-of-the box feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the <code>/var/lib/rancher/k3s/server/manifests</code> directory.</p>
@@ -4568,12 +4621,20 @@ If the container is already deployed the manifest is ignored.</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;protocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;container_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">55555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_ip&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port_end&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30555</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;100M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
@@ -4591,7 +4652,13 @@ If the container is already deployed the manifest is ignored.</p>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;stdin_once&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;tty&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;vehicle_data_broker=debug&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;network_settings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">,</span>
@@ -4633,7 +4700,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9feb9c069ad717170d570f2dd4dafaf8">7.1.3 - Kantui</h1>
+	<h1 id="pg-1a1d75c926eacba3c473eb373af6186f">6.10.1.3 - Kantui</h1>
     
 	<p>The k8s ecosystem comes with a lot of utilies that allow for the easier management of containers (such as k9s). The <a href="https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-tui">kantui util</a> aims to be a &ldquo;nice&rdquo; text user interface that lets the user start/stop/remove/get logs of deployed containers in kanto-cm.</p>
 <p><img src="https://github.com/eclipse-leda/leda-utils/blob/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png?raw=true" alt="kantui screenshot"></p>
@@ -4685,7 +4752,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7780f06c6a43df6e5abead0e9f39460b">7.2 - Shell Utils</h1>
+	<h1 id="pg-4f521ffe9ea62a6a0abf7d17bb18e912">6.10.2 - Shell Utils</h1>
     
 	
 </div>
@@ -4710,7 +4777,7 @@ If the container is already deployed the manifest is ignored.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-3718134a190d46962dc0c33716ea6ed2">7.2.1 - sdv-health</h1>
+	<h1 id="pg-6db933c8beae49618c83597c4bad0cde">6.10.2.1 - sdv-health</h1>
     
 	<p>A general utility for monitoring the status of important sdv services/containers/devices.</p>
 <h2 id="checking-the-status-of-kanto-cm-containers">Checking the status of kanto-cm containers</h2>
@@ -4753,14 +4820,16 @@ If the container is already deployed the manifest is ignored.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>	<span style="color:#000">KANTO_CM_LIST</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">$(</span><span style="color:#4e9a06">${</span><span style="color:#000">KANTO_CMD</span><span style="color:#4e9a06">}</span> list<span style="color:#204a87;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Output:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ID                                   	<span style="color:#000;font-weight:bold">|</span>Name                                 	<span style="color:#000;font-weight:bold">|</span>Image                                                       	<span style="color:#000;font-weight:bold">|</span>Status    	<span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code 	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>-------------------------------------	<span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------	<span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>d0cf1367-996d-4c83-bcc5-37d6acba9966 	<span style="color:#000;font-weight:bold">|</span>feedercan                            	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:04:28.340430098Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f58425b0-9260-4a15-a6fc-5c59f8840839 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>f8a716f7-d2c5-4165-a081-407a7acb7643 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-05T11:38:02.0213865Z    <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>627f068a-b9eb-400b-826b-868f6b79e9d8 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Running   	<span style="color:#000;font-weight:bold">|</span>2022-12-30T23:03:58.144873827Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>62ba3e6f-af01-4518-8393-00a5ba553062 	<span style="color:#000;font-weight:bold">|</span>databroker                           	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Stopped   	<span style="color:#000;font-weight:bold">|</span>2022-12-07T11:38:28.418199429Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">137</span>       	<span style="color:#000;font-weight:bold">|</span>
-</span></span><span style="display:flex;"><span>753a0b10-d72a-4065-8c27-758ed9a77c2d 	<span style="color:#000;font-weight:bold">|</span>vehicledatabroker13                  	<span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                  	<span style="color:#000;font-weight:bold">|</span>Created   	<span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>         	<span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ID                                      <span style="color:#000;font-weight:bold">|</span>Name                                   <span style="color:#000;font-weight:bold">|</span>Image                                                                                                                          <span style="color:#000;font-weight:bold">|</span>Status         <span style="color:#000;font-weight:bold">|</span>Finished At                     <span style="color:#000;font-weight:bold">|</span>Exit Code   <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>-------------------------------------   <span style="color:#000;font-weight:bold">|</span>-------------------------------------  <span style="color:#000;font-weight:bold">|</span>------------------------------------------------------------                                                                   <span style="color:#000;font-weight:bold">|</span>----------     <span style="color:#000;font-weight:bold">|</span>------------------------------  <span style="color:#000;font-weight:bold">|</span>----------  <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>d82a406e-80d7-4d2c-8044-3799544fc39a    <span style="color:#000;font-weight:bold">|</span>vum                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager:main-1d8dca55a755c4b3c7bc06eabfa06ad49e068a48    <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>0f079856-767c-4e8d-b4df-a2323392849f    <span style="color:#000;font-weight:bold">|</span>cloudconnector                         <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector:main-47c01227a620a3dbd85b66e177205c06c0f7a52e                 <span style="color:#000;font-weight:bold">|</span>Exited         <span style="color:#000;font-weight:bold">|</span>2023-01-31T11:58:01.564126452Z  <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">1</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>e4cf317e-c2d3-42c7-8f12-8ecf6f9d5d7a    <span style="color:#000;font-weight:bold">|</span>databroker                             <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val/databroker:0.2.5                                                                                     <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6440a9b6-4fb8-4735-b3de-484286ac705b    <span style="color:#000;font-weight:bold">|</span>feedercan                              <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1                                                                               <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>efbd572b-3331-4f19-9b17-7c69511ec5ca    <span style="color:#000;font-weight:bold">|</span>hvacservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/hvac_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>6d9a6f07-1659-4b51-9ddb-6e9ade64f2fd    <span style="color:#000;font-weight:bold">|</span>seatservice-example                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0                                                                         <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
+</span></span><span style="display:flex;"><span>06b0ddf2-7c91-41e4-9a00-4213ee361cdf    <span style="color:#000;font-weight:bold">|</span>sua                                    <span style="color:#000;font-weight:bold">|</span>ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent:build-12                                                 <span style="color:#000;font-weight:bold">|</span>Running        <span style="color:#000;font-weight:bold">|</span>                                <span style="color:#000;font-weight:bold">|</span><span style="color:#0000cf;font-weight:bold">0</span>           <span style="color:#000;font-weight:bold">|</span>
 </span></span></code></pre></div><p>So we use awk to split on pipe (column), strip unecessary tabs. <code>print $2</code> then gives us the container name and <code>print $4</code> - its status.</p>
 <p>sdv-health then proceeds to check if every container specified in the list is available and if its status is <code>Running</code>.</p>
 <p>Note: <code>Exited</code> is considered a fail-state.</p>
@@ -4773,6 +4842,291 @@ If the container is already deployed the manifest is ignored.</p>
 
     
 	
+  
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-86721597a78c875c0c696bd18f935eb3">7 - Customizing</h1>
+    
+	<p>When you want to reuse Leda for your custom setup or hardware we do not directly provide BSPs for (see <a href="../customization/custom-images#Hardware">Hardware</a>) you can reference the following chapters. They describe the general approaches for different level of customization - from deploying different sets of containers from those provided by default to building completely custom distros based on meta-leda.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c753192d51f1964217336da765a28ba7">7.1 - Custom Distros</h1>
+    
+	<p>The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as an experimentation and development platform but is not production-ready. The focus of the meta-leda meta-layer is to offer reusable components for custom SDV images.</p>
+<p>This documentation section is aimed at anyone who wishes to build such a custom image.</p>
+<h2 id="hardware">Hardware</h2>
+<p>The Leda Quickstart image directly provides BSP-recipes for the following platforms:</p>
+<ul>
+<li>QEMUx86-64 (64 bit)</li>
+<li>QEMUARM64 (64 bit)</li>
+<li>QEMUARM (32 bit)</li>
+<li>Raspberry Pi 4B (64 bit)</li>
+</ul>
+<p>Other hardware would require customizing your image with additional BSP-layers.</p>
+<h2 id="kas-and-meta-layers">kas and meta-layers</h2>
+<p>We recommend (and use for the quickstart image) the <a href="https://github.com/siemens/kas">kas tool</a> developed by Siemens as a way to help with reproducible builds. It is, however, not required and you would still need to
+define your own distro meta-layer on top of meta-leda. The Leda quickstart image kas-files can be found here: <a href="https://github.com/eclipse-leda/leda-distro/tree/main/kas">leda-distro/kas</a>. Most of the distro-configuration can be found
+in the <code>common-kirkstone.yaml</code> file.</p>
+<p>Other than meta-leda you will need the following external meta-layers:</p>
+<ul>
+<li><a href="https://git.yoctoproject.org/git/poky">Poky</a> - The base poky distro</li>
+<li><a href="https://git.openembedded.org/meta-openembedded">meta-openembedded</a> - Busybox, systemd, and other core packages</li>
+<li><a href="https://github.com/rauc/meta-rauc">meta-rauc</a> - RAUC integration</li>
+<li><a href="https://github.com/eclipse-kanto/meta-kanto">meta-kanto</a> - Kanto container management</li>
+<li><a href="https://git.yoctoproject.org/meta-virtualization">meta-virtualization</a> - containerd</li>
+</ul>
+<p>From here on we will assume that you are working with kas as your main build tool.</p>
+<h2 id="setting-up-your-custom-image">Setting up your custom image</h2>
+<ol>
+<li>
+<p>Create a new repository for your distro. Create a top-level container meta-layer that would contain your distro-specific configurations which will be explained below.</p>
+</li>
+<li>
+<p>In the root of the repository create a <code>.config.yaml</code> that would be used by kas to build your image. The minimal kas-config file can be found in the tool&rsquo;s official documentation <a href="https://kas.readthedocs.io/en/latest/userguide.html#project-configuration">Project Configuration</a>.</p>
+</li>
+<li>
+<p>Referencing <a href="https://github.com/eclipse-leda/leda-distro/blob/main/kas/common-kirkstone.yaml">leda-distro/kas/common-kirkstone.yaml</a>, add to this minimal configuration all required meta-layers from above and sub-layers from meta-leda you will need.</p>
+</li>
+<li>
+<p>Add your custom container layer (you can reference meta-layers by path in kas) to the kas-config. Reference: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/kas/.config-components.yaml">meta-leda/kas/.config-components.yaml</a>.</p>
+</li>
+<li>
+<p>From this point on you can use <code>kas build</code> from the root of your repository or <code>kas build /path/to/.config.yaml</code> from anywhere to start the build process.</p>
+</li>
+</ol>
+<h2 id="general-distro-configuration">General distro configuration</h2>
+<p>The place you should start is by configuring your custom distribution. The BitBake mechanism for doing so can be found in the official BitBake documentation: <a href="https://docs.yoctoproject.org/dev/dev-manual/custom-distribution.html#creating-your-own-distribution">22 Creating Your Own Distribution</a>.</p>
+<p>As a working example, you can use the Leda-distro config file: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-distro/conf/distro/leda.conf">meta-leda/meta-leda-distro/conf/distro/leda.conf</a>. We will now go through some of the lines in the <em>leda.conf</em>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>require conf/distro/include/buildinfo.inc <span style="color:#8f5902;font-style:italic"># -&gt; Defines entries for /etc/build</span>
+</span></span><span style="display:flex;"><span>require conf/distro/include/leda-distro-features.inc <span style="color:#8f5902;font-style:italic"># -&gt; Defines the quickstart image features. Use it as a guide for your distro.</span>
+</span></span><span style="display:flex;"><span>require conf/distro/include/leda-package-blacklist.inc <span style="color:#8f5902;font-style:italic"># -&gt; Defines blacklisted packages (e.g. alsa)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>include conf/machine/<span style="color:#4e9a06">${</span><span style="color:#000">MACHINE</span><span style="color:#4e9a06">}</span>-extra.conf <span style="color:#8f5902;font-style:italic"># -&gt; Defines ${MACHINE}-specific configuration files FSTAB, wks, etc. Would be elaborated on further down.</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">QB_KERNEL_CMDLINE_APPEND</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;net.ifnames=0 panic=5 ip=dhcp ip=192.168.7.2::192.168.7.1:255.255.255.0::eth0:off rootwait&#34;</span> <span style="color:#8f5902;font-style:italic"># -&gt; QEMU-specific kernel command line with which all images/partitions are booted</span>
+</span></span></code></pre></div><p>The only <strong>required</strong> contents of your distro-config file are the following (all other includes and distro features are optional):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># in the main leda.conf</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;&lt;distro_name&gt;&#34;</span> <span style="color:#8f5902;font-style:italic"># should be the same as the &lt;distro_name&gt;.conf</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">DISTRO_NAME</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;&lt;long_distro_name&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">DISTRO_VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;&lt;version&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">DISTRO_CODENAME</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;&lt;distro_codename&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># imported with require conf/distro/include/leda-distro-features.inc in Leda Quickstart</span>
+</span></span><span style="display:flex;"><span>DISTRO_FEATURES:append <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34; virtualization&#34;</span> <span style="color:#8f5902;font-style:italic"># required for containerd</span>
+</span></span><span style="display:flex;"><span>DISTRO_FEATURES:append <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34; sdv&#34;</span> <span style="color:#8f5902;font-style:italic"># required by the sdv-packagegroups</span>
+</span></span><span style="display:flex;"><span>DISTRO_FEATURES:append <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34; rauc&#34;</span> <span style="color:#8f5902;font-style:italic"># required for the rauc integration</span>
+</span></span></code></pre></div><h3 id="machine-specific-configs">Machine-specific configs</h3>
+<p>The &ldquo;extra&rdquo; machine specific-configs the meta-leda-bsp layer provides can be found here: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/conf/machine">meta-leda-bsp/conf/machine</a>. These files here provide examples on how to configure machine specific options such as the Linux Kernel image type, bootloader configuration, etc. E.g. if you need a working example of how to set up U-Boot for your machine, you might reference <code>common-qemu-arm.inc</code> since the Leda quickstart QEMUARM (64bit and 32bit) images use U-Boot as a bootloader.</p>
+<h2 id="partitioning-your-storage">Partitioning your storage</h2>
+<p>The Leda quickstart image uses RAUC as a way to do A/B partition type updates. We also add a third &ldquo;rescue&rdquo; partition and a persistent &ldquo;data&rdquo; partition. Generally, the Leda quickstart image partitions its storage as so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span> ----------------------------------------------------------------------------------
+</span></span><span style="display:flex;"><span>|            |             |             |             |             |             |
+</span></span><span style="display:flex;"><span>|            |             |             |             |             |             |
+</span></span><span style="display:flex;"><span>|    VFAT    |    NO-FS    |    EXT4     |    EXT4     |    EXT4     |    EXT4     |
+</span></span><span style="display:flex;"><span>|   (BOOT)   |  (GRUBENV)  |   (RESCUE)  |   (SDV_A)   |   (SDV_B)   |   (DATA)    |
+</span></span><span style="display:flex;"><span>|            |             |             |             |             |             |
+</span></span><span style="display:flex;"><span>|            |             |             |             |             |             |
+</span></span><span style="display:flex;"><span> ----------------------------------------------------------------------------------
+</span></span></code></pre></div><p>Where the partitions <strong>SDV_A</strong> and <strong>SDV_B</strong> are managed/updated by RAUC. They are read-only (<strong>SDV_A</strong> has the <em>sdv-image-full</em> image installed, <strong>SDV_B</strong> - <em>sdv-image-minimal</em>). All container/user data is in the last <strong>DATA</strong> partition (grows dynamically to fill out the storage). The boot partition contains the U-Boot/Grub bootloaders and their environment.</p>
+<p><strong>GRUBENV</strong> is reserved for future boot-partition updates and saving the GRUB/U-Boot environment. Currently <em>unused</em> in the Leda quickstart image.</p>
+<p>In the <strong>RESCUE</strong> partition the <em>sdv-image-rescue</em> image is installed, which is a &ldquo;fallback&rdquo; image for recovering the system if both partitions <strong>SDV_A</strong> and <strong>SDV_B</strong> get corrupted.</p>
+<p>This partition scheme has to be seen, as of course, a <em>suggestion</em> (you are free to use any RAUC-compatible one) but is important for understanding the later sections on this page.</p>
+<h2 id="wicwks">WIC/WKS</h2>
+<p>To partition your storage you will need to define your custom <strong>.wks</strong>-file that defines the partition table type, the bootloader, and the order and size of partitions.</p>
+<p>More details on OpenEmbedded Kickstart files can be found in the official documentation for Yocto: <a href="https://docs.yoctoproject.org/ref-manual/kickstart.html">OpenEmbedded Kickstart (.wks) Reference</a>. In short, <strong>.wks</strong>-files provide a reproducible way to partition your storage.</p>
+<p><em>IMPORTANT: the path to your <strong>.wks</strong>-file should be provided via the <strong>WKS_FILES=</strong> BitBake variable. For example, in the quickstart image for QEMUARM64 this variable is set in <code>qemuarm64-extra.conf</code>.</em></p>
+<p>Again, example <strong>.wks/.wks.in</strong> files are provided in <a href="https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-distro/wic">meta-leda/meta-leda-distro/wic</a>. We will now take a look at the qemuarm64 <strong>.wks</strong>-file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bootloader --ptable gpt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part --source bootimg-partition --ondisk vda --fstype=vfat --label BOOT --active --align 4096 --size 100 --use-uuid
+</span></span><span style="display:flex;"><span># Second Bootloader Partition (empty, for future updates)
+</span></span><span style="display:flex;"><span>part --fixed-size 10M --ondisk vda --align 4096 --no-table
+</span></span><span style="display:flex;"><span># Empty partition (on x86, this is grubenv - we store RAUC Status here as well)
+</span></span><span style="display:flex;"><span>part --fixed-size 10M --ondisk vda --align 4096
+</span></span><span style="display:flex;"><span>part --source rootfs --rootfs-dir=sdv-image-rescue --ondisk vda --fstype=ext4 --label rescue --align 1024
+</span></span><span style="display:flex;"><span>part --source rootfs --rootfs-dir=sdv-image-full --ondisk vda --fstype=ext4 --label root_a --align 4096
+</span></span><span style="display:flex;"><span>part --source rootfs --rootfs-dir=sdv-image-minimal  --ondisk vda --fstype=ext4 --label root_b --align 4096
+</span></span><span style="display:flex;"><span>part --fixed-size 2048M --source rootfs --rootfs-dir=sdv-image-data --ondisk vda --fstype=ext4 --label data --align 4096
+</span></span></code></pre></div><p>As you can see it directly implements the partition scheme described above. The partition table type is defined with the <code>bootloader --ptable gpt</code> line and every line after that corresponds to a partition from the diagram above.
+Please note, that the order in which the <code>part</code> lines in the <strong>.wks</strong>-file appear would be the order of the partitions.</p>
+<p>Here it is important to note that for the VFAT boot partition the label should be uppercase and you should add the <code>--use-uuid</code> option. Otherwise, it might not be mounted properly in the final Linux distro.</p>
+<h2 id="fstab">FSTAB</h2>
+<p><strong>.wks</strong>-files partition your storage, define partition tables, filesystem types and install images, but do nothing about actually mounting said partitions in the Linux userspace. This is the job of the FSTAB file. More information about writing a FSTAB file can be found in the <a href="https://man7.org/linux/man-pages/man5/fstab.5.html">Linux FSTAB manpage</a>.</p>
+<p>FSTAB files are installed through the OE-core recipe <code>base-files_&lt;version&gt;.bb</code>. To install a custom FSTAB in your image create a <code>recipes-core/base-files</code> directory in your container meta-layer and create a <code>base-files_%.bbappend</code> inside.
+Use this <em>.bbappend</em> to prepend the directory containing your custom FSTAB to the <code>FILESEXTRAPATHS</code> list for that recipe.</p>
+<p>An example can be found in <code>meta-leda/meta-leda-distro/recipes-core/base-files/</code> where you would find the needed <code>.bbappend</code> file and the <code>meta-leda/meta-leda-distro/recipes-core/base-files/base-files/&lt;machine&gt;</code> directory containing the actual FSTAB files.</p>
+<p>Let&rsquo;s investigate the Leda <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-distro/recipes-core/base-files/base-files/qemuarm64/fstab">qemuarm64 FSTAB</a> as an example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># Eclipse Leda - fstab for qemuarm64 RAUC redundant boot setup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/dev/root            /                    auto       defaults,noatime              1  1
+</span></span><span style="display:flex;"><span>proc                 /proc                proc       defaults              0  0
+</span></span><span style="display:flex;"><span>devpts               /dev/pts             devpts     mode=0620,ptmxmode=0666,gid=5      0  0
+</span></span><span style="display:flex;"><span>tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,strictatime 0  0
+</span></span><span style="display:flex;"><span>tmpfs                /var/volatile        tmpfs      defaults              0  0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Add mount for boot, grubenv and data partition
+</span></span><span style="display:flex;"><span>LABEL=BOOT           /boot                vfat       defaults,nofail,noatime  0  0
+</span></span><span style="display:flex;"><span>LABEL=grubenv        /grubenv             auto       defaults,nofail,noatime  0  0
+</span></span><span style="display:flex;"><span>LABEL=data           /data                auto       defaults,nofail,noatime  0  2
+</span></span></code></pre></div><p>Here only the BOOT, grubenv, and data partitions are mounted by label.</p>
+<p>The root partition depends on the image (sdv-image-full/minimal/rescue) that has been currently booted. Here /dev/root is a &ldquo;special variable&rdquo; that is set from the <code>root=</code> option in the kernel command line. This is important to be able
+to boot from the different partitions via a custom bootloader script (and as a consequence these partitions are to be managed by RAUC).</p>
+<h2 id="integrating-rauc">Integrating RAUC</h2>
+<p>Whether you are using GRUB or U-Boot, integrating RAUC requires custom bootloader scripting. The official documentation for integrating RAUC can be found here: <a href="https://rauc.readthedocs.io/en/latest/integration.html">6. Integration</a>.</p>
+<p>This documentation can, however, be quite complicated. Concise, self-contained examples for proper integration of the most popular targets can be found in the <a href="https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-qemux86">meta-rauc-community</a> repository.</p>
+<h3 id="the-rauc-system-config-file">The RAUC system config file</h3>
+<p>Irrespective of your bootloader, you need to provide a RAUC system.conf file describing the slots, the bootloader, certificates, etc. This is best explained via an example: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf">meta-leda/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf</a></p>
+<h3 id="grub">GRUB</h3>
+<p>The only Leda quickstart image that uses GRUB as a bootloader is for qemux86_64. It directly uses the <a href="https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-qemux86">meta-rauc-community/meta-rauc-qemux86/</a> meta-layer.</p>
+<h3 id="u-boot">U-Boot</h3>
+<p><em>Note: The following sub-sections are based on the official <a href="https://source.denx.de/u-boot/u-boot">U-Boot source</a> which the OE recipes use. Your BSP may provide another hardware-specific fork of U-Boot that may or may not be entirely compatible with this integration guide. (e.g. fw_utils not being available)</em></p>
+<p>The rpi4-64 target, similar to qemux86_64, directly uses <a href="https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi">meta-rauc-community/meta-rauc-raspberrypi</a> which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot-based targets is not available and has to be manually created. That is why, <a href="https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi">meta-rauc-community/meta-rauc-sunxi</a> might provide a better example in a more general case.</p>
+<p>The Leda quickstart images that use U-boot as a bootloader are based on the ideas in <code>meta-rauc-sunxi</code>. We will now go into more detail on how to integrate such a U-Boot target that requires a more &ldquo;from-scratch&rdquo; integration.</p>
+<h4 id="the-u-boot-environment-and-slot-counting">The U-Boot environment and &ldquo;slot-counting&rdquo;</h4>
+<p>RAUC &ldquo;talks&rdquo; to the bootloader and tracks how many times you have tried to boot a slot via the <strong>bootloader</strong> environment variables &ldquo;BOOT_ORDER&rdquo; and &ldquo;BOOT_&lt;SLOT_NAME&gt;_LEFT&rdquo;. Thus, U-Boot should be able to save its environment in a file
+(<code>uboot.env</code>) somewhere that can be read by RAUC from userspace (the booted Linux image). This can be the VFAT BOOT partition, a flash chip, EEPROM, etc. which can be mounted in userspace and read by RAUC.</p>
+<p>Note that while most of the steps for each of these storage options are the same, they might need some specific configuration. For example, the build for the Leda Quickstart QEMUARM64 patches the U-Boot defconfig file to point U-Boot to save its environment in the VFAT BOOT partition <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm64/env_in_fat_qemuarm.patch">env_in_fat_qemuarm.patch</a>. You can instead directly provide a custom defconfig in your machine-specific config (ref: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/conf/machine/qemuarm64-extra.conf#L8">qemuarm64-extra.conf</a>).</p>
+<h4 id="uboot_bbappend">uboot_%.bbappend</h4>
+<p>After ensuring that the device containing the U-Boot environment is correctly mounted in userspace (e.g. the BOOT partition as /boot). Create a custom <code>uboot_%.bbappend</code> file and as an example, you can use <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm64.inc">meta-leda/meta-leda-bsp/recipes-bsp/uboot/uboot-targets/qemuarm64.inc</a>. This .bbappend should, generally do two things:</p>
+<ul>
+<li>
+<p>Take your custom <code>boot.cmd.in</code> script and compile it to a boot.scr  (or boot.scr.uimg) file with mkimage.</p>
+</li>
+<li>
+<p>Install the <code>fw_env.config</code> file in /etc/fw_env.config.</p>
+</li>
+<li>
+<p>Optional: Apply any patches, custom settings, etc.</p>
+</li>
+</ul>
+<p><em>Note: if you are building for more than one U-Boot-based target extensive use of machine-specific overrides is recommended.</em></p>
+<h4 id="custom-bootscr">Custom boot.scr</h4>
+<p>If a custom boot.scr that was compiled with the <em>mkimage</em> tool is in the same partition as the U-Boot binary, U-Boot will run that on boot. This is the point of integration of RAUC and U-Boot. All concepts behind setting up such a script are explained in the <a href="https://github.com/rauc/rauc/blob/8216e0df6c716a87406df676295af94b77814e5e/docs/integration.rst#id27">rauc documentation</a>.</p>
+<p>Generally, as a starting point, you can use one of the custom scripts in meta-rauc-community or those in meta-leda: <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm64/boot.cmd.in">meta-leda/meta-leda-bsp/recipes-bsp/uboot/files/qemuarm64/boot.cmd.in</a>.</p>
+<p><strong>IMPORTANT: Be consistent with your slot names!</strong></p>
+<p>As it can be seen in the examples, after the &ldquo;slot retries counting&rdquo; part of the script is done, the <code>root=</code> and <code>rauc.slot=</code> kernel command line arguments are set, the U-Boot environment is saved in the VFAT boot partition as uboot.env and the selected image is booted.</p>
+<p>Then, from userspace RAUC reads the kernel command line (/proc/cmdline) and the uboot.env (through the fw_printenv/fw_setenv utilities) and decides (based on that) whether a slot is &ldquo;<span class="-text-green">Good</span>&rdquo; or &ldquo;<span class="-text-red">Bad</span>&rdquo;.</p>
+<h4 id="fw_envconfig">fw_env.config</h4>
+<p>For RAUC to be able to read and modify the U-Boot environment from userspace, it needs the fw_printenv/fw_setenv utilities to be installed in the distro. This can be done by installing the packages: <code>&quot;u-boot-fw-utils u-boot-env libubootenv&quot;</code> through IMAGE_INSTALL or RDEPENDS in a recipe.</p>
+<p>This, however, is not enough since these utilities, in turn, have to be configured to know where U-Boot stores its environment. This is done through the /etc/fw_env.config file. An example of such a file with all of its different variations can be seen here <a href="https://github.com/ARM-software/u-boot/blob/master/tools/env/fw_env.config">fw_env.config</a>.</p>
+<p>The one for Leda quickstart contains a single line:</p>
+<pre tabindex="0"><code>/boot/uboot.env 0x0000  0x4000
+</code></pre><p>If you are unsure of the environment size and the device offset, check the defconfig file for your machine, where these two values should be specified as U-Boot compile-time configuration parameters.</p>
+<h4 id="conclusion-u-boot---rauc-integration-checklist">Conclusion (U-Boot &lt;-&gt; RAUC integration checklist)</h4>
+<p>Given the following:</p>
+<ol>
+<li>
+<p>You have setup U-Boot to save its environment in a known place (device, partition, etc).</p>
+</li>
+<li>
+<p>This device storing the U-Boot environment is mounted in userspace.</p>
+</li>
+<li>
+<p>You have provided a custom boot-script that does the RAUC slot counting.</p>
+</li>
+<li>
+<p>You have installed fw_printenv/fw_setenv and properly setup the /etc/fw_env.config file.</p>
+</li>
+</ol>
+<p>The RAUC mark-good-service should successfully go through and mark both RAUC slots as &ldquo;<span class="-text-green">GOOD</span>&rdquo;.</p>
+<h2 id="final-steps---building-and-flashing">Final steps - building and flashing</h2>
+<p>Build:</p>
+<p>Run <code>kas build</code> in the root of your repository and wait for the build to finish successfully. If any BitBake errors occur during the build process, you need to fix them before a final flashable image can be built.</p>
+<p>Flash:</p>
+<p>Obtain the <code>image-name.wic.bz2</code> and <code>image-name.wic.bmap</code> files from the <code>tmp/deploy/images</code> directory. Mount your storage and use bmaptool to quickly flash the built image. More information on flashing can be found in the <a href="../../general-usage/raspberry-pi/">Running on Raspberry Pi</a> section of this documentation.</p>
+<p>If everything works as intended you should see in the U-Boot output that it found <code>/boot.scr</code> and started executing it. This should lead to a successful boot of your custom Linux distro image with the RAUC-mark-good.service being marked as [<span class="-text-green">OK</span>] in the systemd logs (if your distro uses systemd).</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-20bb2af83c47c818220bae4f2b8b24f7">7.2 - Deploying Containers</h1>
+    
+	<h2 id="kanto-container-management-kanto-cm-init-dir">Kanto Container Management (kanto-cm) init-dir</h2>
+<p>Kanto-cm provides a mechanism to automatically deploy containers based on json-manifests stored in a so-called <code>init_dir</code> on boot. The template can be found in the kanto-cm documentation: <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/#template">Template</a>.</p>
+<p>A &ldquo;filled in&rdquo; template can be found in meta-leda (e.g. meta <a href="https://github.com/eclipse-leda/meta-leda/blob/2cb683a9606c01a73fc4f4d01df92a23a2cd2b9c/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core/databroker.json">meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core/databroker.json</a>).</p>
+<p>The directory for these manifests is set during image build time through the BitBake variable <code>KANTO_MANIFESTS_DIR</code>. By default, the Leda Quickstart image sets this directory to <code>/data/var/containers/manifests</code>. Since this is a directory mounted on the persistent <strong>data</strong>-partition you can add custom manifests/customize the default ones after an image has been built. These changes <strong>will not be affected</strong> by a RAUC update.</p>
+<p>A standard set of containers is deployed with meta-leda, the manifests for which can be found in <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core</code> and <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/</code>.</p>
+<p><strong>Important: The manifests in the kanto-cm init-dir are checked only <em>ONCE</em>  - on service start-up. If you add/change a manifest you would need to restart the whole &ldquo;container-management&rdquo; service for your changes to take effect.</strong></p>
+<h2 id="kanto-auto-deployer">Kanto-auto-deployer</h2>
+<p>This service has been implemented as a stopgap solution by the Leda team before the kanto-cm init-dir mechanism was implemented by the Kanto team. In-depth documentation on its operation and development can be found in the <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer">Kanto Auto deployer</a>. This runs as a one-shot service on boot and checks the directory defined in the BitBake variable <code>KANTO_MANIFESTS_DEV_DIR</code> in the distro config recipes. By default, the Leda quickstart images use <code>KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests_dev&quot;</code>. So, these manifest are again stored in the persistent <strong>data</strong>-partition and can be modified after the image has been deployed.</p>
+<p><strong>Important: the <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer#manifest-structure">manifest template</a> used for this service is similar to the one for the kanto-cm native mechanism, but is, in fact, different. Kanto-auto-deployer uses the kanto-cm internal state representation.</strong></p>
+<p>A standard set of <em>dev</em>-containers is deployed with meta-leda, the manifests for which can be found in <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core_dev</code> and <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example_dev/</code>.</p>
+<p>The advantage of this service is that it can be restarted very quickly (<code>systemctl restart kanto-auto-deployer</code>), without having to restart the <em>whole</em> container-management service. This allows for rapid testing when deploying a new container. Due to the similarity of both manifests, the kanto-auto-deployer-style manifest can later be easily migrated to the kanto ini-dir style-one.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
   
 
     
