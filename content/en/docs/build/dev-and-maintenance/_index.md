@@ -1,7 +1,7 @@
 ---
 title: "Developing and Maintaining Utils"
 date: 2023-01-03T17:24:56+05:30
-weight: 10
+weight: 25
 ---
 
 The Leda teams provides some custom utilities that allow for a more integrated end-user experience. They can be found in the main leda-utils repository on GitHub: [eclipse-leda/leda-utils](https://github.com/eclipse-leda/leda-utils).
@@ -13,7 +13,7 @@ The following pages are meant to serve as both internal documentation and genera
 Leda uses the classic Bourne shell as its main shell, thus all scripts should be sh-compatible (use the `#!/bin/sh` shebang). As a Poky+OE-based distro we use BusyBox for core-utils. To check explicitly for *"bashisms"* in your scripts, the
 `checkbashisms` tool might be useful.
 
-[**Utility-Specific Pages**](bash/)
+[**Utility-Specific Pages**](shell/)
 
 The bash-based leda-utils are all deployed with the same recipe under the sdv-base packagegroup: [meta-leda/meta-leda-components/recipes-sdv/sdv-base](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/sdv-base).
 
