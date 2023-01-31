@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.5d558c857bf3ddb859e13a39c7013865.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.3ca925dd5564b5b8f57c2dfe1b534e35.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -716,6 +716,25 @@ This is the multi-page printable view of this section.
 <li>6.8.1: <a href="#pg-685226a9e960be283b847d67e85319af">Resource Consumptions</a></li>
 
 
+    
+  
+    
+    
+	
+<li>6.8.2: <a href="#pg-1e40b1f7122c24679a439cddb45a2953">Partition Layout</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
 
@@ -4098,6 +4117,57 @@ Try running with:</p>
 </div>
 
 
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1e40b1f7122c24679a439cddb45a2953">6.8.2 - Partition Layout</h1>
+    
+	<p>The bootable Leda Quickstart images are disk image with multiple partitions:</p>
+<ul>
+<li>Two bootloader partitions, to enable A/B update process</li>
+<li>A separate partition to hold bootloader status information</li>
+<li>An optional rescue partition with basic operating system and tooling</li>
+<li>Two rootfs partitions with a full installation of the operating system, to enable A/B update process</li>
+<li>A data partition for storing container runtime data</li>
+</ul>
+<h2 id="partition-layout-for-qemu-x86-64">Partition Layout for QEMU x86-64</h2>
+<p>The x86_64 image uses GRUB as a bootloader and the partition layout is as follows:</p>
+<p><img src="leda-disk-layout-qemux86-64.png" alt="Leda Disk Layout for QEMU x86-64"></p>
+<h2 id="partition-layout-for-qemu-arm-64">Partition Layout for QEMU ARM-64</h2>
+<p>The partition layout for QEMU ARM-based images are comparable, except:</p>
+<ul>
+<li>Bootloader is replaced with U-Boot</li>
+</ul>
+<h2 id="partition-layout-for-raspberry-pi">Partition Layout for Raspberry Pi</h2>
+<p>The partition layout for Raspberry Pi images are comparable, except:</p>
+<ul>
+<li>Bootloader is replaced with U-Boot</li>
+<li>The last partition (the data partition) is marked as growable, to allow the use of the larger SD-Card capacities for container runtime data</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
 
     
 	
