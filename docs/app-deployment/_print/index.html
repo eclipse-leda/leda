@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.224248c6b54f95511d2599f52c16edc0.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.bd8c357077759e7e323ef4fa0a7583e3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
+<li>1: <a href="#pg-10a0e990614b64cb6bbaff75a319ebb7">Seat Adjuster</a></li>
 
 
     
@@ -135,7 +135,45 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+<li>2: <a href="#pg-5505f58168fbe80d37b842b17c307c91">Dog Mode</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
 
 
     
@@ -156,7 +194,14 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>This chapter contains use cases and examples for SDV applications.</p>
+<p>Some of these example are taken from the following sources:</p>
+<ul>
+<li><a href="https://digital.auto">Digital.Auto</a> and its <a href="https://digitalauto.netlify.app/">playground</a></li>
+<li><a href="https://websites.eclipseprojects.io/velocitas/docs/tutorials/">Eclipse Velocitas tutorials</a></li>
+<li><a href="https://github.com/eclipse/kuksa.val.services">Eclipse Kuksa.VAL examples</a></li>
+</ul>
+
 </div>
 </div>
 
@@ -177,58 +222,78 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">1 - Cloud2Device Messages</h1>
+	<h1 id="pg-10a0e990614b64cb6bbaff75a319ebb7">1 - Seat Adjuster</h1>
     
-	<p><img src="c2d-architecture-overview.png" alt="c2d-overview"></p>
-<p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>
-<h2 id="pre-requisites">Pre-Requisites</h2>
+	<p>The <strong>Seat Adjuster</strong> use case has been derived from the <a href="https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/seat_adjuster/">Eclipse Velocitas Seat Adjuster example</a>, the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Eclipse Kuksa.VAL Seat Service example</a> and the <a href="https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh">Digital.Playground Prototyping Library</a></p>
+<h2 id="description">Description</h2>
+<p>The Seat Adjuster use cases demonstrates the idea of having a cloud-based driver profile hosted by a third-party web service, which is then used by a custom application to move the driver seat to certain positions.</p>
+<p>Examples range from simple personalization to dynamic seat control (such as periodic back massages) based on personal health treatment plans by an health insurance organization. A driver could opt-in to such a service, which would lead to the ad-hoc installation of a seat adjuster vehicle application when the driver enters the vehicle. The seat adjuster application would then contact the health insurance webservice to retrieve the driver&rsquo;s personal treatment plan for back massage and start moving the motors in certain intervals, to ease or prevent back pain during long driving periods.</p>
+<p>This example focuses on the technical aspect, namely the interface between such an assumed application with the high-level logic, and the lower-level backend service (Seat Service), which controls the communication to the underlying hardware (Seat ECU). In this case, the Vehicle Signal Specification and the simple signal for seat position is used exemplarily. Safety considerations are not in scope for this example, but would probably be handled within the Seat ECU as the lowest level component to guard against non-safe use of the seat motors.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><img src="seatadjuster.png" alt="Leda Seat Adjuster Use Case"></p>
 <ul>
-<li>Device is up and running, e.g by <a href="/leda/docs/general-usage/running-qemu/">running in qemu</a></li>
-<li>Eclipse Leda has successfully booted</li>
-<li>The device has been provisioned and configured, see <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
+<li>Cloud or mobile trigger: not part of the Leda image, but can be simulated by issueing MQTT messages</li>
+<li>Eclipse Velocitas - Vehicle Application: <strong>Seat Adjuster</strong> (to be deployed by user as part of the Velocitas tutorial)</li>
+<li>Eclipse Kuksa.VAL - Example Service: <strong>Seat Service</strong> (pre-installed)</li>
+<li>Eclipse Kuksa.VAL - <strong>Data Broker</strong> (pre-installed)</li>
+<li>Seat ECU and the separate Seat Motor hardware: not part of the Leda image, but can be emulated using virtual CAN-Bus. The Kuksa Seat Service container contains configuration options to use VCAN</li>
 </ul>
-<h2 id="validating-configuration">Validating configuration</h2>
-<p>First, let&rsquo;s check that the cloud connection is active.</p>
-<ul>
+<h2 id="getting-started">Getting started</h2>
+<ol>
 <li>
-<p>Login as <code>root</code></p>
+<p>Follow the Velocitas tutorial: build and deploy your clone of the <a href="https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/seat_adjuster/">seat adjuster example</a></p>
 </li>
 <li>
-<p>Run sdv-health and check for the <em>SDV Connectivity</em> section:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdv-health
-</span></span></code></pre></div><p><img src="sdv-health-connectivity.png" alt="sdv-health-connectivity"></p>
+<p>Download and run the Leda quickstart image</p>
 </li>
 <li>
-<p>Start watching the output of the cloud connector:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kantui
-</span></span></code></pre></div></li>
-<li>
-<p>Select the <code>cloud-connector</code> container and press <code>L</code> to watch the logs</p>
-<blockquote>
-<p><em>Note:</em> When an unknown type of message is received, the cloud connector will log an error:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>2022/04/13 16:04:41.911727  [agent]  ERROR  Handler returned error err=&#34;cannot deserialize cloud message: invalid character &#39;H&#39; looking for beginning of value
-</span></span></code></pre></div></blockquote>
+<p>Deploy your seat adjuster application to the container runtime, either manually by using <code>kanto-cm create</code> or by providing a deployment descriptor in <code>/var/containers/manifests</code>. An example deployment descriptor can be found in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">meta-leda-components</a>. Details on the deployment can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
 </li>
 <li>
-<p>Start watching on the MQTT message broker:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -h localhost -t <span style="color:#4e9a06">&#39;#&#39;</span> --pretty -v
-</span></span></code></pre></div><blockquote>
-<p><em>Note:</em> When a known type of message is received, the cloud connector will forward the message to the MQTT broker into the corresponding topic <code>$appId/$cmdName</code></p>
-</blockquote>
+<p>Ensure the databroker and the seat service containers are running and you know how to check their log files</p>
 </li>
-</ul>
-<h2 id="sending-a-device-message">Sending a Device Message</h2>
-<ul>
-<li>Go to the Web Console of Azure IoT Hub</li>
-<li>Select the device</li>
-<li>Click on &ldquo;Send Message&rdquo;</li>
-<li>Enter a C2D payload and click &ldquo;Send&rdquo;</li>
-</ul>
-<p>Alternatively, on command line, use the Azure CLI client. Replace <code>DeviceId</code> and <code>IotHubName</code> with the appropriate names of your IoT Hub and device.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az iot device c2d-message send <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span> --device-id <span style="color:#4e9a06">${</span><span style="color:#000">DeviceID</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span> --hub-name <span style="color:#4e9a06">${</span><span style="color:#000">IotHubName</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">\
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span> --data <span style="color:#4e9a06">&#39;Hello World&#39;</span>
+<li>
+<p>Publish an MQTT message for the seat adjuster application, e.g. <code>mosquitto_pub -t seatadjuster/setPosition/request -f seat-request.json</code> and a possible payload like this:</p>
+<pre><code> {&quot;position&quot;: 300, &quot;requestId&quot;: &lt;request_id&gt;}
+</code></pre>
+</li>
+</ol>
+<h2 id="prototyping">Prototyping</h2>
+<p>The pseudo-code for the Seat Adjuster application could look like the following excerpt from the <a href="https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh/view/code">Digital.Playground example</a>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv_model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Vehicle</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">on_user_profile_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Issuer</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Height</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">profile</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">Issuer</span><span style="color:#000;font-weight:bold">][</span><span style="color:#4e9a06">&#34;VerticalHeight&#34;</span><span style="color:#000;font-weight:bold">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">profile</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">Issuer</span><span style="color:#000;font-weight:bold">][</span><span style="color:#4e9a06">&#34;HorizontalPosition&#34;</span><span style="color:#000;font-weight:bold">])</span>
+</span></span></code></pre></div><p>In the next step, this prototype can be taken to the next level of implementation by using the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/main/examples/seat-adjuster/src/main.py#L81">Velocitas example</a> to express it like this, with possibly more logic:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">())</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">try</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Set Seat position to: </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">ValueError</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">error</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Failed to set the position </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">, error: </span><span style="color:#4e9a06">{</span><span style="color:#000">error</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">Exception</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Exception on set Seat position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">error_msg</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;&#34;&#34;Not allowed to move seat because vehicle speed
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        is </span><span style="color:#4e9a06">{</span><span style="color:#000">vehicle_speed</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> and not 0&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">error_msg</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
 </span></span></code></pre></div>
 </div>
 
@@ -256,7 +321,73 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">2 - Velocitas VApps</h1>
+	<h1 id="pg-5505f58168fbe80d37b842b17c307c91">2 - Dog Mode</h1>
+    
+	<p>The <strong>Dog Mode</strong> use case has been derived from the <a href="https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/dog_mode/">Eclipse Velocitas Dog Mode example</a> and the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/hvac_service">Eclipse Kuksa.VAL HVAC Service example</a>.</p>
+<h2 id="description">Description</h2>
+<p>In the <strong>Dog Mode</strong> use case, an existing vehicle service (such as HVAC for Heating, Ventilation and Air Conditioning) is used for another use case.
+When a driver enables the dog mode, the vehicle will keep the climate in a status to accomodates the pet while the driver is gone for a few minutes.</p>
+<p>The focus on this example is to show how an additional application can reuse existing functionality for new use cases. The vehicle service being used does not need to be adapted for the new use case. The new use case is deployed as an additional functionality, separated from the rest of the existing system.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><img src="dogmode.png" alt="Leda Dog Mode Use Case"></p>
+<ul>
+<li>Cloud or mobile trigger: not part of the Leda image, but can be simulated by issueing MQTT messages</li>
+<li>Eclipse Velocitas - Vehicle Application: <strong>Dog Mode</strong> (to be deployed by user as part of the Velocitas tutorial)</li>
+<li>Eclipse Kuksa.VAL - Example Service: <strong>HVAC Service</strong> (pre-installed)</li>
+<li>Eclipse Kuksa.VAL - <strong>Data Broker</strong> (pre-installed)</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>
+<p>Follow the Velocitas tutorial: build and deploy your clone of the <a href="https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/dog_mode/">dog mode example</a></p>
+</li>
+<li>
+<p>Download and run the Leda quickstart image</p>
+</li>
+<li>
+<p>Deploy the application to the container runtime, either manually by using <code>kanto-cm create</code> or by providing a deployment descriptor in <code>/var/containers/manifests</code>. An example deployment descriptor can be found in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">meta-leda-components</a>. Details on the deployment can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
+</li>
+<li>
+<p>Ensure the databroker and the service containers are running and you know how to check their log files</p>
+</li>
+<li>
+<p>Monitor vehicle data: <code>mosquitto_sub -t dogmode/display</code></p>
+</li>
+<li>
+<p>Enable dog mode by using the <code>databroker-cli</code></p>
+<pre><code> connect
+ set Vehicle.Cabin.DogMode 1
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">3 - Velocitas VApps</h1>
     
 	<p>For local deployment without a cloud backend, deployment specifications for <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> Vehicle Apps may be put directly onto the device.</p>
 <ul>
@@ -354,6 +485,85 @@ kanto-auto-deployer
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;manually_stopped&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;restart_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">4 - Cloud2Device Messages</h1>
+    
+	<p><img src="c2d-architecture-overview.png" alt="c2d-overview"></p>
+<p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<ul>
+<li>Device is up and running, e.g by <a href="/leda/docs/general-usage/running-qemu/">running in qemu</a></li>
+<li>Eclipse Leda has successfully booted</li>
+<li>The device has been provisioned and configured, see <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
+</ul>
+<h2 id="validating-configuration">Validating configuration</h2>
+<p>First, let&rsquo;s check that the cloud connection is active.</p>
+<ul>
+<li>
+<p>Login as <code>root</code></p>
+</li>
+<li>
+<p>Run sdv-health and check for the <em>SDV Connectivity</em> section:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdv-health
+</span></span></code></pre></div><p><img src="sdv-health-connectivity.png" alt="sdv-health-connectivity"></p>
+</li>
+<li>
+<p>Start watching the output of the cloud connector:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kantui
+</span></span></code></pre></div></li>
+<li>
+<p>Select the <code>cloud-connector</code> container and press <code>L</code> to watch the logs</p>
+<blockquote>
+<p><em>Note:</em> When an unknown type of message is received, the cloud connector will log an error:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>2022/04/13 16:04:41.911727  [agent]  ERROR  Handler returned error err=&#34;cannot deserialize cloud message: invalid character &#39;H&#39; looking for beginning of value
+</span></span></code></pre></div></blockquote>
+</li>
+<li>
+<p>Start watching on the MQTT message broker:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -h localhost -t <span style="color:#4e9a06">&#39;#&#39;</span> --pretty -v
+</span></span></code></pre></div><blockquote>
+<p><em>Note:</em> When a known type of message is received, the cloud connector will forward the message to the MQTT broker into the corresponding topic <code>$appId/$cmdName</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="sending-a-device-message">Sending a Device Message</h2>
+<ul>
+<li>Go to the Web Console of Azure IoT Hub</li>
+<li>Select the device</li>
+<li>Click on &ldquo;Send Message&rdquo;</li>
+<li>Enter a C2D payload and click &ldquo;Send&rdquo;</li>
+</ul>
+<p>Alternatively, on command line, use the Azure CLI client. Replace <code>DeviceId</code> and <code>IotHubName</code> with the appropriate names of your IoT Hub and device.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az iot device c2d-message send <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span> --device-id <span style="color:#4e9a06">${</span><span style="color:#000">DeviceID</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span> --hub-name <span style="color:#4e9a06">${</span><span style="color:#000">IotHubName</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span> --data <span style="color:#4e9a06">&#39;Hello World&#39;</span>
 </span></span></code></pre></div>
 </div>
 
