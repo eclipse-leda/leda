@@ -33,7 +33,7 @@ Note: This is enabled by default on the Leda Quickstart images to simplify autom
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-01-31T17:33:33+02:00" />
+<meta property="article:modified_time" content="2023-02-01T17:44:30+02:00" />
 
 <meta itemprop="name" content="Configuration">
 <meta itemprop="description" content="Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM
@@ -41,7 +41,7 @@ The vehicle update manager container requires the following configuration:
   Container needs to run in privileged mode to enable automatic reboot.
 Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.
   Connection to MQTT broker, defaults to THINGS_CONN_BROKER=tcp://mosquitto:1883">
-<meta itemprop="dateModified" content="2023-01-31T17:33:33+02:00" />
+<meta itemprop="dateModified" content="2023-02-01T17:44:30+02:00" />
 <meta itemprop="wordCount" content="221">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuration"/>
@@ -54,8 +54,8 @@ Note: This is enabled by default on the Leda Quickstart images to simplify autom
 
 
 
-<link rel="preload" href="/leda/scss/main.min.74aaf46f810a3e4a4ed7ecf52b4f047e331c1f74e55ef6969c96feafd305c037.css" as="style">
-<link href="/leda/scss/main.min.74aaf46f810a3e4a4ed7ecf52b4f047e331c1f74e55ef6969c96feafd305c037.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" as="style">
+<link href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -88,7 +88,7 @@ Note: This is enabled by default on the Leda Quickstart images to simplify autom
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.bd8c357077759e7e323ef4fa0a7583e3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -113,7 +113,7 @@ Note: This is enabled by default on the Leda Quickstart images to simplify autom
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.bd8c357077759e7e323ef4fa0a7583e3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -326,10 +326,21 @@ Note: This is enabled by default on the Leda Quickstart images to simplify autom
   <input type="checkbox" id="m-ledadocsbuildrun-build-check"/>
   <label for="m-ledadocsbuildrun-build-check"><a href="/leda/docs/build/run-build/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildrun-build"><span class="">Run the build</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildbuild-tests-li">
-  <input type="checkbox" id="m-ledadocsbuildbuild-tests-check"/>
-  <label for="m-ledadocsbuildbuild-tests-check"><a href="/leda/docs/build/build-tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildbuild-tests"><span class="">Building tests</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildtests-li">
+  <input type="checkbox" id="m-ledadocsbuildtests-check"/>
+  <label for="m-ledadocsbuildtests-check"><a href="/leda/docs/build/tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildtests"><span class="">Automated Tests</span></a></label>
   
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildtestsrobot-keywords-li">
+  <input type="checkbox" id="m-ledadocsbuildtestsrobot-keywords-check"/>
+  <label for="m-ledadocsbuildtestsrobot-keywords-check"><a href="/leda/docs/build/tests/robot-keywords/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildtestsrobot-keywords"><span class="">Robot Keywords</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildtestsrust-tests-li">
+  <input type="checkbox" id="m-ledadocsbuildtestsrust-tests-check"/>
+  <label for="m-ledadocsbuildtestsrust-tests-check"><a href="/leda/docs/build/tests/rust-tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildtestsrust-tests"><span class="">Rust Tests</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildgithub-li">
   <input type="checkbox" id="m-ledadocsbuildgithub-check"/>
   <label for="m-ledadocsbuildgithub-check"><a href="/leda/docs/build/github/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildgithub"><span class="">GitHub Workflow</span></a></label>

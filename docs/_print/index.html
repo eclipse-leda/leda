@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.74aaf46f810a3e4a4ed7ecf52b4f047e331c1f74e55ef6969c96feafd305c037.css" as="style">
-<link href="/leda/scss/main.min.74aaf46f810a3e4a4ed7ecf52b4f047e331c1f74e55ef6969c96feafd305c037.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" as="style">
+<link href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.bd8c357077759e7e323ef4fa0a7583e3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -701,9 +701,36 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.5: <a href="#pg-7f21f514ad0dd5b09364dfb04efa83f2">Building tests</a></li>
+<li>6.5: <a href="#pg-c18e94c2f6e61c26c3af49dce54f0909">Automated Tests</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>6.5.1: <a href="#pg-8fd1dfda73f2cd3ab1ec676ecd359ca5">Robot Keywords</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6.5.2: <a href="#pg-54e9dcaf283ef882361a51e9acfc06d5">Rust Tests</a></li>
+
+
+    
+  
+
+    </ul>
     
   
     
@@ -4144,9 +4171,127 @@ This will write a file qemu.pid in the current directory including the process I
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7f21f514ad0dd5b09364dfb04efa83f2">6.5 - Building tests</h1>
+	<h1 id="pg-c18e94c2f6e61c26c3af49dce54f0909">6.5 - Automated Tests</h1>
     
-	<h1 id="cross-compiling-to-x86_64-on-ubuntu-2004">Cross Compiling to X86_64 on Ubuntu 20.04</h1>
+	<p>Eclipse Leda is using the <a href="https://robotframework.org/">Robot Framework</a> for black box tests and system tests.</p>
+<p>The black box tests are supposed to only use <em>public</em> API from SDV components, for example the MQTT interface of the Self Update Agent.
+The system tests are supposed to test on Leda Distro level and can use shell and SSH commands to verify system behavior, e.g. performing a reboot.</p>
+<p><img src="leda-tests-overview.png" alt="Leda Tests Docker Compose Setup Overview"></p>
+<ol>
+<li>Test Execution: an external trigger, such as the <code>./test-docker.sh</code> shell script, starts the <code>leda-tests</code> container.</li>
+<li>Docker Compose ensures that the needed containers are built and started.
+The test cases and test resources are copied into the leda-tests container at build time.</li>
+<li>The Robot process is started and performs the execution of all test cases</li>
+<li>Black box test cases use the MQTT interface to connect to the test target and publish messages</li>
+<li>System level test cases use SSH to connect to the test target and execute commands</li>
+<li>Test reports are written to a mounted volume, so that they are available on the host for further processing</li>
+</ol>
+<h3 id="run-the-tests">Run the tests</h3>
+<p>The easiest way to run the test cases is to run it in the Docker Compose setup:</p>
+<ol>
+<li>
+<p>Clone the <a href="https://github.com/eclipse-leda/leda-distro">leda-distro</a> repository:</p>
+<pre><code> git clone https://github.com/eclipse-leda/leda-distro
+</code></pre>
+</li>
+<li>
+<p><em>Optional:</em> Build both images (qemuarm64 and qemux86-64) using kas / BitBake. If you omit this step, docker compose will download the latest container images from the Eclipse Leda Container Registry on ghcr.io.</p>
+<pre><code> kas build kas/leda-qemux86-64.yml
+ kas build kas/leda-qemuarm64.yml
+</code></pre>
+</li>
+<li>
+<p>Switch to the docker-snapshot directory:</p>
+<pre><code> cd resources/docker-snapshot/
+</code></pre>
+</li>
+<li>
+<p>Run the Leda Tests</p>
+<pre><code> ./test-docker.sh
+</code></pre>
+</li>
+</ol>
+<h3 id="test-reports">Test Reports</h3>
+<p>The output of <code>test-docker.sh</code> will show the test results from Robot.</p>
+<p>The test reports and debug logs are available on the host&rsquo;s filesystem in the path <code>resources/docker-snapshot/leda-tests-reports</code></p>
+<ul>
+<li><code>output.xml</code> - The main Robot output report</li>
+<li><code>report.html</code> - A Robot HTML summary report</li>
+<li><code>leda-tests-xunit.xml</code> - A xUnit report file suitable for rendering with various tools</li>
+<li><code>log.html</code> - A Robot HTML report with the test execution log</li>
+<li><code>leda-tests-debug.log</code> - Debug log file of the test execution, helpful during implementation of test cases and troubleshooting of failed tests</li>
+</ul>
+<p>The xunit report is being used to visualize the test execution results in the GitHub Workflow:</p>
+<p>Example Test Report:</p>
+<p><img src="gh-robot-report-with-failed.png" alt="GitHub Leda Tests Robot Report"></p>
+<h3 id="adding-new-tests">Adding new tests</h3>
+<p>The tests are located in the following locations of the <a href="https://github.com/eclipse-leda/leda-distro">leda-distro</a> repository:</p>
+<ul>
+<li><code>resources/docker-snapshot/dockerfiles/leda-tests</code> - Robot Tests which are executed inside of a Docker Compose setup</li>
+<li><code>tests/src/robot</code> - Robot Tests which can be executed on the build host with a Leda Runqemu instance running</li>
+</ul>
+<p>General steps are:</p>
+<ol>
+<li>Decide whether to implement a system-level test or a black-box integration test</li>
+<li>Add the test case to an existing, matching <code>.robot</code> file. If no matching test suite can be found, create a new <code>.robot</code> file. Prefix with the order number, e.g. <code>33__my-new-test.robot</code></li>
+<li>Check if a refactoring of new keywords may be worthwhile for better reusability.</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8fd1dfda73f2cd3ab1ec676ecd359ca5">6.5.1 - Robot Keywords</h1>
+    
+	<p>In the Leda Robot Tests, keywords are used for reusable functionality. Common keywords are defined in <code>resources/docker-snapshot/dockerfiles/leda-tests/leda_keywords.resource</code></p>
+<p>The goal is to treat the Leda Quickstart image as a black box, utilizing as much as possible with public APIs.</p>
+<h2 id="interaction-with-self-update-agent">Interaction with Self Update Agent</h2>
+<ul>
+<li><code>Trigger to start update</code>: Send a &ldquo;Desired State Request&rdquo; to the target, to install a RAUC Update Bundle</li>
+<li><code>Connect and Subscribe to Listen</code>: Wait for the asynchronous messages which indicate a successful installation of an update</li>
+</ul>
+<h2 id="arbitrary-commands">Arbitrary Commands</h2>
+<p>Nevertheless, during implementation of test cases, it may be necessary to execute lower level processes for system level tests. For that, a fallback is possible to execute arbitrary test commands via remote SSH connection. These commands are executed through another docker container running in the same Docker network (<code>leda-network</code>) and allow access to the target QEMU instances:</p>
+<ul>
+<li><code>Leda Execute</code>: Execute an arbitrary shell command via SSH on the test target</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-54e9dcaf283ef882361a51e9acfc06d5">6.5.2 - Rust Tests</h1>
+    
+	<p><em>Note:</em> The Rust tests are being replaced with test cases implemented in Robot.</p>
+<h3 id="cross-compiling-to-x86_64-on-ubuntu-2004">Cross Compiling to X86_64 on Ubuntu 20.04</h3>
 <p>There is currently a step to cross-compile tests to X86_64. In order to successfully run the step, you need to make sure that the following artifacts are available on the runner:</p>
 <ul>
 <li>rustc + cargo: <code>curl https://sh.rustup.rs -sSf | sh</code></li>
@@ -4160,6 +4305,10 @@ This will write a file qemu.pid in the current directory including the process I
 </div>
 
 
+
+    
+	
+  
 
     
 	

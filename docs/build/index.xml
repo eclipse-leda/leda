@@ -211,24 +211,77 @@ This will write a file qemu.pid in the current directory including the process I
     </item>
     
     <item>
-      <title>Docs: Building tests</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/build-tests/</link>
+      <title>Docs: Automated Tests</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/tests/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/build/build-tests/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/build/tests/</guid>
       <description>
         
         
-        &lt;h1 id=&#34;cross-compiling-to-x86_64-on-ubuntu-2004&#34;&gt;Cross Compiling to X86_64 on Ubuntu 20.04&lt;/h1&gt;
-&lt;p&gt;There is currently a step to cross-compile tests to X86_64. In order to successfully run the step, you need to make sure that the following artifacts are available on the runner:&lt;/p&gt;
+        &lt;p&gt;Eclipse Leda is using the &lt;a href=&#34;https://robotframework.org/&#34;&gt;Robot Framework&lt;/a&gt; for black box tests and system tests.&lt;/p&gt;
+&lt;p&gt;The black box tests are supposed to only use &lt;em&gt;public&lt;/em&gt; API from SDV components, for example the MQTT interface of the Self Update Agent.
+The system tests are supposed to test on Leda Distro level and can use shell and SSH commands to verify system behavior, e.g. performing a reboot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;leda-tests-overview.png&#34; alt=&#34;Leda Tests Docker Compose Setup Overview&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Test Execution: an external trigger, such as the &lt;code&gt;./test-docker.sh&lt;/code&gt; shell script, starts the &lt;code&gt;leda-tests&lt;/code&gt; container.&lt;/li&gt;
+&lt;li&gt;Docker Compose ensures that the needed containers are built and started.
+The test cases and test resources are copied into the leda-tests container at build time.&lt;/li&gt;
+&lt;li&gt;The Robot process is started and performs the execution of all test cases&lt;/li&gt;
+&lt;li&gt;Black box test cases use the MQTT interface to connect to the test target and publish messages&lt;/li&gt;
+&lt;li&gt;System level test cases use SSH to connect to the test target and execute commands&lt;/li&gt;
+&lt;li&gt;Test reports are written to a mounted volume, so that they are available on the host for further processing&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;run-the-tests&#34;&gt;Run the tests&lt;/h3&gt;
+&lt;p&gt;The easiest way to run the test cases is to run it in the Docker Compose setup:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro&#34;&gt;leda-distro&lt;/a&gt; repository:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; git clone https://github.com/eclipse-leda/leda-distro
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Build both images (qemuarm64 and qemux86-64) using kas / BitBake. If you omit this step, docker compose will download the latest container images from the Eclipse Leda Container Registry on ghcr.io.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; kas build kas/leda-qemux86-64.yml
+ kas build kas/leda-qemuarm64.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Switch to the docker-snapshot directory:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; cd resources/docker-snapshot/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the Leda Tests&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ./test-docker.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;test-reports&#34;&gt;Test Reports&lt;/h3&gt;
+&lt;p&gt;The output of &lt;code&gt;test-docker.sh&lt;/code&gt; will show the test results from Robot.&lt;/p&gt;
+&lt;p&gt;The test reports and debug logs are available on the host&amp;rsquo;s filesystem in the path &lt;code&gt;resources/docker-snapshot/leda-tests-reports&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;rustc + cargo: &lt;code&gt;curl https://sh.rustup.rs -sSf | sh&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;docker: follow &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;https://docs.docker.com/engine/install/ubuntu/&lt;/a&gt; and afterwards &lt;a href=&#34;https://docs.docker.com/engine/install/linux-postinstall/&#34;&gt;https://docs.docker.com/engine/install/linux-postinstall/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;build-essential: &lt;code&gt;sudo apt-get install build-essential&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;cross (0.1.16): &lt;code&gt;cargo install cross --version 0.1.16&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;jq: &lt;code&gt;sudo apt-get install jq -y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;output.xml&lt;/code&gt; - The main Robot output report&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;report.html&lt;/code&gt; - A Robot HTML summary report&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;leda-tests-xunit.xml&lt;/code&gt; - A xUnit report file suitable for rendering with various tools&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;log.html&lt;/code&gt; - A Robot HTML report with the test execution log&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;leda-tests-debug.log&lt;/code&gt; - Debug log file of the test execution, helpful during implementation of test cases and troubleshooting of failed tests&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You may restart your current shell so that all components are available as env vars.&lt;/p&gt;
+&lt;p&gt;The xunit report is being used to visualize the test execution results in the GitHub Workflow:&lt;/p&gt;
+&lt;p&gt;Example Test Report:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;gh-robot-report-with-failed.png&#34; alt=&#34;GitHub Leda Tests Robot Report&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;adding-new-tests&#34;&gt;Adding new tests&lt;/h3&gt;
+&lt;p&gt;The tests are located in the following locations of the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro&#34;&gt;leda-distro&lt;/a&gt; repository:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;resources/docker-snapshot/dockerfiles/leda-tests&lt;/code&gt; - Robot Tests which are executed inside of a Docker Compose setup&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tests/src/robot&lt;/code&gt; - Robot Tests which can be executed on the build host with a Leda Runqemu instance running&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;General steps are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Decide whether to implement a system-level test or a black-box integration test&lt;/li&gt;
+&lt;li&gt;Add the test case to an existing, matching &lt;code&gt;.robot&lt;/code&gt; file. If no matching test suite can be found, create a new &lt;code&gt;.robot&lt;/code&gt; file. Prefix with the order number, e.g. &lt;code&gt;33__my-new-test.robot&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check if a refactoring of new keywords may be worthwhile for better reusability.&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>

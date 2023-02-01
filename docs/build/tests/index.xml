@@ -1,0 +1,67 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Automated Tests</title>
+    <link>https://eclipse-leda.github.io/leda/docs/build/tests/</link>
+    <description>Recent content in Automated Tests on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/build/tests/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Robot Keywords</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/tests/robot-keywords/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/tests/robot-keywords/</guid>
+      <description>
+        
+        
+        &lt;p&gt;In the Leda Robot Tests, keywords are used for reusable functionality. Common keywords are defined in &lt;code&gt;resources/docker-snapshot/dockerfiles/leda-tests/leda_keywords.resource&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The goal is to treat the Leda Quickstart image as a black box, utilizing as much as possible with public APIs.&lt;/p&gt;
+&lt;h2 id=&#34;interaction-with-self-update-agent&#34;&gt;Interaction with Self Update Agent&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Trigger to start update&lt;/code&gt;: Send a &amp;ldquo;Desired State Request&amp;rdquo; to the target, to install a RAUC Update Bundle&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Connect and Subscribe to Listen&lt;/code&gt;: Wait for the asynchronous messages which indicate a successful installation of an update&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;arbitrary-commands&#34;&gt;Arbitrary Commands&lt;/h2&gt;
+&lt;p&gt;Nevertheless, during implementation of test cases, it may be necessary to execute lower level processes for system level tests. For that, a fallback is possible to execute arbitrary test commands via remote SSH connection. These commands are executed through another docker container running in the same Docker network (&lt;code&gt;leda-network&lt;/code&gt;) and allow access to the target QEMU instances:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Leda Execute&lt;/code&gt;: Execute an arbitrary shell command via SSH on the test target&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Rust Tests</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/tests/rust-tests/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/tests/rust-tests/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; The Rust tests are being replaced with test cases implemented in Robot.&lt;/p&gt;
+&lt;h3 id=&#34;cross-compiling-to-x86_64-on-ubuntu-2004&#34;&gt;Cross Compiling to X86_64 on Ubuntu 20.04&lt;/h3&gt;
+&lt;p&gt;There is currently a step to cross-compile tests to X86_64. In order to successfully run the step, you need to make sure that the following artifacts are available on the runner:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;rustc + cargo: &lt;code&gt;curl https://sh.rustup.rs -sSf | sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;docker: follow &lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;https://docs.docker.com/engine/install/ubuntu/&lt;/a&gt; and afterwards &lt;a href=&#34;https://docs.docker.com/engine/install/linux-postinstall/&#34;&gt;https://docs.docker.com/engine/install/linux-postinstall/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build-essential: &lt;code&gt;sudo apt-get install build-essential&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;cross (0.1.16): &lt;code&gt;cargo install cross --version 0.1.16&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;jq: &lt;code&gt;sudo apt-get install jq -y&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You may restart your current shell so that all components are available as env vars.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

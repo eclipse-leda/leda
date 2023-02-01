@@ -29,13 +29,13 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/metalayer/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-01-31T17:33:33+02:00" />
+<meta property="article:modified_time" content="2023-02-01T17:44:30+02:00" />
 
 <meta itemprop="name" content="Metalayer">
 <meta itemprop="description" content="Initializing BitBake environment Initialize the build environment and start the build for QEMU:
 kas build kas/leda-qemux86-64.yaml Building specific recipes General usage:
 kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structure  meta-leda-bsp  \-- classes // Reusable BitBake Classes, eg for offline container image pre-caching  \-- conf // Distribution specific configurations, eg version numbers, release codename  \-- recipes-bsp // Board Support Packages, eg specifics for QEMU and Raspberry Pi  meta-leda-components  \-- classes // Reusable BitBake Classes, eg for offline container image pre-caching  \-- conf // Distribution specific configurations, eg version numbers, release codename  \-- recipes-sdv  |-- eclipse-leda // Build recipes for Eclipse Leda Incubator components  |-- eclipse-kuksa // Build recipes for Eclipse Kuksa  |-- eclipse-cyclonedds // Build recipes for Eclipse CycloneDDS  |-- northstar // Build recipes for Northstar Container Runtime  |-- packagegroups // Grouping packages  \-- sdv-base // SDV Base Bundle: fstab, can0."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-01-31T17:33:33+02:00" />
+<meta itemprop="dateModified" content="2023-02-01T17:44:30+02:00" />
 <meta itemprop="wordCount" content="494">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Metalayer"/>
@@ -46,8 +46,8 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
 
 
 
-<link rel="preload" href="/leda/scss/main.min.74aaf46f810a3e4a4ed7ecf52b4f047e331c1f74e55ef6969c96feafd305c037.css" as="style">
-<link href="/leda/scss/main.min.74aaf46f810a3e4a4ed7ecf52b4f047e331c1f74e55ef6969c96feafd305c037.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" as="style">
+<link href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -80,7 +80,7 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.bd8c357077759e7e323ef4fa0a7583e3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -105,7 +105,7 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.bd8c357077759e7e323ef4fa0a7583e3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -318,10 +318,21 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
   <input type="checkbox" id="m-ledadocsbuildrun-build-check"/>
   <label for="m-ledadocsbuildrun-build-check"><a href="/leda/docs/build/run-build/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildrun-build"><span class="">Run the build</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildbuild-tests-li">
-  <input type="checkbox" id="m-ledadocsbuildbuild-tests-check"/>
-  <label for="m-ledadocsbuildbuild-tests-check"><a href="/leda/docs/build/build-tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildbuild-tests"><span class="">Building tests</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsbuildtests-li">
+  <input type="checkbox" id="m-ledadocsbuildtests-check"/>
+  <label for="m-ledadocsbuildtests-check"><a href="/leda/docs/build/tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuildtests"><span class="">Automated Tests</span></a></label>
   
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildtestsrobot-keywords-li">
+  <input type="checkbox" id="m-ledadocsbuildtestsrobot-keywords-check"/>
+  <label for="m-ledadocsbuildtestsrobot-keywords-check"><a href="/leda/docs/build/tests/robot-keywords/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildtestsrobot-keywords"><span class="">Robot Keywords</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildtestsrust-tests-li">
+  <input type="checkbox" id="m-ledadocsbuildtestsrust-tests-check"/>
+  <label for="m-ledadocsbuildtestsrust-tests-check"><a href="/leda/docs/build/tests/rust-tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildtestsrust-tests"><span class="">Rust Tests</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuildgithub-li">
   <input type="checkbox" id="m-ledadocsbuildgithub-check"/>
   <label for="m-ledadocsbuildgithub-check"><a href="/leda/docs/build/github/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuildgithub"><span class="">GitHub Workflow</span></a></label>
