@@ -1,10 +1,12 @@
 ---
-title: "Building tests"
+title: "Rust Tests"
 date: 2022-05-09T14:24:56+05:30
 weight: 4
 ---
 
-# Cross Compiling to X86_64 on Ubuntu 20.04
+_Note:_ The Rust tests are being replaced with test cases implemented in Robot.
+
+### Cross Compiling to X86_64 on Ubuntu 20.04
 
 There is currently a step to cross-compile tests to X86_64. In order to successfully run the step, you need to make sure that the following artifacts are available on the runner:
 
