@@ -23,6 +23,7 @@ This cheat sheet gives you an overview of common command line commands to intera
 | | User interface | `kantui` |
 | | Service logs | `journalctl -f -l -t container-management` |
 | | Auto deployments | See `/data/var/containers/manifests/` |
+| | Development deployments | See `/data/var/containers/manifests_dev/` |
 | | Restart a container | `kanto-cm restart -n <containername>` |
 | ContainerdD | Show images | `ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls`
 | | Import local archive | `ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import <docker.tar>`
