@@ -30,11 +30,13 @@ When one of the cloud connector components, such as leda-contrib-cloud-connector
     - `namespace` is `azure.edge` for Kanto's Azure Cloud Connector
     - `gatewayId` indicates the hostname of the Azure IoT Hub
     - `deviceId` is the identifier for the device, this can either be part of the Azure Connection String or part of the device authentication certificate (CN)
-    - `<tenantId>` is a configuration setting in the cloud connector
+    - `tenantId` is a configuration setting in the cloud connector
 
     > **Note:** You can simulate the cloud connector trigger by issueing the MQTT message manually on command line:
-    
-        mosquitto_pub -t 'edge/thing/response' -m '{"deviceId":"dummy-namespace:dummy-gateway:dummy-device-id","tenantId":"dummy-tenant-id"}'
+
+    ```shell
+    mosquitto_pub -t 'edge/thing/response' -m '{"deviceId":"dummy-namespace:dummy-gateway:dummy-device-id","tenantId":"dummy-tenant-id"}'
+    ```
 
 3. Container Management responds with a list of containers in the topic `e/<tenantId>/<gatewayId>:<deviceId>:edge:containers`
 
@@ -84,6 +86,7 @@ When one of the cloud connector components, such as leda-contrib-cloud-connector
         }
     }
     ```
+
 4. Container Management answers with an additional message for each container in the topic `e/<tenantId>/<gatewayId>:<deviceId>:edge:containers`
 
     ```json
