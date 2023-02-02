@@ -78,3 +78,26 @@ async def on_set_position_request_received(self, data_str: str) -> None:
 
   await self.publish_event(response_topic, json.dumps(response_data))
 ```
+
+## CAN-Bus
+
+The default configuration of the *Seat Service* is using simulated VCAN. If you want to switch to a physical CAN-Bus interface, the container needs to have access to the CAN-Bus hardware.
+
+For a Raspberry Pi setup with an MCP251x-based CAN-Hat extension, you would need to reconfigure two components:
+
+1. Make Seat Service container privileged and run on the host network interface:
+
+    ```json
+    "host_config": {
+    ...
+    "network_mode": "host",
+    "privileged": true,
+    ...
+    }
+    ```
+
+2. Reconfigure the seat controller application to use the CAN interface, please see Eclipse Kuksa.VAL [seat_controller/README.md](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md) for details:
+
+    ```shell
+    SC_CAN=can0
+    ```
