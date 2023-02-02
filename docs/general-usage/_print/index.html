@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" as="style">
-<link href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.35d41c00a506e0c3f50883319f6c681056659dd20a921a73d0af888843d9fc36.css" as="style">
+<link href="/leda/scss/main.min.35d41c00a506e0c3f50883319f6c681056659dd20a921a73d0af888843d9fc36.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f3a7f657d8b7726672700c2d1fe07886.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -834,6 +834,41 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <td><code>loadkeys de</code></td>
 </tr>
 <tr>
+<td>System</td>
+<td>System load</td>
+<td><code>htop</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Disk free</td>
+<td><code>df -h -t ext4</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Memory free</td>
+<td><code>free -h</code></td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Interfaces summary</td>
+<td><code>networkctl</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Ethernet status</td>
+<td><code>networkctl status enp0s2</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Routing table</td>
+<td><code>route</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Active listeners</td>
+<td><code>netstat -l -n -t</code></td>
+</tr>
+<tr>
 <td>Kanto-CM</td>
 <td>Show all containers</td>
 <td><code>kanto-cm list</code></td>
@@ -851,7 +886,12 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <tr>
 <td></td>
 <td>Auto deployments</td>
-<td>See <code>/data/containers/manifests/</code></td>
+<td>See <code>/data/var/containers/manifests/</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Development deployments</td>
+<td>See <code>/data/var/containers/manifests_dev/</code></td>
 </tr>
 <tr>
 <td></td>
@@ -867,6 +907,11 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <td></td>
 <td>Import local archive</td>
 <td><code>ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import &lt;docker.tar&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Prune containers</td>
+<td><code>nerdctl system prune --all</code></td>
 </tr>
 <tr>
 <td>Mosquitto</td>
@@ -893,9 +938,25 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 <td>Switch to other boot slot</td>
 <td><code>rauc status mark-active other</code></td>
 </tr>
+<tr>
+<td>CAN-Bus</td>
+<td>CAN Dump</td>
+<td><code>candump -l any,0:0,#FFFFFFFF</code></td>
+</tr>
 </tbody>
 </table>
-
+<h2 id="running-custom-ad-hoc-containers">Running custom ad-hoc containers</h2>
+<p>To install arbitrary containers, create the container using the <code>kanto-cm</code> command line tool.
+If it&rsquo;s not a background service, but a cli tool, adding the <code>--t --i</code> options allows console access.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# kanto-cm remove --name python
+</span></span><span style="display:flex;"><span>root@qemux86-64:~# kanto-cm create --name python --t --i --privileged docker.io/library/python:3.8.16-slim-bullseye
+</span></span><span style="display:flex;"><span>bf9deca4-dbf1-4132-9ba7-e0f378bd34a7
+</span></span><span style="display:flex;"><span>root@qemux86-64:~# kanto-cm start --name python --a --i
+</span></span><span style="display:flex;"><span>Python 3.8.16 <span style="color:#ce5c00;font-weight:bold">(</span>default, Jan <span style="color:#0000cf;font-weight:bold">24</span> 2023, 00:19:05<span style="color:#ce5c00;font-weight:bold">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GCC 10.2.1 20210110<span style="color:#ce5c00;font-weight:bold">]</span> on linux
+</span></span><span style="display:flex;"><span>Type <span style="color:#4e9a06">&#34;help&#34;</span>, <span style="color:#4e9a06">&#34;copyright&#34;</span>, <span style="color:#4e9a06">&#34;credits&#34;</span> or <span style="color:#4e9a06">&#34;license&#34;</span> <span style="color:#204a87;font-weight:bold">for</span> more information.
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; quit<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span></code></pre></div>
 </div>
 
 

@@ -368,6 +368,41 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;td&gt;&lt;code&gt;loadkeys de&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;System&lt;/td&gt;
+&lt;td&gt;System load&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;htop&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Disk free&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;df -h -t ext4&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Memory free&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;free -h&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Network&lt;/td&gt;
+&lt;td&gt;Interfaces summary&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;networkctl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Ethernet status&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;networkctl status enp0s2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Routing table&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;route&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Active listeners&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;netstat -l -n -t&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;Kanto-CM&lt;/td&gt;
 &lt;td&gt;Show all containers&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;kanto-cm list&lt;/code&gt;&lt;/td&gt;
@@ -385,7 +420,12 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Auto deployments&lt;/td&gt;
-&lt;td&gt;See &lt;code&gt;/data/containers/manifests/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;See &lt;code&gt;/data/var/containers/manifests/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Development deployments&lt;/td&gt;
+&lt;td&gt;See &lt;code&gt;/data/var/containers/manifests_dev/&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -401,6 +441,11 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;Import local archive&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import &amp;lt;docker.tar&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Prune containers&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;nerdctl system prune --all&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Mosquitto&lt;/td&gt;
@@ -427,9 +472,25 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;td&gt;Switch to other boot slot&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;rauc status mark-active other&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CAN-Bus&lt;/td&gt;
+&lt;td&gt;CAN Dump&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;candump -l any,0:0,#FFFFFFFF&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
+&lt;h2 id=&#34;running-custom-ad-hoc-containers&#34;&gt;Running custom ad-hoc containers&lt;/h2&gt;
+&lt;p&gt;To install arbitrary containers, create the container using the &lt;code&gt;kanto-cm&lt;/code&gt; command line tool.
+If it&amp;rsquo;s not a background service, but a cli tool, adding the &lt;code&gt;--t --i&lt;/code&gt; options allows console access.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# kanto-cm remove --name python
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# kanto-cm create --name python --t --i --privileged docker.io/library/python:3.8.16-slim-bullseye
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bf9deca4-dbf1-4132-9ba7-e0f378bd34a7
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# kanto-cm start --name python --a --i
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Python 3.8.16 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default, Jan &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;24&lt;/span&gt; 2023, 00:19:05&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;GCC 10.2.1 20210110&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; on linux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Type &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; or &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; more information.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt; quit&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     

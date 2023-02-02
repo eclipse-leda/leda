@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" as="style">
-<link href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.35d41c00a506e0c3f50883319f6c681056659dd20a921a73d0af888843d9fc36.css" as="style">
+<link href="/leda/scss/main.min.35d41c00a506e0c3f50883319f6c681056659dd20a921a73d0af888843d9fc36.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f3a7f657d8b7726672700c2d1fe07886.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f3a7f657d8b7726672700c2d1fe07886.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -408,6 +408,10 @@
   <input type="checkbox" id="m-ledadocscustomizationdeploying-containers-check"/>
   <label for="m-ledadocscustomizationdeploying-containers-check"><a href="/leda/docs/customization/deploying-containers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationdeploying-containers"><span class="">Deploying Containers</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocscustomizationfaq-li">
+  <input type="checkbox" id="m-ledadocscustomizationfaq-check"/>
+  <label for="m-ledadocscustomizationfaq-check"><a href="/leda/docs/customization/faq/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationfaq"><span class="">FAQ</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsproject-info-li">
@@ -467,6 +471,7 @@
     <li><a href="#architecture-overview">Architecture Overview</a></li>
     <li><a href="#getting-started">Getting started</a></li>
     <li><a href="#prototyping">Prototyping</a></li>
+    <li><a href="#can-bus">CAN-Bus</a></li>
   </ul>
 </nav>
       </div>
@@ -608,7 +613,25 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">error_msg</span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="can-bus">CAN-Bus</h2>
+<p>The default configuration of the <em>Seat Service</em> is using simulated VCAN. If you want to switch to a physical CAN-Bus interface, the container needs to have access to the CAN-Bus hardware.</p>
+<p>For a Raspberry Pi setup with an MCP251x-based CAN-Hat extension, you would need to reconfigure two components:</p>
+<ol>
+<li>
+<p>Make Seat Service container privileged and run on the host network interface:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;host_config&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;host&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Reconfigure the seat controller application to use the CAN interface, please see Eclipse Kuksa.VAL <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md">seat_controller/README.md</a> for details:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">SC_CAN</span><span style="color:#ce5c00;font-weight:bold">=</span>can0
+</span></span></code></pre></div></li>
+</ol>
+
         <div class="section-index">
     
     

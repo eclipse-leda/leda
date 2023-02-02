@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" as="style">
-<link href="/leda/scss/main.min.8070449d98aab34a199be540534469d8ff15f1c607d5168b6d28a45467de9e2f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.35d41c00a506e0c3f50883319f6c681056659dd20a921a73d0af888843d9fc36.css" as="style">
+<link href="/leda/scss/main.min.35d41c00a506e0c3f50883319f6c681056659dd20a921a73d0af888843d9fc36.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2c79a20662985fb35d51891dd8fc03f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f3a7f657d8b7726672700c2d1fe07886.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -136,6 +136,25 @@ This is the multi-page printable view of this section.
     
 	
 <li>2: <a href="#pg-20bb2af83c47c818220bae4f2b8b24f7">Deploying Containers</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-205745980ea22e98566bc8629ffffc7a">FAQ</a></li>
 
 
     
@@ -402,6 +421,56 @@ to boot from the different partitions via a custom bootloader script (and as a c
 <p><strong>Important: the <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer#manifest-structure">manifest template</a> used for this service is similar to the one for the kanto-cm native mechanism, but is, in fact, different. Kanto-auto-deployer uses the kanto-cm internal state representation.</strong></p>
 <p>A standard set of <em>dev</em>-containers is deployed with meta-leda, the manifests for which can be found in <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core_dev</code> and <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example_dev/</code>.</p>
 <p>The advantage of this service is that it can be restarted very quickly (<code>systemctl restart kanto-auto-deployer</code>), without having to restart the <em>whole</em> container-management service. This allows for rapid testing when deploying a new container. Due to the similarity of both manifests, the kanto-auto-deployer-style manifest can later be easily migrated to the kanto ini-dir style-one.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-205745980ea22e98566bc8629ffffc7a">3 - FAQ</h1>
+    
+	<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="why-is-the-performance-very-slow"><strong>Why is the performance very slow?</strong></h3>
+<p>The performance of a system heavily relies on the infrastructure and the general setup.</p>
+<ul>
+<li>On virtual setup (QEMU): Typical reasons for slow performance are software emulation, e.g. when you run an ARM-based image on an x86-based host machine. This requires QEMU to emulate the execution, which is very slow. When you run an x86-based image on an x86-based host machine, QEMU can leverage acceleration, such as KVM, which greatly improves the performance. For network performance issues, try to use TAP networking instead of SLIRP networking for QEMU. That requires more setup on the host though.</li>
+<li>On hardware, such as Raspberry Pi, it should be fast. If the system startup takes very long, you may have an outdated image, please update to the latest version. Another cause of performance loss can be networking issues, especially if the system does not have transparent internet access, network requests (e.g. DNS) may time out and slowing down the startup. On startup, the container runtime may download newer versions of containers and unpack them, which takes a considerable amount of time depending on the size of the container images.</li>
+</ul>
+<h3 id="why-is-my-bluetoothwifi-driver-missing"><strong>Why is my Bluetooth/Wifi driver missing?</strong></h3>
+<p>Please check the latest release, as we&rsquo;re continously adding features. If your driver is still missing, please <a href="https://github.com/eclipse-leda/leda-distro/issues/new/choose">open a new GitHub Issue</a>. We can add Kernel Modules for supported hardware. If you hardware is not supported out of the box by the Eclipse Leda project, you need to build your own image and customize the Linux Kernel configuration. Please see the <a href="https://www.yoctoproject.org/">Yocto Project</a> documentation on how to do that.</p>
+<h3 id="how-can-a-container-access-can-bus-interfaces"><strong>How can a container access CAN-Bus interfaces?</strong></h3>
+<p>As using a CAN-Bus requires access to the host network interface, the container needs to run in privileged mode and it needs access to the host network interface. For a Kanto-CM container, simply add <code>privileged: true</code> to the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/">container configuration</a>. A more sophisticated setup involves using virtual CAN interfaces for each container and using a CAN gateway to route the traffic accordingly. However, using CAN-Bus is not in the focus of SDV-style applications, as we assume that <em>Vehicle Services</em> would be running on dedicated ECUs, offering higher-level interfaces to <em>Vehicle Applications</em> on other protocols, such as Some/IP.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;host_config&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;host&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="why-does-booting-from-sd-card-sometimes-fail-and-enters-maintenance-mode"><strong>Why does booting from SD-Card sometimes fail and enters maintenance mode?</strong></h3>
+<p>This may depend on the quality or age of the SD-Card as well. Also, consumer-grade hardware like a Raspberry Pi may fail at times. Please try another SD-Card. Another reason may be high write operations to the SD-Card due to excessive data transfer (logging, container deployment etc.).</p>
+<h3 id="how-can-i-install-additional-software-in-leda"><strong>How can I install additional software in Leda?</strong></h3>
+<p>As we&rsquo;re using Yocto, there is no central repository for software packages. Thus, we did not include any kind of package manager. If you feel that the software you want to install is valuable for other Leda users as well, please <a href="https://github.com/eclipse-leda/leda-distro/issues/new/choose">open a new GitHub Issue</a> and request the installation of the software. If the software is specific to your use case, you need to build your own image using Yocto. Alternatively, you may build a container for your software and deploy the container into the container runtime. Using <code>kanto-cm</code> or <code>ctr</code> you would be able to execute your software as a container. See the <a href="/leda/docs/general-usage/cheatsheet/#running-custom-ad-hoc-containers">Cheatsheet</a> for an example.</p>
 
 </div>
 
