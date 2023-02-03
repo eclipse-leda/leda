@@ -1,0 +1,44 @@
+{
+    "topic": "<tenantId>/<gatewayId>:<deviceId>:edge:containers/things/twin/commands/modify",
+    "headers": {
+        "response-required": false
+    },
+    "path": "/features/SoftwareUpdatable",
+    "value": {
+        "definition": [
+            "org.eclipse.hawkbit.swupdatable:SoftwareUpdatable:2.0.0"
+        ],
+        "properties": {
+            "status": {
+                "softwareModuleType": "oci:container",
+                "installedDependencies": {
+                    "ghcr.io%2Feclipse%2Fkuksa.val%2Fdatabroker.<uuid>:0.2.5": {
+                        "group": "ghcr.io/eclipse/kuksa.val/databroker",
+                        "name": "<uuid>",
+                        "version": "0.2.5"
+                    },
+                    "ghcr.io%2Feclipse%2Fkuksa.val.services%2Fseat_service.<uuid>:v0.1.0": {
+                        "group": "ghcr.io/eclipse/kuksa.val.services/seat_service",
+                        "name": "<uuid>",
+                        "version": "v0.1.0"
+                    },
+                    "ghcr.io%2Feclipse-leda%2Fleda-contrib-cloud-connector%2Fcloudconnector.<uuid>:latest": {
+                        "group": "ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector",
+                        "name": "<uuid>",
+                        "version": "latest"
+                    },
+                    "ghcr.io%2Feclipse-leda%2Fleda-contrib-self-update-agent%2Fself-update-agent.<uuid>:build-20": {
+                        "group": "ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent",
+                        "name": "<uuid>",
+                        "version": "build-20"
+                    },
+                    "ghcr.io%2Feclipse-leda%2Fleda-contrib-vehicle-update-manager%2Fvehicleupdatemanager.<uuid>:latest": {
+                        "group": "ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager",
+                        "name": "<uuid>",
+                        "version": "latest"
+                    }
+                }
+            }
+        }
+    }
+}

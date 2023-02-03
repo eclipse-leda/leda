@@ -1,0 +1,4 @@
+{
+    "deviceId":"<namespace>:<gatewayId>:<deviceId>",
+    "tenantId":"<tenantId>"
+}

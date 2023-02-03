@@ -1,0 +1,13 @@
+{
+    "topic": "dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request",
+    "headers": {
+        "timeout": "10",
+        "response-required": true,
+        "content-type": "application/json",
+        "correlation-id": "3fdc463c-293c-4f39-ab19-24aef7944550"
+    },
+    "path": "/features/Metrics/inbox/messages/request",
+    "value": {
+        "frequency": "5s"
+    }
+}
