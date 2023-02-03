@@ -91,7 +91,7 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
       ```json
       {
-            "activityId": "random-uuid-as-string",
+            "activityId": "<uuid>",
             "timestamp": 123456789,
             "payload": {
                   "domains": [
@@ -119,7 +119,7 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
       ```json
       {
-            "activityId": "<<uuid>>",
+            "activityId": "<uuid>",
             "timestamp": 1675347152,
             "payload": {
                   "status": "IDENTIFIED",
@@ -181,7 +181,7 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
       ```json
       {
-            "activityId": "random-uuid-as-string",
+            "activityId": "<uuid>",
             "timestamp": 1675347159,
             "payload": {
                   "status": "RUNNING",
@@ -205,7 +205,7 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
       ```json
       {
-            "activityId": "<uid>",
+            "activityId": "<uuid>",
             "timestamp": 1675347186,
             "payload": {
                   "status": "COMPLETED",
