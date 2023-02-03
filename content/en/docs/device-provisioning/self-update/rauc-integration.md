@@ -10,11 +10,13 @@ Leda integrates [RAUC](https://rauc.io/) as a reference implementation and examp
 
 Get the current RAUC boot status:
 
-    rauc status
-
+```shell
+rauc status
+```
 
 Example output:
-```
+
+```shell
 root@qemux86-64:~# rauc status
 === System Info ===
 Compatible:  Eclipse Leda qemu86-64
@@ -40,7 +42,7 @@ x [rootfs.0] (/dev/sda4, ext4, booted)
 
 To manually force the device to boot into another slot, mark the current booted slot as *bad*, mark the other partitions as *active* and perform a reboot:
 
-```
+```shell
 rauc status mark-bad booted
 rauc status mark-active other
 reboot now
@@ -50,14 +52,15 @@ reboot now
 
 By marking both root slots as bad, the bootloader is supposed to boot the rescue system:
 
-```
+```shell
 rauc status mark-bad rootfs.0
 rauc status mark-bad rootfs.1
 reboot now
 ```
 
 Example output of rauc:
-```
+
+```shell
 o [rootfs.1] (/dev/sda5, ext4, inactive)
         bootname: B
         boot status: bad
@@ -78,10 +81,11 @@ The configurations can be customized by applying or patching the following files
 
 ## RAUC System Configuration
 
-The [RAUC System Configuration ](https://rauc.readthedocs.io/en/latest/integration.html#rauc-system-configuration) is the central configuration of the RAUC Update system.
+The [RAUC System Configuration](https://rauc.readthedocs.io/en/latest/integration.html#rauc-system-configuration) is the central configuration of the RAUC Update system.
 
 Example:
-```
+
+```shell
 [system]
 compatible=Eclipse Leda qemu86-64
 bootloader=grub
@@ -120,7 +124,8 @@ The GRUB bootloader has a configuration file which describes which partitions ar
 The configuration also contains **RAUC specific logic and variables required for a proper integration**. Please see the full `grub.cfg` in the source repository and [RAUC Documentation - Integration - GRUB](https://rauc.readthedocs.io/en/latest/integration.html#grub) for details.
 
 Excerpt:
-```
+
+```text
 ...
 
 menuentry "SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)" {
@@ -152,8 +157,9 @@ These disk images are machine specific and the structure of the partitions are c
 
 ### Excerpt `qemux86-grub-efi.wks`
 
-*Note: The excerpt is exemplary, please see the sources for a full representation and documentation.* 
-```
+*Note: The excerpt is exemplary, please see the sources for a full representation and documentation.*
+
+```text
 bootloader --ptable gpt
 
 part --fixed-size 50M --source rawcopy --sourceparams="file=efi-boot.vfat" --fstype=vfat --label boot --active
