@@ -1,0 +1,57 @@
+{
+    "topic": "<tenantId>/<gatewayId>:<deviceId>:edge:containers/things/twin/commands/modify",
+    "headers": {
+        "response-required": false
+    },
+    "path": "/features/Container:<uuid>",
+    "value": {
+        "definition": [
+            "com.bosch.iot.suite.edge.containers:Container:1.5.0"
+        ],
+        "properties": {
+            "status": {
+                "name": "seatservice-example",
+                "imageRef": "ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0",
+                "config": {
+                    "domainName": "seatservice-example-domain",
+                    "hostName": "seatservice-example-host",
+                    "env": [
+                        "VEHICLEDATABROKER_DAPR_APP_ID=databroker",
+                        "BROKER_ADDR=databroker-host:30555",
+                        "RUST_LOG=info",
+                        "vehicle_data_broker=info"
+                    ],
+                    "restartPolicy": {
+                        "type": "UNLESS_STOPPED"
+                    },
+                    "extraHosts": [
+                        "databroker-host:host_ip"
+                    ],
+                    "portMappings": [
+                        {
+                            "proto": "tcp",
+                            "hostPort": 30051,
+                            "hostPortEnd": 30051,
+                            "containerPort": 50051,
+                            "hostIP": "localhost"
+                        }
+                    ],
+                    "networkMode": "BRIDGE",
+                    "log": {
+                        "type": "JSON_FILE",
+                        "maxFiles": 2,
+                        "maxSize": "1M",
+                        "mode": "BLOCKING"
+                    }
+                },
+                "createdAt": "2023-02-02T08:46:33.792687313Z",
+                "state": {
+                    "status": "RUNNING",
+                    "pid": 13627,
+                    "startedAt": "2023-02-02T09:51:08.049572297Z",
+                    "finishedAt": "2023-02-02T09:50:51.752255799Z"
+                }
+            }
+        }
+    }
+}    

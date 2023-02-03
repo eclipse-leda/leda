@@ -1,0 +1,23 @@
+{
+  "activityId": "random-uuid-as-string",
+  "timestamp": 123456789,
+  "payload": {
+      "domains": [
+          {
+              "id": "self-update",
+              "components": [
+                  {
+                      "id": "os-image",
+                      "version": "${VERSION_ID}",
+                      "config": [
+                          {
+                              "key": "image",
+                              "value": "http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb"
+                          }
+                      ]
+                  }
+              ]
+          }
+      ]
+  }
+}

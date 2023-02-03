@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.f3a7f657d8b7726672700c2d1fe07886.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.e3cb65b6dee9e9416daad288e48d52fc.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -398,6 +398,25 @@ This is the multi-page printable view of this section.
 
     </ul>
     
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.5: <a href="#pg-15f7b853b9c959b01ccff386532cb867">Container Management</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
   
 
     </ul>
@@ -2633,31 +2652,29 @@ state:
 	<h1 id="pg-cb55165363d95c91e0f19399fa5b280b">3.4.1 - Self Update Tutorial</h1>
     
 	<p>This chapter describes the steps necessary to perform a local (without cloud) self update of the operating system.</p>
-<p><img src="../self-update-arch.png" alt=""></p>
+<p><img src="../self-update-arch.png" alt="Self Update Architecture"></p>
 <h2 id="self-update-using-rauc-update-bundles">Self-Update using RAUC Update Bundles</h2>
 <ul>
 <li>
 <p>On host: Update bundle <code>sdv-rauc-bundle-qemux86-64.raucb</code> is in current folder</p>
-<p><em>Note: In the development environment, the update RAUC Update Bundle is located in the BitBake machine-specific output folder, for example <code>tmp/deploy/images/qemux86-64</code></em></p>
+<p><em>Note: In the development environment, the update RAUC Update Bundle is located in the BitBake machine-specific output folder
+Example location is <code>tmp/deploy/images/qemux86-64</code></em></p>
 </li>
 <li>
 <p>On host: Start a dummy web server for serving the update file</p>
-<pre><code>python3 -m http.server --bind 192.168.7.1
-</code></pre>
-</li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m http.server --bind 192.168.7.1
+</span></span></code></pre></div></li>
 <li>
 <p>On host: open two new terminals - one for monitoring and one for triggering the self-update</p>
 <ul>
 <li>
 <p>Terminal 1: To view the progress, watch the MQTT topics <code>selfupdate/desiredstate</code> and <code>selfupdate/desiredstatefeedback</code>:</p>
-<pre><code>mosquitto_sub -h 192.168.7.2 -p 1883 -t &quot;selfupdate/#&quot;
-</code></pre>
-</li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_sub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/#&#34;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Terminal 2: Trigger the actual self update process by publishing an MQTT message to <code>selfupdate/desiredstate</code>:</p>
-<pre><code>mosquitto_pub -h 192.168.7.2 -p 1883 -t &quot;selfupdate/desiredstate&quot; -f start-update-example.yaml
-</code></pre>
-</li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/desiredstate&#34;</span> -f start-update-example.json
+</span></span></code></pre></div></li>
 </ul>
 </li>
 <li>
@@ -2665,12 +2682,11 @@ state:
 </li>
 <li>
 <p>On guest: After the self update process completed, check the status:</p>
-<pre><code>rauc status --detailed
-</code></pre>
-</li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rauc status --detailed
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="self-update-trigger-message">Self-Update Trigger Message</h2>
-<p><code>start-update-example.yaml</code> file:</p>
+<p><code>start-update-example.json</code> file:</p>
 
 
   
@@ -2694,18 +2710,191 @@ state:
 
 
 
-  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;sdv.eclipse.org/v1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">SelfUpdateBundle</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">self-update-bundle-example</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">swdv-qemux86-64-build42</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1beta3 </span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleDownloadUrl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://192.168.7.1:8000/sdv-rauc-bundle-qemux86-64.raucb</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bundleTarget</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div>
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;random-uuid-as-string&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
 
 
+<h2 id="example-message-flows">Example Message Flows</h2>
+<h3 id="current-state">Current State</h3>
+<ol>
+<li>
+<p>Initial response message on startup from self update agent in topic <code>selfupdate/currentstate</code>, or upon request by sending message to <code>selfupdate/currentstate/get</code></p>
+<p>Request:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1676332092</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675345910</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bundle_version_not_available&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="desired-state">Desired State</h3>
+<ol>
+<li>
+<p>External trigger to update via desired state on topic <code>selfupdate/desiredstate</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Initialization response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347152</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;IDENTIFIED&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is about to perform an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Responses while downloading by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347152</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOADING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Downloading 0.0 MiB...&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code> when download successfully finished:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347154</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                          <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOAD_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Downloaded 108.9 MiB...&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code> while performing the installation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347159</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RAUC install...&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code> when installation completed successfully:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347186</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;COMPLETED&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update completed, reboot required.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Writing partition completed, reboot required.&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+</ol>
 
 </div>
 
@@ -2726,48 +2915,47 @@ state:
 	<p>Leda integrates <a href="https://rauc.io/">RAUC</a> as a reference implementation and example configuration. It allows the evaluation of the concepts, mechanisms and involved software components in an emulated, virtual environment or on physical devices.</p>
 <h2 id="checking-the-rauc-status">Checking the RAUC Status</h2>
 <p>Get the current RAUC boot status:</p>
-<pre><code>rauc status
-</code></pre>
-<p>Example output:</p>
-<pre tabindex="0"><code>root@qemux86-64:~# rauc status
-=== System Info ===
-Compatible:  Eclipse Leda qemu86-64
-Variant:     
-Booted from: rootfs.1 (SDV_B)
-
-=== Bootloader ===
-Activated: rootfs.1 (SDV_B)
-
-=== Slot States ===
-
-o [rootfs.1] (/dev/sda5, ext4, inactive)
-        bootname: SDV_B
-        mounted: /
-        boot status: good
-
-x [rootfs.0] (/dev/sda4, ext4, booted)
-        bootname: SDV_A
-        boot status: good
-</code></pre><h2 id="forcing-to-boot-the-other-slot">Forcing to boot the other slot</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rauc status
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# rauc <span style="color:#000">status</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">===</span> System <span style="color:#000">Info</span> <span style="color:#ce5c00;font-weight:bold">===</span>
+</span></span><span style="display:flex;"><span>Compatible:  Eclipse Leda qemu86-64
+</span></span><span style="display:flex;"><span>Variant:     
+</span></span><span style="display:flex;"><span>Booted from: rootfs.1 <span style="color:#ce5c00;font-weight:bold">(</span>SDV_B<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">===</span> <span style="color:#000">Bootloader</span> <span style="color:#ce5c00;font-weight:bold">===</span>
+</span></span><span style="display:flex;"><span>Activated: rootfs.1 <span style="color:#ce5c00;font-weight:bold">(</span>SDV_B<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">===</span> Slot <span style="color:#000">States</span> <span style="color:#ce5c00;font-weight:bold">===</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>o <span style="color:#ce5c00;font-weight:bold">[</span>rootfs.1<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">(</span>/dev/sda5, ext4, inactive<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        bootname: SDV_B
+</span></span><span style="display:flex;"><span>        mounted: /
+</span></span><span style="display:flex;"><span>        boot status: good
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#ce5c00;font-weight:bold">[</span>rootfs.0<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">(</span>/dev/sda4, ext4, booted<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        bootname: SDV_A
+</span></span><span style="display:flex;"><span>        boot status: good
+</span></span></code></pre></div><h2 id="forcing-to-boot-the-other-slot">Forcing to boot the other slot</h2>
 <p>To manually force the device to boot into another slot, mark the current booted slot as <em>bad</em>, mark the other partitions as <em>active</em> and perform a reboot:</p>
-<pre tabindex="0"><code>rauc status mark-bad booted
-rauc status mark-active other
-reboot now
-</code></pre><h2 id="testing-the-rescue-system">Testing the rescue system</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rauc status mark-bad booted
+</span></span><span style="display:flex;"><span>rauc status mark-active other
+</span></span><span style="display:flex;"><span>reboot now
+</span></span></code></pre></div><h2 id="testing-the-rescue-system">Testing the rescue system</h2>
 <p>By marking both root slots as bad, the bootloader is supposed to boot the rescue system:</p>
-<pre tabindex="0"><code>rauc status mark-bad rootfs.0
-rauc status mark-bad rootfs.1
-reboot now
-</code></pre><p>Example output of rauc:</p>
-<pre tabindex="0"><code>o [rootfs.1] (/dev/sda5, ext4, inactive)
-        bootname: B
-        boot status: bad
-
-o [rootfs.0] (/dev/sda4, ext4, booted)
-        bootname: A
-        mounted: /
-        boot status: bad
-</code></pre><h2 id="customizations">Customizations</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rauc status mark-bad rootfs.0
+</span></span><span style="display:flex;"><span>rauc status mark-bad rootfs.1
+</span></span><span style="display:flex;"><span>reboot now
+</span></span></code></pre></div><p>Example output of rauc:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>o <span style="color:#ce5c00;font-weight:bold">[</span>rootfs.1<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">(</span>/dev/sda5, ext4, inactive<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        bootname: B
+</span></span><span style="display:flex;"><span>        boot status: bad
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>o <span style="color:#ce5c00;font-weight:bold">[</span>rootfs.0<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">(</span>/dev/sda4, ext4, booted<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        bootname: A
+</span></span><span style="display:flex;"><span>        mounted: /
+</span></span><span style="display:flex;"><span>        boot status: bad
+</span></span></code></pre></div><h2 id="customizations">Customizations</h2>
 <p>The configurations can be customized by applying or patching the following files:</p>
 <ul>
 <li>RAUC Configuration file: <code>meta-leda/recipes-bsp/rauc/files/qemux86-64/system.conf</code></li>
@@ -2775,51 +2963,51 @@ o [rootfs.0] (/dev/sda4, ext4, booted)
 <li>The physical disk partition configuration: <code>meta-leda/recipes-sdv/wic/qemux86-grub-efi.wks</code></li>
 </ul>
 <h2 id="rauc-system-configuration">RAUC System Configuration</h2>
-<p>The <a href="https://rauc.readthedocs.io/en/latest/integration.html#rauc-system-configuration">RAUC System Configuration </a> is the central configuration of the RAUC Update system.</p>
+<p>The <a href="https://rauc.readthedocs.io/en/latest/integration.html#rauc-system-configuration">RAUC System Configuration</a> is the central configuration of the RAUC Update system.</p>
 <p>Example:</p>
-<pre tabindex="0"><code>[system]
-compatible=Eclipse Leda qemu86-64
-bootloader=grub
-grubenv=/grubenv/grubenv
-statusfile=/data/rauc.status
-
-[keyring]
-path=ca.cert.pem
-
-[slot.efi.0]
-device=/dev/sda
-type=boot-gpt-switch
-region-start=4M
-region-size=100M
-
-[slot.rescue.0]
-device=/dev/sda3
-type=ext4
-readonly=true
-
-[slot.rootfs.0]
-device=/dev/sda4
-type=ext4
-bootname=SDV_A
-
-[slot.rootfs.1]
-device=/dev/sda5
-type=ext4
-bootname=SDV_B
-</code></pre><h2 id="grub-bootloader-configuration">GRUB Bootloader Configuration</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>system<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">compatible</span><span style="color:#ce5c00;font-weight:bold">=</span>Eclipse Leda qemu86-64
+</span></span><span style="display:flex;"><span><span style="color:#000">bootloader</span><span style="color:#ce5c00;font-weight:bold">=</span>grub
+</span></span><span style="display:flex;"><span><span style="color:#000">grubenv</span><span style="color:#ce5c00;font-weight:bold">=</span>/grubenv/grubenv
+</span></span><span style="display:flex;"><span><span style="color:#000">statusfile</span><span style="color:#ce5c00;font-weight:bold">=</span>/data/rauc.status
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>keyring<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">path</span><span style="color:#ce5c00;font-weight:bold">=</span>ca.cert.pem
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>slot.efi.0<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">device</span><span style="color:#ce5c00;font-weight:bold">=</span>/dev/sda
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span><span style="color:#ce5c00;font-weight:bold">=</span>boot-gpt-switch
+</span></span><span style="display:flex;"><span>region-start<span style="color:#ce5c00;font-weight:bold">=</span>4M
+</span></span><span style="display:flex;"><span>region-size<span style="color:#ce5c00;font-weight:bold">=</span>100M
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>slot.rescue.0<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">device</span><span style="color:#ce5c00;font-weight:bold">=</span>/dev/sda3
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span><span style="color:#ce5c00;font-weight:bold">=</span>ext4
+</span></span><span style="display:flex;"><span><span style="color:#000">readonly</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>slot.rootfs.0<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">device</span><span style="color:#ce5c00;font-weight:bold">=</span>/dev/sda4
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span><span style="color:#ce5c00;font-weight:bold">=</span>ext4
+</span></span><span style="display:flex;"><span><span style="color:#000">bootname</span><span style="color:#ce5c00;font-weight:bold">=</span>SDV_A
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>slot.rootfs.1<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">device</span><span style="color:#ce5c00;font-weight:bold">=</span>/dev/sda5
+</span></span><span style="display:flex;"><span><span style="color:#000">type</span><span style="color:#ce5c00;font-weight:bold">=</span>ext4
+</span></span><span style="display:flex;"><span><span style="color:#000">bootname</span><span style="color:#ce5c00;font-weight:bold">=</span>SDV_B
+</span></span></code></pre></div><h2 id="grub-bootloader-configuration">GRUB Bootloader Configuration</h2>
 <p>The GRUB bootloader has a configuration file which describes which partitions are bootable, which partition they are located at and a reference to RAUC&rsquo;s slot name.</p>
 <p>The configuration also contains <strong>RAUC specific logic and variables required for a proper integration</strong>. Please see the full <code>grub.cfg</code> in the source repository and <a href="https://rauc.readthedocs.io/en/latest/integration.html#grub">RAUC Documentation - Integration - GRUB</a> for details.</p>
 <p>Excerpt:</p>
-<pre tabindex="0"><code>...
-
-menuentry &#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&#34; {
-    linux (hd0,4)/boot/bzImage root=/dev/vda4 $CMDLINE rauc.slot=SDV_A
-}
-
-menuentry &#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&#34; {
-    linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
-}
-</code></pre><h2 id="u-boot-bootloader-configuration">U-Boot Bootloader Configuration</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>menuentry &#34;SDV Slot A (OK=$SDV_A_OK TRY=$SDV_A_TRY)&#34; {
+</span></span><span style="display:flex;"><span>    linux (hd0,4)/boot/bzImage root=/dev/vda4 $CMDLINE rauc.slot=SDV_A
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>menuentry &#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&#34; {
+</span></span><span style="display:flex;"><span>    linux (hd0,5)/boot/bzImage root=/dev/vda5 $CMDLINE rauc.slot=SDV_B
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="u-boot-bootloader-configuration">U-Boot Bootloader Configuration</h2>
 <p>Similarly to GRUB, integration of RAUC with U-Boot requires custom boot scripting. A highly detailed explaination can, again, be found in the official <a href="https://rauc.readthedocs.io/en/latest/integration.html#id5">RAUC Documentation - Integration - U-Boot</a>.</p>
 <p>Meta-Leda provides such integration recipes and scripts for all U-boot based targets, for which a Leda Quickstart image is available (qemuarm64, qemuarm and rpi4-64). For example:</p>
 <ul>
@@ -2833,20 +3021,20 @@ menuentry &#34;SDV Slot B (OK=$SDV_B_OK TRY=$SDV_B_TRY)&#34; {
 <p>These disk images are machine specific and the structure of the partitions are configured in <a href="https://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html#ref-kickstart">OpenEmbedded Kickstart</a> files (<code>*.wks</code>).</p>
 <h3 id="excerpt-qemux86-grub-efiwks">Excerpt <code>qemux86-grub-efi.wks</code></h3>
 <p><em>Note: The excerpt is exemplary, please see the sources for a full representation and documentation.</em></p>
-<pre tabindex="0"><code>bootloader --ptable gpt
-
-part --fixed-size 50M --source rawcopy --sourceparams=&#34;file=efi-boot.vfat&#34; --fstype=vfat --label boot --active
-
-part --fixed-size 10M --source rawcopy --sourceparams=&#34;file=grubenv.vfat&#34; --fstype=vfat --label grubenv
-
-part /rescue --source rootfs --fstype=ext4 --label rescue
-
-part / --source rootfs --fstype=ext4 --label root_a
-
-part / --source rootfs --fstype=ext4 --label root_b
-
-part /data --fixed-size 4G --fstype=ext4 --label data
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>bootloader --ptable gpt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part --fixed-size 50M --source rawcopy --sourceparams=&#34;file=efi-boot.vfat&#34; --fstype=vfat --label boot --active
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part --fixed-size 10M --source rawcopy --sourceparams=&#34;file=grubenv.vfat&#34; --fstype=vfat --label grubenv
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part /rescue --source rootfs --fstype=ext4 --label rescue
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part / --source rootfs --fstype=ext4 --label root_a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part / --source rootfs --fstype=ext4 --label root_b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>part /data --fixed-size 4G --fstype=ext4 --label data
+</span></span></code></pre></div>
 </div>
 
 
@@ -3070,6 +3258,385 @@ state:
 
     
 	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-15f7b853b9c959b01ccff386532cb867">3.5 - Container Management</h1>
+    
+	<p>Leda is using Kanto Container Management as the upper-layer container runtime and container orchestration engine.</p>
+<p>Besides the command line tool <code>kanto-cm</code>, Kanto also has remote interfaces to manage containers.</p>
+<h2 id="remote-interface">Remote Interface</h2>
+<p>Kanto&rsquo;s container-management service offers a remote interface via local messaging (MQTT) to interact with a digital twin on the cloud side.
+This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;enabled&quot;: true }</code> in <code>/etc/container-management/config.toml</code>.</p>
+<p>When one of the cloud connector components, such as leda-contrib-cloud-connector or Kanto&rsquo;s azure-connector, is connected to a cloud backend, the container-management will publish its own information using Eclipse Ditto and Eclipse Hono messages. For this, container-management only needs the device Id, gateway Id and tenant Id.</p>
+<h3 id="simulation-of-cloud-connectivity">Simulation of cloud connectivity</h3>
+<ol>
+<li>Container Management starts and subscribes to <code>edge/thing/response</code></li>
+<li>Cloud Connector starts and publishes the following message to <code>edge/thing/response</code> as soon as the connection is online:</li>
+</ol>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;deviceId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;&lt;namespace&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;tenantId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;&lt;tenantId&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+
+
+<ul>
+<li><code>namespace</code> is <code>azure.edge</code> for Kanto&rsquo;s Azure Cloud Connector</li>
+<li><code>gatewayId</code> indicates the hostname of the Azure IoT Hub</li>
+<li><code>deviceId</code> is the identifier for the device, this can either be part of the Azure Connection String or part of the device authentication certificate (CN)</li>
+<li><code>tenantId</code> is a configuration setting in the cloud connector</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> You can simulate the cloud connector trigger by issueing the MQTT message manually on command line:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t <span style="color:#4e9a06">&#39;edge/thing/response&#39;</span> -m <span style="color:#4e9a06">&#39;{&#34;deviceId&#34;:&#34;dummy-namespace:dummy-gateway:dummy-device-id&#34;,&#34;tenantId&#34;:&#34;dummy-tenant-id&#34;}&#39;</span>
+</span></span></code></pre></div><h3 id="container-management">Container Management</h3>
+<p>The container management will respond to the cloud connectivity status message by initially sending a list of containers:</p>
+<ol>
+<li>Container Management responds with a list of containers in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
+</ol>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/SoftwareUpdatable&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;definition&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;org.eclipse.hawkbit.swupdatable:SoftwareUpdatable:2.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;properties&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;softwareModuleType&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;oci:container&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;installedDependencies&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse%2Fkuksa.val%2Fdatabroker.&lt;uuid&gt;:0.2.5&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val/databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;0.2.5&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse%2Fkuksa.val.services%2Fseat_service.&lt;uuid&gt;:v0.1.0&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/seat_service&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-cloud-connector%2Fcloudconnector.&lt;uuid&gt;:latest&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;latest&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-self-update-agent%2Fself-update-agent.&lt;uuid&gt;:build-20&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;build-20&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-vehicle-update-manager%2Fvehicleupdatemanager.&lt;uuid&gt;:latest&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;latest&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+
+
+<ol start="2">
+<li>Container Management answers with an additional message for each container in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
+</ol>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/Container:&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;definition&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;com.bosch.iot.suite.edge.containers:Container:1.5.0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;properties&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;imageRef&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;domainName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-domain&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;hostName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-host&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;BROKER_ADDR=databroker-host:30555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;vehicle_data_broker=info&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;restartPolicy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UNLESS_STOPPED&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;extraHosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;databroker-host:host_ip&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;portMappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;proto&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPortEnd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;containerPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50051</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostIP&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;networkMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BRIDGE&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;JSON_FILE&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxFiles&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxSize&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BLOCKING&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;createdAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T08:46:33.792687313Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">13627</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;startedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:51:08.049572297Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;finishedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:50:51.752255799Z&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>    
+</span></span></code></pre></div>
+
+
+<h3 id="container-metrics">Container Metrics</h3>
+<p>Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events.
+This is done by sending a request to the topic <code>command//&lt;namespaceId&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/req/&lt;correlationId&gt;/request</code>:</p>
+<ol>
+<li>Enable Container Metrics with a frequency of <code>5s</code>:</li>
+</ol>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;10&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;content-type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;application/json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;correlation-id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/Metrics/inbox/messages/request&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;frequency&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;5s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+
+
+<p>Example command line:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m <span style="color:#4e9a06">&#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;5s&#34;}}&#39;</span>
+</span></span></code></pre></div><ol start="2">
+<li>Container Metrics answers with an additional message for each container in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
+</ol>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/Container:&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;definition&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;com.bosch.iot.suite.edge.containers:Container:1.5.0&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;properties&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;imageRef&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;domainName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-domain&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;hostName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-host&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;BROKER_ADDR=databroker-host:30555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;vehicle_data_broker=info&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;restartPolicy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UNLESS_STOPPED&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;extraHosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;databroker-host:host_ip&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;portMappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;proto&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPortEnd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;containerPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50051</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostIP&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;networkMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BRIDGE&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;JSON_FILE&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxFiles&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxSize&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BLOCKING&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;createdAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T08:46:33.792687313Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">13627</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;startedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:51:08.049572297Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;finishedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:50:51.752255799Z&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>    
+</span></span></code></pre></div>
+
+
+<ol start="3">
+<li>
+<p>To disable Container Metrics, send a request with frequency of <code>0s</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m <span style="color:#4e9a06">&#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;0s&#34;}}&#39;</span>
+</span></span></code></pre></div></li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
   
 
     

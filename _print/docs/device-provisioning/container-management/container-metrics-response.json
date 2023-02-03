@@ -1,0 +1,46 @@
+{
+    "topic": "dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/data",
+    "headers": {
+        "content-type": "application/json",
+        "response-required": false
+    },
+    "path": "/features/Metrics/outbox/messages/data",
+    "value": {
+        "snapshot": [
+            {
+                "originator": "Container:54274233-1a32-4e2a-bd09-2fd672daa2a4",
+                "measurements": [
+                    {
+                        "id": "cpu.utilization",
+                        "value": 0.060487465000000004
+                    },
+                    {
+                        "id": "memory.total",
+                        "value": 2076409856
+                    },
+                    {
+                        "id": "memory.used",
+                        "value": 1941504
+                    },
+                    {
+                        "id": "memory.utilization",
+                        "value": 0.09350292739122888
+                    },
+                    {
+                        "id": "net.readBytes",
+                        "value": 3074
+                    },
+                    {
+                        "id": "net.writeBytes",
+                        "value": 3944
+                    },
+                    {
+                        "id": "pids",
+                        "value": 5
+                    }
+                ]
+            }
+        ],
+        "timestamp": 1675431034
+    }
+}
