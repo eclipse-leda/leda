@@ -20,4 +20,16 @@ you would have to make sure the packagegroup is installed to enable WiFi connect
 
 ## QEMU
 
-QEMU images provide a virtual `wlan` interface for easier automated testing of images.
+QEMU images provide the kernel modules necessary to set-up a virtual wlan interface and connect it to a virtual wifi network. This can be useful in various testing scenarios.
+
+To create and link a virtual WiFi interface boot your QEMU image and run:
+
+```shell
+$ ip link add link eth0 name wlan0 type virt_wifi
+$ iwctl station wlan0 connect VirtWifi
+```
+
+You will now have a virtual wlan0 interface with the same configuration as eth0.
+
+_Note:_ Leda Quickstart QEMU images set the name of the default virtual ethernet interface to `eth0` through kernel CMDLINE configurations (`net.ifnames=0 biosdevname=0`).
+If you are building a custom image with a different kernel CMDLINE replace `eth0` with the name of your virtual intrface (check `ifconfig`).
