@@ -17,6 +17,10 @@ The performance of a system heavily relies on the infrastructure and the general
 
 Please check the latest release, as we're continously adding features. If your driver is still missing, please [open a new GitHub Issue](https://github.com/eclipse-leda/leda-distro/issues/new/choose). We can add Kernel Modules for supported hardware. If you hardware is not supported out of the box by the Eclipse Leda project, you need to build your own image and customize the Linux Kernel configuration. Please see the [Yocto Project](https://www.yoctoproject.org/) documentation on how to do that.
 
+### **How do I connect to a WiFi network?**
+
+We use iwd/iwctl as high-level interfaces to manage wireless devices. For a guide on how to connect to a WiFi network with iwctl, you can check: [_Notes on using iwd/iwctl_](../wifi-configuration/iwd-iwctl).
+
 ### **How can a container access CAN-Bus interfaces?**
 
 As using a CAN-Bus requires access to the host network interface, the container needs to run in privileged mode and it needs access to the host network interface. For a Kanto-CM container, simply add `privileged: true` to the [container configuration](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/). A more sophisticated setup involves using virtual CAN interfaces for each container and using a CAN gateway to route the traffic accordingly. However, using CAN-Bus is not in the focus of SDV-style applications, as we assume that *Vehicle Services* would be running on dedicated ECUs, offering higher-level interfaces to *Vehicle Applications* on other protocols, such as Some/IP.

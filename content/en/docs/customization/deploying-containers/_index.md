@@ -1,7 +1,7 @@
 ---
 title: "Deploying Containers"
 date: 2023-01-03T17:24:56+05:30
-weight: 1
+weight: 2
 ---
 
 ## Kanto Container Management (kanto-cm) init-dir
