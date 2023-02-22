@@ -245,7 +245,7 @@ to boot from the different partitions via a custom bootloader script (and as a c
         &lt;p&gt;BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in &lt;code&gt;meta-leda&lt;/code&gt; for &lt;a href=&#34;../custom-images#hardware&#34;&gt;supported hardware&lt;/a&gt;.
 They usually do not require extra configuration. Images built with our meta-layer provide iwd/iwctl as a high-level daemon/interface for managing wireless
 connectivity.&lt;/p&gt;
-&lt;p&gt;For a guide on how to connect to a wireless network with iwctl check the &lt;a href=&#34;iwd&#34;&gt;&lt;em&gt;Notes on using iwctl&lt;/em&gt;&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;For a guide on how to connect to a wireless network with iwctl check the &lt;a href=&#34;iwd-iwctl&#34;&gt;&lt;em&gt;Notes on using iwctl&lt;/em&gt;&lt;/a&gt; page.&lt;/p&gt;
 &lt;h2 id=&#34;raspberry-pi-4b-64&#34;&gt;Raspberry Pi 4B 64&lt;/h2&gt;
 &lt;p&gt;The required kernel modules and binary blobs are provided with the &lt;code&gt;sdv-wifi-kernel-config.inc&lt;/code&gt; config file and the &lt;code&gt;packagegroup-sdv-rpi4wifi&lt;/code&gt; packagegroup. These
 are included in &lt;code&gt;sdv-image-full.bb&lt;/code&gt; and &lt;code&gt;sdv-image-minimal.bb&lt;/code&gt; by default.&lt;/p&gt;
