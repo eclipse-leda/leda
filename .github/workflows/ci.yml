@@ -51,7 +51,7 @@ jobs:
 
 # only publish pages if it's the upstream
       - name: Publish to GH Pages
-        if: github.repository_owner == ' eclipse-leda'
+        if: github.repository_owner == 'eclipse-leda'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
