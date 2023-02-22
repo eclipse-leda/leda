@@ -8,7 +8,7 @@ BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are pr
 They usually do not require extra configuration. Images built with our meta-layer provide iwd/iwctl as a high-level daemon/interface for managing wireless
 connectivity.
 
-For a guide on how to connect to a wireless network with iwctl check the [_Notes on using iwctl_](iwd) page.
+For a guide on how to connect to a wireless network with iwctl check the [_Notes on using iwctl_](iwd-iwctl) page.
 
 ## Raspberry Pi 4B 64
 
