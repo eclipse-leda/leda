@@ -248,8 +248,11 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;p&gt;The &lt;code&gt;raspberry-growdisk&lt;/code&gt; system service will do this automatically on first boot.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;To manually enlarge the available disk space on the SD-Card, resize the disk partition: &lt;code&gt;parted /dev/mmcblk0 resizepart 6 100% &amp;amp;&amp;amp; resize2fs /dev/mmcblk0p6&lt;/code&gt;. Verify with &lt;code&gt;df -h&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To manually enlarge the available disk space on the SD-Card, resize the disk partition: &lt;code&gt;parted /dev/mmcblk0 resizepart 6 100% &amp;amp;&amp;amp; resize2fs /dev/mmcblk0p6&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Note: Due to changes in the disk partition, the partition number (&lt;code&gt;6&lt;/code&gt; in the example) may have changed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify with &lt;code&gt;df -h&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -260,7 +263,7 @@ bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
 &lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/provisioning-raspi/&#34;&gt;Provisioning Raspberry Pi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
