@@ -35,9 +35,11 @@ Steps:
 - Login with `root`
 - Check disk space:
   - The `raspberry-growdisk` system service will do this automatically on first boot.
-  - To manually enlarge the available disk space on the SD-Card, resize the disk partition: `parted /dev/mmcblk0 resizepart 6 100% && resize2fs /dev/mmcblk0p6`. Verify with `df -h`.
-  
+  - To manually enlarge the available disk space on the SD-Card, resize the disk partition: `parted /dev/mmcblk0 resizepart 6 100% && resize2fs /dev/mmcblk0p6`.
+
     *Note: Due to changes in the disk partition, the partition number (`6` in the example) may have changed.*
+  - Verify with `df -h`.
+  
 - Verify and wait until container runtime is started: `systemctl status container-management`
 - *Optional:* Check the system health: `sdv-health`
-- Continue with [Provisioning Raspberry Pi](/leda/docs/device-provisioning/provisioning-raspi/)
+- Continue with [Device Provisioning](/leda/docs/device-provisioning/)
