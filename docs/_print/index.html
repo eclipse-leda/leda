@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.54f92e6ad5da052ff804da13478547da052a3256dec33db7bc80d557c5db8b64.css" as="style">
-<link href="/leda/scss/main.min.54f92e6ad5da052ff804da13478547da052a3256dec33db7bc80d557c5db8b64.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.6e30fd497860407f2a8cbb1cb9e9d5ee27cf0d73a575c96d721304b7e65abaae.css" as="style">
+<link href="/leda/scss/main.min.6e30fd497860407f2a8cbb1cb9e9d5ee27cf0d73a575c96d721304b7e65abaae.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.b584bde828f0b87544f9b073ca44b866.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.7843631566aaba0f4709d7495a015016.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3788,9 +3788,34 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">error_msg</span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div><h2 id="can-bus">CAN-Bus</h2>
+</span></span></code></pre></div><h2 id="testing-the-seatservice-example-container-on-the-leda-quickstart-image">Testing the seatservice-example container on the Leda Quickstart Image</h2>
+<p>Whether you are running the seatservice-example with a simulated CAN or a physical (emulated) CAN, the seatservice-example container included in the Leda Quickstart image provides a simple client application that can be used to test the GRPC interface.</p>
+<p>To set the seat position to <code>x%</code>, take <code>x*10</code> and truncate it to an integer <code>&lt;position&gt;</code>. Then using the sdv-ctr-exec script issue the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client &lt;position&gt;
+</span></span></code></pre></div><p>You can now check the logs (either with <code>kanto-cm logs</code> or <code>kantui</code>) and you should be able to see the <code>seatservice-example</code> application responding to the command by moving the seat to the desired position.</p>
+<h3 id="specifics-for-physical-emulated-can">Specifics for physical (emulated) CAN</h3>
+<ol>
+<li>
+<p>You will have to generate initial CAN frames that will emulate the car ECU responding to the service:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cangen -v can0 -L <span style="color:#0000cf;font-weight:bold">8</span> -I <span style="color:#0000cf;font-weight:bold">712</span> -D r -n <span style="color:#0000cf;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span>can0  712#4F.BF.B0.6B.5F.2D.54.09
+</span></span><span style="display:flex;"><span>can0  712#13.2E.98.7E.77.11.99.5B
+</span></span><span style="display:flex;"><span>can0  712#15.70.87.07.73.24.3A.7A
+</span></span><span style="display:flex;"><span>can0  712#99.7F.F5.3F.FB.99.00.04
+</span></span><span style="display:flex;"><span>can0  712#FE.1C.D5.55.22.86.3A.1F
+</span></span></code></pre></div></li>
+<li>
+<p>You can now start tracing CAN frames written to the bus with <code>candump can0</code></p>
+</li>
+<li>
+<p>From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace.</p>
+</li>
+</ol>
+<p><em>Note</em>: On QEMU you can tunnel the host CAN bus to the guest: <a href="../../general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can">Tunneling a CAN Interface from the Host</a>.</p>
+<h2 id="hardware-can-bus">Hardware CAN-Bus</h2>
 <p>The default configuration of the <em>Seat Service</em> is using simulated VCAN. If you want to switch to a physical CAN-Bus interface, the container needs to have access to the CAN-Bus hardware.</p>
-<p>For a Raspberry Pi setup with an MCP251x-based CAN-Hat extension, you would need to reconfigure two components:</p>
+<p>Such a CAN-Bus device might be a Raspberry Pi setup with an MCP251x-based CAN-Hat extension or a QEMU image with an emulated <em>kvaser_pci</em> device (enabled on the Leda QEMU Quickstart images by default).</p>
+<p>This setup would require some adjustments to the container manifest in order for the container to have access to the physical CAN-Bus.</p>
 <ol>
 <li>
 <p>Make Seat Service container privileged and run on the host network interface:</p>
@@ -3802,8 +3827,72 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Reconfigure the seat controller application to use the CAN interface, please see Eclipse Kuksa.VAL <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md">seat_controller/README.md</a> for details:</p>
+<p>Remove all port mappings and extra hosts (set <code>&quot;extra_hosts&quot;: []</code> and <code>&quot;port_mappings&quot;: []</code>) for the container as it&rsquo;s now running in host-networking mode (host_ip variable no longer available) and all ports are directly exposed.</p>
+</li>
+<li>
+<p>Set the address to the databroker to <code>localhost:30555</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;config&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;BROKER_ADDR=127.0.0.1:30555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Reconfigure the seat controller application to use the physical CAN interface, please see Eclipse Kuksa.VAL <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md">seat_controller/README.md</a> for details:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">SC_CAN</span><span style="color:#ce5c00;font-weight:bold">=</span>can0
+</span></span><span style="display:flex;"><span><span style="color:#000">CAN</span><span style="color:#ce5c00;font-weight:bold">=</span>can0
+</span></span></code></pre></div><p>All the necessary changes combined for clarity as a single diff can be found below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a40000">--- ../meta-leda-fork/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example_dev/seatservice.json	2023-03-06 11:32:00.771754434 +0200
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#00a000">+++ seatservice-new.json	2023-03-06 11:37:12.967182044 +0200
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000"></span><span style="color:#800080;font-weight:bold">@@ -14,26 +14,16 @@
+</span></span></span><span style="display:flex;"><span><span style="color:#800080;font-weight:bold"></span>    &#34;hooks&#34;: [],
+</span></span><span style="display:flex;"><span>    &#34;host_config&#34;: {
+</span></span><span style="display:flex;"><span>        &#34;devices&#34;: [],
+</span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;network_mode&#34;: &#34;bridge&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;privileged&#34;: false,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#00a000">+        &#34;network_mode&#34;: &#34;host&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+        &#34;privileged&#34;: true,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000"></span>        &#34;restart_policy&#34;: {
+</span></span><span style="display:flex;"><span>            &#34;maximum_retry_count&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;retry_timeout&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;type&#34;: &#34;unless-stopped&#34;
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        &#34;runtime&#34;: &#34;io.containerd.runc.v2&#34;,
+</span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;extra_hosts&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-            &#34;databroker-host:host_ip&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;port_mappings&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-            {
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;protocol&#34;: &#34;tcp&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;container_port&#34;: 50051,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;host_ip&#34;: &#34;localhost&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;host_port&#34;: 30051,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;host_port_end&#34;: 30051
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-            }
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#00a000">+        &#34;extra_hosts&#34;: [],
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+        &#34;port_mappings&#34;: [],
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000"></span>        &#34;log_config&#34;: {
+</span></span><span style="display:flex;"><span>            &#34;driver_config&#34;: {
+</span></span><span style="display:flex;"><span>                &#34;type&#34;: &#34;json-file&#34;,
+</span></span><span style="display:flex;"><span><span style="color:#800080;font-weight:bold">@@ -58,9 +48,11 @@
+</span></span></span><span style="display:flex;"><span><span style="color:#800080;font-weight:bold"></span>    },
+</span></span><span style="display:flex;"><span>    &#34;config&#34;: {
+</span></span><span style="display:flex;"><span>        &#34;env&#34;: [
+</span></span><span style="display:flex;"><span><span style="color:#a40000">-           &#34;BROKER_ADDR=databroker-host:30555&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-           &#34;RUST_LOG=info&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-           &#34;vehicle_data_broker=info&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000"></span><span style="color:#00a000">+            &#34;CAN=can0&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;SC_CAN=can0&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;BROKER_ADDR=127.0.0.1:30555&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;RUST_LOG=info&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;vehicle_data_broker=info&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000"></span>        ],
+</span></span><span style="display:flex;"><span>        &#34;cmd&#34;: []
+</span></span><span style="display:flex;"><span>    },
 </span></span></code></pre></div></li>
 </ol>
 
