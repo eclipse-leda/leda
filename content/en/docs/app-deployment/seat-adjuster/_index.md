@@ -130,7 +130,7 @@ This setup would require some adjustments to the container manifest in order for
 
 2. Remove all port mappings and extra hosts (set `"extra_hosts": []` and `"port_mappings": []`) for the container as it's now running in host-networking mode (host_ip variable no longer available) and all ports are directly exposed.
 
-3. Set the address to the databroker address envrionmental varable to `localhost:30555`: 
+3. Set the address to the databroker to `localhost:30555`: 
 
     ```json
         "config": {
