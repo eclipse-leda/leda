@@ -101,6 +101,13 @@ It will start up the following containers:
 
 ### Usage
 
+Get the Docker Compose configuration file and additional dockerfiles from the [https://github.com/eclipse-leda/leda-distro](https://github.com/eclipse-leda/leda-distro) repository:
+
+```shell
+git clone --filter=blob:none https://github.com/eclipse-leda/leda-distro
+cd leda-distro/resources/docker-compose
+```
+
 Starting the containers with:
 
 ```shell
