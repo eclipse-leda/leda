@@ -76,7 +76,9 @@ The following ports are specifically of interest and exposed by the docker conta
 
 > Note: In unprivileged mode, only these ports are mapped by the Docker container and forwarded to the Leda system.
   In privileged mode, all TCP ports can be exposed, which will then be forwarded from the Docker container into the Leda system.
-  See the [entrypoint script](https://github.com/eclipse-leda/leda-distro/blob/main/resources/docker-snapshot/dockerfiles/leda-quickstart-docker-entrypoint-x86.sh) for details.
+  See the
+  [entrypoint script](https://github.com/eclipse-leda/leda-distro/blob/main/resources/docker-snapshot/dockerfiles/leda-quickstart-docker-entrypoint-x86.sh)
+  for details.
 
 ### Running ARM-64 version
 
@@ -101,7 +103,8 @@ It will start up the following containers:
 
 ### Usage
 
-Get the Docker Compose configuration file and additional dockerfiles from the [https://github.com/eclipse-leda/leda-distro](https://github.com/eclipse-leda/leda-distro) repository:
+Get the Docker Compose configuration file and additional dockerfiles from the
+[https://github.com/eclipse-leda/leda-distro](https://github.com/eclipse-leda/leda-distro) repository:
 
 ```shell
 git clone --filter=blob:none https://github.com/eclipse-leda/leda-distro
@@ -133,20 +136,24 @@ Checking all containers are running or exited successfully:
 ```shell
 $ docker compose ps
 NAME                 COMMAND                  SERVICE              STATUS              PORTS
-leda-arm64           "/docker/leda-quicks…"   leda-arm64           running (healthy)   1883/tcp, 0.0.0.0:2002->2222/tcp, :::2002->2222/tcp, 0.0.0.0:9102->8888/tcp, :::9102->8888/tcp, 0.0.0.0:30556->30555/tcp, :::30556->30555/tcp
-leda-bundle-server   "/docker-entrypoint.…"   leda-bundle-server   running (healthy)   0.0.0.0:8080->80/tcp, :::8080->80/tcp
-leda-dns-proxy       "dnsmasq -k"             dns-proxy            running             53/tcp, 0.0.0.0:5353->53/udp, :::5353->53/udp
+leda-arm64           "/docker/leda-quicks…"   leda-arm64           running (healthy)   1883/tcp, 0.0.0.0:2002->2222/tcp, 0.0.0.0:30556->30555/tcp
+leda-bundle-server   "/docker-entrypoint.…"   leda-bundle-server   running (healthy)   0.0.0.0:8080->80/tcp
+leda-dns-proxy       "dnsmasq -k"             dns-proxy            running             53/tcp, 0.0.0.0:5353->53/udp
 leda-initializer     "/bin/sh -c /root/le…"   leda-initializer     exited (0)          
-leda-mqtt-broker     "/docker-entrypoint.…"   mqtt-broker          running (healthy)   0.0.0.0:1883->1883/tcp, :::1883->1883/tcp
-leda-x86             "/docker/leda-quicks…"   leda-x86             running (healthy)   1883/tcp, 0.0.0.0:30555->30555/tcp, :::30555->30555/tcp, 0.0.0.0:2001->2222/tcp, :::2001->2222/tcp, 0.0.0.0:9101->8888/tcp, :::9101->8888/tcp## Network setup
+leda-mqtt-broker     "/docker-entrypoint.…"   mqtt-broker          running (healthy)   0.0.0.0:1883->1883/tcp
+leda-x86             "/docker/leda-quicks…"   leda-x86             running (healthy)   1883/tcp, 0.0.0.0:30555->30555/tcp, 0.0.0.0:2001->2222/tcp
 ```
+
+### Network setup
 
 As the networking is a bit more complicated to set up with emulated network inside of QEMU, the following explanation is helpful to understand networking better.
 
 - All docker compose containers are attached to a network called `leda-bridge` and `leda-network` and can see each other
 - The QEMU instances use a TAP network inside of each leda-quickstart-xxx container and do a NAT network translation to their own container
-- The Docker internal DNS server is being used. This is implemented by a DNS Proxy container, which will forward incoming DNS requests to the Docker DNS running on the 127.0.0.x network.
-- In unprivileged mode: Only the exposed ports are forwarded from the docker container into the QEMU process: mosquitto `1883`, ssh `2222` and kuksa.val databroker `30555`.
+- The Docker internal DNS server is being used. This is implemented by a DNS Proxy container,
+  which will forward incoming DNS requests to the Docker DNS running on the 127.0.0.x network.
+- In unprivileged mode: Only the exposed ports are forwarded from the docker container into the QEMU process:
+  mosquitto `1883`, ssh `2222` and kuksa.val databroker `30555`.
   In privileged mode, all TCP ports are forwarded from the Docker container into the QEMU process and the special port `2222` is forwarded to ssh port.
 
 ### Developer Shell
@@ -182,9 +189,9 @@ sdv-health
 
 1. Run the provisioning script:
 
-```shell
-sdv-provision
-```
+   ```shell
+   sdv-provision
+   ```
 
 2. Copy the fingerprints
 
@@ -215,12 +222,12 @@ Connect your MQTT client to `mqtt-broker.leda-network` by using the exposed port
 mosquitto_sub -h localhost -p 1883 -t '#' -v
 ```
 
-### Networking
+### Docker Networking
 
 You need to enable IP forwarding from Docker containers to make networking work.
 The containers (leda-arm64, leda-x86) need to run with ``--privileged`` as they change iptables rules for proper forwarding of network packets.
 
-https://docs.docker.com/network/bridge/#enable-forwarding-from-docker-containers-to-the-outside-world
+See [Docker documentation for bridge networking](https://docs.docker.com/network/bridge/#enable-forwarding-from-docker-containers-to-the-outside-world) for details.
 
 ```shell
 sudo sysctl net.ipv4.conf.all.forwarding=1
@@ -231,6 +238,7 @@ Each Eclipse Leda instance (ARM64, x86_64) is running within a QEMU emulated net
 in a containerized network called `leda-network` (192.168.8.x).
 
 The containers wrapping the QEMU instances will forward the following ports to the respective QEMU process:
+
 - SSH on port 2222
 - Mosquitto on port 1883
 
