@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2687cdbdfcebabdc7ad607742d159899.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.816a0419834d322357705e0439dc6ce9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -190,7 +190,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-09e9389bc1ee795bba0706ccef486884">Utilities</a></li>
+<li>4: <a href="#pg-4ba9f4b2d2c150df2117dd655ecd1818">Wifi Configuration</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.1: <a href="#pg-6e2aad457e20233b1a8166199667e51a">Connecting to Wi-Fi networks</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-09e9389bc1ee795bba0706ccef486884">Utilities</a></li>
 
 
     
@@ -209,7 +236,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
+<li>6: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
 
 
     
@@ -728,7 +755,113 @@ bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-09e9389bc1ee795bba0706ccef486884">4 - Utilities</h1>
+	<h1 id="pg-4ba9f4b2d2c150df2117dd655ecd1818">4 - Wifi Configuration</h1>
+    
+	<p>BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in <code>meta-leda</code> for <a href="../../customization/custom-images#hardware">supported hardware</a>.
+They usually do not require extra configuration.</p>
+<p>For a guide on how to connect to a wireless network check the <a href="connecting-to-wifi"><em>Connecting to Wi-Fi networks</em></a> page.</p>
+<h2 id="raspberry-pi-4b-64">Raspberry Pi 4B 64</h2>
+<p>The required kernel modules and binary blobs are provided with the <code>sdv-wifi-kernel-config.inc</code> config file and the <code>packagegroup-sdv-rpi4wifi</code> packagegroup. These
+are included in <code>sdv-image-full.bb</code> and <code>sdv-image-minimal.bb</code> by default.</p>
+<p>If you, however, decide to define your own custom image based on <a href="../../customization/custom-images"><em>Custom Distros</em></a>,
+you would have to make sure the packagegroup is installed to enable WiFi connectivity.</p>
+<h2 id="qemu">QEMU</h2>
+<p>QEMU images provide the kernel modules necessary to set-up a virtual wlan interface and connect it to a virtual wifi network. This can be useful in various testing scenarios.</p>
+<p>To create and link a virtual WiFi interface to eth0, boot your QEMU image and run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip link add link eth0 name wlan0 <span style="color:#204a87">type</span> virt_wifi
+</span></span></code></pre></div><p>The SSID of the virtual network you can connect to is <code>VirtWifi</code>.</p>
+<p><em>Note:</em> Leda Quickstart QEMU images set the name of the default virtual ethernet interface to <code>eth0</code> through kernel CMDLINE configurations (<code>net.ifnames=0 biosdevname=0</code>).
+If you are building a custom image with a different kernel CMDLINE replace <code>eth0</code> with the name of your virtual interface (check <code>ifconfig</code>).</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6e2aad457e20233b1a8166199667e51a">4.1 - Connecting to Wi-Fi networks</h1>
+    
+	<p>Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.</p>
+<h2 id="initial-steps-identifying-wlan-interfaces">Initial steps (identifying wlan interfaces)</h2>
+<p>Start by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip a
+</span></span><span style="display:flex;"><span> ...
+</span></span><span style="display:flex;"><span>3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#0000cf;font-weight:bold">1500</span> qdisc fq_codel state DOWN group default qlen <span style="color:#0000cf;font-weight:bold">1000</span>
+</span></span><span style="display:flex;"><span>    link/ether &lt;MAC&gt; brd ff:ff:ff:ff:ff:ff
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><strong>Note:</strong> Usually the name of the interface would be <code>wlan0</code>. It might however follow the newer &ldquo;predictable interface names&rdquo; standart.
+Then the interface name would start with <code>wl*</code> with the remaining characters identifying a physical bus/chip/number/etc
+corresponding to the interface. For simplicity we will <code>wlan0</code> in all examples below.</p>
+<p>Most likely your wlan interface would be in the state <code>DOWN</code>. To bring it up:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip link <span style="color:#204a87">set</span> wlan0 up
+</span></span></code></pre></div><h2 id="scanning-for-wireless-networks">Scanning for wireless networks</h2>
+<p>You can scan for wireless networks using either <code>iw</code> or <code>wpa_cli</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iw wlan0 scan
+</span></span></code></pre></div><p><strong>Note:</strong> The output of this command can be quite verbose. You can grep for <code>SSID</code> to find the SSIDs of the networks around you.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ wpa_cli scan <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> wpa_cli scan_results
+</span></span></code></pre></div><p>The output of <code>wpa_cli</code> is cleaner and more readable so it is recommended to use that.</p>
+<h2 id="connecting-to-a-network">Connecting to a network</h2>
+<p>Once you have identified the SSID of your network you can connect to it by ussing the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ wpa_passphrase &lt;SSID&gt; &lt;Passphrase&gt; &gt;&gt; /etc/wpa_supplicant.conf
+</span></span><span style="display:flex;"><span>$ systemctl restart wpa
+</span></span></code></pre></div><p>You should now be connected to the wireless network. To confirm that, you can once again use <code>ip a</code> to check that <code>wlan0</code> has been configured with an IP.</p>
+<p>This configuration shall be remembered from now on and your interface will try to connect automaticatically to that network whenever it is available.</p>
+<h2 id="headless-wi-fi-configuration">Headless Wi-Fi configuration</h2>
+<p>Similarly to the Raspbian, meta-leda provides a mechanism for headless configuration of Wi-Fi credentials for your device (<a href="https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup/wifi-with-dhcp">Headless Raspberry Pi Setup</a>).</p>
+<p>To use this feature you have to prepapre your <code>wpa_supplicant.conf</code> ahead of time (check the reference above):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ctrl_interface=/var/run/wpa_supplicant
+</span></span><span style="display:flex;"><span>ctrl_interface_group=0
+</span></span><span style="display:flex;"><span>update_config=1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>network={
+</span></span><span style="display:flex;"><span>        key_mgmt=NONE
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>network={
+</span></span><span style="display:flex;"><span>    ssid=&#34;&lt;YOUR NETWORK NAME&gt;&#34;
+</span></span><span style="display:flex;"><span>    psk=&#34;&lt;YOUR NETWORK PASSWORD&gt;&#34;
+</span></span><span style="display:flex;"><span>    key_mgmt=WPA-PSK
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>IMPORTANT:</strong> It is recommended that if you are creating this configuration file on Windows to use an editor such as Notepad++ that can save files using the
+&ldquo;Unix Line endings&rdquo; (<a href="https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html">DOS vs. Unix Line Endings</a>), or run it through a tool such as <code>dos2unix</code>
+that can convert between the two file formats. Otherwise <code>wpa_supplicant.conf</code> might not be read properly in the Linux image.</p>
+<p>Once you have your <code>wpa_supplicant.conf</code> put your SD-card in your Desktop machine and place the configuration file in the root of the <code>BOOT</code> partion.</p>
+<p>When you boot your device it should now automatically connect to your Wi-Fi network.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-09e9389bc1ee795bba0706ccef486884">5 - Utilities</h1>
     
 	<p>The quickstart image contains the following utilities:</p>
 <ul>
@@ -805,7 +938,7 @@ bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">5 - Cheatsheet</h1>
+	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">6 - Cheatsheet</h1>
     
 	<p>This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.</p>
 <table>

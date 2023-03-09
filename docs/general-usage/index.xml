@@ -271,6 +271,34 @@ bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
     </item>
     
     <item>
+      <title>Docs: Wifi Configuration</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</link>
+      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</guid>
+      <description>
+        
+        
+        &lt;p&gt;BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in &lt;code&gt;meta-leda&lt;/code&gt; for &lt;a href=&#34;../../customization/custom-images#hardware&#34;&gt;supported hardware&lt;/a&gt;.
+They usually do not require extra configuration.&lt;/p&gt;
+&lt;p&gt;For a guide on how to connect to a wireless network check the &lt;a href=&#34;connecting-to-wifi&#34;&gt;&lt;em&gt;Connecting to Wi-Fi networks&lt;/em&gt;&lt;/a&gt; page.&lt;/p&gt;
+&lt;h2 id=&#34;raspberry-pi-4b-64&#34;&gt;Raspberry Pi 4B 64&lt;/h2&gt;
+&lt;p&gt;The required kernel modules and binary blobs are provided with the &lt;code&gt;sdv-wifi-kernel-config.inc&lt;/code&gt; config file and the &lt;code&gt;packagegroup-sdv-rpi4wifi&lt;/code&gt; packagegroup. These
+are included in &lt;code&gt;sdv-image-full.bb&lt;/code&gt; and &lt;code&gt;sdv-image-minimal.bb&lt;/code&gt; by default.&lt;/p&gt;
+&lt;p&gt;If you, however, decide to define your own custom image based on &lt;a href=&#34;../../customization/custom-images&#34;&gt;&lt;em&gt;Custom Distros&lt;/em&gt;&lt;/a&gt;,
+you would have to make sure the packagegroup is installed to enable WiFi connectivity.&lt;/p&gt;
+&lt;h2 id=&#34;qemu&#34;&gt;QEMU&lt;/h2&gt;
+&lt;p&gt;QEMU images provide the kernel modules necessary to set-up a virtual wlan interface and connect it to a virtual wifi network. This can be useful in various testing scenarios.&lt;/p&gt;
+&lt;p&gt;To create and link a virtual WiFi interface to eth0, boot your QEMU image and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip link add link eth0 name wlan0 &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt; virt_wifi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The SSID of the virtual network you can connect to is &lt;code&gt;VirtWifi&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Leda Quickstart QEMU images set the name of the default virtual ethernet interface to &lt;code&gt;eth0&lt;/code&gt; through kernel CMDLINE configurations (&lt;code&gt;net.ifnames=0 biosdevname=0&lt;/code&gt;).
+If you are building a custom image with a different kernel CMDLINE replace &lt;code&gt;eth0&lt;/code&gt; with the name of your virtual interface (check &lt;code&gt;ifconfig&lt;/code&gt;).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Utilities</title>
       <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>

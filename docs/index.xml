@@ -2484,58 +2484,59 @@ If it&amp;rsquo;s not a background service, but a cli tool, adding the &lt;code&
     </item>
     
     <item>
-      <title>Docs: Notes on using iwd/iwctl</title>
-      <link>https://eclipse-leda.github.io/leda/docs/customization/wifi-configuration/iwd-iwctl/</link>
+      <title>Docs: Connecting to Wi-Fi networks</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/customization/wifi-configuration/iwd-iwctl/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/</guid>
       <description>
         
         
-        &lt;p&gt;Here we will describe the basic steps on how to connect to a WiFi network using iwctl.&lt;/p&gt;
+        &lt;p&gt;Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.&lt;/p&gt;
 &lt;h2 id=&#34;initial-steps-identifying-wlan-interfaces&#34;&gt;Initial steps (identifying wlan interfaces)&lt;/h2&gt;
-&lt;p&gt;Start by opening the &lt;code&gt;iwctl&lt;/code&gt; shell&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ iwctl
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# adapter list&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                    Adapters                                  *
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Name               Powered   Vendor              Model               
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  phy0               on        Broadcom Corp.BCM43438 combo WLAN 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# device list&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                    Devices                                    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Name                Address             Powered   Adapter   Mode      
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &amp;lt;device&amp;gt;               &amp;lt;MAC&amp;gt;              on        phy0      station   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the device or its corresponding adapter is turned off (the &lt;code&gt;Powered&lt;/code&gt; property), turn it on by running:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# device &amp;lt;device&amp;gt; set-property Powered on&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# adapter &amp;lt;adapter&amp;gt; set-property Powered on&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check the device/adapter list again to ensure they are now powered on.&lt;/p&gt;
+&lt;p&gt;Start by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip a
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3: wlan0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN group default qlen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    link/ether &amp;lt;MAC&amp;gt; brd ff:ff:ff:ff:ff:ff
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Usually the name of the interface would be &lt;code&gt;wlan0&lt;/code&gt;. It might however follow the newer &amp;ldquo;predictable interface names&amp;rdquo; standart.
+Then the interface name would start with &lt;code&gt;wl*&lt;/code&gt; with the remaining characters identifying a physical bus/chip/number/etc
+corresponding to the interface. For simplicity we will &lt;code&gt;wlan0&lt;/code&gt; in all examples below.&lt;/p&gt;
+&lt;p&gt;Most likely your wlan interface would be in the state &lt;code&gt;DOWN&lt;/code&gt;. To bring it up:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip link &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; wlan0 up
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;scanning-for-wireless-networks&#34;&gt;Scanning for wireless networks&lt;/h2&gt;
+&lt;p&gt;You can scan for wireless networks using either &lt;code&gt;iw&lt;/code&gt; or &lt;code&gt;wpa_cli&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ iw wlan0 scan
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The output of this command can be quite verbose. You can grep for &lt;code&gt;SSID&lt;/code&gt; to find the SSIDs of the networks around you.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wpa_cli scan &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wpa_cli scan_results
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The output of &lt;code&gt;wpa_cli&lt;/code&gt; is cleaner and more readable so it is recommended to use that.&lt;/p&gt;
 &lt;h2 id=&#34;connecting-to-a-network&#34;&gt;Connecting to a network&lt;/h2&gt;
-&lt;p&gt;Initiate a network scan by running (&lt;em&gt;Note:&lt;/em&gt; this command has no output):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# station &amp;lt;device&amp;gt; scan&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;List all available networks:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# station &amp;lt;device&amp;gt; get-networks &lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               Available networks                              
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Network name                    Security          Signal
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------------------------------------------------------------------------
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;SSID&amp;gt;                           psk               ****  
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, after identifying your network&amp;rsquo;s SSID, connect to it:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# station &amp;lt;device&amp;gt; connect &amp;lt;SSID&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If a passphrase is required, you will be prompted to enter it.&lt;/p&gt;
-&lt;p&gt;You can now exit the &lt;code&gt;iwctl&lt;/code&gt; shell:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;iwd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# exit&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;connecting-with-a-single-command&#34;&gt;Connecting with a single command&lt;/h3&gt;
-&lt;p&gt;Alternatively, if you know you network&amp;rsquo;s SSID and your wireless device&amp;rsquo;s name you can connect to the network with a single command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ iwctl --passphrase &amp;lt;passphrase&amp;gt; station &amp;lt;device&amp;gt; connect &amp;lt;SSID&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To check current status of device (for example wlan0):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ iw dev wlan0 link
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From now on this WiFi network will be remembered for future connections.&lt;/p&gt;
-&lt;h4 id=&#34;references&#34;&gt;References&lt;/h4&gt;
-&lt;p&gt;This readme is based on the guidelines documented in the &lt;a href=&#34;https://wiki.archlinux.org/title/Iwd#Connect_to_a_network&#34;&gt;ArchLinux Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you have identified the SSID of your network you can connect to it by ussing the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wpa_passphrase &amp;lt;SSID&amp;gt; &amp;lt;Passphrase&amp;gt; &amp;gt;&amp;gt; /etc/wpa_supplicant.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ systemctl restart wpa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should now be connected to the wireless network. To confirm that, you can once again use &lt;code&gt;ip a&lt;/code&gt; to check that &lt;code&gt;wlan0&lt;/code&gt; has been configured with an IP.&lt;/p&gt;
+&lt;p&gt;This configuration shall be remembered from now on and your interface will try to connect automaticatically to that network whenever it is available.&lt;/p&gt;
+&lt;h2 id=&#34;headless-wi-fi-configuration&#34;&gt;Headless Wi-Fi configuration&lt;/h2&gt;
+&lt;p&gt;Similarly to the Raspbian, meta-leda provides a mechanism for headless configuration of Wi-Fi credentials for your device (&lt;a href=&#34;https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup/wifi-with-dhcp&#34;&gt;Headless Raspberry Pi Setup&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;To use this feature you have to prepapre your &lt;code&gt;wpa_supplicant.conf&lt;/code&gt; ahead of time (check the reference above):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctrl_interface=/var/run/wpa_supplicant
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctrl_interface_group=0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;update_config=1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;network={
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        key_mgmt=NONE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;network={
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ssid=&amp;#34;&amp;lt;YOUR NETWORK NAME&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    psk=&amp;#34;&amp;lt;YOUR NETWORK PASSWORD&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    key_mgmt=WPA-PSK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; It is recommended that if you are creating this configuration file on Windows to use an editor such as Notepad++ that can save files using the
+&amp;ldquo;Unix Line endings&amp;rdquo; (&lt;a href=&#34;https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html&#34;&gt;DOS vs. Unix Line Endings&lt;/a&gt;), or run it through a tool such as &lt;code&gt;dos2unix&lt;/code&gt;
+that can convert between the two file formats. Otherwise &lt;code&gt;wpa_supplicant.conf&lt;/code&gt; might not be read properly in the Linux image.&lt;/p&gt;
+&lt;p&gt;Once you have your &lt;code&gt;wpa_supplicant.conf&lt;/code&gt; put your SD-card in your Desktop machine and place the configuration file in the root of the &lt;code&gt;BOOT&lt;/code&gt; partion.&lt;/p&gt;
+&lt;p&gt;When you boot your device it should now automatically connect to your Wi-Fi network.&lt;/p&gt;
 
       </description>
     </item>

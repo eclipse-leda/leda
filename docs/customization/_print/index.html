@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2687cdbdfcebabdc7ad607742d159899.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.816a0419834d322357705e0439dc6ce9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -155,34 +155,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-b438fd7e15c2574be03cee1dc972c1d6">Wifi Configuration</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>3.1: <a href="#pg-572603d812bc31861223167334ab4429">Notes on using iwd/iwctl</a></li>
-
-
-    
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>4: <a href="#pg-205745980ea22e98566bc8629ffffc7a">FAQ</a></li>
+<li>3: <a href="#pg-205745980ea22e98566bc8629ffffc7a">FAQ</a></li>
 
 
     
@@ -476,114 +449,7 @@ to boot from the different partitions via a custom bootloader script (and as a c
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b438fd7e15c2574be03cee1dc972c1d6">3 - Wifi Configuration</h1>
-    
-	<p>BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in <code>meta-leda</code> for <a href="../custom-images#hardware">supported hardware</a>.
-They usually do not require extra configuration. Images built with our meta-layer provide iwd/iwctl as a high-level daemon/interface for managing wireless
-connectivity.</p>
-<p>For a guide on how to connect to a wireless network with iwctl check the <a href="iwd-iwctl"><em>Notes on using iwctl</em></a> page.</p>
-<h2 id="raspberry-pi-4b-64">Raspberry Pi 4B 64</h2>
-<p>The required kernel modules and binary blobs are provided with the <code>sdv-wifi-kernel-config.inc</code> config file and the <code>packagegroup-sdv-rpi4wifi</code> packagegroup. These
-are included in <code>sdv-image-full.bb</code> and <code>sdv-image-minimal.bb</code> by default.</p>
-<p>If you, however, decide to define your own custom image based on <a href="../custom-images"><em>Custom Distros</em></a>,
-you would have to make sure the packagegroup is installed to enable WiFi connectivity.</p>
-<h2 id="qemu">QEMU</h2>
-<p>QEMU images provide the kernel modules necessary to set-up a virtual wlan interface and connect it to a virtual wifi network. This can be useful in various testing scenarios.</p>
-<p>To create and link a virtual WiFi interface boot your QEMU image and run:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip link add link eth0 name wlan0 <span style="color:#204a87">type</span> virt_wifi
-</span></span><span style="display:flex;"><span>$ iwctl station wlan0 connect VirtWifi
-</span></span></code></pre></div><p>You will now have a virtual wlan0 interface with the same configuration as eth0.</p>
-<p><em>Note:</em> Leda Quickstart QEMU images set the name of the default virtual ethernet interface to <code>eth0</code> through kernel CMDLINE configurations (<code>net.ifnames=0 biosdevname=0</code>).
-If you are building a custom image with a different kernel CMDLINE replace <code>eth0</code> with the name of your virtual intrface (check <code>ifconfig</code>).</p>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-572603d812bc31861223167334ab4429">3.1 - Notes on using iwd/iwctl</h1>
-    
-	<p>Here we will describe the basic steps on how to connect to a WiFi network using iwctl.</p>
-<h2 id="initial-steps-identifying-wlan-interfaces">Initial steps (identifying wlan interfaces)</h2>
-<p>Start by opening the <code>iwctl</code> shell</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iwctl
-</span></span></code></pre></div><p>If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># adapter list</span>
-</span></span><span style="display:flex;"><span>                                    Adapters                                  *
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  Name               Powered   Vendor              Model               
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  phy0               on        Broadcom Corp.BCM43438 combo WLAN 
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># device list</span>
-</span></span><span style="display:flex;"><span>                                    Devices                                    
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  Name                Address             Powered   Adapter   Mode      
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  &lt;device&gt;               &lt;MAC&gt;              on        phy0      station   
-</span></span></code></pre></div><p>If the device or its corresponding adapter is turned off (the <code>Powered</code> property), turn it on by running:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># device &lt;device&gt; set-property Powered on</span>
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># adapter &lt;adapter&gt; set-property Powered on</span>
-</span></span></code></pre></div><p>Check the device/adapter list again to ensure they are now powered on.</p>
-<h2 id="connecting-to-a-network">Connecting to a network</h2>
-<p>Initiate a network scan by running (<em>Note:</em> this command has no output):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># station &lt;device&gt; scan</span>
-</span></span></code></pre></div><p>List all available networks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># station &lt;device&gt; get-networks </span>
-</span></span><span style="display:flex;"><span>                               Available networks                              
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>    Network name                    Security          Signal
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>    &lt;SSID&gt;                           psk               ****  
-</span></span></code></pre></div><p>Finally, after identifying your network&rsquo;s SSID, connect to it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># station &lt;device&gt; connect &lt;SSID&gt;</span>
-</span></span></code></pre></div><p>If a passphrase is required, you will be prompted to enter it.</p>
-<p>You can now exit the <code>iwctl</code> shell:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># exit</span>
-</span></span></code></pre></div><h3 id="connecting-with-a-single-command">Connecting with a single command</h3>
-<p>Alternatively, if you know you network&rsquo;s SSID and your wireless device&rsquo;s name you can connect to the network with a single command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iwctl --passphrase &lt;passphrase&gt; station &lt;device&gt; connect &lt;SSID&gt;
-</span></span></code></pre></div><p>To check current status of device (for example wlan0):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iw dev wlan0 link
-</span></span></code></pre></div><p>From now on this WiFi network will be remembered for future connections.</p>
-<h4 id="references">References</h4>
-<p>This readme is based on the guidelines documented in the <a href="https://wiki.archlinux.org/title/Iwd#Connect_to_a_network">ArchLinux Documentation</a></p>
-
-</div>
-
-
-
-    
-	
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-205745980ea22e98566bc8629ffffc7a">4 - FAQ</h1>
+	<h1 id="pg-205745980ea22e98566bc8629ffffc7a">3 - FAQ</h1>
     
 	<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <h3 id="why-is-the-performance-very-slow"><strong>Why is the performance very slow?</strong></h3>

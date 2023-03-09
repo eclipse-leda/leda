@@ -18,33 +18,29 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Notes on using iwd/iwctl | Eclipse Leda Documentation</title>
-<meta name="description" content="Here we will describe the basic steps on how to connect to a WiFi network using iwctl.
-Initial steps (identifying wlan interfaces) Start by opening the iwctl shell
-$ iwctl If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:
-[iwd]# adapter list Adapters * -------------------------------------------------------------------------------- Name Powered Vendor Model -------------------------------------------------------------------------------- phy0 on Broadcom Corp.BCM43438 combo WLAN [iwd]# device list Devices -------------------------------------------------------------------------------- Name Address Powered Adapter Mode -------------------------------------------------------------------------------- &amp;lt;device&amp;gt; &amp;lt;MAC&amp;gt; on phy0 station If the device or its corresponding adapter is turned off (the Powered property), turn it on by running:">
-<meta property="og:title" content="Notes on using iwd/iwctl" />
-<meta property="og:description" content="Here we will describe the basic steps on how to connect to a WiFi network using iwctl.
-Initial steps (identifying wlan interfaces) Start by opening the iwctl shell
-$ iwctl If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:
-[iwd]# adapter list Adapters * -------------------------------------------------------------------------------- Name Powered Vendor Model -------------------------------------------------------------------------------- phy0 on Broadcom Corp.BCM43438 combo WLAN [iwd]# device list Devices -------------------------------------------------------------------------------- Name Address Powered Adapter Mode -------------------------------------------------------------------------------- &lt;device&gt; &lt;MAC&gt; on phy0 station If the device or its corresponding adapter is turned off (the Powered property), turn it on by running:" />
+<title>Connecting to Wi-Fi networks | Eclipse Leda Documentation</title>
+<meta name="description" content="Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.
+Initial steps (identifying wlan interfaces) Start by running:
+$ ip a ... 3: wlan0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000 link/ether &amp;lt;MAC&amp;gt; brd ff:ff:ff:ff:ff:ff ... Note: Usually the name of the interface would be wlan0. It might however follow the newer &amp;ldquo;predictable interface names&amp;rdquo; standart.">
+<meta property="og:title" content="Connecting to Wi-Fi networks" />
+<meta property="og:description" content="Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.
+Initial steps (identifying wlan interfaces) Start by running:
+$ ip a ... 3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000 link/ether &lt;MAC&gt; brd ff:ff:ff:ff:ff:ff ... Note: Usually the name of the interface would be wlan0. It might however follow the newer &ldquo;predictable interface names&rdquo; standart." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/customization/wifi-configuration/iwd-iwctl/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-01-03T17:24:56+05:30" />
-<meta property="article:modified_time" content="2023-03-09T13:50:49+01:00" />
-<meta itemprop="name" content="Notes on using iwd/iwctl">
-<meta itemprop="description" content="Here we will describe the basic steps on how to connect to a WiFi network using iwctl.
-Initial steps (identifying wlan interfaces) Start by opening the iwctl shell
-$ iwctl If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:
-[iwd]# adapter list Adapters * -------------------------------------------------------------------------------- Name Powered Vendor Model -------------------------------------------------------------------------------- phy0 on Broadcom Corp.BCM43438 combo WLAN [iwd]# device list Devices -------------------------------------------------------------------------------- Name Address Powered Adapter Mode -------------------------------------------------------------------------------- &lt;device&gt; &lt;MAC&gt; on phy0 station If the device or its corresponding adapter is turned off (the Powered property), turn it on by running:"><meta itemprop="datePublished" content="2023-01-03T17:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-03-09T13:50:49+01:00" />
-<meta itemprop="wordCount" content="276">
+<meta property="article:modified_time" content="2023-03-09T15:50:18+02:00" />
+<meta itemprop="name" content="Connecting to Wi-Fi networks">
+<meta itemprop="description" content="Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.
+Initial steps (identifying wlan interfaces) Start by running:
+$ ip a ... 3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000 link/ether &lt;MAC&gt; brd ff:ff:ff:ff:ff:ff ... Note: Usually the name of the interface would be wlan0. It might however follow the newer &ldquo;predictable interface names&rdquo; standart."><meta itemprop="datePublished" content="2023-01-03T17:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-03-09T15:50:18+02:00" />
+<meta itemprop="wordCount" content="429">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Notes on using iwd/iwctl"/>
-<meta name="twitter:description" content="Here we will describe the basic steps on how to connect to a WiFi network using iwctl.
-Initial steps (identifying wlan interfaces) Start by opening the iwctl shell
-$ iwctl If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:
-[iwd]# adapter list Adapters * -------------------------------------------------------------------------------- Name Powered Vendor Model -------------------------------------------------------------------------------- phy0 on Broadcom Corp.BCM43438 combo WLAN [iwd]# device list Devices -------------------------------------------------------------------------------- Name Address Powered Adapter Mode -------------------------------------------------------------------------------- &lt;device&gt; &lt;MAC&gt; on phy0 station If the device or its corresponding adapter is turned off (the Powered property), turn it on by running:"/>
+<meta name="twitter:title" content="Connecting to Wi-Fi networks"/>
+<meta name="twitter:description" content="Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.
+Initial steps (identifying wlan interfaces) Start by running:
+$ ip a ... 3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000 link/ether &lt;MAC&gt; brd ff:ff:ff:ff:ff:ff ... Note: Usually the name of the interface would be wlan0. It might however follow the newer &ldquo;predictable interface names&rdquo; standart."/>
 
 
 
@@ -84,7 +80,7 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2687cdbdfcebabdc7ad607742d159899.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.816a0419834d322357705e0439dc6ce9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -109,7 +105,7 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.2687cdbdfcebabdc7ad607742d159899.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.816a0419834d322357705e0439dc6ce9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -146,8 +142,8 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usage-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usage-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usage-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usage-check" checked/>
   <label for="m-ledadocsgeneral-usage-check"><a href="/leda/docs/general-usage/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usage"><span class="">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -174,6 +170,17 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
   <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usagewifi-configuration-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagewifi-configuration-check" checked/>
+  <label for="m-ledadocsgeneral-usagewifi-configuration-check"><a href="/leda/docs/general-usage/wifi-configuration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagewifi-configuration"><span class="">Wifi Configuration</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-check" checked/>
+  <label for="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-check"><a href="/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi"><span class="td-sidebar-nav-active-item">Connecting to Wi-Fi networks</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilities-li">
   <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
   <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
@@ -418,8 +425,8 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
   </ul>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocscustomization-li">
-  <input type="checkbox" id="m-ledadocscustomization-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocscustomization-li">
+  <input type="checkbox" id="m-ledadocscustomization-check"/>
   <label for="m-ledadocscustomization-check"><a href="/leda/docs/customization/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomization"><span class="">Customizing</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -431,17 +438,6 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
   <input type="checkbox" id="m-ledadocscustomizationdeploying-containers-check"/>
   <label for="m-ledadocscustomizationdeploying-containers-check"><a href="/leda/docs/customization/deploying-containers/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationdeploying-containers"><span class="">Deploying Containers</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocscustomizationwifi-configuration-li">
-  <input type="checkbox" id="m-ledadocscustomizationwifi-configuration-check" checked/>
-  <label for="m-ledadocscustomizationwifi-configuration-check"><a href="/leda/docs/customization/wifi-configuration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationwifi-configuration"><span class="">Wifi Configuration</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocscustomizationwifi-configurationiwd-iwctl-li">
-  <input type="checkbox" id="m-ledadocscustomizationwifi-configurationiwd-iwctl-check" checked/>
-  <label for="m-ledadocscustomizationwifi-configurationiwd-iwctl-check"><a href="/leda/docs/customization/wifi-configuration/iwd-iwctl/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocscustomizationwifi-configurationiwd-iwctl"><span class="td-sidebar-nav-active-item">Notes on using iwd/iwctl</span></a></label>
-  
-</li>
-  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocscustomizationfaq-li">
   <input type="checkbox" id="m-ledadocscustomizationfaq-check"/>
   <label for="m-ledadocscustomizationfaq-check"><a href="/leda/docs/customization/faq/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocscustomizationfaq"><span class="">FAQ</span></a></label>
@@ -494,7 +490,7 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/customization/wifi-configuration/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
@@ -502,11 +498,9 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
         <nav id="TableOfContents">
   <ul>
     <li><a href="#initial-steps-identifying-wlan-interfaces">Initial steps (identifying wlan interfaces)</a></li>
-    <li><a href="#connecting-to-a-network">Connecting to a network</a>
-      <ul>
-        <li><a href="#connecting-with-a-single-command">Connecting with a single command</a></li>
-      </ul>
-    </li>
+    <li><a href="#scanning-for-wireless-networks">Scanning for wireless networks</a></li>
+    <li><a href="#connecting-to-a-network">Connecting to a network</a></li>
+    <li><a href="#headless-wi-fi-configuration">Headless Wi-Fi configuration</a></li>
   </ul>
 </nav>
       </div>
@@ -549,16 +543,16 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
   <li class="breadcrumb-item">
     <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/customization/">Customizing</a></li>
+    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/">Getting Started</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/customization/wifi-configuration/">Wifi Configuration</a></li>
+    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/">Wifi Configuration</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    Notes on using iwd/iwctl</li>
+    Connecting to Wi-Fi networks</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Notes on using iwd/iwctl</h1>
+	<h1>Connecting to Wi-Fi networks</h1>
 	
 	<header class="article-meta">
 		
@@ -577,50 +571,51 @@ $ iwctl If you are unsure of the name of the name of your wireless device, you c
 
 		
 	</header>    
-	<p>Here we will describe the basic steps on how to connect to a WiFi network using iwctl.</p>
+	<p>Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.</p>
 <h2 id="initial-steps-identifying-wlan-interfaces">Initial steps (identifying wlan interfaces)</h2>
-<p>Start by opening the <code>iwctl</code> shell</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iwctl
-</span></span></code></pre></div><p>If you are unsure of the name of the name of your wireless device, you can list all Wi-Fi devices and network adapters:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># adapter list</span>
-</span></span><span style="display:flex;"><span>                                    Adapters                                  *
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  Name               Powered   Vendor              Model               
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  phy0               on        Broadcom Corp.BCM43438 combo WLAN 
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># device list</span>
-</span></span><span style="display:flex;"><span>                                    Devices                                    
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  Name                Address             Powered   Adapter   Mode      
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>  &lt;device&gt;               &lt;MAC&gt;              on        phy0      station   
-</span></span></code></pre></div><p>If the device or its corresponding adapter is turned off (the <code>Powered</code> property), turn it on by running:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># device &lt;device&gt; set-property Powered on</span>
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># adapter &lt;adapter&gt; set-property Powered on</span>
-</span></span></code></pre></div><p>Check the device/adapter list again to ensure they are now powered on.</p>
+<p>Start by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip a
+</span></span><span style="display:flex;"><span> ...
+</span></span><span style="display:flex;"><span>3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#0000cf;font-weight:bold">1500</span> qdisc fq_codel state DOWN group default qlen <span style="color:#0000cf;font-weight:bold">1000</span>
+</span></span><span style="display:flex;"><span>    link/ether &lt;MAC&gt; brd ff:ff:ff:ff:ff:ff
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><strong>Note:</strong> Usually the name of the interface would be <code>wlan0</code>. It might however follow the newer &ldquo;predictable interface names&rdquo; standart.
+Then the interface name would start with <code>wl*</code> with the remaining characters identifying a physical bus/chip/number/etc
+corresponding to the interface. For simplicity we will <code>wlan0</code> in all examples below.</p>
+<p>Most likely your wlan interface would be in the state <code>DOWN</code>. To bring it up:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip link <span style="color:#204a87">set</span> wlan0 up
+</span></span></code></pre></div><h2 id="scanning-for-wireless-networks">Scanning for wireless networks</h2>
+<p>You can scan for wireless networks using either <code>iw</code> or <code>wpa_cli</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iw wlan0 scan
+</span></span></code></pre></div><p><strong>Note:</strong> The output of this command can be quite verbose. You can grep for <code>SSID</code> to find the SSIDs of the networks around you.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ wpa_cli scan <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> wpa_cli scan_results
+</span></span></code></pre></div><p>The output of <code>wpa_cli</code> is cleaner and more readable so it is recommended to use that.</p>
 <h2 id="connecting-to-a-network">Connecting to a network</h2>
-<p>Initiate a network scan by running (<em>Note:</em> this command has no output):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># station &lt;device&gt; scan</span>
-</span></span></code></pre></div><p>List all available networks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># station &lt;device&gt; get-networks </span>
-</span></span><span style="display:flex;"><span>                               Available networks                              
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>    Network name                    Security          Signal
-</span></span><span style="display:flex;"><span>--------------------------------------------------------------------------------
-</span></span><span style="display:flex;"><span>    &lt;SSID&gt;                           psk               ****  
-</span></span></code></pre></div><p>Finally, after identifying your network&rsquo;s SSID, connect to it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># station &lt;device&gt; connect &lt;SSID&gt;</span>
-</span></span></code></pre></div><p>If a passphrase is required, you will be prompted to enter it.</p>
-<p>You can now exit the <code>iwctl</code> shell:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>iwd<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># exit</span>
-</span></span></code></pre></div><h3 id="connecting-with-a-single-command">Connecting with a single command</h3>
-<p>Alternatively, if you know you network&rsquo;s SSID and your wireless device&rsquo;s name you can connect to the network with a single command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iwctl --passphrase &lt;passphrase&gt; station &lt;device&gt; connect &lt;SSID&gt;
-</span></span></code></pre></div><p>To check current status of device (for example wlan0):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ iw dev wlan0 link
-</span></span></code></pre></div><p>From now on this WiFi network will be remembered for future connections.</p>
-<h4 id="references">References</h4>
-<p>This readme is based on the guidelines documented in the <a href="https://wiki.archlinux.org/title/Iwd#Connect_to_a_network">ArchLinux Documentation</a></p>
+<p>Once you have identified the SSID of your network you can connect to it by ussing the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ wpa_passphrase &lt;SSID&gt; &lt;Passphrase&gt; &gt;&gt; /etc/wpa_supplicant.conf
+</span></span><span style="display:flex;"><span>$ systemctl restart wpa
+</span></span></code></pre></div><p>You should now be connected to the wireless network. To confirm that, you can once again use <code>ip a</code> to check that <code>wlan0</code> has been configured with an IP.</p>
+<p>This configuration shall be remembered from now on and your interface will try to connect automaticatically to that network whenever it is available.</p>
+<h2 id="headless-wi-fi-configuration">Headless Wi-Fi configuration</h2>
+<p>Similarly to the Raspbian, meta-leda provides a mechanism for headless configuration of Wi-Fi credentials for your device (<a href="https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup/wifi-with-dhcp">Headless Raspberry Pi Setup</a>).</p>
+<p>To use this feature you have to prepapre your <code>wpa_supplicant.conf</code> ahead of time (check the reference above):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ctrl_interface=/var/run/wpa_supplicant
+</span></span><span style="display:flex;"><span>ctrl_interface_group=0
+</span></span><span style="display:flex;"><span>update_config=1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>network={
+</span></span><span style="display:flex;"><span>        key_mgmt=NONE
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>network={
+</span></span><span style="display:flex;"><span>    ssid=&#34;&lt;YOUR NETWORK NAME&gt;&#34;
+</span></span><span style="display:flex;"><span>    psk=&#34;&lt;YOUR NETWORK PASSWORD&gt;&#34;
+</span></span><span style="display:flex;"><span>    key_mgmt=WPA-PSK
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>IMPORTANT:</strong> It is recommended that if you are creating this configuration file on Windows to use an editor such as Notepad++ that can save files using the
+&ldquo;Unix Line endings&rdquo; (<a href="https://www.cs.toronto.edu/~krueger/csc209h/tut/line-endings.html">DOS vs. Unix Line Endings</a>), or run it through a tool such as <code>dos2unix</code>
+that can convert between the two file formats. Otherwise <code>wpa_supplicant.conf</code> might not be read properly in the Linux image.</p>
+<p>Once you have your <code>wpa_supplicant.conf</code> put your SD-card in your Desktop machine and place the configuration file in the root of the <code>BOOT</code> partion.</p>
+<p>When you boot your device it should now automatically connect to your Wi-Fi network.</p>
 
 	
 	
