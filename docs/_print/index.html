@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.816a0419834d322357705e0439dc6ce9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.ed4a4da05d9e61f9e4619504028ec678.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -202,42 +202,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.2: <a href="#pg-e38cb2d9a2a02e8c844dee80c321dfc6">Running on QEMU</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>2.2.1: <a href="#pg-150b34f0644b4aaccf60977ee15c9b83">CAN Bus</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2.2.2: <a href="#pg-901f785cd6428989692f77364554603a">Transferring Files</a></li>
-
-
-    
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>2.3: <a href="#pg-e3267d6dbf90873c340d40fb033d58b2">Running on Raspberry Pi</a></li>
+<li>2.2: <a href="#pg-c2e274f710952bd9d3ebf7604456e577">Running on Docker</a></li>
 
 
     
@@ -256,7 +221,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.4: <a href="#pg-4ba9f4b2d2c150df2117dd655ecd1818">Wifi Configuration</a></li>
+<li>2.3: <a href="#pg-e38cb2d9a2a02e8c844dee80c321dfc6">Running on QEMU</a></li>
 
 
     
@@ -271,7 +236,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.4.1: <a href="#pg-6e2aad457e20233b1a8166199667e51a">Connecting to Wi-Fi networks</a></li>
+<li>2.3.1: <a href="#pg-150b34f0644b4aaccf60977ee15c9b83">CAN Bus</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.3.2: <a href="#pg-901f785cd6428989692f77364554603a">Transferring Files</a></li>
 
 
     
@@ -283,7 +256,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.5: <a href="#pg-09e9389bc1ee795bba0706ccef486884">Utilities</a></li>
+<li>2.4: <a href="#pg-e3267d6dbf90873c340d40fb033d58b2">Running on Raspberry Pi</a></li>
 
 
     
@@ -302,7 +275,53 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.6: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
+<li>2.5: <a href="#pg-4ba9f4b2d2c150df2117dd655ecd1818">Wifi Configuration</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.5.1: <a href="#pg-6e2aad457e20233b1a8166199667e51a">Connecting to Wi-Fi networks</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.6: <a href="#pg-09e9389bc1ee795bba0706ccef486884">Utilities</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.7: <a href="#pg-2f6c44ce9348bf082b39dc70ae1a16d6">Cheatsheet</a></li>
 
 
     
@@ -1550,7 +1569,223 @@ gh release download \
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e38cb2d9a2a02e8c844dee80c321dfc6">2.2 - Running on QEMU</h1>
+	<h1 id="pg-c2e274f710952bd9d3ebf7604456e577">2.2 - Running on Docker</h1>
+    
+	<p>By using the dockerized Leda quickstart images, the SDV vehicle edge components can be evaluated on emulated X86-64 and ARM64 system images,
+without having to install QEMU and dependencies manually.</p>
+<p><img src="leda-docker-compose-up.gif" alt="Eclipse Leda Docker Compose Up"></p>
+<p>If you want to execute the image without Docker, please see <a href="../running-qemu/">Running on QEMU</a>.
+This allows to tweak the startup script, modify the emulated hardware device and set up advanced network configurations.</p>
+<p>There are two options to run Leda:</p>
+<ul>
+<li>Docker: Simple, restricted to one container</li>
+<li>Docker Compose: Advanced, allows networking between containers</li>
+</ul>
+<h2 id="recommendations">Recommendations</h2>
+<ul>
+<li>A <strong>Linux host</strong> with 4 vCPUs, 8GB of RAM and SSD storage is recommended</li>
+<li>Docker</li>
+</ul>
+<h2 id="docker">Docker</h2>
+<p>The easiest way is to run a single instance of Leda in a Docker container:</p>
+<ul>
+<li>
+<p>Run the Leda Docker quickstart image:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
+</span></span></code></pre></div></li>
+<li>
+<p>Login with <code>root</code></p>
+</li>
+<li>
+<p>Stop the Docker container</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>shutdown now
+</span></span></code></pre></div><blockquote>
+<p>Note: If you need to stop the container from outside, use the <code>docker stop &lt;id&gt;</code> command from a separate terminal.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="privileged-containers">Privileged Containers</h3>
+<p>When run as a privileged container, QEMU will try to set up a TAP network and use KVM acceleration.
+Network and CPU will be faster, depending on the host system.</p>
+<p>To be able to use these host devices, QEMU needs access to the following devices:</p>
+<ul>
+<li><code>/dev/kvm</code></li>
+<li><code>/dev/net/tun</code></li>
+</ul>
+<p>Example command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it --privileged --device<span style="color:#ce5c00;font-weight:bold">=</span>/dev/kvm:/dev/kvm --device<span style="color:#ce5c00;font-weight:bold">=</span>/dev/net/tun:/dev/net/tun ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
+</span></span></code></pre></div><h3 id="exposing-additional-ports">Exposing additional ports</h3>
+<p>To also expose ports to connect to ssh, mqtt or the Kuksa databroker, add the port mappings to the Docker command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it --privileged -p 2222:2222 -p 1883:1883 -p 30555:30555 ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86:latest
+</span></span></code></pre></div><p>The following ports are specifically of interest and exposed by the docker container:</p>
+<ul>
+<li><code>2222</code> for SSH (mapped internally to <code>22</code>)</li>
+<li><code>1880</code> - free slot reserved for user service</li>
+<li><code>1883</code> for MQTT</li>
+<li><code>8888</code> - free slot reserved for user service</li>
+<li><code>30555</code> for Kuksa Databroker</li>
+</ul>
+<blockquote>
+<p>Note: In unprivileged mode, only these ports are mapped by the Docker container and forwarded to the Leda system.
+In privileged mode, all TCP ports can be exposed, which will then be forwarded from the Docker container into the Leda system.
+See the
+<a href="https://github.com/eclipse-leda/leda-distro/blob/main/resources/docker-snapshot/dockerfiles/leda-quickstart-docker-entrypoint-x86.sh">entrypoint script</a>
+for details.</p>
+</blockquote>
+<h3 id="running-arm-64-version">Running ARM-64 version</h3>
+<p>To run the ARM-64 bit version of the image, use the <code>leda-quickstart-arm64</code> container image:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-arm64:latest
+</span></span></code></pre></div><h2 id="docker-compose">Docker Compose</h2>
+<p>A more convenient way to setup advanced scenarios is to use Docker Compose.
+There is a Docker Compose configuration for an Eclipse Leda setup in <a href="https://github.com/eclipse-leda/leda-distro/tree/main/resources/docker-compose">resources/docker-compose</a>.</p>
+<p>It will start up the following containers:</p>
+<ul>
+<li>Leda Quickstart image (QEMU x86-64)</li>
+<li>Leda Quickstart image (QEMU ARM-64)</li>
+<li>Web Server with pre-built RAUC Update Bundles</li>
+<li>MQTT Bridge</li>
+<li>DNS Proxy (Allows QEMU to use the Docker DNS)</li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Get the Docker Compose configuration file and additional dockerfiles from the
+<a href="https://github.com/eclipse-leda/leda-distro">https://github.com/eclipse-leda/leda-distro</a> repository:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone --filter<span style="color:#ce5c00;font-weight:bold">=</span>blob:none https://github.com/eclipse-leda/leda-distro
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> leda-distro/resources/docker-compose
+</span></span></code></pre></div><p>Starting the containers with:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker compose up --detach --wait
+</span></span></code></pre></div><p>Log in to a development shell inside of the docker network:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker compose run --rm devshell
+</span></span></code></pre></div><p>Stopping the containers:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker compose down
+</span></span></code></pre></div><h3 id="docker-compose-services">Docker Compose Services</h3>
+<p>Checking all containers are running or exited successfully:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ docker compose ps
+</span></span><span style="display:flex;"><span>NAME                 COMMAND                  SERVICE              STATUS              PORTS
+</span></span><span style="display:flex;"><span>leda-arm64           <span style="color:#4e9a06">&#34;/docker/leda-quicks…&#34;</span>   leda-arm64           running <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>   1883/tcp, 0.0.0.0:2002-&gt;2222/tcp, 0.0.0.0:30556-&gt;30555/tcp
+</span></span><span style="display:flex;"><span>leda-bundle-server   <span style="color:#4e9a06">&#34;/docker-entrypoint.…&#34;</span>   leda-bundle-server   running <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>   0.0.0.0:8080-&gt;80/tcp
+</span></span><span style="display:flex;"><span>leda-dns-proxy       <span style="color:#4e9a06">&#34;dnsmasq -k&#34;</span>             dns-proxy            running             53/tcp, 0.0.0.0:5353-&gt;53/udp
+</span></span><span style="display:flex;"><span>leda-initializer     <span style="color:#4e9a06">&#34;/bin/sh -c /root/le…&#34;</span>   leda-initializer     exited <span style="color:#ce5c00;font-weight:bold">(</span>0<span style="color:#ce5c00;font-weight:bold">)</span>          
+</span></span><span style="display:flex;"><span>leda-mqtt-broker     <span style="color:#4e9a06">&#34;/docker-entrypoint.…&#34;</span>   mqtt-broker          running <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>   0.0.0.0:1883-&gt;1883/tcp
+</span></span><span style="display:flex;"><span>leda-x86             <span style="color:#4e9a06">&#34;/docker/leda-quicks…&#34;</span>   leda-x86             running <span style="color:#ce5c00;font-weight:bold">(</span>healthy<span style="color:#ce5c00;font-weight:bold">)</span>   1883/tcp, 0.0.0.0:30555-&gt;30555/tcp, 0.0.0.0:2001-&gt;2222/tcp
+</span></span></code></pre></div><h3 id="network-setup">Network setup</h3>
+<p>As the networking is a bit more complicated to set up with emulated network inside of QEMU, the following explanation is helpful to understand networking better.</p>
+<ul>
+<li>All docker compose containers are attached to a network called <code>leda-bridge</code> and <code>leda-network</code> and can see each other</li>
+<li>The QEMU instances use a TAP network inside of each leda-quickstart-xxx container and do a NAT network translation to their own container</li>
+<li>The Docker internal DNS server is being used. This is implemented by a DNS Proxy container,
+which will forward incoming DNS requests to the Docker DNS running on the 127.0.0.x network.</li>
+<li>In unprivileged mode: Only the exposed ports are forwarded from the docker container into the QEMU process:
+mosquitto <code>1883</code>, ssh <code>2222</code> and kuksa.val databroker <code>30555</code>.
+In privileged mode, all TCP ports are forwarded from the Docker container into the QEMU process and the special port <code>2222</code> is forwarded to ssh port.</li>
+</ul>
+<h3 id="developer-shell">Developer Shell</h3>
+<p>Developer Shell:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker compose run --rm devshell
+</span></span></code></pre></div><p>From there, you can log in to either Leda on QEMU x86-64, or log in to Leda on QEMU ARM-64.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh leda-x86
+</span></span><span style="display:flex;"><span>ssh leda-arm64
+</span></span></code></pre></div><p>To run an additional terminal in the developer shell, execute this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker compose <span style="color:#204a87">exec</span> devshell /bin/bash
+</span></span></code></pre></div><h3 id="interacting-with-eclipse-leda">Interacting with Eclipse Leda</h3>
+<ol>
+<li>Check the general system status</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-health
+</span></span></code></pre></div><h3 id="device-provisioning">Device Provisioning</h3>
+<ol>
+<li>
+<p>Run the provisioning script:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-provision
+</span></span></code></pre></div></li>
+<li>
+<p>Copy the fingerprints</p>
+</li>
+<li>
+<p>Go to Azure IoT Hub, create a new device</p>
+</li>
+<li>
+<p>Use the certificate&rsquo;s common name (CN) as Device Id - on Leda, this defaults to a part of the MAC Address</p>
+</li>
+<li>
+<p>Select <code>X.509 Self-Signed</code> authentication type and enter both fingerprints</p>
+</li>
+<li>
+<p>Click Save</p>
+</li>
+</ol>
+<h3 id="mqtt-broker-bridge">MQTT Broker Bridge</h3>
+<div class="mermaid">  graph LR;
+      A["MQTT Container <br> on docker host <br> localhost:1883"] -- Bridge --> B[leda-x86:31883];
+      A -- Bridge --> C[leda-arm64:31883];
+      B-->B1[mosquitto service <br> leda-x86:1883];
+      C-->C1[mosquitto service <br> leda-arm64:1883];
+  </div>
+  
+  <p>The Docker Compose setup will also start an Eclipse Mosquitto message broker as a bridge to both Leda instances.
+This allows a user or developer to monitor messages sent by or received by both virtual devices.</p>
+<p>Connect your MQTT client to <code>mqtt-broker.leda-network</code> by using the exposed port 1883 on the host:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_sub -h localhost -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#39;#&#39;</span> -v
+</span></span></code></pre></div><h3 id="docker-networking">Docker Networking</h3>
+<p>You need to enable IP forwarding from Docker containers to make networking work.
+The containers (leda-arm64, leda-x86) need to run with <code>--privileged</code> as they change iptables rules for proper forwarding of network packets.</p>
+<p>See <a href="https://docs.docker.com/network/bridge/#enable-forwarding-from-docker-containers-to-the-outside-world">Docker documentation for bridge networking</a> for details.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo sysctl net.ipv4.conf.all.forwarding<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>sudo iptables -P FORWARD ACCEPT
+</span></span></code></pre></div><p>Each Eclipse Leda instance (ARM64, x86_64) is running within a QEMU emulated network (192.168.7.2), which itself is contained
+in a containerized network called <code>leda-network</code> (192.168.8.x).</p>
+<p>The containers wrapping the QEMU instances will forward the following ports to the respective QEMU process:</p>
+<ul>
+<li>SSH on port 2222</li>
+<li>Mosquitto on port 1883</li>
+</ul>
+<h3 id="dhcp-and-dns-setup">DHCP and DNS setup</h3>
+<p>Each Leda-QEMU container is running a local DHCP on the <code>tap0</code> network interface and listens for DHCP requests by the Leda Distro running inside of QEMU.
+The DHCP server will respond with the same IP address (<code>192.168.7.2</code>) to the request from QEMU.</p>
+<p>The DHCP response contains a DNS nameserver pointing to the <code>dns-proxy.leda-network</code> (<code>192.168.8.14</code>) IP,
+which in turn forwards to Docker&rsquo;s internal <code>127.0.0.11</code> nameserver.
+This allows the QEMU guests to resolve Docker Compose Services by their service name, e.g. <code>leda-bundle-server.leda-network</code>.</p>
+<h3 id="volumes">Volumes</h3>
+<p>The <code>/root</code> path inside of the Leda containers is mounted as a volume and contains the raw disk image and runner scripts for the QEMU Leda distribution.
+Changes on the QEMU filesystem are made persistent on a copy of the QCOW2 disk image, so that restarting the device will keep any changes.</p>
+<p>To reset to the original state, delete the respective docker volumes and restart the containers:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker compose down
+</span></span><span style="display:flex;"><span>docker compose rm --force --stop --volumes
+</span></span><span style="display:flex;"><span>docker volume rm leda-arm64
+</span></span><span style="display:flex;"><span>docker volume rm leda-x86
+</span></span></code></pre></div><h3 id="profiles">Profiles</h3>
+<p>Profiles can be used to determine which containers (services) docker compose should be starting by default.
+This is mostly used to have the <code>devshell</code> container not start up by default.</p>
+<ul>
+<li><code>tools</code>: Contains docker containers which are not essential at runtime, must useful for testing and development purposes</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e38cb2d9a2a02e8c844dee80c321dfc6">2.3 - Running on QEMU</h1>
     
 	<p>If you want to execute the image without building first, grab the latest release or build artifacts from <a href="https://github.com/eclipse-leda/leda-distro/">https://github.com/eclipse-leda/leda-distro/</a></p>
 <h2 id="recommendations">Recommendations</h2>
@@ -1660,7 +1895,7 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-150b34f0644b4aaccf60977ee15c9b83">2.2.1 - CAN Bus</h1>
+	<h1 id="pg-150b34f0644b4aaccf60977ee15c9b83">2.3.1 - CAN Bus</h1>
     
 	<p><em>Note: The configuration mentioned in this chapter is already enabled in the <code>run-leda.sh</code> script.</em></p>
 <h2 id="qemu">QEMU</h2>
@@ -1793,7 +2028,7 @@ ip link show type can
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-901f785cd6428989692f77364554603a">2.2.2 - Transferring Files</h1>
+	<h1 id="pg-901f785cd6428989692f77364554603a">2.3.2 - Transferring Files</h1>
     
 	<h1 id="sharing-a-directory-with-the-guest">Sharing a directory with the guest</h1>
 <p>When you want to copy files between the host and the guest, an easy way is to use an SFTP tunnel.
@@ -1835,7 +2070,7 @@ With <code>sshfs</code>, you can mount a local directory to a remote directory v
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e3267d6dbf90873c340d40fb033d58b2">2.3 - Running on Raspberry Pi</h1>
+	<h1 id="pg-e3267d6dbf90873c340d40fb033d58b2">2.4 - Running on Raspberry Pi</h1>
     
 	<p>What you need:</p>
 <ul>
@@ -1939,7 +2174,7 @@ bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4ba9f4b2d2c150df2117dd655ecd1818">2.4 - Wifi Configuration</h1>
+	<h1 id="pg-4ba9f4b2d2c150df2117dd655ecd1818">2.5 - Wifi Configuration</h1>
     
 	<p>BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in <code>meta-leda</code> for <a href="../../customization/custom-images#hardware">supported hardware</a>.
 They usually do not require extra configuration.</p>
@@ -1979,7 +2214,7 @@ If you are building a custom image with a different kernel CMDLINE replace <code
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6e2aad457e20233b1a8166199667e51a">2.4.1 - Connecting to Wi-Fi networks</h1>
+	<h1 id="pg-6e2aad457e20233b1a8166199667e51a">2.5.1 - Connecting to Wi-Fi networks</h1>
     
 	<p>Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.</p>
 <h2 id="initial-steps-identifying-wlan-interfaces">Initial steps (identifying wlan interfaces)</h2>
@@ -2045,7 +2280,7 @@ that can convert between the two file formats. Otherwise <code>wpa_supplicant.co
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-09e9389bc1ee795bba0706ccef486884">2.5 - Utilities</h1>
+	<h1 id="pg-09e9389bc1ee795bba0706ccef486884">2.6 - Utilities</h1>
     
 	<p>The quickstart image contains the following utilities:</p>
 <ul>
@@ -2122,7 +2357,7 @@ that can convert between the two file formats. Otherwise <code>wpa_supplicant.co
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">2.6 - Cheatsheet</h1>
+	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">2.7 - Cheatsheet</h1>
     
 	<p>This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.</p>
 <table>
