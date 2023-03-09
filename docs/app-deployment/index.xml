@@ -255,6 +255,60 @@ When a driver enables the dog mode, the vehicle will keep the climate in a statu
     </item>
     
     <item>
+      <title>Docs: Kuksa Databroker</title>
+      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/kuksa-databroker/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/kuksa-databroker/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To generically interact with the Vehicle Signals which are managed in the Eclipse Kuksa.VAL Databroker,
+you can either use the natively installed &lt;code&gt;databroker-cli&lt;/code&gt; command line tool, or use the CLI tool from an updated and released containerized image.&lt;/p&gt;
+&lt;h2 id=&#34;kuksa-databroker-cli&#34;&gt;Kuksa Databroker CLI&lt;/h2&gt;
+&lt;p&gt;To install a new version of the Kuksa Databroker CLI container, follow these steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create the container in Kanto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; kanto-cm create --i --t --network=host --name=databroker-cli ghcr.io/eclipse/kuksa.val/databroker-cli:master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start the command line tool within a container in interactive mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; kanto-cm start --a --i --name databroker-cli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the databroker shell, connect to the databroker via the URL &lt;code&gt;http://127.0.0.1:30555/&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; connect http://127.0.0.1:30555/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;kuksa-databroker-cli.png&#34; alt=&#34;Kuksa Databroker CLI Container&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kuksa-client&#34;&gt;Kuksa Client&lt;/h2&gt;
+&lt;p&gt;To install a new version of the Kuksa Client container, follow these steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create the container in Kanto Namespace:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start the container in detached mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ctr --namespace kanto-cm tasks start --detach kuksa-client
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start the command line tool with additional command line options:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ctr --namespace kanto-cm tasks exec --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port 30555 --protocol grpc --insecure
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Velocitas VApps</title>
       <link>https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>

@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.6e30fd497860407f2a8cbb1cb9e9d5ee27cf0d73a575c96d721304b7e65abaae.css" as="style">
-<link href="/leda/scss/main.min.6e30fd497860407f2a8cbb1cb9e9d5ee27cf0d73a575c96d721304b7e65abaae.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.6831d6bc2f61e5736888c6b37efd4e7410cd90d4e5e9859c154e541ea4e96886.css" as="style">
+<link href="/leda/scss/main.min.6831d6bc2f61e5736888c6b37efd4e7410cd90d4e5e9859c154e541ea4e96886.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.7843631566aaba0f4709d7495a015016.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.d04445b168c2b3d97bc38275adf81a2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -483,7 +483,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.3: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+<li>4.3: <a href="#pg-3883f410544279ff57519024d0f51858">Kuksa Databroker</a></li>
 
 
     
@@ -502,7 +502,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.4: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
+<li>4.4: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4.5: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
 
 
     
@@ -3988,7 +4007,77 @@ When a driver enables the dog mode, the vehicle will keep the climate in a statu
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">4.3 - Velocitas VApps</h1>
+	<h1 id="pg-3883f410544279ff57519024d0f51858">4.3 - Kuksa Databroker</h1>
+    
+	<p>To generically interact with the Vehicle Signals which are managed in the Eclipse Kuksa.VAL Databroker,
+you can either use the natively installed <code>databroker-cli</code> command line tool, or use the CLI tool from an updated and released containerized image.</p>
+<h2 id="kuksa-databroker-cli">Kuksa Databroker CLI</h2>
+<p>To install a new version of the Kuksa Databroker CLI container, follow these steps:</p>
+<ol>
+<li>
+<p>Create the container in Kanto:</p>
+<pre><code> kanto-cm create --i --t --network=host --name=databroker-cli ghcr.io/eclipse/kuksa.val/databroker-cli:master
+</code></pre>
+</li>
+<li>
+<p>Start the command line tool within a container in interactive mode:</p>
+<pre><code> kanto-cm start --a --i --name databroker-cli
+</code></pre>
+</li>
+<li>
+<p>In the databroker shell, connect to the databroker via the URL <code>http://127.0.0.1:30555/</code>:</p>
+<pre><code> connect http://127.0.0.1:30555/
+</code></pre>
+</li>
+</ol>
+<p><img src="kuksa-databroker-cli.png" alt="Kuksa Databroker CLI Container"></p>
+<h2 id="kuksa-client">Kuksa Client</h2>
+<p>To install a new version of the Kuksa Client container, follow these steps:</p>
+<ol>
+<li>
+<p>Create the container in Kanto Namespace:</p>
+<pre><code> ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
+</code></pre>
+</li>
+<li>
+<p>Start the container in detached mode:</p>
+<pre><code> ctr --namespace kanto-cm tasks start --detach kuksa-client
+</code></pre>
+</li>
+<li>
+<p>Start the command line tool with additional command line options:</p>
+<pre><code> ctr --namespace kanto-cm tasks exec --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port 30555 --protocol grpc --insecure
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">4.4 - Velocitas VApps</h1>
     
 	<p>For local deployment without a cloud backend, deployment specifications for <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> Vehicle Apps may be put directly onto the device.</p>
 <ul>
@@ -4113,7 +4202,7 @@ kanto-auto-deployer
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">4.4 - Cloud2Device Messages</h1>
+	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">4.5 - Cloud2Device Messages</h1>
     
 	<p><img src="c2d-architecture-overview.png" alt="c2d-overview"></p>
 <p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>
