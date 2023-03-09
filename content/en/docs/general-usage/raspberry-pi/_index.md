@@ -17,14 +17,14 @@ Steps:
 
       apt-get install -y xz-utils
       tar xf eclipse-leda-raspberrypi.tar.xz
-      bzip2 -d -f sdv-image-full-raspberrypi4.wic.bz2
+      bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
 
 - Flash the `sdv-image-all-raspberrypi4.wic` file to an SD-Card
   - On Linux:
     - Install bmap tools: `sudo apt-get install -y bmap-tools`
     - Insert SD Card and check which device is mounted: `sudo fdisk -l`
     - Unmount the device: `sudo umount /dev/mmcblk[X]`
-    - `sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic.gz /dev/mmcblk[X]`
+    - `sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic /dev/mmcblk[X]`
     - *Note:  Using `bmap` is **much** faster but works the same as with plain `dd if=<wic-file> of=dev/mmcblk[x]`.*
   - On Windows:
     - [Raspberry Pi Imager](https://www.raspberrypi.org/documentation/installation/installing-images/)
