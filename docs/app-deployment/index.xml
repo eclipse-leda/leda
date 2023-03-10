@@ -289,6 +289,11 @@ you can either use the natively installed &lt;code&gt;databroker-cli&lt;/code&gt
 &lt;p&gt;To install a new version of the Kuksa Client container, follow these steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
+&lt;p&gt;Pull the container image&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ctr --namespace kanto-cm image pull ghcr.io/eclipse/kuksa.val/kuksa-client:master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;Create the container in Kanto Namespace:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
 &lt;/code&gt;&lt;/pre&gt;

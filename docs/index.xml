@@ -574,6 +574,70 @@ ip link show type can
     </item>
     
     <item>
+      <title>Docs: SDV Health</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-health/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-health/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;health-check&#34;&gt;Health check&lt;/h2&gt;
+&lt;p&gt;The sdv-health utility displays a status overview of some important dependencies and device configurations for the SDV edge stack.
+The sdv health utility can be configured using the sdv.conf configuration file.&lt;/p&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# sdv-health&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../sdv-health-output.png&#34; alt=&#34;SDV Health Example Output&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;version-information&#34;&gt;Version Information&lt;/h3&gt;
+&lt;p&gt;The Leda image version and build time will be displayed at the top in the first category:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OS Release: Year and codename of the release version&lt;/li&gt;
+&lt;li&gt;Image Version: Name of the image and more specific version information, such as the git tag or commit id&lt;/li&gt;
+&lt;li&gt;Build timestamp in &lt;code&gt;yyyMMddHHmmss&lt;/code&gt; notation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: The information is read from the system base file in &lt;code&gt;/etc/os-release&lt;/code&gt;:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# cat /etc/os-release 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;BUILD_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;20230309083051&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DISTRO_CODENAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Dracon&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;leda
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;IMAGE_VERSION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0.0.5-41-g82f2b12&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Eclipse Leda&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;PRETTY_NAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Eclipse Leda 2023 (Dracon)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;VERSION&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2023 (Dracon)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;VERSION_CODENAME&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Dracon&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;VERSION_ID&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0.0.5-41-g82f2b12
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;bus-networks&#34;&gt;Bus networks&lt;/h3&gt;
+&lt;p&gt;If available, vehicle bus network information, such as the status of the CAN-Bus, will be displayed iin its own category.
+This helps to quickly identify if there problems with the hardware connectivity for automotive bus networks.&lt;/p&gt;
+&lt;h3 id=&#34;ports&#34;&gt;Ports&lt;/h3&gt;
+&lt;p&gt;The health utility checks the TCP ports of specific services.
+This helps to identify if these services are up and running and potentiallyconnectable via external network interfaces.&lt;/p&gt;
+&lt;h3 id=&#34;services-and-containers&#34;&gt;Services and Containers&lt;/h3&gt;
+&lt;p&gt;The services category shows the status of required and optional containers.
+The required containers are supposed to be up and running for the SDV.EDGE stack to be correctly up and running.
+If any of these core components have a failed state, the functionality is impacted.&lt;/p&gt;
+&lt;p&gt;The optional containers are for additional features and for example applications.
+These containers may not be necessary for each use case and hence will be marked as a warning if they are not up and running.
+The overview still helps to identify which containers are working properly.&lt;/p&gt;
+&lt;h3 id=&#34;errors-warnings-failed-states&#34;&gt;Errors, Warnings, Failed states&lt;/h3&gt;
+&lt;p&gt;When there are errors or warnings related to the status of SDV related components,
+the health utility will print out these error states, and if available also a more detailed error message.&lt;/p&gt;
+&lt;p&gt;In the following example, the health utility helps the troubleshooting process:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The container runtime is properly started: &amp;ldquo;Kanto CM&amp;rdquo; is OK in the &amp;ldquo;SDV Ports&amp;rdquo; section and the &amp;ldquo;container-management&amp;rdquo; service is OK in the &amp;ldquo;SDV Services&amp;rdquo; section&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Some containers are in state &amp;ldquo;OK&amp;rdquo;, which means there is no general issue with the container runtime.&lt;/li&gt;
+&lt;li&gt;The cloud connector is in a &amp;ldquo;Stopped&amp;rdquo; state, which indicates that the user manually stopped the container by using &amp;ldquo;kanto-cm stop -n cloud-connector&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;The sua container is in a &amp;ldquo;Exited&amp;rdquo; state, which indicates the process exited with an error code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../sdv-health-example-errors2.png&#34; alt=&#34;SDV Health Example Errors&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Self Update Tutorial</title>
       <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/self-update-tutorial/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -1179,6 +1243,137 @@ If the container is already deployed the manifest is ignored.&lt;/p&gt;
 &lt;p&gt;This recipe also takes all manifests in the &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers&#34;&gt;kanto-containers&lt;/a&gt; directory and installs them in the directory specified by the &lt;code&gt;KANTO_MANIFESTS_DIR&lt;/code&gt; BitBake variable (weak default: &lt;code&gt;/var/containers/manifests&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers&#34;&gt;kanto-containers&lt;/a&gt; directory and re-build.&lt;/p&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: KantUI</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kantui/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kantui/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management.
+It supports simple navigation using keyboard and mouse to select a specific container.
+Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.&lt;/p&gt;
+&lt;h2 id=&#34;kanto-user-interface&#34;&gt;Kanto User Interface&lt;/h2&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kantui
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../kantui-large.png&#34; alt=&#34;KantoUI&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;command-line-options&#34;&gt;Command Line Options&lt;/h2&gt;
+&lt;p&gt;Print command line help:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# kantui --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kantui 0.2.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A TUI &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Kanto CM that allows easier management of deployed containers. Requires root.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;USAGE:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    kantui &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;OPTIONS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OPTIONS:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -c, --config-file-path &amp;lt;CONFIG_FILE_PATH&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Set a custom path &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; the kantui configuration file &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;default:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            /etc/kantui/kantui_conf.toml&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -h, --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Print &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; information
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -V, --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            Print version information
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Note: All config values can be overridden through env variables prefixed with KANTUI_,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;e.g. &lt;span style=&#34;color:#000&#34;&gt;KANTUI_STOP_TIMEOUT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; overrides the timeout before SIGKILL is sent to be &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; seconds.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;keyboard-commands&#34;&gt;Keyboard commands&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Arrow keys &lt;code&gt;Up&lt;/code&gt; and &lt;code&gt;Down&lt;/code&gt; to select a container&lt;/li&gt;
+&lt;li&gt;Arrow keys &lt;code&gt;Left&lt;/code&gt; and &lt;code&gt;Right&lt;/code&gt; to select a column&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Enter&lt;/code&gt; to change the sort ordering of the currently selected column&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;S&lt;/code&gt; to &lt;strong&gt;start&lt;/strong&gt; the selected container which is currently not running&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;P&lt;/code&gt; to &lt;strong&gt;stop&lt;/strong&gt; the selected container&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;R&lt;/code&gt; to &lt;strong&gt;remove&lt;/strong&gt; a container&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;L&lt;/code&gt; to show the &lt;strong&gt;log output&lt;/strong&gt; of a container&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;D&lt;/code&gt; to redeploy an existing container (rereads deployment descriptor)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Q&lt;/code&gt; to &lt;strong&gt;quit&lt;/strong&gt; kantui&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: The mouse can be used to select ui items when holding the &lt;code&gt;Shift&lt;/code&gt; key.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;starting-stopping-removing-containers&#34;&gt;Starting, Stopping, Removing containers&lt;/h2&gt;
+&lt;p&gt;To use the lifecycle commands on a container:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select a container by using the mouse or the arrow keys.&lt;/li&gt;
+&lt;li&gt;The selected container is highlighted.&lt;/li&gt;
+&lt;li&gt;Press one of the lifecycle commands, e.g. &lt;code&gt;s&lt;/code&gt;, &lt;code&gt;p&lt;/code&gt; or &lt;code&gt;r&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Wait for the value in the &lt;em&gt;State&lt;/em&gt; column to change, before issueing the next command.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: When using the lifecycle commands for containers (Start, Stop, Remove), it may take a few seconds before the UI is updated with the status changes.
+The amount of time before a container is forcefully killed is determined by the &lt;code&gt;stop_timeout&lt;/code&gt; configuration option.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;show-container-logs&#34;&gt;Show container Logs&lt;/h2&gt;
+&lt;p&gt;To view the container&amp;rsquo;s log output:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select a container by using the mouse or the arrow keys.&lt;/li&gt;
+&lt;li&gt;Press the &lt;code&gt;L&lt;/code&gt; key&lt;/li&gt;
+&lt;li&gt;Log output will be displayed (tail, oldest messages first)&lt;/li&gt;
+&lt;li&gt;Use the arrow keys &lt;code&gt;Up&lt;/code&gt; and &lt;code&gt;Down&lt;/code&gt; or drag the scrollbar using your mouse to scroll through the log&lt;/li&gt;
+&lt;li&gt;Close the Log viewer by pressing &lt;code&gt;Enter&lt;/code&gt; or clicking on the &lt;code&gt;OK&lt;/code&gt; button&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: The log output is &lt;strong&gt;not followed&lt;/strong&gt; automatically. Close the dialog and reopen to see new output.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;redeploying-containers&#34;&gt;Redeploying containers&lt;/h2&gt;
+&lt;p&gt;To redeploy a container, e.g. when a deployment descriptor has changed on disk:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select a container by using the mouse or the arrow keys.&lt;/li&gt;
+&lt;li&gt;Press the &lt;code&gt;P&lt;/code&gt; key to stop the container&lt;/li&gt;
+&lt;li&gt;Press the &lt;code&gt;R&lt;/code&gt; key to remove the container&lt;/li&gt;
+&lt;li&gt;Press the &lt;code&gt;D&lt;/code&gt; key to invoke the Kanto Auto Deployer, which will redeploy the missing containers&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: Only containers managed by Kanto Auto Deployer will be redeployed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;column-sorting&#34;&gt;Column Sorting&lt;/h2&gt;
+&lt;p&gt;To sort a column:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Select the column using the &lt;code&gt;Left&lt;/code&gt; and &lt;code&gt;Right&lt;/code&gt; arrow keys&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;Enter&lt;/code&gt; to activate sorting&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;Enter&lt;/code&gt; again on a sorted column to invert sort order (Ascending -&amp;gt; Descending -&amp;gt; Ascending)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: The selected sort order is not persisted and will reset to the default on restart: By &lt;code&gt;ID&lt;/code&gt;, ascending&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;configuration-file&#34;&gt;Configuration File&lt;/h2&gt;
+&lt;p&gt;The default location of the configuration file is &lt;code&gt;/etc/kantui/kantui_conf.toml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# General Configuration Options&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;socket_path&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/run/container-management/container-management.sock&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Path to kanto-cm unix socket&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;stop_timeout&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# timeout (integer) in seconds before a SIGKILL is sent after a SIGTERM&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;keyconfig&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;start_btn_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;[S]tart&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;start_kbd_key&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;stop_btn_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Sto[P]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;stop_kbd_key&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;p&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remove_btn_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;[R]emove&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;remove_kbd_key&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;logs_btn_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;[L]ogs&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;logs_kbd_key&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;l&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;quit_btn_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;[Q]uit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;quit_kbd_key&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;q&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;redeploy_btn_name&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Re[D]eploy&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;redeploy_kbd_key&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;d&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Includes a shell lexer so anything that would be a valid shell command can be used&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# No pipes/redirects allowed.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# N.B.: Command inherits kantui&amp;#39;s privileges (root)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;redeploy_command&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;systemctl restart kanto-auto-deployer.service&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
@@ -1854,6 +2049,52 @@ This will write a file qemu.pid in the current directory including the process I
     </item>
     
     <item>
+      <title>Docs: SDV Device Info</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-device-info/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-device-info/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Displays the current device configuration, such as Device ID.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: &lt;strong&gt;Requires&lt;/strong&gt; the &lt;em&gt;Cloud Connector&lt;/em&gt; component to be configured and running.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-device-info
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../sdv-device-info-example-output1.png&#34; alt=&#34;Eclipse Leda Device Info Example Output&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Synposis: &lt;code&gt;./sdv-device-info [options] [command]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Full help:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# sdv-device-info --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-device-info v0.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage: /usr/bin/sdv-device-info &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;options&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;command&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Show SDV device configuration information
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Example: /usr/bin/sdv-device-info show
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Commands:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; show                 : Display configuration &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default &lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt;                 : This message
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; env                  : Format output &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; use in scripts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; --ansi &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; -a      : Don&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t use colored output.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; --norestart &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; -n : Do not automatically restart services
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; --verbose &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; -v   : Enable verbose mode.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; --help &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; -h      : This message.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;use-in-scripts&#34;&gt;Use in scripts&lt;/h2&gt;
+&lt;p&gt;To use device information on other scripts, it may be useful to source the device information variables into the current environment variable context:&lt;/p&gt;
+&lt;p&gt;Synposis: &lt;code&gt;source ./sdv-device-info env&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; ./sdv-device-info env
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ &lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$DEVICE_ID&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;exampledevice1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Robot Keywords</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/tests/robot-keywords/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -1898,6 +2139,90 @@ This will write a file qemu.pid in the current directory including the process I
 &lt;li&gt;jq: &lt;code&gt;sudo apt-get install jq -y&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You may restart your current shell so that all components are available as env vars.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SDV Provision</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-provision/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-provision/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The provisioning helper script can be used to manually perform a device provisioning with a cloud backend.&lt;/p&gt;
+&lt;p&gt;It is meant as a convenient tool for developers, who wish to connect their device to a selfmanaged cloud backend directly.
+In a production environment, the device provisioning functionality is implemented either by the &lt;em&gt;Cloud Connector&lt;/em&gt; component.&lt;/p&gt;
+&lt;p&gt;The provisioning script currently supports the following backend and authentication options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Azure IoT Hub
+&lt;ul&gt;
+&lt;li&gt;Connection String&lt;/li&gt;
+&lt;li&gt;Device Certificates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Azure IoT Device Provisioning Service
+&lt;ul&gt;
+&lt;li&gt;Device Certificates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;sdv-provision&lt;/em&gt; script is interactive and asks for the type of backend and authentication option:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# sdv-provision 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking Eclipse Leda Device Provisioning configuration...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Certificates directory exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking Device ID
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Based on network device: eth0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Device ID: 52-54-21-4c-f9-5a
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking whether either IdScope or ConnectionString is configured
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; - Neither Id Scope file nor ConnectionString found, needs manual configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Do you want to use the global Azure IoT Device Provisioning Service &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;DPS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; by using an Id Scope, or &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;do&lt;/span&gt; you want to use a direct connection to a specific Azure IoT Hub using a Connection String?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;d&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; Azure IoT Device Provisioning Service &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;DPS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; with Id Scope
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;h&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; Azure IoT Hub with Connection String
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Choose:d
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Please enter your Id Scope of the Azure IoT Device Provisioning Service:example
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Recreating the Cloud Connector container...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking device certificates
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- All device certificates are present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Primary device certificate: /data/var/certificates/device.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Primary device private key: /data/var/certificates/device.key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Secondary device certificate: /data/var/certificates/device2.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Secondary device private key: /data/var/certificates/device2.key
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Fingerprints &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;add these to the Azure IoT Hub Device&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Primary thumbprint: 1B172ED3D06F4E25AFFEF675ADCE519457FFFFFF
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- Secondary thumbprint: B6CD5EACE96E9D0448BCB0BAED2DEE87AFFFFFFF
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once a configuration has been selected, the script will:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generate a random Device Id (based on physical network address)&lt;/li&gt;
+&lt;li&gt;Store the Device Id in &lt;code&gt;/etc/deviceid&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Generate a primary self-signed device certificate pair&lt;/li&gt;
+&lt;li&gt;Generate a secondary self-signed device certificate pair&lt;/li&gt;
+&lt;li&gt;Store the certificates in &lt;code&gt;/data/var/certificates/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Reconfigure the container descriptor in &lt;code&gt;/data/var/containers/manifests_dev/cloudconnector.json&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restarting the Cloud Connector container&lt;/li&gt;
+&lt;li&gt;Print the key fingerprints, used for onboarding the device in Azure IoT Device Provisioning Service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;reconfiguration&#34;&gt;Reconfiguration&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: Re-running the script will only print the existing configuration.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To reconfigure the device and use different options, perform the following steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Delete the generated files&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rm /data/var/certificates/azure.idscope
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rm /data/var/certificates/azure.connectionstring
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rm /data/var/certificates/device*.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rm /data/var/certificates/device*.key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Rerun the script&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-provision
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>
@@ -2190,6 +2515,182 @@ easy way to find your device&amp;rsquo;s ip. More information on connecting via 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ kantui
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And restart the container from the TUI.&lt;/p&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SDV MotD</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-motd/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-motd/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;code&gt;sdv-motd&lt;/code&gt; script provides an alternative motd profile, which displays some additional information after login.&lt;/p&gt;
+&lt;p&gt;The script does not have any command line options.&lt;/p&gt;
+&lt;p&gt;Example output:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../sdv-motd.png&#34; alt=&#34;Eclipse Leda Message Of The Day&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: CAN Forward</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/can-forward/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/can-forward/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;code&gt;can-forward&lt;/code&gt; help script can be used to forward an existing CAN-Bus interface on the host system to a container process.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: Warning! The script does not yet support Kanto (or containerd) as a container runtime. It has been implemented for k3s.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# can-forward --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage:  /usr/bin/can-forward &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;-h&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;-p PID&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;-c container&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt; &amp;lt;hw_can&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  hw_can          Host CAN hw interface to forward. Default: can0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -c container    Attemmpt to get netns PID from a running container: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;docker, ctr&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;. Default: seat_service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -p PID          Use provided PID &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; transferring vxcan interface &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;e.g.: docker inspect -f &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{{ .State.Pid }}&amp;#39;&lt;/span&gt; container&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -h              Prints this message
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The script performs the following steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Find the process ID of the target container process&lt;/li&gt;
+&lt;li&gt;Check and modprobe &lt;code&gt;vxcan&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check and modprobe &lt;code&gt;can-gw&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create a new virtual CAN interface (&lt;code&gt;vxcanX&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Create a new virtual CAN interface (&lt;code&gt;vxcanX+1&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Link both interfaces together&lt;/li&gt;
+&lt;li&gt;Move the second interface (&lt;code&gt;vxcanX+1&lt;/code&gt;) into the namespace of the target container&lt;/li&gt;
+&lt;li&gt;Set up a bi-directional CAN-Bus packet forwarding between both interfaces using &lt;code&gt;cangw&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Kanto Auto Deployer</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kanto-auto-deployer/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kanto-auto-deployer/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Automatically deploys containers to the Kanto Container Management based on deployment descriptors from a given path.
+All deployment descriptors in the manifests folder will be deployed (created and started) on startup of the service.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: The Kanto-CM and Kanto-Auto-Deployer container manifest descriptors (json) formats are incompatible and differ slightly in their structure!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# kanto-auto-deployer --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;USAGE:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  kanto-auto-deployer &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;PATH TO MANIFESTS FOLDER&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use container manifests from current working directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/var/containers/manifests_dev/ $ kanto-auto-deployer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Reading manifests from &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;.&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;cloudconnector&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;otelcollector&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;seatservice-example&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Use container manifests from specified directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;~ $ kanto-auto-deployer /var/containers/manifests_dev/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Reading manifests from &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;/data/var/containers/manifests_dev/&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;cloudconnector&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;otelcollector&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;seatservice-example&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usage-as-systemd-service&#34;&gt;Usage as systemd service&lt;/h2&gt;
+&lt;p&gt;In the Leda quickstart images, kanto-auto-deployer is installed as a systemd service.
+The service unit configuration file is located in &lt;code&gt;/lib/systemd/system/kanto-auto-deployer.service&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;Unit&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;Description&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;Kanto Auto Deployer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;After&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;network-online.target container-management.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;Wants&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;network-online.target container-management.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;Requires&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;container-management.service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;Install&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;WantedBy&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;multi-user.target
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;Service&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;Restart&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;on-failure
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;RestartSec&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;5s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/bin/kanto-auto-deployer /data/var/containers/manifests_dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/lib/systemd/system# systemctl status kanto-auto-deployer.service 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;* kanto-auto-deployer.service - Kanto Auto Deployer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Loaded: loaded &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;/lib/systemd/system/kanto-auto-deployer.service&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; enabled&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; vendor preset: enabled&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Active: inactive &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;dead&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; since Fri 2022-12-09 09:41:42 UTC&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; 7min ago
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Process: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;472&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ExecStart&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/bin/kanto-auto-deployer /var/containers/manifests &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   Main PID: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;472&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;exited, &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0/SUCCESS&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dec &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;09&lt;/span&gt; 09:41:33 qemux86-64 systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Started Kanto Auto Deployer.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dec &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;09&lt;/span&gt; 09:41:33 qemux86-64 kanto-auto-deployer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;472&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Creating &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;databroker&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dec &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;09&lt;/span&gt; 09:41:41 qemux86-64 kanto-auto-deployer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;472&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Created &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;databroker&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dec &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;09&lt;/span&gt; 09:41:41 qemux86-64 kanto-auto-deployer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;472&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Starting &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;databroker&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dec &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;09&lt;/span&gt; 09:41:42 qemux86-64 kanto-auto-deployer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;472&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: Started &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;databroker&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dec &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;09&lt;/span&gt; 09:41:42 qemux86-64 systemd&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;1&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: kanto-auto-deployer.service: Deactivated successfully.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SDV Container Exec</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;code&gt;sdv-ctr-exec&lt;/code&gt; wrapper allows to execute arbitrary user commands in existing containers.
+Kanto Container Management cli tool (&lt;code&gt;kanto-cm&lt;/code&gt;) only allows to manage the lifecycle of a container,
+but does not allow to specify or override the entrypoint or command definitions of an existing container.
+The &lt;code&gt;ctr&lt;/code&gt; command line tool of containerd allows the execution of additional &lt;em&gt;tasks&lt;/em&gt; in a running container.&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;As a convenient tool, &lt;code&gt;sdv-ctr-exec&lt;/code&gt; allows the simple execution of arbitrary commands inside of containers.
+This is especially useful for non-service-containers, or containers which have additional binaries (e.g. cli tools) embedded.&lt;/p&gt;
+&lt;p&gt;Usage:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:~# sdv-ctr-exec 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/bin/sdv-ctr-exec -h to print this message
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/bin/sdv-ctr-exec &amp;lt;container-id&amp;gt; &amp;lt;command&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;or
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/bin/sdv-ctr-exec -n &amp;lt;container-name&amp;gt; &amp;lt;command&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Executing a containerized cli tool using sdv-ctr-exec&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm create --i --t --network&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;host --name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kuksa-client ghcr.io/eclipse/kuksa.val/kuksa-client:master
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm start --name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kuksa-client
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; --protocol grpc --insecure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;alternatives&#34;&gt;Alternatives&lt;/h2&gt;
+&lt;h3 id=&#34;containerd-ctr&#34;&gt;containerd: &lt;code&gt;ctr&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;The above commands are equivalent to the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Executing a containerized cli tool using ctr&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm image pull ghcr.io/eclipse/kuksa.val/kuksa-client:master
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm tasks start --detach kuksa-client
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm tasks &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; --protocol grpc --insecure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;containerd-nerdctl&#34;&gt;containerd: &lt;code&gt;nerdctl&lt;/code&gt;&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: &lt;code&gt;nerdctl&lt;/code&gt; is currently not installed on the Leda Quickstart images.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;containerd-ctr-and-mounting&#34;&gt;containerd: &lt;code&gt;ctr&lt;/code&gt; and mounting&lt;/h3&gt;
+&lt;p&gt;To execute a binary natively (outside of a containerized environment), the container image may be mounted to the host filesystem using the &lt;code&gt;ctr snapshots mount&lt;/code&gt; commands.&lt;/p&gt;
+&lt;p&gt;This approach only works if the binary is compatible with the host environment (dependencies, libraries etc.).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;$CONTAINER_IMAGE&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ghcr.io/my-org/my-project/my-container&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm image pull &lt;span style=&#34;color:#000&#34;&gt;$CONTAINER_IMAGE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm container create --net-host --tty &lt;span style=&#34;color:#000&#34;&gt;$CONTAINER_IMAGE&lt;/span&gt; my-container
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir my-container
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kanto-cm snapshots mount my-container my-container &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$SHELL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; my-container
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./bin/my-application --help
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     

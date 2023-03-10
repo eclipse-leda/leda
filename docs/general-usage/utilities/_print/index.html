@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.6831d6bc2f61e5736888c6b37efd4e7410cd90d4e5e9859c154e541ea4e96886.css" as="style">
-<link href="/leda/scss/main.min.6831d6bc2f61e5736888c6b37efd4e7410cd90d4e5e9859c154e541ea4e96886.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.b51008c0a75028d960bd50cfdb1f8031168e10a7d9a4a492bd127ecf0e68552b.css" as="style">
+<link href="/leda/scss/main.min.b51008c0a75028d960bd50cfdb1f8031168e10a7d9a4a492bd127ecf0e68552b.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.ed4a4da05d9e61f9e4619504028ec678.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.1835648e1a09bb051f3f392a718b19e5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -114,28 +114,124 @@ This is the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>1: <a href="#pg-3f128b6db32e0070ea241702cbec5b5a">SDV Health</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-10e59a808c83f8d618fe3bc28e3036df">KantUI</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-d9746e3a6d66da060fdb23a60b0de675">SDV Device Info</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3c67a096a6fae106d00fcde4855f3b69">SDV Provision</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-163a39aced07d88ca24900280481599f">SDV MotD</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-51f7159b12485284fa7fa1ce5861b643">CAN Forward</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-39ff94ee053885f2bdf2856385b76f7a">Kanto Auto Deployer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-67a8cb2fda94b33fb5cc6d522b276d75">SDV Container Exec</a></li>
+
+
+    
+  
 
     </ul>
 
 
 <div class="content">
-      <p>The quickstart image contains the following utilities:</p>
+      <p>The quickstart image contains the following utilities.
+These utility scripts are meant to be convenience tools for users and developers.
+They help to experiment with the container deployment, device provisioning or vehicle data access.</p>
 <ul>
 <li><strong>sdv-health:</strong> Show SDV software components health status</li>
 <li><strong>kantui:</strong> A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)</li>
 <li><strong>sdv-device-info:</strong> Show and update device information</li>
+<li><strong>sdv-provision:</strong> Generate device certificates and configuration of cloud connection</li>
 <li><strong>sdv-motd:</strong> Message-of-the-Day shown after login prompt</li>
 <li><strong>can-forward:</strong> Forwarding a CAN-bus network interface into a containerized Vehicle Application</li>
 <li><strong>kanto-auto-deployer:</strong> Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.</li>
+<li><strong>sdv-ctr-exec:</strong> Execute arbitrary commands in existing containers</li>
 </ul>
-<p>For details, please see <a href="https://github.com/eclipse-leda/leda-utils/">leda-utils</a></p>
-<h2 id="health-check">Health check</h2>
-<p>The sdv-health utility displays a status overview of some important dependencies and device configurations for the SDV edge stack. The sdv health utility can be configured using the sdv.conf configuration file.</p>
+<blockquote>
+<p>Note:
+These scripts are not meant to be reused or called from production software.
+Their behaviour or command line syntax is not a stable API and should not be trusted for automation purposes.
+For details, please see <a href="https://github.com/eclipse-leda/leda-utils/">leda-utils</a></p>
+</blockquote>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3f128b6db32e0070ea241702cbec5b5a">1 - SDV Health</h1>
+    
+	<h2 id="health-check">Health check</h2>
+<p>The sdv-health utility displays a status overview of some important dependencies and device configurations for the SDV edge stack.
+The sdv health utility can be configured using the sdv.conf configuration file.</p>
 <p>Usage:</p>
-<pre><code># sdv-health
-</code></pre>
-<p>Example output:</p>
-<p><img src="https://raw.githubusercontent.com/eclipse-leda/leda-utils/main/assets/sdv-health.png" alt="SDV Health Example Output"></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># sdv-health</span>
+</span></span></code></pre></div><p>Example output:</p>
+<p><img src="../sdv-health-output.png" alt="SDV Health Example Output"></p>
 <h3 id="version-information">Version Information</h3>
 <p>The Leda image version and build time will be displayed at the top in the first category:</p>
 <ul>
@@ -143,15 +239,35 @@ This is the multi-page printable view of this section.
 <li>Image Version: Name of the image and more specific version information, such as the git tag or commit id</li>
 <li>Build timestamp in <code>yyyMMddHHmmss</code> notation</li>
 </ul>
-<h3 id="bus-networks">Bus networks</h3>
-<p>If available, vehicle bus network information, such as the status of the CAN-Bus, will be displayed iin its own category. This helps to quickly identify if there problems with the hardware connectivity for automotive bus networks.</p>
+<blockquote>
+<p>Note: The information is read from the system base file in <code>/etc/os-release</code>:</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# cat /etc/os-release 
+</span></span><span style="display:flex;"><span><span style="color:#000">BUILD_ID</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;20230309083051&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">DISTRO_CODENAME</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Dracon&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">ID</span><span style="color:#ce5c00;font-weight:bold">=</span>leda
+</span></span><span style="display:flex;"><span><span style="color:#000">IMAGE_VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;0.0.5-41-g82f2b12&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">NAME</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Eclipse Leda&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PRETTY_NAME</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Eclipse Leda 2023 (Dracon)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;2023 (Dracon)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">VERSION_CODENAME</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Dracon&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">VERSION_ID</span><span style="color:#ce5c00;font-weight:bold">=</span>0.0.5-41-g82f2b12
+</span></span></code></pre></div><h3 id="bus-networks">Bus networks</h3>
+<p>If available, vehicle bus network information, such as the status of the CAN-Bus, will be displayed iin its own category.
+This helps to quickly identify if there problems with the hardware connectivity for automotive bus networks.</p>
 <h3 id="ports">Ports</h3>
-<p>The health utility checks the TCP ports of specific services. This helps to identify if these services are up and running and potentiallyconnectable via external network interfaces.</p>
+<p>The health utility checks the TCP ports of specific services.
+This helps to identify if these services are up and running and potentiallyconnectable via external network interfaces.</p>
 <h3 id="services-and-containers">Services and Containers</h3>
-<p>The services category shows the status of required and optional containers. The required containers are supposed to be up and running for the SDV.EDGE stack to be correctly up and running. If any of these core components have a failed state, the functionality is impacted.</p>
-<p>The optional containers are for additional features and for example applications. These containers may not be necessary for each use case and hence will be marked as a warning if they are not up and running. The overview still helps to identify which containers are working properly.</p>
+<p>The services category shows the status of required and optional containers.
+The required containers are supposed to be up and running for the SDV.EDGE stack to be correctly up and running.
+If any of these core components have a failed state, the functionality is impacted.</p>
+<p>The optional containers are for additional features and for example applications.
+These containers may not be necessary for each use case and hence will be marked as a warning if they are not up and running.
+The overview still helps to identify which containers are working properly.</p>
 <h3 id="errors-warnings-failed-states">Errors, Warnings, Failed states</h3>
-<p>When there are errors or warnings related to the status of SDV related components, the health utility will print out these error states, and if available also a more detailed error message.</p>
+<p>When there are errors or warnings related to the status of SDV related components,
+the health utility will print out these error states, and if available also a more detailed error message.</p>
 <p>In the following example, the health utility helps the troubleshooting process:</p>
 <ul>
 <li>The container runtime is properly started: &ldquo;Kanto CM&rdquo; is OK in the &ldquo;SDV Ports&rdquo; section and the &ldquo;container-management&rdquo; service is OK in the &ldquo;SDV Services&rdquo; section&quot;.</li>
@@ -159,27 +275,479 @@ This is the multi-page printable view of this section.
 <li>The cloud connector is in a &ldquo;Stopped&rdquo; state, which indicates that the user manually stopped the container by using &ldquo;kanto-cm stop -n cloud-connector&rdquo;.</li>
 <li>The sua container is in a &ldquo;Exited&rdquo; state, which indicates the process exited with an error code.</li>
 </ul>
-<p><img src="sdv-health-example-errors2.png" alt="SDV Health Example Errors"></p>
+<p><img src="../sdv-health-example-errors2.png" alt="SDV Health Example Errors"></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-10e59a808c83f8d618fe3bc28e3036df">2 - KantUI</h1>
+    
+	<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management.
+It supports simple navigation using keyboard and mouse to select a specific container.
+Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.</p>
 <h2 id="kanto-user-interface">Kanto User Interface</h2>
-<p>The KantoUI tool is a text-based user interface for conveniently managing containers in the Kanto Container Management. It supports simple navigation using keyboard and mouse to select a specific container. Commands to start, stop, remove and re-deploy containers are available along with a functionality to retrieve the application logs of a selected container.</p>
 <p>Usage:</p>
-<pre><code># kantui
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kantui
+</span></span></code></pre></div><p>Example output:</p>
+<p><img src="../kantui-large.png" alt="KantoUI"></p>
+<h2 id="command-line-options">Command Line Options</h2>
+<p>Print command line help:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# kantui --help
+</span></span><span style="display:flex;"><span>kantui 0.2.0
+</span></span><span style="display:flex;"><span>A TUI <span style="color:#204a87;font-weight:bold">for</span> Kanto CM that allows easier management of deployed containers. Requires root.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>USAGE:
+</span></span><span style="display:flex;"><span>    kantui <span style="color:#ce5c00;font-weight:bold">[</span>OPTIONS<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>OPTIONS:
+</span></span><span style="display:flex;"><span>    -c, --config-file-path &lt;CONFIG_FILE_PATH&gt;
+</span></span><span style="display:flex;"><span>            Set a custom path <span style="color:#204a87;font-weight:bold">for</span> the kantui configuration file <span style="color:#ce5c00;font-weight:bold">[</span>default:
+</span></span><span style="display:flex;"><span>            /etc/kantui/kantui_conf.toml<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    -h, --help
+</span></span><span style="display:flex;"><span>            Print <span style="color:#204a87">help</span> information
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    -V, --version
+</span></span><span style="display:flex;"><span>            Print version information
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Note: All config values can be overridden through env variables prefixed with KANTUI_,
+</span></span><span style="display:flex;"><span>e.g. <span style="color:#000">KANTUI_STOP_TIMEOUT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">5</span> overrides the timeout before SIGKILL is sent to be <span style="color:#0000cf;font-weight:bold">5</span> seconds.
+</span></span></code></pre></div><h2 id="keyboard-commands">Keyboard commands</h2>
+<ul>
+<li>Arrow keys <code>Up</code> and <code>Down</code> to select a container</li>
+<li>Arrow keys <code>Left</code> and <code>Right</code> to select a column</li>
+<li><code>Enter</code> to change the sort ordering of the currently selected column</li>
+<li><code>S</code> to <strong>start</strong> the selected container which is currently not running</li>
+<li><code>P</code> to <strong>stop</strong> the selected container</li>
+<li><code>R</code> to <strong>remove</strong> a container</li>
+<li><code>L</code> to show the <strong>log output</strong> of a container</li>
+<li><code>D</code> to redeploy an existing container (rereads deployment descriptor)</li>
+<li><code>Q</code> to <strong>quit</strong> kantui</li>
+</ul>
+<blockquote>
+<p>Note: The mouse can be used to select ui items when holding the <code>Shift</code> key.</p>
+</blockquote>
+<h2 id="starting-stopping-removing-containers">Starting, Stopping, Removing containers</h2>
+<p>To use the lifecycle commands on a container:</p>
+<ol>
+<li>Select a container by using the mouse or the arrow keys.</li>
+<li>The selected container is highlighted.</li>
+<li>Press one of the lifecycle commands, e.g. <code>s</code>, <code>p</code> or <code>r</code></li>
+<li>Wait for the value in the <em>State</em> column to change, before issueing the next command.</li>
+</ol>
+<blockquote>
+<p>Note: When using the lifecycle commands for containers (Start, Stop, Remove), it may take a few seconds before the UI is updated with the status changes.
+The amount of time before a container is forcefully killed is determined by the <code>stop_timeout</code> configuration option.</p>
+</blockquote>
+<h2 id="show-container-logs">Show container Logs</h2>
+<p>To view the container&rsquo;s log output:</p>
+<ol>
+<li>Select a container by using the mouse or the arrow keys.</li>
+<li>Press the <code>L</code> key</li>
+<li>Log output will be displayed (tail, oldest messages first)</li>
+<li>Use the arrow keys <code>Up</code> and <code>Down</code> or drag the scrollbar using your mouse to scroll through the log</li>
+<li>Close the Log viewer by pressing <code>Enter</code> or clicking on the <code>OK</code> button</li>
+</ol>
+<blockquote>
+<p>Note: The log output is <strong>not followed</strong> automatically. Close the dialog and reopen to see new output.</p>
+</blockquote>
+<h2 id="redeploying-containers">Redeploying containers</h2>
+<p>To redeploy a container, e.g. when a deployment descriptor has changed on disk:</p>
+<ol>
+<li>Select a container by using the mouse or the arrow keys.</li>
+<li>Press the <code>P</code> key to stop the container</li>
+<li>Press the <code>R</code> key to remove the container</li>
+<li>Press the <code>D</code> key to invoke the Kanto Auto Deployer, which will redeploy the missing containers</li>
+</ol>
+<blockquote>
+<p>Note: Only containers managed by Kanto Auto Deployer will be redeployed.</p>
+</blockquote>
+<h2 id="column-sorting">Column Sorting</h2>
+<p>To sort a column:</p>
+<ol>
+<li>Select the column using the <code>Left</code> and <code>Right</code> arrow keys</li>
+<li>Press <code>Enter</code> to activate sorting</li>
+<li>Press <code>Enter</code> again on a sorted column to invert sort order (Ascending -&gt; Descending -&gt; Ascending)</li>
+</ol>
+<blockquote>
+<p>Note: The selected sort order is not persisted and will reset to the default on restart: By <code>ID</code>, ascending</p>
+</blockquote>
+<h2 id="configuration-file">Configuration File</h2>
+<p>The default location of the configuration file is <code>/etc/kantui/kantui_conf.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># General Configuration Options</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">socket_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/run/container-management/container-management.sock&#34;</span> <span style="color:#8f5902;font-style:italic"># Path to kanto-cm unix socket</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">stop_timeout</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">5</span> <span style="color:#8f5902;font-style:italic"># timeout (integer) in seconds before a SIGKILL is sent after a SIGTERM</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>keyconfig<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">start_btn_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;[S]tart&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">start_kbd_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;s&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">stop_btn_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Sto[P]&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">stop_kbd_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;p&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remove_btn_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;[R]emove&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">remove_kbd_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;r&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">logs_btn_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;[L]ogs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">logs_kbd_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;l&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">quit_btn_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;[Q]uit&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">quit_kbd_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;q&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">redeploy_btn_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Re[D]eploy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">redeploy_kbd_key</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;d&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Includes a shell lexer so anything that would be a valid shell command can be used</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># No pipes/redirects allowed.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># N.B.: Command inherits kantui&#39;s privileges (root)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">redeploy_command</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;systemctl restart kanto-auto-deployer.service&#34;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d9746e3a6d66da060fdb23a60b0de675">3 - SDV Device Info</h1>
+    
+	<p>Displays the current device configuration, such as Device ID.</p>
+<blockquote>
+<p>Note: <strong>Requires</strong> the <em>Cloud Connector</em> component to be configured and running.</p>
+</blockquote>
+<p>Usage:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-device-info
+</span></span></code></pre></div><p><img src="../sdv-device-info-example-output1.png" alt="Eclipse Leda Device Info Example Output"></p>
+<h2 id="usage">Usage</h2>
+<p>Synposis: <code>./sdv-device-info [options] [command]</code></p>
+<p>Full help:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# sdv-device-info --help
+</span></span><span style="display:flex;"><span>sdv-device-info v0.2
+</span></span><span style="display:flex;"><span>Usage: /usr/bin/sdv-device-info <span style="color:#ce5c00;font-weight:bold">[</span>options<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>command<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Show SDV device configuration information
+</span></span><span style="display:flex;"><span>Example: /usr/bin/sdv-device-info show
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Commands:
+</span></span><span style="display:flex;"><span> show                 : Display configuration <span style="color:#ce5c00;font-weight:bold">(</span>default <span style="color:#204a87">command</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span> <span style="color:#204a87">help</span>                 : This message
+</span></span><span style="display:flex;"><span> env                  : Format output <span style="color:#204a87;font-weight:bold">for</span> use in scripts
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span> --ansi <span style="color:#000;font-weight:bold">|</span> -a      : Don<span style="color:#a40000">&#39;</span>t use colored output.
+</span></span><span style="display:flex;"><span> --norestart <span style="color:#000;font-weight:bold">|</span> -n : Do not automatically restart services
+</span></span><span style="display:flex;"><span> --verbose <span style="color:#000;font-weight:bold">|</span> -v   : Enable verbose mode.
+</span></span><span style="display:flex;"><span> --help <span style="color:#000;font-weight:bold">|</span> -h      : This message.
+</span></span></code></pre></div><h2 id="use-in-scripts">Use in scripts</h2>
+<p>To use device information on other scripts, it may be useful to source the device information variables into the current environment variable context:</p>
+<p>Synposis: <code>source ./sdv-device-info env</code></p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ <span style="color:#204a87">source</span> ./sdv-device-info env
+</span></span><span style="display:flex;"><span>$ <span style="color:#204a87">echo</span> <span style="color:#000">$DEVICE_ID</span>
+</span></span><span style="display:flex;"><span>exampledevice1
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3c67a096a6fae106d00fcde4855f3b69">4 - SDV Provision</h1>
+    
+	<p>The provisioning helper script can be used to manually perform a device provisioning with a cloud backend.</p>
+<p>It is meant as a convenient tool for developers, who wish to connect their device to a selfmanaged cloud backend directly.
+In a production environment, the device provisioning functionality is implemented either by the <em>Cloud Connector</em> component.</p>
+<p>The provisioning script currently supports the following backend and authentication options:</p>
+<ul>
+<li>Azure IoT Hub
+<ul>
+<li>Connection String</li>
+<li>Device Certificates</li>
+</ul>
+</li>
+<li>Azure IoT Device Provisioning Service
+<ul>
+<li>Device Certificates</li>
+</ul>
+</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>The <em>sdv-provision</em> script is interactive and asks for the type of backend and authentication option:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# sdv-provision 
+</span></span><span style="display:flex;"><span>Checking Eclipse Leda Device Provisioning configuration...
+</span></span><span style="display:flex;"><span>- Certificates directory exists
+</span></span><span style="display:flex;"><span>Checking Device ID
+</span></span><span style="display:flex;"><span>- Based on network device: eth0
+</span></span><span style="display:flex;"><span>- Device ID: 52-54-21-4c-f9-5a
+</span></span><span style="display:flex;"><span>Checking whether either IdScope or ConnectionString is configured
+</span></span><span style="display:flex;"><span> - Neither Id Scope file nor ConnectionString found, needs manual configuration
+</span></span><span style="display:flex;"><span>Do you want to use the global Azure IoT Device Provisioning Service <span style="color:#ce5c00;font-weight:bold">(</span>DPS<span style="color:#ce5c00;font-weight:bold">)</span> by using an Id Scope, or <span style="color:#204a87;font-weight:bold">do</span> you want to use a direct connection to a specific Azure IoT Hub using a Connection String?
+</span></span><span style="display:flex;"><span>d<span style="color:#ce5c00;font-weight:bold">)</span> Azure IoT Device Provisioning Service <span style="color:#ce5c00;font-weight:bold">(</span>DPS<span style="color:#ce5c00;font-weight:bold">)</span> with Id Scope
+</span></span><span style="display:flex;"><span>h<span style="color:#ce5c00;font-weight:bold">)</span> Azure IoT Hub with Connection String
+</span></span><span style="display:flex;"><span>Choose:d
+</span></span><span style="display:flex;"><span>Please enter your Id Scope of the Azure IoT Device Provisioning Service:example
+</span></span><span style="display:flex;"><span>Recreating the Cloud Connector container...
+</span></span><span style="display:flex;"><span>Checking device certificates
+</span></span><span style="display:flex;"><span>- All device certificates are present
+</span></span><span style="display:flex;"><span>- Primary device certificate: /data/var/certificates/device.crt
+</span></span><span style="display:flex;"><span>- Primary device private key: /data/var/certificates/device.key
+</span></span><span style="display:flex;"><span>- Secondary device certificate: /data/var/certificates/device2.crt
+</span></span><span style="display:flex;"><span>- Secondary device private key: /data/var/certificates/device2.key
+</span></span><span style="display:flex;"><span>Fingerprints <span style="color:#ce5c00;font-weight:bold">(</span>add these to the Azure IoT Hub Device<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>- Primary thumbprint: 1B172ED3D06F4E25AFFEF675ADCE519457FFFFFF
+</span></span><span style="display:flex;"><span>- Secondary thumbprint: B6CD5EACE96E9D0448BCB0BAED2DEE87AFFFFFFF
+</span></span></code></pre></div><p>Once a configuration has been selected, the script will:</p>
+<ul>
+<li>Generate a random Device Id (based on physical network address)</li>
+<li>Store the Device Id in <code>/etc/deviceid</code></li>
+<li>Generate a primary self-signed device certificate pair</li>
+<li>Generate a secondary self-signed device certificate pair</li>
+<li>Store the certificates in <code>/data/var/certificates/</code></li>
+<li>Reconfigure the container descriptor in <code>/data/var/containers/manifests_dev/cloudconnector.json</code></li>
+<li>Restarting the Cloud Connector container</li>
+<li>Print the key fingerprints, used for onboarding the device in Azure IoT Device Provisioning Service</li>
+</ul>
+<h2 id="reconfiguration">Reconfiguration</h2>
+<blockquote>
+<p>Note: Re-running the script will only print the existing configuration.</p>
+</blockquote>
+<p>To reconfigure the device and use different options, perform the following steps:</p>
+<ol>
+<li>
+<p>Delete the generated files</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rm /data/var/certificates/azure.idscope
+</span></span><span style="display:flex;"><span>rm /data/var/certificates/azure.connectionstring
+</span></span><span style="display:flex;"><span>rm /data/var/certificates/device*.crt
+</span></span><span style="display:flex;"><span>rm /data/var/certificates/device*.key
+</span></span></code></pre></div></li>
+<li>
+<p>Rerun the script</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-provision
+</span></span></code></pre></div></li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-163a39aced07d88ca24900280481599f">5 - SDV MotD</h1>
+    
+	<p>The <code>sdv-motd</code> script provides an alternative motd profile, which displays some additional information after login.</p>
+<p>The script does not have any command line options.</p>
 <p>Example output:</p>
-<p><img src="kantui-large.png" alt="KantoUI"></p>
+<p><img src="../sdv-motd.png" alt="Eclipse Leda Message Of The Day"></p>
 
 </div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-51f7159b12485284fa7fa1ce5861b643">6 - CAN Forward</h1>
+    
+	<p>The <code>can-forward</code> help script can be used to forward an existing CAN-Bus interface on the host system to a container process.</p>
+<blockquote>
+<p>Note: Warning! The script does not yet support Kanto (or containerd) as a container runtime. It has been implemented for k3s.</p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# can-forward --help
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Usage:  /usr/bin/can-forward <span style="color:#ce5c00;font-weight:bold">{</span>-h<span style="color:#ce5c00;font-weight:bold">}</span> <span style="color:#ce5c00;font-weight:bold">{</span>-p PID<span style="color:#ce5c00;font-weight:bold">}</span> <span style="color:#ce5c00;font-weight:bold">{</span>-c container<span style="color:#ce5c00;font-weight:bold">}</span> &lt;hw_can&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  hw_can          Host CAN hw interface to forward. Default: can0
+</span></span><span style="display:flex;"><span>  -c container    Attemmpt to get netns PID from a running container: <span style="color:#ce5c00;font-weight:bold">(</span>docker, ctr<span style="color:#ce5c00;font-weight:bold">)</span>. Default: seat_service
+</span></span><span style="display:flex;"><span>  -p PID          Use provided PID <span style="color:#204a87;font-weight:bold">for</span> transferring vxcan interface <span style="color:#ce5c00;font-weight:bold">(</span>e.g.: docker inspect -f <span style="color:#4e9a06">&#39;{{ .State.Pid }}&#39;</span> container<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  -h              Prints this message
+</span></span></code></pre></div><p>The script performs the following steps:</p>
+<ul>
+<li>Find the process ID of the target container process</li>
+<li>Check and modprobe <code>vxcan</code></li>
+<li>Check and modprobe <code>can-gw</code></li>
+<li>Create a new virtual CAN interface (<code>vxcanX</code>)</li>
+<li>Create a new virtual CAN interface (<code>vxcanX+1</code>)</li>
+<li>Link both interfaces together</li>
+<li>Move the second interface (<code>vxcanX+1</code>) into the namespace of the target container</li>
+<li>Set up a bi-directional CAN-Bus packet forwarding between both interfaces using <code>cangw</code></li>
+</ul>
+
 </div>
 
 
-  
-  
-  
-  
 
+    
+	
   
-  
+    
+    
+	
+    
 
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-39ff94ee053885f2bdf2856385b76f7a">7 - Kanto Auto Deployer</h1>
+    
+	<p>Automatically deploys containers to the Kanto Container Management based on deployment descriptors from a given path.
+All deployment descriptors in the manifests folder will be deployed (created and started) on startup of the service.</p>
+<blockquote>
+<p>Note: The Kanto-CM and Kanto-Auto-Deployer container manifest descriptors (json) formats are incompatible and differ slightly in their structure!</p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<p>Usage:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# kanto-auto-deployer --help
+</span></span><span style="display:flex;"><span>USAGE:
+</span></span><span style="display:flex;"><span>  kanto-auto-deployer <span style="color:#ce5c00;font-weight:bold">[</span>PATH TO MANIFESTS FOLDER<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Use container manifests from current working directory</span>
+</span></span><span style="display:flex;"><span>/var/containers/manifests_dev/ $ kanto-auto-deployer
+</span></span><span style="display:flex;"><span>Reading manifests from <span style="color:#ce5c00;font-weight:bold">[</span>.<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>cloudconnector<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>otelcollector<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>seatservice-example<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Use container manifests from specified directory</span>
+</span></span><span style="display:flex;"><span>~ $ kanto-auto-deployer /var/containers/manifests_dev/
+</span></span><span style="display:flex;"><span>Reading manifests from <span style="color:#ce5c00;font-weight:bold">[</span>/data/var/containers/manifests_dev/<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>cloudconnector<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>otelcollector<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>seatservice-example<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span></code></pre></div><h2 id="usage-as-systemd-service">Usage as systemd service</h2>
+<p>In the Leda quickstart images, kanto-auto-deployer is installed as a systemd service.
+The service unit configuration file is located in <code>/lib/systemd/system/kanto-auto-deployer.service</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Unit<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Description</span><span style="color:#ce5c00;font-weight:bold">=</span>Kanto Auto Deployer
+</span></span><span style="display:flex;"><span><span style="color:#000">After</span><span style="color:#ce5c00;font-weight:bold">=</span>network-online.target container-management.service
+</span></span><span style="display:flex;"><span><span style="color:#000">Wants</span><span style="color:#ce5c00;font-weight:bold">=</span>network-online.target container-management.service
+</span></span><span style="display:flex;"><span><span style="color:#000">Requires</span><span style="color:#ce5c00;font-weight:bold">=</span>container-management.service
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Install<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">WantedBy</span><span style="color:#ce5c00;font-weight:bold">=</span>multi-user.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Service<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Restart</span><span style="color:#ce5c00;font-weight:bold">=</span>on-failure
+</span></span><span style="display:flex;"><span><span style="color:#000">RestartSec</span><span style="color:#ce5c00;font-weight:bold">=</span>5s
+</span></span><span style="display:flex;"><span><span style="color:#000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/bin/kanto-auto-deployer /data/var/containers/manifests_dev
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:/lib/systemd/system# systemctl status kanto-auto-deployer.service 
+</span></span><span style="display:flex;"><span>* kanto-auto-deployer.service - Kanto Auto Deployer
+</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#ce5c00;font-weight:bold">(</span>/lib/systemd/system/kanto-auto-deployer.service<span style="color:#000;font-weight:bold">;</span> enabled<span style="color:#000;font-weight:bold">;</span> vendor preset: enabled<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>     Active: inactive <span style="color:#ce5c00;font-weight:bold">(</span>dead<span style="color:#ce5c00;font-weight:bold">)</span> since Fri 2022-12-09 09:41:42 UTC<span style="color:#000;font-weight:bold">;</span> 7min ago
+</span></span><span style="display:flex;"><span>    Process: <span style="color:#0000cf;font-weight:bold">472</span> <span style="color:#000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/bin/kanto-auto-deployer /var/containers/manifests <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">code</span><span style="color:#ce5c00;font-weight:bold">=</span>exited, <span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span>0/SUCCESS<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>   Main PID: <span style="color:#0000cf;font-weight:bold">472</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">code</span><span style="color:#ce5c00;font-weight:bold">=</span>exited, <span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span>0/SUCCESS<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:33 qemux86-64 systemd<span style="color:#ce5c00;font-weight:bold">[</span>1<span style="color:#ce5c00;font-weight:bold">]</span>: Started Kanto Auto Deployer.
+</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:33 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Creating <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:41 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Created <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:41 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Starting <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:42 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Started <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:42 qemux86-64 systemd<span style="color:#ce5c00;font-weight:bold">[</span>1<span style="color:#ce5c00;font-weight:bold">]</span>: kanto-auto-deployer.service: Deactivated successfully.
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-67a8cb2fda94b33fb5cc6d522b276d75">8 - SDV Container Exec</h1>
+    
+	<p>The <code>sdv-ctr-exec</code> wrapper allows to execute arbitrary user commands in existing containers.
+Kanto Container Management cli tool (<code>kanto-cm</code>) only allows to manage the lifecycle of a container,
+but does not allow to specify or override the entrypoint or command definitions of an existing container.
+The <code>ctr</code> command line tool of containerd allows the execution of additional <em>tasks</em> in a running container.</p>
+<h2 id="usage">Usage</h2>
+<p>As a convenient tool, <code>sdv-ctr-exec</code> allows the simple execution of arbitrary commands inside of containers.
+This is especially useful for non-service-containers, or containers which have additional binaries (e.g. cli tools) embedded.</p>
+<p>Usage:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# sdv-ctr-exec 
+</span></span><span style="display:flex;"><span>/usr/bin/sdv-ctr-exec -h to print this message
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Usage:
+</span></span><span style="display:flex;"><span>/usr/bin/sdv-ctr-exec &lt;container-id&gt; &lt;command&gt;
+</span></span><span style="display:flex;"><span>or
+</span></span><span style="display:flex;"><span>/usr/bin/sdv-ctr-exec -n &lt;container-name&gt; &lt;command&gt;
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Executing a containerized cli tool using sdv-ctr-exec</span>
+</span></span><span style="display:flex;"><span>kanto-cm create --i --t --network<span style="color:#ce5c00;font-weight:bold">=</span>host --name<span style="color:#ce5c00;font-weight:bold">=</span>kuksa-client ghcr.io/eclipse/kuksa.val/kuksa-client:master
+</span></span><span style="display:flex;"><span>kanto-cm start --name<span style="color:#ce5c00;font-weight:bold">=</span>kuksa-client
+</span></span><span style="display:flex;"><span>sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port <span style="color:#0000cf;font-weight:bold">30555</span> --protocol grpc --insecure
+</span></span></code></pre></div><h2 id="alternatives">Alternatives</h2>
+<h3 id="containerd-ctr">containerd: <code>ctr</code></h3>
+<p>The above commands are equivalent to the following commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Executing a containerized cli tool using ctr</span>
+</span></span><span style="display:flex;"><span>ctr --namespace kanto-cm image pull ghcr.io/eclipse/kuksa.val/kuksa-client:master
+</span></span><span style="display:flex;"><span>ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
+</span></span><span style="display:flex;"><span>ctr --namespace kanto-cm tasks start --detach kuksa-client
+</span></span><span style="display:flex;"><span>ctr --namespace kanto-cm tasks <span style="color:#204a87">exec</span> --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port <span style="color:#0000cf;font-weight:bold">30555</span> --protocol grpc --insecure
+</span></span></code></pre></div><h3 id="containerd-nerdctl">containerd: <code>nerdctl</code></h3>
+<blockquote>
+<p>Note: <code>nerdctl</code> is currently not installed on the Leda Quickstart images.</p>
+</blockquote>
+<h3 id="containerd-ctr-and-mounting">containerd: <code>ctr</code> and mounting</h3>
+<p>To execute a binary natively (outside of a containerized environment), the container image may be mounted to the host filesystem using the <code>ctr snapshots mount</code> commands.</p>
+<p>This approach only works if the binary is compatible with the host environment (dependencies, libraries etc.).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">$CONTAINER_IMAGE</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;ghcr.io/my-org/my-project/my-container&#34;</span>
+</span></span><span style="display:flex;"><span>ctr --namespace kanto-cm image pull <span style="color:#000">$CONTAINER_IMAGE</span>
+</span></span><span style="display:flex;"><span>ctr --namespace kanto-cm container create --net-host --tty <span style="color:#000">$CONTAINER_IMAGE</span> my-container
+</span></span><span style="display:flex;"><span>mkdir my-container
+</span></span><span style="display:flex;"><span>ctr --namespace<span style="color:#ce5c00;font-weight:bold">=</span>kanto-cm snapshots mount my-container my-container <span style="color:#000;font-weight:bold">|</span> <span style="color:#000">$SHELL</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> my-container
+</span></span><span style="display:flex;"><span>./bin/my-application --help
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
   
 
 
