@@ -29,14 +29,18 @@ To install a new version of the Kuksa Databroker CLI container, follow these ste
 
 To install a new version of the Kuksa Client container, follow these steps:
 
-1. Create the container in Kanto Namespace:
+1. Pull the container image
+
+        ctr --namespace kanto-cm image pull ghcr.io/eclipse/kuksa.val/kuksa-client:master
+
+2. Create the container in Kanto Namespace:
 
         ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
 
-2. Start the container in detached mode:
+3. Start the container in detached mode:
 
         ctr --namespace kanto-cm tasks start --detach kuksa-client
 
-3. Start the command line tool with additional command line options:
+4. Start the command line tool with additional command line options:
 
         ctr --namespace kanto-cm tasks exec --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port 30555 --protocol grpc --insecure
