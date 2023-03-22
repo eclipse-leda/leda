@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.1835648e1a09bb051f3f392a718b19e5.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.abe54ece3e725f2120df1c178531b4d1.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2928,6 +2928,7 @@ This is especially useful for non-service-containers, or containers which have a
 	<h1 id="pg-2f6c44ce9348bf082b39dc70ae1a16d6">2.7 - Cheatsheet</h1>
     
 	<p>This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.</p>
+<h2 id="general-commands">General Commands</h2>
 <table>
 <thead>
 <tr>
@@ -3069,7 +3070,36 @@ This is especially useful for non-service-containers, or containers which have a
 </tr>
 </tbody>
 </table>
-<h2 id="running-custom-ad-hoc-containers">Running custom ad-hoc containers</h2>
+<h2 id="configuring-ntp">Configuring NTP</h2>
+<p>A failed download of container images may be caused by out-of-sync clock, thus failing the TLS certificate validation.
+A hardware device without hardware clock (such as the Raspberry Pi) relies on network time.
+In some (corporate) networks, there might be rogue NTP servers and it might be necessary to override the NTP sources.</p>
+<p>To reset NTP server to a public server, follow these steps:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Check NTP clock sync</span>
+</span></span><span style="display:flex;"><span>timedatectl timesync-status
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Add your NTP server</span>
+</span></span><span style="display:flex;"><span>vi /etc/systemd/timesyncd.conf
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Restart container management</span>
+</span></span><span style="display:flex;"><span>systemctl restart container-management
+</span></span><span style="display:flex;"><span>systemctl restart kanto-auto-deployer
+</span></span></code></pre></div><h2 id="reset-container-deployment">Reset container deployment</h2>
+<p>When things go really wrong and the container runtime is unable deploy containers properly, it may be necessary to reset the internal state.
+This is achieved by stopping the container runtime(s) and deleting the <code>/var/lib/container-management</code> folder:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Stop all container runtimes</span>
+</span></span><span style="display:flex;"><span>systemctl stop container-management 
+</span></span><span style="display:flex;"><span>systemctl stop containerd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Delete the persistence of container management</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Attention! Here be dragons</span>
+</span></span><span style="display:flex;"><span>rm -rf /var/lib/container-management
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Restart the container runtimes</span>
+</span></span><span style="display:flex;"><span>systemctl start containerd
+</span></span><span style="display:flex;"><span>systemctl start container-management
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Redeploy the containers</span>
+</span></span><span style="display:flex;"><span>systemctl restart kanto-auto-deployer
+</span></span></code></pre></div><h2 id="running-custom-ad-hoc-containers">Running custom ad-hoc containers</h2>
 <p>To install arbitrary containers, create the container using the <code>kanto-cm</code> command line tool.
 If it&rsquo;s not a background service, but a cli tool, adding the <code>--t --i</code> options allows console access.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# kanto-cm remove --name python
