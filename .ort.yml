@@ -1,0 +1,6 @@
+# Curation for OSS OCaaS findings. For reference, see : https://github.com/oss-review-toolkit/ort/blob/main/docs/config-file-ort-yml.md
+excludes:
+  paths:
+  - pattern: "themes/docsy/**"
+    reason: "BUILD_TOOL_OF"
+    comment: "Docsy is a theme for Hugo and we are not using the Go module"
