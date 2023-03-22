@@ -6,6 +6,8 @@ weight: 10
 
 This cheat sheet gives you an overview of common command line commands to interact with the tools available on the quickstart image.
 
+## General Commands
+
 | Category | Task | Command |
 | --- | --- | --- |
 | General | Overall info | `sdv-health` |
@@ -34,6 +36,46 @@ This cheat sheet gives you an overview of common command line commands to intera
 | RAUC Self Update | Current boot status | `rauc status` |
 | | Switch to other boot slot | `rauc status mark-active other` |
 | CAN-Bus | CAN Dump | `candump -l any,0:0,#FFFFFFFF` |
+
+## Configuring NTP
+
+A failed download of container images may be caused by out-of-sync clock, thus failing the TLS certificate validation.
+A hardware device without hardware clock (such as the Raspberry Pi) relies on network time.
+In some (corporate) networks, there might be rogue NTP servers and it might be necessary to override the NTP sources.
+
+To reset NTP server to a public server, follow these steps:
+
+```shell
+# Check NTP clock sync
+timedatectl timesync-status
+# Add your NTP server
+vi /etc/systemd/timesyncd.conf
+# Restart container management
+systemctl restart container-management
+systemctl restart kanto-auto-deployer
+```
+
+## Reset container deployment
+
+When things go really wrong and the container runtime is unable deploy containers properly, it may be necessary to reset the internal state.
+This is achieved by stopping the container runtime(s) and deleting the `/var/lib/container-management` folder:
+
+```shell
+# Stop all container runtimes
+systemctl stop container-management 
+systemctl stop containerd
+
+# Delete the persistence of container management
+# Attention! Here be dragons
+rm -rf /var/lib/container-management
+
+# Restart the container runtimes
+systemctl start containerd
+systemctl start container-management
+
+# Redeploy the containers
+systemctl restart kanto-auto-deployer
+```
 
 ## Running custom ad-hoc containers
 
