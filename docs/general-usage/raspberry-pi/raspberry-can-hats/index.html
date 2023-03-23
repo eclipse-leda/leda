@@ -4,8 +4,6 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.110.0">
-<link rel="alternate" type="text/html" href="https://eclipse-leda.github.io/leda/docs/app-deployment/kuksa-databroker/_print/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/app-deployment/kuksa-databroker/index.xml">
 <meta name="robots" content="index, follow">
 
 
@@ -20,16 +18,37 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Kuksa Databroker | Eclipse Leda Documentation</title>
-<meta name="description" content="">
-<meta property="og:title" content="Kuksa Databroker" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/app-deployment/kuksa-databroker/" />
-<meta itemprop="name" content="Kuksa Databroker">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kuksa Databroker"/>
-<meta name="twitter:description" content=""/>
+<title>CAN-Bus extensions | Eclipse Leda Documentation</title>
+<meta name="description" content="The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed. However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.
+On Raspberry Pi, there is a /boot/config.txt file where you can configure the dtoverlay options accordingly.
+Note: After modification, the device requires rebooting for the changes to take effect.
+MCP2515 based modules Products:
+Waveshare RS485 CAN HAT for Raspberry Pi dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000 MCP2518FD based modules Products:">
+<meta property="og:title" content="CAN-Bus extensions" />
+<meta property="og:description" content="The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed. However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.
+On Raspberry Pi, there is a /boot/config.txt file where you can configure the dtoverlay options accordingly.
+Note: After modification, the device requires rebooting for the changes to take effect.
+MCP2515 based modules Products:
+Waveshare RS485 CAN HAT for Raspberry Pi dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000 MCP2518FD based modules Products:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
+<meta property="article:modified_time" content="2023-03-23T14:45:25+01:00" />
+<meta itemprop="name" content="CAN-Bus extensions">
+<meta itemprop="description" content="The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed. However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.
+On Raspberry Pi, there is a /boot/config.txt file where you can configure the dtoverlay options accordingly.
+Note: After modification, the device requires rebooting for the changes to take effect.
+MCP2515 based modules Products:
+Waveshare RS485 CAN HAT for Raspberry Pi dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000 MCP2518FD based modules Products:"><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-03-23T14:45:25+01:00" />
+<meta itemprop="wordCount" content="95">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CAN-Bus extensions"/>
+<meta name="twitter:description" content="The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed. However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.
+On Raspberry Pi, there is a /boot/config.txt file where you can configure the dtoverlay options accordingly.
+Note: After modification, the device requires rebooting for the changes to take effect.
+MCP2515 based modules Products:
+Waveshare RS485 CAN HAT for Raspberry Pi dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000 MCP2518FD based modules Products:"/>
 
 
 
@@ -47,7 +66,7 @@
   crossorigin="anonymous"></script>
 
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       <nav class="td-navbar navbar-dark js-navbar-scroll">
 <div class="container-fluid flex-column flex-md-row">
@@ -131,8 +150,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usage-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usage-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usage-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usage-check" checked/>
   <label for="m-ledadocsgeneral-usage-check"><a href="/leda/docs/general-usage/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usage"><span class="">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -159,14 +178,14 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usageraspberry-pi-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usageraspberry-pi-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check" checked/>
   <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"/>
-  <label for="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"><a href="/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats"><span class="">CAN-Bus extensions</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check" checked/>
+  <label for="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"><a href="/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats"><span class="td-sidebar-nav-active-item">CAN-Bus extensions</span></a></label>
   
 </li>
   </ul>
@@ -279,8 +298,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsapp-deployment-li">
-  <input type="checkbox" id="m-ledadocsapp-deployment-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsapp-deployment-li">
+  <input type="checkbox" id="m-ledadocsapp-deployment-check"/>
   <label for="m-ledadocsapp-deployment-check"><a href="/leda/docs/app-deployment/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deployment"><span class="">Vehicle Applications</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -292,9 +311,9 @@
   <input type="checkbox" id="m-ledadocsapp-deploymentdog-mode-check"/>
   <label for="m-ledadocsapp-deploymentdog-mode-check"><a href="/leda/docs/app-deployment/dog-mode/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentdog-mode"><span class="">Dog Mode</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsapp-deploymentkuksa-databroker-li">
-  <input type="checkbox" id="m-ledadocsapp-deploymentkuksa-databroker-check" checked/>
-  <label for="m-ledadocsapp-deploymentkuksa-databroker-check"><a href="/leda/docs/app-deployment/kuksa-databroker/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentkuksa-databroker"><span class="td-sidebar-nav-active-item">Kuksa Databroker</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentkuksa-databroker-li">
+  <input type="checkbox" id="m-ledadocsapp-deploymentkuksa-databroker-check"/>
+  <label for="m-ledadocsapp-deploymentkuksa-databroker-check"><a href="/leda/docs/app-deployment/kuksa-databroker/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentkuksa-databroker"><span class="">Kuksa Databroker</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentvelocitas-li">
   <input type="checkbox" id="m-ledadocsapp-deploymentvelocitas-check"/>
@@ -525,15 +544,15 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/app-deployment/kuksa-databroker/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#kuksa-databroker-cli">Kuksa Databroker CLI</a></li>
-    <li><a href="#kuksa-client">Kuksa Client</a></li>
+    <li><a href="#mcp2515-based-modules">MCP2515 based modules</a></li>
+    <li><a href="#mcp2518fd-based-modules">MCP2518FD based modules</a></li>
   </ul>
 </nav>
       </div>
@@ -576,15 +595,17 @@
   <li class="breadcrumb-item">
     <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/">Vehicle Applications</a></li>
+    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/">Getting Started</a></li>
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/">Running on Raspberry Pi</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    Kuksa Databroker</li>
+    CAN-Bus extensions</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Kuksa Databroker</h1>
-  
+	<h1>CAN-Bus extensions</h1>
+	
 	<header class="article-meta">
 		
 
@@ -602,69 +623,31 @@
 
 		
 	</header>
-	<p>To generically interact with the Vehicle Signals which are managed in the Eclipse Kuksa.VAL Databroker,
-you can either use the natively installed <code>databroker-cli</code> command line tool, or use the CLI tool from an updated and released containerized image.</p>
-<h2 id="kuksa-databroker-cli">Kuksa Databroker CLI</h2>
-<p>To install a new version of the Kuksa Databroker CLI container, follow these steps:</p>
-<ol>
-<li>
-<p>Create the container in Kanto:</p>
-<pre><code> kanto-cm create --i --t --network=host --name=databroker-cli ghcr.io/eclipse/kuksa.val/databroker-cli:master
-</code></pre>
-</li>
-<li>
-<p>Start the command line tool within a container in interactive mode:</p>
-<pre><code> kanto-cm start --a --i --name databroker-cli
-</code></pre>
-</li>
-<li>
-<p>In the databroker shell, connect to the databroker via the URL <code>http://127.0.0.1:30555/</code>:</p>
-<pre><code> connect http://127.0.0.1:30555/
-</code></pre>
-</li>
-</ol>
-<p><img src="kuksa-databroker-cli.png" alt="Kuksa Databroker CLI Container"></p>
-<h2 id="kuksa-client">Kuksa Client</h2>
-<p>To install a new version of the Kuksa Client container, follow these steps:</p>
-<ol>
-<li>
-<p>Pull the container image</p>
-<pre><code> ctr --namespace kanto-cm image pull ghcr.io/eclipse/kuksa.val/kuksa-client:master
-</code></pre>
-</li>
-<li>
-<p>Create the container in Kanto Namespace:</p>
-<pre><code> ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
-</code></pre>
-</li>
-<li>
-<p>Start the container in detached mode:</p>
-<pre><code> ctr --namespace kanto-cm tasks start --detach kuksa-client
-</code></pre>
-</li>
-<li>
-<p>Start the command line tool with additional command line options:</p>
-<pre><code> ctr --namespace kanto-cm tasks exec --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port 30555 --protocol grpc --insecure
-</code></pre>
-</li>
-</ol>
-
-        <div class="section-index">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</div>
-
+	<p>The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed.
+However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.</p>
+<p>On Raspberry Pi, there is a <code>/boot/config.txt</code> file where you can configure the <code>dtoverlay</code> options accordingly.</p>
+<blockquote>
+<p><strong>Note:</strong> After modification, the device <strong>requires rebooting</strong> for the changes to take effect.</p>
+</blockquote>
+<h2 id="mcp2515-based-modules">MCP2515 based modules</h2>
+<p>Products:</p>
+<ul>
+<li><a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare RS485 CAN HAT for Raspberry Pi</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">dtoverlay</span><span style="color:#ce5c00;font-weight:bold">=</span>mcp2515-can0,oscillator<span style="color:#ce5c00;font-weight:bold">=</span>12000000,interrupt<span style="color:#ce5c00;font-weight:bold">=</span>25,spimaxfrequency<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2000000</span>
+</span></span></code></pre></div><h2 id="mcp2518fd-based-modules">MCP2518FD based modules</h2>
+<p>Products:</p>
+<ul>
+<li><a href="https://www.waveshare.com/product/raspberry-pi/2-ch-can-fd-hat.htm">Waveshare 2-Channel Isolated CAN FD Expansion HAT for Raspberry Pi, Multi Protections</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">dtoverlay</span><span style="color:#ce5c00;font-weight:bold">=</span>2xMCP2517FD
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#dtoverlay=2xMCP2518FD-spi0</span>
+</span></span></code></pre></div>
 	
 	
 	
 </div>
+
 
           </main>
         </div>

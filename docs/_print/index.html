@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.abe54ece3e725f2120df1c178531b4d1.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.46a541aa33a9bb139fe99cda94c11b6e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -267,6 +267,14 @@ This is the multi-page printable view of this section.
   
   
 
+  
+    
+    
+	
+<li>2.4.1: <a href="#pg-c4637eb8366871edf0868f31752021e2">CAN-Bus extensions</a></li>
+
+
+    
   
 
     </ul>
@@ -2226,6 +2234,42 @@ bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c4637eb8366871edf0868f31752021e2">2.4.1 - CAN-Bus extensions</h1>
+    
+	<p>The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed.
+However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.</p>
+<p>On Raspberry Pi, there is a <code>/boot/config.txt</code> file where you can configure the <code>dtoverlay</code> options accordingly.</p>
+<blockquote>
+<p><strong>Note:</strong> After modification, the device <strong>requires rebooting</strong> for the changes to take effect.</p>
+</blockquote>
+<h2 id="mcp2515-based-modules">MCP2515 based modules</h2>
+<p>Products:</p>
+<ul>
+<li><a href="https://www.waveshare.com/rs485-can-hat.htm">Waveshare RS485 CAN HAT for Raspberry Pi</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">dtoverlay</span><span style="color:#ce5c00;font-weight:bold">=</span>mcp2515-can0,oscillator<span style="color:#ce5c00;font-weight:bold">=</span>12000000,interrupt<span style="color:#ce5c00;font-weight:bold">=</span>25,spimaxfrequency<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2000000</span>
+</span></span></code></pre></div><h2 id="mcp2518fd-based-modules">MCP2518FD based modules</h2>
+<p>Products:</p>
+<ul>
+<li><a href="https://www.waveshare.com/product/raspberry-pi/2-ch-can-fd-hat.htm">Waveshare 2-Channel Isolated CAN FD Expansion HAT for Raspberry Pi, Multi Protections</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">dtoverlay</span><span style="color:#ce5c00;font-weight:bold">=</span>2xMCP2517FD
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#dtoverlay=2xMCP2518FD-spi0</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
   
 
     

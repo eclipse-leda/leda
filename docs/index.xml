@@ -1247,6 +1247,38 @@ If the container is already deployed the manifest is ignored.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: CAN-Bus extensions</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Eclipse Leda quickstart image has CAN-Bus kernel modules and some CAN hardware drivers pre-installed.
+However, some hardware configuration needs to be adapted at boot time depending on the specific CAN-Extension being attached to the device.&lt;/p&gt;
+&lt;p&gt;On Raspberry Pi, there is a &lt;code&gt;/boot/config.txt&lt;/code&gt; file where you can configure the &lt;code&gt;dtoverlay&lt;/code&gt; options accordingly.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; After modification, the device &lt;strong&gt;requires rebooting&lt;/strong&gt; for the changes to take effect.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;mcp2515-based-modules&#34;&gt;MCP2515 based modules&lt;/h2&gt;
+&lt;p&gt;Products:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.waveshare.com/rs485-can-hat.htm&#34;&gt;Waveshare RS485 CAN HAT for Raspberry Pi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;dtoverlay&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;mcp2515-can0,oscillator&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;12000000,interrupt&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;25,spimaxfrequency&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2000000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mcp2518fd-based-modules&#34;&gt;MCP2518FD based modules&lt;/h2&gt;
+&lt;p&gt;Products:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.waveshare.com/product/raspberry-pi/2-ch-can-fd-hat.htm&#34;&gt;Waveshare 2-Channel Isolated CAN FD Expansion HAT for Raspberry Pi, Multi Protections&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;dtoverlay&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;2xMCP2517FD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#dtoverlay=2xMCP2518FD-spi0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: KantUI</title>
       <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kantui/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
