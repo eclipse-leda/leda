@@ -25,10 +25,10 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/github/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-03-23T14:45:25+01:00" />
+<meta property="article:modified_time" content="2023-04-05T15:13:54+01:00" />
 <meta itemprop="name" content="GitHub Workflow">
 <meta itemprop="description" content="Manually creating a Release triggers the release workflow. The release workflow calls the build workflow. The build workflow indirectly depends on the sstate cache being prebuilt manually (see optimizations below) The build workflow runs a full build of the SDV-Image-All disk image for all target machines. A separate job is used for each target machine, to ensure an image build for a target machine can finish within 6 hours. Each build contains the creation of SBOM artifacts and the check for CVEs."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-03-23T14:45:25+01:00" />
+<meta itemprop="dateModified" content="2023-04-05T15:13:54+01:00" />
 <meta itemprop="wordCount" content="838">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GitHub Workflow"/>
@@ -37,8 +37,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.1d538266d1b8017aad01c24472021e40da7d96e14662ff08860c8414f5a4fa0c.css" as="style">
-<link href="/leda/scss/main.min.1d538266d1b8017aad01c24472021e40da7d96e14662ff08860c8414f5a4fa0c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.b5a9ca19aaf5dad02b8fe11dab3e681a31a3b5112db56c8859eb757994f8ea8d.css" as="style">
+<link href="/leda/scss/main.min.b5a9ca19aaf5dad02b8fe11dab3e681a31a3b5112db56c8859eb757994f8ea8d.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -72,7 +72,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.46a541aa33a9bb139fe99cda94c11b6e.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.3fdf8f6b1b41b9d3879f00b94ddd576e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -97,7 +97,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.46a541aa33a9bb139fe99cda94c11b6e.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.3fdf8f6b1b41b9d3879f00b94ddd576e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -295,10 +295,17 @@
   <input type="checkbox" id="m-ledadocsapp-deploymentdog-mode-check"/>
   <label for="m-ledadocsapp-deploymentdog-mode-check"><a href="/leda/docs/app-deployment/dog-mode/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentdog-mode"><span class="">Dog Mode</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentkuksa-databroker-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsapp-deploymentkuksa-databroker-li">
   <input type="checkbox" id="m-ledadocsapp-deploymentkuksa-databroker-check"/>
-  <label for="m-ledadocsapp-deploymentkuksa-databroker-check"><a href="/leda/docs/app-deployment/kuksa-databroker/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentkuksa-databroker"><span class="">Kuksa Databroker</span></a></label>
+  <label for="m-ledadocsapp-deploymentkuksa-databroker-check"><a href="/leda/docs/app-deployment/kuksa-databroker/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentkuksa-databroker"><span class="">VSS &amp; Kuksa.VAL</span></a></label>
   
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentkuksa-databrokercustom-vss-mappings-li">
+  <input type="checkbox" id="m-ledadocsapp-deploymentkuksa-databrokercustom-vss-mappings-check"/>
+  <label for="m-ledadocsapp-deploymentkuksa-databrokercustom-vss-mappings-check"><a href="/leda/docs/app-deployment/kuksa-databroker/custom-vss-mappings/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentkuksa-databrokercustom-vss-mappings"><span class="">Custom Vehicle Signals</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentvelocitas-li">
   <input type="checkbox" id="m-ledadocsapp-deploymentvelocitas-check"/>
   <label for="m-ledadocsapp-deploymentvelocitas-check"><a href="/leda/docs/app-deployment/velocitas/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentvelocitas"><span class="">Velocitas VApps</span></a></label>

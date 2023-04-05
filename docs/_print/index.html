@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.1d538266d1b8017aad01c24472021e40da7d96e14662ff08860c8414f5a4fa0c.css" as="style">
-<link href="/leda/scss/main.min.1d538266d1b8017aad01c24472021e40da7d96e14662ff08860c8414f5a4fa0c.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.b5a9ca19aaf5dad02b8fe11dab3e681a31a3b5112db56c8859eb757994f8ea8d.css" as="style">
+<link href="/leda/scss/main.min.b5a9ca19aaf5dad02b8fe11dab3e681a31a3b5112db56c8859eb757994f8ea8d.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.46a541aa33a9bb139fe99cda94c11b6e.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.3fdf8f6b1b41b9d3879f00b94ddd576e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -601,7 +601,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.3: <a href="#pg-3883f410544279ff57519024d0f51858">Kuksa Databroker</a></li>
+<li>4.3: <a href="#pg-3883f410544279ff57519024d0f51858">VSS &amp; Kuksa.VAL</a></li>
 
 
     
@@ -612,6 +612,25 @@ This is the multi-page printable view of this section.
   
   
 
+  
+    
+    
+	
+<li>4.3.1: <a href="#pg-dbbddc97bd5f17bd1da0e1904dfc0feb">Custom Vehicle Signals</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
   
 
     </ul>
@@ -4990,7 +5009,7 @@ When a driver enables the dog mode, the vehicle will keep the climate in a statu
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-3883f410544279ff57519024d0f51858">4.3 - Kuksa Databroker</h1>
+	<h1 id="pg-3883f410544279ff57519024d0f51858">4.3 - VSS &amp; Kuksa.VAL</h1>
     
 	<p>To generically interact with the Vehicle Signals which are managed in the Eclipse Kuksa.VAL Databroker,
 you can either use the natively installed <code>databroker-cli</code> command line tool, or use the CLI tool from an updated and released containerized image.</p>
@@ -5053,6 +5072,348 @@ you can either use the natively installed <code>databroker-cli</code> command li
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dbbddc97bd5f17bd1da0e1904dfc0feb">4.3.1 - Custom Vehicle Signals</h1>
+    
+	<p>The <a href="https://github.com/COVESA/vehicle_signal_specification">Vehicle Signal Specification</a> has a lot of standard Vehicle Signals already defined.</p>
+<p>However, if you want to add additional custom signals or mappings from CAN-Bus for the
+Kuksa.VAL <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val">dbc2val feeder</a>,
+the VSS data model needs to be customized and regenerated.</p>
+<p>The following steps can be performed on a development machine to regenerate VSS data model with custom a <em>vspec</em> mapping.</p>
+<ol>
+<li>Concepts</li>
+<li>Setup workspace</li>
+<li>Defining the VSS Overlay</li>
+<li>Regenerate VSpec JSON</li>
+<li>Generate a candump</li>
+<li>Databroker and dbc2val containers</li>
+<li>Testing with data</li>
+</ol>
+<h2 id="concepts">Concepts</h2>
+<h3 id="vss-overlay">VSS Overlay</h3>
+<p>The <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/">VSS Overlay concept</a> allows to override the
+standard signals in the specification with custom signals. It defines metadata attributes like signal name, datatype, description etc.</p>
+<p>In addition, the vspec file allows to add custom metadata, such as the <code>dbc</code> node in the following example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Vehicle.Speed</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sensor</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">datatype</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">float</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">dbc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">message</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Kombi_01</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">signal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">KBI_angez_Geschw</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">interval_ms</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>See Eclipse Kuksa documentation about <a href="https://github.com/eclipse/kuksa.val.feeders/blob/main/dbc2val/mapping/mapping.md">dbc2val mapping</a> for details.</p>
+<p>There are also ways to automatically transform the CAN-Bus signal values into VSS values:</p>
+<ul>
+<li>Mapping of literal values, such as enums and booleans</li>
+<li>Mathematical transformations</li>
+<li>Full and partial transformations</li>
+</ul>
+<h2 id="setup-workspace">Setup workspace</h2>
+<h3 id="required-tools">Required tools</h3>
+<ul>
+<li>Git</li>
+<li>Docker</li>
+<li>Python 3</li>
+<li>can-utils</li>
+<li>a YAML/JSON text editor</li>
+</ul>
+<p>Depending on your host OS, you may need to install the packages first:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install can-utils git docker python3
+</span></span></code></pre></div><h3 id="workspace-structure">Workspace structure</h3>
+<p>You need the following files in your workspace folder:</p>
+<ul>
+<li><code>./custom.dbc</code> - The vehicle-specific DBC file.
+You can use the <a href="https://github.com/joshwardell/model3dbc">Tesla Model 3 example</a>
+or check out the <a href="https://github.com/commaai/opendbc">opendbc</a> project.</li>
+<li><code>./custom.vspec</code> - The VSS overlay from the previous step</li>
+</ul>
+<h2 id="defining-the-vss-overlay">Defining the VSS Overlay</h2>
+<p>The definition of an VSS overlay is a manual process.
+It requires research, browsing the existing VSS catalog and deep knowledge of the vehicle signals.
+Especially knowing the semantic of a signal and how to map it between DBC and VSS is a complex task.</p>
+<blockquote>
+<p>Note: The Leda team is not aware of any advanced tooling to support the automation of this task.</p>
+</blockquote>
+<ol>
+<li>Create a new file <code>custom.vspec</code>. Use YAML format</li>
+<li>For each identified signal:
+<ol>
+<li>Look up if there already is a corresponding signal in VSS. You may use the <a href="https://digital.auto">Digital.Auto Playground</a> or the spec directly.</li>
+<li>Add a new top-level entry to the custom.vspec file. The key is the full VSS path name in dot notation.</li>
+<li>Add the corresponding <code>dbc</code> node</li>
+<li>Add the <code>signal</code> attribute and enter the name of the CAN-Bus signal name in the DBC</li>
+<li>Add additional attributes such as <code>interval_ms</code>, <code>message</code> or <code>transform</code>.
+<blockquote>
+<p>Note: The attributes <code>signal</code>, <code>interval_ms</code> and <code>transform</code> are evaluated by dbc2val.
+The attribute <code>message</code> is only evaluated by the below demo script and is optional.</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># CAN Message: Kombi_01</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Vehicle.Speed</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sensor</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">datatype</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">float</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">dbc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">message</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Kombi_01</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">signal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">KBI_angez_Geschw</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">interval_ms</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># CAN Message: FS_Position_01</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Vehicle.Cabin.Seat.Row1.Pos1.Position</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sensor</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">datatype</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">float</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">dbc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">message</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FS_Position_01</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">signal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FSS_Laenge_Pos</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">interval_ms</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>These two extensions will be added to the combined VSS tree:</p>
+<p><img src="vss-overlay.png" alt="VSS Overlay with custom CAN-Bus metadata"></p>
+<h3 id="regenerating-vspec">Regenerating VSpec</h3>
+<p>The script <code>vspec2json.py</code> from <a href="https://github.com/covesa/vss-tools">COVESA VSS Tools</a> can then be used to merge the overlay file with the standard specification.</p>
+<p>For Leda devices, you can use <code>kanto-cm</code> to run the tool as a container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Copy custom.dbc and custom.vspec to /home/root</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Run in /home/root</span>
+</span></span><span style="display:flex;"><span>kanto-cm create --name vspec2json --rp no --mp<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/home/root:/data&#34;</span> ghcr.io/eclipse-leda/leda-vss-vspec2json:main
+</span></span><span style="display:flex;"><span>kanto-cm start --a --i --name vspec2json
+</span></span></code></pre></div><p>For developer workstations, there is a convenient pre-built Docker container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name vspec2json --rm -v <span style="color:#4e9a06">`</span><span style="color:#204a87">pwd</span><span style="color:#4e9a06">`</span>:/data ghcr.io/eclipse-leda/leda-vss-vspec2json:main
+</span></span></code></pre></div><p>Or, if you want to run vspec2json from the sources, clone the repository and invoke it like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --recurse-submodules <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --branch v3.1 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --single-branch <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --depth <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    https://github.com/COVESA/vehicle_signal_specification
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>python3 vehicle_signal_specification/vss-tools/vspec2json.py <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    -e dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    -o custom.vspec <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --uuid <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --json-pretty <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --json-all-extended-attributes <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    ../vehicle_signal_specification/spec/VehicleSignalSpecification.vspec <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    custom_vss_dbc.json
+</span></span></code></pre></div><p>With the resulting file <code>custom_vss_dbc.json</code> and the corresponding DBC file, the dbc2val feeder can relay the signals to the databroker.
+dbc2val can either read from a CAN-Dump file (generated by <code>candump</code> from can-utils) in an endless loop, or can listen on actual virtual or physical CAN interfaces.</p>
+<p>The output should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>custom.dbc  custom.vspec
+</span></span><span style="display:flex;"><span>$ docker run --name vspec2json --rm -v <span style="color:#4e9a06">`</span><span style="color:#204a87">pwd</span><span style="color:#4e9a06">`</span>:/data ghcr.io/eclipse-leda/leda-vss-vspec2json:main
+</span></span><span style="display:flex;"><span>INFO     Output to json format
+</span></span><span style="display:flex;"><span>INFO     Known extended attributes: dbc
+</span></span><span style="display:flex;"><span>INFO     Added <span style="color:#0000cf;font-weight:bold">54</span> units from /vss/spec/units.yaml
+</span></span><span style="display:flex;"><span>INFO     Loading vspec from /vss/spec/VehicleSignalSpecification.vspec...
+</span></span><span style="display:flex;"><span>INFO     Applying VSS overlay from /data/custom.vspec...
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Vehicle
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Cabin
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Seat
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Row1
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Pos1
+</span></span><span style="display:flex;"><span>INFO     Calling exporter...
+</span></span><span style="display:flex;"><span>INFO     Generating JSON output...
+</span></span><span style="display:flex;"><span>INFO     Serializing pretty JSON...
+</span></span><span style="display:flex;"><span>INFO     All <span style="color:#204a87;font-weight:bold">done</span>.
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>custom.dbc  custom.vspec  custom_vss_dbc.json
+</span></span></code></pre></div><h2 id="databroker-container">Databroker Container</h2>
+<p>Ensure the databroker container is up and running:</p>
+<p>On developer workstation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name databroker --detach --rm -p 55555:55555/tcp ghcr.io/eclipse/kuksa.val/databroker:0.3.1
+</span></span></code></pre></div><p>On Leda device (if not already running)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm start --name databroker
+</span></span></code></pre></div><h2 id="testing-with-data">Testing with data</h2>
+<p>To see actual data, we need to use the candump or another CAN source and feed that data into the databroker.
+After that is running, we can use the databroker-cli tool to subscribe to the example VSS signals.</p>
+<h3 id="generate-a-candump">Generate a candump</h3>
+<p>To generate a candump for testing purposes, start the candump tool and listen for some packets.</p>
+<p>In the following example, the first 20 CAN frames are being recorded and the command will exit.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>candump -L -n <span style="color:#0000cf;font-weight:bold">20</span> vcan0 &gt; candump.log
+</span></span></code></pre></div><p>If you do not have an external CAN source, you may want to simulate CAN frames.
+There is a Python library for parsing DBC files, which also let&rsquo;s you encode and send the actual CAN messages.</p>
+<p>An example script could look like this:</p>
+<blockquote>
+<p>Note: Due to GPL-3 licensing, the Leda quickstart image does not contain some Python standard libraries. This script will not run on a Leda quickstart image.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>import random
+</span></span><span style="display:flex;"><span>import <span style="color:#204a87">time</span>
+</span></span><span style="display:flex;"><span>from pprint import pprint
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>import yaml
+</span></span><span style="display:flex;"><span>import cantools
+</span></span><span style="display:flex;"><span>import can
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">can_bus</span> <span style="color:#ce5c00;font-weight:bold">=</span> can.interface.Bus<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;vcan0&#39;</span>, <span style="color:#000">bustype</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;socketcan&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">db</span> <span style="color:#ce5c00;font-weight:bold">=</span> cantools.database.load_file<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;custom.dbc&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>with open<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;custom.vspec&#34;</span>, <span style="color:#4e9a06">&#34;r&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span> as stream:
+</span></span><span style="display:flex;"><span>    try:
+</span></span><span style="display:flex;"><span>        <span style="color:#000">vspec</span> <span style="color:#ce5c00;font-weight:bold">=</span> yaml.safe_load<span style="color:#ce5c00;font-weight:bold">(</span>stream<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">for</span> key in vspec:
+</span></span><span style="display:flex;"><span>            <span style="color:#000">message_name</span><span style="color:#ce5c00;font-weight:bold">=</span>vspec<span style="color:#ce5c00;font-weight:bold">[</span>key<span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;dbc&#39;</span><span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;message&#39;</span><span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">signal_name</span><span style="color:#ce5c00;font-weight:bold">=</span>vspec<span style="color:#ce5c00;font-weight:bold">[</span>key<span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;dbc&#39;</span><span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;signal&#39;</span><span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">example_message</span> <span style="color:#ce5c00;font-weight:bold">=</span> db.get_message_by_name<span style="color:#ce5c00;font-weight:bold">(</span>message_name<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Initialize an empty message</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">for</span> signal in example_message.signals:
+</span></span><span style="display:flex;"><span>                data<span style="color:#ce5c00;font-weight:bold">[</span>signal.name<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> False
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            pprint<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Message: %s&#34;</span> % example_message<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Send 10 frames with random data</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">for</span> x in range<span style="color:#ce5c00;font-weight:bold">(</span>10<span style="color:#ce5c00;font-weight:bold">)</span>:
+</span></span><span style="display:flex;"><span>                data<span style="color:#ce5c00;font-weight:bold">[</span>signal_name<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> random.uniform<span style="color:#ce5c00;font-weight:bold">(</span>0,100<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">encoded_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> example_message.encode<span style="color:#ce5c00;font-weight:bold">(</span>data<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">message</span> <span style="color:#ce5c00;font-weight:bold">=</span> can.Message<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">arbitration_id</span><span style="color:#ce5c00;font-weight:bold">=</span>example_message.frame_id, <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">=</span>encoded_data<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                pprint<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;CAN Frame: %s&#34;</span> % message<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                can_bus.send<span style="color:#ce5c00;font-weight:bold">(</span>message<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8f5902;font-style:italic"># Wait up to 1 second</span>
+</span></span><span style="display:flex;"><span>                time.sleep<span style="color:#ce5c00;font-weight:bold">(</span>random.random<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    except yaml.YAMLError as exc:
+</span></span><span style="display:flex;"><span>        print<span style="color:#ce5c00;font-weight:bold">(</span>exc<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;Message: message(&#39;Kombi_01&#39;, 0x30b, False, 8, {None: &#39;MQB&#39;})&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 b9 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 16 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 ca 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 ad 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 b0 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 79 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 1b 01&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 19 01&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 0a 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 b0 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#34;Message: message(&#39;FS_Position_01&#39;, 0x6be, False, 8, None)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    59 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    31 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    29 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    07 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    40 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    55 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    54 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    07 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    62 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    59 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="dbc2val-on-workstation">dbc2val on workstation</h3>
+<p>Get the latest sources:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/eclipse/kuksa.val.feeders
+</span></span></code></pre></div><p>Looping a CAN dump recording:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kuksa.val.feeders/dbc2val/dbcfeeder.py <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --dumpfile candump.log <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --canport vcan0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --server-type kuksa_databroker <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --dbcfile custom.dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --mapping custom_vss_dbc.json
+</span></span></code></pre></div><p>Listening on CAN interface:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># CAN must be set up up front, e.g.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># modprobe vcan</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ip link add dev vcan0 type vcan</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ip link set vcan0 up</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kuksa.val.feeders/dbc2val/dbcfeeder.py <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --canport vcan0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --use-socketcan <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --server-type kuksa_databroker <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --dbcfile /custom/custom.dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --mapping /custom/custom_vss_dbc.json
+</span></span></code></pre></div><h3 id="dbc2val-on-leda-device">dbc2val on Leda device</h3>
+<p>To run the dbc2val feeder on Leda, you can use <code>kanto-cm</code> (instead of <code>docker</code>) to create the respective containers.</p>
+<blockquote>
+<p>Note: Due to <a href="https://github.com/eclipse/kuksa.val.feeders/issues/73">Issue #73</a>,
+the container <code>ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1</code> cannot be used with SocketCAN.
+Please use a later release or build the container from the sources after fixing the bug.
+Alternatively, use the candump file instead of SocketCAN.</p>
+</blockquote>
+<ol>
+<li>
+<p>Remove any existing <code>dbc2val</code> container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm remove --force --name dbc2val
+</span></span></code></pre></div></li>
+<li>
+<p>Create the new container in Kanto Container Management:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm create <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --name dbc2val <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --mp<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/home/root:/data&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">VDB_ADDRESS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:30555&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">USECASE</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --network<span style="color:#ce5c00;font-weight:bold">=</span>host <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --privileged <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    /dist/dbcfeeder-exe <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --canport vcan0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --use-socketcan <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --usecase databroker <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --dbcfile /data/custom.dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --mapping /data/custom_vss_dbc.json
+</span></span></code></pre></div><blockquote>
+<p>Note: The <em>host networking</em> and <em>privileged</em> is used to allow the container access to the CAN sockets.</p>
+</blockquote>
+</li>
+<li>
+<p>Start the container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm start --a --i --name dbc2val
+</span></span></code></pre></div></li>
+<li>
+<p>Check the logs to verify container is running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm logs --name dbc2val
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="querying-via-cli">Querying via CLI</h3>
+<p>To be able to see the changes, you may want to use the Kuksa Databroker CLI:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm -it --network host ghcr.io/eclipse/kuksa.val/databroker-cli:0.3.1
+</span></span></code></pre></div><p>Now, depending on the way how the dbc2val feeder has been started (candump vs. socketcan), you will either already see data from the candump loop.</p>
+<p><img src="kuksa-databroker-cli.png" alt="Eclipse Kuksa.VAL Databroker CLI"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
   
 
     
