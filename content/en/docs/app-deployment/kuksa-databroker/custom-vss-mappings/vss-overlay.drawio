@@ -1,0 +1,101 @@
+<mxfile host="65bd71144e">
+    <diagram id="wpqvqMKKYdF7npbYjjFl" name="Page-1">
+        <mxGraphModel dx="1917" dy="584" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Vehicle" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="270" y="70" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Speed" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="190" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="dbc" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="310" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="signal" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="440" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="message" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="440" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="interval_ms" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="230" y="440" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;" edge="1" parent="1" source="13" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Cabin" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="190" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=none;html=1;" edge="1" parent="1" source="15" target="21">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="592.6140568947089" y="464.2229131378824" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="Position" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="390" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=none;html=1;" edge="1" parent="1" source="16" target="15">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="530.3804110295587" y="330.655366652275" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" value="Seat&lt;br&gt;..." style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="290" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;" edge="1" source="21" target="22" parent="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;html=1;" edge="1" source="21" target="23" parent="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;" edge="1" source="21" target="24" parent="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="dbc" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="490" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="signal" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="message" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="interval_ms" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="620" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="CAN-Frame:&lt;br&gt;KBI_angez_Geschw" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="-10" y="520" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="&lt;pre style=&quot;tab-size: 4;&quot; tabindex=&quot;0&quot;&gt;&lt;code style=&quot;&quot; data-lang=&quot;yaml&quot; class=&quot;language-yaml&quot;&gt;&lt;span style=&quot;display: flex;&quot;&gt;&lt;span style=&quot;color: rgb(248, 248, 248); text-decoration-line: underline;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;CAN-Frame:&lt;br&gt;FSS_Laenge_Pos&lt;/span&gt;&lt;span style=&quot;color: rgb(248, 248, 248); text-decoration-line: underline;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;background-color: rgb(248, 248, 248); color: rgb(248, 248, 248); text-decoration-line: underline;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="700" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Vehicle Signal Specification v3.1.1" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="-60" y="690" width="280" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Overlay with custom CAN-Bus metadata" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="-60" y="710" width="280" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
