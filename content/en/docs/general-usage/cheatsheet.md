@@ -21,13 +21,17 @@ This cheat sheet gives you an overview of common command line commands to intera
 | | Ethernet status | `networkctl status enp0s2` |
 | | Routing table | `route` |
 | | Active listeners | `netstat -l -n -t` |
+| | Multicast for Some/IP | `route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0` |
 | Kanto-CM | Show all containers| `kanto-cm list` |
 | | User interface | `kantui` |
 | | Service logs | `journalctl -f -l -t container-management` |
 | | Auto deployments | See `/data/var/containers/manifests/` |
 | | Development deployments | See `/data/var/containers/manifests_dev/` |
 | | Restart a container | `kanto-cm restart -n <containername>` |
-| ContainerdD | Show images | `ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls`
+| | Manage config | `sdv-kanto-ctl` |
+| | Shell in container | `sdv-ctr-exec <containerId> <command>` |
+| | Add Private Registry | `sdv-kanto-ctl add-registry -h <host> -u <user> -p <pass>`
+| ContainerD | Show images | `ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls`
 | | Import local archive | `ctr --address /data/run/containerd/containerd.sock --namespace=kanto-cm i import <docker.tar>`
 | | Prune containers | `nerdctl system prune --all`
 | Mosquitto | Show all messages | `mosquitto_sub -v -t '#' -h localhost` |
@@ -91,4 +95,19 @@ Python 3.8.16 (default, Jan 24 2023, 00:19:05)
 [GCC 10.2.1 20210110] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> quit()
+```
+
+## Raspberry Pi Overlays
+
+Edit `/boot/config.txt` and reboot:
+
+```plain
+# Disable to fix non-working standard Raspberry Pi 7" display
+# dtoverlay=vc4-kms-v3d
+
+# PiCAN 2
+# dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
+
+# Waveshare RS485 CAN Hat
+# dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000
 ```
