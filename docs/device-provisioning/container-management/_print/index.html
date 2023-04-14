@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3fdc094abd75dfc0b341db8340159732.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5075ac65ff5975463c23f098d57e3a21.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -114,6 +114,38 @@ This is the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>1: <a href="#pg-844b7c3831717c2d401e182e69383a63">Cloud Connectivity</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-8af6a88c3ac82dff1591e8ab41a3ed47">Orchestration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-62467c453efc78b88f199efe1ea215a5">Container Metrics</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-e3d715b90e152c990835e1b5fc567046">Container Registries</a></li>
+
+
+    
+  
 
     </ul>
 
@@ -125,7 +157,30 @@ This is the multi-page printable view of this section.
 <p>Kanto&rsquo;s container-management service offers a remote interface via local messaging (MQTT) to interact with a digital twin on the cloud side.
 This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;enabled&quot;: true }</code> in <code>/etc/container-management/config.toml</code>.</p>
 <p>When one of the cloud connector components, such as leda-contrib-cloud-connector or Kanto&rsquo;s azure-connector, is connected to a cloud backend, the container-management will publish its own information using Eclipse Ditto and Eclipse Hono messages. For this, container-management only needs the device Id, gateway Id and tenant Id.</p>
-<h3 id="simulation-of-cloud-connectivity">Simulation of cloud connectivity</h3>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-844b7c3831717c2d401e182e69383a63">1 - Cloud Connectivity</h1>
+    
+	<h2 id="simulation-of-cloud-connectivity">Simulation of cloud connectivity</h2>
 <ol>
 <li>Container Management starts and subscribes to <code>edge/thing/response</code></li>
 <li>Cloud Connector starts and publishes the following message to <code>edge/thing/response</code> as soon as the connection is online:</li>
@@ -170,7 +225,24 @@ This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;
 <p><strong>Note:</strong> You can simulate the cloud connector trigger by issueing the MQTT message manually on command line:</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t <span style="color:#4e9a06">&#39;edge/thing/response&#39;</span> -m <span style="color:#4e9a06">&#39;{&#34;deviceId&#34;:&#34;dummy-namespace:dummy-gateway:dummy-device-id&#34;,&#34;tenantId&#34;:&#34;dummy-tenant-id&#34;}&#39;</span>
-</span></span></code></pre></div><h3 id="container-management">Container Management</h3>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8af6a88c3ac82dff1591e8ab41a3ed47">2 - Orchestration</h1>
+    
+	<h1 id="container-management">Container Management</h1>
 <p>The container management will respond to the cloud connectivity status message by initially sending a list of containers:</p>
 <ol>
 <li>Container Management responds with a list of containers in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
@@ -331,7 +403,24 @@ This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;
 </span></span></code></pre></div>
 
 
-<h3 id="container-metrics">Container Metrics</h3>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-62467c453efc78b88f199efe1ea215a5">3 - Container Metrics</h1>
+    
+	<h3 id="container-metrics">Container Metrics</h3>
 <p>Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events.
 This is done by sending a request to the topic <code>command//&lt;namespaceId&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/req/&lt;correlationId&gt;/request</code>:</p>
 <ol>
@@ -471,17 +560,43 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
 </ol>
 
 </div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e3d715b90e152c990835e1b5fc567046">4 - Container Registries</h1>
+    
+	<p>When deploying containerized applications, the container runtime will pull container images from a (remote) container registry.</p>
+<p>The pulled container images and their layers are then stored in a local storage.</p>
+<h2 id="private-container-registries">Private Container Registries</h2>
+<p>To be able to pull container images, the container runtime needs access to the container registry.
+Some container registries require authentication.
+The Kanto Container Manager can be configured to use credentials when accessing remote container registries.</p>
+<p>In the Leda images, the <em>sdv-kanto-ctl</em> tools allows to easily add authentication to the container manager configuration:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl add-registry -h &lt;registryhostname&gt; -u &lt;your_username&gt; -p &lt;your_password&gt;
+</span></span></code></pre></div><p>For example, to access container images from GitHub Packages in a private repository, you need a GitHub Personal Access Token (PAT) with the <code>read: packages</code> scope.
+Then, add the repository as shown below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl add-registry -h ghcr.io -u github -p &lt;Your_GitHub_PersonalAccessToken&gt;
+</span></span></code></pre></div><p><em>sdv-kanto-ctl</em>  will make the necessary modifications to <code>/etc/container-management/config.json</code> and restarts the <code>container-management.service</code> systemd unit,
+so that the changes take effect. You may need to recreate or restart the container if a previous pull failed.</p>
+<p>Please see the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/">Eclipse Kanto Container Manager Configuration reference</a>
+for details.</p>
+
 </div>
 
 
-  
-  
-  
-  
 
-  
-  
-
+    
+	
   
 
 

@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3fdc094abd75dfc0b341db8340159732.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5075ac65ff5975463c23f098d57e3a21.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3fdc094abd75dfc0b341db8340159732.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5075ac65ff5975463c23f098d57e3a21.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -288,10 +288,29 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsdevice-provisioningcontainer-management-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsdevice-provisioningcontainer-management-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-management-check" checked/>
   <label for="m-ledadocsdevice-provisioningcontainer-management-check"><a href="/leda/docs/device-provisioning/container-management/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-ledadocsdevice-provisioningcontainer-management"><span class="td-sidebar-nav-active-item">Container Management</span></a></label>
   
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"><a href="/leda/docs/device-provisioning/container-management/cloud-connectivity/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity"><span class="">Cloud Connectivity</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementorchestration-check"><a href="/leda/docs/device-provisioning/container-management/orchestration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementorchestration"><span class="">Orchestration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-metrics-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-metrics-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementcontainer-metrics-check"><a href="/leda/docs/device-provisioning/container-management/container-metrics/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-metrics"><span class="">Container Metrics</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-registries-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-registries-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementcontainer-registries-check"><a href="/leda/docs/device-provisioning/container-management/container-registries/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-registries"><span class="">Container Registries</span></a></label>
+  
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsapp-deployment-li">
@@ -554,13 +573,7 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#remote-interface">Remote Interface</a>
-      <ul>
-        <li><a href="#simulation-of-cloud-connectivity">Simulation of cloud connectivity</a></li>
-        <li><a href="#container-management">Container Management</a></li>
-        <li><a href="#container-metrics">Container Metrics</a></li>
-      </ul>
-    </li>
+    <li><a href="#remote-interface">Remote Interface</a></li>
   </ul>
 </nav>
       </div>
@@ -635,350 +648,6 @@
 <p>Kanto&rsquo;s container-management service offers a remote interface via local messaging (MQTT) to interact with a digital twin on the cloud side.
 This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;enabled&quot;: true }</code> in <code>/etc/container-management/config.toml</code>.</p>
 <p>When one of the cloud connector components, such as leda-contrib-cloud-connector or Kanto&rsquo;s azure-connector, is connected to a cloud backend, the container-management will publish its own information using Eclipse Ditto and Eclipse Hono messages. For this, container-management only needs the device Id, gateway Id and tenant Id.</p>
-<h3 id="simulation-of-cloud-connectivity">Simulation of cloud connectivity</h3>
-<ol>
-<li>Container Management starts and subscribes to <code>edge/thing/response</code></li>
-<li>Cloud Connector starts and publishes the following message to <code>edge/thing/response</code> as soon as the connection is online:</li>
-</ol>
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;deviceId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;&lt;namespace&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;tenantId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;&lt;tenantId&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div>
-
-
-<ul>
-<li><code>namespace</code> is <code>azure.edge</code> for Kanto&rsquo;s Azure Cloud Connector</li>
-<li><code>gatewayId</code> indicates the hostname of the Azure IoT Hub</li>
-<li><code>deviceId</code> is the identifier for the device, this can either be part of the Azure Connection String or part of the device authentication certificate (CN)</li>
-<li><code>tenantId</code> is a configuration setting in the cloud connector</li>
-</ul>
-<blockquote>
-<p><strong>Note:</strong> You can simulate the cloud connector trigger by issueing the MQTT message manually on command line:</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t <span style="color:#4e9a06">&#39;edge/thing/response&#39;</span> -m <span style="color:#4e9a06">&#39;{&#34;deviceId&#34;:&#34;dummy-namespace:dummy-gateway:dummy-device-id&#34;,&#34;tenantId&#34;:&#34;dummy-tenant-id&#34;}&#39;</span>
-</span></span></code></pre></div><h3 id="container-management">Container Management</h3>
-<p>The container management will respond to the cloud connectivity status message by initially sending a list of containers:</p>
-<ol>
-<li>Container Management responds with a list of containers in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
-</ol>
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/SoftwareUpdatable&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;definition&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;org.eclipse.hawkbit.swupdatable:SoftwareUpdatable:2.0.0&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;properties&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;softwareModuleType&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;oci:container&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;installedDependencies&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse%2Fkuksa.val%2Fdatabroker.&lt;uuid&gt;:0.2.5&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val/databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;0.2.5&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse%2Fkuksa.val.services%2Fseat_service.&lt;uuid&gt;:v0.1.0&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/seat_service&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.1.0&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-cloud-connector%2Fcloudconnector.&lt;uuid&gt;:latest&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;latest&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-self-update-agent%2Fself-update-agent.&lt;uuid&gt;:build-20&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;build-20&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-vehicle-update-manager%2Fvehicleupdatemanager.&lt;uuid&gt;:latest&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;latest&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div>
-
-
-<ol start="2">
-<li>Container Management answers with an additional message for each container in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
-</ol>
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/Container:&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;definition&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;com.bosch.iot.suite.edge.containers:Container:1.5.0&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;properties&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;imageRef&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;domainName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-domain&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;hostName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-host&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;BROKER_ADDR=databroker-host:30555&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;vehicle_data_broker=info&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;restartPolicy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UNLESS_STOPPED&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;extraHosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;databroker-host:host_ip&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;portMappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;proto&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPortEnd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;containerPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50051</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostIP&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;networkMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BRIDGE&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;JSON_FILE&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxFiles&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxSize&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BLOCKING&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;createdAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T08:46:33.792687313Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">13627</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;startedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:51:08.049572297Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;finishedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:50:51.752255799Z&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>    
-</span></span></code></pre></div>
-
-
-<h3 id="container-metrics">Container Metrics</h3>
-<p>Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events.
-This is done by sending a request to the topic <code>command//&lt;namespaceId&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/req/&lt;correlationId&gt;/request</code>:</p>
-<ol>
-<li>Enable Container Metrics with a frequency of <code>5s</code>:</li>
-</ol>
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;10&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;content-type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;application/json&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;correlation-id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/Metrics/inbox/messages/request&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;frequency&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;5s&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
-
-
-<p>Example command line:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m <span style="color:#4e9a06">&#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;5s&#34;}}&#39;</span>
-</span></span></code></pre></div><ol start="2">
-<li>Container Metrics answers with an additional message for each container in the topic <code>e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers</code></li>
-</ol>
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
-
-  <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;topic&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;headers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;response-required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/features/Container:&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;definition&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;com.bosch.iot.suite.edge.containers:Container:1.5.0&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;properties&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;imageRef&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;domainName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-domain&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;hostName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatservice-example-host&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=databroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;BROKER_ADDR=databroker-host:30555&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;vehicle_data_broker=info&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;restartPolicy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UNLESS_STOPPED&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;extraHosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#4e9a06">&#34;databroker-host:host_ip&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;portMappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;proto&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostPortEnd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30051</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;containerPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50051</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">&#34;hostIP&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;networkMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BRIDGE&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;JSON_FILE&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxFiles&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;maxSize&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BLOCKING&#34;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;createdAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T08:46:33.792687313Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">13627</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;startedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:51:08.049572297Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;finishedAt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2023-02-02T09:50:51.752255799Z&#34;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>    
-</span></span></code></pre></div>
-
-
-<ol start="3">
-<li>
-<p>To disable Container Metrics, send a request with frequency of <code>0s</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m <span style="color:#4e9a06">&#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;0s&#34;}}&#39;</span>
-</span></span></code></pre></div></li>
-</ol>
 
         <div class="section-index">
     
@@ -989,6 +658,40 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
     
     
     
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/leda/docs/device-provisioning/container-management/cloud-connectivity/">Cloud Connectivity</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/leda/docs/device-provisioning/container-management/orchestration/">Orchestration</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/leda/docs/device-provisioning/container-management/container-metrics/">Container Metrics</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/leda/docs/device-provisioning/container-management/container-registries/">Container Registries</a>
+                </h5>
+                <p></p>
+            </div>
+        
     
 </div>
 

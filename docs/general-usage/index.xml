@@ -615,6 +615,11 @@ For details, please see &lt;a href=&#34;https://github.com/eclipse-leda/leda-uti
 &lt;td&gt;&lt;code&gt;netstat -l -n -t&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Multicast for Some/IP&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;Kanto-CM&lt;/td&gt;
 &lt;td&gt;Show all containers&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;kanto-cm list&lt;/code&gt;&lt;/td&gt;
@@ -645,7 +650,22 @@ For details, please see &lt;a href=&#34;https://github.com/eclipse-leda/leda-uti
 &lt;td&gt;&lt;code&gt;kanto-cm restart -n &amp;lt;containername&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;ContainerdD&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Manage config&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sdv-kanto-ctl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Shell in container&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sdv-ctr-exec &amp;lt;containerId&amp;gt; &amp;lt;command&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Add Private Registry&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sdv-kanto-ctl add-registry -h &amp;lt;host&amp;gt; -u &amp;lt;user&amp;gt; -p &amp;lt;pass&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ContainerD&lt;/td&gt;
 &lt;td&gt;Show images&lt;/td&gt;
 &lt;td&gt;&lt;code&gt;ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -731,6 +751,16 @@ If it&amp;rsquo;s not a background service, but a cli tool, adding the &lt;code&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;GCC 10.2.1 20210110&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; on linux
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Type &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;copyright&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;credits&amp;#34;&lt;/span&gt; or &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;license&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; more information.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt; quit&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;raspberry-pi-overlays&#34;&gt;Raspberry Pi Overlays&lt;/h2&gt;
+&lt;p&gt;Edit &lt;code&gt;/boot/config.txt&lt;/code&gt; and reboot:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Disable to fix non-working standard Raspberry Pi 7&amp;#34; display
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# dtoverlay=vc4-kms-v3d
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# PiCAN 2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Waveshare RS485 CAN Hat
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>

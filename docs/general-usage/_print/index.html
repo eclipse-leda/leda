@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3fdc094abd75dfc0b341db8340159732.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5075ac65ff5975463c23f098d57e3a21.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -1863,6 +1863,11 @@ This is especially useful for non-service-containers, or containers which have a
 <td><code>netstat -l -n -t</code></td>
 </tr>
 <tr>
+<td></td>
+<td>Multicast for Some/IP</td>
+<td><code>route add -net 224.0.0.0 netmask 240.0.0.0 dev eth0</code></td>
+</tr>
+<tr>
 <td>Kanto-CM</td>
 <td>Show all containers</td>
 <td><code>kanto-cm list</code></td>
@@ -1893,7 +1898,22 @@ This is especially useful for non-service-containers, or containers which have a
 <td><code>kanto-cm restart -n &lt;containername&gt;</code></td>
 </tr>
 <tr>
-<td>ContainerdD</td>
+<td></td>
+<td>Manage config</td>
+<td><code>sdv-kanto-ctl</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Shell in container</td>
+<td><code>sdv-ctr-exec &lt;containerId&gt; &lt;command&gt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Add Private Registry</td>
+<td><code>sdv-kanto-ctl add-registry -h &lt;host&gt; -u &lt;user&gt; -p &lt;pass&gt;</code></td>
+</tr>
+<tr>
+<td>ContainerD</td>
 <td>Show images</td>
 <td><code>ctr --address /data/run/containerd/containerd/containerd.sock --namespace=kanto-cm i ls</code></td>
 </tr>
@@ -1979,6 +1999,16 @@ If it&rsquo;s not a background service, but a cli tool, adding the <code>--t --i
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>GCC 10.2.1 20210110<span style="color:#ce5c00;font-weight:bold">]</span> on linux
 </span></span><span style="display:flex;"><span>Type <span style="color:#4e9a06">&#34;help&#34;</span>, <span style="color:#4e9a06">&#34;copyright&#34;</span>, <span style="color:#4e9a06">&#34;credits&#34;</span> or <span style="color:#4e9a06">&#34;license&#34;</span> <span style="color:#204a87;font-weight:bold">for</span> more information.
 </span></span><span style="display:flex;"><span>&gt;&gt;&gt; quit<span style="color:#ce5c00;font-weight:bold">()</span>
+</span></span></code></pre></div><h2 id="raspberry-pi-overlays">Raspberry Pi Overlays</h2>
+<p>Edit <code>/boot/config.txt</code> and reboot:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span># Disable to fix non-working standard Raspberry Pi 7&#34; display
+</span></span><span style="display:flex;"><span># dtoverlay=vc4-kms-v3d
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># PiCAN 2
+</span></span><span style="display:flex;"><span># dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Waveshare RS485 CAN Hat
+</span></span><span style="display:flex;"><span># dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000
 </span></span></code></pre></div>
 </div>
 
