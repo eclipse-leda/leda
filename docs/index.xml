@@ -15,6 +15,142 @@
     
     
     <item>
+      <title>Docs: Milestone 0.1.0-M1</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/releases/0.1.0/leda-0.1.0-m1/</link>
+      <pubDate>Wed, 12 Apr 2023 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/releases/0.1.0/leda-0.1.0-m1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Release artifacts: &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M1&#34;&gt;https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M1&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Artifact&lt;/th&gt;
+&lt;th&gt;Download&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Size&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Leda Raspberry Pi 4&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-raspberrypi.tar.xz&#34;&gt;eclipse-leda-raspberrypi.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;578 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Leda QEMU ARM64&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-qemu-arm64.tar.xz&#34;&gt;eclipse-leda-qemu-arm64.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;381 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Leda QEMU x86_64&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-qemu-x86_64.tar.xz&#34;&gt;eclipse-leda-qemu-x86_64.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;465 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: You need to uncompress &lt;em&gt;eclipse-leda-raspberrypi.tar.xz&lt;/em&gt; multiple times until the plain &lt;em&gt;.wic&lt;/em&gt; file is extracted, which can be flashed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;After download, continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/&#34;&gt;Getting Started&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;release-notes&#34;&gt;Release Notes&lt;/h2&gt;
+&lt;p&gt;First pre-release of Eclipse Leda quickstart images, based on &lt;a href=&#34;https://wiki.yoctoproject.org/wiki/Releases&#34;&gt;Yocto LTS release&lt;/a&gt;
+Kirkstone with Long Term Support until at least April 2024.&lt;/p&gt;
+&lt;p&gt;Minimal feature set to run software-defined-vehicle applications (such as Eclipse Velocitas apps) using COVESA Vehicle Signal Specification
+and the Eclipse Kuksa.VAL Databroker on virtual devices (QEMU), in Docker,
+or on physical consumer-grade devices (Raspberry Pi 4 64-Bit) for development, demonstration and prototyping purposes.&lt;/p&gt;
+&lt;p&gt;Includes example applications from Kuksa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Example Seat Service&lt;/li&gt;
+&lt;li&gt;Example HVAC Service&lt;/li&gt;
+&lt;li&gt;DBC Feeder replays a Tesla Model 3 CAN-Dump and feeds it into Kuksa.VAL Databroker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;change-log&#34;&gt;Change log&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Replaced k3s with &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto Container Management&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Replaced packages licensed under GPLv3 and similar licenses with alternatives
+&lt;ul&gt;
+&lt;li&gt;Replaced Grub with U-Boot&lt;/li&gt;
+&lt;li&gt;Replaced &lt;code&gt;nano&lt;/code&gt; with &lt;code&gt;kibi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Removed &lt;code&gt;readline&lt;/code&gt; library&lt;/li&gt;
+&lt;li&gt;Removed &lt;code&gt;bash&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;RAUC Updates
+&lt;ul&gt;
+&lt;li&gt;Bundles available for each image type (Full, Minimal, Rescue)&lt;/li&gt;
+&lt;li&gt;Enabled verity format by default&lt;/li&gt;
+&lt;li&gt;Fixed the &lt;code&gt;compatible&lt;/code&gt; configuration string&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Added and updated &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils&#34;&gt;Leda utilities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Build infrastructure improvements
+&lt;ul&gt;
+&lt;li&gt;Builds for Dockerized images&lt;/li&gt;
+&lt;li&gt;Switched to a BitBake build using &lt;a href=&#34;https://kas.readthedocs.io/&#34;&gt;kas&lt;/a&gt; for layer management&lt;/li&gt;
+&lt;li&gt;Added automated system tests using Robot framework and Dockerized environments&lt;/li&gt;
+&lt;li&gt;General cleanup of recipes, dependencies and structuring of the meta-leda sublayers to improve reusability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Automatic deployment of containers based on container manifests with ad-hoc updates (filewatcher in kanto-auto-deployer)&lt;/li&gt;
+&lt;li&gt;Preparation for AirGap installation of containers&lt;/li&gt;
+&lt;li&gt;General improvements, such as Wifi network management&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;known-issues&#34;&gt;Known Issues&lt;/h3&gt;
+&lt;p&gt;The following issues were known to the development team before starting the 0.1.0-M1 build cycle.
+They have been prioritized as non-critical and may be fixed for later releases.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/64&#34;&gt;RAUC can not install in stream-mode on Raspberry Pi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/71&#34;&gt;sdv-motd is confused by wlan interfaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/59&#34;&gt;growdisk on RPi4 with sfdisk instead of parted (signaling kernel)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/63&#34;&gt;Partition sizes are not multiple of 4096 byte for Rauc block-hash-index&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/56&#34;&gt;sdv-provision produces an empty Device ID&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/34&#34;&gt;Missing/Outdated Kuksa databroker-cli&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/26&#34;&gt;sdv-image-minimal missing SDV edge components&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/18&#34;&gt;Home/End key navigation does not work with putty&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;oss-ip-compliance-report&#34;&gt;OSS IP Compliance Report&lt;/h3&gt;
+&lt;p&gt;Report &lt;a href=&#34;../scan-report-web-app_0.1.0-M1.html&#34;&gt;scan-report-web-app_0.1.0-M1.html&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;biosl-4.0&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy A9 License with no classification&lt;/li&gt;
+&lt;li&gt;Message: The license LicenseRef-scancode-biosl-4.0 found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is not categorized and / or evaluated for usage.&lt;/li&gt;
+&lt;li&gt;Evaluation: This license seems to be detected incorrectly by the tool being used, as it is an internal, proprietary license which is &lt;strong&gt;not&lt;/strong&gt; used in the Eclipse Leda project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;GPL-1.0&amp;rdquo; for ORT configuration file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy C1 Strict Copyleft&lt;/li&gt;
+&lt;li&gt;Message: License GPL-1.0-only found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.&lt;/li&gt;
+&lt;li&gt;Evaluation: The scan tool incorrectly detects its own configuration file (&lt;code&gt;.ort.original.yml&lt;/code&gt;) as being licensed under GPL-v1.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;GPL-2.0-only&amp;rdquo; for standard Leda license header (which is Apache Software License)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy C1 Strict Copyleft&lt;/li&gt;
+&lt;li&gt;Message: License GPL-2.0-only found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.&lt;/li&gt;
+&lt;li&gt;Evaluation: The scan tool incorrectly detects the Apache License header as GPL-2.0 license text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;proprietary&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy C3 Commercial&lt;/li&gt;
+&lt;li&gt;Message: License LicenseRef-scancode-proprietary-license found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is categorized as commercial and requires special handling.&lt;/li&gt;
+&lt;li&gt;Evaluation: The scan tool incorrectly detects its own configuration file (&lt;code&gt;.ort.original.yml&lt;/code&gt;) as being licensed under proprietary licenses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Communicating with Кanto-CM via gRPC</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
@@ -3042,6 +3178,53 @@ If it&amp;rsquo;s not a background service, but a cli tool, adding the &lt;code&
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Release Plan 0.1.0</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/releases/0.1.0/leda-0.1.0-plan/</link>
+      <pubDate>Wed, 12 Apr 2023 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/releases/0.1.0/leda-0.1.0-plan/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The release plan is available at &lt;a href=&#34;https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0&#34;&gt;https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;release-date&#34;&gt;Release Date&lt;/h2&gt;
+&lt;p&gt;Thursday, June 1, 2023&lt;/p&gt;
+&lt;h2 id=&#34;deliverables&#34;&gt;Deliverables&lt;/h2&gt;
+&lt;p&gt;The team plans to deliver the following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Leda Quickstart Images for Qemu (x86_64, arm64), Raspberry Pi and Docker&lt;/li&gt;
+&lt;li&gt;Yocto / OpenEmbedded meta-layer for better reusability of the Eclipse SDV Vehicle.Edge stack in customized distributions for constrained devices&lt;/li&gt;
+&lt;li&gt;User documentation (Reference, Example Use Cases)&lt;/li&gt;
+&lt;li&gt;Automated system tests using Robot Framework&lt;/li&gt;
+&lt;li&gt;IP scanning with Eclipse Oniro Compliance Toolchain&lt;/li&gt;
+&lt;li&gt;Pre-Integrated Eclipse SDV Vehicle.Edge stack&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The core SDV.EDGE stack in Leda would contain the following components for the first release (based upon availability):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eclipse Kuksa.VAL: Data Broker&lt;/li&gt;
+&lt;li&gt;Eclipse Kanto: Container Management, Vehicle Update Manager&lt;/li&gt;
+&lt;li&gt;Eclipse Leda Incubator: Cloud Connector (Azure), Self Update Agent, Utilities (e.g kantui)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following components are not yet released in public or did not yet finished the project review, and may only be added to the release on shorter notice:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(Eclipse Backend-Function-Bindings)&lt;/li&gt;
+&lt;li&gt;(Eclipse SommR)&lt;/li&gt;
+&lt;li&gt;(OTA Client)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h2&gt;
+&lt;p&gt;Compatibility to previous versions is not considered for this first release.&lt;/p&gt;
+&lt;h2 id=&#34;internationalization&#34;&gt;Internationalization&lt;/h2&gt;
+&lt;p&gt;No efforts towards i18n are done in this release.&lt;/p&gt;
+&lt;h2 id=&#34;target-environments&#34;&gt;Target Environments&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux (virtual, qemu)&lt;/li&gt;
+&lt;li&gt;Raspberry Pi 4 (consumer grade)&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>

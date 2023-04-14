@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.3fdf8f6b1b41b9d3879f00b94ddd576e.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.3fdc094abd75dfc0b341db8340159732.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -159,6 +159,41 @@ This is the multi-page printable view of this section.
 <li>1.4: <a href="#pg-23c7f5c8a374f51bc942b91cd93c903c">Architecture</a></li>
 
 
+    
+  
+    
+    
+	
+<li>1.5: <a href="#pg-5f663b0ae554154f4cd22f5884df1f2f">Releases</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.5.1: <a href="#pg-74f98b56e11d811e5b240ff6c0e98590">Milestone 0.1.0-M1</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.5.2: <a href="#pg-a3790026b95a41126b9d06cb33447e08">Release Plan 0.1.0</a></li>
+
+
+    
+  
+
+    </ul>
     
   
 
@@ -1525,6 +1560,229 @@ terms of the Apache License 2.0 which is available at
     
 	
   
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5f663b0ae554154f4cd22f5884df1f2f">1.5 - Releases</h1>
+    
+	<p>The Eclipse Leda project follows the Eclipse Release process.
+Please see <a href="https://www.eclipse.org/projects/handbook/#release">Eclipse Project handbook</a> for details about the process.</p>
+<p>The release plans overview for Eclipse Leda is available at <a href="https://projects.eclipse.org/projects/automotive.leda/governance">https://projects.eclipse.org/projects/automotive.leda/governance</a></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-74f98b56e11d811e5b240ff6c0e98590">1.5.1 - Milestone 0.1.0-M1</h1>
+    
+	<p>Release artifacts: <a href="https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M1">https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M1</a></p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Download</th>
+<th style="text-align:right">Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leda Raspberry Pi 4</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-raspberrypi.tar.xz">eclipse-leda-raspberrypi.tar.xz</a></td>
+<td style="text-align:right">578 MB</td>
+</tr>
+<tr>
+<td>Leda QEMU ARM64</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-qemu-arm64.tar.xz">eclipse-leda-qemu-arm64.tar.xz</a></td>
+<td style="text-align:right">381 MB</td>
+</tr>
+<tr>
+<td>Leda QEMU x86_64</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-qemu-x86_64.tar.xz">eclipse-leda-qemu-x86_64.tar.xz</a></td>
+<td style="text-align:right">465 MB</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: You need to uncompress <em>eclipse-leda-raspberrypi.tar.xz</em> multiple times until the plain <em>.wic</em> file is extracted, which can be flashed.</p>
+</blockquote>
+<p>After download, continue with <a href="/leda/docs/general-usage/">Getting Started</a></p>
+<h2 id="release-notes">Release Notes</h2>
+<p>First pre-release of Eclipse Leda quickstart images, based on <a href="https://wiki.yoctoproject.org/wiki/Releases">Yocto LTS release</a>
+Kirkstone with Long Term Support until at least April 2024.</p>
+<p>Minimal feature set to run software-defined-vehicle applications (such as Eclipse Velocitas apps) using COVESA Vehicle Signal Specification
+and the Eclipse Kuksa.VAL Databroker on virtual devices (QEMU), in Docker,
+or on physical consumer-grade devices (Raspberry Pi 4 64-Bit) for development, demonstration and prototyping purposes.</p>
+<p>Includes example applications from Kuksa:</p>
+<ul>
+<li>Example Seat Service</li>
+<li>Example HVAC Service</li>
+<li>DBC Feeder replays a Tesla Model 3 CAN-Dump and feeds it into Kuksa.VAL Databroker</li>
+</ul>
+<h3 id="change-log">Change log</h3>
+<ul>
+<li>Replaced k3s with <a href="https://github.com/eclipse-kanto/">Eclipse Kanto Container Management</a></li>
+<li>Replaced packages licensed under GPLv3 and similar licenses with alternatives
+<ul>
+<li>Replaced Grub with U-Boot</li>
+<li>Replaced <code>nano</code> with <code>kibi</code></li>
+<li>Removed <code>readline</code> library</li>
+<li>Removed <code>bash</code></li>
+</ul>
+</li>
+<li>RAUC Updates
+<ul>
+<li>Bundles available for each image type (Full, Minimal, Rescue)</li>
+<li>Enabled verity format by default</li>
+<li>Fixed the <code>compatible</code> configuration string</li>
+</ul>
+</li>
+<li>Added and updated <a href="https://github.com/eclipse-leda/leda-utils">Leda utilities</a></li>
+<li>Build infrastructure improvements
+<ul>
+<li>Builds for Dockerized images</li>
+<li>Switched to a BitBake build using <a href="https://kas.readthedocs.io/">kas</a> for layer management</li>
+<li>Added automated system tests using Robot framework and Dockerized environments</li>
+<li>General cleanup of recipes, dependencies and structuring of the meta-leda sublayers to improve reusability</li>
+</ul>
+</li>
+<li>Automatic deployment of containers based on container manifests with ad-hoc updates (filewatcher in kanto-auto-deployer)</li>
+<li>Preparation for AirGap installation of containers</li>
+<li>General improvements, such as Wifi network management</li>
+</ul>
+<h3 id="known-issues">Known Issues</h3>
+<p>The following issues were known to the development team before starting the 0.1.0-M1 build cycle.
+They have been prioritized as non-critical and may be fixed for later releases.</p>
+<ul>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/64">RAUC can not install in stream-mode on Raspberry Pi</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/71">sdv-motd is confused by wlan interfaces</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/59">growdisk on RPi4 with sfdisk instead of parted (signaling kernel)</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/63">Partition sizes are not multiple of 4096 byte for Rauc block-hash-index</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/56">sdv-provision produces an empty Device ID</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/34">Missing/Outdated Kuksa databroker-cli</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/26">sdv-image-minimal missing SDV edge components</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/18">Home/End key navigation does not work with putty</a></li>
+</ul>
+<h3 id="oss-ip-compliance-report">OSS IP Compliance Report</h3>
+<p>Report <a href="../scan-report-web-app_0.1.0-M1.html">scan-report-web-app_0.1.0-M1.html</a></p>
+<ol>
+<li>
+<p>Incorrectly detected license &ldquo;biosl-4.0&rdquo;</p>
+<ul>
+<li>Rule: OCaaS Policy A9 License with no classification</li>
+<li>Message: The license LicenseRef-scancode-biosl-4.0 found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is not categorized and / or evaluated for usage.</li>
+<li>Evaluation: This license seems to be detected incorrectly by the tool being used, as it is an internal, proprietary license which is <strong>not</strong> used in the Eclipse Leda project.</li>
+</ul>
+</li>
+<li>
+<p>Incorrectly detected license &ldquo;GPL-1.0&rdquo; for ORT configuration file</p>
+<ul>
+<li>Rule: OCaaS Policy C1 Strict Copyleft</li>
+<li>Message: License GPL-1.0-only found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.</li>
+<li>Evaluation: The scan tool incorrectly detects its own configuration file (<code>.ort.original.yml</code>) as being licensed under GPL-v1.0</li>
+</ul>
+</li>
+<li>
+<p>Incorrectly detected license &ldquo;GPL-2.0-only&rdquo; for standard Leda license header (which is Apache Software License)</p>
+<ul>
+<li>Rule: OCaaS Policy C1 Strict Copyleft</li>
+<li>Message: License GPL-2.0-only found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.</li>
+<li>Evaluation: The scan tool incorrectly detects the Apache License header as GPL-2.0 license text</li>
+</ul>
+</li>
+<li>
+<p>Incorrectly detected license &ldquo;proprietary&rdquo;</p>
+<ul>
+<li>Rule: OCaaS Policy C3 Commercial</li>
+<li>Message: License LicenseRef-scancode-proprietary-license found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is categorized as commercial and requires special handling.</li>
+<li>Evaluation: The scan tool incorrectly detects its own configuration file (<code>.ort.original.yml</code>) as being licensed under proprietary licenses.</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a3790026b95a41126b9d06cb33447e08">1.5.2 - Release Plan 0.1.0</h1>
+    
+	<p>The release plan is available at <a href="https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0">https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0</a></p>
+<h2 id="release-date">Release Date</h2>
+<p>Thursday, June 1, 2023</p>
+<h2 id="deliverables">Deliverables</h2>
+<p>The team plans to deliver the following features:</p>
+<ul>
+<li>Leda Quickstart Images for Qemu (x86_64, arm64), Raspberry Pi and Docker</li>
+<li>Yocto / OpenEmbedded meta-layer for better reusability of the Eclipse SDV Vehicle.Edge stack in customized distributions for constrained devices</li>
+<li>User documentation (Reference, Example Use Cases)</li>
+<li>Automated system tests using Robot Framework</li>
+<li>IP scanning with Eclipse Oniro Compliance Toolchain</li>
+<li>Pre-Integrated Eclipse SDV Vehicle.Edge stack</li>
+</ul>
+<p>The core SDV.EDGE stack in Leda would contain the following components for the first release (based upon availability):</p>
+<ul>
+<li>Eclipse Kuksa.VAL: Data Broker</li>
+<li>Eclipse Kanto: Container Management, Vehicle Update Manager</li>
+<li>Eclipse Leda Incubator: Cloud Connector (Azure), Self Update Agent, Utilities (e.g kantui)</li>
+</ul>
+<p>The following components are not yet released in public or did not yet finished the project review, and may only be added to the release on shorter notice:</p>
+<ul>
+<li>(Eclipse Backend-Function-Bindings)</li>
+<li>(Eclipse SommR)</li>
+<li>(OTA Client)</li>
+</ul>
+<h2 id="compatibility">Compatibility</h2>
+<p>Compatibility to previous versions is not considered for this first release.</p>
+<h2 id="internationalization">Internationalization</h2>
+<p>No efforts towards i18n are done in this release.</p>
+<h2 id="target-environments">Target Environments</h2>
+<ul>
+<li>Linux (virtual, qemu)</li>
+<li>Raspberry Pi 4 (consumer grade)</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
 
     
 	
@@ -1576,9 +1834,16 @@ terms of the Apache License 2.0 which is available at
     
 	<h1 id="pg-1824dab7ca07fa41d55e9aa4fbba8522">2.1 - Download latest release</h1>
     
-	<p>Go to the <a href="https://github.com/eclipse-leda/leda-distro/releases">Eclipse Leda Releases</a> page and download the disk image for the respective machine and the respective Linux kernel:</p>
-<h1 id="latest-release-artifacts">Latest Release Artifacts</h1>
-<p><strong>Note: There are no official releases yet. The artifacts available on the Release page are for testing the build and release workflows and should be considered as unstable nightly builds from the main branch.</strong></p>
+	<ul>
+<li><a href="/leda/docs/about/releases/0.1.0/leda-0.1.0-m1/">Milestone 0.1.0-M1</a></li>
+</ul>
+<h2 id="latest-release-artifacts">Latest Release Artifacts</h2>
+<p><strong>Note: There are no official releases yet.
+The artifacts available on the Release page are for testing the build and release workflows.
+They should be considered as unstable nightly builds from the main branch.
+Releases marked <code>-M1</code>, <code>-M2</code>, <code>-RC1</code> etc. are preparations for official releases according to the Eclipse Release process.</strong></p>
+<p>Go to the <a href="https://github.com/eclipse-leda/leda-distro/releases">Eclipse Leda Releases</a> page and download the release archive for the respective machine.
+The release archives container the disk image and the respective Linux kernel:</p>
 <table>
 <thead>
 <tr>
@@ -1605,33 +1870,35 @@ terms of the Apache License 2.0 which is available at
 </tr>
 </tbody>
 </table>
-<h1 id="using-github-cli-tool">Using GitHub CLI tool</h1>
+<h2 id="using-github-cli-tool">Using GitHub CLI tool</h2>
 <p>To download all files of the latest release using the GitHub CLI:</p>
 <ul>
-<li>Install <a href="https://github.com/cli/cli">GitHub CLI</a>, e.g. for Ubuntu:</li>
-</ul>
-<pre tabindex="0"><code>curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo &#34;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&#34; | sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null
-sudo apt update
-sudo apt install gh
-</code></pre><ul>
-<li>Authenticate to GitHub:</li>
-</ul>
-<pre tabindex="0"><code>gh auth login
-</code></pre><ul>
-<li>Download Leda latest release:</li>
-</ul>
+<li>
+<p>Install <a href="https://github.com/cli/cli">GitHub CLI</a>, e.g. for Ubuntu:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg <span style="color:#000;font-weight:bold">|</span> sudo dd <span style="color:#000">of</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/share/keyrings/githubcli-archive-keyring.gpg
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;deb [arch=</span><span style="color:#204a87;font-weight:bold">$(</span>dpkg --print-architecture<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06"> signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&#34;</span> <span style="color:#000;font-weight:bold">|</span> sudo tee /etc/apt/sources.list.d/github-cli.list &gt; /dev/null
+</span></span><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install gh
+</span></span></code></pre></div></li>
+<li>
+<p>Authenticate to GitHub:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gh auth login
+</span></span></code></pre></div></li>
+<li>
+<p>Download Leda latest release:</p>
 <p>On Linux:</p>
-<pre tabindex="0"><code>mkdir leda &amp;&amp; cd leda
-
-gh release download \
-  --pattern &#39;*.zip&#39; \
-  --pattern &#39;eclipse-leda-*&#39; \
-  --repo eclipse-leda/leda-distro
-</code></pre><p>On Windows:</p>
-<pre tabindex="0"><code>gh release download --pattern &#34;*.zip&#34; --pattern &#34;eclipse-leda-*&#34; --repo eclipse-leda/leda-distro
-</code></pre><ul>
-<li>Continue with <a href="/leda/docs/general-usage/running-qemu/">Running Eclipse Leda on QEMU</a> or <a href="/leda/docs/general-usage/raspberry-pi/">Running Eclipse Leda on Raspberry Pi 4</a></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir leda <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">cd</span> leda
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gh release download <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  --pattern <span style="color:#4e9a06">&#39;*.zip&#39;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  --pattern <span style="color:#4e9a06">&#39;eclipse-leda-*&#39;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>  --repo eclipse-leda/leda-distro
+</span></span></code></pre></div><p>On Windows:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gh release download --pattern <span style="color:#4e9a06">&#34;*.zip&#34;</span> --pattern <span style="color:#4e9a06">&#34;eclipse-leda-*&#34;</span> --repo eclipse-leda/leda-distro
+</span></span></code></pre></div></li>
+<li>
+<p>Continue with <a href="/leda/docs/general-usage/running-qemu/">Running Eclipse Leda on QEMU</a> or <a href="/leda/docs/general-usage/raspberry-pi/">Running Eclipse Leda on Raspberry Pi 4</a></p>
+</li>
 </ul>
 
 </div>

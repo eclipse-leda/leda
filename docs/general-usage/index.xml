@@ -23,9 +23,16 @@
       <description>
         
         
-        &lt;p&gt;Go to the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases&#34;&gt;Eclipse Leda Releases&lt;/a&gt; page and download the disk image for the respective machine and the respective Linux kernel:&lt;/p&gt;
-&lt;h1 id=&#34;latest-release-artifacts&#34;&gt;Latest Release Artifacts&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;Note: There are no official releases yet. The artifacts available on the Release page are for testing the build and release workflows and should be considered as unstable nightly builds from the main branch.&lt;/strong&gt;&lt;/p&gt;
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/about/releases/0.1.0/leda-0.1.0-m1/&#34;&gt;Milestone 0.1.0-M1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;latest-release-artifacts&#34;&gt;Latest Release Artifacts&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Note: There are no official releases yet.
+The artifacts available on the Release page are for testing the build and release workflows.
+They should be considered as unstable nightly builds from the main branch.
+Releases marked &lt;code&gt;-M1&lt;/code&gt;, &lt;code&gt;-M2&lt;/code&gt;, &lt;code&gt;-RC1&lt;/code&gt; etc. are preparations for official releases according to the Eclipse Release process.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Go to the &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases&#34;&gt;Eclipse Leda Releases&lt;/a&gt; page and download the release archive for the respective machine.
+The release archives container the disk image and the respective Linux kernel:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -52,33 +59,35 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;using-github-cli-tool&#34;&gt;Using GitHub CLI tool&lt;/h1&gt;
+&lt;h2 id=&#34;using-github-cli-tool&#34;&gt;Using GitHub CLI tool&lt;/h2&gt;
 &lt;p&gt;To download all files of the latest release using the GitHub CLI:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Install &lt;a href=&#34;https://github.com/cli/cli&#34;&gt;GitHub CLI&lt;/a&gt;, e.g. for Ubuntu:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&amp;#34; | sudo tee /etc/apt/sources.list.d/github-cli.list &amp;gt; /dev/null
-sudo apt update
-sudo apt install gh
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Authenticate to GitHub:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gh auth login
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Download Leda latest release:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://github.com/cli/cli&#34;&gt;GitHub CLI&lt;/a&gt;, e.g. for Ubuntu:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; sudo dd &lt;span style=&#34;color:#000&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;/usr/share/keyrings/githubcli-archive-keyring.gpg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;deb [arch=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;dpkg --print-architecture&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt; signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/github-cli.list &amp;gt; /dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt install gh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Authenticate to GitHub:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gh auth login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download Leda latest release:&lt;/p&gt;
 &lt;p&gt;On Linux:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mkdir leda &amp;amp;&amp;amp; cd leda
-
-gh release download \
-  --pattern &amp;#39;*.zip&amp;#39; \
-  --pattern &amp;#39;eclipse-leda-*&amp;#39; \
-  --repo eclipse-leda/leda-distro
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On Windows:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;gh release download --pattern &amp;#34;*.zip&amp;#34; --pattern &amp;#34;eclipse-leda-*&amp;#34; --repo eclipse-leda/leda-distro
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir leda &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; leda
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gh release download &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --pattern &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;*.zip&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --pattern &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;eclipse-leda-*&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;  --repo eclipse-leda/leda-distro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On Windows:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gh release download --pattern &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*.zip&amp;#34;&lt;/span&gt; --pattern &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eclipse-leda-*&amp;#34;&lt;/span&gt; --repo eclipse-leda/leda-distro
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/running-qemu/&#34;&gt;Running Eclipse Leda on QEMU&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/raspberry-pi/&#34;&gt;Running Eclipse Leda on Raspberry Pi 4&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

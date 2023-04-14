@@ -146,5 +146,21 @@
       </description>
     </item>
     
+    <item>
+      <title>Docs: Releases</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/releases/</link>
+      <pubDate>Wed, 12 Apr 2023 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/releases/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Eclipse Leda project follows the Eclipse Release process.
+Please see &lt;a href=&#34;https://www.eclipse.org/projects/handbook/#release&#34;&gt;Eclipse Project handbook&lt;/a&gt; for details about the process.&lt;/p&gt;
+&lt;p&gt;The release plans overview for Eclipse Leda is available at &lt;a href=&#34;https://projects.eclipse.org/projects/automotive.leda/governance&#34;&gt;https://projects.eclipse.org/projects/automotive.leda/governance&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>
