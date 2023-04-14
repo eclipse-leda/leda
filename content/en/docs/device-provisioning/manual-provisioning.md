@@ -48,4 +48,4 @@ When finished, continue with
 
 ## Private container registries
 
-Please refer to the [Kanto Container Management documentation](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/) on how to configure private container registries.
+Please refer to the [Container Registries](/leda/docs/device-provisioning/container-management/container-registries/) on how to configure private container registries.
