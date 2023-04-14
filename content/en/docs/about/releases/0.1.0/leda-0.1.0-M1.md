@@ -4,6 +4,18 @@ date: 2023-04-12T14:24:56+05:30
 weight: 1
 ---
 
+Release artifacts: [https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M1](https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M1)
+
+| Artifact | Download | Size |
+| --- | --- | ---: |
+| Leda Raspberry Pi 4 | [eclipse-leda-raspberrypi.tar.xz](https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-raspberrypi.tar.xz) | 578 MB |
+| Leda QEMU ARM64 | [eclipse-leda-qemu-arm64.tar.xz](https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-qemu-arm64.tar.xz) | 381 MB |
+| Leda QEMU x86_64 | [eclipse-leda-qemu-x86_64.tar.xz](https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M1/eclipse-leda-qemu-x86_64.tar.xz) | 465 MB |
+
+> Note: You need to uncompress *eclipse-leda-raspberrypi.tar.xz* multiple times until the plain *.wic* file is extracted, which can be flashed.
+
+After download, continue with [Getting Started](/leda/docs/general-usage/)
+
 ## Release Notes
 
 First pre-release of Eclipse Leda quickstart images, based on [Yocto LTS release](https://wiki.yoctoproject.org/wiki/Releases)
