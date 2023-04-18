@@ -16,6 +16,7 @@ They help to experiment with the container deployment, device provisioning or ve
 - **can-forward:** Forwarding a CAN-bus network interface into a containerized Vehicle Application
 - **kanto-auto-deployer:** Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.
 - **sdv-ctr-exec:** Execute arbitrary commands in existing containers
+- **sdv-kanto-ctl:** Manage the Kanto Container Management configuration via CLI
 
 > Note:
   These scripts are not meant to be reused or called from production software.
