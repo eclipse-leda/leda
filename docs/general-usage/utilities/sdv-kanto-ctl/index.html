@@ -4,8 +4,6 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.110.0">
-<link rel="alternate" type="text/html" href="https://eclipse-leda.github.io/leda/docs/leda-incubator/self-update-agent/_print/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/leda-incubator/self-update-agent/index.xml">
 <meta name="robots" content="index, follow">
 
 
@@ -20,16 +18,41 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Self Update Agent | Eclipse Leda Documentation</title>
-<meta name="description" content="">
-<meta property="og:title" content="Self Update Agent" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/leda-incubator/self-update-agent/" />
-<meta itemprop="name" content="Self Update Agent">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Self Update Agent"/>
-<meta name="twitter:description" content=""/>
+<title>SDV Kanto-Ctl | Eclipse Leda Documentation</title>
+<meta name="description" content="Manage the Kanto Container Management configuration via CLI.
+Note: Requires jq to be installed.
+Features:
+Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &amp;lt;command&amp;gt; [&amp;lt;options&amp;gt;]
+Full help:
+$ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &amp;lt;command&amp;gt; {options} Commands: add-registry -h &amp;lt;hostname&amp;gt; -u &amp;lt;username&amp;gt; -p &amp;lt;password&amp;gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e.">
+<meta property="og:title" content="SDV Kanto-Ctl" />
+<meta property="og:description" content="Manage the Kanto Container Management configuration via CLI.
+Note: Requires jq to be installed.
+Features:
+Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]
+Full help:
+$ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &lt;command&gt; {options} Commands: add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-kanto-ctl/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
+<meta property="article:modified_time" content="2023-04-18T08:37:36+01:00" />
+<meta itemprop="name" content="SDV Kanto-Ctl">
+<meta itemprop="description" content="Manage the Kanto Container Management configuration via CLI.
+Note: Requires jq to be installed.
+Features:
+Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]
+Full help:
+$ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &lt;command&gt; {options} Commands: add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-04-18T08:37:36+01:00" />
+<meta itemprop="wordCount" content="398">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SDV Kanto-Ctl"/>
+<meta name="twitter:description" content="Manage the Kanto Container Management configuration via CLI.
+Note: Requires jq to be installed.
+Features:
+Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]
+Full help:
+$ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &lt;command&gt; {options} Commands: add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e."/>
 
 
 
@@ -47,7 +70,7 @@
   crossorigin="anonymous"></script>
 
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       <nav class="td-navbar navbar-dark js-navbar-scroll">
 <div class="container-fluid flex-column flex-md-row">
@@ -146,8 +169,8 @@
   </ul>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usage-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usage-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usage-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usage-check" checked/>
   <label for="m-ledadocsgeneral-usage-check"><a href="/leda/docs/general-usage/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usage"><span class="">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -196,8 +219,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usageutilities-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsgeneral-usageutilities-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check" checked/>
   <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
   
   <ul class="ul-3 foldable">
@@ -233,9 +256,9 @@
   <input type="checkbox" id="m-ledadocsgeneral-usageutilitiessdv-ctr-exec-check"/>
   <label for="m-ledadocsgeneral-usageutilitiessdv-ctr-exec-check"><a href="/leda/docs/general-usage/utilities/sdv-ctr-exec/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageutilitiessdv-ctr-exec"><span class="">SDV Container Exec</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl-check"/>
-  <label for="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl-check"><a href="/leda/docs/general-usage/utilities/sdv-kanto-ctl/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl"><span class="">SDV Kanto-Ctl</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl-check" checked/>
+  <label for="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl-check"><a href="/leda/docs/general-usage/utilities/sdv-kanto-ctl/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageutilitiessdv-kanto-ctl"><span class="td-sidebar-nav-active-item">SDV Kanto-Ctl</span></a></label>
   
 </li>
   </ul>
@@ -351,8 +374,8 @@
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsleda-incubator-li">
-  <input type="checkbox" id="m-ledadocsleda-incubator-check" checked/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsleda-incubator-li">
+  <input type="checkbox" id="m-ledadocsleda-incubator-check"/>
   <label for="m-ledadocsleda-incubator-check"><a href="/leda/docs/leda-incubator/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubator"><span class="">Incubator</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -360,9 +383,9 @@
   <input type="checkbox" id="m-ledadocsleda-incubatorcloud-connector-check"/>
   <label for="m-ledadocsleda-incubatorcloud-connector-check"><a href="/leda/docs/leda-incubator/cloud-connector/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorcloud-connector"><span class="">Cloud Connector</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ledadocsleda-incubatorself-update-agent-li">
-  <input type="checkbox" id="m-ledadocsleda-incubatorself-update-agent-check" checked/>
-  <label for="m-ledadocsleda-incubatorself-update-agent-check"><a href="/leda/docs/leda-incubator/self-update-agent/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorself-update-agent"><span class="td-sidebar-nav-active-item">Self Update Agent</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsleda-incubatorself-update-agent-li">
+  <input type="checkbox" id="m-ledadocsleda-incubatorself-update-agent-check"/>
+  <label for="m-ledadocsleda-incubatorself-update-agent-check"><a href="/leda/docs/leda-incubator/self-update-agent/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorself-update-agent"><span class="">Self Update Agent</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsleda-incubatorvehicle-update-manager-li">
   <input type="checkbox" id="m-ledadocsleda-incubatorvehicle-update-manager-check"/>
@@ -570,22 +593,20 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/leda-incubator/self-update-agent/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#implementation-and-deployment">Implementation and Deployment</a></li>
-    <li><a href="#building">Building</a>
+    <li><a href="#usage">Usage</a>
       <ul>
-        <li><a href="#native-installation">Native Installation</a></li>
-        <li><a href="#container-installation">Container Installation</a></li>
+        <li><a href="#example-private-container-registries">Example: Private Container Registries</a></li>
+        <li><a href="#example-enabling-things-management">Example: Enabling Things management</a></li>
+        <li><a href="#example-container-stop-timeout">Example: Container Stop Timeout</a></li>
       </ul>
     </li>
-    <li><a href="#source-repository">Source Repository</a></li>
   </ul>
 </nav>
       </div>
@@ -628,15 +649,17 @@
   <li class="breadcrumb-item">
     <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/leda-incubator/">Incubator</a></li>
+    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/">Getting Started</a></li>
+  <li class="breadcrumb-item">
+    <a href="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/">Utilities</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    Self Update Agent</li>
+    SDV Kanto-Ctl</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Self Update Agent</h1>
-  
+	<h1>SDV Kanto-Ctl</h1>
+	
 	<header class="article-meta">
 		
 
@@ -654,58 +677,77 @@
 
 		
 	</header>
-	<p>The self update agent is used in the context of <a href="/leda/docs/device-provisioning/self-update/">OTA Self Updates</a>.</p>
-<h2 id="overview">Overview</h2>
-<p>The Self Update Agent (SUA) as part of the <a href="https://projects.eclipse.org/projects/automotive.leda.ledaincubator/reviews/creation-review">Eclipse Leda Incubator project proposal</a> is a software component responsible for <strong>performing updates of system-level components of the connectivity device</strong>, such as</p>
+	<p>Manage the Kanto Container Management configuration via CLI.</p>
+<blockquote>
+<p>Note: <strong>Requires</strong> <code>jq</code> to be installed.</p>
+</blockquote>
+<p>Features:</p>
 <ul>
-<li>Boot Loader</li>
-<li>Operating System</li>
-<li>Device Firmware</li>
-<li>Hardware Drivers</li>
-<li>&hellip; other parts of the system, which cannot be deployed as containerized packages or may require a reboot of the device.</li>
+<li>Add and remove container registries (for authentication purposes)</li>
+<li>Set primitive values in configuration</li>
+<li>Restart <code>container-management.service</code> on configuration changes</li>
+<li>Automatically back up configuration file</li>
+<li>Display changes to user</li>
 </ul>
-<p><img src="./self-update-agent-arch.png" alt="Self Update Agent Scope"></p>
-<h2 id="implementation-and-deployment">Implementation and Deployment</h2>
-<p>SUA is using the RAUC framework via D-Bus calls, but it is designed in a way that switching to other updating solution shall be possible. SUA may be controlled by an external higher-level orchestration component via defined MQTT messages, which carry necessary for update data, such as version and URL of the update bundle. Update process feedback and the end result are also communicated via defined MQTT messages. Software Update Agent is implemented in C++ and configured to be running inside of a container.</p>
-<p><img src="./self-update-agent-deploy.png" alt="Self Update Agent Runtime Deployment Diagram"></p>
-<h2 id="building">Building</h2>
-<p>SUA can either be installed natively into the system image by using the respective Yocto recipe <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/leda-contrib-self-update-agent_git.bb">leda-contrib-self-update-agent_git.bb</a>, or can be deployed as a <a href="https://github.com/eclipse-leda/leda-contrib-self-update-agent/pkgs/container/leda-contrib-self-update-agent%2Fself-update-agent">container</a>.</p>
-<h3 id="native-installation">Native Installation</h3>
-<p>A native installation has the advantage that no additional container runtime is required. In some vehicle system architectures, there are separate devices for connectivity and for general computation. The actual physical device for connectivity may hence have less ressources available which then requires a native installation of such core components.</p>
-<ul>
-<li>Add the recipe to the image in your Yocto configuration:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    <span style="color:#000">IMAGE_INSTALL</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34;leda-contrib-self-update-agent&#34;</span>
-</span></span></code></pre></div><ul>
-<li>The self update agent can be managed (start, stop, restart) using systemd: <code>systemctl restart self-update-agent</code></li>
-</ul>
-<h3 id="container-installation">Container Installation</h3>
-<p>When the component can be deployed on the more generic compute module, where a container runtime is available, the self update agent can also be deployed as a container. This is the default for the Eclipse Leda quickstart images.</p>
-<p>Initial deployment and configuration steps are:</p>
-<ul>
-<li>On first start, the auto deployment will deploy and start the self update agent container automatically.</li>
-<li>The self update agent will then connect to the locally running mosquitto server, awaiting update requests.</li>
-<li>The default configuration will use the location <code>/data/selfupdates/</code> to write and read update files.</li>
-</ul>
-<h2 id="source-repository">Source Repository</h2>
-<p>Source Repository: <a href="https://github.com/eclipse-leda/leda-contrib-self-update-agent">https://github.com/eclipse-leda/leda-contrib-self-update-agent</a></p>
-
-        <div class="section-index">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</div>
-
+<p><img src="../sdv-kanto-ctl-example-output1.png" alt="Eclipse Leda Kanto Container Manager Configuration utility"></p>
+<h2 id="usage">Usage</h2>
+<p>Synposis: <code>./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]</code></p>
+<p>Full help:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./sdv-kanto-ctl --help
+</span></span><span style="display:flex;"><span>Eclipse Kanto Container Manager Configuration Utility
+</span></span><span style="display:flex;"><span>See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/
+</span></span><span style="display:flex;"><span>Usage: ./sdv-kanto-ctl &lt;command&gt; <span style="color:#ce5c00;font-weight:bold">{</span>options<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>Commands:
+</span></span><span style="display:flex;"><span>        add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt;
+</span></span><span style="display:flex;"><span>                Adds or replaces a container registry authentication configuration
+</span></span><span style="display:flex;"><span>                -h or --hostname: Configure the hostname of the container registry <span style="color:#ce5c00;font-weight:bold">(</span>e.g. hub.docker.io, ghcr.io, ...<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                -u or --username: Configure the username
+</span></span><span style="display:flex;"><span>                -p or --password: Configure the password
+</span></span><span style="display:flex;"><span>        remove-registry -h &lt;hostname&gt;
+</span></span><span style="display:flex;"><span>                Removes the specified container registry
+</span></span><span style="display:flex;"><span>                -h or --hostname: The hostname of the container registry
+</span></span><span style="display:flex;"><span>        remove-all-registries
+</span></span><span style="display:flex;"><span>                Removes all configured container registries
+</span></span><span style="display:flex;"><span>        list-registries
+</span></span><span style="display:flex;"><span>                Prints all configured container registries
+</span></span><span style="display:flex;"><span>        show-config
+</span></span><span style="display:flex;"><span>                Print the container management configuration
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87">set</span> &lt;key&gt; &lt;value&gt;
+</span></span><span style="display:flex;"><span>                Set a primitive configuration value. Key in JSON Dot-Notation
+</span></span><span style="display:flex;"><span>                Examples: ./sdv-kanto-ctl <span style="color:#204a87">set</span> containers.registry_configurations.MyRegistry.credentials.password foobar
+</span></span><span style="display:flex;"><span>                          ./sdv-kanto-ctl <span style="color:#204a87">set</span> things.enable <span style="color:#204a87">true</span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>        --no-reload : Do not reload the configuration and restart the container-management service automatically
+</span></span><span style="display:flex;"><span>        --ansi : Don<span style="color:#a40000">&#39;</span>t use colored output.
+</span></span><span style="display:flex;"><span>        --verbose <span style="color:#000;font-weight:bold">|</span> -v : Enable verbose mode.
+</span></span><span style="display:flex;"><span>        --help : This message.
+</span></span></code></pre></div><h3 id="example-private-container-registries">Example: Private Container Registries</h3>
+<p>To be able to pull container images, the container runtime needs access to the container registry.
+Some container registries require authentication.
+The Kanto Container Manager can be configured to use credentials when accessing remote container registries.</p>
+<p>In the Leda images, the <em>sdv-kanto-ctl</em> tools allows to easily add authentication to the container manager configuration:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl add-registry -h &lt;registryhostname&gt; -u &lt;your_username&gt; -p &lt;your_password&gt;
+</span></span></code></pre></div><p>For example, to access container images from GitHub Packages in a private repository, you need a GitHub Personal Access Token (PAT) with the <code>read: packages</code> scope.
+Then, add the repository as shown below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl add-registry -h ghcr.io -u github -p &lt;Your_GitHub_PersonalAccessToken&gt;
+</span></span></code></pre></div><p><em>sdv-kanto-ctl</em>  will make the necessary modifications to <code>/etc/container-management/config.json</code> and restarts the <code>container-management.service</code> systemd unit,
+so that the changes take effect. You may need to recreate or restart the container if a previous pull failed.</p>
+<p>Please see the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/">Eclipse Kanto Container Manager Configuration reference</a>
+for details.</p>
+<h3 id="example-enabling-things-management">Example: Enabling Things management</h3>
+<p>Enable the container manager digital twin representation.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl <span style="color:#204a87">set</span> things.enable <span style="color:#204a87">true</span>
+</span></span></code></pre></div><h3 id="example-container-stop-timeout">Example: Container Stop Timeout</h3>
+<p>Kanto waits for a timeout before forcefully stopping a container.
+The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.</p>
+<p>To change this behavior at runtime:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl <span style="color:#204a87">set</span> manager.default_ctrs_stop_timeout <span style="color:#0000cf;font-weight:bold">2</span>
+</span></span></code></pre></div>
 	
 	
 	
 </div>
+
 
           </main>
         </div>

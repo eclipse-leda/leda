@@ -515,5 +515,83 @@ This is especially useful for non-service-containers, or containers which have a
       </description>
     </item>
     
+    <item>
+      <title>Docs: SDV Kanto-Ctl</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-kanto-ctl/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-kanto-ctl/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Manage the Kanto Container Management configuration via CLI.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: &lt;strong&gt;Requires&lt;/strong&gt; &lt;code&gt;jq&lt;/code&gt; to be installed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add and remove container registries (for authentication purposes)&lt;/li&gt;
+&lt;li&gt;Set primitive values in configuration&lt;/li&gt;
+&lt;li&gt;Restart &lt;code&gt;container-management.service&lt;/code&gt; on configuration changes&lt;/li&gt;
+&lt;li&gt;Automatically back up configuration file&lt;/li&gt;
+&lt;li&gt;Display changes to user&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../sdv-kanto-ctl-example-output1.png&#34; alt=&#34;Eclipse Leda Kanto Container Manager Configuration utility&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;Synposis: &lt;code&gt;./sdv-kanto-ctl &amp;lt;command&amp;gt; [&amp;lt;options&amp;gt;]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Full help:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./sdv-kanto-ctl --help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Eclipse Kanto Container Manager Configuration Utility
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage: ./sdv-kanto-ctl &amp;lt;command&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;options&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Commands:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        add-registry -h &amp;lt;hostname&amp;gt; -u &amp;lt;username&amp;gt; -p &amp;lt;password&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Adds or replaces a container registry authentication configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -h or --hostname: Configure the hostname of the container registry &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;e.g. hub.docker.io, ghcr.io, ...&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -u or --username: Configure the username
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -p or --password: Configure the password
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        remove-registry -h &amp;lt;hostname&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Removes the specified container registry
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                -h or --hostname: The hostname of the container registry
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        remove-all-registries
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Removes all configured container registries
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        list-registries
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Prints all configured container registries
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        show-config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Print the container management configuration
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Set a primitive configuration value. Key in JSON Dot-Notation
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                Examples: ./sdv-kanto-ctl &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; containers.registry_configurations.MyRegistry.credentials.password foobar
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                          ./sdv-kanto-ctl &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; things.enable &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        --no-reload : Do not reload the configuration and restart the container-management service automatically
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        --ansi : Don&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t use colored output.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        --verbose &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; -v : Enable verbose mode.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        --help : This message.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;example-private-container-registries&#34;&gt;Example: Private Container Registries&lt;/h3&gt;
+&lt;p&gt;To be able to pull container images, the container runtime needs access to the container registry.
+Some container registries require authentication.
+The Kanto Container Manager can be configured to use credentials when accessing remote container registries.&lt;/p&gt;
+&lt;p&gt;In the Leda images, the &lt;em&gt;sdv-kanto-ctl&lt;/em&gt; tools allows to easily add authentication to the container manager configuration:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-kanto-ctl add-registry -h &amp;lt;registryhostname&amp;gt; -u &amp;lt;your_username&amp;gt; -p &amp;lt;your_password&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For example, to access container images from GitHub Packages in a private repository, you need a GitHub Personal Access Token (PAT) with the &lt;code&gt;read: packages&lt;/code&gt; scope.
+Then, add the repository as shown below:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-kanto-ctl add-registry -h ghcr.io -u github -p &amp;lt;Your_GitHub_PersonalAccessToken&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;sdv-kanto-ctl&lt;/em&gt;  will make the necessary modifications to &lt;code&gt;/etc/container-management/config.json&lt;/code&gt; and restarts the &lt;code&gt;container-management.service&lt;/code&gt; systemd unit,
+so that the changes take effect. You may need to recreate or restart the container if a previous pull failed.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/&#34;&gt;Eclipse Kanto Container Manager Configuration reference&lt;/a&gt;
+for details.&lt;/p&gt;
+&lt;h3 id=&#34;example-enabling-things-management&#34;&gt;Example: Enabling Things management&lt;/h3&gt;
+&lt;p&gt;Enable the container manager digital twin representation.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-kanto-ctl &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; things.enable &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;example-container-stop-timeout&#34;&gt;Example: Container Stop Timeout&lt;/h3&gt;
+&lt;p&gt;Kanto waits for a timeout before forcefully stopping a container.
+The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.&lt;/p&gt;
+&lt;p&gt;To change this behavior at runtime:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-kanto-ctl &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; manager.default_ctrs_stop_timeout &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
   </channel>
 </rss>

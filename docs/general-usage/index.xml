@@ -528,6 +528,7 @@ They help to experiment with the container deployment, device provisioning or ve
 &lt;li&gt;&lt;strong&gt;can-forward:&lt;/strong&gt; Forwarding a CAN-bus network interface into a containerized Vehicle Application&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;kanto-auto-deployer:&lt;/strong&gt; Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;sdv-ctr-exec:&lt;/strong&gt; Execute arbitrary commands in existing containers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-kanto-ctl:&lt;/strong&gt; Manage the Kanto Container Management configuration via CLI&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Note:
