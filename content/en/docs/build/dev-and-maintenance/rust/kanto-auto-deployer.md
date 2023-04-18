@@ -140,6 +140,7 @@ This recipe also takes all manifests in the [kanto-containers](https://github.co
 
 ## Conditional compilation of the filewatcher module
 
-To reduce binary bloat the `--daemon` option is namespaced under the `filewatcher` conditonal compilation flag (enabled by default). To compile KAD without the filewatcher module run: `cargo build --release --no-default-features`.
+To reduce binary bloat the `--daemon` option is namespaced under the `filewatcher` conditional compilation flag (enabled by default).
+To compile KAD without the filewatcher module run: `cargo build --release --no-default-features`.
 (Implemented in [Leda Utils PR#35](https://github.com/eclipse-leda/leda-utils/pull/35))
 

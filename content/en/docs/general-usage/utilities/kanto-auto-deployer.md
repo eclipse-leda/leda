@@ -6,7 +6,7 @@ weight: 7
 
 Automatically deploys containers to the Kanto Container Management based on deployment descriptors from a given path.
 All deployment descriptors in the manifests folder will be deployed (created and started) on startup of the service.
-The directory will then be monitored for creation of/changes to manfiests and those changes will be redeployed.
+The directory will then be monitored for creation of/changes to manifests and those changes will be redeployed.
 
 ## Usage
 

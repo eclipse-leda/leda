@@ -7,11 +7,14 @@ weight: 2
 
 ## Kanto-auto-deployer (KAD)
 
-This service has been implemented as a stopgap solution by the Leda team until the Kanto Container Managament deployment of containers from manifests is stabilized.
+This service has been implemented as a stopgap solution by the Leda team since as of now the Kanto CM-native mechanism
+for initial container deployment does not suit the needs of the Leda Quickstart image well.
 
-In-depth documentation on its operation and development can be found in [Kanto Auto deployer](../../build/dev-and-maintenance/rust/kanto-auto-deployer). 
+In-depth documentation on its operation and development can be found in [Kanto Auto deployer](../../build/dev-and-maintenance/rust/kanto-auto-deployer).
 
-In the Leda Distro KAD runs as a service that continously monitors the directory defined with the BitBake variable `KANTO_MANIFESTS_DEV_DIR` in the distro config recipes. By default, the Leda quickstart images use `KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests"`. So, these manifests are again stored in the persistent **data**-partition and can be modified after the image has been deployed.
+In the Leda Distro KAD runs as a service that continuously monitors the directory defined with the BitBake variable `KANTO_MANIFESTS_DEV_DIR` in the distro config recipes.
+By default, the Leda quickstart images use `KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests"`.
+So, these manifests are again stored in the persistent **data**-partition and can be modified after the image has been deployed.
 
 **Important: KAD supports the [Kanto Container Management Manifest Template](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template) 
 AND the [Container Internal State Representation](../../build/dev-and-maintenance/rust/kanto-auto-deployer//#internal-state-representation). For future compatiblity reasons it is recommended that you choose [Kanto Container Management Manifest Template](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template).** 
