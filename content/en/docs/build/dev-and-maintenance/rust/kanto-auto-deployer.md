@@ -130,7 +130,7 @@ For example, you do not need to specify the container "id" in the manifest, as a
 
 Kanto-auto-deployer can run as a one-shot util that goes through the manifest folder (default: `/data/var/containers/manifests`) and deploys required containers.
 
-When you pass the `--daemon` flag it would enable the "filewatcher" module that would continously monitor the provided path for changes/creation of manifests.
+When you pass the `--daemon` flag it would enable the "filewatcher" module that would continuously monitor the provided path for changes/creation of manifests.
 
 The Bitbake recipe for building and installing the auto deployer service can be found at [kanto-auto-deployer_git.bb](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-auto-deployer_git.bb). 
 

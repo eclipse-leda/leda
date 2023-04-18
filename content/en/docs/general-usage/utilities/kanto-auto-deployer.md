@@ -59,7 +59,7 @@ root@qemux86-64:~# kanto-auto-deployer /data/var/containers/manifests/
 ## Usage as systemd service
 
 In the Leda quickstart images, kanto-auto-deployer is installed as a systemd service. 
-> Note the service uses the `--daemon` flag that asks KAD to continously monitor the specified directory (see last line of logs).
+> Note the service uses the `--daemon` flag that asks KAD to continuously monitor the specified directory (see last line of logs).
 
 The service unit configuration file is located in `/lib/systemd/system/kanto-auto-deployer.service`:
 
