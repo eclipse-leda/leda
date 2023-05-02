@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.4104aac27f96606a47af850111ca584d.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.349d984d4e54cbf92fc10ba0bd9e131f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -307,7 +307,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.7: <a href="#pg-39ff94ee053885f2bdf2856385b76f7a">Kanto Auto Deployer</a></li>
+<li>6.7: <a href="#pg-39ff94ee053885f2bdf2856385b76f7a">Kanto Auto Deployer (KAD)</a></li>
 
 
     
@@ -1669,35 +1669,57 @@ In a production environment, the device provisioning functionality is implemente
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-39ff94ee053885f2bdf2856385b76f7a">6.7 - Kanto Auto Deployer</h1>
+	<h1 id="pg-39ff94ee053885f2bdf2856385b76f7a">6.7 - Kanto Auto Deployer (KAD)</h1>
     
 	<p>Automatically deploys containers to the Kanto Container Management based on deployment descriptors from a given path.
-All deployment descriptors in the manifests folder will be deployed (created and started) on startup of the service.</p>
-<blockquote>
-<p>Note: The Kanto-CM and Kanto-Auto-Deployer container manifest descriptors (json) formats are incompatible and differ slightly in their structure!</p>
-</blockquote>
+All deployment descriptors in the manifests folder will be deployed (created and started) on startup of the service.
+The directory will then be monitored for creation of/changes to manifests and those changes will be redeployed.</p>
 <h2 id="usage">Usage</h2>
 <p>Usage:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:~# kanto-auto-deployer --help
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kanto-auto-deployer --help
+</span></span><span style="display:flex;"><span>kanto-auto-deployer 0.2.0
+</span></span><span style="display:flex;"><span>Automated deployment of Kanto Container Management Manifests
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>USAGE:
-</span></span><span style="display:flex;"><span>  kanto-auto-deployer <span style="color:#ce5c00;font-weight:bold">[</span>PATH TO MANIFESTS FOLDER<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    kanto-auto-deployer <span style="color:#ce5c00;font-weight:bold">[</span>OPTIONS<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>MANIFESTS_PATH<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ARGS:
+</span></span><span style="display:flex;"><span>    &lt;MANIFESTS_PATH&gt;    Set the path to the directory containing the manifests <span style="color:#ce5c00;font-weight:bold">[</span>default: .<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>OPTIONS:
+</span></span><span style="display:flex;"><span>    -d, --daemon                   Run as a daemon that continuously monitors the provided path <span style="color:#204a87;font-weight:bold">for</span>
+</span></span><span style="display:flex;"><span>                                   changes
+</span></span><span style="display:flex;"><span>    -h, --help                     Print <span style="color:#204a87">help</span> information
+</span></span><span style="display:flex;"><span>    -s, --socket-cm &lt;SOCKET_CM&gt;    Set the path to the Kanto Container Management API socket
+</span></span><span style="display:flex;"><span>                                   <span style="color:#ce5c00;font-weight:bold">[</span>default: /run/container-management/container-management.sock<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    -V, --version                  Print version information
 </span></span></code></pre></div><p>Example:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Use container manifests from current working directory</span>
-</span></span><span style="display:flex;"><span>/var/containers/manifests_dev/ $ kanto-auto-deployer
-</span></span><span style="display:flex;"><span>Reading manifests from <span style="color:#ce5c00;font-weight:bold">[</span>.<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>cloudconnector<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>otelcollector<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>seatservice-example<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>root@qemux86-64:/data/var/containers/manifests# kanto-auto-deployer 
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:21Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Running initial deployment of <span style="color:#4e9a06">&#34;/data/var/containers/manifests&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:21Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Reading manifests from <span style="color:#ce5c00;font-weight:bold">[</span>/data/var/containers/manifests<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:21Z WARN  kanto_auto_deployer::manifest_parser<span style="color:#ce5c00;font-weight:bold">]</span> Failed to load manifest directly. Will attempt auto-conversion from init-dir format.
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:21Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Already exists <span style="color:#ce5c00;font-weight:bold">[</span>cloudconnector<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:21Z WARN  kanto_auto_deployer::manifest_parser<span style="color:#ce5c00;font-weight:bold">]</span> Failed to load manifest directly. Will attempt auto-conversion from init-dir format.
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:21Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Already exists <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Use container manifests from specified directory</span>
-</span></span><span style="display:flex;"><span>~ $ kanto-auto-deployer /var/containers/manifests_dev/
-</span></span><span style="display:flex;"><span>Reading manifests from <span style="color:#ce5c00;font-weight:bold">[</span>/data/var/containers/manifests_dev/<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>cloudconnector<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>otelcollector<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Already exists <span style="color:#ce5c00;font-weight:bold">[</span>seatservice-example<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span></code></pre></div><h2 id="usage-as-systemd-service">Usage as systemd service</h2>
-<p>In the Leda quickstart images, kanto-auto-deployer is installed as a systemd service.
-The service unit configuration file is located in <code>/lib/systemd/system/kanto-auto-deployer.service</code>:</p>
+</span></span><span style="display:flex;"><span>root@qemux86-64:~# kanto-auto-deployer /data/var/containers/manifests/
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:44Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Running initial deployment of <span style="color:#4e9a06">&#34;/data/var/containers/manifests&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:44Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Reading manifests from <span style="color:#ce5c00;font-weight:bold">[</span>/data/var/containers/manifests<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:44Z WARN  kanto_auto_deployer::manifest_parser<span style="color:#ce5c00;font-weight:bold">]</span> Failed to load manifest directly. Will attempt auto-conversion from init-dir format.
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:44Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Already exists <span style="color:#ce5c00;font-weight:bold">[</span>cloudconnector<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:44Z WARN  kanto_auto_deployer::manifest_parser<span style="color:#ce5c00;font-weight:bold">]</span> Failed to load manifest directly. Will attempt auto-conversion from init-dir format.
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:27:44Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Already exists <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span></code></pre></div><blockquote>
+<p>Nоte: The warnings from the manifest_parser module are normal and expected when the manifest is in the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template">Container Management Manifests Format</a></p>
+</blockquote>
+<h2 id="usage-as-systemd-service">Usage as systemd service</h2>
+<p>In the Leda quickstart images, kanto-auto-deployer is installed as a systemd service.</p>
+<blockquote>
+<p>Note the service uses the <code>--daemon</code> flag that asks KAD to continuously monitor the specified directory (see last line of logs).</p>
+</blockquote>
+<p>The service unit configuration file is located in <code>/lib/systemd/system/kanto-auto-deployer.service</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Unit<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">Description</span><span style="color:#ce5c00;font-weight:bold">=</span>Kanto Auto Deployer
 </span></span><span style="display:flex;"><span><span style="color:#000">After</span><span style="color:#ce5c00;font-weight:bold">=</span>network-online.target container-management.service
@@ -1710,21 +1732,28 @@ The service unit configuration file is located in <code>/lib/systemd/system/kant
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>Service<span style="color:#ce5c00;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">Restart</span><span style="color:#ce5c00;font-weight:bold">=</span>on-failure
 </span></span><span style="display:flex;"><span><span style="color:#000">RestartSec</span><span style="color:#ce5c00;font-weight:bold">=</span>5s
-</span></span><span style="display:flex;"><span><span style="color:#000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/bin/kanto-auto-deployer /data/var/containers/manifests_dev
+</span></span><span style="display:flex;"><span><span style="color:#000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/bin/kanto-auto-deployer /data/var/containers/manifests --daemon
 </span></span></code></pre></div><p>Example output:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@qemux86-64:/lib/systemd/system# systemctl status kanto-auto-deployer.service 
 </span></span><span style="display:flex;"><span>* kanto-auto-deployer.service - Kanto Auto Deployer
 </span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#ce5c00;font-weight:bold">(</span>/lib/systemd/system/kanto-auto-deployer.service<span style="color:#000;font-weight:bold">;</span> enabled<span style="color:#000;font-weight:bold">;</span> vendor preset: enabled<span style="color:#ce5c00;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>     Active: inactive <span style="color:#ce5c00;font-weight:bold">(</span>dead<span style="color:#ce5c00;font-weight:bold">)</span> since Fri 2022-12-09 09:41:42 UTC<span style="color:#000;font-weight:bold">;</span> 7min ago
-</span></span><span style="display:flex;"><span>    Process: <span style="color:#0000cf;font-weight:bold">472</span> <span style="color:#000">ExecStart</span><span style="color:#ce5c00;font-weight:bold">=</span>/usr/bin/kanto-auto-deployer /var/containers/manifests <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">code</span><span style="color:#ce5c00;font-weight:bold">=</span>exited, <span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span>0/SUCCESS<span style="color:#ce5c00;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>   Main PID: <span style="color:#0000cf;font-weight:bold">472</span> <span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">code</span><span style="color:#ce5c00;font-weight:bold">=</span>exited, <span style="color:#000">status</span><span style="color:#ce5c00;font-weight:bold">=</span>0/SUCCESS<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>     Active: active <span style="color:#ce5c00;font-weight:bold">(</span>running<span style="color:#ce5c00;font-weight:bold">)</span> since Tue 2023-04-18 10:22:10 UTC<span style="color:#000;font-weight:bold">;</span> 3min 55s ago
+</span></span><span style="display:flex;"><span>   Main PID: <span style="color:#0000cf;font-weight:bold">525</span> <span style="color:#ce5c00;font-weight:bold">(</span>kanto-auto-depl<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>      Tasks: <span style="color:#0000cf;font-weight:bold">10</span> <span style="color:#ce5c00;font-weight:bold">(</span>limit: 4708<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>     Memory: 1.4M
+</span></span><span style="display:flex;"><span>     CGroup: /system.slice/kanto-auto-deployer.service
+</span></span><span style="display:flex;"><span>             <span style="color:#4e9a06">`</span>- <span style="color:#0000cf;font-weight:bold">525</span> /usr/bin/kanto-auto-deployer /data/var/containers/manifests --daemon
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:33 qemux86-64 systemd<span style="color:#ce5c00;font-weight:bold">[</span>1<span style="color:#ce5c00;font-weight:bold">]</span>: Started Kanto Auto Deployer.
-</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:33 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Creating <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:41 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Created <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:41 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Starting <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:42 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>472<span style="color:#ce5c00;font-weight:bold">]</span>: Started <span style="color:#ce5c00;font-weight:bold">[</span>databroker<span style="color:#ce5c00;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>Dec <span style="color:#0000cf;font-weight:bold">09</span> 09:41:42 qemux86-64 systemd<span style="color:#ce5c00;font-weight:bold">[</span>1<span style="color:#ce5c00;font-weight:bold">]</span>: kanto-auto-deployer.service: Deactivated successfully.
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:22:48 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:22:48Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Creating <span style="color:#ce5c00;font-weight:bold">[</span>sua<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:04 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:04Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Created <span style="color:#ce5c00;font-weight:bold">[</span>sua<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:04 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:04Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Starting <span style="color:#ce5c00;font-weight:bold">[</span>sua<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:05 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:05Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Started <span style="color:#ce5c00;font-weight:bold">[</span>sua<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:05 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:05Z WARN  kanto_auto_deployer::manifest_parser<span style="color:#ce5c00;font-weight:bold">]</span> Failed to load manifest directly. Will attempt auto-conversion from init-dir format.
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:05 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:05Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Creating <span style="color:#ce5c00;font-weight:bold">[</span>vum<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:10 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:10Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Created <span style="color:#ce5c00;font-weight:bold">[</span>vum<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:10 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:10Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Starting <span style="color:#ce5c00;font-weight:bold">[</span>vum<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:11 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:11Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Started <span style="color:#ce5c00;font-weight:bold">[</span>vum<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Apr <span style="color:#0000cf;font-weight:bold">18</span> 10:23:11 qemux86-64 kanto-auto-deployer<span style="color:#ce5c00;font-weight:bold">[</span>525<span style="color:#ce5c00;font-weight:bold">]</span>: <span style="color:#ce5c00;font-weight:bold">[</span>2023-04-18T10:23:11Z INFO  kanto_auto_deployer<span style="color:#ce5c00;font-weight:bold">]</span> Running in daemon mode. Continuously monitoring <span style="color:#4e9a06">&#34;/data/var/containers/manifests&#34;</span>
 </span></span></code></pre></div>
 </div>
 

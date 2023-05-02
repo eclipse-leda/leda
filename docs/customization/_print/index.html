@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.4104aac27f96606a47af850111ca584d.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.349d984d4e54cbf92fc10ba0bd9e131f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -411,17 +411,19 @@ to boot from the different partitions via a custom bootloader script (and as a c
     
 	<h1 id="pg-20bb2af83c47c818220bae4f2b8b24f7">2 - Deploying Containers</h1>
     
-	<h2 id="kanto-container-management-kanto-cm-init-dir">Kanto Container Management (kanto-cm) init-dir</h2>
-<p>Kanto-cm provides a mechanism to automatically deploy containers based on json-manifests stored in a so-called <code>init_dir</code> on boot. The template can be found in the kanto-cm documentation: <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/#template">Template</a>.</p>
-<p>A &ldquo;filled in&rdquo; template can be found in meta-leda (e.g. meta <a href="https://github.com/eclipse-leda/meta-leda/blob/2cb683a9606c01a73fc4f4d01df92a23a2cd2b9c/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core/databroker.json">meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core/databroker.json</a>).</p>
-<p>The directory for these manifests is set during image build time through the BitBake variable <code>KANTO_MANIFESTS_DIR</code>. By default, the Leda Quickstart image sets this directory to <code>/data/var/containers/manifests</code>. Since this is a directory mounted on the persistent <strong>data</strong>-partition you can add custom manifests/customize the default ones after an image has been built. These changes <strong>will not be affected</strong> by a RAUC update.</p>
-<p>A standard set of containers is deployed with meta-leda, the manifests for which can be found in <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core</code> and <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/</code>.</p>
-<p><strong>Important: The manifests in the kanto-cm init-dir are checked only <em>ONCE</em>  - on service start-up. If you add/change a manifest you would need to restart the whole &ldquo;container-management&rdquo; service for your changes to take effect.</strong></p>
-<h2 id="kanto-auto-deployer">Kanto-auto-deployer</h2>
-<p>This service has been implemented as a stopgap solution by the Leda team before the kanto-cm init-dir mechanism was implemented by the Kanto team. In-depth documentation on its operation and development can be found in the <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer">Kanto Auto deployer</a>. This runs as a one-shot service on boot and checks the directory defined in the BitBake variable <code>KANTO_MANIFESTS_DEV_DIR</code> in the distro config recipes. By default, the Leda quickstart images use <code>KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests_dev&quot;</code>. So, these manifest are again stored in the persistent <strong>data</strong>-partition and can be modified after the image has been deployed.</p>
-<p><strong>Important: the <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer#manifest-structure">manifest template</a> used for this service is similar to the one for the kanto-cm native mechanism, but is, in fact, different. Kanto-auto-deployer uses the kanto-cm internal state representation.</strong></p>
-<p>A standard set of <em>dev</em>-containers is deployed with meta-leda, the manifests for which can be found in <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core_dev</code> and <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example_dev/</code>.</p>
-<p>The advantage of this service is that it can be restarted very quickly (<code>systemctl restart kanto-auto-deployer</code>), without having to restart the <em>whole</em> container-management service. This allows for rapid testing when deploying a new container. Due to the similarity of both manifests, the kanto-auto-deployer-style manifest can later be easily migrated to the kanto ini-dir style-one.</p>
+	<h2 id="kanto-auto-deployer-kad">Kanto-auto-deployer (KAD)</h2>
+<p>This service has been implemented as a stopgap solution by the Leda team since as of now the Kanto CM-native mechanism
+for initial container deployment does not suit the needs of the Leda Quickstart image well.</p>
+<p>In-depth documentation on its operation and development can be found in <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer">Kanto Auto deployer</a>.</p>
+<p>In the Leda Distro KAD runs as a service that continuously monitors the directory defined with the BitBake variable <code>KANTO_MANIFESTS_DEV_DIR</code> in the distro config recipes.
+By default, the Leda quickstart images use <code>KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests&quot;</code>.
+So, these manifests are again stored in the persistent <strong>data</strong>-partition and can be modified after the image has been deployed.</p>
+<p><strong>Important: KAD supports the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template">Kanto Container Management Manifest Template</a>
+AND the <a href="../../build/dev-and-maintenance/rust/kanto-auto-deployer//#internal-state-representation">Container Internal State Representation</a>. For future compatiblity reasons it is recommended that you choose <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template">Kanto Container Management Manifest Template</a>.</strong></p>
+<p>A standard set of containers is deployed through meta-leda, the manifests for which can be found in <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core</code> and <code>meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example</code>.</p>
+<p>The advantage of this service is that it can be restarted very quickly (<code>systemctl restart kanto-auto-deployer</code>), without having to restart the <em>whole</em> container-management service. The implemented filewatcher (the <code>--daemon</code> flag) allows you to quickly create/edit  (or even <code>touch</code> them) container manifests on the device that would be on-the-fly deployed after saving. This allows for rapid testing when creating new container manifests.</p>
+<h2 id="kanto-container-management-init-dir">Kanto Container Management init-dir</h2>
+<p>This feature of Kanto Container Managament by the Kanto Teams is currently under development and hence unstable. That is why it is not used as of the test-0.0.6 release of Leda Distro and 0.1.0-M1 release of meta-leda.</p>
 
 </div>
 
