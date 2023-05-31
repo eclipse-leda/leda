@@ -23,7 +23,7 @@ We use iwd/iwctl as high-level interfaces to manage wireless devices. For a guid
 
 ### **How can a container access CAN-Bus interfaces?**
 
-As using a CAN-Bus requires access to the host network interface, the container needs to run in privileged mode and it needs access to the host network interface. For a Kanto-CM container, simply add `privileged: true` to the [container configuration](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/). A more sophisticated setup involves using virtual CAN interfaces for each container and using a CAN gateway to route the traffic accordingly. However, using CAN-Bus is not in the focus of SDV-style applications, as we assume that *Vehicle Services* would be running on dedicated ECUs, offering higher-level interfaces to *Vehicle Applications* on other protocols, such as Some/IP.
+As using a CAN-Bus requires access to the host network interface, the container needs to run in privileged mode and it needs access to the host network interface. For a Kanto-CM container, simply add `privileged: true` to the [container configuration](https://eclipse.dev/kanto/docs/references/containers/container-config/). A more sophisticated setup involves using virtual CAN interfaces for each container and using a CAN gateway to route the traffic accordingly. However, using CAN-Bus is not in the focus of SDV-style applications, as we assume that *Vehicle Services* would be running on dedicated ECUs, offering higher-level interfaces to *Vehicle Applications* on other protocols, such as Some/IP.
 
 ```json
 "host_config": {

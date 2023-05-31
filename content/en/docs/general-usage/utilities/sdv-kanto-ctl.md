@@ -27,7 +27,7 @@ Full help:
 ```shell
 $ ./sdv-kanto-ctl --help
 Eclipse Kanto Container Manager Configuration Utility
-See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/
+See https://eclipse.dev/kanto/docs/references/containers/container-manager-config/
 Usage: ./sdv-kanto-ctl <command> {options}
 Commands:
         add-registry -h <hostname> -u <username> -p <password>
@@ -77,7 +77,7 @@ sdv-kanto-ctl add-registry -h ghcr.io -u github -p <Your_GitHub_PersonalAccessTo
 *sdv-kanto-ctl*  will make the necessary modifications to `/etc/container-management/config.json` and restarts the `container-management.service` systemd unit,
 so that the changes take effect. You may need to recreate or restart the container if a previous pull failed.
 
-Please see the [Eclipse Kanto Container Manager Configuration reference](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/)
+Please see the [Eclipse Kanto Container Manager Configuration reference](https://eclipse.dev/kanto/docs/references/containers/container-manager-config/)
 for details.
 
 ### Example: Enabling Things management

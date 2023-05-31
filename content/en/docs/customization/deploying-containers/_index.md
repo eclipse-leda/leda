@@ -16,8 +16,8 @@ In the Leda Distro KAD runs as a service that continuously monitors the director
 By default, the Leda quickstart images use `KANTO_MANIFESTS_DEV_DIR=/data/var/containers/manifests"`.
 So, these manifests are again stored in the persistent **data**-partition and can be modified after the image has been deployed.
 
-**Important: KAD supports the [Kanto Container Management Manifest Template](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template) 
-AND the [Container Internal State Representation](../../build/dev-and-maintenance/rust/kanto-auto-deployer//#internal-state-representation). For future compatiblity reasons it is recommended that you choose [Kanto Container Management Manifest Template](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template).** 
+**Important: KAD supports the [Kanto Container Management Manifest Template](https://eclipse.dev/kanto/docs/references/containers/container-config/#template) 
+AND the [Container Internal State Representation](../../build/dev-and-maintenance/rust/kanto-auto-deployer//#internal-state-representation). For future compatiblity reasons it is recommended that you choose [Kanto Container Management Manifest Template](https://eclipse.dev/kanto/docs/references/containers/container-config/#template).** 
 
 A standard set of containers is deployed through meta-leda, the manifests for which can be found in `meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/core` and `meta-leda/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example`.  
 
