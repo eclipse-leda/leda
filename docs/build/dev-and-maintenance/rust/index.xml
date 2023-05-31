@@ -116,7 +116,7 @@
 The conversion between formats is automatic (logged as a warning when it&amp;rsquo;s attempted)
 so you &lt;strong&gt;do not&lt;/strong&gt; need to provide extra options when using one or the other.&lt;/p&gt;
 &lt;h3 id=&#34;container-management-manifests-format&#34;&gt;Container Management Manifests Format&lt;/h3&gt;
-&lt;p&gt;This is the CM-native format, described in the &lt;a href=&#34;https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template&#34;&gt;Kanto-CM documentation&lt;/a&gt;.
+&lt;p&gt;This is the CM-native format, described in the &lt;a href=&#34;https://eclipse.dev/kanto/docs/references/containers/container-config/#template&#34;&gt;Kanto-CM documentation&lt;/a&gt;.
 It is the &lt;strong&gt;recommended&lt;/strong&gt; format since KAD is supposed to be replaced by native CM deployment modules in the future and this manifest
 format will be compatible with that.&lt;/p&gt;
 &lt;p&gt;It also allows you to ommit options (defaults will be used). KAD will issue a log warning when the &amp;ldquo;manifests_parser&amp;rdquo; attempts to convert this manifest format

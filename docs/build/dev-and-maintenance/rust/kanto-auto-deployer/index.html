@@ -29,12 +29,12 @@ This can be worked around via a bash script for each container that runs on boot
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-01-03T17:24:56+05:30" />
-<meta property="article:modified_time" content="2023-05-02T10:44:04+01:00" />
+<meta property="article:modified_time" content="2023-05-31T14:35:57+03:00" />
 <meta itemprop="name" content="Kanto Auto deployer (KAD)">
 <meta itemprop="description" content="TLDR: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the kanto-containers directory and re-build.
 Kanto-CM does not provide (currently) a stable feature that allows for the automatic deployment of containers through manifest files similar to k3s&rsquo; automated deployment of k8s-manifests found in the /var/lib/rancher/k3s/server/manifests directory.
 This can be worked around via a bash script for each container that runs on boot and makes sure it&rsquo;s deployed."><meta itemprop="datePublished" content="2023-01-03T17:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-05-02T10:44:04+01:00" />
+<meta itemprop="dateModified" content="2023-05-31T14:35:57+03:00" />
 <meta itemprop="wordCount" content="702">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kanto Auto deployer (KAD)"/>
@@ -45,8 +45,8 @@ This can be worked around via a bash script for each container that runs on boot
 
 
 
-<link rel="preload" href="/leda/scss/main.min.b5a9ca19aaf5dad02b8fe11dab3e681a31a3b5112db56c8859eb757994f8ea8d.css" as="style">
-<link href="/leda/scss/main.min.b5a9ca19aaf5dad02b8fe11dab3e681a31a3b5112db56c8859eb757994f8ea8d.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.1ebd95bd3ab046984abf182e1dc890b7a2a73c6fc0bc6282c64bcdcd43380222.css" as="style">
+<link href="/leda/scss/main.min.1ebd95bd3ab046984abf182e1dc890b7a2a73c6fc0bc6282c64bcdcd43380222.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -80,7 +80,7 @@ This can be worked around via a bash script for each container that runs on boot
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.349d984d4e54cbf92fc10ba0bd9e131f.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.e388a93e5a7729745d65634c713a4f6d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -105,7 +105,7 @@ This can be worked around via a bash script for each container that runs on boot
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.349d984d4e54cbf92fc10ba0bd9e131f.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.e388a93e5a7729745d65634c713a4f6d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -678,7 +678,7 @@ This can be worked around via a bash script for each container that runs on boot
 The conversion between formats is automatic (logged as a warning when it&rsquo;s attempted)
 so you <strong>do not</strong> need to provide extra options when using one or the other.</p>
 <h3 id="container-management-manifests-format">Container Management Manifests Format</h3>
-<p>This is the CM-native format, described in the <a href="https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template">Kanto-CM documentation</a>.
+<p>This is the CM-native format, described in the <a href="https://eclipse.dev/kanto/docs/references/containers/container-config/#template">Kanto-CM documentation</a>.
 It is the <strong>recommended</strong> format since KAD is supposed to be replaced by native CM deployment modules in the future and this manifest
 format will be compatible with that.</p>
 <p>It also allows you to ommit options (defaults will be used). KAD will issue a log warning when the &ldquo;manifests_parser&rdquo; attempts to convert this manifest format

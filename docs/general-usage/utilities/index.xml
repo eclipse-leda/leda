@@ -443,7 +443,7 @@ The directory will then be monitored for creation of/changes to manifests and th
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;2023-04-18T10:27:44Z WARN  kanto_auto_deployer::manifest_parser&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Failed to load manifest directly. Will attempt auto-conversion from init-dir format.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;2023-04-18T10:27:44Z INFO  kanto_auto_deployer&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Already exists &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;databroker&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;Nоte: The warnings from the manifest_parser module are normal and expected when the manifest is in the &lt;a href=&#34;https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template&#34;&gt;Container Management Manifests Format&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nоte: The warnings from the manifest_parser module are normal and expected when the manifest is in the &lt;a href=&#34;https://eclipse.dev/kanto/docs/references/containers/container-config/#template&#34;&gt;Container Management Manifests Format&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;usage-as-systemd-service&#34;&gt;Usage as systemd service&lt;/h2&gt;
 &lt;p&gt;In the Leda quickstart images, kanto-auto-deployer is installed as a systemd service.&lt;/p&gt;
@@ -571,7 +571,7 @@ This is especially useful for non-service-containers, or containers which have a
 &lt;p&gt;Full help:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./sdv-kanto-ctl --help
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Eclipse Kanto Container Manager Configuration Utility
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;See https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;See https://eclipse.dev/kanto/docs/references/containers/container-manager-config/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage: ./sdv-kanto-ctl &amp;lt;command&amp;gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;options&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Commands:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        add-registry -h &amp;lt;hostname&amp;gt; -u &amp;lt;username&amp;gt; -p &amp;lt;password&amp;gt;
@@ -608,7 +608,7 @@ Then, add the repository as shown below:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-kanto-ctl add-registry -h ghcr.io -u github -p &amp;lt;Your_GitHub_PersonalAccessToken&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;sdv-kanto-ctl&lt;/em&gt;  will make the necessary modifications to &lt;code&gt;/etc/container-management/config.json&lt;/code&gt; and restarts the &lt;code&gt;container-management.service&lt;/code&gt; systemd unit,
 so that the changes take effect. You may need to recreate or restart the container if a previous pull failed.&lt;/p&gt;
-&lt;p&gt;Please see the &lt;a href=&#34;https://websites.eclipseprojects.io/kanto/docs/references/containers/container-manager-config/&#34;&gt;Eclipse Kanto Container Manager Configuration reference&lt;/a&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://eclipse.dev/kanto/docs/references/containers/container-manager-config/&#34;&gt;Eclipse Kanto Container Manager Configuration reference&lt;/a&gt;
 for details.&lt;/p&gt;
 &lt;h3 id=&#34;example-enabling-things-management&#34;&gt;Example: Enabling Things management&lt;/h3&gt;
 &lt;p&gt;Enable the container manager digital twin representation.&lt;/p&gt;

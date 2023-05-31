@@ -23,7 +23,7 @@
       <description>
         
         
-        &lt;p&gt;The &lt;strong&gt;Seat Adjuster&lt;/strong&gt; use case has been derived from the &lt;a href=&#34;https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/seat_adjuster/&#34;&gt;Eclipse Velocitas Seat Adjuster example&lt;/a&gt;, the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34;&gt;Eclipse Kuksa.VAL Seat Service example&lt;/a&gt; and the &lt;a href=&#34;https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh&#34;&gt;Digital.Playground Prototyping Library&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;The &lt;strong&gt;Seat Adjuster&lt;/strong&gt; use case has been derived from the &lt;a href=&#34;https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/&#34;&gt;Eclipse Velocitas Seat Adjuster example&lt;/a&gt;, the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34;&gt;Eclipse Kuksa.VAL Seat Service example&lt;/a&gt; and the &lt;a href=&#34;https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh&#34;&gt;Digital.Playground Prototyping Library&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;The Seat Adjuster use cases demonstrates the idea of having a cloud-based driver profile hosted by a third-party web service, which is then used by a custom application to move the driver seat to certain positions.&lt;/p&gt;
 &lt;p&gt;Examples range from simple personalization to dynamic seat control (such as periodic back massages) based on personal health treatment plans by an health insurance organization. A driver could opt-in to such a service, which would lead to the ad-hoc installation of a seat adjuster vehicle application when the driver enters the vehicle. The seat adjuster application would then contact the health insurance webservice to retrieve the driver&amp;rsquo;s personal treatment plan for back massage and start moving the motors in certain intervals, to ease or prevent back pain during long driving periods.&lt;/p&gt;
@@ -40,7 +40,7 @@
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Follow the Velocitas tutorial: build and deploy your clone of the &lt;a href=&#34;https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/seat_adjuster/&#34;&gt;seat adjuster example&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Follow the Velocitas tutorial: build and deploy your clone of the &lt;a href=&#34;https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/&#34;&gt;seat adjuster example&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download and run the Leda quickstart image&lt;/p&gt;
@@ -213,7 +213,7 @@
       <description>
         
         
-        &lt;p&gt;The &lt;strong&gt;Dog Mode&lt;/strong&gt; use case has been derived from the &lt;a href=&#34;https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/dog_mode/&#34;&gt;Eclipse Velocitas Dog Mode example&lt;/a&gt; and the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/hvac_service&#34;&gt;Eclipse Kuksa.VAL HVAC Service example&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;The &lt;strong&gt;Dog Mode&lt;/strong&gt; use case has been derived from the &lt;a href=&#34;https://eclipse.dev/velocitas/docs/about/use_cases/dog_mode/&#34;&gt;Eclipse Velocitas Dog Mode example&lt;/a&gt; and the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/hvac_service&#34;&gt;Eclipse Kuksa.VAL HVAC Service example&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;In the &lt;strong&gt;Dog Mode&lt;/strong&gt; use case, an existing vehicle service (such as HVAC for Heating, Ventilation and Air Conditioning) is used for another use case.
 When a driver enables the dog mode, the vehicle will keep the climate in a status to accomodates the pet while the driver is gone for a few minutes.&lt;/p&gt;
@@ -229,7 +229,7 @@ When a driver enables the dog mode, the vehicle will keep the climate in a statu
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Follow the Velocitas tutorial: build and deploy your clone of the &lt;a href=&#34;https://websites.eclipseprojects.io/velocitas/docs/about/use_cases/dog_mode/&#34;&gt;dog mode example&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Follow the Velocitas tutorial: build and deploy your clone of the &lt;a href=&#34;https://eclipse.dev/velocitas/docs/about/use_cases/dog_mode/&#34;&gt;dog mode example&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Download and run the Leda quickstart image&lt;/p&gt;
