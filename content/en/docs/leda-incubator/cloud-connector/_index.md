@@ -14,7 +14,7 @@ Leda Cloud Connector for Azure IoT Hub is a fork (extended and adapted) of the g
 
 ## Runtime
 
-The SDV cloud connector will come up with pluggable architecture that will allow easy **transformation of the incoming cloud-to-device command messages (SDV message envelope) to a format suitable and understandable by the rest of the in-vehicle components** and vice-versa. It shall be possible to map SDV messages to and from [Eclipse Hono](https://www.eclipse.org/hono/docs/concepts/connecting-devices/) and [Eclipse Ditto](https://www.eclipse.org/ditto/) messages using simple configuration, rules written in JSON; thus allowing this component to work together with other [Eclipse Kanto](https://websites.eclipseprojects.io/kanto/) components too.
+The SDV cloud connector will come up with pluggable architecture that will allow easy **transformation of the incoming cloud-to-device command messages (SDV message envelope) to a format suitable and understandable by the rest of the in-vehicle components** and vice-versa. It shall be possible to map SDV messages to and from [Eclipse Hono](https://www.eclipse.org/hono/docs/concepts/connecting-devices/) and [Eclipse Ditto](https://www.eclipse.org/ditto/) messages using simple configuration, rules written in JSON; thus allowing this component to work together with other [Eclipse Kanto](https://eclipse.dev/kanto/) components too.
 
 ![Cloud Connector Runtime View](./cloud-connector-runtime.png)
 

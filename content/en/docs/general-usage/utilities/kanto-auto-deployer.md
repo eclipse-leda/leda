@@ -54,7 +54,7 @@ root@qemux86-64:~# kanto-auto-deployer /data/var/containers/manifests/
 [2023-04-18T10:27:44Z INFO  kanto_auto_deployer] Already exists [databroker]
 ```
 
-> Nоte: The warnings from the manifest_parser module are normal and expected when the manifest is in the [Container Management Manifests Format](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template)
+> Nоte: The warnings from the manifest_parser module are normal and expected when the manifest is in the [Container Management Manifests Format](https://eclipse.dev/kanto/docs/references/containers/container-config/#template)
 
 ## Usage as systemd service
 

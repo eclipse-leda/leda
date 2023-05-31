@@ -24,7 +24,7 @@ The conversion between formats is automatic (logged as a warning when it's attem
 
 ### Container Management Manifests Format
 
-This is the CM-native format, described in the [Kanto-CM documentation](https://websites.eclipseprojects.io/kanto/docs/references/containers/container-config/#template). 
+This is the CM-native format, described in the [Kanto-CM documentation](https://eclipse.dev/kanto/docs/references/containers/container-config/#template). 
 It is the **recommended** format since KAD is supposed to be replaced by native CM deployment modules in the future and this manifest 
 format will be compatible with that.
 

@@ -9,5 +9,5 @@ This chapter contains use cases and examples for SDV applications.
 Some of these example are taken from the following sources:
 
 - [Digital.Auto](https://digital.auto) and its [playground](https://digitalauto.netlify.app/)
-- [Eclipse Velocitas tutorials](https://websites.eclipseprojects.io/velocitas/docs/tutorials/)
+- [Eclipse Velocitas tutorials](https://eclipse.dev/velocitas/docs/tutorials/)
 - [Eclipse Kuksa.VAL examples](https://github.com/eclipse/kuksa.val.services)
