@@ -333,7 +333,12 @@ you can either use the natively installed &lt;code&gt;databroker-cli&lt;/code&gt
 # Edit /data/var/containers/manifests/myapp.json
 kanto-auto-deployer
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;example-deployment-specification&#34;&gt;Example Deployment Specification&lt;/h2&gt;
+&lt;h2 id=&#34;configuration-of-velocitas-middleware-type&#34;&gt;Configuration of Velocitas Middleware Type&lt;/h2&gt;
+&lt;p&gt;The following Velocitas environment variables need to be set to configure the proper middleware type and hostnames of services:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SDV_MQTT_ADDRESS=mqtt://mosquitto:1883
+SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555
+SDV_MIDDLEWARE_TYPE=native
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;example-deployment-specification&#34;&gt;Example Deployment Specification&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Attention: The current implementation requires all fields to be present in the JSON, even if the values are not set or used. Do not remove any fields, as it may break the functionality.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -395,7 +400,10 @@ kanto-auto-deployer
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;env&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SDV_MQTT_ADDRESS=mqtt://mosquitto:1883&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SDV_MIDDLEWARE_TYPE=native&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;

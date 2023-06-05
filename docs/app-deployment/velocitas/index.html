@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.23c404ec395cd9af8fa2370420e72576.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.aef1a5beb0ca51e15e4acb69a8f56981.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.23c404ec395cd9af8fa2370420e72576.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.aef1a5beb0ca51e15e4acb69a8f56981.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5709,6 +5709,7 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
+    <li><a href="#configuration-of-velocitas-middleware-type">Configuration of Velocitas Middleware Type</a></li>
     <li><a href="#example-deployment-specification">Example Deployment Specification</a></li>
   </ul>
 </nav>
@@ -5789,7 +5790,12 @@
 # Edit /data/var/containers/manifests/myapp.json
 kanto-auto-deployer
 </code></pre>
-<h2 id="example-deployment-specification">Example Deployment Specification</h2>
+<h2 id="configuration-of-velocitas-middleware-type">Configuration of Velocitas Middleware Type</h2>
+<p>The following Velocitas environment variables need to be set to configure the proper middleware type and hostnames of services:</p>
+<pre tabindex="0"><code>SDV_MQTT_ADDRESS=mqtt://mosquitto:1883
+SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555
+SDV_MIDDLEWARE_TYPE=native
+</code></pre><h2 id="example-deployment-specification">Example Deployment Specification</h2>
 <blockquote>
 <p>Attention: The current implementation requires all fields to be present in the JSON, even if the values are not set or used. Do not remove any fields, as it may break the functionality.</p>
 </blockquote>
@@ -5851,7 +5857,10 @@ kanto-auto-deployer
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker&#34;</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_MQTT_ADDRESS=mqtt://mosquitto:1883&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_MIDDLEWARE_TYPE=native&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
