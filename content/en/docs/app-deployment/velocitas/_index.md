@@ -16,6 +16,16 @@ To update an existing container when the configuration has changed, delete the c
     # Edit /data/var/containers/manifests/myapp.json
     kanto-auto-deployer
 
+## Configuration of Velocitas Middleware Type
+
+The following Velocitas environment variables need to be set to configure the proper middleware type and hostnames of services:
+
+```
+SDV_MQTT_ADDRESS=mqtt://mosquitto:1883
+SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555
+SDV_MIDDLEWARE_TYPE=native
+```
+
 ## Example Deployment Specification
 
 > Attention: The current implementation requires all fields to be present in the JSON, even if the values are not set or used. Do not remove any fields, as it may break the functionality.
@@ -79,7 +89,10 @@ To update an existing container when the configuration has changed, delete the c
     },
     "config": {
         "env": [
-           "VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker"
+           "VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker",
+           "SDV_MQTT_ADDRESS=mqtt://mosquitto:1883",
+           "SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555",
+           "SDV_MIDDLEWARE_TYPE=native"
         ],
         "cmd": []
     },
