@@ -1,0 +1,152 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Vehicle Signals</title>
+    <link>https://eclipse-leda.github.io/leda/docs/vss/</link>
+    <description>Recent content in Vehicle Signals on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 May 2023 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Vehicle</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:34 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;High-level vehicle data.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+    Vehicle
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle/&#34;&gt;Vehicle&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle&lt;/code&gt; is &lt;code&gt;ccc825f94139544dbb5f4bfd033bece6&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;adas/&#34;&gt;Vehicle.ADAS&lt;/a&gt; (All Advanced Driver Assist Systems data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;acceleration/&#34;&gt;Vehicle.Acceleration&lt;/a&gt; (Spatial acceleration. Axis definitions according to ISO 8855.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;angularvelocity/&#34;&gt;Vehicle.AngularVelocity&lt;/a&gt; (Spatial rotation. Axis definitions according to ISO 8855.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;averagespeed/&#34;&gt;Vehicle.AverageSpeed&lt;/a&gt; (Average speed for the current trip.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;body/&#34;&gt;Vehicle.Body&lt;/a&gt; (All body components.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;cabin/&#34;&gt;Vehicle.Cabin&lt;/a&gt; (All in-cabin components, including doors.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;cargovolume/&#34;&gt;Vehicle.CargoVolume&lt;/a&gt; (The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;chassis/&#34;&gt;Vehicle.Chassis&lt;/a&gt; (All data concerning steering, suspension, wheels, and brakes.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;connectivity/&#34;&gt;Vehicle.Connectivity&lt;/a&gt; (Connectivity data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;curbweight/&#34;&gt;Vehicle.CurbWeight&lt;/a&gt; (Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;currentlocation/&#34;&gt;Vehicle.CurrentLocation&lt;/a&gt; (The current latitude and longitude of the vehicle.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;currentoverallweight/&#34;&gt;Vehicle.CurrentOverallWeight&lt;/a&gt; (Current overall Vehicle weight. Including passengers, cargo and other load inside the car.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;driver/&#34;&gt;Vehicle.Driver&lt;/a&gt; (Driver data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;emissionsco2/&#34;&gt;Vehicle.EmissionsCO2&lt;/a&gt; (The CO2 emissions.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;exterior/&#34;&gt;Vehicle.Exterior&lt;/a&gt; (Information about exterior measured by vehicle.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;grossweight/&#34;&gt;Vehicle.GrossWeight&lt;/a&gt; (Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;height/&#34;&gt;Vehicle.Height&lt;/a&gt; (Overall vehicle height.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isbrokendown/&#34;&gt;Vehicle.IsBrokenDown&lt;/a&gt; (Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;ismoving/&#34;&gt;Vehicle.IsMoving&lt;/a&gt; (Indicates whether the vehicle is stationary or moving.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;length/&#34;&gt;Vehicle.Length&lt;/a&gt; (Overall vehicle length.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lowvoltagebattery/&#34;&gt;Vehicle.LowVoltageBattery&lt;/a&gt; (Signals related to low voltage battery.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lowvoltagesystemstate/&#34;&gt;Vehicle.LowVoltageSystemState&lt;/a&gt; (State of the supply voltage of the control units (usually 12V).)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;maxtowballweight/&#34;&gt;Vehicle.MaxTowBallWeight&lt;/a&gt; (Maximum vertical weight on the tow ball of a trailer.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;maxtowweight/&#34;&gt;Vehicle.MaxTowWeight&lt;/a&gt; (Maximum weight of trailer.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;obd/&#34;&gt;Vehicle.OBD&lt;/a&gt; (OBD data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;poweroptimizelevel/&#34;&gt;Vehicle.PowerOptimizeLevel&lt;/a&gt; (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;powertrain/&#34;&gt;Vehicle.Powertrain&lt;/a&gt; (Powertrain data for battery management, etc.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;roofload/&#34;&gt;Vehicle.RoofLoad&lt;/a&gt; (The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;service/&#34;&gt;Vehicle.Service&lt;/a&gt; (Service data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;speed/&#34;&gt;Vehicle.Speed&lt;/a&gt; (Vehicle speed.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;starttime/&#34;&gt;Vehicle.StartTime&lt;/a&gt; (Start time of current or latest trip, formatted according to ISO 8601 with UTC time zone.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;trailer/&#34;&gt;Vehicle.Trailer&lt;/a&gt; (Trailer signals.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;traveleddistance/&#34;&gt;Vehicle.TraveledDistance&lt;/a&gt; (Odometer reading, total distance traveled during the lifetime of the vehicle.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;traveleddistancesincestart/&#34;&gt;Vehicle.TraveledDistanceSinceStart&lt;/a&gt; (Distance traveled since start of current trip.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;travelleddistance/&#34;&gt;Vehicle.TravelledDistance&lt;/a&gt; (Odometer reading, total distance traveled during the lifetime of the vehicle.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tripduration/&#34;&gt;Vehicle.TripDuration&lt;/a&gt; (Duration of latest trip.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tripmeterreading/&#34;&gt;Vehicle.TripMeterReading&lt;/a&gt; (Trip meter reading.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;vehicleidentification/&#34;&gt;Vehicle.VehicleIdentification&lt;/a&gt; (Attributes that identify a vehicle.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;versionvss/&#34;&gt;Vehicle.VersionVSS&lt;/a&gt; (Supported Version of VSS.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;width/&#34;&gt;Vehicle.Width&lt;/a&gt; (Overall vehicle width.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

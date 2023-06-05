@@ -1,0 +1,363 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Row1</title>
+    <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/</link>
+    <description>Recent content in Row1 on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Jun 2023 12:38:50 +0000</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Pos3</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/pos3/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:54 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/pos3/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;All seats.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Cabin
+
+    Cabin--&gt;Seat
+
+    Seat--&gt;Row1
+
+    Row1--&gt;Pos3
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Cabin.Seat.Row1.Pos3/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos3&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos3&lt;/code&gt; is &lt;code&gt;add6f181ffd35d03b57d9833e7e22f4f&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;airbag/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Airbag&lt;/a&gt; (Airbag signals.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;backrest/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Backrest&lt;/a&gt; (Describes signals related to the backrest of the seat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;headrest/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Headrest&lt;/a&gt; (Headrest settings.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;heating/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Heating&lt;/a&gt; (Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;height/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Height&lt;/a&gt; (Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isbelted/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.IsBelted&lt;/a&gt; (Is the belt engaged.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isoccupied/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.IsOccupied&lt;/a&gt; (Does the seat have a passenger in it.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;massage/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Massage&lt;/a&gt; (Seat massage level. 0 = off. 100 = max massage.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;occupant/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Occupant&lt;/a&gt; (Occupant data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;position/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Position&lt;/a&gt; (Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;seating/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Seating&lt;/a&gt; (Describes signals related to the seat bottom of the seat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;switch/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Switch&lt;/a&gt; (Seat switch signals)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tilt/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos3.Tilt&lt;/a&gt; (Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Cabin.Seat.Row1.Pos3&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Pos2</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/pos2/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:52 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/pos2/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;All seats.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Cabin
+
+    Cabin--&gt;Seat
+
+    Seat--&gt;Row1
+
+    Row1--&gt;Pos2
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Cabin.Seat.Row1.Pos2/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos2&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos2&lt;/code&gt; is &lt;code&gt;614cecf6380d5c23989d2c8bf20bd8c3&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;airbag/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Airbag&lt;/a&gt; (Airbag signals.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;backrest/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Backrest&lt;/a&gt; (Describes signals related to the backrest of the seat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;headrest/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Headrest&lt;/a&gt; (Headrest settings.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;heating/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Heating&lt;/a&gt; (Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;height/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Height&lt;/a&gt; (Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isbelted/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.IsBelted&lt;/a&gt; (Is the belt engaged.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isoccupied/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.IsOccupied&lt;/a&gt; (Does the seat have a passenger in it.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;massage/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Massage&lt;/a&gt; (Seat massage level. 0 = off. 100 = max massage.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;occupant/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Occupant&lt;/a&gt; (Occupant data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;position/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Position&lt;/a&gt; (Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;seating/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Seating&lt;/a&gt; (Describes signals related to the seat bottom of the seat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;switch/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Switch&lt;/a&gt; (Seat switch signals)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tilt/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos2.Tilt&lt;/a&gt; (Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Cabin.Seat.Row1.Pos2&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Pos1</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/pos1/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:50 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/cabin/seat/row1/pos1/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;All seats.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Cabin
+
+    Cabin--&gt;Seat
+
+    Seat--&gt;Row1
+
+    Row1--&gt;Pos1
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Cabin.Seat.Row1.Pos1/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1&lt;/code&gt; is &lt;code&gt;9f570421f00a53f19f3741bd4e53303b&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;airbag/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Airbag&lt;/a&gt; (Airbag signals.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;backrest/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Backrest&lt;/a&gt; (Describes signals related to the backrest of the seat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;headrest/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Headrest&lt;/a&gt; (Headrest settings.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;heating/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Heating&lt;/a&gt; (Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;height/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Height&lt;/a&gt; (Seat position on vehicle z-axis. Position is relative within available movable range of the seating. 0 = Lowermost position supported.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isbelted/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.IsBelted&lt;/a&gt; (Is the belt engaged.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;isoccupied/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.IsOccupied&lt;/a&gt; (Does the seat have a passenger in it.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;massage/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Massage&lt;/a&gt; (Seat massage level. 0 = off. 100 = max massage.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;occupant/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Occupant&lt;/a&gt; (Occupant data.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;position/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/a&gt; (Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;seating/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Seating&lt;/a&gt; (Describes signals related to the seat bottom of the seat.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;switch/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Switch&lt;/a&gt; (Seat switch signals)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tilt/&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Tilt&lt;/a&gt; (Tilting of seat (seating and backrest) relative to vehicle x-axis. 0 = seat bottom is flat, seat bottom and vehicle x-axis are parallel. Positive degrees = seat tilted backwards, seat x-axis tilted upward, seat z-axis is tilted backward.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Cabin.Seat.Row1.Pos1&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

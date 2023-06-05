@@ -1,0 +1,2840 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – FuelSystem</title>
+    <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/</link>
+    <description>Recent content in FuelSystem on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Jun 2023 12:38:41 +0000</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: AverageConsumption</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/averageconsumption/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/averageconsumption/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Average consumption in liters per 100 km.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;AverageConsumption
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.AverageConsumption
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.AverageConsumption &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.AverageConsumption/&#34;&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;l/100km&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;liter per 100 kilometers&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Volume per distance measured in liters per 100 kilometers&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;volume per distance&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Minimum value&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;float&lt;/code&gt; datatype is a &lt;em&gt;floating point number&lt;/em&gt; which technically allows values between -3.4e ^ -38 and 3.4e ^ 38&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.AverageConsumption&lt;/code&gt; is &lt;code&gt;e2252108125a54dcab34e1bad0fe8bdc&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.AverageConsumption&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ConsumptionSinceStart</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/consumptionsincestart/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/consumptionsincestart/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Fuel amount in liters consumed since start of current trip.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Comment:&lt;/td&gt;
+&lt;td&gt;A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode). A trip is considered to end when engine is no longer enabled. The signal may however keep the value of the last trip until a new trip is started.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;ConsumptionSinceStart
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart/&#34;&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;l&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;liter&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Volume measured in liters&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;volume&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;float&lt;/code&gt; datatype is a &lt;em&gt;floating point number&lt;/em&gt; which technically allows values between -3.4e ^ -38 and 3.4e ^ 38&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&lt;/code&gt; is &lt;code&gt;adf0a40964ff556f92b10275ad918883&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: HybridType</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/hybridtype/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/hybridtype/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.HybridType&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Defines the hybrid type of the vehicle.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;HybridType
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.HybridType
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.HybridType: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.HybridType UNKNOWN
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.HybridType/&#34;&gt;Vehicle.Powertrain.FuelSystem.HybridType&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.HybridType&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Default value&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;UNKNOWN&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Allowed values&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[&#39;UNKNOWN&#39;, &#39;NOT_APPLICABLE&#39;, &#39;STOP_START&#39;, &#39;BELT_ISG&#39;, &#39;CIMG&#39;, &#39;PHEV&#39;]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/&#34;&gt;VSS: Specifying allowed values&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;string&lt;/code&gt; datatype is a &lt;em&gt;character string&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.HybridType&lt;/code&gt; is an &lt;strong&gt;Attribute&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.HybridType&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.HybridType&lt;/code&gt; is &lt;code&gt;f0f72012f5e453c1935ff8c3a5aff696&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.HybridType&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: InstantConsumption</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/instantconsumption/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/instantconsumption/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Current consumption in liters per 100 km.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;InstantConsumption
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.InstantConsumption
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.InstantConsumption &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.InstantConsumption/&#34;&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;l/100km&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;liter per 100 kilometers&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Volume per distance measured in liters per 100 kilometers&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;volume per distance&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Minimum value&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;float&lt;/code&gt; datatype is a &lt;em&gt;floating point number&lt;/em&gt; which technically allows values between -3.4e ^ -38 and 3.4e ^ 38&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.InstantConsumption&lt;/code&gt; is &lt;code&gt;cf65767ec8ad56ffadfdccd831e4b562&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.InstantConsumption&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: IsEngineStopStartEnabled</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/isenginestopstartenabled/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/isenginestopstartenabled/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Indicates whether eco start stop is currently enabled.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;IsEngineStopStartEnabled
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled/&#34;&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;boolean&lt;/code&gt; datatype is a &lt;em&gt;boolean value&lt;/em&gt; which technically allows values of either 0 and false; or 1 and true.&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&lt;/code&gt; is &lt;code&gt;176eed5bb0da582a9ee56f1c70e12075&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: IsFuelLevelLow</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/isfuellevellow/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/isfuellevellow/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Indicates that the fuel level is low (e.g. &amp;lt;50km range).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;IsFuelLevelLow
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.IsFuelLevelLow
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.IsFuelLevelLow &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.IsFuelLevelLow/&#34;&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;boolean&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;boolean&lt;/code&gt; datatype is a &lt;em&gt;boolean value&lt;/em&gt; which technically allows values of either 0 and false; or 1 and true.&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&lt;/code&gt; is &lt;code&gt;65f18ee3b04f5d4c8bb76083227dd9fe&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.IsFuelLevelLow&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Level</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/level/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/level/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.Level&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Level in fuel tank as percent of capacity. 0 = empty. 100 = full.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;Level
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.Level
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.Level: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.Level &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.Level/&#34;&gt;Vehicle.Powertrain.FuelSystem.Level&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.Level&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;uint8&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;percent&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;percent&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Relation measured in percent&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;relation&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Minimum value&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Maximum value&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;100&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;uint8&lt;/code&gt; datatype is an &lt;em&gt;unsigned 8-bit integer&lt;/em&gt; which technically allows values between 0 and 255 (inclusive).&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.Level&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.Level&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.Level&lt;/code&gt; is &lt;code&gt;902bd295a662573088291e8b6a6b7943&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.Level&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Range</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/range/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/range/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.Range&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Remaining range in meters using only liquid fuel.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;Range
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.Range
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.Range: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.Range &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.Range/&#34;&gt;Vehicle.Powertrain.FuelSystem.Range&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.Range&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;uint32&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;m&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;meter&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Distance measured in meters&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;distance&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;uint32&lt;/code&gt; datatype is an &lt;em&gt;unsigned 32-bit integer&lt;/em&gt; which technically allows values between 0 and 4294967295 (inclusive).&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.Range&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.Range&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.Range&lt;/code&gt; is &lt;code&gt;c5a0dbe5e754553897f0aed0069af57a&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.Range&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SupportedFuel</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/supportedfuel/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/supportedfuel/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Detailed information on fuels supported by the vehicle. Identifiers originating from DIN EN 16942:2021-08, appendix B, with additional suffix for octane (RON) where relevant.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Comment:&lt;/td&gt;
+&lt;td&gt;RON 95 is sometimes referred to as Super, RON 98 as Super Plus.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;SupportedFuel
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.SupportedFuel
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.SupportedFuel &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.SupportedFuel/&#34;&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Allowed values&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[&#39;E5_95&#39;, &#39;E5_98&#39;, &#39;E10_95&#39;, &#39;E10_98&#39;, &#39;E85&#39;, &#39;B7&#39;, &#39;B10&#39;, &#39;B20&#39;, &#39;B30&#39;, &#39;B100&#39;, &#39;XTL&#39;, &#39;LPG&#39;, &#39;CNG&#39;, &#39;LNG&#39;, &#39;H2&#39;, &#39;OTHER&#39;]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/&#34;&gt;VSS: Specifying allowed values&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel&lt;/code&gt; is an &lt;strong&gt;Attribute&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuel&lt;/code&gt; is &lt;code&gt;7fd3bf2ef0c650e69ff2037875ec59ee&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.SupportedFuel&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: SupportedFuelTypes</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/supportedfueltypes/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/supportedfueltypes/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;High level information of fuel types supported&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Comment:&lt;/td&gt;
+&lt;td&gt;If a vehicle also has an electric drivetrain (e.g. hybrid) that will be obvious from the PowerTrain.Type signal.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;SupportedFuelTypes
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.SupportedFuelTypes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.SupportedFuelTypes &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.SupportedFuelTypes/&#34;&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string[]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Allowed values&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[&#39;GASOLINE&#39;, &#39;DIESEL&#39;, &#39;E85&#39;, &#39;LPG&#39;, &#39;CNG&#39;, &#39;LNG&#39;, &#39;H2&#39;, &#39;OTHER&#39;]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/&#34;&gt;VSS: Specifying allowed values&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&lt;/code&gt; is an &lt;strong&gt;Attribute&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&lt;/code&gt; is &lt;code&gt;80edc3002aa25097aba6455fe459fa6c&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.SupportedFuelTypes&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: TankCapacity</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/tankcapacity/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/tankcapacity/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.TankCapacity&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Capacity of the fuel tank in liters.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;TankCapacity
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.TankCapacity
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.TankCapacity: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.TankCapacity &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.TankCapacity/&#34;&gt;Vehicle.Powertrain.FuelSystem.TankCapacity&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.TankCapacity&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;float&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;l&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;liter&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Volume measured in liters&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;volume&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;float&lt;/code&gt; datatype is a &lt;em&gt;floating point number&lt;/em&gt; which technically allows values between -3.4e ^ -38 and 3.4e ^ 38&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.TankCapacity&lt;/code&gt; is an &lt;strong&gt;Attribute&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.TankCapacity&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.TankCapacity&lt;/code&gt; is &lt;code&gt;362643b866c55d5386fdbdf383464e90&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.TankCapacity&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: TimeSinceStart</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/timesincestart/</link>
+      <pubDate>Mon, 05 Jun 2023 12:38:41 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/fuelsystem/timesincestart/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Time in seconds elapsed since start of current trip.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deprecation&lt;/td&gt;
+&lt;td&gt;V3.1 replaced by Vehicle.StartTime and Vehicle.TripDuration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Powertrain
+
+    Powertrain--&gt;FuelSystem
+
+    FuelSystem--&gt;TimeSinceStart
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;eclipse-leda-usage-example&#34;&gt;Eclipse Leda: Usage Example&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Eclipse Kuksa.VAL Databroker&lt;/a&gt; CLI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; connect
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;connect&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; get Vehicle.Powertrain.FuelSystem.TimeSinceStart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;get&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt; NotAvailable &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv.databroker.v1 &amp;gt; &lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt; Vehicle.Powertrain.FuelSystem.TimeSinceStart &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;set&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;  OK
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Powertrain.FuelSystem.TimeSinceStart/&#34;&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;data-type--unit&#34;&gt;Data Type &amp;amp; Unit&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Path&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/basics/&#34;&gt;VSS: Addressing nodes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Data type&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;uint32&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/&#34;&gt;VSS: Datatypes&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Unit&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;s&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;VSS: Units&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Label&lt;/td&gt;
+&lt;td&gt;second&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description&lt;/td&gt;
+&lt;td&gt;Time measured in seconds&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/&#34;&gt;VSS: Sensors &amp;amp; Actuators&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;time&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/&#34;&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The &lt;code&gt;uint32&lt;/code&gt; datatype is an &lt;em&gt;unsigned 32-bit integer&lt;/em&gt; which technically allows values between 0 and 4294967295 (inclusive).&lt;/p&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart&lt;/code&gt; is a &lt;strong&gt;Sensor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart&lt;/code&gt; is a &lt;strong&gt;Signal&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Powertrain.FuelSystem.TimeSinceStart&lt;/code&gt; is &lt;code&gt;1a8dbc5107b3522fad852e63aa85aef9&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Powertrain.FuelSystem.TimeSinceStart&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;supported-datatypes&#34;&gt;Supported datatypes&lt;/h2&gt;
+&lt;p&gt;The following is a list of VSS supported built-in datatypes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Name&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Type&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Min&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Max&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;255&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int8&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 8-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-128&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;127&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;65535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int16&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 16-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-32768&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;32767&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4294967295&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int32&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 32-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2147483648&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2147483647&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;uint64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;unsigned 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^64 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;int64&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;signed 64-bit integer&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-2^63&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2^63 - 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;boolean value&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0/false&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1/true&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;float&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-3.4e -38&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3.4e 38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;double precision floating point number&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;-1.7e -300&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1.7e 300&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;character string&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;n/a&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

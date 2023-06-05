@@ -1,0 +1,842 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – O2WR</title>
+    <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/</link>
+    <description>Recent content in O2WR on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Jun 2023 12:39:06 +0000</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Sensor4</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor4/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:07 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor4/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor4&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor4
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor4/&#34;&gt;Vehicle.OBD.O2WR.Sensor4&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor4&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor4&lt;/code&gt; is &lt;code&gt;bb67047ddad158ba98876a6a87d02e97&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor4.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor4.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor4.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor4&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor5</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor5/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:07 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor5/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor5
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor5/&#34;&gt;Vehicle.OBD.O2WR.Sensor5&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor5&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor5&lt;/code&gt; is &lt;code&gt;01c4160d39af5db59c66db844646195e&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor5.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor5.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor5.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor5&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor6</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor6/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:07 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor6/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor6&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor6
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor6/&#34;&gt;Vehicle.OBD.O2WR.Sensor6&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor6&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor6&lt;/code&gt; is &lt;code&gt;cff12c30bde957798daaa3a91758b48b&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor6.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor6.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor6.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor6&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor7</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor7/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:07 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor7/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor7&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor7
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor7/&#34;&gt;Vehicle.OBD.O2WR.Sensor7&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor7&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor7&lt;/code&gt; is &lt;code&gt;44459df1f25f5d43a07b00f2bad65ef5&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor7.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor7.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor7.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor7&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor8</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor8/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:07 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor8/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor8&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor8
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor8/&#34;&gt;Vehicle.OBD.O2WR.Sensor8&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor8&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor8&lt;/code&gt; is &lt;code&gt;b8865e72055d52a086f6935d5c188cc1&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor8.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor8.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor8.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor8&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor1</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor1/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:06 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor1/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor1
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor1/&#34;&gt;Vehicle.OBD.O2WR.Sensor1&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor1&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor1&lt;/code&gt; is &lt;code&gt;496074cec04a5260b60fd39bb7ed1479&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor1.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor1.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor1.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor1&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor2</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor2/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:06 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor2/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor2
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor2/&#34;&gt;Vehicle.OBD.O2WR.Sensor2&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor2&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor2&lt;/code&gt; is &lt;code&gt;079f9960f75d5f399df7ff86fcea8f0c&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor2.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor2.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor2.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor2&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sensor3</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor3/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:06 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/obd/o2wr/sensor3/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.OBD.O2WR.Sensor3&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Wide range/band oxygen sensors (PID 24 - 2B and PID 34 - 3B)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;OBD
+
+    OBD--&gt;O2WR
+
+    O2WR--&gt;Sensor3
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.OBD.O2WR.Sensor3/&#34;&gt;Vehicle.OBD.O2WR.Sensor3&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.OBD.O2WR.Sensor3&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.OBD.O2WR.Sensor3&lt;/code&gt; is &lt;code&gt;a8a83d3e33f9584b824088e830bcbaec&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;current/&#34;&gt;Vehicle.OBD.O2WR.Sensor3.Current&lt;/a&gt; (PID 3x (byte CD) - Current for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;lambda/&#34;&gt;Vehicle.OBD.O2WR.Sensor3.Lambda&lt;/a&gt; (PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;voltage/&#34;&gt;Vehicle.OBD.O2WR.Sensor3.Voltage&lt;/a&gt; (PID 2x (byte CD) - Voltage for wide range/band oxygen sensor)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.OBD.O2WR.Sensor3&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

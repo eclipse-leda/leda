@@ -1,0 +1,234 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – Axle</title>
+    <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/axle/</link>
+    <description>Recent content in Axle on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 05 Jun 2023 12:39:02 +0000</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/axle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Row1</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/axle/row1/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:03 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/axle/row1/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Chassis.Axle.Row1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Axle signals&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Chassis
+
+    Chassis--&gt;Axle
+
+    Axle--&gt;Row1
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Chassis.Axle.Row1/&#34;&gt;Vehicle.Chassis.Axle.Row1&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Chassis.Axle.Row1&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Chassis.Axle.Row1&lt;/code&gt; is &lt;code&gt;d7e93a94af0752aaab36819f6be4f67a&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;steeringangle/&#34;&gt;Vehicle.Chassis.Axle.Row1.SteeringAngle&lt;/a&gt; (Single track two-axle model steering angle. Angle according to ISO 8855. Positive = degrees to the left. Negative = degrees to the right.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tireaspectratio/&#34;&gt;Vehicle.Chassis.Axle.Row1.TireAspectRatio&lt;/a&gt; (Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tirediameter/&#34;&gt;Vehicle.Chassis.Axle.Row1.TireDiameter&lt;/a&gt; (Outer diameter of tires, in inches, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tirewidth/&#34;&gt;Vehicle.Chassis.Axle.Row1.TireWidth&lt;/a&gt; (Nominal section width of tires, in mm, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheel/&#34;&gt;Vehicle.Chassis.Axle.Row1.Wheel&lt;/a&gt; (Wheel signals for axle)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheelcount/&#34;&gt;Vehicle.Chassis.Axle.Row1.WheelCount&lt;/a&gt; (Number of wheels on the axle)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheeldiameter/&#34;&gt;Vehicle.Chassis.Axle.Row1.WheelDiameter&lt;/a&gt; (Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheelwidth/&#34;&gt;Vehicle.Chassis.Axle.Row1.WheelWidth&lt;/a&gt; (Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Chassis.Axle.Row1&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Row2</title>
+      <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/axle/row2/</link>
+      <pubDate>Mon, 05 Jun 2023 12:39:03 +0000</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/axle/row2/</guid>
+      <description>
+        
+        
+        &lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Full qualified VSS Path:&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Vehicle.Chassis.Axle.Row2&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;
+&lt;td&gt;Axle signals&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;navigation&#34;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
+
+
+
+    Vehicle--&gt;Chassis
+
+    Chassis--&gt;Axle
+
+    Axle--&gt;Row2
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;digital-auto-playground&#34;&gt;Digital Auto: Playground&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://digital.auto&#34;&gt;playground.digital.auto&lt;/a&gt; provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Vehicle Model&lt;/th&gt;
+&lt;th&gt;Direct link to Vehicle Signal&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ACME Car (EV) v0.1&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Chassis.Axle.Row2/&#34;&gt;Vehicle.Chassis.Axle.Row2&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;signal-information&#34;&gt;Signal Information&lt;/h2&gt;
+&lt;p&gt;The vehicle signal &lt;code&gt;Vehicle.Chassis.Axle.Row2&lt;/code&gt; is a &lt;strong&gt;Branch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;uuid&#34;&gt;UUID&lt;/h2&gt;
+&lt;p&gt;Each vehicle signal is identified by a &lt;a href=&#34;https://en.wikipedia.org/wiki/Universally_unique_identifier&#34;&gt;Universally Unique Identifier (UUID&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The UUID for &lt;code&gt;Vehicle.Chassis.Axle.Row2&lt;/code&gt; is &lt;code&gt;8ef77768446659b6b5020a06c7b23c8b&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;children&#34;&gt;Children&lt;/h2&gt;
+&lt;p&gt;This vehicle signal is a branch or structure and thus has sub-pages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;steeringangle/&#34;&gt;Vehicle.Chassis.Axle.Row2.SteeringAngle&lt;/a&gt; (Single track two-axle model steering angle. Angle according to ISO 8855. Positive = degrees to the left. Negative = degrees to the right.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tireaspectratio/&#34;&gt;Vehicle.Chassis.Axle.Row2.TireAspectRatio&lt;/a&gt; (Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tirediameter/&#34;&gt;Vehicle.Chassis.Axle.Row2.TireDiameter&lt;/a&gt; (Outer diameter of tires, in inches, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;tirewidth/&#34;&gt;Vehicle.Chassis.Axle.Row2.TireWidth&lt;/a&gt; (Nominal section width of tires, in mm, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheel/&#34;&gt;Vehicle.Chassis.Axle.Row2.Wheel&lt;/a&gt; (Wheel signals for axle)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheelcount/&#34;&gt;Vehicle.Chassis.Axle.Row2.WheelCount&lt;/a&gt; (Number of wheels on the axle)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheeldiameter/&#34;&gt;Vehicle.Chassis.Axle.Row2.WheelDiameter&lt;/a&gt; (Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;wheelwidth/&#34;&gt;Vehicle.Chassis.Axle.Row2.WheelWidth&lt;/a&gt; (Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;feedback&#34;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enhancement request&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;amp;title=Signal+feedback+Vehicle.Chassis.Axle.Row2&#34;&gt;Create COVESA GitHub Issue&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Join COVESA&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.covesa.global/join?src=sidebar&#34;&gt;www.covesa.global&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discuss VSS on Slack&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;http://w3cauto.slack.com/&#34;&gt;w3cauto.slack.com&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;VSS Data Experts on Google Groups&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://groups.google.com/a/covesa.global/g/data-expert-group&#34;&gt;covesa.global data-expert-group&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;about-vss&#34;&gt;About VSS&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification&lt;/a&gt; (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;VSS github repository&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,488 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/steeringwheel/angle/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/steeringwheel/angle/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/leda/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/leda/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/leda/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/leda/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/leda/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/leda/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
+
+<title>Angle | Eclipse Leda Documentation</title>
+<meta name="description" content="">
+<meta property="og:title" content="Angle" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/vss/vehicle/chassis/steeringwheel/angle/" />
+<meta itemprop="name" content="Angle">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Angle"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+<link rel="preload" href="/leda/scss/main.min.547f41d4b51558ed003ba31a82530788421bbdfec601855e6b40164f02e695dd.css" as="style">
+<link href="/leda/scss/main.min.547f41d4b51558ed003ba31a82530788421bbdfec601855e6b40164f02e695dd.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar navbar-dark js-navbar-scroll">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/leda/"><span class="navbar-brand__logo navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="30 270 300 300" id="svg2"><defs id="defs6"><clipPath id="clipPath24" clipPathUnits="userSpaceOnUse"><path id="path22" d="m5116.71 2737.03v81.36c0 51.02 13.61 71.72 55.28 74.55h288.29v-182.27c-4.26-34.29-16.73-48.19-55.28-48.19h-226.21c-47.05.0-62.08 20.69-62.08 74.55zm-139.46 17.86c0-128.41 84.19-198.71 222.24-198.71h42.8c107.43.0 184.82 2.84 217.99 84.19v-84.19h137.76v534.05c0 128.13-97.8 198.71-235.85 198.71H5051.8v-106.3h360c36 0 48.48-23.52 48.48-60.66v-122.74h-260.79c-138.05.0-222.24-70.59-222.24-198.71zm-332.5-44.22c-3.97-34.29-16.44-48.19-55-48.19h-225.07c-46.76.0-62.08 20.69-62.08 74.55v371.06c0 51.03 13.9 71.71 55.28 74.55h231.87c41.39-2.84 55-23.52 55-74.55zm139.46 854.08h-138.04v-360c-33.17 81.36-110.28 84.19-217.99 84.19h-42.8c-137.77.0-221.96-70.58-221.96-198.71v-335.34c0-128.41 84.19-198.71 221.96-198.71h42.8c107.71.0 184.82 2.84 217.99 84.19v-84.19h138.04zm-925.8-587.62h-362.83v144.85c0 28.91 12.47 60.66 48.2 60.66h266.45c35.71.0 48.18-31.75 48.18-60.66zm139.47-106.3v219.4c0 128.13-98.08 198.71-236.13 198.71h-169.51c-138.04.0-235.84-70.58-235.84-198.71v-335.34c0-128.41 97.8-198.71 235.84-198.71h405.64v106.3h-454.1c-35.73.0-48.2 23.54-48.2 60.66v147.69zM2642.92 2556.18h630.71v117.36h-483.02v794.55h-147.69z"/></clipPath><linearGradient id="linearGradient34" spreadMethod="pad" gradientTransform="matrix(2955.12,0,0,-2955.12,2642.92,3060.47)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop26" offset="0" style="stop-opacity:1;stop-color:#77add1"/><stop id="stop28" offset=".189014" style="stop-opacity:1;stop-color:#64c6ee"/><stop id="stop30" offset=".994475" style="stop-opacity:1;stop-color:#7b3199"/><stop id="stop32" offset="1" style="stop-opacity:1;stop-color:#7b3199"/></linearGradient><linearGradient id="linearGradient44" spreadMethod="pad" gradientTransform="matrix(1875.15,0,0,-1875.15,364.686,2981.28)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop38" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop40" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop42" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient><clipPath id="clipPath54" clipPathUnits="userSpaceOnUse"><path id="path52" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31z"/></clipPath><linearGradient id="linearGradient70" spreadMethod="pad" gradientTransform="matrix(1417.96,0,0,-1417.96,477.178,2901.88)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop56" offset="0" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop58" offset=".11811164" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop60" offset=".509456" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop62" offset=".76356415" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop64" offset=".994475" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop66" offset=".99510668" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop68" offset="1" style="stop-opacity:1;stop-color:#4e9133"/></linearGradient><linearGradient id="linearGradient80" spreadMethod="pad" gradientTransform="matrix(942.78,0,0,-942.78,720.659,3019.8)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop74" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop76" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop78" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,795.04)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path46" style="fill:url(#linearGradient44);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m462.512 2989.03c1.133-223.65 47.902-452.13 142.867-685.13 24.66-60.94 67.465-109.13 120.187-139.47 52.727-30.61 115.657-43.93 180.852-35.14 236.122 32.03 453.262 104.03 650.552 218.55 193.89 112.53 368.79 266.17 523.27 463.18 41.11 52.15 61.8 113.67 61.8 174.9.28 61.51-20.13 123.02-60.95 175.18-145.7 186.8-317.19 337.89-515.62 450.99-194.74 110.83-415.84 185.1-665.005 220.82-65.481 9.36-128.692-3.4-181.699-33.74C665.758 3768.85 622.672 3720.94 597.441 3660c-90.14-219.4-136.062-443.06-134.929-670.97zm51.875-721.98c-99.5 244.06-148.535 484.73-149.668 721.42-1.418 241.23 47.054 477.63 142.297 708.66 33.73 81.92 91.843 146.27 163.273 187.08 71.719 40.82 156.473 58.11 244.066 45.64 261.355-37.13 494.075-115.65 699.595-232.72 209.76-119.34 390.61-278.65 544.25-475.66 54.71-70.01 81.92-152.78 81.63-235.55.0-83.06-27.49-165.83-82.2-235.56-162.42-206.65-346.68-368.5-551.62-487.27-208.35-121.05-437.67-197.02-686.549-230.75-87.313-11.9-171.785 5.95-242.934 47.05-71.433 41.39-128.976 106.02-162.14 187.66v0"/><g id="g48"><g clip-path="url(#clipPath54)" id="g50"><path id="path72" style="fill:url(#linearGradient70);fill-opacity:1;fill-rule:nonzero;stroke:none" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31v0"/></g></g><path id="path82" style="fill:url(#linearGradient80);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m935.898 3147.21c-54.71-85.89-93.543-185.38-115.085-298.77-4.821-24.94-1.418-49.33 9.07-69.74 10.207-20.69 27.496-37.98 49.605-48.75 97.508-46.78 197.292-73.42 300.192-78.81 101.19-5.1 205.51 9.92 312.94 46.78 23.81 8.21 42.81 23.53 55.56 42.8 12.48 19.56 18.71 43.37 16.44 68.88-9.07 108.28-36.57 208.92-83.9 301.61-46.49 91.28-111.97 175.18-197.58 251.15-18.71 16.44-41.1 25.51-63.78 26.93-22.67 1.13-45.92-5.11-66.33-19.28-88.72-61.51-161.292-135.78-217.132-222.8zM724.434 2866.87c24.093 125.28 67.461 236.12 128.976 332.78 63.211 98.93 144.563 182.27 243.5 250.87 38.83 27.21 83.9 39.11 128.12 36.56 44.22-2.55 87.31-19.84 123.03-51.59 95.24-84.47 168.37-178.01 220.25-279.78 53-104.31 84.19-217.14 94.39-337.89 3.97-47.61-8.22-92.98-32.6-130.39-24.09-37.42-60.66-66.9-105.45-82.21-119.34-41.1-236.12-57.83-349.79-51.87-115.94 6.24-228.473 36-337.325 88.44-42.805 20.41-75.398 53.29-95.242 92.98-19.848 39.68-26.648 85.6-17.859 132.1v0"/></g></g></svg></span><span class="navbar-brand__name">Eclipse Leda Documentation</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse-leda" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/leda/offline-search-index.23c404ec395cd9af8fa2370420e72576.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/leda/docs/vss/vehicle/chassis/steeringwheel/angle/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Angle</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+
+    </ul>
+
+
+<div class="content">
+      <table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full qualified VSS Path:</td>
+<td><code>Vehicle.Chassis.SteeringWheel.Angle</code></td>
+</tr>
+<tr>
+<td>Description:</td>
+<td>Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="navigation">Navigation</h2>
+<div class="mermaid">flowchart LR
+
+
+
+    Vehicle-->Chassis
+
+    Chassis-->SteeringWheel
+
+    SteeringWheel-->Angle
+  </div>
+  
+  <h2 id="eclipse-leda-usage-example">Eclipse Leda: Usage Example</h2>
+<p>In <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker">Eclipse Kuksa.VAL Databroker</a> CLI:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ databroker-cli
+</span></span><span style="display:flex;"><span>sdv.databroker.v1 &gt; connect
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>connect<span style="color:#ce5c00;font-weight:bold">]</span> OK
+</span></span><span style="display:flex;"><span>sdv.databroker.v1 &gt; get Vehicle.Chassis.SteeringWheel.Angle
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>get<span style="color:#ce5c00;font-weight:bold">]</span>  OK
+</span></span><span style="display:flex;"><span>Vehicle.Chassis.SteeringWheel.Angle: <span style="color:#ce5c00;font-weight:bold">(</span> NotAvailable <span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>sdv.databroker.v1 &gt; <span style="color:#204a87">set</span> Vehicle.Chassis.SteeringWheel.Angle <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">[</span>set<span style="color:#ce5c00;font-weight:bold">]</span>  OK
+</span></span></code></pre></div><h2 id="digital-auto-playground">Digital Auto: Playground</h2>
+<p><a href="http://digital.auto">playground.digital.auto</a> provides an in-browser, rapid prototyping environment utilizing the COVESA APIs for connected vehicles.</p>
+<table>
+<thead>
+<tr>
+<th>Vehicle Model</th>
+<th>Direct link to Vehicle Signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACME Car (EV) v0.1</td>
+<td><a href="https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list/Vehicle.Chassis.SteeringWheel.Angle/">Vehicle.Chassis.SteeringWheel.Angle</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-type--unit">Data Type &amp; Unit</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path</td>
+<td><code>Vehicle.Chassis.SteeringWheel.Angle</code></td>
+<td><a href="https://covesa.github.io/vehicle_signal_specification/rule_set/basics/">VSS: Addressing nodes</a></td>
+</tr>
+<tr>
+<td>Data type</td>
+<td><code>int16</code></td>
+<td><a href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/">VSS: Datatypes</a></td>
+</tr>
+<tr>
+<td>Unit</td>
+<td><code>degrees</code></td>
+<td><a href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/">VSS: Units</a></td>
+</tr>
+<tr>
+<td>Label</td>
+<td>degree</td>
+<td></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Angle measured in degrees</td>
+<td><a href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/">VSS: Sensors &amp; Actuators</a></td>
+</tr>
+<tr>
+<td>Domain</td>
+<td>angle</td>
+<td><a href="https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/"></a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> The <code>int16</code> datatype is a <em>signed 16-bit integer</em> which technically allows values between -32768 and 32767 (inclusive).</p>
+<h2 id="signal-information">Signal Information</h2>
+<p>The vehicle signal <code>Vehicle.Chassis.SteeringWheel.Angle</code> is a <strong>Sensor</strong>.</p>
+<p>The vehicle signal <code>Vehicle.Chassis.SteeringWheel.Angle</code> is a <strong>Signal</strong>.</p>
+<h2 id="uuid">UUID</h2>
+<p>Each vehicle signal is identified by a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally Unique Identifier (UUID</a>)</p>
+<p>The UUID for <code>Vehicle.Chassis.SteeringWheel.Angle</code> is <code>92cd3b3d37585b2291806fe5127d9393</code></p>
+<h2 id="feedback">Feedback</h2>
+<p>Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enhancement request</td>
+<td><a href="https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&amp;title=Signal+feedback+Vehicle.Chassis.SteeringWheel.Angle">Create COVESA GitHub Issue</a></td>
+</tr>
+<tr>
+<td>Join COVESA</td>
+<td><a href="https://www.covesa.global/join?src=sidebar">www.covesa.global</a></td>
+</tr>
+<tr>
+<td>Discuss VSS on Slack</td>
+<td><a href="http://w3cauto.slack.com/">w3cauto.slack.com</a></td>
+</tr>
+<tr>
+<td>VSS Data Experts on Google Groups</td>
+<td><a href="https://groups.google.com/a/covesa.global/g/data-expert-group">covesa.global data-expert-group</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="about-vss">About VSS</h2>
+<p>The <a href="https://covesa.github.io/vehicle_signal_specification/">Vehicle Signal Specification</a> (VSS)
+is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
+The source code and releases can be found in the <a href="https://github.com/COVESA/vehicle_signal_specification">VSS github repository</a>.</p>
+<h2 id="supported-datatypes">Supported datatypes</h2>
+<p>The following is a list of VSS supported built-in datatypes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Min</th>
+<th style="text-align:left">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">uint8</td>
+<td style="text-align:left">unsigned 8-bit integer</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">255</td>
+</tr>
+<tr>
+<td style="text-align:left">int8</td>
+<td style="text-align:left">signed 8-bit integer</td>
+<td style="text-align:left">-128</td>
+<td style="text-align:left">127</td>
+</tr>
+<tr>
+<td style="text-align:left">uint16</td>
+<td style="text-align:left">unsigned 16-bit integer</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">65535</td>
+</tr>
+<tr>
+<td style="text-align:left">int16</td>
+<td style="text-align:left">signed 16-bit integer</td>
+<td style="text-align:left">-32768</td>
+<td style="text-align:left">32767</td>
+</tr>
+<tr>
+<td style="text-align:left">uint32</td>
+<td style="text-align:left">unsigned 32-bit integer</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">4294967295</td>
+</tr>
+<tr>
+<td style="text-align:left">int32</td>
+<td style="text-align:left">signed 32-bit integer</td>
+<td style="text-align:left">-2147483648</td>
+<td style="text-align:left">2147483647</td>
+</tr>
+<tr>
+<td style="text-align:left">uint64</td>
+<td style="text-align:left">unsigned 64-bit integer</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">2^64 - 1</td>
+</tr>
+<tr>
+<td style="text-align:left">int64</td>
+<td style="text-align:left">signed 64-bit integer</td>
+<td style="text-align:left">-2^63</td>
+<td style="text-align:left">2^63 - 1</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">boolean value</td>
+<td style="text-align:left">0/false</td>
+<td style="text-align:left">1/true</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">floating point number</td>
+<td style="text-align:left">-3.4e -38</td>
+<td style="text-align:left">3.4e 38</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">double precision floating point number</td>
+<td style="text-align:left">-1.7e -300</td>
+<td style="text-align:left">1.7e 300</td>
+</tr>
+<tr>
+<td style="text-align:left">string</td>
+<td style="text-align:left">character string</td>
+<td style="text-align:left">n/a</td>
+<td style="text-align:left">n/a</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Min, max and default values defined in a Vehicle Signal Specification must be in the supported range of the data type.</p>
+</blockquote>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
+
+
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-leda" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+        
+          <p class="mt-2"><a href="/leda/docs/about/">About Leda</a></p>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/leda/js/main.min.054f118c2d3b183635f9655daee6fcebd03931cb3727d1f12fe0dda1fd784631.js" integrity="sha256-BU8RjC07GDY1&#43;WVdrub869A5Mcs3J9HxL&#43;Ddof14RjE=" crossorigin="anonymous"></script>
+<script defer src="/leda/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js" integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin="anonymous"></script>
+<script src='/leda/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
