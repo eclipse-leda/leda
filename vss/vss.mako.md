@@ -21,12 +21,16 @@ date: ${iso_date}
 no_list: true
 ---
 
-${'#'} Description
 
-> ${node.description}
-
+| | |
+|---|---|
+| Full qualified VSS Path: | `${node.qualified_name()}` |
+| Description: | ${node.description} |
 % if node.comment != "":
-_Comment: ${node.comment}_
+| Comment: | ${node.comment} |
+% endif
+% if node.deprecation != "":
+| Deprecation | ${node.deprecation} |
 % endif
 
 ${'##'} Navigation
@@ -55,7 +59,7 @@ curr = nxt
 % endif
 ```
 
-% if node.is_attribute():
+% if node.is_signal():
 ${'##'} Eclipse Leda: Usage Example
 
 In [Eclipse Kuksa.VAL Databroker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker) CLI:
@@ -168,10 +172,6 @@ ${'##'} Data Type & Unit
 
 ${'##'} Signal Information
 
-% if node.deprecation != "":
-> Deprecation Warning: ${node.deprecation}
-% endif
-
 % if node.is_actuator():
 The vehicle signal `${node.qualified_name()}` is an **Actuator**.
 % endif
@@ -223,6 +223,17 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 
 % endif
 
+${'##'} Feedback
+
+Do you think this Vehicle Signal specification needs enhancement? Do you want to discuss with experts? Try the following ressources to get in touch with the VSS community:
+
+| | |
+|---|---|
+| Enhancement request | [Create COVESA GitHub Issue](https://github.com/COVESA/vehicle_signal_specification/issues/new?body=Please+describe+your+feedback&title=Signal+feedback+${node.qualified_name()}) |
+| Join COVESA | [www.covesa.global](https://www.covesa.global/join?src=sidebar) |
+| Discuss VSS on Slack | [w3cauto.slack.com](http://w3cauto.slack.com/) |
+| VSS Data Experts on Google Groups | [covesa.global data-expert-group](https://groups.google.com/a/covesa.global/g/data-expert-group) |
+
 ${'##'} About VSS
 
 The [Vehicle Signal Specification](https://covesa.github.io/vehicle_signal_specification/) (VSS)
@@ -230,7 +241,7 @@ is an initiative by COVESA to define a syntax and a catalog for vehicle signals.
 The source code and releases can be found in the [VSS github repository](https://github.com/COVESA/vehicle_signal_specification).
 
 % if node.data_type_str != "":
-${'##'} VSS: Supported datatypes
+${'##'} Supported datatypes
 
 The following is a list of VSS supported built-in datatypes:
 

@@ -307,7 +307,6 @@ fabric.properties
 
 scripts/
 
-vss/output
 vss/vehicle_signal_specification
 vss/release
 vss/master

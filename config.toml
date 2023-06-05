@@ -248,5 +248,5 @@ min = "0.73.0"
   [[module.mounts]]
     source = 'vss/output/Vehicle'
     lang = 'en'
-    target = 'content/docs/vss'
+    target = 'content/docs/vss/Vehicle'
   
