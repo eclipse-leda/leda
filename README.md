@@ -26,6 +26,7 @@ Pre-Requisites:
 
 Building the documentation (in devcontainer):
 
+- Change to `vss/` and run `./build-vss-docs.sh` to generate the VSS reference documentation
 - Run hugo: `hugo server`
 - Open browser at [http://localhost:1313/](http://localhost:1313/)
 

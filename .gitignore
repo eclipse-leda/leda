@@ -306,3 +306,10 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/hugo,node,macos,webstorm
 
 scripts/
+
+vss/output
+vss/vehicle_signal_specification
+vss/release
+vss/master
+vss/gh-pages
+vss/vss-tools
