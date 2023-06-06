@@ -43,8 +43,8 @@ when the vehicle is not moving.
 
 The condition is using VSS path notation: `Vehicle.Speed == 0` (see [main.py#L82 in v0.9.0](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.9.0/examples/seat-adjuster/src/main.py#L82))
 
-> Note: The Kuksa.VAL CAN Feeder, which is deployed *by default on Eclipse Leda* is constantly updating the `Vehicle.Speed`.
-You need to disable the `feedercan` container, otherwise the Seat Adjuster application *will not move the seat on request*.
+> Note: The Kuksa.VAL CAN Feeder, which is deployed *by default on Eclipse Leda* is constantly updating the [`Vehicle.Speed`](/leda/docs/vss/vehicle/driver/).
+You need to disable the `feedercan` container, otherwise the Seat Adjuster application *will decline the request and not move the seat*.
 
 ## Getting started
 
@@ -97,7 +97,7 @@ The following steps are based on Velocitas 0.9.0 and Leda 0.1.0:
     mosquitto_sub -t 'seatadjuster/#' -v
     ```
 
-7. Disable the `feedercan` container: `kanto-cm stop -n feedercan` to stop updating the `Vehicle.Speed` signal. If the feedercan container is not stopped, the seatadjuster-app will respond with the following error message:
+7. Disable the `feedercan` container: `kanto-cm stop -n feedercan` to stop updating the [`Vehicle.Speed`](/leda/docs/vss/vehicle/driver/) signal. If the feedercan container is not stopped, the seatadjuster-app will respond with the following error message:
 
     ```json
     seatadjuster/setPosition/response
@@ -124,7 +124,7 @@ seatadjuster/currentPosition {"position": 50}
 ...
 ```
 
-### Seat Adjuster Application Configuration
+## Seat Adjuster
 
 The Seat Adjuster application needs to be reconfigured, as Velocitas SDK by default uses the DAPR middleware.
 On Eclipse Leda, there is no DAPR middleware installed by default and hence, the Velocitas application will use the *Native* middleware type.
@@ -146,7 +146,7 @@ mosquitto:host_ip
 seatservice-example:container_seatservice-example-host
 ```
 
-## Prototyping
+### Prototyping
 
 The pseudo-code for the Seat Adjuster application could look like the following excerpt from the [Digital.Playground example](https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh/view/code):
 
@@ -191,7 +191,27 @@ async def on_set_position_request_received(self, data_str: str) -> None:
   await self.publish_event(response_topic, json.dumps(response_data))
 ```
 
-## Testing the seatservice-example container on the Leda Quickstart Image
+## Seat Service
+
+The Seat Service is a *Vehicle Service* example implementation.
+
+It communicates with the physical vehicle layer, in this case either a virtual or physical CAN bus, to control the Seat ECU.
+
+The example container is configured to use emulated CAN-Bus and deployed by default.
+
+### Vehicle Signal
+
+The VSS Path under control by Seat Service is [`Vehicle.Cabin.Seat.Row1.Pos1.Position`](/leda/docs/vss/vehicle/cabin/seat/row1/pos1/position/):
+
+> *Signal Description:* Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.
+
+The value is the *distance measured in millimeters*.
+
+The example implementation supports values between `0` and `1000` millimeters.
+
+> *Note:* This range of valid values is not reflected in the standard Vehicle Signal Specification. OEMs would overlay the VSS tree with actual Min/Max values, depending on the specific seat hardware available in the specific vehicle model.
+
+### Testing
     
 Whether you are running the seatservice-example with a simulated CAN or a physical (emulated) CAN, the seatservice-example container included in the Leda Quickstart image provides a simple client application that can be used to test the GRPC interface.
 
@@ -203,7 +223,7 @@ $ sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client <position>
 
 You can now check the logs (either with `kanto-cm logs` or `kantui`) and you should be able to see the `seatservice-example` application responding to the command by moving the seat to the desired position.
 
-### Specifics for physical (emulated) CAN
+### Virtual CAN-Bus
 
 1. You will have to generate initial CAN frames that will emulate the car ECU responding to the service:
 
@@ -221,7 +241,7 @@ You can now check the logs (either with `kanto-cm logs` or `kantui`) and you sho
 
 _Note_: On QEMU you can tunnel the host CAN bus to the guest: [Tunneling a CAN Interface from the Host](../../general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can).
 
-## Hardware CAN-Bus
+### Hardware CAN-Bus
 
 The default configuration of the *Seat Service* is using simulated VCAN. If you want to switch to a physical CAN-Bus interface, the container needs to have access to the CAN-Bus hardware.
 
