@@ -30,9 +30,81 @@ In this case, the Vehicle Signal Specification and the simple signal for seat po
 - Eclipse Velocitas - Vehicle Application: **Seat Adjuster** (to be deployed by user as part of the Velocitas tutorial)
 - Eclipse Kuksa.VAL - Example Service: **Seat Service** (pre-installed)
 - Eclipse Kuksa.VAL - **Data Broker** (pre-installed)
-- Seat ECU and the separate Seat Motor hardware: not part of the Leda image, but can be emulated using virtual CAN-Bus. The Kuksa Seat Service container contains configuration options to use VCAN
+- Seat ECU and the separate Seat Motor hardware: not part of the Leda image, but can be emulated using virtual CAN-Bus.
+The Kuksa Seat Service container contains configuration options to use VCAN
 
-## Safety Considerations
+## Data Flow
+
+In the high-level data flow, the northbound applications interact with the *Vehicle Abstraction Layer* via the data broker:
+
+```mermaid
+flowchart TB
+    seatadjuster[Seat Adjuster]
+    databroker[(Kuksa.VAL<br>Data Broker)]
+    seatservice[Seat Service]
+
+    seatadjuster -- "Vehicle.Cabin.Seat.Row1.Pos1.Position" --> databroker
+    databroker <-.-> seatservice
+```
+
+### Detailed: Setting position
+
+In this tutorial, let's have a more detailed look into the involved interfaces in the data flow for setting a *desired seat position*.
+
+The **Client** can be a local app, e.g. deployed in the Infotainment domain and provide a user interface to the driver. It could also be a remotely deployed cloud application, sending the same request to move the seat via cloud messageing infrastructure.
+
+```mermaid
+flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(Kuksa.VAL<br>Data Broker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Desired<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker -- "Publish<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Actuator)" --> seatservice
+    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+```
+
+The **Data Broker** and its use of the *Vehicle Signal Specification* represents the abstraction layer, to make the application's interface independent of the actual physical seat service.
+
+The **Seat Service** uses the physical layer (e.g. CAN-Bus) to communicate with the vehicle actuators.
+
+### Responses and current position
+
+In this data flow diagram, it shows how the information about the processing of the request to set the desired position is handled, as well as continuous updates to inform clients about the current position while the seat is moving towards the desired position.
+
+```mermaid
+flowchart TD
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(Kuksa.VAL<br>Data Broker)]
+%%    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    canbus -- "CAN Frame: SECU1_STAT<br>CAN-ID 0x712" --> seatservice
+    seatservice -- "Feed<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Sensor)" --> databroker
+    databroker -- "Publish<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatadjuster
+    seatadjuster -- "Once" --> mqttResponse
+    seatadjuster -- "While seat is moving" --> mqttCurrent
+    mqttResponse -- "SetPosition Response<br>(Accepted / Error)" --> client
+    mqttCurrent --> client
+
+    mqttCurrent -.-> anotherClient
+```
+
+### Safety Considerations
 
 > **Attention:** Safety considerations are not in scope for this example tutorial. This example is for demonstrating the general approach.
 Actual safety requirements must be handled within the Seat ECU as the lowest level component to guard against non-safe use of the seat motors.
@@ -110,19 +182,19 @@ The following steps are based on Velocitas 0.9.0 and Leda 0.1.0:
     mosquitto_pub -t seatadjuster/setPosition/request -m '{"position": 1000, "requestId": "12345"}'
     ```
 
-The expected output responses on MQTT topics should look like this:
+9. The expected output responses on MQTT topics should look like this:
 
-```text
-seatadjuster/setPosition/request {"position": 1000, "requestId": "12345"}
-seatadjuster/setPosition/response {"requestId": "12345", "result": {"status": 0, "message": "Set Seat position to: 1000"}}
-seatadjuster/currentPosition {"position": 00}
-seatadjuster/currentPosition {"position": 10}
-seatadjuster/currentPosition {"position": 20}
-seatadjuster/currentPosition {"position": 30}
-seatadjuster/currentPosition {"position": 40}
-seatadjuster/currentPosition {"position": 50}
-...
-```
+    ```text
+    seatadjuster/setPosition/request {"position": 1000, "requestId": "12345"}
+    seatadjuster/setPosition/response {"requestId": "12345", "result": {"status": 0, "message": "Set Seat position to: 1000"}}
+    seatadjuster/currentPosition {"position": 00}
+    seatadjuster/currentPosition {"position": 10}
+    seatadjuster/currentPosition {"position": 20}
+    seatadjuster/currentPosition {"position": 30}
+    seatadjuster/currentPosition {"position": 40}
+    seatadjuster/currentPosition {"position": 50}
+    ...
+    ```
 
 ## Seat Adjuster
 
@@ -334,3 +406,11 @@ This setup would require some adjustments to the container manifest in order for
             "cmd": []
         },
     ```
+
+## References
+- https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Cabin/SingleSeat.vspec
+- https://github.com/eclipse/kuksa.val.services/tree/main/seat_service
+- https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/
+- https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster
+- https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled
+- https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json
