@@ -51,7 +51,7 @@ flowchart TB
 
 In this tutorial, let's have a more detailed look into the involved interfaces in the data flow for setting a *desired seat position*.
 
-The **Client** can be a local app, e.g. deployed in the Infotainment domain and provide a user interface to the driver. It could also be a remotely deployed cloud application, sending the same request to move the seat via cloud messageing infrastructure.
+The **Client** can be a local app, e.g. deployed in the Infotainment domain and provide a user interface to the driver. It could also be a remotely deployed cloud application, sending the same request to move the seat via cloud messaging infrastructure.
 
 ```mermaid
 flowchart TB
