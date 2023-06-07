@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.aef1a5beb0ca51e15e4acb69a8f56981.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.5ae3075430a128a2d4525ba461ea15f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,11 +119,19 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>The <strong>Seat Adjuster</strong> use case has been derived from the <a href="https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/">Eclipse Velocitas Seat Adjuster example</a>, the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Eclipse Kuksa.VAL Seat Service example</a> and the <a href="https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh">Digital.Playground Prototyping Library</a></p>
+      <p>The <strong>Seat Adjuster</strong> use case has been derived from the <a href="https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/">Eclipse Velocitas Seat Adjuster example</a>,
+the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Eclipse Kuksa.VAL Seat Service example</a>
+and the <a href="https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh">Digital.Playground Prototyping Library</a></p>
 <h2 id="description">Description</h2>
-<p>The Seat Adjuster use cases demonstrates the idea of having a cloud-based driver profile hosted by a third-party web service, which is then used by a custom application to move the driver seat to certain positions.</p>
-<p>Examples range from simple personalization to dynamic seat control (such as periodic back massages) based on personal health treatment plans by an health insurance organization. A driver could opt-in to such a service, which would lead to the ad-hoc installation of a seat adjuster vehicle application when the driver enters the vehicle. The seat adjuster application would then contact the health insurance webservice to retrieve the driver&rsquo;s personal treatment plan for back massage and start moving the motors in certain intervals, to ease or prevent back pain during long driving periods.</p>
-<p>This example focuses on the technical aspect, namely the interface between such an assumed application with the high-level logic, and the lower-level backend service (Seat Service), which controls the communication to the underlying hardware (Seat ECU). In this case, the Vehicle Signal Specification and the simple signal for seat position is used exemplarily. Safety considerations are not in scope for this example, but would probably be handled within the Seat ECU as the lowest level component to guard against non-safe use of the seat motors.</p>
+<p>The Seat Adjuster use cases demonstrates the idea of having a cloud-based driver profile hosted by a third-party web service,
+which is then used by a custom application to move the driver seat to certain positions.</p>
+<p>Examples range from simple personalization to dynamic seat control (such as periodic back massages) based on personal health treatment plans by an health insurance organization.
+A driver could opt-in to such a service, which would lead to the ad-hoc installation of a seat adjuster vehicle application when the driver enters the vehicle.
+The seat adjuster application would then contact the health insurance webservice to retrieve the driver&rsquo;s personal treatment plan for back massage and
+start moving the motors in certain intervals, to ease or prevent back pain during long driving periods.</p>
+<p>This example focuses on the technical aspect, namely the interface between such an assumed application with the high-level logic,
+and the lower-level backend service (Seat Service), which controls the communication to the underlying hardware (Seat ECU).
+In this case, the Vehicle Signal Specification and the simple signal for seat position is used exemplarily.</p>
 <h2 id="architecture-overview">Architecture Overview</h2>
 <p><img src="seatadjuster.png" alt="Leda Seat Adjuster Use Case"></p>
 <ul>
@@ -131,29 +139,154 @@ This is the multi-page printable view of this section.
 <li>Eclipse Velocitas - Vehicle Application: <strong>Seat Adjuster</strong> (to be deployed by user as part of the Velocitas tutorial)</li>
 <li>Eclipse Kuksa.VAL - Example Service: <strong>Seat Service</strong> (pre-installed)</li>
 <li>Eclipse Kuksa.VAL - <strong>Data Broker</strong> (pre-installed)</li>
-<li>Seat ECU and the separate Seat Motor hardware: not part of the Leda image, but can be emulated using virtual CAN-Bus. The Kuksa Seat Service container contains configuration options to use VCAN</li>
+<li>Seat ECU and the separate Seat Motor hardware: not part of the Leda image, but can be emulated using virtual CAN-Bus.
+The Kuksa Seat Service container contains configuration options to use VCAN</li>
 </ul>
+<h2 id="data-flow">Data Flow</h2>
+<p>In the high-level data flow, the northbound applications interact with the <em>Vehicle Abstraction Layer</em> via the data broker:</p>
+<div class="mermaid">flowchart TB
+    seatadjuster[Seat Adjuster]
+    databroker[(Kuksa.VAL<br>Data Broker)]
+    seatservice[Seat Service]
+
+    seatadjuster -- "Vehicle.Cabin.Seat.Row1.Pos1.Position" --> databroker
+    databroker <-.-> seatservice
+  </div>
+  
+  <h3 id="detailed-setting-position">Detailed: Setting position</h3>
+<p>In this tutorial, let&rsquo;s have a more detailed look into the involved interfaces in the data flow for setting a <em>desired seat position</em>.</p>
+<p>The <strong>Client</strong> can be a local app, e.g. deployed in the Infotainment domain and provide a user interface to the driver. It could also be a remotely deployed cloud application, sending the same request to move the seat via cloud messaging infrastructure.</p>
+<div class="mermaid">flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(Kuksa.VAL<br>Data Broker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Desired<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker -- "Publish<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Actuator)" --> seatservice
+    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+  </div>
+  
+  <p>The <strong>Data Broker</strong> and its use of the <em>Vehicle Signal Specification</em> represents the abstraction layer, to make the application&rsquo;s interface independent of the actual physical seat service.</p>
+<p>The <strong>Seat Service</strong> uses the physical layer (e.g. CAN-Bus) to communicate with the vehicle actuators.</p>
+<h3 id="responses-and-current-position">Responses and current position</h3>
+<p>In this data flow diagram, it shows how the information about the processing of the request to set the desired position is handled, as well as continuous updates to inform clients about the current position while the seat is moving towards the desired position.</p>
+<div class="mermaid">flowchart TD
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(Kuksa.VAL<br>Data Broker)]
+%%    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    canbus -- "CAN Frame: SECU1_STAT<br>CAN-ID 0x712" --> seatservice
+    seatservice -- "Feed<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Sensor)" --> databroker
+    databroker -- "Publish<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatadjuster
+    seatadjuster -- "Once" --> mqttResponse
+    seatadjuster -- "While seat is moving" --> mqttCurrent
+    mqttResponse -- "SetPosition Response<br>(Accepted / Error)" --> client
+    mqttCurrent --> client
+
+    mqttCurrent -.-> anotherClient
+  </div>
+  
+  <h3 id="safety-considerations">Safety Considerations</h3>
+<blockquote>
+<p><strong>Attention:</strong> Safety considerations are not in scope for this example tutorial. This example is for demonstrating the general approach.
+Actual safety requirements must be handled within the Seat ECU as the lowest level component to guard against non-safe use of the seat motors.
+Non-ASIL domains are not certified for safety requirements. <strong>Please pay attention when following the physical CAN tutorial and attaching physical actuators to not harm anybody by accidental movements of seat motors.</strong></p>
+</blockquote>
+<p>However, the Seat Adjuster example application contains a rudimentary &ldquo;Safe State&rdquo; condition check: it will only allow to move the seat
+when the vehicle is not moving.</p>
+<p>The condition is using VSS path notation: <code>Vehicle.Speed == 0</code> (see <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.9.0/examples/seat-adjuster/src/main.py#L82">main.py#L82 in v0.9.0</a>)</p>
+<blockquote>
+<p>Note: The Kuksa.VAL CAN Feeder, which is deployed <em>by default on Eclipse Leda</em> is constantly updating the <a href="/leda/docs/vss/vehicle/driver/"><code>Vehicle.Speed</code></a>.
+You need to disable the <code>feedercan</code> container, otherwise the Seat Adjuster application <em>will decline the request and not move the seat</em>.</p>
+</blockquote>
 <h2 id="getting-started">Getting started</h2>
+<p>The following steps are based on Velocitas 0.9.0 and Leda 0.1.0:</p>
 <ol>
 <li>
-<p>Follow the Velocitas tutorial: build and deploy your clone of the <a href="https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/">seat adjuster example</a></p>
+<p>Follow the Velocitas <a href="https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/">Seat Adjuster tutorial</a>: fork, build and deploy your clone of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster">seat adjuster example (v0.9.0)</a></p>
 </li>
 <li>
-<p>Download and run the Leda quickstart image</p>
-</li>
+<p>Download and run the Leda quickstart image, or run it in Docker:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
+</span></span></code></pre></div></li>
 <li>
-<p>Deploy your seat adjuster application to the container runtime, either manually by using <code>kanto-cm create</code> or by providing a deployment descriptor in <code>/var/containers/manifests</code>. An example deployment descriptor can be found in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">meta-leda-components</a>. Details on the deployment can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
-</li>
+<p>Deploy your seat adjuster application to the container runtime</p>
+<p>3.1 Manually by using <code>kanto-cm</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm create <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --name seatadjuster-app <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_SEATSERVICE_ADDRESS=grpc://seatservice-example:50051&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_MQTT_ADDRESS=mqtt://mosquitto:1883&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_MIDDLEWARE_TYPE=native&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    --hosts<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:container_databroker-host, mosquitto:host_ip, seatservice-example:container_seatservice-example-host&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06"></span>    ghcr.io/&lt;YOUR_ORG&gt;/seat-adjuster-app:latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kanto-cm start --name seatadjuster-app
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kanto-cm logs --name seatadjuster-app
+</span></span></code></pre></div><p>or</p>
+<p>3.2 Provide a deployment descriptor in <code>/var/containers/manifests</code>.
+An example deployment descriptor can be found in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled">meta-leda-components</a>. Details on the deployment can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart kanto-auto-deployer
+</span></span></code></pre></div></li>
 <li>
-<p>Ensure the databroker and the seat service containers are running and you know how to check their log files</p>
-</li>
+<p>Ensure the databroker and the seat service containers are running and you know how to check their log files (kantui, kanto-cm)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm logs --name seatservice-example
+</span></span></code></pre></div></li>
 <li>
-<p>Publish an MQTT message for the seat adjuster application, e.g. <code>mosquitto_pub -t seatadjuster/setPosition/request -f seat-request.json</code> and a possible payload like this:</p>
-<pre><code> {&quot;position&quot;: 300, &quot;requestId&quot;: &lt;request_id&gt;}
-</code></pre>
-</li>
+<p>Subscribe to MQTT topics `seatadjuster/#&rsquo; to see the responses from the seat adjuster app:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -t <span style="color:#4e9a06">&#39;seatadjuster/#&#39;</span> -v
+</span></span></code></pre></div></li>
+<li>
+<p>Disable the <code>feedercan</code> container: <code>kanto-cm stop -n feedercan</code> to stop updating the <a href="/leda/docs/vss/vehicle/driver/"><code>Vehicle.Speed</code></a> signal. If the feedercan container is not stopped, the seatadjuster-app will respond with the following error message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a40000">seatadjuster/setPosition/response</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;12345&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Not allowed to move seat because vehicle speed is 9.0 and not 0&#34;</span><span style="color:#000;font-weight:bold">}}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Publish an MQTT message for the seat adjuster application to set the maximum position to <code>1000</code> (which is the equivalent to 100%):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_pub -t seatadjuster/setPosition/request -m <span style="color:#4e9a06">&#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>The expected output responses on MQTT topics should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>seatadjuster/setPosition/request {&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}
+</span></span><span style="display:flex;"><span>seatadjuster/setPosition/response {&#34;requestId&#34;: &#34;12345&#34;, &#34;result&#34;: {&#34;status&#34;: 0, &#34;message&#34;: &#34;Set Seat position to: 1000&#34;}}
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition {&#34;position&#34;: 00}
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition {&#34;position&#34;: 10}
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition {&#34;position&#34;: 20}
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition {&#34;position&#34;: 30}
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition {&#34;position&#34;: 40}
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition {&#34;position&#34;: 50}
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
 </ol>
-<h2 id="prototyping">Prototyping</h2>
+<h2 id="seat-adjuster">Seat Adjuster</h2>
+<p>The Seat Adjuster application needs to be reconfigured, as Velocitas SDK by default uses the DAPR middleware.
+On Eclipse Leda, there is no DAPR middleware installed by default and hence, the Velocitas application will use the <em>Native</em> middleware type.</p>
+<p>Also, the hostnames of dependent services need to be configured according to the actual network setup in Eclipse Leda&rsquo;s container runtime:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>SDV_SEATSERVICE_ADDRESS=grpc://seatservice-example:50051
+</span></span><span style="display:flex;"><span>SDV_MQTT_ADDRESS=mqtt://mosquitto:1883
+</span></span><span style="display:flex;"><span>SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555
+</span></span><span style="display:flex;"><span>SDV_MIDDLEWARE_TYPE=native
+</span></span></code></pre></div><p>Hostname configuration also needs to be updated accordingly:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>databroker:container_databroker-host
+</span></span><span style="display:flex;"><span>mosquitto:host_ip
+</span></span><span style="display:flex;"><span>seatservice-example:container_seatservice-example-host
+</span></span></code></pre></div><h3 id="prototyping">Prototyping</h3>
 <p>The pseudo-code for the Seat Adjuster application could look like the following excerpt from the <a href="https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh/view/code">Digital.Playground example</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv_model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Vehicle</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">()</span>
@@ -189,12 +322,26 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">error_msg</span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div><h2 id="testing-the-seatservice-example-container-on-the-leda-quickstart-image">Testing the seatservice-example container on the Leda Quickstart Image</h2>
+</span></span></code></pre></div><h2 id="seat-service">Seat Service</h2>
+<p>The Seat Service is a <em>Vehicle Service</em> example implementation.</p>
+<p>It communicates with the physical vehicle layer, in this case either a virtual or physical CAN bus, to control the Seat ECU.</p>
+<p>The example container is configured to use emulated CAN-Bus and deployed by default.</p>
+<h3 id="vehicle-signal">Vehicle Signal</h3>
+<p>The VSS Path under control by Seat Service is <a href="/leda/docs/vss/vehicle/cabin/seat/row1/pos1/position/"><code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code></a>:</p>
+<blockquote>
+<p><em>Signal Description:</em> Seat position on vehicle x-axis. Position is relative to the frontmost position supported by the seat. 0 = Frontmost position supported.</p>
+</blockquote>
+<p>The value is the <em>distance measured in millimeters</em>.</p>
+<p>The example implementation supports values between <code>0</code> and <code>1000</code> millimeters.</p>
+<blockquote>
+<p><em>Note:</em> This range of valid values is not reflected in the standard Vehicle Signal Specification. OEMs would overlay the VSS tree with actual Min/Max values, depending on the specific seat hardware available in the specific vehicle model.</p>
+</blockquote>
+<h3 id="testing">Testing</h3>
 <p>Whether you are running the seatservice-example with a simulated CAN or a physical (emulated) CAN, the seatservice-example container included in the Leda Quickstart image provides a simple client application that can be used to test the GRPC interface.</p>
 <p>To set the seat position to <code>x%</code>, take <code>x*10</code> and truncate it to an integer <code>&lt;position&gt;</code>. Then using the sdv-ctr-exec script issue the following command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client &lt;position&gt;
 </span></span></code></pre></div><p>You can now check the logs (either with <code>kanto-cm logs</code> or <code>kantui</code>) and you should be able to see the <code>seatservice-example</code> application responding to the command by moving the seat to the desired position.</p>
-<h3 id="specifics-for-physical-emulated-can">Specifics for physical (emulated) CAN</h3>
+<h3 id="virtual-can-bus">Virtual CAN-Bus</h3>
 <ol>
 <li>
 <p>You will have to generate initial CAN frames that will emulate the car ECU responding to the service:</p>
@@ -213,7 +360,7 @@ This is the multi-page printable view of this section.
 </li>
 </ol>
 <p><em>Note</em>: On QEMU you can tunnel the host CAN bus to the guest: <a href="../../general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can">Tunneling a CAN Interface from the Host</a>.</p>
-<h2 id="hardware-can-bus">Hardware CAN-Bus</h2>
+<h3 id="hardware-can-bus">Hardware CAN-Bus</h3>
 <p>The default configuration of the <em>Seat Service</em> is using simulated VCAN. If you want to switch to a physical CAN-Bus interface, the container needs to have access to the CAN-Bus hardware.</p>
 <p>Such a CAN-Bus device might be a Raspberry Pi setup with an MCP251x-based CAN-Hat extension or a QEMU image with an emulated <em>kvaser_pci</em> device (enabled on the Leda QEMU Quickstart images by default).</p>
 <p>This setup would require some adjustments to the container manifest in order for the container to have access to the physical CAN-Bus.</p>
@@ -296,6 +443,15 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>    },
 </span></span></code></pre></div></li>
 </ol>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Cabin/SingleSeat.vspec">https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Cabin/SingleSeat.vspec</a></li>
+<li><a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">https://github.com/eclipse/kuksa.val.services/tree/main/seat_service</a></li>
+<li><a href="https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/">https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/</a></li>
+<li><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster">https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled">https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json</a></li>
+</ul>
 
 </div>
 </div>
@@ -317,6 +473,11 @@ This is the multi-page printable view of this section.
         </div>
       </div>
       
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
 
 
 <footer class="bg-dark py-5 row d-print-none">
