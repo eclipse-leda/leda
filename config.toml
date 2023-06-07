@@ -86,6 +86,8 @@ section = ["HTML", "print", "RSS"]
 
 [params]
 
+# Google Analytics 4
+GoogleAnalyticsID = "G-6W31KMZWGE"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
