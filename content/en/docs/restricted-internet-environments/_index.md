@@ -81,7 +81,7 @@ To enable this distro feature, add to your `local.conf`:
 ```shell
   DISTRO_FEATURES += " airgap-containers"
   PREINSTALLED_CTR_IMAGES_DIR = "/path/to/container/images"
-  IMAGE_INSTALL += packagegroup-sdv-airgap-containers
+  IMAGE_INSTALL += "packagegroup-sdv-airgap-containers"
 ```
 
 If you are using the `sdv-image-data` image recipe `packagegroup-sdv-airgap-containers` will be automatically installed when the distro-feature is enabled.
