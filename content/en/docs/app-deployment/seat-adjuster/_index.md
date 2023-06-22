@@ -218,6 +218,16 @@ mosquitto:host_ip
 seatservice-example:container_seatservice-example-host
 ```
 
+### Testing
+
+To test the Seat Adjuster app API, send the following MQTT message:
+
+```shell
+mosquitto_pub -t seatadjuster/setPosition/request -m '{"position": 300, "requestId": 1}' -d
+```
+
+> *Note:* To see also the responses, run `mosquitto_pub -t 'seatadjuster/#' -m '{"position": 350}'` on a separate shell
+
 ### Prototyping
 
 The pseudo-code for the Seat Adjuster application could look like the following excerpt from the [Digital.Playground example](https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh/view/code):
