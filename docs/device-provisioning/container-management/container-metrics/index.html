@@ -40,12 +40,12 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/container-management/container-metrics/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-06-22T12:35:26+02:00" />
+<meta property="article:modified_time" content="2023-06-22T16:55:21+02:00" />
 <meta itemprop="name" content="Container Metrics">
 <meta itemprop="description" content="Container Metrics Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events. This is done by sending a request to the topic command//&lt;namespaceId&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/req/&lt;correlationId&gt;/request:
 Enable Container Metrics with a frequency of 5s: { &#34;topic&#34;: &#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;, &#34;headers&#34;: { &#34;timeout&#34;: &#34;10&#34;, &#34;response-required&#34;: true, &#34;content-type&#34;: &#34;application/json&#34;, &#34;correlation-id&#34;: &#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34; }, &#34;path&#34;: &#34;/features/Metrics/inbox/messages/request&#34;, &#34;value&#34;: { &#34;frequency&#34;: &#34;5s&#34; } } Example command line:
 mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m &#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;5s&#34;}}&#39; Container Metrics answers with an additional message for each container in the topic e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers { &#34;topic&#34;: &#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;, &#34;headers&#34;: { &#34;response-required&#34;: false }, &#34;path&#34;: &#34;/features/Container:&lt;uuid&gt;&#34;, &#34;value&#34;: { &#34;definition&#34;: [ &#34;com."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-06-22T12:35:26+02:00" />
+<meta itemprop="dateModified" content="2023-06-22T16:55:21+02:00" />
 <meta itemprop="wordCount" content="194">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Container Metrics"/>
@@ -91,7 +91,7 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.356a760ab2354650d58bf5263de101ad.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.356a760ab2354650d58bf5263de101ad.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -181,6 +181,17 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
   <input type="checkbox" id="m-ledadocsgeneral-usagedocker-setup-check"/>
   <label for="m-ledadocsgeneral-usagedocker-setup-check"><a href="/leda/docs/general-usage/docker-setup/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagedocker-setup"><span class="">Running on Docker</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usageraspberry-pi-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
+  <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"/>
+  <label for="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"><a href="/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats"><span class="">CAN-Bus extensions</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usagerunning-qemu-li">
   <input type="checkbox" id="m-ledadocsgeneral-usagerunning-qemu-check"/>
   <label for="m-ledadocsgeneral-usagerunning-qemu-check"><a href="/leda/docs/general-usage/running-qemu/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagerunning-qemu"><span class="">Running on QEMU</span></a></label>
@@ -196,28 +207,14 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usageraspberry-pi-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-pi-check"/>
-  <label for="m-ledadocsgeneral-usageraspberry-pi-check"><a href="/leda/docs/general-usage/raspberry-pi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageraspberry-pi"><span class="">Running on Raspberry Pi</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagelinux-setup-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagelinux-setup-check"/>
+  <label for="m-ledadocsgeneral-usagelinux-setup-check"><a href="/leda/docs/general-usage/linux-setup/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagelinux-setup"><span class="">Running on Linux</span></a></label>
   
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"/>
-  <label for="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats-check"><a href="/leda/docs/general-usage/raspberry-pi/raspberry-can-hats/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usageraspberry-piraspberry-can-hats"><span class="">CAN-Bus extensions</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
+  <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
   
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usagewifi-configuration-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usagewifi-configuration-check"/>
-  <label for="m-ledadocsgeneral-usagewifi-configuration-check"><a href="/leda/docs/general-usage/wifi-configuration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagewifi-configuration"><span class="">Wifi Configuration</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-check"/>
-  <label for="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-check"><a href="/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi"><span class="">Connecting to Wi-Fi networks</span></a></label>
-  
-</li>
-  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usageutilities-li">
   <input type="checkbox" id="m-ledadocsgeneral-usageutilities-check"/>
   <label for="m-ledadocsgeneral-usageutilities-check"><a href="/leda/docs/general-usage/utilities/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usageutilities"><span class="">Utilities</span></a></label>
@@ -261,10 +258,17 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagecheatsheet-li">
-  <input type="checkbox" id="m-ledadocsgeneral-usagecheatsheet-check"/>
-  <label for="m-ledadocsgeneral-usagecheatsheet-check"><a href="/leda/docs/general-usage/cheatsheet/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagecheatsheet"><span class="">Cheatsheet</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsgeneral-usagewifi-configuration-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagewifi-configuration-check"/>
+  <label for="m-ledadocsgeneral-usagewifi-configuration-check"><a href="/leda/docs/general-usage/wifi-configuration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsgeneral-usagewifi-configuration"><span class="">Wifi Configuration</span></a></label>
   
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-li">
+  <input type="checkbox" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-check"/>
+  <label for="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi-check"><a href="/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsgeneral-usagewifi-configurationconnecting-to-wifi"><span class="">Connecting to Wi-Fi networks</span></a></label>
+  
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ledadocsdevice-provisioning-li">

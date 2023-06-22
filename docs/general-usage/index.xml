@@ -294,6 +294,94 @@ This is mostly used to have the &lt;code&gt;devshell&lt;/code&gt; container not 
     </item>
     
     <item>
+      <title>Docs: Running on Raspberry Pi</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/</guid>
+      <description>
+        
+        
+        &lt;p&gt;What you need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Raspberry Pi 4B (64 Bit) with 2 GiB of RAM or more, recommended is 8 GiB&lt;/li&gt;
+&lt;li&gt;Network connection (Ethernet or Wifi) with transparent internet access&lt;/li&gt;
+&lt;li&gt;Optional keyboard and display (makes it easier to troubleshoot)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Download the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Uncompress the SD Card image:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apt-get install -y xz-utils
+tar xf eclipse-leda-raspberrypi.tar.xz
+bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flash the &lt;code&gt;sdv-image-all-raspberrypi4.wic&lt;/code&gt; file to an SD-Card&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On Linux:
+&lt;ul&gt;
+&lt;li&gt;Install bmap tools: &lt;code&gt;sudo apt-get install -y bmap-tools&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Insert SD Card and check which device is mounted: &lt;code&gt;sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Unmount the device: &lt;code&gt;sudo umount /dev/mmcblk[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic /dev/mmcblk[X]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Note:  Using &lt;code&gt;bmap&lt;/code&gt; is &lt;strong&gt;much&lt;/strong&gt; faster but works the same as with plain &lt;code&gt;dd if=&amp;lt;wic-file&amp;gt; of=dev/mmcblk[x]&lt;/code&gt;.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;On Windows:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.raspberrypi.org/documentation/installation/installing-images/&#34;&gt;Raspberry Pi Imager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.balena.io/etcher/&#34;&gt;Balena Etcher&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional: If you need to adapt the network configuration eg Wifi credentials, edit the configuration files on the &lt;code&gt;boot&lt;/code&gt; partition.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Shutdown the Raspberry and insert the SD-Card into the Raspberry Pi SD-Card slot at the bottom&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power on your Raspberry to boot the image&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Login with &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check disk space:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;raspberry-growdisk&lt;/code&gt; system service will do this automatically on first boot.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To manually enlarge the available disk space on the SD-Card, resize the disk partition: &lt;code&gt;parted /dev/mmcblk0 resizepart 6 100% &amp;amp;&amp;amp; resize2fs /dev/mmcblk0p6&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: Due to changes in the disk partition, the partition number (&lt;code&gt;6&lt;/code&gt; in the example) may have changed.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify with &lt;code&gt;df -h&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Verify and wait until container runtime is started: &lt;code&gt;systemctl status container-management&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Running on QEMU</title>
       <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -392,150 +480,129 @@ sudo apt-get install -y xz-utils qemu-system-x86-64
     </item>
     
     <item>
-      <title>Docs: Running on Raspberry Pi</title>
-      <link>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      <title>Docs: Running on Linux</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/linux-setup/</link>
+      <pubDate>Tue, 09 May 2023 14:24:56 +0530</pubDate>
       
-      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/</guid>
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/linux-setup/</guid>
       <description>
         
         
-        &lt;p&gt;What you need:&lt;/p&gt;
+        &lt;p&gt;To run the main components of the SDV EDGE stack on an existing Linux distribution (e.g. Debian, Ubuntu, Raspberry Pi OS),
+you need to install the following packages.&lt;/p&gt;
+&lt;p&gt;Please note that since this is not a full-system installation, but an additional installation, there are some differences
+compared to the usual Leda installation on Docker/QEMU/Devices using our Quickstart image:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A Raspberry Pi 4B (64 Bit) with 2 GiB of RAM or more, recommended is 8 GiB&lt;/li&gt;
-&lt;li&gt;Network connection (Ethernet or Wifi) with transparent internet access&lt;/li&gt;
-&lt;li&gt;Optional keyboard and display (makes it easier to troubleshoot)&lt;/li&gt;
+&lt;li&gt;The Self-Update use case is not used, as the distribution-specific channels apply.
+E.g. it does not make sense to use the Leda infrastructure to flash a full system image.&lt;/li&gt;
+&lt;li&gt;The configuration differs slightly and you need to put some more work into getting the examples to work out of the box.
+This may include different port numbers, different paths of volume mounts for containers etc.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Steps:&lt;/p&gt;
+&lt;h2 id=&#34;debian-based-linux-distributions&#34;&gt;Debian-based Linux distributions&lt;/h2&gt;
+&lt;p&gt;Tested on x86_64 via Docker:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Download the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/download-releases/&#34;&gt;latest released SD-Card Image&lt;/a&gt;: &lt;code&gt;eclipse-leda-raspberrypi.tar.xz&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Uncompress the SD Card image:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;apt-get install -y xz-utils
-tar xf eclipse-leda-raspberrypi.tar.xz
-bzip2 -d -f sdv-image-all-raspberrypi4-64.wic.bz2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Flash the &lt;code&gt;sdv-image-all-raspberrypi4.wic&lt;/code&gt; file to an SD-Card&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;On Linux:
-&lt;ul&gt;
-&lt;li&gt;Install bmap tools: &lt;code&gt;sudo apt-get install -y bmap-tools&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Insert SD Card and check which device is mounted: &lt;code&gt;sudo fdisk -l&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Unmount the device: &lt;code&gt;sudo umount /dev/mmcblk[X]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sudo bmaptool copy --bmap sdv-image-all-raspberrypi4-64.wic.bmap sdv-image-all-raspberrypi4-64.wic /dev/mmcblk[X]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Note:  Using &lt;code&gt;bmap&lt;/code&gt; is &lt;strong&gt;much&lt;/strong&gt; faster but works the same as with plain &lt;code&gt;dd if=&amp;lt;wic-file&amp;gt; of=dev/mmcblk[x]&lt;/code&gt;.&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;On Windows:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.raspberrypi.org/documentation/installation/installing-images/&#34;&gt;Raspberry Pi Imager&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.balena.io/etcher/&#34;&gt;Balena Etcher&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Optional: If you need to adapt the network configuration eg Wifi credentials, edit the configuration files on the &lt;code&gt;boot&lt;/code&gt; partition.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Shutdown the Raspberry and insert the SD-Card into the Raspberry Pi SD-Card slot at the bottom&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Power on your Raspberry to boot the image&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Login with &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Check disk space:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;raspberry-growdisk&lt;/code&gt; system service will do this automatically on first boot.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;To manually enlarge the available disk space on the SD-Card, resize the disk partition: &lt;code&gt;parted /dev/mmcblk0 resizepart 6 100% &amp;amp;&amp;amp; resize2fs /dev/mmcblk0p6&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note: Due to changes in the disk partition, the partition number (&lt;code&gt;6&lt;/code&gt; in the example) may have changed.&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Verify with &lt;code&gt;df -h&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Verify and wait until container runtime is started: &lt;code&gt;systemctl status container-management&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;em&gt;Optional:&lt;/em&gt; Check the system health: &lt;code&gt;sdv-health&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/device-provisioning/&#34;&gt;Device Provisioning&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Wifi Configuration</title>
-      <link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</guid>
-      <description>
-        
-        
-        &lt;p&gt;BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in &lt;code&gt;meta-leda&lt;/code&gt; for &lt;a href=&#34;../../customization/custom-images#hardware&#34;&gt;supported hardware&lt;/a&gt;.
-They usually do not require extra configuration.&lt;/p&gt;
-&lt;p&gt;For a guide on how to connect to a wireless network check the &lt;a href=&#34;connecting-to-wifi&#34;&gt;&lt;em&gt;Connecting to Wi-Fi networks&lt;/em&gt;&lt;/a&gt; page.&lt;/p&gt;
-&lt;h2 id=&#34;raspberry-pi-4b-64&#34;&gt;Raspberry Pi 4B 64&lt;/h2&gt;
-&lt;p&gt;The required kernel modules and binary blobs are provided with the &lt;code&gt;sdv-wifi-kernel-config.inc&lt;/code&gt; config file and the &lt;code&gt;packagegroup-sdv-rpi4wifi&lt;/code&gt; packagegroup. These
-are included in &lt;code&gt;sdv-image-full.bb&lt;/code&gt; and &lt;code&gt;sdv-image-minimal.bb&lt;/code&gt; by default.&lt;/p&gt;
-&lt;p&gt;If you, however, decide to define your own custom image based on &lt;a href=&#34;../../customization/custom-images&#34;&gt;&lt;em&gt;Custom Distros&lt;/em&gt;&lt;/a&gt;,
-you would have to make sure the packagegroup is installed to enable WiFi connectivity.&lt;/p&gt;
-&lt;h2 id=&#34;qemu&#34;&gt;QEMU&lt;/h2&gt;
-&lt;p&gt;QEMU images provide the kernel modules necessary to set-up a virtual wlan interface and connect it to a virtual wifi network. This can be useful in various testing scenarios.&lt;/p&gt;
-&lt;p&gt;To create and link a virtual WiFi interface to eth0, boot your QEMU image and run:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip link add link eth0 name wlan0 &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt; virt_wifi
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The SSID of the virtual network you can connect to is &lt;code&gt;VirtWifi&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Leda Quickstart QEMU images set the name of the default virtual ethernet interface to &lt;code&gt;eth0&lt;/code&gt; through kernel CMDLINE configurations (&lt;code&gt;net.ifnames=0 biosdevname=0&lt;/code&gt;).
-If you are building a custom image with a different kernel CMDLINE replace &lt;code&gt;eth0&lt;/code&gt; with the name of your virtual interface (check &lt;code&gt;ifconfig&lt;/code&gt;).&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Utilities</title>
-      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The quickstart image contains the following utilities.
-These utility scripts are meant to be convenience tools for users and developers.
-They help to experiment with the container deployment, device provisioning or vehicle data access.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;sdv-health:&lt;/strong&gt; Show SDV software components health status&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;kantui:&lt;/strong&gt; A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;sdv-device-info:&lt;/strong&gt; Show and update device information&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;sdv-provision:&lt;/strong&gt; Generate device certificates and configuration of cloud connection&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;sdv-motd:&lt;/strong&gt; Message-of-the-Day shown after login prompt&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;can-forward:&lt;/strong&gt; Forwarding a CAN-bus network interface into a containerized Vehicle Application&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;kanto-auto-deployer:&lt;/strong&gt; Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;sdv-ctr-exec:&lt;/strong&gt; Execute arbitrary commands in existing containers&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;sdv-kanto-ctl:&lt;/strong&gt; Manage the Kanto Container Management configuration via CLI&lt;/li&gt;
+&lt;li&gt;Debian 11&lt;/li&gt;
+&lt;li&gt;Debian 12&lt;/li&gt;
+&lt;li&gt;Ubuntu 20.04&lt;/li&gt;
+&lt;li&gt;Ubuntu 22.04&lt;/li&gt;
+&lt;li&gt;Ubuntu 23.10&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Note:
-These scripts are not meant to be reused or called from production software.
-Their behaviour or command line syntax is not a stable API and should not be trusted for automation purposes.
-For details, please see &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/&#34;&gt;leda-utils&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Ubuntu 18.04 is not supported, as the glibc is outdated.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h3 id=&#34;pre-requisuites&#34;&gt;Pre-Requisuites&lt;/h3&gt;
+&lt;p&gt;The SDV stack requires the following packages to be present on the target system:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Mosquitto (adapt configuration, see below)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Data folders&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Storage for Self Update Bundles: &lt;code&gt;mkdir -p /data/selfupdates&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Device Certificates Folder:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Required by Cloud Connector&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir -p /data/var/certificates/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch /data/var/certificates/device.crt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch /data/var/certificates/device.key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;systemd &lt;em&gt;(Optional: You can also manually start the services)&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;D-Bus &lt;em&gt;(Optional: This is for Self Update Agent to RAUC integration)&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;RAUC &lt;em&gt;(Optional: Only for Self-Update Use Case or testing purposes)&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;installation-steps&#34;&gt;Installation Steps&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Note: The steps below are examples for x86 platform. If you deploy on ARM64 platform, adapt the filenames accordingly.&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Update repository and install dependencies:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get -y install ca-certificates mosquitto wget
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Optional:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get -y install dbus rauc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the Debian package from the &lt;a href=&#34;https://github.com/eclipse-kanto/kanto/releases&#34;&gt;Eclipse Kanto&lt;/a&gt; release page&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-kanto/kanto/releases/download/v0.1.0-M3/kanto_0.1.0-M3_linux_x86_64.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get install -y ./kanto_0.1.0-M3_linux_x86_64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Check if Kanto has been installed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt; -v container-management
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt; -v kanto-cm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;systemctl status container-management
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; This will also install &lt;code&gt;containerd&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the Debian packages from the &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/releases/&#34;&gt;Eclipse Leda Utilities&lt;/a&gt; release page:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-leda/leda-utils/releases/download/v0.0.2/eclipse-leda-utils_0.0.2.0.00680_all.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get install -y ./eclipse-leda-utils_0.0.2.0.00680_all.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt; -v sdv-health
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-leda/leda-utils/releases/download/v0.0.2/eclipse-leda-kantui_0.0.2.0.00680_amd64.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get install -y ./eclipse-leda-kantui_0.0.2.0.00680_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt; -v kantui
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-leda/leda-utils/releases/download/v0.0.2/eclipse-leda-kanto-auto-deployer_0.0.2.0.00680_amd64.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get install -y ./eclipse-leda-kanto-auto-deployer_0.0.2.0.00680_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt; -v kanto-auto-deployer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the Debian package &lt;code&gt;eclipse-leda-container-*.deb&lt;/code&gt; from the &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/releases&#34;&gt;Eclipse Meta-Leda&lt;/a&gt; release page:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-leda/meta-leda/releases/download/0.1.0-M2/eclipse-leda-containers_0.1.0.2.0.422_all.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt-get install -y ./eclipse-leda-containers_0.1.0.2.0.422_all.deb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the &lt;code&gt;kanto-auto-deployer&lt;/code&gt; to deploy the core components:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-auto-deployer /var/containers/manifests
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To install the example containers, run the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-auto-deployer /var/containers/manifests/examples
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;configuration-hacks&#34;&gt;Configuration Hacks&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Mosquitto must be configured to allow anonymous access and listen on the network interface available to the containers. The easiest (and least secure!) configuration would be:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/mosquitto/conf.d/public.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-plain&#34; data-lang=&#34;plain&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;listener 1883 0.0.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;allow_anonymous true
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Attention:&lt;/strong&gt; Only apply this configuration on a device in a secured network, or adapt the configuration accordingly (e.g. specify internal IP address)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
@@ -763,6 +830,67 @@ If it&amp;rsquo;s not a background service, but a cli tool, adding the &lt;code&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Waveshare RS485 CAN Hat
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# dtoverlay=mcp2515-can0,oscillator=12000000,interrupt=25,spimaxfrequency=2000000
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Utilities</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/utilities/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The quickstart image contains the following utilities.
+These utility scripts are meant to be convenience tools for users and developers.
+They help to experiment with the container deployment, device provisioning or vehicle data access.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sdv-health:&lt;/strong&gt; Show SDV software components health status&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kantui:&lt;/strong&gt; A text user interface for kanto-cm to manage containers (start, stop, logs, redeploy all)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-device-info:&lt;/strong&gt; Show and update device information&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-provision:&lt;/strong&gt; Generate device certificates and configuration of cloud connection&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-motd:&lt;/strong&gt; Message-of-the-Day shown after login prompt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;can-forward:&lt;/strong&gt; Forwarding a CAN-bus network interface into a containerized Vehicle Application&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;kanto-auto-deployer:&lt;/strong&gt; Automatically deploys containers on boot. Runs as a systemd service, and can also be invoked by a user directly.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-ctr-exec:&lt;/strong&gt; Execute arbitrary commands in existing containers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sdv-kanto-ctl:&lt;/strong&gt; Manage the Kanto Container Management configuration via CLI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note:
+These scripts are not meant to be reused or called from production software.
+Their behaviour or command line syntax is not a stable API and should not be trusted for automation purposes.
+For details, please see &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/&#34;&gt;leda-utils&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Wifi Configuration</title>
+      <link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</link>
+      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</guid>
+      <description>
+        
+        
+        &lt;p&gt;BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in &lt;code&gt;meta-leda&lt;/code&gt; for &lt;a href=&#34;../../customization/custom-images#hardware&#34;&gt;supported hardware&lt;/a&gt;.
+They usually do not require extra configuration.&lt;/p&gt;
+&lt;p&gt;For a guide on how to connect to a wireless network check the &lt;a href=&#34;connecting-to-wifi&#34;&gt;&lt;em&gt;Connecting to Wi-Fi networks&lt;/em&gt;&lt;/a&gt; page.&lt;/p&gt;
+&lt;h2 id=&#34;raspberry-pi-4b-64&#34;&gt;Raspberry Pi 4B 64&lt;/h2&gt;
+&lt;p&gt;The required kernel modules and binary blobs are provided with the &lt;code&gt;sdv-wifi-kernel-config.inc&lt;/code&gt; config file and the &lt;code&gt;packagegroup-sdv-rpi4wifi&lt;/code&gt; packagegroup. These
+are included in &lt;code&gt;sdv-image-full.bb&lt;/code&gt; and &lt;code&gt;sdv-image-minimal.bb&lt;/code&gt; by default.&lt;/p&gt;
+&lt;p&gt;If you, however, decide to define your own custom image based on &lt;a href=&#34;../../customization/custom-images&#34;&gt;&lt;em&gt;Custom Distros&lt;/em&gt;&lt;/a&gt;,
+you would have to make sure the packagegroup is installed to enable WiFi connectivity.&lt;/p&gt;
+&lt;h2 id=&#34;qemu&#34;&gt;QEMU&lt;/h2&gt;
+&lt;p&gt;QEMU images provide the kernel modules necessary to set-up a virtual wlan interface and connect it to a virtual wifi network. This can be useful in various testing scenarios.&lt;/p&gt;
+&lt;p&gt;To create and link a virtual WiFi interface to eth0, boot your QEMU image and run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip link add link eth0 name wlan0 &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt; virt_wifi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The SSID of the virtual network you can connect to is &lt;code&gt;VirtWifi&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Leda Quickstart QEMU images set the name of the default virtual ethernet interface to &lt;code&gt;eth0&lt;/code&gt; through kernel CMDLINE configurations (&lt;code&gt;net.ifnames=0 biosdevname=0&lt;/code&gt;).
+If you are building a custom image with a different kernel CMDLINE replace &lt;code&gt;eth0&lt;/code&gt; with the name of your virtual interface (check &lt;code&gt;ifconfig&lt;/code&gt;).&lt;/p&gt;
+
       </description>
     </item>
     
