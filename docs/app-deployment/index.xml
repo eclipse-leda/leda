@@ -190,7 +190,13 @@ On Eclipse Leda, there is no DAPR middleware installed by default and hence, the
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;databroker:container_databroker-host
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto:host_ip
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;seatservice-example:container_seatservice-example-host
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;prototyping&#34;&gt;Prototyping&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;testing&#34;&gt;Testing&lt;/h3&gt;
+&lt;p&gt;To test the Seat Adjuster app API, send the following MQTT message:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_pub -t seatadjuster/setPosition/request -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;position&amp;#34;: 300, &amp;#34;requestId&amp;#34;: 1}&amp;#39;&lt;/span&gt; -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; To see also the responses, run &lt;code&gt;mosquitto_pub -t &#39;seatadjuster/#&#39; -m &#39;{&amp;quot;position&amp;quot;: 350}&#39;&lt;/code&gt; on a separate shell&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;prototyping&#34;&gt;Prototyping&lt;/h3&gt;
 &lt;p&gt;The pseudo-code for the Seat Adjuster application could look like the following excerpt from the &lt;a href=&#34;https://digitalauto.netlify.app/model/997XF1ch2f5DjgPIzhY3/library/prototype/ZqhnonCBSSwP8ZVM7CFh/view/code&#34;&gt;Digital.Playground example&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;sdv_model&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
@@ -240,7 +246,7 @@ On Eclipse Leda, there is no DAPR middleware installed by default and hence, the
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; This range of valid values is not reflected in the standard Vehicle Signal Specification. OEMs would overlay the VSS tree with actual Min/Max values, depending on the specific seat hardware available in the specific vehicle model.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;testing&#34;&gt;Testing&lt;/h3&gt;
+&lt;h3 id=&#34;testing-1&#34;&gt;Testing&lt;/h3&gt;
 &lt;p&gt;Whether you are running the seatservice-example with a simulated CAN or a physical (emulated) CAN, the seatservice-example container included in the Leda Quickstart image provides a simple client application that can be used to test the GRPC interface.&lt;/p&gt;
 &lt;p&gt;To set the seat position to &lt;code&gt;x%&lt;/code&gt;, take &lt;code&gt;x*10&lt;/code&gt; and truncate it to an integer &lt;code&gt;&amp;lt;position&amp;gt;&lt;/code&gt;. Then using the sdv-ctr-exec script issue the following command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client &amp;lt;position&amp;gt;

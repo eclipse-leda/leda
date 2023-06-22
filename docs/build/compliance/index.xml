@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – License Compliance</title>
+    <link>https://eclipse-leda.github.io/leda/docs/build/compliance/</link>
+    <description>Recent content in License Compliance on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/build/compliance/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

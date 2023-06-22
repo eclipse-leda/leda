@@ -400,6 +400,217 @@ Try running with:&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: License Compliance</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/compliance/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/compliance/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Eclipse Leda distro is being scanned, audited and reviewed for OSS license and IP compliance.&lt;/p&gt;
+&lt;p&gt;The current state of this progress is shown in this documentation.&lt;/p&gt;
+&lt;p&gt;Our friends from the &lt;a href=&#34;https://gitlab.eclipse.org/eclipse/oniro-compliancetoolchain/third-party/mirrors/leda/-/pipelines&#34;&gt;Eclipse Oniro&lt;/a&gt; project
+have been so kind to set up a build and scan for Eclipse Leda as well.
+We&amp;rsquo;re currently reusing that infrastructure, until we can either merge the
+build infrastructure or set it up on our own, depending on how things continue.&lt;/p&gt;
+&lt;h2 id=&#34;tooling&#34;&gt;Tooling&lt;/h2&gt;
+&lt;p&gt;The tools being used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.eclipse.org/eclipse/oniro-compliancetoolchain/toolchain/tinfoilhat&#34;&gt;TinfoilHat and AliensRC Creator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gitlab.eclipse.org/eclipse/oniro-compliancetoolchain/toolchain/aliens4friends&#34;&gt;Aliens4Friends&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nexB/scancode-toolkit&#34;&gt;Scancode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fossology/&#34;&gt;Fossology&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/noi-techpark/solda-aliens4friends-dashboard&#34;&gt;Aliens4Friends Dashboard&lt;/a&gt; by NOI Techpark&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The scan tools environment are available in &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/tree/main/resources/oss-compliance&#34;&gt;&lt;code&gt;leda-distro/resources/oss-compliance&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;There are additional BitBake / kas configurations, which need to be used for the build before the OSS compliance toolchain can be used with the build directory:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/blob/main/kas/oss-compliance/tinfoilhat.yaml&#34;&gt;leda-distro/kas/oss-compliance/tinfoilhat.yaml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;current-status&#34;&gt;Current Status&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;./a4f_leda_overview_20230621.png&#34; alt=&#34;Eclipse Leda - Aliens4Friends Dashboard - as of 2023-06-21&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;evaluation&#34;&gt;Evaluation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The scanned licenses report contains all potentially used license types. For each finding, a human audit is required for deciding which license is actually being in use.&lt;/li&gt;
+&lt;li&gt;Numbers: 41% percent don&amp;rsquo;t need human audit, 50% has been manually audited and cleared, 10% work is left to do&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Package&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;th&gt;Expected License Result&lt;/th&gt;
+&lt;th&gt;Risk&lt;/th&gt;
+&lt;th&gt;Task&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;containerd&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;Apache-2.0, BSD&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;elfutils&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;GPL-3.0&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Remove/Replace: Why is it installed?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;expat&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;MIT&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gcc&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;GPL-3.0&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Remove: No need for gcc on Leda image&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;libgcc&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;GPL-3.0&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Remove: No need for gcc on Leda image&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;json-glib&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;Partly GPL-3.0&lt;/td&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;Check which parts are GPL-3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;libffi&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;Partly GPL-3.0&lt;/td&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;Needed? Check which parts are GPL-3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;libidn2&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;Partly GPL-3.0&lt;/td&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;Needed? Check which parts are GPL-3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;libunistring&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;Partly GPL-3.0&lt;/td&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;Needed? Check which parts are GPL-3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;libxcrypt&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;Mixed&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Check licenses, Needed?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;linux-firmware-rpidistro&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;Mixed&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Check licenses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;onig&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;BSD-2&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Check licenses, Needed?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;popt&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;FSF, Mixed&lt;/td&gt;
+&lt;td&gt;Red&lt;/td&gt;
+&lt;td&gt;Check licenses, Needed?&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rauc&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;Apache-2.0&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;runc-opencontainers&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;BSD-3&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sudo&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;BSD-3&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;zstd&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;Partly GPL-3.0&lt;/td&gt;
+&lt;td&gt;Yellow&lt;/td&gt;
+&lt;td&gt;Needed? Check which parts are GPL-3.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kanto-auto-deployer&lt;/td&gt;
+&lt;td&gt;Audit Open&lt;/td&gt;
+&lt;td&gt;Apache-2.0, EPL-2.0&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;linux-raspberrypi&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;td&gt;GPL-2.0 + 50 others&lt;/td&gt;
+&lt;td&gt;Green&lt;/td&gt;
+&lt;td&gt;Check other licenses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note: excerpt, current work in progress&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;yocto-configuration&#34;&gt;Yocto Configuration&lt;/h2&gt;
+&lt;p&gt;Our distro configuration and the image definitions use the following license-compliance related settings:&lt;/p&gt;
+&lt;p&gt;Image-based configuration:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;INCOMPATIBLE_LICENSE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;GPL-3.0* LGPL-3.0* AGPL-3.0*&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;See &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/4b303ceb370887a530ebf313f26dd23be47872d7/meta-leda-distro/recipes-sdv-distro/images/sdv-image-all.bb#L80&#34;&gt;meta-leda-distro/recipes-sdv-distro/images/sdv-image-all.bb&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Global configuration:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;INHERIT&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;archiver&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ARCHIVER_MODE&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;src&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;patched&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;COPYLEFT_LICENSE_INCLUDE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;GPL* LGPL*&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;COPYLEFT_LICENSE_EXCLUDE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;CLOSED Proprietary MIT BSD&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;COPYLEFT_RECIPE_TYPES&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;target&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ARCHIVER_MODE&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;mirror&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;combined&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Some licenses require the license text to accompany the binary. You can achieve this by adding the following:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;COPY_LIC_MANIFEST&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;COPY_LIC_DIRS&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LICENSE_CREATE_PACKAGE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Vulnerability Scanning&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;INHERIT&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cve-check&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;See &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/4b303ceb370887a530ebf313f26dd23be47872d7/meta-leda-distro/conf/distro/include/leda-oss-compliance.inc#L20&#34;&gt;meta-leda-distro/conf/distro/include/leda-oss-compliance.inc&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Miscellaneous</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/misc/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
