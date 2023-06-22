@@ -1,7 +1,7 @@
 ---
 title: "Wifi Configuration"
 date: 2023-01-03T17:24:56+05:30
-weight: 3
+weight: 20
 ---
 
 BSP packages for emulated WiFi devices (QEMU) and hardware device drivers are provided in `meta-leda` for [supported hardware](../../customization/custom-images#hardware).

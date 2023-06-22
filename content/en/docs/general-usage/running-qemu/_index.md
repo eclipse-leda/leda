@@ -1,7 +1,7 @@
 ---
 title: "Running on QEMU"
 date: 2022-05-09T14:24:56+05:30
-weight: 1
+weight: 4
 ---
 
 If you want to execute the image without building first, grab the latest release or build artifacts from [https://github.com/eclipse-leda/leda-distro/](https://github.com/eclipse-leda/leda-distro/)

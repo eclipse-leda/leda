@@ -1,7 +1,7 @@
 ---
 title: "Running on Raspberry Pi"
 date: 2022-05-09T14:24:56+05:30
-weight: 1
+weight: 3
 ---
 
 What you need:
