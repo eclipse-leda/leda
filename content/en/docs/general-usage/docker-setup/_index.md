@@ -1,7 +1,7 @@
 ---
 title: "Running on Docker"
 date: 2022-05-09T14:24:56+05:30
-weight: 1
+weight: 2
 ---
 
 By using the dockerized Leda quickstart images, the SDV vehicle edge components can be evaluated on emulated X86-64 and ARM64 system images,
