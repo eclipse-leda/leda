@@ -476,6 +476,178 @@ you can either use the natively installed &lt;code&gt;databroker-cli&lt;/code&gt
     </item>
     
     <item>
+      <title>Docs: CarSim</title>
+      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/carsim/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/carsim/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;strong&gt;CarSim&lt;/strong&gt; example provides basic Vehicle Signals based on a physical model simulation and feeds them to the databroker.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;./kinetic.svg&#34;&gt;&lt;img src=&#34;./kinetic.png&#34; alt=&#34;Eclipse Leda CarSim Kinetics&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;architecture-overview&#34;&gt;Architecture Overview&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;./carsim-arch-overview.svg&#34;&gt;&lt;img src=&#34;./carsim-arch-overview.png&#34; alt=&#34;Eclipse Leda CarSim DriverSim Architecture Overview&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+&lt;p&gt;CarSim is a simple physical model implementation, based on the &lt;a href=&#34;https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/&#34;&gt;kinematic bicycle model&lt;/a&gt;.
+It can be used as a &lt;em&gt;mock implementation&lt;/em&gt; in development, testing and simulation scenarios.&lt;/p&gt;
+&lt;p&gt;It takes three external inputs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;accelerator position&lt;/li&gt;
+&lt;li&gt;brake position&lt;/li&gt;
+&lt;li&gt;steering wheel angle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It propagates the physical model in time with a pre-defined step interval (10ms), recalculates the acceleration components,
+speed and position, and finally publishes the numeric values as standard VSS datapoints to the databroker.&lt;/p&gt;
+&lt;p&gt;To simulate the input from a human driver, the optional &lt;strong&gt;DriverSim&lt;/strong&gt; component can be run in parallel.
+DriverSim toggles between two different types of driver style in a pre-defined time interval:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Good driver&lt;/strong&gt; - slowly accelerates and moves the steering angle accordingly and then slowly brakes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bad driver&lt;/strong&gt; - accelerates hard (full throttle), moves the steering wheel randomly in both directions, brakes hard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Decoupled Design&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;CarSim and DriverSim &lt;strong&gt;only communicate through the databroker&lt;/strong&gt; by using standardized Vehicle Signals.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Each component can be replaced individually &lt;strong&gt;at runtime&lt;/strong&gt;, e.g. by more advanced or real implementations.
+There is no need to adapt, recompile or redeploy any of the other applications.&lt;/p&gt;
+&lt;p&gt;This is &lt;strong&gt;important&lt;/strong&gt; for decoupling and &lt;a href=&#34;https://fosdem.org/2023/schedule/event/kuksa/&#34;&gt;standardizing vehicle signals&lt;/a&gt;,
+to enable future vehicle application platforms to evolve.
+Loose coupling and standardizing of vehicle signal interfaces enable thirdparty applications to use signals
+in higher-level applications or value-add services.&lt;/p&gt;
+&lt;p&gt;Both implementors (imagine separate organizations), can agree to use the Vehicle Signal Specification
+to decouple the development lifecycle for vehicle applications and vehicle services. This decoupling approach
+reduces the time and effort for proprietary design specifications processes tremendously.&lt;/p&gt;
+&lt;h2 id=&#34;vehicle-signals&#34;&gt;Vehicle Signals&lt;/h2&gt;
+&lt;p&gt;The CarSim application reads the following input signals from the databroker:&lt;/p&gt;
+&lt;h3 id=&#34;input&#34;&gt;Input&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&amp;ldquo;Human&amp;rdquo; driver input&lt;/th&gt;
+&lt;th&gt;Python variable&lt;/th&gt;
+&lt;th&gt;VSS subscription path&lt;/th&gt;
+&lt;th&gt;VSS datatype&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Brake pedal position&lt;/td&gt;
+&lt;td&gt;DP_BRAKE_POS&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/chassis/brake/pedalposition/&#34;&gt;&lt;code&gt;Vehicle.Chassis.Brake.PedalPosition&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;uint8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Accelerator pedal position&lt;/td&gt;
+&lt;td&gt;DP_ACCELR_POS&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/chassis/accelerator/pedalposition/&#34;&gt;&lt;code&gt;Vehicle.Chassis.Accelerator.PedalPosition&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;uint8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Steering wheel angle&lt;/td&gt;
+&lt;td&gt;DP_STEER_ANGLE&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/chassis/steeringwheel/angle/&#34;&gt;&lt;code&gt;Vehicle.Chassis.SteeringWheel.Angle&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;int16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Note: You can either provide these signals externally on your own, or use &lt;code&gt;DriverSim&lt;/code&gt; to simulate them.&lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&#34;output&#34;&gt;Output&lt;/h3&gt;
+&lt;p&gt;The CarSim application feeds the following output signals to the databroker:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Python variable&lt;/th&gt;
+&lt;th&gt;VSS feeding path&lt;/th&gt;
+&lt;th&gt;VSS datatype&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DP_SPEED&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/speed/&#34;&gt;&lt;code&gt;Vehicle.Speed&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DP_ACCEL_LAT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/acceleration/lateral/&#34;&gt;&lt;code&gt;Vehicle.Acceleration.Lateral&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DP_ACCEL_LONG&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/acceleration/longitudinal/&#34;&gt;&lt;code&gt;Vehicle.Acceleration.Longitudinal&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DP_ACCEL_VERT&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/acceleration/vertical/&#34;&gt;&lt;code&gt;Vehicle.Acceleration.Vertical&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Start up Leda and wait for the runtime to be available. For other deployment options, see &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/&#34;&gt;Getting Started&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy the &lt;a href=&#34;https://github.com/eclipse-leda/leda-example-applications/pkgs/container/leda-example-applications%2Fleda-example-carsim&#34;&gt;&lt;code&gt;CarSim&lt;/code&gt;&lt;/a&gt;
+container:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm create --name carsim --e&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;DATABROKER_ADDRESS&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;databroker:55555 --hosts&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;databroker:container_databroker-host&amp;#34;&lt;/span&gt; ghcr.io/eclipse-leda/leda-example-applications/leda-example-carsim:v0.0.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm start --name carsim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy &lt;a href=&#34;https://github.com/eclipse-leda/leda-example-applications/pkgs/container/leda-example-applications%2Fleda-example-driversim&#34;&gt;&lt;code&gt;DriverSim&lt;/code&gt;&lt;/a&gt;
+container:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm create --name driversim --e&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;DATABROKER_ADDRESS&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;databroker:55555 --hosts&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;databroker:container_databroker-host&amp;#34;&lt;/span&gt; ghcr.io/eclipse-leda/leda-example-applications/leda-example-driversim:v0.0.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm start --name driversim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;kantui&lt;/code&gt; or &lt;code&gt;kanto-cm logs --name &amp;lt;carsim|driversim&amp;gt;&lt;/code&gt; to view log files:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./kantui_carsim.png&#34; alt=&#34;Eclipse Leda KantUI CarSim Logs&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./kantui_driversim.png&#34; alt=&#34;Eclipse Leda KantUI DriverSim Logs&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use the &lt;code&gt;databroker-cli&lt;/code&gt; to subscribe to the following VSS signals.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; Separate multiple signals by commas. Use &lt;code&gt;&amp;lt;TAB&amp;gt;&lt;/code&gt; to auto-complete signal names.
+See &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/doc/QUERY.md&#34;&gt;QUERY.md&lt;/a&gt; for the query syntax.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ databroker-cli
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;connect localhost:30555
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;subscribe
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    SELECT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Vehicle.Speed,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Vehicle.Acceleration.Vertical,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Vehicle.Acceleration.Longitudinal,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Vehicle.Acceleration.Lateral
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    WHERE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     Vehicle.Speed &amp;gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./carsim-databroker-cli2.png&#34; alt=&#34;Eclipse Leda CarSim Databroker-CLI&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Happy hacking!&lt;/p&gt;
+&lt;p&gt;Need ideas? How about implementing your own driver simulation and integrate with existing open source simulation technologies from &lt;em&gt;Autonomous Driving&lt;/em&gt;?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sources: &lt;a href=&#34;https://github.com/eclipse-leda/leda-example-applications/tree/main/kuksa-carsim&#34;&gt;https://github.com/eclipse-leda/leda-example-applications/tree/main/kuksa-carsim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kinetic Bicycle Model: &lt;a href=&#34;https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/&#34;&gt;https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kuksa.VAL: &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;COVESA Vehicle Signal Specification: &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;https://github.com/COVESA/vehicle_signal_specification&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Velocitas VApps</title>
       <link>https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>

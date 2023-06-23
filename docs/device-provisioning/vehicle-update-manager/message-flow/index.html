@@ -37,11 +37,11 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-23T12:58:07+02:00" />
+<meta property="article:modified_time" content="2023-06-23T15:09:18+02:00" />
 <meta itemprop="name" content="Message Flow">
 <meta itemprop="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
 sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail.">
-<meta itemprop="dateModified" content="2023-06-23T12:58:07+02:00" />
+<meta itemprop="dateModified" content="2023-06-23T15:09:18+02:00" />
 <meta itemprop="wordCount" content="414">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Message Flow"/>
@@ -95,7 +95,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -375,6 +375,10 @@ if (!doNotTrack) {
   
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentcarsim-li">
+  <input type="checkbox" id="m-ledadocsapp-deploymentcarsim-check"/>
+  <label for="m-ledadocsapp-deploymentcarsim-check"><a href="/leda/docs/app-deployment/carsim/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentcarsim"><span class="">CarSim</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsapp-deploymentvelocitas-li">
   <input type="checkbox" id="m-ledadocsapp-deploymentvelocitas-check"/>
   <label for="m-ledadocsapp-deploymentvelocitas-check"><a href="/leda/docs/app-deployment/velocitas/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsapp-deploymentvelocitas"><span class="">Velocitas VApps</span></a></label>

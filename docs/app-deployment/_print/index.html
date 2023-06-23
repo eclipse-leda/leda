@@ -78,7 +78,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -202,7 +202,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+<li>4: <a href="#pg-b17a47275ec6859512c169cb02d9ee24">CarSim</a></li>
 
 
     
@@ -221,7 +221,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
+<li>5: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
 
 
     
@@ -248,6 +267,8 @@ This is the multi-page printable view of this section.
 <li><a href="https://digital.auto">Digital.Auto</a> and its <a href="https://digitalauto.netlify.app/">playground</a></li>
 <li><a href="https://eclipse.dev/velocitas/docs/tutorials/">Eclipse Velocitas tutorials</a></li>
 <li><a href="https://github.com/eclipse/kuksa.val.services">Eclipse Kuksa.VAL examples</a></li>
+<li><a href="https://projects.eclipse.org/projects/automotive.sdv-blueprints">Eclipse SDV Blueprints</a></li>
+<li><a href="https://github.com/eclipse-chariott/chariott/tree/main/examples/applications">Eclipse Chariott examples</a></li>
 </ul>
 
 </div>
@@ -1121,7 +1142,195 @@ Alternatively, use the candump file instead of SocketCAN.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">4 - Velocitas VApps</h1>
+	<h1 id="pg-b17a47275ec6859512c169cb02d9ee24">4 - CarSim</h1>
+    
+	<p>The <strong>CarSim</strong> example provides basic Vehicle Signals based on a physical model simulation and feeds them to the databroker.</p>
+<p><a href="./kinetic.svg"><img src="./kinetic.png" alt="Eclipse Leda CarSim Kinetics"></a></p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><a href="./carsim-arch-overview.svg"><img src="./carsim-arch-overview.png" alt="Eclipse Leda CarSim DriverSim Architecture Overview"></a></p>
+<h2 id="description">Description</h2>
+<p>CarSim is a simple physical model implementation, based on the <a href="https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/">kinematic bicycle model</a>.
+It can be used as a <em>mock implementation</em> in development, testing and simulation scenarios.</p>
+<p>It takes three external inputs:</p>
+<ul>
+<li>accelerator position</li>
+<li>brake position</li>
+<li>steering wheel angle</li>
+</ul>
+<p>It propagates the physical model in time with a pre-defined step interval (10ms), recalculates the acceleration components,
+speed and position, and finally publishes the numeric values as standard VSS datapoints to the databroker.</p>
+<p>To simulate the input from a human driver, the optional <strong>DriverSim</strong> component can be run in parallel.
+DriverSim toggles between two different types of driver style in a pre-defined time interval:</p>
+<ul>
+<li><strong>Good driver</strong> - slowly accelerates and moves the steering angle accordingly and then slowly brakes.</li>
+<li><strong>Bad driver</strong> - accelerates hard (full throttle), moves the steering wheel randomly in both directions, brakes hard.</li>
+</ul>
+<h2 id="background">Background</h2>
+
+
+<div class="pageinfo pageinfo-primary">
+<p><strong>Decoupled Design</strong></p>
+<p>CarSim and DriverSim <strong>only communicate through the databroker</strong> by using standardized Vehicle Signals.</p>
+
+</div>
+
+<p>Each component can be replaced individually <strong>at runtime</strong>, e.g. by more advanced or real implementations.
+There is no need to adapt, recompile or redeploy any of the other applications.</p>
+<p>This is <strong>important</strong> for decoupling and <a href="https://fosdem.org/2023/schedule/event/kuksa/">standardizing vehicle signals</a>,
+to enable future vehicle application platforms to evolve.
+Loose coupling and standardizing of vehicle signal interfaces enable thirdparty applications to use signals
+in higher-level applications or value-add services.</p>
+<p>Both implementors (imagine separate organizations), can agree to use the Vehicle Signal Specification
+to decouple the development lifecycle for vehicle applications and vehicle services. This decoupling approach
+reduces the time and effort for proprietary design specifications processes tremendously.</p>
+<h2 id="vehicle-signals">Vehicle Signals</h2>
+<p>The CarSim application reads the following input signals from the databroker:</p>
+<h3 id="input">Input</h3>
+<table>
+<thead>
+<tr>
+<th>&ldquo;Human&rdquo; driver input</th>
+<th>Python variable</th>
+<th>VSS subscription path</th>
+<th>VSS datatype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brake pedal position</td>
+<td>DP_BRAKE_POS</td>
+<td><a href="/leda/docs/vss/vehicle/chassis/brake/pedalposition/"><code>Vehicle.Chassis.Brake.PedalPosition</code></a></td>
+<td>uint8</td>
+</tr>
+<tr>
+<td>Accelerator pedal position</td>
+<td>DP_ACCELR_POS</td>
+<td><a href="/leda/docs/vss/vehicle/chassis/accelerator/pedalposition/"><code>Vehicle.Chassis.Accelerator.PedalPosition</code></a></td>
+<td>uint8</td>
+</tr>
+<tr>
+<td>Steering wheel angle</td>
+<td>DP_STEER_ANGLE</td>
+<td><a href="/leda/docs/vss/vehicle/chassis/steeringwheel/angle/"><code>Vehicle.Chassis.SteeringWheel.Angle</code></a></td>
+<td>int16</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: You can either provide these signals externally on your own, or use <code>DriverSim</code> to simulate them.</em></p>
+<h3 id="output">Output</h3>
+<p>The CarSim application feeds the following output signals to the databroker:</p>
+<table>
+<thead>
+<tr>
+<th>Python variable</th>
+<th>VSS feeding path</th>
+<th>VSS datatype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DP_SPEED</td>
+<td><a href="/leda/docs/vss/vehicle/speed/"><code>Vehicle.Speed</code></a></td>
+<td>float</td>
+</tr>
+<tr>
+<td>DP_ACCEL_LAT</td>
+<td><a href="/leda/docs/vss/vehicle/acceleration/lateral/"><code>Vehicle.Acceleration.Lateral</code></a></td>
+<td>float</td>
+</tr>
+<tr>
+<td>DP_ACCEL_LONG</td>
+<td><a href="/leda/docs/vss/vehicle/acceleration/longitudinal/"><code>Vehicle.Acceleration.Longitudinal</code></a></td>
+<td>float</td>
+</tr>
+<tr>
+<td>DP_ACCEL_VERT</td>
+<td><a href="/leda/docs/vss/vehicle/acceleration/vertical/"><code>Vehicle.Acceleration.Vertical</code></a></td>
+<td>float</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>
+<p>Start up Leda and wait for the runtime to be available. For other deployment options, see <a href="/leda/docs/general-usage/">Getting Started</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
+</span></span></code></pre></div></li>
+<li>
+<p>Deploy the <a href="https://github.com/eclipse-leda/leda-example-applications/pkgs/container/leda-example-applications%2Fleda-example-carsim"><code>CarSim</code></a>
+container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm create --name carsim --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">DATABROKER_ADDRESS</span><span style="color:#ce5c00;font-weight:bold">=</span>databroker:55555 --hosts<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span> ghcr.io/eclipse-leda/leda-example-applications/leda-example-carsim:v0.0.1
+</span></span><span style="display:flex;"><span>kanto-cm start --name carsim
+</span></span></code></pre></div></li>
+<li>
+<p>Deploy <a href="https://github.com/eclipse-leda/leda-example-applications/pkgs/container/leda-example-applications%2Fleda-example-driversim"><code>DriverSim</code></a>
+container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm create --name driversim --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">DATABROKER_ADDRESS</span><span style="color:#ce5c00;font-weight:bold">=</span>databroker:55555 --hosts<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span> ghcr.io/eclipse-leda/leda-example-applications/leda-example-driversim:v0.0.1
+</span></span><span style="display:flex;"><span>kanto-cm start --name driversim
+</span></span></code></pre></div></li>
+<li>
+<p>Use <code>kantui</code> or <code>kanto-cm logs --name &lt;carsim|driversim&gt;</code> to view log files:</p>
+<p><img src="./kantui_carsim.png" alt="Eclipse Leda KantUI CarSim Logs"></p>
+<p><img src="./kantui_driversim.png" alt="Eclipse Leda KantUI DriverSim Logs"></p>
+</li>
+<li>
+<p>Use the <code>databroker-cli</code> to subscribe to the following VSS signals.</p>
+<blockquote>
+<p><em>Note:</em> Separate multiple signals by commas. Use <code>&lt;TAB&gt;</code> to auto-complete signal names.
+See <a href="https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/doc/QUERY.md">QUERY.md</a> for the query syntax.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ databroker-cli
+</span></span><span style="display:flex;"><span>connect localhost:30555
+</span></span><span style="display:flex;"><span>subscribe
+</span></span><span style="display:flex;"><span>    SELECT
+</span></span><span style="display:flex;"><span>     Vehicle.Speed,
+</span></span><span style="display:flex;"><span>     Vehicle.Acceleration.Vertical,
+</span></span><span style="display:flex;"><span>     Vehicle.Acceleration.Longitudinal,
+</span></span><span style="display:flex;"><span>     Vehicle.Acceleration.Lateral
+</span></span><span style="display:flex;"><span>    WHERE
+</span></span><span style="display:flex;"><span>     Vehicle.Speed &gt; <span style="color:#0000cf;font-weight:bold">50</span>
+</span></span></code></pre></div><p><img src="./carsim-databroker-cli2.png" alt="Eclipse Leda CarSim Databroker-CLI"></p>
+</li>
+<li>
+<p>Happy hacking!</p>
+<p>Need ideas? How about implementing your own driver simulation and integrate with existing open source simulation technologies from <em>Autonomous Driving</em>?</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>Sources: <a href="https://github.com/eclipse-leda/leda-example-applications/tree/main/kuksa-carsim">https://github.com/eclipse-leda/leda-example-applications/tree/main/kuksa-carsim</a></li>
+<li>Kinetic Bicycle Model: <a href="https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/">https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/</a></li>
+<li>Kuksa.VAL: <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker">https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker</a></li>
+<li>COVESA Vehicle Signal Specification: <a href="https://github.com/COVESA/vehicle_signal_specification">https://github.com/COVESA/vehicle_signal_specification</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">5 - Velocitas VApps</h1>
     
 	<p>For local deployment without a cloud backend, deployment specifications for <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> Vehicle Apps may be put directly onto the device.</p>
 <ul>
@@ -1254,7 +1463,7 @@ SDV_MIDDLEWARE_TYPE=native
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">5 - Cloud2Device Messages</h1>
+	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">6 - Cloud2Device Messages</h1>
     
 	<p><img src="c2d-architecture-overview.png" alt="c2d-overview"></p>
 <p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>

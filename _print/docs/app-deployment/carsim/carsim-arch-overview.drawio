@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="SP5YkeVd-Y_nmscXy2NN" name="Page-1">
+        <mxGraphModel dx="978" dy="498" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Kuksa.VAL&lt;br&gt;Databroker" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Simulated&lt;br&gt;Pedal, Speed, Accel.&lt;br&gt;values" style="edgeStyle=none;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="3" target="12">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Vehicle&lt;br&gt;Signals&lt;br&gt;(VSS)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="130" width="60" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Speed, Acceleration" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="5" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="CarSim" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Pedal Positions" style="edgeStyle=none;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="6" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="DriverSim" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="20" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;br&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="122" y="58" width="10" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="shape=mxgraph.signs.transportation.car_3;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="122" y="298" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Your&lt;br&gt;Vehicle Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
