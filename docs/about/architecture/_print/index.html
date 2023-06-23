@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.110.0">
-<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/restricted-internet-environments/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/restricted-internet-environments/index.xml">
+<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/about/architecture/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/about/architecture/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
 
@@ -20,15 +20,15 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
-<title>Restricted-Internet Environments | Eclipse Leda Documentation</title>
+<title>Architecture | Eclipse Leda Documentation</title>
 <meta name="description" content="">
-<meta property="og:title" content="Restricted-Internet Environments" />
+<meta property="og:title" content="Architecture" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/restricted-internet-environments/" />
-<meta itemprop="name" content="Restricted-Internet Environments">
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/about/architecture/" />
+<meta itemprop="name" content="Architecture">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Restricted-Internet Environments"/>
+<meta name="twitter:title" content="Architecture"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -45,7 +45,16 @@
   src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W31KMZWGE"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6W31KMZWGE');
+}
+</script>
   </head>
   <body class="td-section">
     <header>
@@ -69,7 +78,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -94,13 +103,13 @@
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/leda/docs/restricted-internet-environments/">Return to the regular view of this page</a>.
+<a href="/leda/docs/about/architecture/">Return to the regular view of this page</a>.
 </p>
 </div>
 
 
 
-<h1 class="title">Restricted-Internet Environments</h1>
+<h1 class="title">Architecture</h1>
 
 
 
@@ -119,82 +128,100 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>Developers working in a corporate environment may face challenges when building Leda-based images, pulling SDV containers, etc.,
-usually due to a restrictive corporate proxy. Thus the objective of this page is to collect helpful guides for mitigating such problems.</p>
-<h2 id="https-proxy">HTTP(S) proxy</h2>
-<p>First you might need to configure your http(s) SOCKS proxy such that the BitBake shell uses it for <code>do_fetch</code> recipe tasks. By default, <code>http_proxy</code> and <code>https_proxy</code>
-environment variables are part of the <code>BB_ENV_PASSTHROUGH</code> list and are directly passed from the current environment to BitBake. If you are still facing <code>http(s)_proxy</code>
-issues during <code>do_fetch</code> tasks, you might want to check the <a href="https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy">Working Behind a Network Proxy @ Yocto Project Wiki</a>.</p>
-<h2 id="goproxy">GOPROXY</h2>
-<p>GOPROXY is a golang-specific mechanism for fetching dependencies during build-time. What is more, <em>gomod-type</em> BitBake recipes pull their external dependencies during
-the <code>do_compile</code> task, instead of the <code>do_fetch</code> task leading to further issues. The simplest workaround is to set-up a local (caching) goproxy container on
-the build host and make BitBake use that. The following steps assume that the build host has docker installed and working, with access to the docker hub registry.</p>
-<h3 id="hosting-a-local-goproxy-server">Hosting a local goproxy server</h3>
-<p>Start by setting up the goproxy container in host networking mode.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -d --env <span style="color:#000">HTTP_PROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;http://&lt;PROXY_IP&gt;:&lt;PROXY_PORT&gt;&#34;</span> --env <span style="color:#000">HTTPS_PROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;http://&lt;PROXY_IP&gt;:&lt;PROXY_PORT&gt;&#34;</span> -v cacheDir:/go --network host goproxy/goproxy
-</span></span></code></pre></div><p><em>NOTE:</em> Don&rsquo;t forget to substitute <code>&lt;PROXY_IP&gt;</code> and <code>&lt;PROXY_PORT&gt;</code> with the appropriate address of your HTTP(S) proxy.</p>
-<p>This will start a local caching goproxy on port <code>8081</code> with a volume named <code>cacheDir</code> for caching the downloaded Go packages. The goproxy container can be configured
-further to provide access to private Go-package registries. For more information on its configuration take a look at <a href="https://github.com/goproxyio/goproxy">goproxyio/goproxy on GitHub</a>.</p>
-<h3 id="using-the-local-goproxy-server-for-bitbake-builds">Using the local goproxy server for BitBake builds</h3>
-<p>Since the main objective of BitBake/kas is to facilitate reproducible builds, only certain variables from the host environment are used for the build. Go, however,
-looks at the <code>GOPROXY</code> environmental variable to decide on which proxy to use. That&rsquo;s why you should first start by exporting the GOPROXY variable in the terminal
-from which you will later run the build:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#204a87">export</span> <span style="color:#000">GOPROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;http://127.0.0.1:8081&#34;</span>
-</span></span></code></pre></div><p>To make BitBake use the value of the variable you just exported for the build, you should add it to its &ldquo;environment passtrough&rdquo; list:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#204a87">export</span> <span style="color:#000">BB_ENV_PASSTHROUGH_ADDITIONS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">BB_ENV_PASSTHROUGH_ADDITIONS</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> GOPROXY&#34;</span>
-</span></span></code></pre></div><h3 id="kas">Kas</h3>
-<p>If you are using kas as a top-level build tool, to set the value of the GOPROXY variable for builds, all you need to do is to add it the <em>env</em>-section of your
-kas-config yaml. For example:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">header</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">12</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">machine</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qemux86-64</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">env</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">GOPROXY</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;http://127.0.0.1:8081&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>Kas will handle the exporting of the variable and adding it to BitBake&rsquo;s passtrough list automatically from there.</p>
-<h2 id="airgapped-container-installation">Airgapped container installation</h2>
-<p>Sometimes devices might not have internet access on first boot and therefore the SDV containers that are needed for provisioning and updating a SDV-image
-will not be available.</p>
-<h3 id="build-time">Build-Time</h3>
-<p>The meta-leda layer provides an opitional distro feature that pre-downloads and injects a minimal set of SDV container images in Kanto&rsquo;s local container registry
-on first boot.</p>
-<p><strong>IMPORTANT</strong>: <strong>This will lead to a significant increase of the image size since all containers are downloaded as self-contained tarballs and therefore &ldquo;layer reuse&rdquo;
-is not possible.</strong></p>
-<p>To enable this distro feature, add to your <code>local.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  <span style="color:#000">DISTRO_FEATURES</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34; airgap-containers&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">PREINSTALLED_CTR_IMAGES_DIR</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/path/to/container/images&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">IMAGE_INSTALL</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34;packagegroup-sdv-airgap-containers&#34;</span>
-</span></span></code></pre></div><p>If you are using the <code>sdv-image-data</code> image recipe <code>packagegroup-sdv-airgap-containers</code> will be automatically installed when the distro-feature is enabled.
-Therefore all you need to add to your <code>local.conf</code> will be:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  <span style="color:#000">DISTRO_FEATURES</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34; airgap-containers&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">PREINSTALLED_CTR_IMAGES_DIR</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/data/var/containers/images&#34;</span>
-</span></span></code></pre></div><p><em>Note</em>: <em>Here we have assumed that the partition where sdv-image-data is installed is mounted as <code>/data</code> on the rootfs</em>.</p>
-<h3 id="manual">Manual</h3>
-<p>If you do not wish to use the <em>airgap-containers</em> distro-feature, you can manually download inject the container images in the kanto namespace with ctr.</p>
-<ol>
-<li>
-<p>Start on a machine with internet access and docker/ctr installed:</p>
-<p>Pull the container image in your machine&rsquo;s local registry:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ctr -n kanto-cm image pull &lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; --platform linux/&lt;ARCH&gt;
-</span></span></code></pre></div><p>Where if you would like to download the Kuksa Databroker container for an arm64 device you would change the following:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; -&gt; ghcr.io/eclipse/kuksa.val/databroker:0.3.0 
-</span></span><span style="display:flex;"><span>&lt;ARCH&gt; -&gt; arm64
-</span></span></code></pre></div><p>After the pull was successful, export the image as a tarball:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ctr -n kanto-cm images <span style="color:#204a87">export</span> &lt;tarbal_name&gt;.tar &lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; --platform --platform linux/&lt;ARCH&gt;
-</span></span></code></pre></div><p><code>&lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt;</code> and <code>&lt;ARCH&gt;</code> <strong>should</strong> be the same as in the <code>pull</code> command, while <code>&lt;tarball_name&gt;</code> can be any name you would like.</p>
-</li>
-<li>
-<p>Transfer the exported <code>&lt;tarball_name&gt;.tar</code> to your device to a folder of your choosing, e.g. <code>/data/var/containers/images</code></p>
-</li>
-<li>
-<p>Obtain a terminal connection to this device and go to the directory where you transferred the container image tarball.</p>
-</li>
-<li>
-<p>Import the image to the kanto-cm registry by running:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ctr --namespace kanto-cm image import &lt;tarball_name&gt;.tar
-</span></span></code></pre></div><p><em>Note</em>: If you see a message from ctr that the &ldquo;image might be filtered out&rdquo; this means that you might have pulled an image for an architecture that
-does not match the one of your device.</p>
-</li>
-</ol>
+      <h2 id="runtime-overview">Runtime Overview</h2>
+<p><a href="./leda-arch-reference-implementation.svg"><img src="./leda-arch-reference-implementation.png" alt="Eclipse Leda SDV Reference Implementation"></a></p>
+<blockquote>
+<p>The runtime overview shows the general layer architecture for the runtime of the SDV edge stack as implemented by the Leda quickstart image.
+Dotted lines indicate out-of-scope components. They may be non-Edge components (such as cloud services, or SDKs and additional development tooling for vehicle applications). Dotted lines for in-vehicle edge components indicate that they may be used, but are not pre-installed or pre-configured on the Leda quickstart image.</p>
+</blockquote>
+<h2 id="deployment-overview">Deployment Overview</h2>
+<p>Eclipse Leda can be used in different deployment scenarios: on physical hardware, on virtual machines or installed on existing Linux distributions.
+Depending on the specific deployment, some features may not be applicable. Each deployment option is meant for different uses. The applicabability
+depend to your specific requirements.</p>
+<p><a href="./leda-deploy-highlevel.svg"><img src="./leda-deploy-highlevel.png" alt="Eclipse Leda Quickstart Deployment View"></a></p>
+<ul>
+<li><strong>Option 1: Hardware</strong> - Suitable for proof-of-concepts, system integration tasks, access to actual physical actuators and sensors.
+However, an automated setup is much harder to realize, as additional hardware for remote controlling of power supply is needed.
+The constrained environment of a physical device is good to verify accidental assumptions made by application developers,
+such as resource consumptions (CPU, memory) or the existence of Linux tools, Kernel modules or device drivers.</li>
+<li><strong>Option 2: Docker Containers</strong> - Good for quick startup and throw-away (ephemeral) uses, such as automated system testing or one-off troubleshooting.
+The access to physical hardware is limited and more complicated to set up. QEMU provides emulation of devices, such as CAN-Bus.
+Due to multiple nesting of abstraction technology (Docker + QEMU + OS), additional configuration of networking and device pass-thrus are necessary.
+It&rsquo;s easy and cheap to spin-off many separate instances to simulate a whole vehicle system with multiple vehicle computers and
+simulated ECUs in the same vehicle network.</li>
+<li><strong>Option 3: Package Installation</strong> - Good for existing devices with feature-rich functionality where the original OS should be used.
+Leda does not support self-update for this deployment option, as it relies on the master OS distribution channels.
+The constraints of an embedded device are not replicable easily on a PC-style host machine without additional effort.
+Package installation is good when the focus is on exploring the Vehicle Applications, SDKs, Vehicle Signal Abstractions etc.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Option 1: Hardware</th>
+<th>Option 2: Docker Containers</th>
+<th>Option 3: Package Installation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target use case</td>
+<td>PoC</td>
+<td>Automation</td>
+<td>Existing devices</td>
+</tr>
+<tr>
+<td>Cloud communication</td>
+<td>++</td>
+<td>++</td>
+<td>+++</td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>&ndash;</td>
+<td>+++</td>
+<td>++</td>
+</tr>
+<tr>
+<td>Device provisioning</td>
+<td>++</td>
+<td>++</td>
+<td>+++</td>
+</tr>
+<tr>
+<td>Access to hardware</td>
+<td>+++</td>
+<td>-</td>
+<td>++</td>
+</tr>
+<tr>
+<td>Container isolation</td>
+<td>+++</td>
+<td>++</td>
+<td>+++</td>
+</tr>
+<tr>
+<td>Network flexibility</td>
+<td>+++</td>
+<td>-</td>
+<td>++</td>
+</tr>
+<tr>
+<td>Self update</td>
+<td>+++</td>
+<td>+</td>
+<td>&ndash;</td>
+</tr>
+<tr>
+<td>Realistic constrains</td>
+<td>+++</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="build-environment-overview">Build Environment Overview</h2>
+<p><a href="./leda-build-highlevel.svg"><img src="./leda-build-highlevel.png" alt="Eclipse Leda Build Infrastructure View"></a></p>
 
 </div>
 </div>

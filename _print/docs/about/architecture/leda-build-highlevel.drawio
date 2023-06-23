@@ -1,0 +1,166 @@
+<mxfile host="65bd71144e">
+    <diagram id="gMBHjwxsmK7bvnXNUW6S" name="Page-1">
+        <mxGraphModel dx="978" dy="632" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="53" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="51" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="Recipe Sources" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="200" y="80" width="140" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Yocto Project" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="50" y="180" width="120" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Eclipse Leda&lt;br&gt;meta-leda" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="90" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="BitBake" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="190" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="OpenEmbedded" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="230" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="meta-oe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="250" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="poky" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="270" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="meta-kanto" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="130" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="meta-virtualization" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="230" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="meta-rauc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="210" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="meta-raspberrypi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="190" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Build Infrastructure" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="360" y="80" width="120" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Eclipse Foundation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="235" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="GitHub&lt;br&gt;Workflows" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="90" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="External&lt;br&gt;Caches" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="195" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Deliverables" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="510" y="80" width="240" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="System Images" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="95" width="205" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Build Reports" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="220" width="205" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Container Images" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="150" width="205" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="sdv-image-full" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="120" width="90" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="sdv-image-minimal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="120" width="115" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="SBOM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="250" width="75" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Robot Tests Reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="270" width="135" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="CI/CD Tooling" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="50" y="340" width="430" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="kas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="163" y="360" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Docker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="267" y="360" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Robot Framework" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="360" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="git" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="360" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="databroker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="180" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="leda-examples" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="180" width="115" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="sdv-image-rescue" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="135" width="115" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="135" width="90" height="15" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="self-update-agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="200" width="135" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="200" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Kickstart (WKS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="270" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="meta-..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="170" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Eclipse Leda scope" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="483" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="External" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="443" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="other Eclipse projects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="463" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Legend:" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=2" vertex="1" parent="1">
+                    <mxGeometry x="50" y="420" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="GitHub&lt;br&gt;Runners" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+                    <mxGeometry x="375" y="130" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="49" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="Leda Distro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="50" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Distro&lt;br&gt;Config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="65" y="95" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="CVE Reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="250" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="270" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="Website" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="510" y="340" width="240" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="GitHub Pages&lt;br&gt;Leda Documentation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="525" y="360" width="115" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="Project&lt;br&gt;Website" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="360" width="90" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

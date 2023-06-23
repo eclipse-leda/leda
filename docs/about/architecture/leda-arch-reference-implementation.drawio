@@ -1,0 +1,156 @@
+<mxfile host="65bd71144e">
+    <diagram id="DnxcnsMmbjipHhc27D8_" name="Page-1">
+        <mxGraphModel dx="978" dy="632" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;b&gt;Linux Operating System&lt;/b&gt;&lt;br&gt;Yocto, poky, BSP, Linux Kernel, Linux Modules, Device Drivers, ..." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="480" width="570" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;b&gt;Eclipse SDV - Vehicle Edge - Reference Stack&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="40" width="570" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;b&gt;Bootloader&lt;/b&gt;&lt;br&gt;U-Boot" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="520" width="290" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;b&gt;Self-Update Integration&lt;/b&gt;&lt;br&gt;RAUC Configuration, U-Boot Script" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="520" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Device-specific firmware" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="560" width="570" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="&lt;b&gt;Linux System Services&lt;/b&gt;&lt;br&gt;systemd, sshd, RAUC Update Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="110" y="440" width="570" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Vehicle&lt;br&gt;Abstraction Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="200" width="140" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Vehicle&lt;br&gt;Edge Runtime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="245" y="200" width="145" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Distributed&amp;nbsp;&amp;amp; Remote Communication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="550.8" y="200" width="120" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Eclipse Kanto" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="252.5" y="210" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="containerd.io" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="252.5" y="240" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Eclipse Kuksa.VAL&lt;br&gt;Databroker" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="210" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="COVESA&lt;br&gt;Vehicle Signal Spec." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="240" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Vehicle Update Management" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="325" width="290" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Eclipse Kanto - Update Manager" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="345" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Self Updates" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="375" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="Container Upd." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="375" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="ECU Upd." style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="375" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Eclipse Mosquitto" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560.8" y="240" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Cloud Connector" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560.8" y="210" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="HTTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="560.8" y="270" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="gRPC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="235" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" edge="1" parent="1" source="45" target="50">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="SDKs &amp;amp; Tooling, Example Use Cases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="52.5" width="300" height="127.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="Eclipse Velocitas" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="62.5" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Eclipse Chariott" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="102.5" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="Eclipse Ibeji" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="62.5" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="Eclipse ArchE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="102.5" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Vehicle Applications &amp;amp; Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="70" width="550" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Your SDV&lt;br&gt;Vehicle Applications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="80" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Your SDV&lt;br&gt;Vehicle Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="132.5" y="77.5" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="Cloud&lt;br&gt;Backend" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;rounded=1;strokeColor=#9673a6;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#e1d5e7;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="193" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="Vehicle&lt;br&gt;Network" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="200" width="110" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Some/IP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="240" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Eclipse SommR" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="210" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="CAN-Bus" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="290" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="Flexray" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="350" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="LIN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="330" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="370" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="J1939" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="310" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="gRPC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="560.8" y="310" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="Proto" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="610.8" y="310" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" style="edgeStyle=none;html=1;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;fontColor=default;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="34" target="54">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="720" y="235" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="Thirdparty&lt;br&gt;Vehicle Services" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;opacity=50;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="80" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="Thirdparty&lt;br&gt;Applications" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;opacity=50;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="80" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="OEM&lt;br&gt;Vehicle Services" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;opacity=50;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="117.5" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="OEM&lt;br&gt;Applications" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;opacity=50;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="117.5" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="Eclipse SDV Blueprints" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="140" width="270" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -45,7 +45,16 @@
   src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W31KMZWGE"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6W31KMZWGE');
+}
+</script>
   </head>
   <body class="td-section">
     <header>
@@ -69,7 +78,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,7 +128,20 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>QEMU&rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called <code>runqemu</code>, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.</p>
+      
+
+<div class="pageinfo pageinfo-warning">
+<p>The content of this page has been marked <strong>outdated</strong> by the core development team.</p>
+<p>If you would like to contribute and help keeping this documentation up to date,
+please fork <a href="https://github.com/eclipse-leda/leda/fork">https://github.com/eclipse-leda/leda</a>
+and create a pull request.</p>
+<p>Check the Eclipse <a href="https://www.eclipse.org/contribute/">Get Involved!</a> FAQ for pre-requisites
+and the <a href="https://eclipse-leda.github.io/leda/docs/project-info/contribution-guidelines/">Eclipse Leda Contribution Guidelines</a>
+for general information.</p>
+
+</div>
+
+<p>QEMU&rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called <code>runqemu</code>, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.</p>
 <p>Running without runqemu: when you need more control over qemu options</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>qemu-system-x86_64 -kernel .<span style="color:#4e9a06">\b</span>zImage-qemux86-64.bin -nographic -m 2G -append <span style="color:#4e9a06">&#34;console=ttyS0 root=/dev/vda1&#34;</span> -drive <span style="color:#000">file</span><span style="color:#ce5c00;font-weight:bold">=</span>.../sdv-image-full-qemux86-64.ext4
 </span></span></code></pre></div><p>Running with runqemu: simple and some convenient flags are supported</p>

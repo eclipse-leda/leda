@@ -45,7 +45,16 @@
   src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W31KMZWGE"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6W31KMZWGE');
+}
+</script>
   </head>
   <body class="td-section">
     <header>
@@ -69,7 +78,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -125,7 +134,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-a3790026b95a41126b9d06cb33447e08">Release Plan 0.1.0</a></li>
+<li>2: <a href="#pg-d76225b2415ff2b5318e1154ce87d79c">Milestone 0.1.0-M2</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-a3790026b95a41126b9d06cb33447e08">Release Plan 0.1.0</a></li>
 
 
     
@@ -299,11 +316,162 @@ They have been prioritized as non-critical and may be fixed for later releases.<
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a3790026b95a41126b9d06cb33447e08">2 - Release Plan 0.1.0</h1>
+	<h1 id="pg-d76225b2415ff2b5318e1154ce87d79c">2 - Milestone 0.1.0-M2</h1>
+    
+	<p>Release artifacts: <a href="https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M2">https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M2</a></p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Download</th>
+<th style="text-align:right">Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leda Raspberry Pi 4</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M2/eclipse-leda-raspberrypi.tar.xz">eclipse-leda-raspberrypi.tar.xz</a></td>
+<td style="text-align:right">578 MB</td>
+</tr>
+<tr>
+<td>Leda QEMU ARM64</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M2/eclipse-leda-qemu-arm64.tar.xz">eclipse-leda-qemu-arm64.tar.xz</a></td>
+<td style="text-align:right">381 MB</td>
+</tr>
+<tr>
+<td>Leda QEMU x86_64</td>
+<td><a href="https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M2/eclipse-leda-qemu-x86_64.tar.xz">eclipse-leda-qemu-x86_64.tar.xz</a></td>
+<td style="text-align:right">465 MB</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note: You need to uncompress <em>eclipse-leda-raspberrypi.tar.xz</em> multiple times until the plain <em>.wic</em> file is extracted, which can be flashed.</p>
+</blockquote>
+<p>After download, continue with <a href="/leda/docs/general-usage/">Getting Started</a></p>
+<h2 id="release-notes">Release Notes</h2>
+<p>First pre-release of Eclipse Leda quickstart images, based on <a href="https://wiki.yoctoproject.org/wiki/Releases">Yocto LTS release</a>
+Kirkstone with Long Term Support until at least April 2024.</p>
+<p>Minimal feature set to run software-defined-vehicle applications (such as Eclipse Velocitas apps) using COVESA Vehicle Signal Specification
+and the Eclipse Kuksa.VAL Databroker on virtual devices (QEMU), in Docker,
+or on physical consumer-grade devices (Raspberry Pi 4 64-Bit) for development, demonstration and prototyping purposes.</p>
+<p>Includes example applications from Kuksa:</p>
+<ul>
+<li>Example Seat Service</li>
+<li>Example HVAC Service</li>
+<li>DBC Feeder replays a Tesla Model 3 CAN-Dump and feeds it into Kuksa.VAL Databroker</li>
+</ul>
+<h3 id="change-log-010-m2">Change log 0.1.0-M2</h3>
+<ul>
+<li>Remove skopeo dependency from packagegroup-sdv-tools.bb</li>
+<li>Fix typo in SRCREV_FORMAT for pahocpp</li>
+<li>dd kernel config for RAUC stream mode to raspberrypi4-64 and qemuarm64</li>
+<li>Adding extra space in RPi for RAUC updates</li>
+<li>Backport Go 1.20 from Poky Mickledore</li>
+<li>Adding seatadjuster-app</li>
+<li>seatadjuster-app distribution</li>
+</ul>
+<h3 id="change-log-010-m1">Change log 0.1.0-M1</h3>
+<ul>
+<li>Replaced k3s with <a href="https://github.com/eclipse-kanto/">Eclipse Kanto Container Management</a></li>
+<li>Replaced packages licensed under GPLv3 and similar licenses with alternatives
+<ul>
+<li>Replaced Grub with U-Boot</li>
+<li>Replaced <code>nano</code> with <code>kibi</code></li>
+<li>Removed <code>readline</code> library</li>
+<li>Removed <code>bash</code></li>
+</ul>
+</li>
+<li>RAUC Updates
+<ul>
+<li>Bundles available for each image type (Full, Minimal, Rescue)</li>
+<li>Enabled verity format by default</li>
+<li>Fixed the <code>compatible</code> configuration string</li>
+</ul>
+</li>
+<li>Added and updated <a href="https://github.com/eclipse-leda/leda-utils">Leda utilities</a></li>
+<li>Build infrastructure improvements
+<ul>
+<li>Builds for Dockerized images</li>
+<li>Switched to a BitBake build using <a href="https://kas.readthedocs.io/">kas</a> for layer management</li>
+<li>Added automated system tests using Robot framework and Dockerized environments</li>
+<li>General cleanup of recipes, dependencies and structuring of the meta-leda sublayers to improve reusability</li>
+</ul>
+</li>
+<li>Automatic deployment of containers based on container manifests with ad-hoc updates (filewatcher in kanto-auto-deployer)</li>
+<li>Preparation for AirGap installation of containers</li>
+<li>General improvements, such as Wifi network management</li>
+</ul>
+<h3 id="known-issues">Known Issues</h3>
+<p>The following issues were known to the development team before starting the 0.1.0-M1 build cycle.
+They have been prioritized as non-critical and may be fixed for later releases.</p>
+<ul>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/64">RAUC can not install in stream-mode on Raspberry Pi</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/71">sdv-motd is confused by wlan interfaces</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/59">growdisk on RPi4 with sfdisk instead of parted (signaling kernel)</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/63">Partition sizes are not multiple of 4096 byte for Rauc block-hash-index</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/56">sdv-provision produces an empty Device ID</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/34">Missing/Outdated Kuksa databroker-cli</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/26">sdv-image-minimal missing SDV edge components</a></li>
+<li><a href="https://github.com/eclipse-leda/leda-distro/issues/18">Home/End key navigation does not work with putty</a></li>
+</ul>
+<h3 id="oss-ip-compliance-report">OSS IP Compliance Report</h3>
+<p>Report <a href="../scan-report-web-app_0.1.0-M1.html">scan-report-web-app_0.1.0-M1.html</a></p>
+<ol>
+<li>
+<p>Incorrectly detected license &ldquo;biosl-4.0&rdquo;</p>
+<ul>
+<li>Rule: OCaaS Policy A9 License with no classification</li>
+<li>Message: The license LicenseRef-scancode-biosl-4.0 found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is not categorized and / or evaluated for usage.</li>
+<li>Evaluation: This license seems to be detected incorrectly by the tool being used, as it is an internal, proprietary license which is <strong>not</strong> used in the Eclipse Leda project.</li>
+</ul>
+</li>
+<li>
+<p>Incorrectly detected license &ldquo;GPL-1.0&rdquo; for ORT configuration file</p>
+<ul>
+<li>Rule: OCaaS Policy C1 Strict Copyleft</li>
+<li>Message: License GPL-1.0-only found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.</li>
+<li>Evaluation: The scan tool incorrectly detects its own configuration file (<code>.ort.original.yml</code>) as being licensed under GPL-v1.0</li>
+</ul>
+</li>
+<li>
+<p>Incorrectly detected license &ldquo;GPL-2.0-only&rdquo; for standard Leda license header (which is Apache Software License)</p>
+<ul>
+<li>Rule: OCaaS Policy C1 Strict Copyleft</li>
+<li>Message: License GPL-2.0-only found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.</li>
+<li>Evaluation: The scan tool incorrectly detects the Apache License header as GPL-2.0 license text</li>
+</ul>
+</li>
+<li>
+<p>Incorrectly detected license &ldquo;proprietary&rdquo;</p>
+<ul>
+<li>Rule: OCaaS Policy C3 Commercial</li>
+<li>Message: License LicenseRef-scancode-proprietary-license found for package &lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&rsquo; is categorized as commercial and requires special handling.</li>
+<li>Evaluation: The scan tool incorrectly detects its own configuration file (<code>.ort.original.yml</code>) as being licensed under proprietary licenses.</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a3790026b95a41126b9d06cb33447e08">3 - Release Plan 0.1.0</h1>
     
 	<p>The release plan is available at <a href="https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0">https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0</a></p>
 <h2 id="release-date">Release Date</h2>
-<p>Thursday, June 1, 2023</p>
+<p>-Thursday, June 1, 2023- - We didn&rsquo;t meet the planned release date. Work is in progress on IT build infrastructure and OSS IP and license compliance.</p>
+<p>New: Tuesday, August 1, 2023</p>
 <h2 id="deliverables">Deliverables</h2>
 <p>The team plans to deliver the following features:</p>
 <ul>

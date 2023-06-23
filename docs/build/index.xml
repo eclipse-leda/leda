@@ -377,7 +377,20 @@ The test cases and test resources are copied into the leda-tests container at bu
       <description>
         
         
-        &lt;p&gt;QEMU&amp;rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called &lt;code&gt;runqemu&lt;/code&gt;, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.&lt;/p&gt;
+        
+
+&lt;div class=&#34;pageinfo pageinfo-warning&#34;&gt;
+&lt;p&gt;The content of this page has been marked &lt;strong&gt;outdated&lt;/strong&gt; by the core development team.&lt;/p&gt;
+&lt;p&gt;If you would like to contribute and help keeping this documentation up to date,
+please fork &lt;a href=&#34;https://github.com/eclipse-leda/leda/fork&#34;&gt;https://github.com/eclipse-leda/leda&lt;/a&gt;
+and create a pull request.&lt;/p&gt;
+&lt;p&gt;Check the Eclipse &lt;a href=&#34;https://www.eclipse.org/contribute/&#34;&gt;Get Involved!&lt;/a&gt; FAQ for pre-requisites
+and the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/project-info/contribution-guidelines/&#34;&gt;Eclipse Leda Contribution Guidelines&lt;/a&gt;
+for general information.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;QEMU&amp;rsquo;s command line option can get quiet complex. Yocto is providing a convenient wrapper script called &lt;code&gt;runqemu&lt;/code&gt;, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.&lt;/p&gt;
 &lt;p&gt;Running without runqemu: when you need more control over qemu options&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;qemu-system-x86_64 -kernel .&lt;span style=&#34;color:#4e9a06&#34;&gt;\b&lt;/span&gt;zImage-qemux86-64.bin -nographic -m 2G -append &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;console=ttyS0 root=/dev/vda1&amp;#34;&lt;/span&gt; -drive &lt;span style=&#34;color:#000&#34;&gt;file&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;.../sdv-image-full-qemux86-64.ext4
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Running with runqemu: simple and some convenient flags are supported&lt;/p&gt;

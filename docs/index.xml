@@ -588,85 +588,6 @@ ip link show type can
     </item>
     
     <item>
-      <title>Docs: Features</title>
-      <link>https://eclipse-leda.github.io/leda/docs/about/features/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/about/features/</guid>
-      <description>
-        
-        
-        &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Publish/Subscribe messaging infrastructure for cloud connectivity&lt;/strong&gt; by &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;local messaging for applications and SDV system components via an MQTT message broker&lt;/li&gt;
-&lt;li&gt;connection to a backend messaging hub, such as Azure IoT Hub or the IoT Suite&lt;/li&gt;
-&lt;li&gt;device identification and authentication for cloud connectivity by using TLS device certificates&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Container runtime&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;An OCI-compliant container orchestration for vehicle applications and services by &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://containerd.io/&#34;&gt;containerd.io&lt;/a&gt; as the default container runtime. Both layers of container runtimes can be exchanged with other implementations&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A &lt;strong&gt;Vehicle Update Manager&lt;/strong&gt; to orchestrate deployments of Vehicle Applications, configurations and base operating system updates&lt;/li&gt;
-&lt;li&gt;An example Vehicle Seat Service implementation to showcase
-&lt;ul&gt;
-&lt;li&gt;the &lt;a href=&#34;https://projects.eclipse.org/projects/automotive.velocitas&#34;&gt;Eclipse Velocitas&lt;/a&gt; programming model,&lt;/li&gt;
-&lt;li&gt;the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;Eclipse Kuksa.VAL&lt;/a&gt; vehicle databroker and&lt;/li&gt;
-&lt;li&gt;the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;Covesa Vehicle Signal Specification&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;the communication with basic vehicle communication networks such as CAN-Bus (CAN Feeder)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;A &lt;strong&gt;Self Update Agent&lt;/strong&gt; for firmware-over-the-air (FOTA) updates, using an A/B deployment strategy
-&lt;ul&gt;
-&lt;li&gt;Integration with &lt;a href=&#34;https://www.rauc.io/&#34;&gt;RAUC&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;An &lt;a href=&#34;https://github.com/open-telemetry/&#34;&gt;OpenTelemetry collector&lt;/a&gt; and example configurations to collect and publish logs and metrics of containerized Vehicle Applications to the cloud backend for further processing&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The features of the reusable build recipes implemented as an &lt;a href=&#34;https://www.openembedded.org&#34;&gt;OpenEmbedded&lt;/a&gt; metalayer &lt;code&gt;meta-leda&lt;/code&gt; are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Build recipes for a &lt;a href=&#34;https://www.yoctoproject.org/&#34;&gt;Yocto&lt;/a&gt;-based distribution to build SDV-related software components&lt;/li&gt;
-&lt;li&gt;Build recipes for customizations of the target device&amp;rsquo;s storage structure to enable A/B system updates&lt;/li&gt;
-&lt;li&gt;Build recipes for pre-packaging container images into the device during the manufacturing process to minimize initial online provisioning time&lt;/li&gt;
-&lt;li&gt;A customized minimal setup for use on constrained devices and a full setup with convenient developer tools&lt;/li&gt;
-&lt;li&gt;Ready images for virtual devices, for automated testing and evaluation purposes, eg QEMU ARM-64&lt;/li&gt;
-&lt;li&gt;Ready images for physical devices, for evaluation and demo purposes, eg Raspberry Pi 4&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Goals</title>
-      <link>https://eclipse-leda.github.io/leda/docs/about/goals/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/about/goals/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The project aims to provide &lt;strong&gt;an integration point for Open Source components for the Software Defined Vehicle&lt;/strong&gt;. For vehicle software systems, there are a lot of requirements to consider. Some of these requirements are taken into account for Leda&amp;rsquo;s quickstart setups, thereas some other requirements can only be met once in a production environment and by customizing the target device image.&lt;/p&gt;
-&lt;p&gt;The following document will list some of these requirements and give an explanation on why they are met in the Leda quickstart distribution.&lt;/p&gt;
-&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Provide an example operating system and configuration for constrained in-vehicle devices&lt;/li&gt;
-&lt;li&gt;Integrate software-defined-vehicle Open Source components to showcase the available features and their state of maturity&lt;/li&gt;
-&lt;li&gt;Demonstrate the use and interaction of open protocols and specifications, such as
-&lt;ul&gt;
-&lt;li&gt;the specifications from the &lt;a href=&#34;https://www.covesa.global/&#34;&gt;The Connected Vehicle Systems Alliance (COVESA)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;OpenTelemetry specs and components&lt;/li&gt;
-&lt;li&gt;Eclipse IoT related specifications for software rollouts and digital twin representations&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Resource Consumptions</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -724,45 +645,6 @@ ip link show type can
 &lt;li&gt;libsystemd: 1 MB&lt;/li&gt;
 &lt;li&gt;busybox: 1 MB&lt;/li&gt;
 &lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Roadmap</title>
-      <link>https://eclipse-leda.github.io/leda/docs/about/roadmap/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/about/roadmap/</guid>
-      <description>
-        
-        
-        &lt;ul&gt;
-&lt;li&gt;Initial Open Source contribution expected by Q2 2022 (Done)&lt;/li&gt;
-&lt;li&gt;A first milestone build is expected end of 2022 (Done)&lt;/li&gt;
-&lt;li&gt;Plan for the first release cycle to be created in Q1/2023&lt;/li&gt;
-&lt;li&gt;Release cycles are planned every 3-6 months&lt;/li&gt;
-&lt;li&gt;Release planning will be conducted together with corresponding Eclipse projects&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;backlog&#34;&gt;Backlog&lt;/h2&gt;
-&lt;p&gt;The Leda team maintains a backlog roadmap using GitHub projects at &lt;a href=&#34;https://github.com/orgs/eclipse-leda/projects/1/views/1&#34;&gt;https://github.com/orgs/eclipse-leda/projects/1/views/1&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;future-work&#34;&gt;Future Work&lt;/h2&gt;
-&lt;p&gt;The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.&lt;/p&gt;
-&lt;p&gt;Exemplary future work:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager&lt;/li&gt;
-&lt;li&gt;Include reference implementations from the &lt;a href=&#34;https://projects.eclipse.org/working-group/eclipse-software-defined-vehicle&#34;&gt;Eclipse Software Defined Vehicle working group&lt;/a&gt; projects:
-&lt;ul&gt;
-&lt;li&gt;Eclipse Velocitas&lt;/li&gt;
-&lt;li&gt;Eclipse Kuksa&lt;/li&gt;
-&lt;li&gt;Eclipse SommR&lt;/li&gt;
-&lt;li&gt;Eclipse Chariott&lt;/li&gt;
-&lt;li&gt;Eclipse Backend function Bindings (BfB)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you have feedback, please use &lt;a href=&#34;https://github.com/eclipse-leda/&#34;&gt;GitHub Issues&lt;/a&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -1331,6 +1213,152 @@ spec:
     </item>
     
     <item>
+      <title>Docs: Milestone 0.1.0-M2</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/releases/0.1.0/leda-0.1.0-m2/</link>
+      <pubDate>Wed, 12 Apr 2023 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/releases/0.1.0/leda-0.1.0-m2/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Release artifacts: &lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M2&#34;&gt;https://github.com/eclipse-leda/leda-distro/releases/tag/v0.1.0-M2&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Artifact&lt;/th&gt;
+&lt;th&gt;Download&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Size&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Leda Raspberry Pi 4&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M2/eclipse-leda-raspberrypi.tar.xz&#34;&gt;eclipse-leda-raspberrypi.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;578 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Leda QEMU ARM64&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M2/eclipse-leda-qemu-arm64.tar.xz&#34;&gt;eclipse-leda-qemu-arm64.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;381 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Leda QEMU x86_64&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/releases/download/v0.1.0-M2/eclipse-leda-qemu-x86_64.tar.xz&#34;&gt;eclipse-leda-qemu-x86_64.tar.xz&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;465 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: You need to uncompress &lt;em&gt;eclipse-leda-raspberrypi.tar.xz&lt;/em&gt; multiple times until the plain &lt;em&gt;.wic&lt;/em&gt; file is extracted, which can be flashed.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;After download, continue with &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/&#34;&gt;Getting Started&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;release-notes&#34;&gt;Release Notes&lt;/h2&gt;
+&lt;p&gt;First pre-release of Eclipse Leda quickstart images, based on &lt;a href=&#34;https://wiki.yoctoproject.org/wiki/Releases&#34;&gt;Yocto LTS release&lt;/a&gt;
+Kirkstone with Long Term Support until at least April 2024.&lt;/p&gt;
+&lt;p&gt;Minimal feature set to run software-defined-vehicle applications (such as Eclipse Velocitas apps) using COVESA Vehicle Signal Specification
+and the Eclipse Kuksa.VAL Databroker on virtual devices (QEMU), in Docker,
+or on physical consumer-grade devices (Raspberry Pi 4 64-Bit) for development, demonstration and prototyping purposes.&lt;/p&gt;
+&lt;p&gt;Includes example applications from Kuksa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Example Seat Service&lt;/li&gt;
+&lt;li&gt;Example HVAC Service&lt;/li&gt;
+&lt;li&gt;DBC Feeder replays a Tesla Model 3 CAN-Dump and feeds it into Kuksa.VAL Databroker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;change-log-010-m2&#34;&gt;Change log 0.1.0-M2&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Remove skopeo dependency from packagegroup-sdv-tools.bb&lt;/li&gt;
+&lt;li&gt;Fix typo in SRCREV_FORMAT for pahocpp&lt;/li&gt;
+&lt;li&gt;dd kernel config for RAUC stream mode to raspberrypi4-64 and qemuarm64&lt;/li&gt;
+&lt;li&gt;Adding extra space in RPi for RAUC updates&lt;/li&gt;
+&lt;li&gt;Backport Go 1.20 from Poky Mickledore&lt;/li&gt;
+&lt;li&gt;Adding seatadjuster-app&lt;/li&gt;
+&lt;li&gt;seatadjuster-app distribution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;change-log-010-m1&#34;&gt;Change log 0.1.0-M1&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Replaced k3s with &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto Container Management&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Replaced packages licensed under GPLv3 and similar licenses with alternatives
+&lt;ul&gt;
+&lt;li&gt;Replaced Grub with U-Boot&lt;/li&gt;
+&lt;li&gt;Replaced &lt;code&gt;nano&lt;/code&gt; with &lt;code&gt;kibi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Removed &lt;code&gt;readline&lt;/code&gt; library&lt;/li&gt;
+&lt;li&gt;Removed &lt;code&gt;bash&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;RAUC Updates
+&lt;ul&gt;
+&lt;li&gt;Bundles available for each image type (Full, Minimal, Rescue)&lt;/li&gt;
+&lt;li&gt;Enabled verity format by default&lt;/li&gt;
+&lt;li&gt;Fixed the &lt;code&gt;compatible&lt;/code&gt; configuration string&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Added and updated &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils&#34;&gt;Leda utilities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Build infrastructure improvements
+&lt;ul&gt;
+&lt;li&gt;Builds for Dockerized images&lt;/li&gt;
+&lt;li&gt;Switched to a BitBake build using &lt;a href=&#34;https://kas.readthedocs.io/&#34;&gt;kas&lt;/a&gt; for layer management&lt;/li&gt;
+&lt;li&gt;Added automated system tests using Robot framework and Dockerized environments&lt;/li&gt;
+&lt;li&gt;General cleanup of recipes, dependencies and structuring of the meta-leda sublayers to improve reusability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Automatic deployment of containers based on container manifests with ad-hoc updates (filewatcher in kanto-auto-deployer)&lt;/li&gt;
+&lt;li&gt;Preparation for AirGap installation of containers&lt;/li&gt;
+&lt;li&gt;General improvements, such as Wifi network management&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;known-issues&#34;&gt;Known Issues&lt;/h3&gt;
+&lt;p&gt;The following issues were known to the development team before starting the 0.1.0-M1 build cycle.
+They have been prioritized as non-critical and may be fixed for later releases.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/64&#34;&gt;RAUC can not install in stream-mode on Raspberry Pi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/71&#34;&gt;sdv-motd is confused by wlan interfaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/59&#34;&gt;growdisk on RPi4 with sfdisk instead of parted (signaling kernel)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/63&#34;&gt;Partition sizes are not multiple of 4096 byte for Rauc block-hash-index&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/56&#34;&gt;sdv-provision produces an empty Device ID&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/34&#34;&gt;Missing/Outdated Kuksa databroker-cli&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/26&#34;&gt;sdv-image-minimal missing SDV edge components&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse-leda/leda-distro/issues/18&#34;&gt;Home/End key navigation does not work with putty&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;oss-ip-compliance-report&#34;&gt;OSS IP Compliance Report&lt;/h3&gt;
+&lt;p&gt;Report &lt;a href=&#34;../scan-report-web-app_0.1.0-M1.html&#34;&gt;scan-report-web-app_0.1.0-M1.html&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;biosl-4.0&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy A9 License with no classification&lt;/li&gt;
+&lt;li&gt;Message: The license LicenseRef-scancode-biosl-4.0 found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is not categorized and / or evaluated for usage.&lt;/li&gt;
+&lt;li&gt;Evaluation: This license seems to be detected incorrectly by the tool being used, as it is an internal, proprietary license which is &lt;strong&gt;not&lt;/strong&gt; used in the Eclipse Leda project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;GPL-1.0&amp;rdquo; for ORT configuration file&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy C1 Strict Copyleft&lt;/li&gt;
+&lt;li&gt;Message: License GPL-1.0-only found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.&lt;/li&gt;
+&lt;li&gt;Evaluation: The scan tool incorrectly detects its own configuration file (&lt;code&gt;.ort.original.yml&lt;/code&gt;) as being licensed under GPL-v1.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;GPL-2.0-only&amp;rdquo; for standard Leda license header (which is Apache Software License)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy C1 Strict Copyleft&lt;/li&gt;
+&lt;li&gt;Message: License GPL-2.0-only found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is categorized as strict-copyleft which must not be used for BT11 Open Source Development service applications.&lt;/li&gt;
+&lt;li&gt;Evaluation: The scan tool incorrectly detects the Apache License header as GPL-2.0 license text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Incorrectly detected license &amp;ldquo;proprietary&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Rule: OCaaS Policy C3 Commercial&lt;/li&gt;
+&lt;li&gt;Message: License LicenseRef-scancode-proprietary-license found for package &amp;lsquo;Unmanaged::leda-distro-fork:0716b55ff8f57319263d67ee16d90e64588b391d&amp;rsquo; is categorized as commercial and requires special handling.&lt;/li&gt;
+&lt;li&gt;Evaluation: The scan tool incorrectly detects its own configuration file (&lt;code&gt;.ort.original.yml&lt;/code&gt;) as being licensed under proprietary licenses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Kanto Auto deployer (KAD)</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/</link>
       <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
@@ -1485,6 +1513,58 @@ However, some hardware configuration needs to be adapted at boot time depending 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;dtoverlay&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;2xMCP2517FD
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#dtoverlay=2xMCP2518FD-spi0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Features</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/features/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/features/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Publish/Subscribe messaging infrastructure for cloud connectivity&lt;/strong&gt; by &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;local messaging for applications and SDV system components via an MQTT message broker&lt;/li&gt;
+&lt;li&gt;connection to a backend messaging hub, such as Azure IoT Hub or the IoT Suite&lt;/li&gt;
+&lt;li&gt;device identification and authentication for cloud connectivity by using TLS device certificates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Container runtime&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;An OCI-compliant container orchestration for vehicle applications and services by &lt;a href=&#34;https://github.com/eclipse-kanto/&#34;&gt;Eclipse Kanto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://containerd.io/&#34;&gt;containerd.io&lt;/a&gt; as the default container runtime. Both layers of container runtimes can be exchanged with other implementations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Vehicle Update Manager&lt;/strong&gt; to orchestrate deployments of Vehicle Applications, configurations and base operating system updates&lt;/li&gt;
+&lt;li&gt;An example Vehicle Seat Service implementation to showcase
+&lt;ul&gt;
+&lt;li&gt;the &lt;a href=&#34;https://projects.eclipse.org/projects/automotive.velocitas&#34;&gt;Eclipse Velocitas&lt;/a&gt; programming model,&lt;/li&gt;
+&lt;li&gt;the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;Eclipse Kuksa.VAL&lt;/a&gt; vehicle databroker and&lt;/li&gt;
+&lt;li&gt;the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;Covesa Vehicle Signal Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;the communication with basic vehicle communication networks such as CAN-Bus (CAN Feeder)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A &lt;strong&gt;Self Update Agent&lt;/strong&gt; for firmware-over-the-air (FOTA) updates, using an A/B deployment strategy
+&lt;ul&gt;
+&lt;li&gt;Integration with &lt;a href=&#34;https://www.rauc.io/&#34;&gt;RAUC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;An &lt;a href=&#34;https://github.com/open-telemetry/&#34;&gt;OpenTelemetry collector&lt;/a&gt; and example configurations to collect and publish logs and metrics of containerized Vehicle Applications to the cloud backend for further processing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The features of the reusable build recipes implemented as an &lt;a href=&#34;https://www.openembedded.org&#34;&gt;OpenEmbedded&lt;/a&gt; metalayer &lt;code&gt;meta-leda&lt;/code&gt; are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Build recipes for a &lt;a href=&#34;https://www.yoctoproject.org/&#34;&gt;Yocto&lt;/a&gt;-based distribution to build SDV-related software components&lt;/li&gt;
+&lt;li&gt;Build recipes for customizations of the target device&amp;rsquo;s storage structure to enable A/B system updates&lt;/li&gt;
+&lt;li&gt;Build recipes for pre-packaging container images into the device during the manufacturing process to minimize initial online provisioning time&lt;/li&gt;
+&lt;li&gt;A customized minimal setup for use on constrained devices and a full setup with convenient developer tools&lt;/li&gt;
+&lt;li&gt;Ready images for virtual devices, for automated testing and evaluation purposes, eg QEMU ARM-64&lt;/li&gt;
+&lt;li&gt;Ready images for physical devices, for evaluation and demo purposes, eg Raspberry Pi 4&lt;/li&gt;
+&lt;/ul&gt;
+
       </description>
     </item>
     
@@ -2573,6 +2653,58 @@ This is done by sending a request to the topic &lt;code&gt;command//&amp;lt;name
     </item>
     
     <item>
+      <title>Docs: Goals</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/goals/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/goals/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The project aims to provide &lt;strong&gt;an integration point for Open Source components for the Software Defined Vehicle ecosystem&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In a complex architecture, there are many different ways of implementations and alternative solutions possible.&lt;/p&gt;
+&lt;p&gt;For embedded vehicle computer systems and their software stack, there are a lot of requirements to consider, depending on the actual use cases:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Integration and High-Level Testing (System Integrators, Suppliers)&lt;/li&gt;
+&lt;li&gt;Proof-of-Concept projects (Integrators, OEMs, ISVs)&lt;/li&gt;
+&lt;li&gt;Experiments and Hackathons (Developers, Research)&lt;/li&gt;
+&lt;li&gt;Development phase (Developers, OEMs)&lt;/li&gt;
+&lt;li&gt;Open Source Collaboration (Developers, OEMs, ISVs, Open Source Organizations, Standardization Organizations)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Some of the requirements derived from the above are taken into account for Leda&amp;rsquo;s quickstart setups.
+Thereas some other requirements can only be met once the project is in a nearer production environment and by customizing the target device image.
+The following document will list some of these requirements and give an explanation on why they are set as goals in the Leda quickstart distribution.&lt;/p&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Provide an example operating system build and configuration for constrained in-vehicle devices:&lt;/strong&gt;
+Suppliers and system integrators want a way to cusomize and optimize the base operating system as much as possible.
+This is to achieve a high efficiency, high level of reuse and cost benefits of the planned hardware.
+The build system for the operating system, and the selection of the underlying distribution is key to the convenience for new users,
+but also commercially a business decision with an impact on the future maintainability of the platform.
+The Yocto Project has been chosen as an established de-facto standard for customized Linux distributions for embedded systems.
+Leda provides an OpenEmbedded Meta-Layer, which can be used with many existing SDKs of SoC manufacturers.
+Additionally, Leda will strive for being easy to install on low-cost &amp;ldquo;evaluation boards&amp;rdquo; such as the Raspberry Pi,
+or development environments such as a virtual machine in the cloud.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrate software-defined-vehicle Open Source components to showcase the available features and their state of maturity:&lt;/strong&gt;
+The SDV ecosystem will grow and a lot of new software projects will be needed to solve the current problems and challenges.
+The Eclipse SDV ecosystem already contains many software packages, which independently make sense for their set goals.
+With Leda, we want to increase the integrational aspect, helping project leads, developers, contributors, users and architects
+to evaluate the SDV portfolio, how it can be integrated with each other and how a possible reference architecture implementation might be loooking like.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Demonstrate the use and interaction of open protocols and specifications:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Vehicle Signal Specifications from the &lt;a href=&#34;https://www.covesa.global/&#34;&gt;The Connected Vehicle Systems Alliance (COVESA)&lt;/a&gt;
+to establish a semantically useful  abstraction model for vehicle signals.&lt;/li&gt;
+&lt;li&gt;OpenTelemetry specs and components, to show the possibilities of applying DevOps methodologies and technologies
+to operate, monitor and maintain fleets of vehicles and their distributed software applications&lt;/li&gt;
+&lt;li&gt;Eclipse IoT related specifications for software rollouts and digital twin representations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Run the build</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/run-build/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
@@ -2685,6 +2817,47 @@ Then, add the repository as shown below:&lt;/p&gt;
 so that the changes take effect. You may need to recreate or restart the container if a previous pull failed.&lt;/p&gt;
 &lt;p&gt;Please see the &lt;a href=&#34;https://eclipse.dev/kanto/docs/references/containers/container-manager-config/&#34;&gt;Eclipse Kanto Container Manager Configuration reference&lt;/a&gt;
 for details.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Roadmap</title>
+      <link>https://eclipse-leda.github.io/leda/docs/about/roadmap/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/about/roadmap/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;Initial Open Source contribution expected by Q2 2022 (Done)&lt;/li&gt;
+&lt;li&gt;A first milestone build is expected end of 2022 (Done)&lt;/li&gt;
+&lt;li&gt;Plan for the first release cycle to be created in Q1/2023 (In Progress - Q2/2023)&lt;/li&gt;
+&lt;li&gt;Release cycles are planned every 3-6 months&lt;/li&gt;
+&lt;li&gt;Release planning will be conducted together with corresponding Eclipse projects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;backlog&#34;&gt;Backlog&lt;/h2&gt;
+&lt;p&gt;The Leda team maintains a backlog roadmap using GitHub projects at &lt;a href=&#34;https://github.com/orgs/eclipse-leda/projects/1/views/1&#34;&gt;https://github.com/orgs/eclipse-leda/projects/1/views/1&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;future-work&#34;&gt;Future Work&lt;/h2&gt;
+&lt;p&gt;The project intends to be the integration and collaboration platform for Software defined Vehicle functionality.&lt;/p&gt;
+&lt;p&gt;Exemplary future work:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Migrate to official Eclipse Kanto releases for Cloud Connector, Container Management and Vehicle Update Manager&lt;/li&gt;
+&lt;li&gt;Include reference implementations from the &lt;a href=&#34;https://projects.eclipse.org/working-group/eclipse-software-defined-vehicle&#34;&gt;Eclipse Software Defined Vehicle working group&lt;/a&gt; projects:
+&lt;ul&gt;
+&lt;li&gt;Eclipse Velocitas&lt;/li&gt;
+&lt;li&gt;Eclipse Kuksa&lt;/li&gt;
+&lt;li&gt;Eclipse SommR&lt;/li&gt;
+&lt;li&gt;Eclipse Chariott&lt;/li&gt;
+&lt;li&gt;Eclipse Muto&lt;/li&gt;
+&lt;li&gt;Eclipse Backend function Bindings (BfB)&lt;/li&gt;
+&lt;li&gt;Eclipse SDV Blueprints&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have feedback, please use &lt;a href=&#34;https://github.com/eclipse-leda/&#34;&gt;GitHub Issues&lt;/a&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -2818,20 +2991,6 @@ In a production environment, the device provisioning functionality is implemente
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-provision
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Architecture</title>
-      <link>https://eclipse-leda.github.io/leda/docs/about/architecture/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/about/architecture/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;img src=&#34;https://eclipse-leda.github.io/leda/leda/assets/leda-architecture-details.png&#34; alt=&#34;Architecture Overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -3757,7 +3916,8 @@ The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.
         
         &lt;p&gt;The release plan is available at &lt;a href=&#34;https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0&#34;&gt;https://projects.eclipse.org/projects/automotive.leda/releases/0.1.0&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;release-date&#34;&gt;Release Date&lt;/h2&gt;
-&lt;p&gt;Thursday, June 1, 2023&lt;/p&gt;
+&lt;p&gt;-Thursday, June 1, 2023- - We didn&amp;rsquo;t meet the planned release date. Work is in progress on IT build infrastructure and OSS IP and license compliance.&lt;/p&gt;
+&lt;p&gt;New: Tuesday, August 1, 2023&lt;/p&gt;
 &lt;h2 id=&#34;deliverables&#34;&gt;Deliverables&lt;/h2&gt;
 &lt;p&gt;The team plans to deliver the following features:&lt;/p&gt;
 &lt;ul&gt;

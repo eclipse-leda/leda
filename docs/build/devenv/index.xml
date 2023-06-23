@@ -236,5 +236,94 @@ Congratulation, you are done!&lt;/p&gt;
       </description>
     </item>
     
+    <item>
+      <title>Docs: Restricted Internet</title>
+      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/restricted-internet-environments/</link>
+      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+      
+      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/restricted-internet-environments/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Developers working in a corporate environment may face challenges when building Leda-based images, pulling SDV containers, etc.,
+usually due to a restrictive corporate proxy. Thus the objective of this page is to collect helpful guides for mitigating such problems.&lt;/p&gt;
+&lt;h2 id=&#34;https-proxy&#34;&gt;HTTP(S) proxy&lt;/h2&gt;
+&lt;p&gt;First you might need to configure your http(s) SOCKS proxy such that the BitBake shell uses it for &lt;code&gt;do_fetch&lt;/code&gt; recipe tasks. By default, &lt;code&gt;http_proxy&lt;/code&gt; and &lt;code&gt;https_proxy&lt;/code&gt;
+environment variables are part of the &lt;code&gt;BB_ENV_PASSTHROUGH&lt;/code&gt; list and are directly passed from the current environment to BitBake. If you are still facing &lt;code&gt;http(s)_proxy&lt;/code&gt;
+issues during &lt;code&gt;do_fetch&lt;/code&gt; tasks, you might want to check the &lt;a href=&#34;https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy&#34;&gt;Working Behind a Network Proxy @ Yocto Project Wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;goproxy&#34;&gt;GOPROXY&lt;/h2&gt;
+&lt;p&gt;GOPROXY is a golang-specific mechanism for fetching dependencies during build-time. What is more, &lt;em&gt;gomod-type&lt;/em&gt; BitBake recipes pull their external dependencies during
+the &lt;code&gt;do_compile&lt;/code&gt; task, instead of the &lt;code&gt;do_fetch&lt;/code&gt; task leading to further issues. The simplest workaround is to set-up a local (caching) goproxy container on
+the build host and make BitBake use that. The following steps assume that the build host has docker installed and working, with access to the docker hub registry.&lt;/p&gt;
+&lt;h3 id=&#34;hosting-a-local-goproxy-server&#34;&gt;Hosting a local goproxy server&lt;/h3&gt;
+&lt;p&gt;Start by setting up the goproxy container in host networking mode.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -d --env &lt;span style=&#34;color:#000&#34;&gt;HTTP_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://&amp;lt;PROXY_IP&amp;gt;:&amp;lt;PROXY_PORT&amp;gt;&amp;#34;&lt;/span&gt; --env &lt;span style=&#34;color:#000&#34;&gt;HTTPS_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://&amp;lt;PROXY_IP&amp;gt;:&amp;lt;PROXY_PORT&amp;gt;&amp;#34;&lt;/span&gt; -v cacheDir:/go --network host goproxy/goproxy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;NOTE:&lt;/em&gt; Don&amp;rsquo;t forget to substitute &lt;code&gt;&amp;lt;PROXY_IP&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;PROXY_PORT&amp;gt;&lt;/code&gt; with the appropriate address of your HTTP(S) proxy.&lt;/p&gt;
+&lt;p&gt;This will start a local caching goproxy on port &lt;code&gt;8081&lt;/code&gt; with a volume named &lt;code&gt;cacheDir&lt;/code&gt; for caching the downloaded Go packages. The goproxy container can be configured
+further to provide access to private Go-package registries. For more information on its configuration take a look at &lt;a href=&#34;https://github.com/goproxyio/goproxy&#34;&gt;goproxyio/goproxy on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;using-the-local-goproxy-server-for-bitbake-builds&#34;&gt;Using the local goproxy server for BitBake builds&lt;/h3&gt;
+&lt;p&gt;Since the main objective of BitBake/kas is to facilitate reproducible builds, only certain variables from the host environment are used for the build. Go, however,
+looks at the &lt;code&gt;GOPROXY&lt;/code&gt; environmental variable to decide on which proxy to use. That&amp;rsquo;s why you should first start by exporting the GOPROXY variable in the terminal
+from which you will later run the build:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GOPROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://127.0.0.1:8081&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To make BitBake use the value of the variable you just exported for the build, you should add it to its &amp;ldquo;environment passtrough&amp;rdquo; list:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;BB_ENV_PASSTHROUGH_ADDITIONS&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;BB_ENV_PASSTHROUGH_ADDITIONS&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt; GOPROXY&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;kas&#34;&gt;Kas&lt;/h3&gt;
+&lt;p&gt;If you are using kas as a top-level build tool, to set the value of the GOPROXY variable for builds, all you need to do is to add it the &lt;em&gt;env&lt;/em&gt;-section of your
+kas-config yaml. For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;header&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;version&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;machine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qemux86-64&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;env&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;GOPROXY&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://127.0.0.1:8081&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Kas will handle the exporting of the variable and adding it to BitBake&amp;rsquo;s passtrough list automatically from there.&lt;/p&gt;
+&lt;h2 id=&#34;airgapped-container-installation&#34;&gt;Airgapped container installation&lt;/h2&gt;
+&lt;p&gt;Sometimes devices might not have internet access on first boot and therefore the SDV containers that are needed for provisioning and updating a SDV-image
+will not be available.&lt;/p&gt;
+&lt;h3 id=&#34;build-time&#34;&gt;Build-Time&lt;/h3&gt;
+&lt;p&gt;The meta-leda layer provides an opitional distro feature that pre-downloads and injects a minimal set of SDV container images in Kanto&amp;rsquo;s local container registry
+on first boot.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IMPORTANT&lt;/strong&gt;: &lt;strong&gt;This will lead to a significant increase of the image size since all containers are downloaded as self-contained tarballs and therefore &amp;ldquo;layer reuse&amp;rdquo;
+is not possible.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To enable this distro feature, add to your &lt;code&gt;local.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;DISTRO_FEATURES&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; airgap-containers&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;PREINSTALLED_CTR_IMAGES_DIR&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/container/images&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;IMAGE_INSTALL&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;packagegroup-sdv-airgap-containers&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using the &lt;code&gt;sdv-image-data&lt;/code&gt; image recipe &lt;code&gt;packagegroup-sdv-airgap-containers&lt;/code&gt; will be automatically installed when the distro-feature is enabled.
+Therefore all you need to add to your &lt;code&gt;local.conf&lt;/code&gt; will be:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;DISTRO_FEATURES&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; airgap-containers&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000&#34;&gt;PREINSTALLED_CTR_IMAGES_DIR&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/data/var/containers/images&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: &lt;em&gt;Here we have assumed that the partition where sdv-image-data is installed is mounted as &lt;code&gt;/data&lt;/code&gt; on the rootfs&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;manual&#34;&gt;Manual&lt;/h3&gt;
+&lt;p&gt;If you do not wish to use the &lt;em&gt;airgap-containers&lt;/em&gt; distro-feature, you can manually download inject the container images in the kanto namespace with ctr.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Start on a machine with internet access and docker/ctr installed:&lt;/p&gt;
+&lt;p&gt;Pull the container image in your machine&amp;rsquo;s local registry:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr -n kanto-cm image pull &amp;lt;REGISTRY&amp;gt;/&amp;lt;IMAGE&amp;gt;:&amp;lt;TAG&amp;gt; --platform linux/&amp;lt;ARCH&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where if you would like to download the Kuksa Databroker container for an arm64 device you would change the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;REGISTRY&amp;gt;/&amp;lt;IMAGE&amp;gt;:&amp;lt;TAG&amp;gt; -&amp;gt; ghcr.io/eclipse/kuksa.val/databroker:0.3.0 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;ARCH&amp;gt; -&amp;gt; arm64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After the pull was successful, export the image as a tarball:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr -n kanto-cm images &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &amp;lt;tarbal_name&amp;gt;.tar &amp;lt;REGISTRY&amp;gt;/&amp;lt;IMAGE&amp;gt;:&amp;lt;TAG&amp;gt; --platform --platform linux/&amp;lt;ARCH&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;&amp;lt;REGISTRY&amp;gt;/&amp;lt;IMAGE&amp;gt;:&amp;lt;TAG&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;ARCH&amp;gt;&lt;/code&gt; &lt;strong&gt;should&lt;/strong&gt; be the same as in the &lt;code&gt;pull&lt;/code&gt; command, while &lt;code&gt;&amp;lt;tarball_name&amp;gt;&lt;/code&gt; can be any name you would like.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Transfer the exported &lt;code&gt;&amp;lt;tarball_name&amp;gt;.tar&lt;/code&gt; to your device to a folder of your choosing, e.g. &lt;code&gt;/data/var/containers/images&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Obtain a terminal connection to this device and go to the directory where you transferred the container image tarball.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Import the image to the kanto-cm registry by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ctr --namespace kanto-cm image import &amp;lt;tarball_name&amp;gt;.tar
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: If you see a message from ctr that the &amp;ldquo;image might be filtered out&amp;rdquo; this means that you might have pulled an image for an architecture that
+does not match the one of your device.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

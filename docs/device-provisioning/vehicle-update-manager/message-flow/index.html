@@ -37,11 +37,11 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-06-22T16:55:21+02:00" />
+<meta property="article:modified_time" content="2023-06-23T12:58:07+02:00" />
 <meta itemprop="name" content="Message Flow">
 <meta itemprop="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
 sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail.">
-<meta itemprop="dateModified" content="2023-06-22T16:55:21+02:00" />
+<meta itemprop="dateModified" content="2023-06-23T12:58:07+02:00" />
 <meta itemprop="wordCount" content="414">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Message Flow"/>
@@ -62,7 +62,16 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
   src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
   integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
   crossorigin="anonymous"></script>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6W31KMZWGE"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-6W31KMZWGE');
+}
+</script>
   </head>
   <body class="td-page">
     <header>
@@ -86,7 +95,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -111,7 +120,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.fa81df461296a81b2cccb7ff4779f670.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.a9945ee1f2097a7dec066786cc602b07.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -130,7 +139,11 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
   <label for="m-ledadocsabout-check"><a href="/leda/docs/about/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsabout"><span class="">About Leda</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutfeatures-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutarchitecture-li">
+  <input type="checkbox" id="m-ledadocsaboutarchitecture-check"/>
+  <label for="m-ledadocsaboutarchitecture-check"><a href="/leda/docs/about/architecture/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsaboutarchitecture"><span class="">Architecture</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutfeatures-li">
   <input type="checkbox" id="m-ledadocsaboutfeatures-check"/>
   <label for="m-ledadocsaboutfeatures-check"><a href="/leda/docs/about/features/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutfeatures"><span class="">Features</span></a></label>
   
@@ -142,10 +155,6 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
   <input type="checkbox" id="m-ledadocsaboutroadmap-check"/>
   <label for="m-ledadocsaboutroadmap-check"><a href="/leda/docs/about/roadmap/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutroadmap"><span class="">Roadmap</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutarchitecture-li">
-  <input type="checkbox" id="m-ledadocsaboutarchitecture-check"/>
-  <label for="m-ledadocsaboutarchitecture-check"><a href="/leda/docs/about/architecture/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutarchitecture"><span class="">Architecture</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsaboutreleases-li">
   <input type="checkbox" id="m-ledadocsaboutreleases-check"/>
   <label for="m-ledadocsaboutreleases-check"><a href="/leda/docs/about/releases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsaboutreleases"><span class="">Releases</span></a></label>
@@ -154,6 +163,10 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutreleases010leda-010-m1-li">
   <input type="checkbox" id="m-ledadocsaboutreleases010leda-010-m1-check"/>
   <label for="m-ledadocsaboutreleases010leda-010-m1-check"><a href="/leda/docs/about/releases/0.1.0/leda-0.1.0-m1/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutreleases010leda-010-m1"><span class="">Milestone 0.1.0-M1</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutreleases010leda-010-m2-li">
+  <input type="checkbox" id="m-ledadocsaboutreleases010leda-010-m2-check"/>
+  <label for="m-ledadocsaboutreleases010leda-010-m2-check"><a href="/leda/docs/about/releases/0.1.0/leda-0.1.0-m2/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsaboutreleases010leda-010-m2"><span class="">Milestone 0.1.0-M2</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsaboutreleases010leda-010-plan-li">
   <input type="checkbox" id="m-ledadocsaboutreleases010leda-010-plan-check"/>
@@ -5513,6 +5526,10 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
   <input type="checkbox" id="m-ledadocsleda-incubatorcloud-connector-check"/>
   <label for="m-ledadocsleda-incubatorcloud-connector-check"><a href="/leda/docs/leda-incubator/cloud-connector/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorcloud-connector"><span class="">Cloud Connector</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsleda-incubatorotel-integration-li">
+  <input type="checkbox" id="m-ledadocsleda-incubatorotel-integration-check"/>
+  <label for="m-ledadocsleda-incubatorotel-integration-check"><a href="/leda/docs/leda-incubator/otel-integration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorotel-integration"><span class="">OpenTelemetry Integration</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsleda-incubatorself-update-agent-li">
   <input type="checkbox" id="m-ledadocsleda-incubatorself-update-agent-check"/>
   <label for="m-ledadocsleda-incubatorself-update-agent-check"><a href="/leda/docs/leda-incubator/self-update-agent/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsleda-incubatorself-update-agent"><span class="">Self Update Agent</span></a></label>
@@ -5563,6 +5580,10 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvbuild-kas-manually-li">
   <input type="checkbox" id="m-ledadocsbuilddevenvbuild-kas-manually-check"/>
   <label for="m-ledadocsbuilddevenvbuild-kas-manually-check"><a href="/leda/docs/build/devenv/build-kas-manually/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsbuilddevenvbuild-kas-manually"><span class="">Building with kas/manually</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsbuilddevenvrestricted-internet-environments-li">
+  <input type="checkbox" id="m-ledadocsbuilddevenvrestricted-internet-environments-check"/>
+  <label for="m-ledadocsbuilddevenvrestricted-internet-environments-check"><a href="/leda/docs/build/devenv/restricted-internet-environments/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsbuilddevenvrestricted-internet-environments"><span class="">Restricted Internet</span></a></label>
   
 </li>
   </ul>
@@ -5681,10 +5702,6 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsrestricted-internet-environments-li">
-  <input type="checkbox" id="m-ledadocsrestricted-internet-environments-check"/>
-  <label for="m-ledadocsrestricted-internet-environments-check"><a href="/leda/docs/restricted-internet-environments/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsrestricted-internet-environments"><span class="">Restricted-Internet Environments</span></a></label>
-  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ledadocsproject-info-li">
   <input type="checkbox" id="m-ledadocsproject-info-check"/>
   <label for="m-ledadocsproject-info-check"><a href="/leda/docs/project-info/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-ledadocsproject-info"><span class="">Project Information</span></a></label>
@@ -5941,6 +5958,68 @@ state:
 </code></pre></li>
 </ol>
 
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div class="d-print-none">
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
 	
 	
 	
