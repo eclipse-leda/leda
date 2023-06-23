@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e">
+    <diagram id="DnxcnsMmbjipHhc27D8_" name="Page-1">
+        <mxGraphModel dx="999" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Linux Operating System&lt;br&gt;(Yocto, poky, BSP, Linux Kernel, Linux Modules, Device Drivers, ...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="280" width="560" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Eclipse SDV Infrastructure Services&lt;br&gt;(Update Manager, Some/IP Daemons, ...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="200" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Optional Linux System Services&lt;br&gt;(systemd, SSH, ...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="200" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Bootloader&lt;br&gt;(e.g. U-Boot)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="320" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Eclipse Leda Self-Update Integration&lt;br&gt;(RAUC Configuration, U-Boot Scripts)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="320" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Device-specific firmware" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="360" width="560" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Eclipse SDV Container Runtime&lt;br&gt;(Kanto Container Management)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="160" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Eclipse Leda Utilities" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="160" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Eclipse SDV Edge Reference Stack&lt;br&gt;(e.g. Kuksa Databroker, SommR Some/IP, ...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="120" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Eclipse Leda Example Applications&lt;br&gt;(Seat Adjuster, CarSim, Dog Mode, ...)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="120" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&amp;gt;&amp;gt; Your Own Vehicle Applications &amp;lt;&amp;lt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="80" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Base Linux System Services&lt;br&gt;(init,&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="240" width="560" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Eclipse Leda - Tutorials" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="80" width="280" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

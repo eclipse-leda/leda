@@ -1,7 +1,7 @@
 ---
 title: "Features"
 date: 2022-05-09T14:24:56+05:30
-weight: 1
+weight: 2
 ---
 
 - **Publish/Subscribe messaging infrastructure for cloud connectivity** by [Eclipse Kanto](https://github.com/eclipse-kanto/)

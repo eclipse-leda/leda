@@ -4,6 +4,18 @@ date: 2022-05-09T14:24:56+05:30
 weight: 5
 ---
 
+{{% pageinfo color="warning" %}}
+The content of this page has been marked **outdated** by the core development team.
+
+If you would like to contribute and help keeping this documentation up to date,
+please fork [https://github.com/eclipse-leda/leda](https://github.com/eclipse-leda/leda/fork)
+and create a pull request.
+
+Check the Eclipse [Get Involved!](https://www.eclipse.org/contribute/) FAQ for pre-requisites
+and the [Eclipse Leda Contribution Guidelines](https://eclipse-leda.github.io/leda/docs/project-info/contribution-guidelines/)
+for general information.
+{{% /pageinfo %}}
+
 QEMU's command line option can get quiet complex. Yocto is providing a convenient wrapper script called `runqemu`, which takes configurations into account which have been populated during the build process and also takes care of TAP networking setup and teardown. Unfortunately, it can only be used within an OpenEmbedded build environment.
 
 Running without runqemu: when you need more control over qemu options
