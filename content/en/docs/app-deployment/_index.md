@@ -11,3 +11,5 @@ Some of these example are taken from the following sources:
 - [Digital.Auto](https://digital.auto) and its [playground](https://digitalauto.netlify.app/)
 - [Eclipse Velocitas tutorials](https://eclipse.dev/velocitas/docs/tutorials/)
 - [Eclipse Kuksa.VAL examples](https://github.com/eclipse/kuksa.val.services)
+- [Eclipse SDV Blueprints](https://projects.eclipse.org/projects/automotive.sdv-blueprints)
+- [Eclipse Chariott examples](https://github.com/eclipse-chariott/chariott/tree/main/examples/applications)
