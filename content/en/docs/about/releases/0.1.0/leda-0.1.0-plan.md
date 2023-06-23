@@ -8,7 +8,9 @@ The release plan is available at [https://projects.eclipse.org/projects/automoti
 
 ## Release Date
 
-Thursday, June 1, 2023
+-Thursday, June 1, 2023- - We didn't meet the planned release date. Work is in progress on IT build infrastructure and OSS IP and license compliance.
+
+New: Tuesday, August 1, 2023
 
 ## Deliverables
 
