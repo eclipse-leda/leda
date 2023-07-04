@@ -46,7 +46,7 @@ $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility S
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-kanto-ctl/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-06-23T15:09:18+02:00" />
+<meta property="article:modified_time" content="2023-07-04T18:07:51+03:00" />
 <meta itemprop="name" content="SDV Kanto-Ctl">
 <meta itemprop="description" content="Manage the Kanto Container Management configuration via CLI.
 Note: Requires jq to be installed.
@@ -54,7 +54,7 @@ Features:
 Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]
 Full help:
 $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://eclipse.dev/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &lt;command&gt; {options} Commands: add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-06-23T15:09:18+02:00" />
+<meta itemprop="dateModified" content="2023-07-04T18:07:51+03:00" />
 <meta itemprop="wordCount" content="398">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SDV Kanto-Ctl"/>
@@ -68,8 +68,8 @@ $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility S
 
 
 
-<link rel="preload" href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" as="style">
-<link href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" as="style">
+<link href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -112,7 +112,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -137,7 +137,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5788,33 +5788,7 @@ if (!doNotTrack) {
       </div>
     
             
-
 	
-		
-			
-				
-			
-			
-
-
-
-  
-  
-
-		
-			
-				
-			
-			
-
-
-
-  
-  
-
-		
-	
-
           </aside>
           <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
             
@@ -5838,21 +5812,7 @@ if (!doNotTrack) {
 	
 	<header class="article-meta">
 		
-
-  
-    
-      
-
-
-    
-      
-
-
-    
-  
-
-		
-	</header>
+  </header>
 	<p>Manage the Kanto Container Management configuration via CLI.</p>
 <blockquote>
 <p>Note: <strong>Requires</strong> <code>jq</code> to be installed.</p>
@@ -5919,8 +5879,7 @@ The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.
 <p>To change this behavior at runtime:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sdv-kanto-ctl <span style="color:#204a87">set</span> manager.default_ctrs_stop_timeout <span style="color:#0000cf;font-weight:bold">2</span>
 </span></span></code></pre></div>
-	
-		<style>
+	<style>
   .feedback--answer {
     display: inline-block;
   }
@@ -5981,8 +5940,6 @@ The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.
 </script>
 
 		<br />
-	
-	
 	
 </div>
 

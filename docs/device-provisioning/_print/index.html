@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" as="style">
-<link href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" as="style">
+<link href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -78,7 +78,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -814,7 +814,17 @@ Example location is <code>tmp/deploy/images/qemux86-64</code></em></p>
 <li>
 <p>Terminal 2: Trigger the actual self update process by publishing an MQTT message to <code>selfupdate/desiredstate</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mosquitto_pub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/desiredstate&#34;</span> -f start-update-example.json
-</span></span></code></pre></div></li>
+</span></span><span style="display:flex;"><span>mosquitto_pub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/desiredstate/command&#34;</span> -f download-command.json
+</span></span><span style="display:flex;"><span>mosquitto_pub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/desiredstate/command&#34;</span> -f update-command.json
+</span></span><span style="display:flex;"><span>mosquitto_pub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/desiredstate/command&#34;</span> -f activate-command.json
+</span></span><span style="display:flex;"><span>mosquitto_pub -h 192.168.7.2 -p <span style="color:#0000cf;font-weight:bold">1883</span> -t <span style="color:#4e9a06">&#34;selfupdate/desiredstate/command&#34;</span> -f cleanup-command.json
+</span></span></code></pre></div><p>Files:</p>
+<p><a href="../start-update-example.json">start-update-example.json</a></p>
+<p><a href="../download-command.json">download-command.json</a></p>
+<p><a href="../update-command.json">update-command.json</a></p>
+<p><a href="../activate-command.json">activate-command.json</a></p>
+<p><a href="../cleanup-command.json">cleanup-command.json</a></p>
+</li>
 </ul>
 </li>
 <li>
@@ -851,29 +861,28 @@ Example location is <code>tmp/deploy/images/qemux86-64</code></em></p>
 
 
   <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;random-uuid-as-string&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                          <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;</span>
-</span></span><span style="display:flex;"><span>                          <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;random-uuid-as-string&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://leda-bundle-server/sdv-rauc-bundle-minimal-qemux86-64.raucb&#34;</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
 
 
 <h2 id="example-message-flows">Example Message Flows</h2>
@@ -881,160 +890,319 @@ Example location is <code>tmp/deploy/images/qemux86-64</code></em></p>
 <ol>
 <li>
 <p>Initial response message on startup from self update agent in topic <code>selfupdate/currentstate</code>, or upon request by sending message to <code>selfupdate/currentstate/get</code></p>
-<p>Request:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1676332092</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>Response:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675345910</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bundle_version_not_available&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687510087</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response by Self Update Agent on topic <code>selfupdate/currentstate</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787461</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;softwareNodes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update-agent&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;build-152&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;OTA NG Self Update Agent&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;APPLICATION&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:leda-deviceimage&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Official Leda device image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;IMAGE&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;hardwareNodes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;associations&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;sourceId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update-agent&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;targetId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:leda-deviceimage&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 </ol>
 <h3 id="desired-state">Desired State</h3>
 <ol>
 <li>
 <p>External trigger to update via desired state on topic <code>selfupdate/desiredstate</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                              <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Initialization response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347152</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;IDENTIFIED&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is about to perform an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Responses while downloading by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347152</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOADING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Downloading 0.0 MiB...&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                                     <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                                     <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                               <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687786390</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;IDENTIFYING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent has received new desired state request and is evaluating it.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687786390</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;IDENTIFIED&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is about to perform an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;IDENTIFIED&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is about to perform an OS image update.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code> when download successfully finished:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347154</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                          <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                          <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOAD_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Downloaded 108.9 MiB...&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+<p>External trigger to download command on topic <code>selfupdate/desiredstate/command</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687510087</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;baseline&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BASELINE NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOAD&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687786931</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOADING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOADING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Downloading 0.0 MiB...&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>     
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687786936</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOAD_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DOWNLOAD_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Downloaded 106.3 MiB...&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code> while performing the installation:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347159</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RUNNING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">20</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;RAUC install...&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+<p>External trigger to update command on topic <code>selfupdate/desiredstate/command</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687510087</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;baseline&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BASELINE NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATE&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787145</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image update.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Checking bundle version and version in desired state request.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787228</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update completed, reboot required.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Writing partition completed, reboot required.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Response by Self Update Agent on topic <code>selfupdate/desiredstatefeedback</code> when installation completed successfully:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;uuid&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1675347186</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;COMPLETED&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update completed, reboot required.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">100</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Writing partition completed, reboot required.&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+<p>External trigger to activate command on topic <code>selfupdate/desiredstate/command</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687510087</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;baseline&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BASELINE NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ACTIVATE&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787302</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ACTIVATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image activation.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATING&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent is performing an OS image activation.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787303</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ACTIVATION_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent has activated the new OS image.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATED&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent has activated the new OS image.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>External trigger to cleanup command on topic <code>selfupdate/desiredstate/command</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687510087</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;baseline&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BASELINE NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;CLEANUP&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Response on topic <code>selfupdate/desiredstatefeedback</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787382</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;CLEANUP_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent has cleaned up after itself.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent has activated the new OS image.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687787382</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;COMPLETE&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update completed.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;actions&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;component&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update:os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.0.10-194-g3d48cb8&#34;</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;UPDATE_SUCCESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;progress&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                   <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Self-update agent has activated the new OS image.&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 </ol>
+<h3 id="rollback-command">Rollback command</h3>
+<ul>
+<li>
+<p>External trigger to rollback command on topic <code>selfupdate/desiredstate/command</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1234567890&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1687510087</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;baseline&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;BASELINE NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ROLLBACK&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Self Update Agent returns in Idle state</p>
+<pre><code>      Can be used from:
+            - Downloading (when it is waiting for DOWNLOAD command)
+            - Installing (when it is waiting for UPDATE command)
+            - Installed (when it is waiting for ACTIVATE command)
+            - Failed (when it is waiting for CLEANUP command)
+</code></pre>
+</li>
+</ul>
 
 </div>
 
@@ -1191,36 +1359,71 @@ Example location is <code>tmp/deploy/images/qemux86-64</code></em></p>
     
 	<h1 id="pg-330a7bfc4527a76419775bc5ddc1265b">4.3 - API Reference</h1>
     
-	<p>The self update agent (SUA) is a component responsible for the OS Update process.  SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses <a href="https://rauc.io/">RAUC</a> to perform the update.</p>
+	<p>The self update agent (SUA) is a component responsible for the OS Update process.
+SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses <a href="https://rauc.io/">RAUC</a> to perform the update.</p>
 <p>Following sequence diagram shows the happy path example of communication between components.</p>
 <h2 id="process-overview">Process Overview</h2>
 <div class="mermaid">sequenceDiagram
     participant m as MQTT Broker 
     participant s as SUA
     participant r as RAUC
+
     s -->> m: connect
-    loop Wait for message: selfupdate/desiredstate
+
+    loop Wait for OTA trigger
+
     Note left of s: Initial start
-    s ->> m: selfupdate/currentstate
+    s ->> m: Current state (installed version from booted partition)
+
     Note left of s: Trigger for OTA
-    m ->> s: selfupdate/desiredstate
-    s ->> m: selfupdate/desiredstatefeedback: downloading 0%
-    s ->> s: download bundle
-    s ->> m: selfupdate/desiredstatefeedback: downloading 51%
-    s ->> r: install
-    s ->> m: selfupdate/desiredstatefeedback: installing 0%
-    r ->> r: install
-    r ->> s: share progress: e.g. 51%
-    s ->> m: selfupdate/desiredstatefeedback: installing 51%
-    r ->> s: installation ready
-    s ->> m: selfupdate/desiredstatefeedback: installed 
-    s ->> m: selfupdate/desiredstatefeedback: idle 
+    m ->> s: Desired state request (new version and url to bundle)
+    s ->> m: Feedback (update actions are identified)
+
+    Note left of s: Command for Download
+    m ->> s: Download command
+    s ->> s: Download bundle
+    s ->> m: Feedback (downloading/downloaded/failed)
+
+    Note left of s: Command for Update
+    m ->> s: Update command
+    s ->> r: Flash image to partition
+    r ->> r: Flashing...
+    s ->> m: Feedback (updating with percentage)
+    r ->> s: Flash completed/failed
+    s ->> m: Feedback (updated/failed)
+
+    Note left of s: Command for Activate
+    m ->> s: Activate command
+    s ->> r: Switch partitions (booted <-> other)
+    r ->> s: Switch completed/failed
+    s ->> m: Feedback (activated/failed)
+
+    Note left of s: Command for Cleanup
+    m ->> s: Cleanup command
+    s ->> s: Remove temporary files
+    s ->> m: Cleanup completed + status from previously failed state<br>(completed/failed)
+
     end
   </div>
   
-  <h2 id="mqtt-message-definitions">MQTT Message Definitions</h2>
-<p>MQTT messages are specified as follows:</p>
-<h3 id="selfupdatedesiredstate">selfupdate/desiredstate</h3>
+  <div class="mermaid">stateDiagram
+    Uninitialized --> Connected: Connected
+    Connected --> Identified: Start (OTA trigger)
+    Identified --> Downloading: Command download
+    Identified --> Failed: If OTA trigger is invalid
+    Downloading --> Updating: Command update
+    Downloading --> Failed: If download has failed
+    Updating --> Activate: Command activate
+    Updating --> Failed: If update has failed
+    Activate --> Cleanup: Command cleanup
+    Activate --> Failed: If activate has failed
+    Failed --> Cleanup: Command cleanup
+    Cleanup --> Idle
+  </div>
+  
+  <p>Important: Uninitialized state is the default entry state or state in case connection is lost. To simplify reading of the diagram arrows from other states to Unitialized have been removed.</p>
+<p>MQTT communication is done over 5 MQTT topics:</p>
+<h2 id="trigger-ota">Trigger OTA</h2>
 <table>
 <thead>
 <tr>
@@ -1237,16 +1440,24 @@ Example location is <code>tmp/deploy/images/qemux86-64</code></em></p>
 </tr>
 </tbody>
 </table>
-<pre tabindex="0"><code>apiVersion: &#34;sdv.eclipse.org/v1&#34;
-kind: SelfUpdateBundle
-metadata:
-  name: self-update-bundle-example
-spec:
-  bundleName: swdv-arm64-build42
-  bundleVersion: v1beta3
-  bundleDownloadUrl: https://example.com/repository/base/
-  bundleTarget: base
-</code></pre><h3 id="selfupdatecurrentstate">selfupdate/currentstate</h3>
+<h2 id="trigger-self-update-stepaction">Trigger self-update step/action</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selfupdate/desiredstate/command</td>
+<td>IN</td>
+<td>This message triggers the single step in update process (download/flash/activate/cleanup).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="report-current-state">Report current state</h2>
 <table>
 <thead>
 <tr>
@@ -1259,17 +1470,28 @@ spec:
 <tr>
 <td>selfupdate/currentstate</td>
 <td>OUT</td>
-<td>This message is being sent once, on SUA start. It contains information about currently installed OS version.</td>
+<td>This message is being sent either once on SUA start or as an answer to response received by selfupdate/currentstate/get. It contains information about the currently installed OS version.</td>
 </tr>
 </tbody>
 </table>
-<pre tabindex="0"><code>apiVersion: &#34;sdv.eclipse.org/v1&#34;
-kind: SelfUpdateBundle
-metadata:
-  name: self-update-bundle-example
-spec:
-  bundleVersion: v1beta3
-</code></pre><h3 id="selfupdatedesiredstatefeedback">selfupdate/desiredstatefeedback</h3>
+<h2 id="get-current-state">Get current state</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selfupdate/currentstate/get</td>
+<td>IN</td>
+<td>This message can be received at any point of time. Indicates that SUA should send back the version of the installed OS as current state.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="report-status-of-self-update-process">Report status of self-update process</h2>
 <table>
 <thead>
 <tr>
@@ -1282,104 +1504,17 @@ spec:
 <tr>
 <td>selfupdate/desiredstatefeedback</td>
 <td>OUT</td>
-<td>This message is being sent by SUA to share current progress of triggered update process. This is the <em>OUT</em> counterpart of <em>selfupdate/desiredstate</em> input message.</td>
+<td>This message is being sent by SUA to share the current progress of the triggered update process. This is the <em>OUT</em> counterpart of <em>selfupdate/desiredstate</em> input message.</td>
 </tr>
 </tbody>
 </table>
-<pre tabindex="0"><code>apiVersion: &#34;sdv.eclipse.org/v1&#34;
-kind: SelfUpdateBundle
-metadata:
-  name: self-update-bundle-example
-spec:
-  bundleName: swdv-arm64-build42
-  bundleVersion: v1beta3
-  bundleDownloadUrl: https://example.com/repository/base/
-  bundleTarget: base
-state:
-  name: &#34;idle|installing|etc.&#34;
-  progress: 0|51|99|etc., 
-  techCode: 0|1|5|etc.,  
-  message: &#34;Cannot download from url|Bundle already installed|etc.&#34; 
-</code></pre><h4 id="state-enum">state enum</h4>
-<p>State name field can have one of following values:</p>
-<table>
-<thead>
-<tr>
-<th>State</th>
-<th>Description</th>
-<th>Additional payload data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uninitialized</td>
-<td>When the SUA is not configured yet</td>
-<td>-</td>
-</tr>
-<tr>
-<td>idle</td>
-<td>Configured and waiting for messages</td>
-<td>-</td>
-</tr>
-<tr>
-<td>downloading</td>
-<td>Downloading the bundle file</td>
-<td>progress</td>
-</tr>
-<tr>
-<td>installing</td>
-<td>Performing installation</td>
-<td>progress</td>
-</tr>
-<tr>
-<td>installed</td>
-<td>Installation process was successful, new OS version is installed on inactive disc Slot. <br><strong>Important: to finish the OTA process, reboot is required, and it shall be performed by another component, such as the Vehicle Update Manager.</strong></td>
-<td>-</td>
-</tr>
-<tr>
-<td>failed</td>
-<td>Error occurred</td>
-<td>techCode</td>
-</tr>
-</tbody>
-</table>
-<h4 id="techcode-values">techCode values</h4>
-<p>techCode field is providing additional details to the state value. It is especially useful for the <strong>failed</strong> state, as it can specify the reason of failure.</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>OK, no error</td>
-</tr>
-<tr>
-<td>1001</td>
-<td>Download failed</td>
-</tr>
-<tr>
-<td>2001</td>
-<td>Invalid Bundle</td>
-</tr>
-<tr>
-<td>3001</td>
-<td>Installation failed</td>
-</tr>
-<tr>
-<td>4001</td>
-<td>Update rejected, bundle version same as current OS version</td>
-</tr>
-<tr>
-<td>5001</td>
-<td>Unknown Error</td>
-</tr>
-</tbody>
-</table>
-
+<h1 id="checkout">Checkout</h1>
+<p>SUA links to some 3rd party libraries, which are fetched as submodules, therefore the cloning shall be performed with recursive option:</p>
+<pre tabindex="0"><code>git clone --recursive https://github.com/eclipse-leda/leda-contrib-self-update-agent.git
+</code></pre><p>or if was cloned non recursively</p>
+<pre tabindex="0"><code>git submodule init
+git submodule update
+</code></pre>
 </div>
 
 

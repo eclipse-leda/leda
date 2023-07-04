@@ -38,11 +38,11 @@ Running QEMU from existing build Use kas shell -c &quot;runqemu qemux86-64 ovmf 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/run-build/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-06-23T15:09:18+02:00" />
+<meta property="article:modified_time" content="2023-07-04T18:07:51+03:00" />
 <meta itemprop="name" content="Run the build">
 <meta itemprop="description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
 Running QEMU from existing build Use kas shell -c &quot;runqemu qemux86-64 ovmf kvm nographic&quot; &lt;kas-configs&gt; to execute the image. Replace qemux86-64 with one of the other qemu machines, such as qemuarm64 Use the keyword slirp to enable user-networking which does not require root privileges on the host. tun is default but requires setup on the host."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-06-23T15:09:18+02:00" />
+<meta itemprop="dateModified" content="2023-07-04T18:07:51+03:00" />
 <meta itemprop="wordCount" content="318">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run the build"/>
@@ -52,8 +52,8 @@ Running QEMU from existing build Use kas shell -c &quot;runqemu qemux86-64 ovmf 
 
 
 
-<link rel="preload" href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" as="style">
-<link href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" as="style">
+<link href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -96,7 +96,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -121,7 +121,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5774,33 +5774,7 @@ if (!doNotTrack) {
       </div>
     
             
-
 	
-		
-			
-				
-			
-			
-
-
-
-  
-  
-
-		
-			
-				
-			
-			
-
-
-
-  
-  
-
-		
-	
-
           </aside>
           <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
             
@@ -5822,21 +5796,7 @@ if (!doNotTrack) {
 	
 	<header class="article-meta">
 		
-
-  
-    
-      
-
-
-    
-      
-
-
-    
-  
-
-		
-	</header>
+  </header>
 	<h2 id="run-the-full-build">Run the full build</h2>
 <p>To setup the environment and build the Leda image, please refer to: <a href="/leda/docs/build/devenv/">Setup development environment</a>.</p>
 <h2 id="running-qemu-from-existing-build">Running QEMU from existing build</h2>
@@ -5868,8 +5828,7 @@ This will write a file qemu.pid in the current directory including the process I
 <p>As the Leda Quickstart image will try to retrieve its IP address via DHCP broadcast request, it is good to run a DHCP daemon on the host, listening on the respective TAP network interface of QEMU. This will then simulate a LAN with DHCP server and let&rsquo;s us control which IP address gets assigned to multiple QEMU instances.</p>
 <p>The <a href="https://github.com/eclipse-leda/leda-distro/blob/main/scripts/run-dhcp.sh">run-dhcp.sh</a> utility will run an ISC-DHCP server on the host. The default configuration has a couple of MAC addresses preconfigured.</p>
 
-	
-		<style>
+	<style>
   .feedback--answer {
     display: inline-block;
   }
@@ -5930,8 +5889,6 @@ This will write a file qemu.pid in the current directory including the process I
 </script>
 
 		<br />
-	
-	
 	
 </div>
 

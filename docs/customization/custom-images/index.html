@@ -45,8 +45,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" as="style">
-<link href="/leda/scss/main.min.2ce19f827a4236fa989548a40db0a7fa5c994de7b8945c7a3b450c7a094e604e.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" as="style">
+<link href="/leda/scss/main.min.f3285dc0e759279bf1de548d3a7e5438b3bc2cb632d1b1b15d9b597f0091a2c6.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -89,7 +89,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -114,7 +114,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.906203aa834ec5363f9dfbfcb3e079f9.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5777,33 +5777,7 @@ if (!doNotTrack) {
       </div>
     
             
-
 	
-		
-			
-				
-			
-			
-
-
-
-  
-  
-
-		
-			
-				
-			
-			
-
-
-
-  
-  
-
-		
-	
-
           </aside>
           <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
             
@@ -5825,21 +5799,7 @@ if (!doNotTrack) {
   
 	<header class="article-meta">
 		
-
-  
-    
-      
-
-
-    
-      
-
-
-    
-  
-
-		
-	</header>
+  </header>
 	<p>The Leda project aims to provide a BitBake meta-layer for building custom images within the SDV context. The Leda quickstart image serves as an experimentation and development platform but is not production-ready. The focus of the meta-leda meta-layer is to offer reusable components for custom SDV images.</p>
 <p>This documentation section is aimed at anyone who wishes to build such a custom image.</p>
 <h2 id="hardware">Hardware</h2>
@@ -6023,7 +5983,7 @@ to boot from the different partitions via a custom bootloader script (and as a c
 <p>Obtain the <code>image-name.wic.bz2</code> and <code>image-name.wic.bmap</code> files from the <code>tmp/deploy/images</code> directory. Mount your storage and use bmaptool to quickly flash the built image. More information on flashing can be found in the <a href="../../general-usage/raspberry-pi/">Running on Raspberry Pi</a> section of this documentation.</p>
 <p>If everything works as intended you should see in the U-Boot output that it found <code>/boot.scr</code> and started executing it. This should lead to a successful boot of your custom Linux distro image with the RAUC-mark-good.service being marked as [<span class="-text-green">OK</span>] in the systemd logs (if your distro uses systemd).</p>
 
-        <div class="section-index">
+  <div class="section-index">
     
     
     
@@ -6034,9 +5994,7 @@ to boot from the different partitions via a custom bootloader script (and as a c
     
     
 </div>
-
-	
-		<style>
+<style>
   .feedback--answer {
     display: inline-block;
   }
@@ -6095,12 +6053,8 @@ to boot from the different partitions via a custom bootloader script (and as a c
     sendFeedback(0);
   });
 </script>
-
-		<br />
-	
-	
-	
-</div>
+<br />
+	</div>
 
           </main>
         </div>

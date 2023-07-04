@@ -1,0 +1,8 @@
+{
+    "activityId": "1234567890",
+    "timestamp": 1687510087,
+    "payload": {
+        "baseline": "BASELINE NAME",
+        "command": "DOWNLOAD"
+    }
+}
