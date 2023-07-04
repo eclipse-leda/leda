@@ -4,9 +4,10 @@ date: 2022-05-09T14:24:56+05:30
 weight: 3
 ---
 
-The self update agent (SUA) is a component responsible for the OS Update process.  SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses [RAUC](https://rauc.io/) to perform the update. 
+The self update agent (SUA) is a component responsible for the OS Update process. 
+SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses [RAUC](https://rauc.io/) to perform the update. 
 
-Following sequence diagram shows the happy path example of communication between components. 
+Following sequence diagram shows the happy path example of communication between components.
 
 ## Process Overview
 
@@ -15,102 +16,98 @@ sequenceDiagram
     participant m as MQTT Broker 
     participant s as SUA
     participant r as RAUC
+
     s -->> m: connect
-    loop Wait for message: selfupdate/desiredstate
+
+    loop Wait for OTA trigger
+
     Note left of s: Initial start
-    s ->> m: selfupdate/currentstate
+    s ->> m: Current state (installed version from booted partition)
+
     Note left of s: Trigger for OTA
-    m ->> s: selfupdate/desiredstate
-    s ->> m: selfupdate/desiredstatefeedback: downloading 0%
-    s ->> s: download bundle
-    s ->> m: selfupdate/desiredstatefeedback: downloading 51%
-    s ->> r: install
-    s ->> m: selfupdate/desiredstatefeedback: installing 0%
-    r ->> r: install
-    r ->> s: share progress: e.g. 51%
-    s ->> m: selfupdate/desiredstatefeedback: installing 51%
-    r ->> s: installation ready
-    s ->> m: selfupdate/desiredstatefeedback: installed 
-    s ->> m: selfupdate/desiredstatefeedback: idle 
+    m ->> s: Desired state request (new version and url to bundle)
+    s ->> m: Feedback (update actions are identified)
+
+    Note left of s: Command for Download
+    m ->> s: Download command
+    s ->> s: Download bundle
+    s ->> m: Feedback (downloading/downloaded/failed)
+
+    Note left of s: Command for Update
+    m ->> s: Update command
+    s ->> r: Flash image to partition
+    r ->> r: Flashing...
+    s ->> m: Feedback (updating with percentage)
+    r ->> s: Flash completed/failed
+    s ->> m: Feedback (updated/failed)
+
+    Note left of s: Command for Activate
+    m ->> s: Activate command
+    s ->> r: Switch partitions (booted <-> other)
+    r ->> s: Switch completed/failed
+    s ->> m: Feedback (activated/failed)
+
+    Note left of s: Command for Cleanup
+    m ->> s: Cleanup command
+    s ->> s: Remove temporary files
+    s ->> m: Cleanup completed + status from previously failed state<br>(completed/failed)
+
     end
 ```
 
-## MQTT Message Definitions
+```mermaid
+stateDiagram
+    Uninitialized --> Connected: Connected
+    Connected --> Identified: Start (OTA trigger)
+    Identified --> Downloading: Command download
+    Identified --> Failed: If OTA trigger is invalid
+    Downloading --> Updating: Command update
+    Downloading --> Failed: If download has failed
+    Updating --> Activate: Command activate
+    Updating --> Failed: If update has failed
+    Activate --> Cleanup: Command cleanup
+    Activate --> Failed: If activate has failed
+    Failed --> Cleanup: Command cleanup
+    Cleanup --> Idle
+```
+Important: Uninitialized state is the default entry state or state in case connection is lost. To simplify reading of the diagram arrows from other states to Unitialized have been removed.
 
-MQTT messages are specified as follows:
+MQTT communication is done over 5 MQTT topics:
 
-### selfupdate/desiredstate
+## Trigger OTA
 | Topic | Direction | Description |
-|-------|  -------- | ----------- |
+|-------|-----------|-------------|
 | selfupdate/desiredstate | IN | This message triggers the update process. The payload shall contain all data necessary to obtain the update bundle and to install it. |
+
+## Trigger self-update step/action
+| Topic | Direction | Description |
+|-------|-----------|-------------|
+| selfupdate/desiredstate/command | IN | This message triggers the single step in update process (download/flash/activate/cleanup). |
+
+## Report current state
+| Topic | Direction | Description |
+|-------|-----------|-------------|
+| selfupdate/currentstate | OUT | This message is being sent either once on SUA start or as an answer to response received by selfupdate/currentstate/get. It contains information about the currently installed OS version. |
+
+## Get current state
+| Topic | Direction | Description |
+|-------|-----------|-------------|
+| selfupdate/currentstate/get | IN | This message can be received at any point of time. Indicates that SUA should send back the version of the installed OS as current state. |
+
+## Report status of self-update process
+| Topic | Direction | Description |
+|-------|-----------|-------------|
+| selfupdate/desiredstatefeedback | OUT | This message is being sent by SUA to share the current progress of the triggered update process. This is the *OUT* counterpart of *selfupdate/desiredstate* input message. |
+
+
+# Checkout
+SUA links to some 3rd party libraries, which are fetched as submodules, therefore the cloning shall be performed with recursive option:
+
 ```
-apiVersion: "sdv.eclipse.org/v1"
-kind: SelfUpdateBundle
-metadata:
-  name: self-update-bundle-example
-spec:
-  bundleName: swdv-arm64-build42
-  bundleVersion: v1beta3
-  bundleDownloadUrl: https://example.com/repository/base/
-  bundleTarget: base
+git clone --recursive https://github.com/eclipse-leda/leda-contrib-self-update-agent.git
 ```
-
-### selfupdate/currentstate
-| Topic| Direction | Description |
-|------|  -------- | ----------- |
-| selfupdate/currentstate | OUT | This message is being sent once, on SUA start. It contains information about currently installed OS version.
+or if was cloned non recursively
 ```
-apiVersion: "sdv.eclipse.org/v1"
-kind: SelfUpdateBundle
-metadata:
-  name: self-update-bundle-example
-spec:
-  bundleVersion: v1beta3
+git submodule init
+git submodule update
 ```
-
-### selfupdate/desiredstatefeedback
-| Topic| Direction | Description |
-|------|  -------- | ----------- |
-| selfupdate/desiredstatefeedback | OUT | This message is being sent by SUA to share current progress of triggered update process. This is the *OUT* counterpart of *selfupdate/desiredstate* input message. 
-```
-apiVersion: "sdv.eclipse.org/v1"
-kind: SelfUpdateBundle
-metadata:
-  name: self-update-bundle-example
-spec:
-  bundleName: swdv-arm64-build42
-  bundleVersion: v1beta3
-  bundleDownloadUrl: https://example.com/repository/base/
-  bundleTarget: base
-state:
-  name: "idle|installing|etc."
-  progress: 0|51|99|etc., 
-  techCode: 0|1|5|etc.,  
-  message: "Cannot download from url|Bundle already installed|etc." 
-```
-
-#### state enum
-
-State name field can have one of following values:
-
-| State | Description | Additional payload data | 
-|  ---------- |  ---------- | ---------- |
-| uninitialized | When the SUA is not configured yet | - |
-| idle |  Configured and waiting for messages | - |
-| downloading | Downloading the bundle file  | progress |
-| installing | Performing installation   | progress |
-| installed |  Installation process was successful, new OS version is installed on inactive disc Slot. <br>**Important: to finish the OTA process, reboot is required, and it shall be performed by another component, such as the Vehicle Update Manager.** |  - |
-| failed | Error occurred  | techCode |
-
-#### techCode values
-techCode field is providing additional details to the state value. It is especially useful for the **failed** state, as it can specify the reason of failure. 
-
-| Value | Description |
-|  ---- |  ---------- | 
-| 0 | OK, no error|
-| 1001 |  Download failed |
-| 2001 |  Invalid Bundle|
-| 3001 |  Installation failed |
-| 4001 |  Update rejected, bundle version same as current OS version |
-| 5001 |  Unknown Error |
-
