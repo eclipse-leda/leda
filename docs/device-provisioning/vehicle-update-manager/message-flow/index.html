@@ -37,11 +37,11 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-07-04T18:07:51+03:00" />
+<meta property="article:modified_time" content="2023-07-05T08:40:28+03:00" />
 <meta itemprop="name" content="Message Flow">
 <meta itemprop="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
 sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail.">
-<meta itemprop="dateModified" content="2023-07-04T18:07:51+03:00" />
+<meta itemprop="dateModified" content="2023-07-05T08:40:28+03:00" />
 <meta itemprop="wordCount" content="414">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Message Flow"/>
@@ -95,7 +95,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.931e6b2db63949a378036ff13b343c7c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@ if (!doNotTrack) {
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.f70ea6262add4414f22988b3e7d084b3.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.931e6b2db63949a378036ff13b343c7c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
