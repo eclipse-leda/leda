@@ -51,8 +51,6 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
       [cleanup-command.json](../cleanup-command.json)
 
-
-
 - Switch to a terminal in the guest
 - On guest: After the self update process completed, check the status:
 
@@ -213,7 +211,8 @@ This chapter describes the steps necessary to perform a local (without cloud) se
             }
       }     
      ```
-     ```json
+
+      ```json
       {
             "activityId": "1234567890",
             "timestamp": 1687786936,
@@ -271,7 +270,8 @@ This chapter describes the steps necessary to perform a local (without cloud) se
             }
       }
      ```
-     ```json
+
+      ```json
       {
             "activityId": "1234567890",
             "timestamp": 1687787228,
@@ -329,7 +329,8 @@ This chapter describes the steps necessary to perform a local (without cloud) se
             }
       }
      ```
-     ```json
+
+      ```json
       {
             "activityId": "1234567890",
             "timestamp": 1687787303,
@@ -387,7 +388,8 @@ This chapter describes the steps necessary to perform a local (without cloud) se
             }
       }
      ```
-     ```json
+
+      ```json
       {
             "activityId": "1234567890",
             "timestamp": 1687787382,
@@ -426,8 +428,9 @@ This chapter describes the steps necessary to perform a local (without cloud) se
 
      Self Update Agent returns in Idle state
 
-            Can be used from:
-                  - Downloading (when it is waiting for DOWNLOAD command)
-                  - Installing (when it is waiting for UPDATE command)
-                  - Installed (when it is waiting for ACTIVATE command)
-                  - Failed (when it is waiting for CLEANUP command)
+ Can be used from
+
+- Downloading (when it is waiting for DOWNLOAD command)
+- Installing (when it is waiting for UPDATE command)
+- Installed (when it is waiting for ACTIVATE command)
+- Failed (when it is waiting for CLEANUP command)

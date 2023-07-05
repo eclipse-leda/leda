@@ -4,8 +4,8 @@ date: 2022-05-09T14:24:56+05:30
 weight: 3
 ---
 
-The self update agent (SUA) is a component responsible for the OS Update process. 
-SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses [RAUC](https://rauc.io/) to perform the update. 
+The self update agent (SUA) is a component responsible for the OS Update process
+SUA is communicating on MQTT interface via usage of defined messages. Internally, SUA uses [RAUC](https://rauc.io/) to perform the update
 
 Following sequence diagram shows the happy path example of communication between components.
 
@@ -70,44 +70,57 @@ stateDiagram
     Failed --> Cleanup: Command cleanup
     Cleanup --> Idle
 ```
-Important: Uninitialized state is the default entry state or state in case connection is lost. To simplify reading of the diagram arrows from other states to Unitialized have been removed.
+
+__Important__: Uninitialized state is the default entry state or state in case connection is lost.
+To simplify reading of the diagram arrows from other states to Unitialized have been removed.
 
 MQTT communication is done over 5 MQTT topics:
 
 ## Trigger OTA
+
 | Topic | Direction | Description |
 |-------|-----------|-------------|
-| selfupdate/desiredstate | IN | This message triggers the update process. The payload shall contain all data necessary to obtain the update bundle and to install it. |
+| selfupdate/desiredstate | IN | This message triggers the update process
+|||The payload shall contain all data necessary to obtain the update bundle and to install it|
 
 ## Trigger self-update step/action
+
 | Topic | Direction | Description |
 |-------|-----------|-------------|
-| selfupdate/desiredstate/command | IN | This message triggers the single step in update process (download/flash/activate/cleanup). |
+| selfupdate/desiredstate/command | IN | This message triggers the single step in update process (download/flash/activate/cleanup)|
 
 ## Report current state
+
 | Topic | Direction | Description |
 |-------|-----------|-------------|
-| selfupdate/currentstate | OUT | This message is being sent either once on SUA start or as an answer to response received by selfupdate/currentstate/get. It contains information about the currently installed OS version. |
+| selfupdate/currentstate | OUT | This message is being sent either once on SUA start or as an answer to response received by selfupdate/currentstate/get
+|||It contains information about the currently installed OS version|
 
 ## Get current state
+
 | Topic | Direction | Description |
 |-------|-----------|-------------|
-| selfupdate/currentstate/get | IN | This message can be received at any point of time. Indicates that SUA should send back the version of the installed OS as current state. |
+| selfupdate/currentstate/get | IN | This message can be received at any point of time
+|||Indicates that SUA should send back the version of the installed OS as current state. |
 
 ## Report status of self-update process
+
 | Topic | Direction | Description |
 |-------|-----------|-------------|
-| selfupdate/desiredstatefeedback | OUT | This message is being sent by SUA to share the current progress of the triggered update process. This is the *OUT* counterpart of *selfupdate/desiredstate* input message. |
+| selfupdate/desiredstatefeedback | OUT | This message is being sent by SUA to share the current progress of the triggered update process
+|||This is the *OUT* counterpart of *selfupdate/desiredstate* input message|
 
+## Checkout
 
-# Checkout
 SUA links to some 3rd party libraries, which are fetched as submodules, therefore the cloning shall be performed with recursive option:
 
-```
+```shell
 git clone --recursive https://github.com/eclipse-leda/leda-contrib-self-update-agent.git
 ```
+
 or if was cloned non recursively
-```
+
+```shell
 git submodule init
 git submodule update
 ```
