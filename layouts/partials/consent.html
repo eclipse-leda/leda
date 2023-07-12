@@ -41,10 +41,21 @@
         </div>
     </div>
 </div>
+
+<!-- parameters that are passed over to analytics scripts templates -->
+{{$script_params :=  (dict "analyticsID" $.Site.Params.GoogleAnalyticsID) }}
+<!-- preprocess javascript templates -->
+{{$expanded_js_tracker_templates := slice}}
+{{ range $index, $item := .Site.Data.consent.items }}
+    {{ $path := printf "js/%s" $item.script_file }}
+    {{ $js := resources.Get $path | js.Build (dict "params" $script_params) }}
+    {{$expanded_js_tracker_templates =  $expanded_js_tracker_templates | append $js.RelPermalink }}
+{{ end }}
+
 <script>
 
     const scripts = [];{{ range $index, $item := (where .Site.Data.consent.items "is_functional" false) }}
-    scripts[{{ $index }}] = "js/{{ $item.script_file }}";{{ end }}
+    scripts[{{ $index }}] = "{{ index $expanded_js_tracker_templates $index }}";{{ end }}
 
     function createCookie(name,value,days) {
         var expires = "";
@@ -91,7 +102,7 @@
     }
     function loadConsentScripts(consentValue) {
         scripts.forEach(function(value,key){
-            //console.log('script'+key+' is set to ' +consentValue[key]+' and is file '+value);
+            // console.log('script'+key+' is set to ' +consentValue[key]+' and is file '+value);
             if(consentValue[key]=="1") {
                 var s = document.createElement('script');
                 s.type = 'text/javascript';
@@ -161,6 +172,6 @@
 
 {{ range $index, $item := .Site.Data.consent.items }}
     {{ if $item.is_functional }}
-        <script type="text/javascript" src="js/{{ $item.script_file }}"></script>
+    <script type="text/javascript" src="{{ index $expanded_js_tracker_templates $index }}"></script>
     {{ end }}
 {{ end }}
