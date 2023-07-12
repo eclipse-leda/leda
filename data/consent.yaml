@@ -1,0 +1,5 @@
+items:
+  - title: Google Analytics
+    description: This code gives us insight into the number of people that visit our website, where they are from and what they are clicking on. 
+    is_functional: false
+    script_file: ga.js
