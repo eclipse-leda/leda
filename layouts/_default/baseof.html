@@ -1,9 +1,6 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="{{ .Site.Language.Lang }}" class="no-js">
   <head>
-    {{ if .Site.Params.GoogleAnalyticsID }}
-    {{ partial "analytics-gtag.html" . }}
-    {{ end }} 
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
@@ -16,7 +13,9 @@
       </main>
       {{ partial "footer.html" . }}
     </div>
-    {{ partial "consent.html" . }}
+    {{ if .Site.Params.EnableAnalyticsScripts }}
+    {{ partial "analytics-with-consent" . }}
+    {{ end }}
     {{ partialCached "scripts.html" . }}
   </body>
 </html>

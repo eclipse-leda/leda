@@ -30,6 +30,9 @@
       </div>
       {{ partial "footer.html" . }}
     </div>
+    {{ if .Site.Params.EnableAnalyticsScripts }}
+    {{ partial "analytics-with-consent" . }}
+    {{ end }}
     {{ partial "scripts.html" . }}
   </body>
 </html>

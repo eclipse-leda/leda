@@ -90,6 +90,8 @@ anchor = "smart"
 section = ["HTML", "print", "RSS"]
 
 [params]
+# if false, all analytics (ga or otherwise) + consent form are disabled
+EnableAnalyticsScripts = true
 
 # Google Analytics 4
 GoogleAnalyticsID = "G-6W31KMZWGE"

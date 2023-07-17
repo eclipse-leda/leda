@@ -43,7 +43,8 @@
 </div>
 
 <!-- parameters that are passed over to analytics scripts templates -->
-{{$script_params :=  (dict "analyticsID" $.Site.Params.GoogleAnalyticsID) }}
+<!-- if a parameter is not mapped here, it would NOT be available to script templates under assets/js/ -->
+{{$script_params :=  (dict "googleAnalyticsID" $.Site.Params.GoogleAnalyticsID) }}
 <!-- preprocess javascript templates -->
 {{$expanded_js_tracker_templates := slice}}
 {{ range $index, $item := .Site.Data.consent.items }}
