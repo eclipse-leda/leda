@@ -35,7 +35,7 @@ $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility S
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-kanto-ctl/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T13:56:41+03:00" />
+<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
 <meta itemprop="name" content="SDV Kanto-Ctl">
 <meta itemprop="description" content="Manage the Kanto Container Management configuration via CLI.
 Note: Requires jq to be installed.
@@ -43,7 +43,7 @@ Features:
 Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]
 Full help:
 $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://eclipse.dev/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &lt;command&gt; {options} Commands: add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T13:56:41+03:00" />
+<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
 <meta itemprop="wordCount" content="398">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SDV Kanto-Ctl"/>
@@ -6052,7 +6052,9 @@ The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.
     #consent-notice button {cursor: pointer; display: inline-block; width: auto;}
     #consent-notice span a {color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5);}
     #consent-notice button.btn {margin-left: 0.5rem;}
-    #consent-notice button.btn.manage-consent {background: rgba(255,255,255,0.1); font-weight: normal;}
+    #consent-notice button.btn.manage-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
+    #consent-notice button.btn.deny-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
+    #consent-notice button.btn.approve-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
     
     #consent-overlay {position: fixed; left: 0; top: 0; width: 100%; height: 100vh; display: none; background: rgba(0,0,0,0.75); z-index: 999999; overflow: auto; cursor: pointer;}
     #consent-overlay.active {display: flex;}

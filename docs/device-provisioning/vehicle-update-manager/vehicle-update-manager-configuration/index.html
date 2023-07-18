@@ -35,7 +35,7 @@ Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator" /
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-07-18T13:56:41+03:00" />
+<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
 <meta itemprop="name" content="Configuration">
 <meta itemprop="description" content="Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM
 The vehicle update manager container requires the following configuration:
@@ -43,7 +43,7 @@ Container needs to run in privileged mode to enable automatic reboot.
 Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.
 Connection to MQTT broker, defaults to THINGS_CONN_BROKER=tcp://mosquitto:1883
 Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator">
-<meta itemprop="dateModified" content="2023-07-18T13:56:41+03:00" />
+<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
 <meta itemprop="wordCount" content="221">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuration"/>
@@ -6064,7 +6064,9 @@ spec:
     #consent-notice button {cursor: pointer; display: inline-block; width: auto;}
     #consent-notice span a {color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5);}
     #consent-notice button.btn {margin-left: 0.5rem;}
-    #consent-notice button.btn.manage-consent {background: rgba(255,255,255,0.1); font-weight: normal;}
+    #consent-notice button.btn.manage-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
+    #consent-notice button.btn.deny-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
+    #consent-notice button.btn.approve-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
     
     #consent-overlay {position: fixed; left: 0; top: 0; width: 100%; height: 100vh; display: none; background: rgba(0,0,0,0.75); z-index: 999999; overflow: auto; cursor: pointer;}
     #consent-overlay.active {display: flex;}

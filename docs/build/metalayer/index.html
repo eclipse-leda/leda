@@ -29,12 +29,12 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/metalayer/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T13:56:41+03:00" />
+<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
 <meta itemprop="name" content="Metalayer">
 <meta itemprop="description" content="Initializing BitBake environment Initialize the build environment and start the build for QEMU:
 kas build kas/leda-qemux86-64.yaml Building specific recipes General usage:
 kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structure meta-leda-bsp \-- classes // Reusable BitBake Classes, eg for offline container image pre-caching \-- conf // Distribution specific configurations, eg version numbers, release codename \-- recipes-bsp // Board Support Packages, eg specifics for QEMU and Raspberry Pi meta-leda-components \-- classes // Reusable BitBake Classes, eg for offline container image pre-caching \-- conf // Distribution specific configurations, eg version numbers, release codename \-- recipes-sdv |-- eclipse-leda // Build recipes for Eclipse Leda Incubator components |-- eclipse-kuksa // Build recipes for Eclipse Kuksa |-- eclipse-cyclonedds // Build recipes for Eclipse CycloneDDS |-- northstar // Build recipes for Northstar Container Runtime |-- packagegroups // Grouping packages \-- sdv-base // SDV Base Bundle: fstab, can0."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T13:56:41+03:00" />
+<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
 <meta itemprop="wordCount" content="494">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Metalayer"/>
@@ -6043,7 +6043,9 @@ if (!doNotTrack) {
     #consent-notice button {cursor: pointer; display: inline-block; width: auto;}
     #consent-notice span a {color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.5);}
     #consent-notice button.btn {margin-left: 0.5rem;}
-    #consent-notice button.btn.manage-consent {background: rgba(255,255,255,0.1); font-weight: normal;}
+    #consent-notice button.btn.manage-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
+    #consent-notice button.btn.deny-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
+    #consent-notice button.btn.approve-consent {background: rgba(255, 255, 255, 0.5); font-weight: normal;}
     
     #consent-overlay {position: fixed; left: 0; top: 0; width: 100%; height: 100vh; display: none; background: rgba(0,0,0,0.75); z-index: 999999; overflow: auto; cursor: pointer;}
     #consent-overlay.active {display: flex;}
