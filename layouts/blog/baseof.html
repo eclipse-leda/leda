@@ -1,9 +1,6 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="{{ .Site.Language.Lang }}" class="no-js">
   <head>
-    {{ if .Site.Params.GoogleAnalyticsID }}
-    {{ partial "analytics-gtag.html" . }}
-    {{ end }} 
     {{ partial "head.html" . }}
   </head>
   <body class="td-{{ .Kind }} td-blog {{- with .Page.Params.body_class }} {{ . }}{{ end }}">
@@ -33,6 +30,9 @@
       </div>
       {{ partial "footer.html" . }}
     </div>
+    {{ if .Site.Params.EnableAnalyticsScripts }}
+    {{ partial "analytics-with-consent" . }}
+    {{ end }}
     {{ partial "scripts.html" . }}
   </body>
 </html>
