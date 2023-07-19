@@ -26,11 +26,11 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Message Flow">
 <meta itemprop="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
 sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail.">
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="414">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Message Flow"/>
@@ -6113,7 +6113,7 @@ state:
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6229,7 +6229,7 @@ state:
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

@@ -29,12 +29,12 @@ The Leda build is mainly using the kas tool for a simplified maintenance of the 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/concepts/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Concepts">
 <meta itemprop="description" content="The example build configurations in this repository are based on the official BitBake Quickstart tutorial and have been extended to include Leda SDV components.
 Build Setup To set up your own BitBake build configuration, follow the BitBake documentation and include meta-leda in your bblayers.conf and add the SDV packages into your local.conf.
 The Leda build is mainly using the kas tool for a simplified maintenance of the BitBake Configuration files. The kas configuration files are located in kas/"><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="338">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Concepts"/>
@@ -6026,7 +6026,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6142,7 +6142,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

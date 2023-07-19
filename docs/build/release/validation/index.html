@@ -39,7 +39,7 @@ Perform some verification tests (see below)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/release/validation/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Validating">
 <meta itemprop="description" content="Validating the release Steps to validate if a release is properly working:
 Create a new pre-release from your branch
@@ -49,7 +49,7 @@ Run the run-leda scripts to execute Qemu
 Note: You should test each of the release archives, for each target machine.
 Follow the Device Provisioning guide
 Perform some verification tests (see below)"><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="145">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Validating"/>
@@ -6045,7 +6045,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6161,7 +6161,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

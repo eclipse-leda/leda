@@ -33,14 +33,14 @@ Verify with git config --global -l, it should show git-credential-manager-core a
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Advanced topics">
 <meta itemprop="description" content="Git Authentication For private repositories, we need to separately authenticate against the submodule repositories, as GitHub Codespaces will only inject a token with access rights to the current repository.
 Change to the users home directory
 cd ~ Install Git Credential Manager
 curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;&amp; sh ./install-from-source.sh &amp;&amp; git-credential-manager-core configure Configure a credential store typ, e.g. git config --global credential.credentialStore plaintext
 Verify with git config --global -l, it should show git-credential-manager-core as the credential helper."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="126">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Advanced topics"/>
@@ -6024,7 +6024,7 @@ GitHub Codespaces will only inject a token with access rights to the current rep
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6140,7 +6140,7 @@ GitHub Codespaces will only inject a token with access rights to the current rep
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

@@ -27,11 +27,11 @@ Running QEMU from existing build Use kas shell -c &quot;runqemu qemux86-64 ovmf 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/run-build/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Run the build">
 <meta itemprop="description" content="Run the full build To setup the environment and build the Leda image, please refer to: Setup development environment.
 Running QEMU from existing build Use kas shell -c &quot;runqemu qemux86-64 ovmf kvm nographic&quot; &lt;kas-configs&gt; to execute the image. Replace qemux86-64 with one of the other qemu machines, such as qemuarm64 Use the keyword slirp to enable user-networking which does not require root privileges on the host. tun is default but requires setup on the host."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="318">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run the build"/>
@@ -6014,7 +6014,7 @@ This will write a file qemu.pid in the current directory including the process I
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6130,7 +6130,7 @@ This will write a file qemu.pid in the current directory including the process I
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

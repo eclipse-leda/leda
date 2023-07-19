@@ -35,7 +35,7 @@ root@qemux86-64:~# sdv-device-info --help sdv-device-info v0.2 Usage: /usr/bin/s
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-device-info/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="SDV Device Info">
 <meta itemprop="description" content="Displays the current device configuration, such as Device ID.
 Note: Requires the Cloud Connector component to be configured and running.
@@ -43,7 +43,7 @@ Usage:
 sdv-device-info Usage Synposis: ./sdv-device-info [options] [command]
 Full help:
 root@qemux86-64:~# sdv-device-info --help sdv-device-info v0.2 Usage: /usr/bin/sdv-device-info [options] [command] Show SDV device configuration information Example: /usr/bin/sdv-device-info show Commands: show : Display configuration (default command) help : This message env : Format output for use in scripts Options: --ansi | -a : Don&#39;t use colored output."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="135">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SDV Device Info"/>
@@ -6028,7 +6028,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6144,7 +6144,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

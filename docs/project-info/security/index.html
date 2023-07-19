@@ -31,13 +31,13 @@ Configuration Items Disable system user (root) password and login Disable SSH lo
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/project-info/security/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Security Policy">
 <meta itemprop="description" content="This project implements the Eclipse Foundation Security Policy
 https://www.eclipse.org/security Reporting a Vulnerability Please report vulnerabilities to the Eclipse Foundation Security Team at security@eclipse.org
 Supported Yocto Versions Version Supported Yocto 4.x (Kirkstone) Yes Yocto 3.4 (Honister) EOL Yocto 3.3 Untested Yocto &lt; 3.3 No Important: When you use the quickstart images for non-volatile setups, it is essential to reconfigure the system and harden it.
 Configuration Items Disable system user (root) password and login Disable SSH login with password Adding a new Linux user with restricted permissions Adding SSH key based authentication Container Secrets Device identity certificates for cloud connection Access credentials for private container registries Device Identity for Cloud Connector Method Implementation Intended use Pre-Shared Symmetric Key Azure IoT Hub Connection String Development Certificates X."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="126">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Security Policy"/>
@@ -6060,7 +6060,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6176,7 +6176,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

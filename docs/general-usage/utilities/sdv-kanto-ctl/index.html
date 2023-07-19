@@ -35,7 +35,7 @@ $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility S
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-kanto-ctl/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="SDV Kanto-Ctl">
 <meta itemprop="description" content="Manage the Kanto Container Management configuration via CLI.
 Note: Requires jq to be installed.
@@ -43,7 +43,7 @@ Features:
 Add and remove container registries (for authentication purposes) Set primitive values in configuration Restart container-management.service on configuration changes Automatically back up configuration file Display changes to user Usage Synposis: ./sdv-kanto-ctl &lt;command&gt; [&lt;options&gt;]
 Full help:
 $ ./sdv-kanto-ctl --help Eclipse Kanto Container Manager Configuration Utility See https://eclipse.dev/kanto/docs/references/containers/container-manager-config/ Usage: ./sdv-kanto-ctl &lt;command&gt; {options} Commands: add-registry -h &lt;hostname&gt; -u &lt;username&gt; -p &lt;password&gt; Adds or replaces a container registry authentication configuration -h or --hostname: Configure the hostname of the container registry (e."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="398">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SDV Kanto-Ctl"/>
@@ -6065,7 +6065,7 @@ The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6181,7 +6181,7 @@ The default is 30 seconds in Kanto, and 10 seconds in the Leda quickstart image.
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

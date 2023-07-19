@@ -31,13 +31,13 @@ In the Leda images, the sdv-kanto-ctl tools allows to easily add authentication 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/container-management/container-registries/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Container Registries">
 <meta itemprop="description" content="When deploying containerized applications, the container runtime will pull container images from a (remote) container registry.
 The pulled container images and their layers are then stored in a local storage.
 Private Container Registries To be able to pull container images, the container runtime needs access to the container registry. Some container registries require authentication. The Kanto Container Manager can be configured to use credentials when accessing remote container registries.
 In the Leda images, the sdv-kanto-ctl tools allows to easily add authentication to the container manager configuration:"><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="180">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Container Registries"/>
@@ -6001,7 +6001,7 @@ for details.</p>
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6117,7 +6117,7 @@ for details.</p>
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

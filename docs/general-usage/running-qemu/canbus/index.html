@@ -33,14 +33,14 @@ ip link add dev vcan0 type vcan ip link set vcan0 up Enabling CAN Bus interfaces
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="CAN Bus">
 <meta itemprop="description" content="Note: The configuration mentioned in this chapter is already enabled in the run-leda.sh script.
 QEMU General documentation about using CAN-Bus in Qemu: https://www.qemu.org/docs/master/system/devices/can.html
 Enabling Virtual CAN Bus interfaces (vcan) No special parameters are necessary for qemu, as vcan is virtual:
 runqemu qemux86-64 nographic slirp qemuparams=&#34;-m 2048&#34; Bring interface up:
 ip link add dev vcan0 type vcan ip link set vcan0 up Enabling CAN Bus interfaces (can) Standalone CAN within Qemu To run a standalone CAN setup, qemu must be instructed to emulate a specific CAN hardware device."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="811">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CAN Bus"/>
@@ -6116,7 +6116,7 @@ ip link show type can
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6232,7 +6232,7 @@ ip link show type can
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

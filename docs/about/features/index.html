@@ -25,10 +25,10 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/about/features/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Features">
 <meta itemprop="description" content="Publish/Subscribe messaging infrastructure for cloud connectivity by Eclipse Kanto local messaging for applications and SDV system components via an MQTT message broker connection to a backend messaging hub, such as Azure IoT Hub or the IoT Suite device identification and authentication for cloud connectivity by using TLS device certificates Container runtime An OCI-compliant container orchestration for vehicle applications and services by Eclipse Kanto containerd.io as the default container runtime. Both layers of container runtimes can be exchanged with other implementations A Vehicle Update Manager to orchestrate deployments of Vehicle Applications, configurations and base operating system updates An example Vehicle Seat Service implementation to showcase the Eclipse Velocitas programming model, the Eclipse Kuksa."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="276">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Features"/>
@@ -6004,7 +6004,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6120,7 +6120,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

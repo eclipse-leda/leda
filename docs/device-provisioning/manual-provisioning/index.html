@@ -27,11 +27,11 @@ Generate the device certificate (eg using openssl) and sign it with your CA. Log
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/manual-provisioning/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Manual Provisioning">
 <meta itemprop="description" content="Follow these steps to do a manual device provisioning:
 Generate the device certificate (eg using openssl) and sign it with your CA. Log in to Azure Portal, Go to Azure Iot Hub and create a new device Select the proper authentication type, e.g. X.509 Self-signed or X.509 CA Signed Copy the device certificate (cert file and key file) to the device to /data/var/certificate Restart cloud connector service or container. Create a device in Azure IoT Hub For the device to be connectable, it needs to be known to the cloud service first."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="352">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Manual Provisioning"/>
@@ -6025,7 +6025,7 @@ or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6141,7 +6141,7 @@ or via ssh port <code>22</code> on the IP address <code>192.168.7.2</code> (Qemu
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

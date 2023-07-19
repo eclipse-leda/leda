@@ -29,12 +29,12 @@ $ cargo new talk-to-kanto Dependencies The most feature-rich gRPC library for Ru
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-01-03T17:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Communicating with Кanto-CM via gRPC">
 <meta itemprop="description" content="Kanto container management binds to a unix socket (default: /run/container-management/container-management.sock) and exposes a gRPC interface which can be used to obtain all the functionality of the kanto-cm cli programatically.
 The easiest way to access this API through Rust is by creating a new Rust crate:
 $ cargo new talk-to-kanto Dependencies The most feature-rich gRPC library for Rust right now is tonic. Add the following to your Cargo.toml to make tonic and the tokio async runtime available to your crate."><meta itemprop="datePublished" content="2023-01-03T17:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="518">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Communicating with Кanto-CM via gRPC"/>
@@ -6058,7 +6058,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6174,7 +6174,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

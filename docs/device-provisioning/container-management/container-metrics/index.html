@@ -29,12 +29,12 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/container-management/container-metrics/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Container Metrics">
 <meta itemprop="description" content="Container Metrics Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events. This is done by sending a request to the topic command//&lt;namespaceId&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/req/&lt;correlationId&gt;/request:
 Enable Container Metrics with a frequency of 5s: { &#34;topic&#34;: &#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;, &#34;headers&#34;: { &#34;timeout&#34;: &#34;10&#34;, &#34;response-required&#34;: true, &#34;content-type&#34;: &#34;application/json&#34;, &#34;correlation-id&#34;: &#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34; }, &#34;path&#34;: &#34;/features/Metrics/inbox/messages/request&#34;, &#34;value&#34;: { &#34;frequency&#34;: &#34;5s&#34; } } Example command line:
 mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m &#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;5s&#34;}}&#39; Container Metrics answers with an additional message for each container in the topic e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers { &#34;topic&#34;: &#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;, &#34;headers&#34;: { &#34;response-required&#34;: false }, &#34;path&#34;: &#34;/features/Container:&lt;uuid&gt;&#34;, &#34;value&#34;: { &#34;definition&#34;: [ &#34;com."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="194">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Container Metrics"/>
@@ -6124,7 +6124,7 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6240,7 +6240,7 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

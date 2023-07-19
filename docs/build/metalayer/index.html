@@ -29,12 +29,12 @@ kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structu
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/metalayer/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="Metalayer">
 <meta itemprop="description" content="Initializing BitBake environment Initialize the build environment and start the build for QEMU:
 kas build kas/leda-qemux86-64.yaml Building specific recipes General usage:
 kas build kas/leda-qemux86-64.yaml --target &lt;recipename&gt; Metalayer Structure meta-leda-bsp \-- classes // Reusable BitBake Classes, eg for offline container image pre-caching \-- conf // Distribution specific configurations, eg version numbers, release codename \-- recipes-bsp // Board Support Packages, eg specifics for QEMU and Raspberry Pi meta-leda-components \-- classes // Reusable BitBake Classes, eg for offline container image pre-caching \-- conf // Distribution specific configurations, eg version numbers, release codename \-- recipes-sdv |-- eclipse-leda // Build recipes for Eclipse Leda Incubator components |-- eclipse-kuksa // Build recipes for Eclipse Kuksa |-- eclipse-cyclonedds // Build recipes for Eclipse CycloneDDS |-- northstar // Build recipes for Northstar Container Runtime |-- packagegroups // Grouping packages \-- sdv-base // SDV Base Bundle: fstab, can0."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="494">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Metalayer"/>
@@ -6056,7 +6056,7 @@ if (!doNotTrack) {
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6172,7 +6172,7 @@ if (!doNotTrack) {
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

@@ -31,13 +31,13 @@ Azure IoT Hub Connection String Device Certificates Azure IoT Device Provisionin
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-provision/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="SDV Provision">
 <meta itemprop="description" content="The provisioning helper script can be used to manually perform a device provisioning with a cloud backend.
 It is meant as a convenient tool for developers, who wish to connect their device to a selfmanaged cloud backend directly. In a production environment, the device provisioning functionality is implemented either by the Cloud Connector component.
 The provisioning script currently supports the following backend and authentication options:
 Azure IoT Hub Connection String Device Certificates Azure IoT Device Provisioning Service Device Certificates Usage The sdv-provision script is interactive and asks for the type of backend and authentication option:"><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="368">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SDV Provision"/>
@@ -6058,7 +6058,7 @@ In a production environment, the device provisioning functionality is implemente
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6174,7 +6174,7 @@ In a production environment, the device provisioning functionality is implemente
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {

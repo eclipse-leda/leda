@@ -27,11 +27,11 @@ Usage As a convenient tool, sdv-ctr-exec allows the simple execution of arbitrar
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-07-18T15:17:02+03:00" />
+<meta property="article:modified_time" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="name" content="SDV Container Exec">
 <meta itemprop="description" content="The sdv-ctr-exec wrapper allows to execute arbitrary user commands in existing containers. Kanto Container Management cli tool (kanto-cm) only allows to manage the lifecycle of a container, but does not allow to specify or override the entrypoint or command definitions of an existing container. The ctr command line tool of containerd allows the execution of additional tasks in a running container.
 Usage As a convenient tool, sdv-ctr-exec allows the simple execution of arbitrary commands inside of containers."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-07-18T15:17:02+03:00" />
+<meta itemprop="dateModified" content="2023-07-19T09:55:34+03:00" />
 <meta itemprop="wordCount" content="285">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SDV Container Exec"/>
@@ -6027,7 +6027,7 @@ This is especially useful for non-service-containers, or containers which have a
     #consent-overlay input {margin-top: 0.3rem;}
     #consent-overlay label {display: block;}
     #consent-overlay .btn {margin-right: 0.5rem;}
-    #consent-overlay button.btn.save-consent {background: rgba(0,0,0,0.6); font-weight: normal;}
+    #consent-overlay button.btn.save-consent {background: rgba(87, 87, 87, 0.6); font-weight: normal;}
 
     @media (max-width: 767px) {
         #consent-overlay > div {padding: 1.75rem 1rem;}
@@ -6143,7 +6143,7 @@ This is especially useful for non-service-containers, or containers which have a
 
     var elements = document.querySelectorAll('#consent-overlay input:not([disabled])');
     elements.forEach(function(el) {
-        el.checked = false;
+        el.checked = true;
     });
 
     if(readCookie('consent-settings')) {
