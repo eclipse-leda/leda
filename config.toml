@@ -22,7 +22,7 @@ enableMissingTranslationPlaceholders = true
 # disableKinds = ["taxonomy", "taxonomyTerm"]
 
 # https://discourse.gohugo.io/t/config-is-services-googleanalytics-id-an-alias-for-googleanalytics/39469
-GoogleAnalytics= "G-6W31KMZWGE"
+# GoogleAnalytics= "G-6W31KMZWGE"
 
 # You can add your own taxonomies
 [taxonomies]
@@ -91,10 +91,10 @@ section = ["HTML", "print", "RSS"]
 
 [params]
 # if false, all analytics (ga or otherwise) + consent form are disabled
-EnableAnalyticsScripts = true
+EnableAnalyticsScripts = false
 
 # Google Analytics 4
-GoogleAnalyticsID = "G-6W31KMZWGE"
+# GoogleAnalyticsID = "G-6W31KMZWGE"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
