@@ -179,8 +179,6 @@ This documentation can, however, be quite complicated. Concise, self-contained e
 
 Irrespective of your bootloader, you need to provide a RAUC system.conf file describing the slots, the bootloader, certificates, etc. This is best explained via an example: [meta-leda/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf).
 
-### RAUC certificates
-
 
 ### GRUB
 
