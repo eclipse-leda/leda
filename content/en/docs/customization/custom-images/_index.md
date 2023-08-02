@@ -177,17 +177,21 @@ This documentation can, however, be quite complicated. Concise, self-contained e
 
 ### The RAUC system config file
 
-Irrespective of your bootloader, you need to provide a RAUC system.conf file describing the slots, the bootloader, certificates, etc. This is best explained via an example: [meta-leda/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf)
+Irrespective of your bootloader, you need to provide a RAUC system.conf file describing the slots, the bootloader, certificates, etc. This is best explained via an example: [meta-leda/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-bsp/recipes-bsp/rauc/files/qemuarm64/system.conf).
+
+### RAUC certificates
+
 
 ### GRUB
 
-The only Leda quickstart image that uses GRUB as a bootloader is for qemux86_64. It directly uses the [meta-rauc-community/meta-rauc-qemux86/](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-qemux86) meta-layer.
+All Leda-Quickstart images are U-Boot based and thus, they cannot provide examples for GRUB integration.
+The [meta-rauc-community/meta-rauc-qemux86/](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-qemux86) meta-layer however has an example GRUB integration of RAUC and it is recommended that you start there if you decide to use GRUB.
 
 ### U-Boot
 
 *Note: The following sub-sections are based on the official [U-Boot source](https://source.denx.de/u-boot/u-boot) which the OE recipes use. Your BSP may provide another hardware-specific fork of U-Boot that may or may not be entirely compatible with this integration guide. (e.g. fw_utils not being available)*
 
-The rpi4-64 target, similar to qemux86_64, directly uses [meta-rauc-community/meta-rauc-raspberrypi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi) which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot-based targets is not available and has to be manually created. That is why, [meta-rauc-community/meta-rauc-sunxi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi) might provide a better example in a more general case.
+The rpi4-64 target, for example, directly uses [meta-rauc-community/meta-rauc-raspberrypi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-raspberrypi) which also has a great README, explaining the details of the integration. This meta-layer includes quite a lot of rpi4-64 specific recipes and depends on the fact that the meta-raspberrypi layer provides a recipe for custom boot scripts. Such a recipe, in general, for U-Boot-based targets is not available and has to be manually created. That is why, [meta-rauc-community/meta-rauc-sunxi](https://github.com/rauc/meta-rauc-community/tree/master/meta-rauc-sunxi) might provide a better example in a more general case.
 
 The Leda quickstart images that use U-boot as a bootloader are based on the ideas in `meta-rauc-sunxi`. We will now go into more detail on how to integrate such a U-Boot target that requires a more "from-scratch" integration.
 
