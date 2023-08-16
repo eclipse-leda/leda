@@ -1,7 +1,7 @@
 ---
 title: "Download latest release"
 date: 2022-05-09T14:24:56+05:30
-weight: 1
+weight: 2
 ---
 
 - [Milestone 0.1.0-M1](/leda/docs/about/releases/0.1.0/leda-0.1.0-m1/)
