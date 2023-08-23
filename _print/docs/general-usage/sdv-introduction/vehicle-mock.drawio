@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e">
+    <diagram id="n-y3Garob8GmoL7d-FYO" name="Page-1">
+        <mxGraphModel dx="569" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Vehicle Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3A7FC0;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="80" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Kuksa.val Databroker" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2EA992;strokeColor=#2EA992;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="213" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Vehicle Mock Service" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="edgeStyle=none;html=1;fillColor=#d5e8d4;strokeColor=#2EA992;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="243" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="write and read vehicle signals" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="11" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0635" y="2" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="write vehicle signals and reacting to signal changes" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="3" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="530" y="283" as="sourcePoint"/>
+                        <mxPoint x="630" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="Mock Description" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="680" y="320" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=classic;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="310" as="sourcePoint"/>
+                        <mxPoint x="560" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="Configures" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="22">
+                    <mxGeometry x="-0.075" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
