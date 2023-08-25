@@ -1,97 +1,89 @@
 ---
 title: "Configuration"
-date: 2022-072109T14:24:56+05:30
+date: 2023-08-25T17:03:19+0300
 weight: 1
 ---
 
-**Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM**
+## Config file
 
-The vehicle update manager container requires the following configuration:
-- Container needs to run in **privileged mode** to enable automatic reboot.
+The default location for the VUM service on the Leda Distro image can be found at `/etc/update-manager/config.json`.
+The location of the config file is specified with the `--cfg-file [PATH]` flag when starting the binary.
 
-  *Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.*
+## Minimal configuration
 
-- **Connection to MQTT broker**, defaults to `THINGS_CONN_BROKER=tcp://mosquitto:1883`
-- **Enable container orchestration** feature: `THINGS_FEATURES=ContainerOrchestrator`
+A minimal configuration (that is used by the Leda Distro) is the following:
 
-Optional configuration options are:
-
-`SELF_UPDATE_ENABLE_REBOOT=true`
-: Enable automatic reboot after a successfull application of the update bundle.
-
-`SELF_UPDATE_TIMEOUT=30m`
-: Timeout for downloading and installing an update bundle.
-
-
-# Example Deployment Specification
-
+```json
+{
+    "log": {
+      "logFile": "/var/log/update-manager/update-manager.log"
+    },
+    "domain": "vehicle",
+    "agents": {
+        "containers": {
+            "name": "containers",
+            "rebootRequired": false,
+            "readTimeout": "30s"
+        },
+        "self-update": {
+            "name": "self-update",
+            "rebootRequired": true,
+            "readTimeout": "30s"
+        }
+    },
+    "thingsEnabled": false
+}
 ```
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: vehicle-update-manager
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: vehicle-update-manager
-rules:
-- apiGroups:
-  - '*'
-  resources:
-  - '*'
-  verbs:
-  - '*'
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: vehicle-update-manager
-subjects:
-- kind: ServiceAccount
-  name: vehicle-update-manager
-  namespace: default
-roleRef:
-  kind: ClusterRole
-  name: vehicle-update-manager
-  apiGroup: rbac.authorization.k8s.io
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: vehicle-update-manager
-spec:
-  selector:
-    matchLabels:
-      component: vehicle-update-manager
-  template:
-    metadata:
-      labels:
-        component: vehicle-update-manager
-    spec:
-      serviceAccountName: vehicle-update-manager
-      containers:
-        - name: vehicle-update-manager
-          image: <repository>/vehicleupdatemanager:<tag>
-          imagePullPolicy: IfNotPresent
-          securityContext:
-            privileged: true
-          env:
-            - name: SELF_UPDATE_TIMEOUT
-              value: 30m
-            - name: SELF_UPDATE_ENABLE_REBOOT
-              value: "true"
-            - name: THINGS_CONN_BROKER
-              value: tcp://mosquitto:1883
-            - name: THINGS_FEATURES
-              value: ContainerOrchestrator
-          volumeMounts:
-          - mountPath: /proc
-            name: proc
-      volumes:
-      - hostPath:
-          path: /proc
-        name: proc
-      imagePullSecrets:
-        - name: ghcr-io
+
+Where:
+
+- "domain": specifies the prefix for the MQTT topic, e.g. in this case it's set to `vehicle`, so all VUM related topic are prefixed with `vehicleupdate/[TOPIC]`
+- "agents": configures the update agents that would be available to VUM. Here the "readTimeout" key specifies how long should VUM wait for a response from the configured agent. 
+- "thingsEnabled": whether VUM should use the Kanto Things API for communication or not.
+
+## Full configuration
+
+An example configuration file for VUM with all available options is the following one:
+
+```json
+{
+  "log": {
+    "logFile": "log/update-manager.log",
+    "logLevel": "ERROR",
+    "logFileSize": 3,
+    "logFileCount": 6,
+    "logFileMaxAge": 29
+  },
+  "connection": {
+    "broker":"www",
+    "keepAlive": 500,
+    "disconnectTimeout": 500,
+    "username":"username",
+    "password":"pass",
+    "connectTimeout": 500,
+    "acknowledgeTimeout": 500,
+    "subscribeTimeout": 500,
+    "unsubscribeTimeout": 500
+  },
+  "domain": "vehicle",
+  "thingsEnabled": false,
+  "rebootEnabled": true,
+  "rebootAfter": "1m",
+  "reportFeedbackInterval": "2m",
+  "currentStateDelay": "1m",
+  "phaseTimeout": "2m",
+  "agents": {
+    "self-update": {
+      "rebootRequired": false,
+      "readTimeout": "20s"
+    },
+    "containers": {
+      "rebootRequired": true,
+      "readTimeout": "30s"
+    }
+  }
+}
 ```
+
+Here keys (other the ones above) are self-explanatory. The "connection" section object specifies configuration options for the MQTT connection.
+
