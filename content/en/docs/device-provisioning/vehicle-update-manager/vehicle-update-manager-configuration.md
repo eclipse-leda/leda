@@ -86,4 +86,4 @@ An example configuration file for VUM with all available options is the followin
 ```
 
 Here keys (other the ones above) are self-explanatory. The "connection" section object specifies configuration options for the MQTT connection.
-
+Allowed log leves (in order of increasing verbosity)are: ERROR, WARN, INFO, DEBUG, TRACE.
