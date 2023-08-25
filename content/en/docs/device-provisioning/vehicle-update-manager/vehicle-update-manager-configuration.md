@@ -38,7 +38,7 @@ A minimal configuration (that is used by the Leda Distro) is the following:
 Where:
 
 - "domain": specifies the prefix for the MQTT topic, e.g. in this case it's set to `vehicle`, so all VUM related topic are prefixed with `vehicleupdate/[TOPIC]`
-- "agents": configures the update agents that would be available to VUM. Here the "readTimeout" key specifies how long should VUM wait for a response from the configured agent. 
+- "agents": configures the update agents that would be available to VUM. Here the "readTimeout" key specifies how long should VUM wait for a response from the configured agent.
 - "thingsEnabled": whether VUM should use the Kanto Things API for communication or not.
 
 ## Full configuration
