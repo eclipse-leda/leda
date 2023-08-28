@@ -1,0 +1,387 @@
+{
+  "activityId": "activity-id-leda-containers",
+  "payload": {
+    "domains": [
+      {
+        "id": "containers",
+        "config": [],
+        "components": [
+          {
+            "id": "databroker",
+            "version": "0.3.0",
+            "config": [
+              {
+                "key": "image",
+                "value": "ghcr.io/eclipse/kuksa.val/databroker:0.3.0"
+              },
+              {
+                "key": "env",
+                "value": "RUST_LOG=info"
+              },
+              {
+                "key": "env",
+                "value": "vehicle_data_broker=debug"
+              },
+              {
+                "key": "privileged",
+                "value": "false"
+              },
+              {
+                "key": "network",
+                "value": "bridge"
+              },
+              {
+                "key": "port",
+                "value": "localhost:55555:30555-30555/tcp"
+              },
+              {
+                "key": "restartPolicy",
+                "value": "unless-stopped"
+              },
+              {
+                "key": "restartMaxRetries",
+                "value": "0"
+              },
+              {
+                "key": "restartTimeout",
+                "value": "0"
+              },
+              {
+                "key": "logDriver",
+                "value": "json-file"
+              },
+              {
+                "key": "logMaxFiles",
+                "value": "2"
+              },
+              {
+                "key": "logMaxSize",
+                "value": "1M"
+              },
+              {
+                "key": "logMode",
+                "value": "blocking"
+              },
+              {
+                "key": "terminal",
+                "value": "false"
+              },
+              {
+                "key": "interactive",
+                "value": "false"
+              }
+            ]
+          },
+          {
+            "id": "feedercan",
+            "version": "v0.1.1",
+            "config": [
+              {
+                "key": "image",
+                "value": "ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1"
+              },
+              {
+                "key": "env",
+                "value": "VEHICLEDATABROKER_DAPR_APP_ID=databroker"
+              },
+              {
+                "key": "env",
+                "value": "VDB_ADDRESS=databroker:55555"
+              },
+              {
+                "key": "env",
+                "value": "USECASE=databroker"
+              },
+              {
+                "key": "env",
+                "value": "LOG_LEVEL=info"
+              },
+              {
+                "key": "env",
+                "value": "databroker=info"
+              },
+              {
+                "key": "env",
+                "value": "broker_client=info"
+              },
+              {
+                "key": "env",
+                "value": "dbcfeeder=info"
+              },
+              {
+                "key": "privileged",
+                "value": "false"
+              },
+              {
+                "key": "network",
+                "value": "bridge"
+              },
+              {
+                "key": "host",
+                "value": "databroker:container_databroker-host"
+              },
+              {
+                "key": "restartPolicy",
+                "value": "unless-stopped"
+              },
+              {
+                "key": "restartMaxRetries",
+                "value": "0"
+              },
+              {
+                "key": "restartTimeout",
+                "value": "0"
+              },
+              {
+                "key": "logDriver",
+                "value": "json-file"
+              },
+              {
+                "key": "logMaxFiles",
+                "value": "2"
+              },
+              {
+                "key": "logMaxSize",
+                "value": "1M"
+              },
+              {
+                "key": "logMode",
+                "value": "blocking"
+              },
+              {
+                "key": "terminal",
+                "value": "false"
+              },
+              {
+                "key": "interactive",
+                "value": "false"
+              }
+            ]
+          },
+          {
+            "id": "hvacservice-example",
+            "version": "v0.1.0",
+            "config": [
+              {
+                "key": "image",
+                "value": "ghcr.io/eclipse/kuksa.val.services/hvac_service:v0.1.0"
+              },
+              {
+                "key": "env",
+                "value": "VEHICLEDATABROKER_DAPR_APP_ID=databroker"
+              },
+              {
+                "key": "env",
+                "value": "VDB_ADDRESS=databroker:55555"
+              },
+              {
+                "key": "privileged",
+                "value": "false"
+              },
+              {
+                "key": "network",
+                "value": "bridge"
+              },
+              {
+                "key": "host",
+                "value": "databroker:container_databroker-host"
+              },
+              {
+                "key": "restartPolicy",
+                "value": "unless-stopped"
+              },
+              {
+                "key": "restartMaxRetries",
+                "value": "0"
+              },
+              {
+                "key": "restartTimeout",
+                "value": "0"
+              },
+              {
+                "key": "logDriver",
+                "value": "json-file"
+              },
+              {
+                "key": "logMaxFiles",
+                "value": "2"
+              },
+              {
+                "key": "logMaxSize",
+                "value": "1M"
+              },
+              {
+                "key": "logMode",
+                "value": "blocking"
+              },
+              {
+                "key": "terminal",
+                "value": "false"
+              },
+              {
+                "key": "interactive",
+                "value": "false"
+              }
+            ]
+          },
+          {
+            "id": "seatservice-example",
+            "version": "v0.3.0",
+            "config": [
+              {
+                "key": "image",
+                "value": "ghcr.io/boschglobal/kuksa.val.services/seat_service:v0.3.0"
+              },
+              {
+                "key": "env",
+                "value": "BROKER_ADDR=databroker:55555"
+              },
+              {
+                "key": "env",
+                "value": "RUST_LOG=info"
+              },
+              {
+                "key": "env",
+                "value": "vehicle_data_broker=info"
+              },
+              {
+                "key": "privileged",
+                "value": "false"
+              },
+              {
+                "key": "network",
+                "value": "bridge"
+              },
+              {
+                "key": "port",
+                "value": "localhost:50051:30051-30051/tcp"
+              },
+              {
+                "key": "host",
+                "value": "databroker:container_databroker-host"
+              },
+              {
+                "key": "restartPolicy",
+                "value": "unless-stopped"
+              },
+              {
+                "key": "restartMaxRetries",
+                "value": "0"
+              },
+              {
+                "key": "restartTimeout",
+                "value": "0"
+              },
+              {
+                "key": "logDriver",
+                "value": "json-file"
+              },
+              {
+                "key": "logMaxFiles",
+                "value": "2"
+              },
+              {
+                "key": "logMaxSize",
+                "value": "1M"
+              },
+              {
+                "key": "logMode",
+                "value": "blocking"
+              }
+            ]
+          },
+          {
+            "id": "cloudconnector",
+            "version": "main-47c01227a620a3dbd85b66e177205c06c0f7a52e",
+            "config": [
+              {
+                "key": "image",
+                "value": "ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector:main-47c01227a620a3dbd85b66e177205c06c0f7a52e"
+              },
+              {
+                "key": "mount",
+                "value": "/data/var/certificates/device.crt:/device.crt:rprivate"
+              },
+              {
+                "key": "mount",
+                "value": "/data/var/certificates/device.key:/device.key:rprivate"
+              },
+              {
+                "key": "env",
+                "value": "CERT_FILE=/device.crt"
+              },
+              {
+                "key": "env",
+                "value": "KEY_FILE=/device.key"
+              },
+              {
+                "key": "env",
+                "value": "LOCAL_ADDRESS=tcp://mosquitto:1883"
+              },
+              {
+                "key": "env",
+                "value": "LOG_FILE="
+              },
+              {
+                "key": "env",
+                "value": "LOG_LEVEL=INFO"
+              },
+              {
+                "key": "env",
+                "value": "CA_CERT_PATH=/app/iothub.crt"
+              },
+              {
+                "key": "env",
+                "value": "MESSAGE_MAPPER_CONFIG=/app/message-mapper-config.json"
+              },
+              {
+                "key": "env",
+                "value": "ALLOWED_LOCAL_TOPICS_LIST=cloudConnector/#"
+              },
+              {
+                "key": "privileged",
+                "value": "false"
+              },
+              {
+                "key": "network",
+                "value": "bridge"
+              },
+              {
+                "key": "host",
+                "value": "mosquitto:host_ip"
+              },
+              {
+                "key": "restartPolicy",
+                "value": "unless-stopped"
+              },
+              {
+                "key": "restartMaxRetries",
+                "value": "0"
+              },
+              {
+                "key": "restartTimeout",
+                "value": "0"
+              },
+              {
+                "key": "logDriver",
+                "value": "json-file"
+              },
+              {
+                "key": "logMaxFiles",
+                "value": "2"
+              },
+              {
+                "key": "logMaxSize",
+                "value": "1M"
+              },
+              {
+                "key": "logMode",
+                "value": "blocking"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

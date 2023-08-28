@@ -25,7 +25,7 @@ The general structure of the update message is as follows:
 ```json
 {
   "activityId": "correlation-activity-uuid",
-  "timestamp": "timestamp",
+  "timestamp": 123456789,
   "payload": {
     "domains": [
       {
