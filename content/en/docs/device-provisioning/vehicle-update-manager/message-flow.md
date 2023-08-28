@@ -4,21 +4,21 @@ date: 2023-08-28T09:23:11+0300
 weight: 2
 ---
 
-> Note: This part of the Leda OSS stack is still in active development and there might be diffrences between the documented and the current version.
+> Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.
 
-As described in [Vehicle Update Manager](../) takes a full update message for all domains, identifies the domains affected, current component verison,
-actions to be taken, etc. and delegates those actions to the correct update agent (e.g. self-update/container update).
+As described in [Vehicle Update Manager](../) takes a full update message for all domains, identifies the domains affected, the current component versions,
+actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).
 
 The update manager (UM) in Leda-distro is configured as specified in [UM's config.json](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/update-manager/config.json),
-which on the final image is usually located in `/etc/update-manager/config.json`. The stantard two domains supported are _containers_ and _self-update_,
-with the latter requiring a reboot on succesful update.
+which on the final image is usually located in `/etc/update-manager/config.json`. The standard two domains supported are _containers_ and _self-update_,
+with the latter requiring a reboot on a successful update.
 
 > Note: UM allows a custom prefix for all of its topics to be defined ("domain") in its `config.json` On the Leda Distro image the default prefix is "**vehicle**".
 > If you decide to change it, replace "**vehicle**" in all MQTT topics mentioned below with your custom prefix.
 
 A full specification of UM's API and the relevant MQTT topics can be found [in its documentation](https://github.com/eclipse-kanto/update-manager/blob/main/docs/update-agent-api.md).
 
-## Update message
+## Update Message
 
 The general structure of the update message is as follows:
 
@@ -49,9 +49,9 @@ The general structure of the update message is as follows:
 }
 ```
 
-Where multiple domains and components per domain (each with multiple configuration key-value pairs) are allowed. To trigger a desired-state based update, publish
-your full update message on the `vehicleupdate/desiredstate` MQTT topic. When UM receives your message, it would split it accross the required domains and
-publish messages to the topics that the [domain-specific agents are monitoring](../).
+Where multiple domains and components per domain (each with multiple configuration key-value pairs) are allowed. To trigger an update, publish
+your full update message on the `vehicleupdate/desiredstate` MQTT topic. When UM receives your message, it splits it across the required domains and
+publishes messages to the topics that the [domain-specific agents are monitoring](../).
 
 Similarly, update progress can be monitored on the `vehicleupdate/desiredstatefeedback` topic.
 
@@ -121,4 +121,4 @@ The real strength of UM is deploying updates accross multiple domains with a sin
 
 And publish the message on the MQTT topic `vehicleupdate/desiredstate`. UM will take actions to identify the affected update domains and publish the correct
 messages on the respective topics. All feedback from the specific update agents will be forwarded back to the UM and published on the `vehicleupdate/desiredstatefeedback`
-topic. All these messages will use the same activityId so they can be correlated with eachother.
+topic. All these messages will use the same activityId so they can be correlated with each other.
