@@ -62,4 +62,63 @@ The only difference here is that when you publish a self-update message on the `
 UM will automatically take care to forward your message to the self-update agent, including
 forwarding back the update feedback on the `vehicleupdate/`-namespaced topics.
 
-## Container-update (desired state)
+## Containers update (desired state)
+
+Similarly to the self-update, you should start by understanding the operation of the [Container Update Agent](../../container-management/container-update-agent).
+After constructing the desired state message you can publish it on the `vehicleupdate/desiredstate` and UM will, again, forward it to CUA automatically,
+based on the domain specified in the update message.
+
+## Combined update messages
+
+The real strength of UM is deploying updates accross multiple domains with a single update message. For example, if you'd like to deploy an image update bundle
+(self-update) and a single `hello-world` container image with the environment variable `FOO=BAR` set, you can construct the following message:
+
+```json
+{
+   "activityId":"random-uuid-as-string",
+   "timestamp":123456789,
+   "payload":{
+      "domains":[
+         {
+            "id":"self-update",
+            "components":[
+               {
+                  "id":"os-image",
+                  "version":"${VERSION_ID}",
+                  "config":[
+                     {
+                        "key":"image",
+                        "value":"https://leda-bundle-server/sdv-rauc-bundle-minimal-qemux86-64.raucb"
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "id":"containers",
+            "config":[],
+            "components":[
+               {
+                  "id":"hello-world",
+                  "version":"latest",
+                  "config":[
+                     {
+                        "key":"image",
+                        "value":"docker.io/library/hello-world:latest"
+                     },
+                     {
+                        "key":"env",
+                        "value":"FOO=BAR"
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}
+```
+
+And publish the message on the MQTT topic `vehicleupdate/desiredstate`. UM will take actions to identify the affected update domains and publish the correct
+messages on the respective topics. All feedback from the specific update agents will be forwarded back to the UM and published on the `vehicleupdate/desiredstatefeedback`
+topic. All these messages will use the same activityId so they can be correlated with eachother.

@@ -65,7 +65,7 @@ specify:
                      },
                      {
                         "key": "env",
-                        "value" "FOO=BAR"
+                        "value": "FOO=BAR"
                      }
                   ]
                }
