@@ -19,40 +19,28 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
 <title>Configuration | Eclipse Leda Documentation</title>
-<meta name="description" content="Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM
-The vehicle update manager container requires the following configuration:
-Container needs to run in privileged mode to enable automatic reboot.
-Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.
-Connection to MQTT broker, defaults to THINGS_CONN_BROKER=tcp://mosquitto:1883
-Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator">
+<meta name="description" content="Config file The default location for the VUM service on the Leda Distro image can be found at /etc/update-manager/config.json. The location of the config file is specified with the --cfg-file [PATH] flag when starting the binary.
+Minimal configuration A minimal configuration (that is used by the Leda Distro) is the following:
+{ &amp;#34;log&amp;#34;: { &amp;#34;logFile&amp;#34;: &amp;#34;/var/log/update-manager/update-manager.log&amp;#34; }, &amp;#34;domain&amp;#34;: &amp;#34;vehicle&amp;#34;, &amp;#34;agents&amp;#34;: { &amp;#34;containers&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;containers&amp;#34;, &amp;#34;rebootRequired&amp;#34;: false, &amp;#34;readTimeout&amp;#34;: &amp;#34;30s&amp;#34; }, &amp;#34;self-update&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;self-update&amp;#34;, &amp;#34;rebootRequired&amp;#34;: true, &amp;#34;readTimeout&amp;#34;: &amp;#34;30s&amp;#34; } }, &amp;#34;thingsEnabled&amp;#34;: false } Where:">
 <meta property="og:title" content="Configuration" />
-<meta property="og:description" content="Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM
-The vehicle update manager container requires the following configuration:
-Container needs to run in privileged mode to enable automatic reboot.
-Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.
-Connection to MQTT broker, defaults to THINGS_CONN_BROKER=tcp://mosquitto:1883
-Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator" />
+<meta property="og:description" content="Config file The default location for the VUM service on the Leda Distro image can be found at /etc/update-manager/config.json. The location of the config file is specified with the --cfg-file [PATH] flag when starting the binary.
+Minimal configuration A minimal configuration (that is used by the Leda Distro) is the following:
+{ &#34;log&#34;: { &#34;logFile&#34;: &#34;/var/log/update-manager/update-manager.log&#34; }, &#34;domain&#34;: &#34;vehicle&#34;, &#34;agents&#34;: { &#34;containers&#34;: { &#34;name&#34;: &#34;containers&#34;, &#34;rebootRequired&#34;: false, &#34;readTimeout&#34;: &#34;30s&#34; }, &#34;self-update&#34;: { &#34;name&#34;: &#34;self-update&#34;, &#34;rebootRequired&#34;: true, &#34;readTimeout&#34;: &#34;30s&#34; } }, &#34;thingsEnabled&#34;: false } Where:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/vehicle-update-manager-configuration/" /><meta property="article:section" content="docs" />
-
-<meta property="article:modified_time" content="2023-08-23T08:20:34+02:00" />
+<meta property="article:published_time" content="2023-08-25T17:03:19+03:00" />
+<meta property="article:modified_time" content="2023-08-29T12:10:51+03:00" />
 <meta itemprop="name" content="Configuration">
-<meta itemprop="description" content="Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM
-The vehicle update manager container requires the following configuration:
-Container needs to run in privileged mode to enable automatic reboot.
-Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.
-Connection to MQTT broker, defaults to THINGS_CONN_BROKER=tcp://mosquitto:1883
-Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator">
-<meta itemprop="dateModified" content="2023-08-23T08:20:34+02:00" />
-<meta itemprop="wordCount" content="221">
+<meta itemprop="description" content="Config file The default location for the VUM service on the Leda Distro image can be found at /etc/update-manager/config.json. The location of the config file is specified with the --cfg-file [PATH] flag when starting the binary.
+Minimal configuration A minimal configuration (that is used by the Leda Distro) is the following:
+{ &#34;log&#34;: { &#34;logFile&#34;: &#34;/var/log/update-manager/update-manager.log&#34; }, &#34;domain&#34;: &#34;vehicle&#34;, &#34;agents&#34;: { &#34;containers&#34;: { &#34;name&#34;: &#34;containers&#34;, &#34;rebootRequired&#34;: false, &#34;readTimeout&#34;: &#34;30s&#34; }, &#34;self-update&#34;: { &#34;name&#34;: &#34;self-update&#34;, &#34;rebootRequired&#34;: true, &#34;readTimeout&#34;: &#34;30s&#34; } }, &#34;thingsEnabled&#34;: false } Where:"><meta itemprop="datePublished" content="2023-08-25T17:03:19+03:00" />
+<meta itemprop="dateModified" content="2023-08-29T12:10:51+03:00" />
+<meta itemprop="wordCount" content="262">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuration"/>
-<meta name="twitter:description" content="Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM
-The vehicle update manager container requires the following configuration:
-Container needs to run in privileged mode to enable automatic reboot.
-Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.
-Connection to MQTT broker, defaults to THINGS_CONN_BROKER=tcp://mosquitto:1883
-Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator"/>
+<meta name="twitter:description" content="Config file The default location for the VUM service on the Leda Distro image can be found at /etc/update-manager/config.json. The location of the config file is specified with the --cfg-file [PATH] flag when starting the binary.
+Minimal configuration A minimal configuration (that is used by the Leda Distro) is the following:
+{ &#34;log&#34;: { &#34;logFile&#34;: &#34;/var/log/update-manager/update-manager.log&#34; }, &#34;domain&#34;: &#34;vehicle&#34;, &#34;agents&#34;: { &#34;containers&#34;: { &#34;name&#34;: &#34;containers&#34;, &#34;rebootRequired&#34;: false, &#34;readTimeout&#34;: &#34;30s&#34; }, &#34;self-update&#34;: { &#34;name&#34;: &#34;self-update&#34;, &#34;rebootRequired&#34;: true, &#34;readTimeout&#34;: &#34;30s&#34; } }, &#34;thingsEnabled&#34;: false } Where:"/>
 
 
 
@@ -92,7 +80,7 @@ Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator"/>
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +104,7 @@ Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator"/>
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -333,6 +321,10 @@ Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator"/>
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"/>
   <label for="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"><a href="/leda/docs/device-provisioning/container-management/cloud-connectivity/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity"><span class="">Cloud Connectivity</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-check"><a href="/leda/docs/device-provisioning/container-management/container-update-agent/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent"><span class="">Container Update Agent</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-check"/>
@@ -5755,7 +5747,16 @@ Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator"/>
 
 </div>
 
-            
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#config-file">Config file</a></li>
+    <li><a href="#minimal-configuration">Minimal configuration</a></li>
+    <li><a href="#full-configuration">Full configuration</a></li>
+  </ul>
+</nav>
+      </div>
+    
             
 	
           </aside>
@@ -5782,97 +5783,78 @@ Enable container orchestration feature: THINGS_FEATURES=ContainerOrchestrator"/>
 	<header class="article-meta">
 		
   </header>
-	<p><strong>Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM</strong></p>
-<p>The vehicle update manager container requires the following configuration:</p>
+	<h2 id="config-file">Config file</h2>
+<p>The default location for the VUM service on the Leda Distro image can be found at <code>/etc/update-manager/config.json</code>.
+The location of the config file is specified with the <code>--cfg-file [PATH]</code> flag when starting the binary.</p>
+<h2 id="minimal-configuration">Minimal configuration</h2>
+<p>A minimal configuration (that is used by the Leda Distro) is the following:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;logFile&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/var/log/update-manager/update-manager.log&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domain&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicle&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;agents&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;30s&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;30s&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;thingsEnabled&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Where:</p>
 <ul>
-<li>
-<p>Container needs to run in <strong>privileged mode</strong> to enable automatic reboot.</p>
-<p><em>Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.</em></p>
-</li>
-<li>
-<p><strong>Connection to MQTT broker</strong>, defaults to <code>THINGS_CONN_BROKER=tcp://mosquitto:1883</code></p>
-</li>
-<li>
-<p><strong>Enable container orchestration</strong> feature: <code>THINGS_FEATURES=ContainerOrchestrator</code></p>
-</li>
+<li>&ldquo;domain&rdquo;: specifies the prefix for the MQTT topic, e.g. in this case it&rsquo;s set to <code>vehicle</code>, so all VUM related topic are prefixed with <code>vehicleupdate/[TOPIC]</code></li>
+<li>&ldquo;agents&rdquo;: configures the update agents that would be available to VUM. Here the &ldquo;readTimeout&rdquo; key specifies how long should VUM wait for a response from the configured agent.</li>
+<li>&ldquo;thingsEnabled&rdquo;: whether VUM should use the Kanto Things API for communication or not.</li>
 </ul>
-<p>Optional configuration options are:</p>
-<dl>
-<dt><code>SELF_UPDATE_ENABLE_REBOOT=true</code></dt>
-<dd>Enable automatic reboot after a successfull application of the update bundle.</dd>
-<dt><code>SELF_UPDATE_TIMEOUT=30m</code></dt>
-<dd>Timeout for downloading and installing an update bundle.</dd>
-</dl>
-<h1 id="example-deployment-specification">Example Deployment Specification</h1>
-<pre tabindex="0"><code>apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: vehicle-update-manager
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: vehicle-update-manager
-rules:
-- apiGroups:
-  - &#39;*&#39;
-  resources:
-  - &#39;*&#39;
-  verbs:
-  - &#39;*&#39;
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: vehicle-update-manager
-subjects:
-- kind: ServiceAccount
-  name: vehicle-update-manager
-  namespace: default
-roleRef:
-  kind: ClusterRole
-  name: vehicle-update-manager
-  apiGroup: rbac.authorization.k8s.io
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: vehicle-update-manager
-spec:
-  selector:
-    matchLabels:
-      component: vehicle-update-manager
-  template:
-    metadata:
-      labels:
-        component: vehicle-update-manager
-    spec:
-      serviceAccountName: vehicle-update-manager
-      containers:
-        - name: vehicle-update-manager
-          image: &lt;repository&gt;/vehicleupdatemanager:&lt;tag&gt;
-          imagePullPolicy: IfNotPresent
-          securityContext:
-            privileged: true
-          env:
-            - name: SELF_UPDATE_TIMEOUT
-              value: 30m
-            - name: SELF_UPDATE_ENABLE_REBOOT
-              value: &#34;true&#34;
-            - name: THINGS_CONN_BROKER
-              value: tcp://mosquitto:1883
-            - name: THINGS_FEATURES
-              value: ContainerOrchestrator
-          volumeMounts:
-          - mountPath: /proc
-            name: proc
-      volumes:
-      - hostPath:
-          path: /proc
-        name: proc
-      imagePullSecrets:
-        - name: ghcr-io
-</code></pre>
+<h2 id="full-configuration">Full configuration</h2>
+<p>An example configuration file for VUM with all available options is the following one:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFile&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;log/update-manager.log&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logLevel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ERROR&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFileSize&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFileCount&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFileMaxAge&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">29</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;connection&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;broker&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;www&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;keepAlive&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;disconnectTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;username&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;username&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;password&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;pass&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;connectTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;acknowledgeTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;subscribeTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;unsubscribeTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;domain&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicle&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;thingsEnabled&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;rebootEnabled&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;rebootAfter&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;reportFeedbackInterval&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;currentStateDelay&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;phaseTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;agents&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;20s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;30s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Here keys (other the ones above) are self-explanatory. The &ldquo;connection&rdquo; section object specifies configuration options for the MQTT connection.
+Allowed log leves (in order of increasing verbosity)are: ERROR, WARN, INFO, DEBUG, TRACE.</p>
+
 	
 </div>
 

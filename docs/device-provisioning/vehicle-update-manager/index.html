@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -310,6 +310,10 @@
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"/>
   <label for="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"><a href="/leda/docs/device-provisioning/container-management/cloud-connectivity/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity"><span class="">Cloud Connectivity</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-check"><a href="/leda/docs/device-provisioning/container-management/container-update-agent/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent"><span class="">Container Update Agent</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-check"/>
@@ -5773,10 +5777,13 @@
 <p><img src="vehicle-update-manager-arch.png" alt="Vehicle Update Manager Architecture Overview"></p>
 <h2 id="desired-state">Desired State</h2>
 <p>The <em>Desired State</em> is applied at runtime on the container layer.</p>
-<p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.</p>
+<p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime.
+If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments. You can find out more about more about
+the <a href="../container-management/container-update-agent">Container Update Agent here</a>.</p>
 <h2 id="self-update">Self Update</h2>
 <p>The <em>Self Update</em> is applied on reboot of the device only.</p>
-<p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.</p>
+<p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.
+You can find out more about the <a href="../self-update/self-update-tutorial">Self Update Agent in the tutorial</a>.</p>
 
   <div class="section-index">
     

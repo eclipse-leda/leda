@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -124,7 +124,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-8af6a88c3ac82dff1591e8ab41a3ed47">Orchestration</a></li>
+<li>2: <a href="#pg-11238056991f217a62145b95b775a6fe">Container Update Agent</a></li>
 
 
     
@@ -132,7 +132,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-62467c453efc78b88f199efe1ea215a5">Container Metrics</a></li>
+<li>3: <a href="#pg-8af6a88c3ac82dff1591e8ab41a3ed47">Orchestration</a></li>
 
 
     
@@ -140,7 +140,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-e3d715b90e152c990835e1b5fc567046">Container Registries</a></li>
+<li>4: <a href="#pg-62467c453efc78b88f199efe1ea215a5">Container Metrics</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-e3d715b90e152c990835e1b5fc567046">Container Registries</a></li>
 
 
     
@@ -239,7 +247,115 @@ This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8af6a88c3ac82dff1591e8ab41a3ed47">2 - Orchestration</h1>
+	<h1 id="pg-11238056991f217a62145b95b775a6fe">2 - Container Update Agent</h1>
+    
+	<h2 id="about-the-container-update-agent-cua">About the Container Update Agent (CUA)</h2>
+<p>The container update agent is a component of kanto container management, that can be enabled in the <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/container-management/config.json">Container Management&rsquo;s config.json</a>.
+When it receives a desired state message on the <code>containersupdate/desiredstate</code> topic it compares the containers (with their current versions and configuration)
+that are managed by Kanto Container Management and those described in the desired state messages. When it has identified the differences between the two,
+it resolves them by deleting, downloading, or re-creating containers.</p>
+<h2 id="the-desired-state-message">The desired state message</h2>
+<p>A basic desired state message has a similar structure to all update messages. To deploy the <code>hello-world</code> docker container (removing all other containers
+currently deployed on the device), you can publish the following desired state message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;test-correlation-activity-uuid&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;docker.io/library/hello-world:latest&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>You can configure port mappings, environment variables, device mapping, logging, and more, by adding additional key-value pairs
+to the &ldquo;config&rdquo; array of the given container. For example, if you want to set the environment variable <code>FOO=&quot;BAR&quot;</code> inside the container, you can
+specify:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;test-correlation-activity-uuid&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;docker.io/library/hello-world:latest&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;env&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;FOO=BAR&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><!-- FIXME:  Link to an official page on the Kanto website when it gets released-->
+<p>A full list of all key-value pairs with their defaults can be found in <a href="https://github.com/SoftwareDefinedVehicle/kanto-container-management-fork/blob/d3602e5e87e3690ed7b3e48f7b97ed0b45421656/docs/updateagent/container-component-config.md">this doc for CUA</a>.</p>
+<h2 id="system-containers">System containers</h2>
+<p>If a container is not specified in the desired state message, it would be <strong>deleted by CUA</strong> when the message is received. This might be undesirable for containers
+that are supposed to run as <strong>system services</strong> from the first boot of the device through its operation. Such a container might be the Self Update Agent container
+on the Leda Distro image, which we do not want to specify in every desired state message and deleting/recreating-it during an update might lead to unexpected behaviour.
+That&rsquo;s why in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/container-management/config.json">Container Management&rsquo;s config.json</a>
+in the CUA section, you can specify in the &ldquo;<strong>system_containers</strong>&rdquo; array the names of those containers that would like to be treated as such.</p>
+<h2 id="mqtt-topics">MQTT Topics</h2>
+<p>Since the MQTT interface of the update agent is abstract, the following message flows are similar to those for the self-update agent mentioned in its <a href="../../self-update/self-update-tutorial.md#example-message-flows">tutorial</a></p>
+<h3 id="getting-the-current-state">Getting the current state</h3>
+<p>On initialization, CUA will publish the current state of all containers on the <code>containersupdate/currentstate</code> topic,
+the activityId for such a message would be <code>initial-current-state-&lt;TIMESTAMP&gt;</code>. This message can be understood as the &ldquo;current container inventory&rdquo;.
+An example inventory from a running Leda image is <a href="../currentstate-leda.json">currentstate-leda.json</a>.</p>
+<p>You can request an update of the current state at any point by publishing an empty message on the: <code>containersupdate/currentstate/get</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;UUID&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The updated inventory will, again, be published on the <code>containersupdate/currentstate</code> topic with correlation ID of <code>&lt;UUID&gt;</code>.</p>
+<h3 id="deploying-a-desired-state-message">Deploying a desired state message</h3>
+<p>A desired state message describing the containers and their environments of a typical Leda Distro deployment is <a href="../leda-desired-state.json">leda-desired-state.json</a>.
+To trigger a desired state deployment directly from CUA, publish the message above on <code>containersupdate/desiredstate</code>, e.g. by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   mosquitto_pub -t containersupdate/desiredstate -f leda-desired-state.json
+</span></span></code></pre></div><p>You can monitor the update feedback from CUA, by listening on the topic <code>containersupdate/desiredstatefeedback</code>.</p>
+<blockquote>
+<p>Note: Since the desired state feedback can be quite verbose and happens in real time during the update it could be hard to understand manually.
+However it&rsquo;s structured json, so it could be easily machine-parsed and monitored for specific key-value pairs.</p>
+</blockquote>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8af6a88c3ac82dff1591e8ab41a3ed47">3 - Orchestration</h1>
     
 	<h1 id="container-management">Container Management</h1>
 <p>The container management will respond to the cloud connectivity status message by initially sending a list of containers:</p>
@@ -417,7 +533,7 @@ This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-62467c453efc78b88f199efe1ea215a5">3 - Container Metrics</h1>
+	<h1 id="pg-62467c453efc78b88f199efe1ea215a5">4 - Container Metrics</h1>
     
 	<h3 id="container-metrics">Container Metrics</h3>
 <p>Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events.
@@ -572,7 +688,7 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e3d715b90e152c990835e1b5fc567046">4 - Container Registries</h1>
+	<h1 id="pg-e3d715b90e152c990835e1b5fc567046">5 - Container Registries</h1>
     
 	<p>When deploying containerized applications, the container runtime will pull container images from a (remote) container registry.</p>
 <p>The pulled container images and their layers are then stored in a local storage.</p>

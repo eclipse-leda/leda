@@ -153,10 +153,13 @@ easy way to find your device&amp;rsquo;s ip. More information on connecting via 
 &lt;p&gt;&lt;img src=&#34;vehicle-update-manager-arch.png&#34; alt=&#34;Vehicle Update Manager Architecture Overview&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;desired-state&#34;&gt;Desired State&lt;/h2&gt;
 &lt;p&gt;The &lt;em&gt;Desired State&lt;/em&gt; is applied at runtime on the container layer.&lt;/p&gt;
-&lt;p&gt;This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.&lt;/p&gt;
+&lt;p&gt;This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime.
+If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments. You can find out more about more about
+the &lt;a href=&#34;../container-management/container-update-agent&#34;&gt;Container Update Agent here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;self-update&#34;&gt;Self Update&lt;/h2&gt;
 &lt;p&gt;The &lt;em&gt;Self Update&lt;/em&gt; is applied on reboot of the device only.&lt;/p&gt;
-&lt;p&gt;This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.&lt;/p&gt;
+&lt;p&gt;This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.
+You can find out more about the &lt;a href=&#34;../self-update/self-update-tutorial&#34;&gt;Self Update Agent in the tutorial&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>

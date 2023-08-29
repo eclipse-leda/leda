@@ -19,23 +19,28 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
 <title>Message Flow | Eclipse Leda Documentation</title>
-<meta name="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub. sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail.">
+<meta name="description" content="Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.
+As described in Vehicle Update Manager takes a full update message for all domains, identifies the domains affected, the current component versions, actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).
+The update manager (UM) in Leda-distro is configured as specified in UM&amp;rsquo;s config.">
 <meta property="og:title" content="Message Flow" />
-<meta property="og:description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
-sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail." />
+<meta property="og:description" content="Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.
+As described in Vehicle Update Manager takes a full update message for all domains, identifies the domains affected, the current component versions, actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).
+The update manager (UM) in Leda-distro is configured as specified in UM&rsquo;s config." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/device-provisioning/vehicle-update-manager/message-flow/" /><meta property="article:section" content="docs" />
-
-<meta property="article:modified_time" content="2023-08-23T08:20:34+02:00" />
+<meta property="article:published_time" content="2023-08-28T09:23:11+03:00" />
+<meta property="article:modified_time" content="2023-08-29T12:10:51+03:00" />
 <meta itemprop="name" content="Message Flow">
-<meta itemprop="description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
-sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail.">
-<meta itemprop="dateModified" content="2023-08-23T08:20:34+02:00" />
-<meta itemprop="wordCount" content="414">
+<meta itemprop="description" content="Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.
+As described in Vehicle Update Manager takes a full update message for all domains, identifies the domains affected, the current component versions, actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).
+The update manager (UM) in Leda-distro is configured as specified in UM&rsquo;s config."><meta itemprop="datePublished" content="2023-08-28T09:23:11+03:00" />
+<meta itemprop="dateModified" content="2023-08-29T12:10:51+03:00" />
+<meta itemprop="wordCount" content="544">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Message Flow"/>
-<meta name="twitter:description" content="The following message flow is an example for the Self Update use case. The message is triggered by command line via Azure IoT Hub.
-sequenceDiagram autonumber actor flops as Fleet Operations participant backend as Digital Twin participant vum as Vehicle Update Manager participant sua as Self Update Agent participant device as Device flops -&gt;&gt; backend: Rollout Campaign backend --&gt;&gt; vum: Device Command Live Message: yamlApply Note left of backend: C2D Message vum --&gt;&gt; sua: selfupdate/desiredstate SelfUpdateBundle loop Download sua --&gt;&gt; sua: Downloading sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end loop Installation sua --&gt;&gt; device: Installing Note right of device: RAUC Update Bundle sua --&gt;&gt; vum: selfupdate/desiredstatefeedback vum --&gt;&gt; backend: progress end sua --&gt;&gt; vum: Installed rect rgb(100, 255, 150) sua --&gt;&gt; backend: FINISHED_SUCCESS end opt Reboot vum --&gt;&gt; device: SysRq Reboot end Messages The following describes the message flow with example messages in more detail."/>
+<meta name="twitter:description" content="Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.
+As described in Vehicle Update Manager takes a full update message for all domains, identifies the domains affected, the current component versions, actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).
+The update manager (UM) in Leda-distro is configured as specified in UM&rsquo;s config."/>
 
 
 
@@ -75,7 +80,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -99,7 +104,7 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -316,6 +321,10 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"/>
   <label for="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity-check"><a href="/leda/docs/device-provisioning/container-management/cloud-connectivity/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcloud-connectivity"><span class="">Cloud Connectivity</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-li">
+  <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-check"/>
+  <label for="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent-check"><a href="/leda/docs/device-provisioning/container-management/container-update-agent/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-ledadocsdevice-provisioningcontainer-managementcontainer-update-agent"><span class="">Container Update Agent</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-li">
   <input type="checkbox" id="m-ledadocsdevice-provisioningcontainer-managementorchestration-check"/>
@@ -5738,7 +5747,17 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 
 </div>
 
-            
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#update-message">Update Message</a></li>
+    <li><a href="#self-update">Self-update</a></li>
+    <li><a href="#containers-update-desired-state">Containers update (desired state)</a></li>
+    <li><a href="#combined-update-messages">Combined update messages</a></li>
+  </ul>
+</nav>
+      </div>
+    
             
 	
           </aside>
@@ -5765,144 +5784,107 @@ sequenceDiagram autonumber actor flops as Fleet Operations participant backend a
 	<header class="article-meta">
 		
   </header>
-	<p>The following message flow is an example for the <em>Self Update</em> use case.
-The message is triggered by command line via Azure IoT Hub.</p>
-<div class="mermaid">sequenceDiagram
-    autonumber
-
-    actor flops as Fleet Operations
-
-    participant backend as Digital Twin
-    participant vum as Vehicle Update Manager
-    participant sua as Self Update Agent
-    participant device as Device
-
-    flops ->> backend: Rollout Campaign
-
-    backend -->> vum: Device Command <br> Live Message: <br> yamlApply
-
-    Note left of backend: C2D Message
-
-    vum -->> sua: selfupdate/desiredstate <br> SelfUpdateBundle
-
-    loop Download
-        sua -->> sua: Downloading
-        sua -->> vum: selfupdate/desiredstatefeedback
-        vum -->> backend: progress
-    end
-
-    loop Installation
-        sua -->> device: Installing
-        Note right of device: RAUC Update Bundle
-        sua -->> vum: selfupdate/desiredstatefeedback
-        vum -->> backend: progress
-    end
-
-    sua -->> vum: Installed
-    
-    rect rgb(100, 255, 150)
-        sua -->> backend: FINISHED_SUCCESS
-    end
-
-    opt Reboot
-        vum -->> device: SysRq Reboot
-    end
-  </div>
-  
-  <h1 id="messages">Messages</h1>
-<p>The following describes the message flow with example messages in more detail. The following variables are used for dynamic parts of the messages:</p>
-<ul>
-<li><code>&lt;cuid&gt;</code> - A Correlation ID in form of a UUID</li>
-<li><code>&lt;selfUpdateRequestYaml&gt;</code> or <code>&lt;payload&gt;</code>- The Desired State Self Update Request message in YAML, as defined by the Self Update Agent API</li>
-<li><code>&lt;hub&gt;</code> - The name or identifier of the message hub</li>
-<li><code>&lt;device&gt;</code> - The device identifier used by the message hub or other components to identify the device.</li>
-</ul>
-<ol>
-<li>
-<p>Cloud backend sends the Self-Update Request Message as YAML embedded into an Azure IoT Hub C2D Message Envelope:</p>
-<p>Payload:</p>
-<pre tabindex="0"><code>{
-    &#34;appId&#34;: &#34;mc-ota-update&#34;,
-    &#34;cmdName&#34;: &#34;desiredstate.update&#34;,
-    &#34;cId&#34;: &#34;&lt;cuid&gt;&#34;,
-    &#34;eVer&#34;: &#34;2.0&#34;,
-    &#34;pVer&#34;: &#34;1.0&#34;,
-    &#34;p&#34;: &lt;selfUpdateRequestYaml&gt;
-}
-</code></pre></li>
-<li>
-<p>Cloud Connector validates envelope and transforms request message into a <em>ContainerOrechestrator</em> message:</p>
-<p>Topic: <code>command//azure.edge:&lt;hub&gt;:&lt;device&gt;:edge:containers/req/&lt;cuid&gt;/yamlApply</code></p>
-<p>Body (json):</p>
-<pre tabindex="0"><code> {
-  &#34;topic&#34;: &#34;azure.edge/&lt;hub&gt;:&lt;device&gt;:edge:containers/things/live/messages/yamlApply&#34;,
-  &#34;headers&#34;: {
-     &#34;content-type&#34;: &#34;application/json&#34;,
-     &#34;correlation-id&#34;: &#34;&lt;cuid&gt;&#34;},
-     &#34;path&#34;: &#34;/features/ContainerOrchestrator/inbox/messages/yamlApply&#34;,
-     &#34;value&#34;: {
-         &#34;correlationId&#34;: &#34;&lt;cuid&gt;&#34;,
-         &#34;payload&#34;: &#34;&lt;payload&gt;&#34;
-         }
-     }
- }
-</code></pre><p><em>Note: Payload (Yaml encoded in JSON) omitted here for clarity, see next step.</em></p>
-</li>
-</ol>
-<ol start="3">
-<li>
-<p>Vehicle Update manager extracts payload and forward the message to the Self Update Agent message inbox:</p>
-<p>Topic: <code>selfupdate/desiredstate</code></p>
-<p>Message:</p>
-<pre tabindex="0"><code>apiVersion: sdv.eclipse.org/v1
-kind: SelfUpdateBundle
-metadata:
-    name: self-update-bundle-example
-spec:
-    bundleDownloadUrl: http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb
-    bundleName: swdv-arm64-build42
-    bundleTarget: base
-    bundleVersion: v1beta3
-</code></pre></li>
-</ol>
-<ol start="4">
-<li>
-<p>The Self Update Agent response with status messages during download and installation phases.</p>
-<p>Topic: <code>selfupdate/desiredstatefeedback</code></p>
-<p>Message:</p>
-<pre tabindex="0"><code>apiVersion: sdv.eclipse.org/v1
-kind: SelfUpdateBundle
-metadata: 
-  name: &#34;self-update-bundle-example&#34;
-spec: 
-  bundleDownloadUrl: &#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;
-  bundleName: &#34;swdv-arm64-build42&#34;
-  bundleTarget: base
-  bundleVersion: v1beta3
-state: 
-  message: Entered Downloading state
-  name: downloading
-  progress: 0
-  techCode: 0
-</code></pre></li>
-<li>
-<p>Once finished, the Vehicle Update Manager will also return a <code>FINISHED_SUCCESS</code> message for the conversation with the backend.</p>
-<p>Topic: <code>e/defaultTenant/azure.edge:&lt;hub&gt;:&lt;device&gt;:edge:containers</code></p>
-<p>Message:</p>
-<pre tabindex="0"><code>{
-  &#34;topic&#34;: &#34;azure.edge/&lt;hub&gt;:&lt;device&gt;:edge:containers/things/twin/commands/modify&#34;,
-  &#34;headers&#34;: {
-    &#34;response-required&#34;:false
-  },
-  &#34;path&#34;: &#34;/features/ContainerOrchestrator/properties/status/state&#34;,
-  &#34;value&#34;: {
-    &#34;manifest&#34;: [],
-    &#34;status&#34;: &#34;FINISHED_SUCCESS&#34;,
-    &#34;correlationId&#34;:&#34;&lt;cuid&gt;&#34;
-    }
-}
-</code></pre></li>
-</ol>
+	<blockquote>
+<p>Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.</p>
+</blockquote>
+<p>As described in <a href="../">Vehicle Update Manager</a> takes a full update message for all domains, identifies the domains affected, the current component versions,
+actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).</p>
+<p>The update manager (UM) in Leda-distro is configured as specified in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/update-manager/config.json">UM&rsquo;s config.json</a>,
+which on the final image is usually located in <code>/etc/update-manager/config.json</code>. The standard two domains supported are <em>containers</em> and <em>self-update</em>,
+with the latter requiring a reboot on a successful update.</p>
+<blockquote>
+<p>Note: UM allows a custom prefix for all of its topics to be defined (&ldquo;domain&rdquo;) in its <code>config.json</code> On the Leda Distro image the default prefix is &ldquo;<strong>vehicle</strong>&rdquo;.
+If you decide to change it, replace &ldquo;<strong>vehicle</strong>&rdquo; in all MQTT topics mentioned below with your custom prefix.</p>
+</blockquote>
+<p>A full specification of UM&rsquo;s API and the relevant MQTT topics can be found <a href="https://github.com/eclipse-kanto/update-manager/blob/main/docs/update-agent-api.md">in its documentation</a>.</p>
+<h2 id="update-message">Update Message</h2>
+<p>The general structure of the update message is as follows:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;correlation-activity-uuid&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;domain&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1-version&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1-config-key-1&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1-config-value-1&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Where multiple domains and components per domain (each with multiple configuration key-value pairs) are allowed. To trigger an update, publish
+your full update message on the <code>vehicleupdate/desiredstate</code> MQTT topic. When UM receives your message, it splits it across the required domains and
+publishes messages to the topics that the <a href="../">domain-specific agents are monitoring</a>.</p>
+<p>Similarly, update progress can be monitored on the <code>vehicleupdate/desiredstatefeedback</code> topic.</p>
+<h2 id="self-update">Self-update</h2>
+<p>The messages for triggering a self-update (image update) are the same as in <a href="../../self-update/self-update-tutorial">The Self Update Tutorial</a>.
+The only difference here is that when you publish a self-update message on the <code>vehicleupdate/desiredstate</code> topic,
+UM will automatically take care to forward your message to the self-update agent, including
+forwarding back the update feedback on the <code>vehicleupdate/</code>-namespaced topics.</p>
+<h2 id="containers-update-desired-state">Containers update (desired state)</h2>
+<p>Similarly to the self-update, you should start by understanding the operation of the <a href="../../container-management/container-update-agent">Container Update Agent</a>.
+After constructing the desired state message you can publish it on the <code>vehicleupdate/desiredstate</code> and UM will, again, forward it to CUA automatically,
+based on the domain specified in the update message.</p>
+<h2 id="combined-update-messages">Combined update messages</h2>
+<p>The real strength of UM is deploying updates accross multiple domains with a single update message. For example, if you&rsquo;d like to deploy an image update bundle
+(self-update) and a single <code>hello-world</code> container image with the environment variable <code>FOO=BAR</code> set, you can construct the following message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;random-uuid-as-string&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;https://leda-bundle-server/sdv-rauc-bundle-minimal-qemux86-64.raucb&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;docker.io/library/hello-world:latest&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;env&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;FOO=BAR&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>And publish the message on the MQTT topic <code>vehicleupdate/desiredstate</code>. UM will take actions to identify the affected update domains and publish the correct
+messages on the respective topics. All feedback from the specific update agents will be forwarded back to the UM and published on the <code>vehicleupdate/desiredstatefeedback</code>
+topic. All these messages will use the same activityId so they can be correlated with each other.</p>
 
 	
 </div>
@@ -5912,11 +5894,6 @@ state:
         </div>
       </div>
       
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>
-    mermaid.initialize({ startOnLoad: true });
-  </script>
-
 
 
 <footer class="bg-dark py-5 row d-print-none">

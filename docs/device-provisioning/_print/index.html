@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.cbafe4ad90e80617d83d4d9ad5247004.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.fd2de39edac688c491e280cd0914782b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -244,7 +244,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.2: <a href="#pg-8af6a88c3ac82dff1591e8ab41a3ed47">Orchestration</a></li>
+<li>5.2: <a href="#pg-11238056991f217a62145b95b775a6fe">Container Update Agent</a></li>
 
 
     
@@ -252,7 +252,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.3: <a href="#pg-62467c453efc78b88f199efe1ea215a5">Container Metrics</a></li>
+<li>5.3: <a href="#pg-8af6a88c3ac82dff1591e8ab41a3ed47">Orchestration</a></li>
 
 
     
@@ -260,7 +260,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.4: <a href="#pg-e3d715b90e152c990835e1b5fc567046">Container Registries</a></li>
+<li>5.4: <a href="#pg-62467c453efc78b88f199efe1ea215a5">Container Metrics</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.5: <a href="#pg-e3d715b90e152c990835e1b5fc567046">Container Registries</a></li>
 
 
     
@@ -442,10 +450,13 @@ easy way to find your device&rsquo;s ip. More information on connecting via ssh 
 <p><img src="vehicle-update-manager-arch.png" alt="Vehicle Update Manager Architecture Overview"></p>
 <h2 id="desired-state">Desired State</h2>
 <p>The <em>Desired State</em> is applied at runtime on the container layer.</p>
-<p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.</p>
+<p>This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime.
+If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments. You can find out more about more about
+the <a href="../container-management/container-update-agent">Container Update Agent here</a>.</p>
 <h2 id="self-update">Self Update</h2>
 <p>The <em>Self Update</em> is applied on reboot of the device only.</p>
-<p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.</p>
+<p>This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.
+You can find out more about the <a href="../self-update/self-update-tutorial">Self Update Agent in the tutorial</a>.</p>
 
 </div>
 
@@ -471,97 +482,78 @@ easy way to find your device&rsquo;s ip. More information on connecting via ssh 
     
 	<h1 id="pg-42e18573332f97451f15ebcfa61573ab">3.1 - Configuration</h1>
     
-	<p><strong>Note: This part of the Leda meta-layer and quickstart image is currently under active development and this documentation page may not represent the actual state of VUM</strong></p>
-<p>The vehicle update manager container requires the following configuration:</p>
+	<h2 id="config-file">Config file</h2>
+<p>The default location for the VUM service on the Leda Distro image can be found at <code>/etc/update-manager/config.json</code>.
+The location of the config file is specified with the <code>--cfg-file [PATH]</code> flag when starting the binary.</p>
+<h2 id="minimal-configuration">Minimal configuration</h2>
+<p>A minimal configuration (that is used by the Leda Distro) is the following:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;logFile&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/var/log/update-manager/update-manager.log&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domain&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicle&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;agents&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;30s&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;30s&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;thingsEnabled&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Where:</p>
 <ul>
-<li>
-<p>Container needs to run in <strong>privileged mode</strong> to enable automatic reboot.</p>
-<p><em>Note: This is enabled by default on the Leda Quickstart images to simplify automated testing.</em></p>
-</li>
-<li>
-<p><strong>Connection to MQTT broker</strong>, defaults to <code>THINGS_CONN_BROKER=tcp://mosquitto:1883</code></p>
-</li>
-<li>
-<p><strong>Enable container orchestration</strong> feature: <code>THINGS_FEATURES=ContainerOrchestrator</code></p>
-</li>
+<li>&ldquo;domain&rdquo;: specifies the prefix for the MQTT topic, e.g. in this case it&rsquo;s set to <code>vehicle</code>, so all VUM related topic are prefixed with <code>vehicleupdate/[TOPIC]</code></li>
+<li>&ldquo;agents&rdquo;: configures the update agents that would be available to VUM. Here the &ldquo;readTimeout&rdquo; key specifies how long should VUM wait for a response from the configured agent.</li>
+<li>&ldquo;thingsEnabled&rdquo;: whether VUM should use the Kanto Things API for communication or not.</li>
 </ul>
-<p>Optional configuration options are:</p>
-<dl>
-<dt><code>SELF_UPDATE_ENABLE_REBOOT=true</code></dt>
-<dd>Enable automatic reboot after a successfull application of the update bundle.</dd>
-<dt><code>SELF_UPDATE_TIMEOUT=30m</code></dt>
-<dd>Timeout for downloading and installing an update bundle.</dd>
-</dl>
-<h1 id="example-deployment-specification">Example Deployment Specification</h1>
-<pre tabindex="0"><code>apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: vehicle-update-manager
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: vehicle-update-manager
-rules:
-- apiGroups:
-  - &#39;*&#39;
-  resources:
-  - &#39;*&#39;
-  verbs:
-  - &#39;*&#39;
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: vehicle-update-manager
-subjects:
-- kind: ServiceAccount
-  name: vehicle-update-manager
-  namespace: default
-roleRef:
-  kind: ClusterRole
-  name: vehicle-update-manager
-  apiGroup: rbac.authorization.k8s.io
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: vehicle-update-manager
-spec:
-  selector:
-    matchLabels:
-      component: vehicle-update-manager
-  template:
-    metadata:
-      labels:
-        component: vehicle-update-manager
-    spec:
-      serviceAccountName: vehicle-update-manager
-      containers:
-        - name: vehicle-update-manager
-          image: &lt;repository&gt;/vehicleupdatemanager:&lt;tag&gt;
-          imagePullPolicy: IfNotPresent
-          securityContext:
-            privileged: true
-          env:
-            - name: SELF_UPDATE_TIMEOUT
-              value: 30m
-            - name: SELF_UPDATE_ENABLE_REBOOT
-              value: &#34;true&#34;
-            - name: THINGS_CONN_BROKER
-              value: tcp://mosquitto:1883
-            - name: THINGS_FEATURES
-              value: ContainerOrchestrator
-          volumeMounts:
-          - mountPath: /proc
-            name: proc
-      volumes:
-      - hostPath:
-          path: /proc
-        name: proc
-      imagePullSecrets:
-        - name: ghcr-io
-</code></pre>
+<h2 id="full-configuration">Full configuration</h2>
+<p>An example configuration file for VUM with all available options is the following one:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;log&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFile&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;log/update-manager.log&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logLevel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ERROR&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFileSize&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFileCount&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;logFileMaxAge&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">29</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;connection&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;broker&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;www&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;keepAlive&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;disconnectTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;username&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;username&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;password&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;pass&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;connectTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;acknowledgeTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;subscribeTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;unsubscribeTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">500</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;domain&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicle&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;thingsEnabled&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;rebootEnabled&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;rebootAfter&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;reportFeedbackInterval&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;currentStateDelay&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;phaseTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2m&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;agents&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;20s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;rebootRequired&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;readTimeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;30s&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Here keys (other the ones above) are self-explanatory. The &ldquo;connection&rdquo; section object specifies configuration options for the MQTT connection.
+Allowed log leves (in order of increasing verbosity)are: ERROR, WARN, INFO, DEBUG, TRACE.</p>
+
 </div>
 
 
@@ -578,144 +570,107 @@ spec:
     
 	<h1 id="pg-a9d83955f4af71a310e5e508cd17161e">3.2 - Message Flow</h1>
     
-	<p>The following message flow is an example for the <em>Self Update</em> use case.
-The message is triggered by command line via Azure IoT Hub.</p>
-<div class="mermaid">sequenceDiagram
-    autonumber
-
-    actor flops as Fleet Operations
-
-    participant backend as Digital Twin
-    participant vum as Vehicle Update Manager
-    participant sua as Self Update Agent
-    participant device as Device
-
-    flops ->> backend: Rollout Campaign
-
-    backend -->> vum: Device Command <br> Live Message: <br> yamlApply
-
-    Note left of backend: C2D Message
-
-    vum -->> sua: selfupdate/desiredstate <br> SelfUpdateBundle
-
-    loop Download
-        sua -->> sua: Downloading
-        sua -->> vum: selfupdate/desiredstatefeedback
-        vum -->> backend: progress
-    end
-
-    loop Installation
-        sua -->> device: Installing
-        Note right of device: RAUC Update Bundle
-        sua -->> vum: selfupdate/desiredstatefeedback
-        vum -->> backend: progress
-    end
-
-    sua -->> vum: Installed
-    
-    rect rgb(100, 255, 150)
-        sua -->> backend: FINISHED_SUCCESS
-    end
-
-    opt Reboot
-        vum -->> device: SysRq Reboot
-    end
-  </div>
-  
-  <h1 id="messages">Messages</h1>
-<p>The following describes the message flow with example messages in more detail. The following variables are used for dynamic parts of the messages:</p>
-<ul>
-<li><code>&lt;cuid&gt;</code> - A Correlation ID in form of a UUID</li>
-<li><code>&lt;selfUpdateRequestYaml&gt;</code> or <code>&lt;payload&gt;</code>- The Desired State Self Update Request message in YAML, as defined by the Self Update Agent API</li>
-<li><code>&lt;hub&gt;</code> - The name or identifier of the message hub</li>
-<li><code>&lt;device&gt;</code> - The device identifier used by the message hub or other components to identify the device.</li>
-</ul>
-<ol>
-<li>
-<p>Cloud backend sends the Self-Update Request Message as YAML embedded into an Azure IoT Hub C2D Message Envelope:</p>
-<p>Payload:</p>
-<pre tabindex="0"><code>{
-    &#34;appId&#34;: &#34;mc-ota-update&#34;,
-    &#34;cmdName&#34;: &#34;desiredstate.update&#34;,
-    &#34;cId&#34;: &#34;&lt;cuid&gt;&#34;,
-    &#34;eVer&#34;: &#34;2.0&#34;,
-    &#34;pVer&#34;: &#34;1.0&#34;,
-    &#34;p&#34;: &lt;selfUpdateRequestYaml&gt;
-}
-</code></pre></li>
-<li>
-<p>Cloud Connector validates envelope and transforms request message into a <em>ContainerOrechestrator</em> message:</p>
-<p>Topic: <code>command//azure.edge:&lt;hub&gt;:&lt;device&gt;:edge:containers/req/&lt;cuid&gt;/yamlApply</code></p>
-<p>Body (json):</p>
-<pre tabindex="0"><code> {
-  &#34;topic&#34;: &#34;azure.edge/&lt;hub&gt;:&lt;device&gt;:edge:containers/things/live/messages/yamlApply&#34;,
-  &#34;headers&#34;: {
-     &#34;content-type&#34;: &#34;application/json&#34;,
-     &#34;correlation-id&#34;: &#34;&lt;cuid&gt;&#34;},
-     &#34;path&#34;: &#34;/features/ContainerOrchestrator/inbox/messages/yamlApply&#34;,
-     &#34;value&#34;: {
-         &#34;correlationId&#34;: &#34;&lt;cuid&gt;&#34;,
-         &#34;payload&#34;: &#34;&lt;payload&gt;&#34;
-         }
-     }
- }
-</code></pre><p><em>Note: Payload (Yaml encoded in JSON) omitted here for clarity, see next step.</em></p>
-</li>
-</ol>
-<ol start="3">
-<li>
-<p>Vehicle Update manager extracts payload and forward the message to the Self Update Agent message inbox:</p>
-<p>Topic: <code>selfupdate/desiredstate</code></p>
-<p>Message:</p>
-<pre tabindex="0"><code>apiVersion: sdv.eclipse.org/v1
-kind: SelfUpdateBundle
-metadata:
-    name: self-update-bundle-example
-spec:
-    bundleDownloadUrl: http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb
-    bundleName: swdv-arm64-build42
-    bundleTarget: base
-    bundleVersion: v1beta3
-</code></pre></li>
-</ol>
-<ol start="4">
-<li>
-<p>The Self Update Agent response with status messages during download and installation phases.</p>
-<p>Topic: <code>selfupdate/desiredstatefeedback</code></p>
-<p>Message:</p>
-<pre tabindex="0"><code>apiVersion: sdv.eclipse.org/v1
-kind: SelfUpdateBundle
-metadata: 
-  name: &#34;self-update-bundle-example&#34;
-spec: 
-  bundleDownloadUrl: &#34;http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb&#34;
-  bundleName: &#34;swdv-arm64-build42&#34;
-  bundleTarget: base
-  bundleVersion: v1beta3
-state: 
-  message: Entered Downloading state
-  name: downloading
-  progress: 0
-  techCode: 0
-</code></pre></li>
-<li>
-<p>Once finished, the Vehicle Update Manager will also return a <code>FINISHED_SUCCESS</code> message for the conversation with the backend.</p>
-<p>Topic: <code>e/defaultTenant/azure.edge:&lt;hub&gt;:&lt;device&gt;:edge:containers</code></p>
-<p>Message:</p>
-<pre tabindex="0"><code>{
-  &#34;topic&#34;: &#34;azure.edge/&lt;hub&gt;:&lt;device&gt;:edge:containers/things/twin/commands/modify&#34;,
-  &#34;headers&#34;: {
-    &#34;response-required&#34;:false
-  },
-  &#34;path&#34;: &#34;/features/ContainerOrchestrator/properties/status/state&#34;,
-  &#34;value&#34;: {
-    &#34;manifest&#34;: [],
-    &#34;status&#34;: &#34;FINISHED_SUCCESS&#34;,
-    &#34;correlationId&#34;:&#34;&lt;cuid&gt;&#34;
-    }
-}
-</code></pre></li>
-</ol>
+	<blockquote>
+<p>Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.</p>
+</blockquote>
+<p>As described in <a href="../">Vehicle Update Manager</a> takes a full update message for all domains, identifies the domains affected, the current component versions,
+actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).</p>
+<p>The update manager (UM) in Leda-distro is configured as specified in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/update-manager/config.json">UM&rsquo;s config.json</a>,
+which on the final image is usually located in <code>/etc/update-manager/config.json</code>. The standard two domains supported are <em>containers</em> and <em>self-update</em>,
+with the latter requiring a reboot on a successful update.</p>
+<blockquote>
+<p>Note: UM allows a custom prefix for all of its topics to be defined (&ldquo;domain&rdquo;) in its <code>config.json</code> On the Leda Distro image the default prefix is &ldquo;<strong>vehicle</strong>&rdquo;.
+If you decide to change it, replace &ldquo;<strong>vehicle</strong>&rdquo; in all MQTT topics mentioned below with your custom prefix.</p>
+</blockquote>
+<p>A full specification of UM&rsquo;s API and the relevant MQTT topics can be found <a href="https://github.com/eclipse-kanto/update-manager/blob/main/docs/update-agent-api.md">in its documentation</a>.</p>
+<h2 id="update-message">Update Message</h2>
+<p>The general structure of the update message is as follows:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;correlation-activity-uuid&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;domain&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1-version&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1-config-key-1&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;component1-config-value-1&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Where multiple domains and components per domain (each with multiple configuration key-value pairs) are allowed. To trigger an update, publish
+your full update message on the <code>vehicleupdate/desiredstate</code> MQTT topic. When UM receives your message, it splits it across the required domains and
+publishes messages to the topics that the <a href="../">domain-specific agents are monitoring</a>.</p>
+<p>Similarly, update progress can be monitored on the <code>vehicleupdate/desiredstatefeedback</code> topic.</p>
+<h2 id="self-update">Self-update</h2>
+<p>The messages for triggering a self-update (image update) are the same as in <a href="../../self-update/self-update-tutorial">The Self Update Tutorial</a>.
+The only difference here is that when you publish a self-update message on the <code>vehicleupdate/desiredstate</code> topic,
+UM will automatically take care to forward your message to the self-update agent, including
+forwarding back the update feedback on the <code>vehicleupdate/</code>-namespaced topics.</p>
+<h2 id="containers-update-desired-state">Containers update (desired state)</h2>
+<p>Similarly to the self-update, you should start by understanding the operation of the <a href="../../container-management/container-update-agent">Container Update Agent</a>.
+After constructing the desired state message you can publish it on the <code>vehicleupdate/desiredstate</code> and UM will, again, forward it to CUA automatically,
+based on the domain specified in the update message.</p>
+<h2 id="combined-update-messages">Combined update messages</h2>
+<p>The real strength of UM is deploying updates accross multiple domains with a single update message. For example, if you&rsquo;d like to deploy an image update bundle
+(self-update) and a single <code>hello-world</code> container image with the environment variable <code>FOO=BAR</code> set, you can construct the following message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;random-uuid-as-string&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;self-update&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;os-image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;${VERSION_ID}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;https://leda-bundle-server/sdv-rauc-bundle-minimal-qemux86-64.raucb&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;docker.io/library/hello-world:latest&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;env&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;FOO=BAR&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>And publish the message on the MQTT topic <code>vehicleupdate/desiredstate</code>. UM will take actions to identify the affected update domains and publish the correct
+messages on the respective topics. All feedback from the specific update agents will be forwarded back to the UM and published on the <code>vehicleupdate/desiredstatefeedback</code>
+topic. All these messages will use the same activityId so they can be correlated with each other.</p>
 
 </div>
 
@@ -1650,7 +1605,115 @@ This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8af6a88c3ac82dff1591e8ab41a3ed47">5.2 - Orchestration</h1>
+	<h1 id="pg-11238056991f217a62145b95b775a6fe">5.2 - Container Update Agent</h1>
+    
+	<h2 id="about-the-container-update-agent-cua">About the Container Update Agent (CUA)</h2>
+<p>The container update agent is a component of kanto container management, that can be enabled in the <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/container-management/config.json">Container Management&rsquo;s config.json</a>.
+When it receives a desired state message on the <code>containersupdate/desiredstate</code> topic it compares the containers (with their current versions and configuration)
+that are managed by Kanto Container Management and those described in the desired state messages. When it has identified the differences between the two,
+it resolves them by deleting, downloading, or re-creating containers.</p>
+<h2 id="the-desired-state-message">The desired state message</h2>
+<p>A basic desired state message has a similar structure to all update messages. To deploy the <code>hello-world</code> docker container (removing all other containers
+currently deployed on the device), you can publish the following desired state message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;test-correlation-activity-uuid&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;docker.io/library/hello-world:latest&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>You can configure port mappings, environment variables, device mapping, logging, and more, by adding additional key-value pairs
+to the &ldquo;config&rdquo; array of the given container. For example, if you want to set the environment variable <code>FOO=&quot;BAR&quot;</code> inside the container, you can
+specify:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;test-correlation-activity-uuid&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;domains&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;containers&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;docker.io/library/hello-world:latest&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;env&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;FOO=BAR&#34;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><!-- FIXME:  Link to an official page on the Kanto website when it gets released-->
+<p>A full list of all key-value pairs with their defaults can be found in <a href="https://github.com/SoftwareDefinedVehicle/kanto-container-management-fork/blob/d3602e5e87e3690ed7b3e48f7b97ed0b45421656/docs/updateagent/container-component-config.md">this doc for CUA</a>.</p>
+<h2 id="system-containers">System containers</h2>
+<p>If a container is not specified in the desired state message, it would be <strong>deleted by CUA</strong> when the message is received. This might be undesirable for containers
+that are supposed to run as <strong>system services</strong> from the first boot of the device through its operation. Such a container might be the Self Update Agent container
+on the Leda Distro image, which we do not want to specify in every desired state message and deleting/recreating-it during an update might lead to unexpected behaviour.
+That&rsquo;s why in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/container-management/config.json">Container Management&rsquo;s config.json</a>
+in the CUA section, you can specify in the &ldquo;<strong>system_containers</strong>&rdquo; array the names of those containers that would like to be treated as such.</p>
+<h2 id="mqtt-topics">MQTT Topics</h2>
+<p>Since the MQTT interface of the update agent is abstract, the following message flows are similar to those for the self-update agent mentioned in its <a href="../../self-update/self-update-tutorial.md#example-message-flows">tutorial</a></p>
+<h3 id="getting-the-current-state">Getting the current state</h3>
+<p>On initialization, CUA will publish the current state of all containers on the <code>containersupdate/currentstate</code> topic,
+the activityId for such a message would be <code>initial-current-state-&lt;TIMESTAMP&gt;</code>. This message can be understood as the &ldquo;current container inventory&rdquo;.
+An example inventory from a running Leda image is <a href="../currentstate-leda.json">currentstate-leda.json</a>.</p>
+<p>You can request an update of the current state at any point by publishing an empty message on the: <code>containersupdate/currentstate/get</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;activityId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;UUID&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;timestamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123456789</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;payload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The updated inventory will, again, be published on the <code>containersupdate/currentstate</code> topic with correlation ID of <code>&lt;UUID&gt;</code>.</p>
+<h3 id="deploying-a-desired-state-message">Deploying a desired state message</h3>
+<p>A desired state message describing the containers and their environments of a typical Leda Distro deployment is <a href="../leda-desired-state.json">leda-desired-state.json</a>.
+To trigger a desired state deployment directly from CUA, publish the message above on <code>containersupdate/desiredstate</code>, e.g. by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   mosquitto_pub -t containersupdate/desiredstate -f leda-desired-state.json
+</span></span></code></pre></div><p>You can monitor the update feedback from CUA, by listening on the topic <code>containersupdate/desiredstatefeedback</code>.</p>
+<blockquote>
+<p>Note: Since the desired state feedback can be quite verbose and happens in real time during the update it could be hard to understand manually.
+However it&rsquo;s structured json, so it could be easily machine-parsed and monitored for specific key-value pairs.</p>
+</blockquote>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8af6a88c3ac82dff1591e8ab41a3ed47">5.3 - Orchestration</h1>
     
 	<h1 id="container-management">Container Management</h1>
 <p>The container management will respond to the cloud connectivity status message by initially sending a list of containers:</p>
@@ -1828,7 +1891,7 @@ This feature can be easily enabled by setting <code>&quot;things&quot;: { &quot;
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-62467c453efc78b88f199efe1ea215a5">5.3 - Container Metrics</h1>
+	<h1 id="pg-62467c453efc78b88f199efe1ea215a5">5.4 - Container Metrics</h1>
     
 	<h3 id="container-metrics">Container Metrics</h3>
 <p>Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events.
@@ -1983,7 +2046,7 @@ This is done by sending a request to the topic <code>command//&lt;namespaceId&gt
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e3d715b90e152c990835e1b5fc567046">5.4 - Container Registries</h1>
+	<h1 id="pg-e3d715b90e152c990835e1b5fc567046">5.5 - Container Registries</h1>
     
 	<p>When deploying containerized applications, the container runtime will pull container images from a (remote) container registry.</p>
 <p>The pulled container images and their layers are then stored in a local storage.</p>
