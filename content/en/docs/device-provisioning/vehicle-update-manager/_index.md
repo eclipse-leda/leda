@@ -15,10 +15,13 @@ The *Vehicle Update Manager* delegates two different types of updates:
 
 The *Desired State* is applied at runtime on the container layer.
 
-This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime. If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments.
+This type of update mechanism can update vehicle applications, vehicle services and other containers together with configuration resources or data files at runtime.
+If the applications support it, the rollout can also use high-availability strategies, such as rolling deployments. You can find out more about more about
+the [Container Update Agent here](../container-management/container-update-agent).
 
 ## Self Update
 
 The *Self Update* is applied on reboot of the device only.
 
 This type of update mechanism is used for system-level updates which require the operating system to be rebooted to take effect.
+You can find out more about the [Self Update Agent in the tutorial](../self-update/self-update-tutorial).

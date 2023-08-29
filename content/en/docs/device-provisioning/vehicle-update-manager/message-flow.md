@@ -1,155 +1,124 @@
 ---
 title: "Message Flow"
-date: 2022-072109T14:24:56+05:30
+date: 2023-08-28T09:23:11+0300
 weight: 2
 ---
 
-The following message flow is an example for the *Self Update* use case.
-The message is triggered by command line via Azure IoT Hub.
+> Note: This part of the Leda OSS stack is still in active development and there might be differences between the documented and the current version.
 
+As described in [Vehicle Update Manager](../) takes a full update message for all domains, identifies the domains affected, the current component versions,
+actions to be taken, etc., and delegates those actions to the correct update agent (e.g. self-update/container update).
 
-```mermaid
-sequenceDiagram
-    autonumber
+The update manager (UM) in Leda-distro is configured as specified in [UM's config.json](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-kanto/files/update-manager/config.json),
+which on the final image is usually located in `/etc/update-manager/config.json`. The standard two domains supported are _containers_ and _self-update_,
+with the latter requiring a reboot on a successful update.
 
-    actor flops as Fleet Operations
+> Note: UM allows a custom prefix for all of its topics to be defined ("domain") in its `config.json` On the Leda Distro image the default prefix is "**vehicle**".
+> If you decide to change it, replace "**vehicle**" in all MQTT topics mentioned below with your custom prefix.
 
-    participant backend as Digital Twin
-    participant vum as Vehicle Update Manager
-    participant sua as Self Update Agent
-    participant device as Device
+A full specification of UM's API and the relevant MQTT topics can be found [in its documentation](https://github.com/eclipse-kanto/update-manager/blob/main/docs/update-agent-api.md).
 
-    flops ->> backend: Rollout Campaign
+## Update Message
 
-    backend -->> vum: Device Command <br> Live Message: <br> yamlApply
+The general structure of the update message is as follows:
 
-    Note left of backend: C2D Message
-
-    vum -->> sua: selfupdate/desiredstate <br> SelfUpdateBundle
-
-    loop Download
-        sua -->> sua: Downloading
-        sua -->> vum: selfupdate/desiredstatefeedback
-        vum -->> backend: progress
-    end
-
-    loop Installation
-        sua -->> device: Installing
-        Note right of device: RAUC Update Bundle
-        sua -->> vum: selfupdate/desiredstatefeedback
-        vum -->> backend: progress
-    end
-
-    sua -->> vum: Installed
-    
-    rect rgb(100, 255, 150)
-        sua -->> backend: FINISHED_SUCCESS
-    end
-
-    opt Reboot
-        vum -->> device: SysRq Reboot
-    end
-
-
+```json
+{
+  "activityId": "correlation-activity-uuid",
+  "timestamp": 123456789,
+  "payload": {
+    "domains": [
+      {
+        "id": "domain",
+        "config": [],
+        "components": [
+            {
+                "id": "component1",
+                "version": "component1-version",
+                "config": [
+                    {
+                        "key": "component1-config-key-1",
+                        "value": "component1-config-value-1"
+                    }
+                ]
+            }
+        ]
+      }
+    ]
+  }
+}
 ```
 
-# Messages
+Where multiple domains and components per domain (each with multiple configuration key-value pairs) are allowed. To trigger an update, publish
+your full update message on the `vehicleupdate/desiredstate` MQTT topic. When UM receives your message, it splits it across the required domains and
+publishes messages to the topics that the [domain-specific agents are monitoring](../).
 
-The following describes the message flow with example messages in more detail. The following variables are used for dynamic parts of the messages:
-- `<cuid>` - A Correlation ID in form of a UUID
-- `<selfUpdateRequestYaml>` or `<payload>`- The Desired State Self Update Request message in YAML, as defined by the Self Update Agent API
-- `<hub>` - The name or identifier of the message hub
-- `<device>` - The device identifier used by the message hub or other components to identify the device.
+Similarly, update progress can be monitored on the `vehicleupdate/desiredstatefeedback` topic.
 
-1. Cloud backend sends the Self-Update Request Message as YAML embedded into an Azure IoT Hub C2D Message Envelope:
+## Self-update
 
-    Payload:
-    ```
-    {
-        "appId": "mc-ota-update",
-        "cmdName": "desiredstate.update",
-        "cId": "<cuid>",
-        "eVer": "2.0",
-        "pVer": "1.0",
-        "p": <selfUpdateRequestYaml>
-    }
-    ```
+The messages for triggering a self-update (image update) are the same as in [The Self Update Tutorial](../../self-update/self-update-tutorial).
+The only difference here is that when you publish a self-update message on the `vehicleupdate/desiredstate` topic,
+UM will automatically take care to forward your message to the self-update agent, including
+forwarding back the update feedback on the `vehicleupdate/`-namespaced topics.
 
-2. Cloud Connector validates envelope and transforms request message into a *ContainerOrechestrator* message:
+## Containers update (desired state)
 
-   Topic: `command//azure.edge:<hub>:<device>:edge:containers/req/<cuid>/yamlApply`
+Similarly to the self-update, you should start by understanding the operation of the [Container Update Agent](../../container-management/container-update-agent).
+After constructing the desired state message you can publish it on the `vehicleupdate/desiredstate` and UM will, again, forward it to CUA automatically,
+based on the domain specified in the update message.
 
-   Body (json):
-   ```
-    {
-     "topic": "azure.edge/<hub>:<device>:edge:containers/things/live/messages/yamlApply",
-     "headers": {
-        "content-type": "application/json",
-        "correlation-id": "<cuid>"},
-        "path": "/features/ContainerOrchestrator/inbox/messages/yamlApply",
-        "value": {
-            "correlationId": "<cuid>",
-            "payload": "<payload>"
-            }
-        }
-    }
-    ```
+## Combined update messages
 
-   *Note: Payload (Yaml encoded in JSON) omitted here for clarity, see next step.*
+The real strength of UM is deploying updates accross multiple domains with a single update message. For example, if you'd like to deploy an image update bundle
+(self-update) and a single `hello-world` container image with the environment variable `FOO=BAR` set, you can construct the following message:
 
-3) Vehicle Update manager extracts payload and forward the message to the Self Update Agent message inbox:
+```json
+{
+   "activityId":"random-uuid-as-string",
+   "timestamp":123456789,
+   "payload":{
+      "domains":[
+         {
+            "id":"self-update",
+            "components":[
+               {
+                  "id":"os-image",
+                  "version":"${VERSION_ID}",
+                  "config":[
+                     {
+                        "key":"image",
+                        "value":"https://leda-bundle-server/sdv-rauc-bundle-minimal-qemux86-64.raucb"
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "id":"containers",
+            "config":[],
+            "components":[
+               {
+                  "id":"hello-world",
+                  "version":"latest",
+                  "config":[
+                     {
+                        "key":"image",
+                        "value":"docker.io/library/hello-world:latest"
+                     },
+                     {
+                        "key":"env",
+                        "value":"FOO=BAR"
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}
+```
 
-    Topic: `selfupdate/desiredstate`
-
-    Message:
-    ```
-    apiVersion: sdv.eclipse.org/v1
-    kind: SelfUpdateBundle
-    metadata:
-        name: self-update-bundle-example
-    spec:
-        bundleDownloadUrl: http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb
-        bundleName: swdv-arm64-build42
-        bundleTarget: base
-        bundleVersion: v1beta3
-    ```
-4. The Self Update Agent response with status messages during download and installation phases.
-
-    Topic: `selfupdate/desiredstatefeedback`
-
-    Message:
-    ```
-    apiVersion: sdv.eclipse.org/v1
-    kind: SelfUpdateBundle
-    metadata: 
-      name: "self-update-bundle-example"
-    spec: 
-      bundleDownloadUrl: "http://leda-bundle-server/sdv-rauc-bundle-qemux86-64.raucb"
-      bundleName: "swdv-arm64-build42"
-      bundleTarget: base
-      bundleVersion: v1beta3
-    state: 
-      message: Entered Downloading state
-      name: downloading
-      progress: 0
-      techCode: 0
-    ```
-5. Once finished, the Vehicle Update Manager will also return a `FINISHED_SUCCESS` message for the conversation with the backend.
-
-    Topic: `e/defaultTenant/azure.edge:<hub>:<device>:edge:containers`
-
-    Message: 
-    ```
-    {
-      "topic": "azure.edge/<hub>:<device>:edge:containers/things/twin/commands/modify",
-      "headers": {
-        "response-required":false
-      },
-      "path": "/features/ContainerOrchestrator/properties/status/state",
-      "value": {
-        "manifest": [],
-        "status": "FINISHED_SUCCESS",
-        "correlationId":"<cuid>"
-        }
-    }
-    ```
+And publish the message on the MQTT topic `vehicleupdate/desiredstate`. UM will take actions to identify the affected update domains and publish the correct
+messages on the respective topics. All feedback from the specific update agents will be forwarded back to the UM and published on the `vehicleupdate/desiredstatefeedback`
+topic. All these messages will use the same activityId so they can be correlated with each other.

@@ -1,7 +1,7 @@
 ---
 title: "Container Registries"
 date: 2022-05-09T14:24:56+05:30
-weight: 4
+weight: 5
 ---
 
 When deploying containerized applications, the container runtime will pull container images from a (remote) container registry.
