@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="n-y3Garob8GmoL7d-FYO" name="Page-1">
-        <mxGraphModel dx="1089" dy="516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="569" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,7 +13,7 @@
                 <mxCell id="12" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;" parent="1" source="3" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Seat Service&lt;br&gt;&amp;lt;Vehicle Service&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                <mxCell id="3" value="Seat Service&lt;br&gt;&amp;lt;Provider&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
                     <mxGeometry x="450" y="170" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="13" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;" parent="1" source="4" target="5" edge="1">
@@ -44,7 +44,7 @@
                     <mxGeometry x="610" y="350" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="Pre-installed on Leda Quickstart image" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;dashed=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" parent="1" vertex="1">
-                    <mxGeometry x="230" y="155" width="370" height="90" as="geometry"/>
+                    <mxGeometry x="233" y="154" width="370" height="90" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
