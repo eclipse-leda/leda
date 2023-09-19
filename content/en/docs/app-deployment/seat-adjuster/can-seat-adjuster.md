@@ -21,7 +21,7 @@ weight: 10
 
 3. From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace.
 
-_Note_: On QEMU you can tunnel the host CAN bus to the guest: [Tunneling a CAN Interface from the Host](../../general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can).
+_Note_: On QEMU you can tunnel the host CAN bus to the guest: [Tunneling a CAN Interface from the Host](/leda/docs/general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can).
 
 ## Hardware CAN-Bus
 
@@ -133,6 +133,6 @@ when the vehicle is not moving.
 
 The condition is using VSS path notation: `Vehicle.Speed == 0` (see [main.py#L82 in v0.9.0](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.9.0/examples/seat-adjuster/src/main.py#L82))
 
-> Note: The Kuksa.VAL CAN Feeder, which is deployed *by default on Eclipse Leda* is constantly updating the [`Vehicle.Speed`](/leda/docs/vss/vehicle/driver/)
+> Note: The Kuksa.VAL CAN Feeder, which is deployed *by default on Eclipse Leda* is constantly updating the [`Vehicle.Speed`](/leda/docs/vss/vehicle/speed/)
 You need to disable the `feedercan` container (see step 7 of Getting started), otherwise the Seat Adjuster application
 *will decline the request and not move the seat*.

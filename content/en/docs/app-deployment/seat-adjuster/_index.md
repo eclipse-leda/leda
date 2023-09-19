@@ -8,7 +8,7 @@ The **seat adjuster** is an example to showcase how to create a vehicle applicat
 for Eclipse Leda with help of Eclipse Velocitas and Eclipse Kuksa
 .
 If you are new to the concepts around Eclipse SDV and the mentioned projects
-we recommend to read the [SDV Tutorial](../../tutorial) first.
+we recommend to read the [SDV Tutorial](/leda/docs/general-usage/sdv-introduction/) first.
 
 ## Description
 
