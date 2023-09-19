@@ -327,7 +327,7 @@ This is the multi-page printable view of this section.
 for Eclipse Leda with help of Eclipse Velocitas and Eclipse Kuksa
 .
 If you are new to the concepts around Eclipse SDV and the mentioned projects
-we recommend to read the <a href="../../tutorial">SDV Tutorial</a> first.</p>
+we recommend to read the <a href="/leda/docs/general-usage/sdv-introduction/">SDV Tutorial</a> first.</p>
 <h2 id="description">Description</h2>
 <p>The idea of the seat adjuster application is to have a custom application to move the driver seat to positions defined
 in a driver profile hosted by a third-party web service.</p>
@@ -948,7 +948,7 @@ In addition, you can <a href="../can-seat-adjuster">connect the seat service to 
 <p>From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace.</p>
 </li>
 </ol>
-<p><em>Note</em>: On QEMU you can tunnel the host CAN bus to the guest: <a href="../../general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can">Tunneling a CAN Interface from the Host</a>.</p>
+<p><em>Note</em>: On QEMU you can tunnel the host CAN bus to the guest: <a href="/leda/docs/general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can">Tunneling a CAN Interface from the Host</a>.</p>
 <h2 id="hardware-can-bus">Hardware CAN-Bus</h2>
 <p>The default configuration of the <strong>Seat Service</strong> is using simulated VCAN. If you want to switch to a physical CAN-Bus interface,
 the container needs to have access to the CAN-Bus hardware.</p>
@@ -1047,7 +1047,7 @@ not harm anybody by accidental movements of seat motors or any other actuator.</
 when the vehicle is not moving.</p>
 <p>The condition is using VSS path notation: <code>Vehicle.Speed == 0</code> (see <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.9.0/examples/seat-adjuster/src/main.py#L82">main.py#L82 in v0.9.0</a>)</p>
 <blockquote>
-<p>Note: The Kuksa.VAL CAN Feeder, which is deployed <em>by default on Eclipse Leda</em> is constantly updating the <a href="/leda/docs/vss/vehicle/driver/"><code>Vehicle.Speed</code></a>
+<p>Note: The Kuksa.VAL CAN Feeder, which is deployed <em>by default on Eclipse Leda</em> is constantly updating the <a href="/leda/docs/vss/vehicle/speed/"><code>Vehicle.Speed</code></a>
 You need to disable the <code>feedercan</code> container (see step 7 of Getting started), otherwise the Seat Adjuster application
 <em>will decline the request and not move the seat</em>.</p>
 </blockquote>

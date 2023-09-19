@@ -587,7 +587,7 @@ In addition, you can &lt;a href=&#34;../can-seat-adjuster&#34;&gt;connect the se
 &lt;p&gt;From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: On QEMU you can tunnel the host CAN bus to the guest: &lt;a href=&#34;../../general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can&#34;&gt;Tunneling a CAN Interface from the Host&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: On QEMU you can tunnel the host CAN bus to the guest: &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can&#34;&gt;Tunneling a CAN Interface from the Host&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;hardware-can-bus&#34;&gt;Hardware CAN-Bus&lt;/h2&gt;
 &lt;p&gt;The default configuration of the &lt;strong&gt;Seat Service&lt;/strong&gt; is using simulated VCAN. If you want to switch to a physical CAN-Bus interface,
 the container needs to have access to the CAN-Bus hardware.&lt;/p&gt;
@@ -686,7 +686,7 @@ not harm anybody by accidental movements of seat motors or any other actuator.&l
 when the vehicle is not moving.&lt;/p&gt;
 &lt;p&gt;The condition is using VSS path notation: &lt;code&gt;Vehicle.Speed == 0&lt;/code&gt; (see &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.9.0/examples/seat-adjuster/src/main.py#L82&#34;&gt;main.py#L82 in v0.9.0&lt;/a&gt;)&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Note: The Kuksa.VAL CAN Feeder, which is deployed &lt;em&gt;by default on Eclipse Leda&lt;/em&gt; is constantly updating the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/driver/&#34;&gt;&lt;code&gt;Vehicle.Speed&lt;/code&gt;&lt;/a&gt;
+&lt;p&gt;Note: The Kuksa.VAL CAN Feeder, which is deployed &lt;em&gt;by default on Eclipse Leda&lt;/em&gt; is constantly updating the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/vss/vehicle/speed/&#34;&gt;&lt;code&gt;Vehicle.Speed&lt;/code&gt;&lt;/a&gt;
 You need to disable the &lt;code&gt;feedercan&lt;/code&gt; container (see step 7 of Getting started), otherwise the Seat Adjuster application
 &lt;em&gt;will decline the request and not move the seat&lt;/em&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;

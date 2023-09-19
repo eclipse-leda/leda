@@ -27,7 +27,7 @@
 for Eclipse Leda with help of Eclipse Velocitas and Eclipse Kuksa
 .
 If you are new to the concepts around Eclipse SDV and the mentioned projects
-we recommend to read the &lt;a href=&#34;../../tutorial&#34;&gt;SDV Tutorial&lt;/a&gt; first.&lt;/p&gt;
+we recommend to read the &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/general-usage/sdv-introduction/&#34;&gt;SDV Tutorial&lt;/a&gt; first.&lt;/p&gt;
 &lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;The idea of the seat adjuster application is to have a custom application to move the driver seat to positions defined
 in a driver profile hosted by a third-party web service.&lt;/p&gt;
