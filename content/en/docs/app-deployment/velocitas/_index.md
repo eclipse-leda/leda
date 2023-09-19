@@ -21,8 +21,8 @@ To update an existing container when the configuration has changed, delete the c
 The following Velocitas environment variables need to be set to configure the proper middleware type and hostnames of services:
 
 ```
-SDV_MQTT_ADDRESS=mqtt://mosquitto:1883
-SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555
+SDV_MQTT_ADDRESS=mosquitto:1883
+SDV_VEHICLEDATABROKER_ADDRESS=databroker:55555
 SDV_MIDDLEWARE_TYPE=native
 ```
 
@@ -90,8 +90,8 @@ SDV_MIDDLEWARE_TYPE=native
     "config": {
         "env": [
            "VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker",
-           "SDV_MQTT_ADDRESS=mqtt://mosquitto:1883",
-           "SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555",
+           "SDV_MQTT_ADDRESS=mosquitto:1883",
+           "SDV_VEHICLEDATABROKER_ADDRESS=databroker:55555",
            "SDV_MIDDLEWARE_TYPE=native"
         ],
         "cmd": []
