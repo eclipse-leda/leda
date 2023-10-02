@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.d275517ca47f9ae0ac37a190432ddf73.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.133e323a9b81afb22caf5b4a2b577714.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -372,6 +372,25 @@ This is the multi-page printable view of this section.
 
 
     
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-886a90f8e9ce27e2ae5a34b321aa0a97">GPS Connectivity</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
   
 
     </ul>
@@ -2449,6 +2468,100 @@ that can convert between the two file formats. Otherwise <code>wpa_supplicant.co
 
     
 	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-886a90f8e9ce27e2ae5a34b321aa0a97">10 - GPS Connectivity</h1>
+    
+	<h2 id="gpsd">GPSD</h2>
+<p>Leda Quickstart Images provide (within meta-leda) recipes for the integration and setup of GPSD.
+GPSD is a service daemon that monitors one or more GPSes or AIS receivers attached to a host computer through serial or USB ports,
+making all data on the location/course/velocity of the sensors available to be queried on TCP port 2947
+of the host computer. To find out more about GPSD, check out its <a href="https://gpsd.gitlab.io/gpsd/gpsd.html">official documentation</a>.</p>
+<p>For easier interaction and debugging gpsd client utilities such as installed <a href="https://www.mankier.com/1/gpsfake">gpsfake</a>,
+<a href="https://www.mankier.com/1/gpspipe">gpspipe</a>, etc. are installed.</p>
+<h2 id="service">Service</h2>
+<p>GPSD is installed on Leda Quickstart Images as a service. To check its status and/or logs you can use the following two commands:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@leda-525400123502:~# systemctl status gpsd.service
+</span></span><span style="display:flex;"><span>* gpsd.service - GPS <span style="color:#ce5c00;font-weight:bold">(</span>Global Positioning System<span style="color:#ce5c00;font-weight:bold">)</span> Daemon
+</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#ce5c00;font-weight:bold">(</span>/lib/systemd/system/gpsd.service<span style="color:#000;font-weight:bold">;</span> disabled<span style="color:#000;font-weight:bold">;</span> vendor preset: disabled<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>     Active: active <span style="color:#ce5c00;font-weight:bold">(</span>running<span style="color:#ce5c00;font-weight:bold">)</span> since Mon 2023-10-02 11:19:54 UTC<span style="color:#000;font-weight:bold">;</span> 41min ago
+</span></span><span style="display:flex;"><span>     ...
+</span></span></code></pre></div><p>and the socket:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@leda-525400123502:~# systemctl status gpsd.socket
+</span></span><span style="display:flex;"><span>* gpsd.socket - GPS <span style="color:#ce5c00;font-weight:bold">(</span>Global Positioning System<span style="color:#ce5c00;font-weight:bold">)</span> Daemon Sockets
+</span></span><span style="display:flex;"><span>     Loaded: loaded <span style="color:#ce5c00;font-weight:bold">(</span>/lib/systemd/system/gpsd.socket<span style="color:#000;font-weight:bold">;</span> enabled<span style="color:#000;font-weight:bold">;</span> vendor preset: enabled<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>     Active: active <span style="color:#ce5c00;font-weight:bold">(</span>running<span style="color:#ce5c00;font-weight:bold">)</span> since Mon 2023-10-02 11:19:30 UTC<span style="color:#000;font-weight:bold">;</span> 42min ago
+</span></span><span style="display:flex;"><span>    ...
+</span></span></code></pre></div><p>With the location of the default config file being:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/etc/default/gpsd.default
+</span></span></code></pre></div><p>By default, the GPSD service on Leda is configured to automatically discover USB devices (plug-and-play). In some cases, a system reboot might be required
+after plugging the USB GPS device.</p>
+<h2 id="kuksaval-feedergps">Kuksa.val FeederGPS</h2>
+<p>The Kuksa GPS Feeder consumes gpsd as a data source and pushes location data to the kuksa.val server (databroker). It is installed as a pre-configured container on Leda Images
+through the <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/feedergps.json">feedergps.json container manifest</a>.
+The container has an internal gpsd server (on port 2948) that connects to the host&rsquo;s gpsd instance (on port 2947). With the provided container manifest
+feedergps should be plug-and-play.</p>
+<h2 id="using-pre-recorder-gps-traces-with-gpsfake">Using pre-recorder GPS traces with gpsfake</h2>
+<h3 id="recording-nmea-traces">Recording NMEA traces</h3>
+<p>It sometimes might be useful to mock gps services when testing, especially on QEMU virtual machines where emulated USB GPS hardware is not available.
+Pre-recorded traces should be in the NMEA-format.</p>
+<p>To record a GPS trace in the NMEA format, on a device with physical GPS hardware, gpsd, and gpsd-client utilities installed, run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpspipe -R &gt; gps_log.nmea
+</span></span></code></pre></div><p>A sample NEMA file that can be used for testing is provided in the kuksa.val.feeders repository - <a href="https://raw.githubusercontent.com/eclipse/kuksa.val.feeders/main/gps2val/simplelog_example.nmea">simplelog_example.nmea</a>.</p>
+<h3 id="feeding-nmea-traces-to-feedergps">Feeding NMEA traces to feedergps</h3>
+<p>Since the running gpsd service will interfere with the following steps, make sure to stop it first by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl stop gpsd.service
+</span></span><span style="display:flex;"><span>systemctl stop gpsd.socket
+</span></span></code></pre></div><p>To start gpsfake on port <em>2946</em> with <code>gps_log.nmea</code> as an input,
+either in the background (by adding <code>&amp;</code> at the end of the shell line) or in a separate shell session run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@leda-525400123502:~# gpsfake -P <span style="color:#0000cf;font-weight:bold">2946</span> gps_log.nmea
+</span></span><span style="display:flex;"><span>/usr/bin/gpsfake:21: DeprecationWarning: The distutils package is deprecated and slated <span style="color:#204a87;font-weight:bold">for</span> removal in Python 3.12. Use setuptools or check PEP <span style="color:#0000cf;font-weight:bold">632</span> <span style="color:#204a87;font-weight:bold">for</span> potential alternatives
+</span></span><span style="display:flex;"><span>  from distutils import spawn
+</span></span><span style="display:flex;"><span>Processing gps_log.nmea
+</span></span><span style="display:flex;"><span>gpsfake: log cycle of gps_log.nmea begins.
+</span></span></code></pre></div><blockquote>
+<p>Note:  you can safely ignore the distutils warning.</p>
+</blockquote>
+<p>Then, run a foreground instance of gpsd that reads from gpsfake on port <em>2946</em> on the loopback interface <strong>only</strong> and forwards
+the traffic on port <em>2947</em> for <strong>all</strong> interfaces:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gpsd -GNS <span style="color:#0000cf;font-weight:bold">2947</span> gpsd://127.0.0.1:2946
+</span></span></code></pre></div><blockquote>
+<p>These extra steps are needed as feedergps requires the gpsd server on port 2947 to be available on the kanto-cm0 bridge, as it&rsquo;s running as a
+container and gpsfake cannot be configured to listen on an interface different from the loopback.</p>
+</blockquote>
+<p>Restart feedergps:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm stop -n feedergps
+</span></span><span style="display:flex;"><span>kanto-cm start -n feedergps
+</span></span></code></pre></div><h2 id="known-issues">Known issues</h2>
+<p>Sometimes the feedergps container is started before the databroker and/or gpsd which leads to the container not being able to connect to either
+of those services. In such cases, after you&rsquo;ve made sure the databroker and gpsd are up and running, restart feedergps with:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm stop -n feedergps
+</span></span><span style="display:flex;"><span>kanto-cm start -n feedergps
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
   
 
     

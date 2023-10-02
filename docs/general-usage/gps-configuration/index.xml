@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Leda Documentation – GPS Connectivity</title>
+    <link>https://eclipse-leda.github.io/leda/docs/general-usage/gps-configuration/</link>
+    <description>Recent content in GPS Connectivity on Eclipse Leda Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 02 Oct 2023 11:50:03 +0000</lastBuildDate>
+    
+	  <atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/gps-configuration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>
