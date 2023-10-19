@@ -52,7 +52,7 @@ through the [feedergps.json container manifest](https://github.com/eclipse-leda/
 The container has an internal gpsd server (on port 2948) that connects to the host's gpsd instance (on port 2947). With the provided container manifest
 feedergps should be plug-and-play.
 
-## Using pre-recorder GPS traces with gpsfake
+## Using pre-recorded GPS traces with gpsfake
 
 ### Recording NMEA traces
 

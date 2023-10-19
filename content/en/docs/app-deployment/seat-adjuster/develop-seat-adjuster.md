@@ -59,7 +59,7 @@ For reference we put the code for which this tutorial has been tested [in the en
 
 Let us walk through some lines of the code where the logic is in the `vapp.py` while the entry point is in `main.py`.
 
-In the `onStart(self)` function we subscribe to any changes of the current value of the VSS signal `Vehicle.Cabin.Seat.Row1.Pos1.Position` in the KUKSA Databroker.
+In the `on_start(self)` function we subscribe to any changes of the current value of the VSS signal `Vehicle.Cabin.Seat.Row1.Pos1.Position` in the KUKSA Databroker.
 
 ```python
 async def on_start(self):
