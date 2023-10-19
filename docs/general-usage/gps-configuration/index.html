@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.6b65c3af39f61173a6decfb3f08f4d2c.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.01ff7daf84c58923d90737ec321b5605.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.6b65c3af39f61173a6decfb3f08f4d2c.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.01ff7daf84c58923d90737ec321b5605.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5773,7 +5773,7 @@
     <li><a href="#gpsd">GPSD</a></li>
     <li><a href="#service">Service</a></li>
     <li><a href="#kuksaval-feedergps">Kuksa.val FeederGPS</a></li>
-    <li><a href="#using-pre-recorder-gps-traces-with-gpsfake">Using pre-recorder GPS traces with gpsfake</a>
+    <li><a href="#using-pre-recorded-gps-traces-with-gpsfake">Using pre-recorded GPS traces with gpsfake</a>
       <ul>
         <li><a href="#recording-nmea-traces">Recording NMEA traces</a></li>
         <li><a href="#feeding-nmea-traces-to-feedergps">Feeding NMEA traces to feedergps</a></li>
@@ -5837,7 +5837,7 @@ after plugging the USB GPS device.</p>
 through the <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/feedergps.json">feedergps.json container manifest</a>.
 The container has an internal gpsd server (on port 2948) that connects to the host&rsquo;s gpsd instance (on port 2947). With the provided container manifest
 feedergps should be plug-and-play.</p>
-<h2 id="using-pre-recorder-gps-traces-with-gpsfake">Using pre-recorder GPS traces with gpsfake</h2>
+<h2 id="using-pre-recorded-gps-traces-with-gpsfake">Using pre-recorded GPS traces with gpsfake</h2>
 <h3 id="recording-nmea-traces">Recording NMEA traces</h3>
 <p>It sometimes might be useful to mock gps services when testing, especially on QEMU virtual machines where emulated USB GPS hardware is not available.
 Pre-recorded traces should be in the NMEA-format.</p>

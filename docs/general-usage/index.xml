@@ -1053,7 +1053,7 @@ after plugging the USB GPS device.&lt;/p&gt;
 through the &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/feedergps.json&#34;&gt;feedergps.json container manifest&lt;/a&gt;.
 The container has an internal gpsd server (on port 2948) that connects to the host&amp;rsquo;s gpsd instance (on port 2947). With the provided container manifest
 feedergps should be plug-and-play.&lt;/p&gt;
-&lt;h2 id=&#34;using-pre-recorder-gps-traces-with-gpsfake&#34;&gt;Using pre-recorder GPS traces with gpsfake&lt;/h2&gt;
+&lt;h2 id=&#34;using-pre-recorded-gps-traces-with-gpsfake&#34;&gt;Using pre-recorded GPS traces with gpsfake&lt;/h2&gt;
 &lt;h3 id=&#34;recording-nmea-traces&#34;&gt;Recording NMEA traces&lt;/h3&gt;
 &lt;p&gt;It sometimes might be useful to mock gps services when testing, especially on QEMU virtual machines where emulated USB GPS hardware is not available.
 Pre-recorded traces should be in the NMEA-format.&lt;/p&gt;

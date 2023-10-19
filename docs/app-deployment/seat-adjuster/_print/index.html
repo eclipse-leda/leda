@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.6b65c3af39f61173a6decfb3f08f4d2c.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.01ff7daf84c58923d90737ec321b5605.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -333,7 +333,7 @@ Because of the DevContainer, we do not need to make further modifications to the
 to realize the described seat adjuster application</a>.
 For reference we put the code for which this tutorial has been tested <a href="#the-example-application">in the end of this page</a>.</p>
 <p>Let us walk through some lines of the code where the logic is in the <code>vapp.py</code> while the entry point is in <code>main.py</code>.</p>
-<p>In the <code>onStart(self)</code> function we subscribe to any changes of the current value of the VSS signal <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> in the KUKSA Databroker.</p>
+<p>In the <code>on_start(self)</code> function we subscribe to any changes of the current value of the VSS signal <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> in the KUKSA Databroker.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;&#34;&#34;Run when the vehicle app starts&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
