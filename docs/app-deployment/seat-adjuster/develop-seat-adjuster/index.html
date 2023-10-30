@@ -20,35 +20,31 @@
 
 <title>Develop Seat Adjuster | Eclipse Leda Documentation</title>
 <meta name="description" content="The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:
-On a high level, you need to perform the following steps:
-Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example (v0.9.0) following this guide.
-Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.. :
-docker run -it ghcr.">
+On a high level, you need to perform the following steps described in more detail in this guide:
+Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example.
+Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc..">
 <meta property="og:title" content="Develop Seat Adjuster" />
 <meta property="og:description" content="The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:
-On a high level, you need to perform the following steps:
-Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example (v0.9.0) following this guide.
-Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.. :
-docker run -it ghcr." />
+On a high level, you need to perform the following steps described in more detail in this guide:
+Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example.
+Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/develop-seat-adjuster/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-10-19T11:52:24+02:00" />
+<meta property="article:modified_time" content="2023-10-30T08:12:56+01:00" />
 <meta itemprop="name" content="Develop Seat Adjuster">
 <meta itemprop="description" content="The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:
-On a high level, you need to perform the following steps:
-Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example (v0.9.0) following this guide.
-Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.. :
-docker run -it ghcr."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-10-19T11:52:24+02:00" />
-<meta itemprop="wordCount" content="1642">
+On a high level, you need to perform the following steps described in more detail in this guide:
+Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example.
+Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-10-30T08:12:56+01:00" />
+<meta itemprop="wordCount" content="1487">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Develop Seat Adjuster"/>
 <meta name="twitter:description" content="The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:
-On a high level, you need to perform the following steps:
-Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example (v0.9.0) following this guide.
-Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.. :
-docker run -it ghcr."/>
+On a high level, you need to perform the following steps described in more detail in this guide:
+Use the Eclipse Velocitas template repository to develop, build and deploy your version of the seat adjuster example.
+Run Eclipse Leda, for example, as container or with other options like QEMU, physical hardware, etc.."/>
 
 
 
@@ -88,7 +84,7 @@ docker run -it ghcr."/>
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.01ff7daf84c58923d90737ec321b5605.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -112,7 +108,7 @@ docker run -it ghcr."/>
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.01ff7daf84c58923d90737ec321b5605.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5794,7 +5790,6 @@ docker run -it ghcr."/>
     <li><a href="#develop-the-application">Develop the application</a></li>
     <li><a href="#start-runtime-in-devcontainer-to-test-application">Start Runtime in DevContainer to test application</a></li>
     <li><a href="#commit-and-release-application">Commit and Release Application</a></li>
-    <li><a href="#the-example-application">The example application</a></li>
   </ul>
 </nav>
       </div>
@@ -5826,19 +5821,15 @@ docker run -it ghcr."/>
 		
   </header>
 	<p>The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:</p>
-<p>On a high level, you need to perform the following steps:</p>
+<p>On a high level, you need to perform the following steps described in more detail in this guide:</p>
 <ol>
 <li>
 <p>Use the Eclipse Velocitas template repository to develop, build and deploy your
-version of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster">seat adjuster example (v0.9.0)</a> following this guide.</p>
+version of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster">seat adjuster example</a>.</p>
 </li>
 <li>
-<p>Run Eclipse Leda, for example, <a href="../../../general-usage/docker-setup">as container</a> or with other options like <a href="../../../general-usage">QEMU, physical hardware, etc.</a>.
-:</p>
+<p>Run Eclipse Leda, for example, <a href="../../../general-usage/docker-setup">as container</a> or with other options like <a href="../../../general-usage">QEMU, physical hardware, etc.</a>.</p>
 </li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
-</span></span></code></pre></div><ol start="3">
 <li>
 <p><a href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/">Manage the Eclipse Kanto container runtime</a> to deploy your seat adjuster application.</p>
 </li>
@@ -5849,8 +5840,8 @@ version of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-
 <h2 id="setup-eclipse-velocitas-from-template-repository">Setup Eclipse Velocitas from template repository</h2>
 <p>We use Eclipse Velocitas to develop the seat application against the API of the Kuksa.val Databroker:</p>
 <p>In the first step, you create a copy of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main">Eclipse Velocitas template repository</a>.
-You can create the copy by opening the repository in GitHub and selecting:  <code>Use this template</code> -&gt; <code>Create a new repository</code>.
-In the next step, you can choose under which organization to place the created repository and whether it should be public.
+You create the copy by opening the repository in GitHub and selecting:  <code>Use this template</code> -&gt; <code>Create a new repository</code>.
+In the next step, you choose under which organization to place the created repository and whether it should be public.
 If you set the repository to private, you have to perform additional configuration steps mentioned below.</p>
 <p>The template repository <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/app">contains skeleton code for the application</a>,
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/.github/workflows">test and release workflows for GitHub actions</a>,
@@ -5858,9 +5849,10 @@ and the configuration of a <a href="https://github.com/eclipse-velocitas/vehicle
 <p>In addition to the Python template used in this guide, there is a <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template">C++ template</a> available.</p>
 <h2 id="execute-development-container-in-vscode">Execute Development Container in VSCode</h2>
 <p>You then checkout the repository on your development machine and open it in VSCode. From VSCode
-you can execute the development container (DevContainer) configured in the repository. For this to function, you need the following tools to be installed on your computer:</p>
+you can execute the development container (DevContainer) configured in the repository.
+For this to function, you need to install the following tools on your computer:</p>
 <ul>
-<li>Docker (e.g. <a href="https://www.docker.com">Docker Desktop</a> or <a href="https://rancherdesktop.io">Rancher Desktop</a>)</li>
+<li><a href="https://docs.docker.com/engine/install/#desktop">Docker Engine</a> (e.g. through <a href="https://www.docker.com">Docker Desktop</a> or <a href="https://rancherdesktop.io">Rancher Desktop</a>)</li>
 <li><a href="https://code.visualstudio.com">VSCode</a> with the
 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a> plugin installed.</li>
 </ul>
@@ -5869,9 +5861,16 @@ Alternatively, you can press <code>F1</code> in VSCode and then enter <code>DevC
 In either case, VSCode should reopen and then connect to the DevContainer.
 Because of the DevContainer, we do not need to make further modifications to the developer machine.</p>
 <h2 id="develop-the-application">Develop the application</h2>
-<p>In the next step, we develop the actual application. You find the skeleton code in <code>/app/src/main.py</code>. Eclipse Velocitas provides you with <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.11.0/examples/seat-adjuster/src">the code
-to realize the described seat adjuster application</a>.
-For reference we put the code for which this tutorial has been tested <a href="#the-example-application">in the end of this page</a>.</p>
+<p>In the next step, we work on the actual application. You find the skeleton code in <code>/app/src/main.py</code> of the Eclipse Velocitas template and thus the DevContainer.</p>
+<p>Eclipse Velocitas provides you with the code
+to realize the described seat adjuster application.
+One way, to get the code is to use pre-configured task in VSCode by pressing &lsquo;F1&rsquo; and then typing &ldquo;Run Task&rdquo;.</p>
+<p>As an alternative, you can check the latest version of the seat adjuster example code
+in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src">Eclipse Velocitas SDK repository</a> in the example directory.</p>
+<blockquote>
+<p>There is a chance that the latest code for the seat-adjuster example in the main-branch of the Eclipse Velocitas SDK
+is a bit different compared to the code snippets below.</p>
+</blockquote>
 <p>Let us walk through some lines of the code where the logic is in the <code>vapp.py</code> while the entry point is in <code>main.py</code>.</p>
 <p>In the <code>on_start(self)</code> function we subscribe to any changes of the current value of the VSS signal <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> in the KUKSA Databroker.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
@@ -5904,6 +5903,9 @@ For reference we put the code for which this tutorial has been tested <a href="#
 to the value requested in the incoming MQTT message.</p>
 <p>The <code>get()</code> and <code>set()</code> functions are created based on a VSS model, and we assume that the KUKSA Databroker instance uses the same VSS model.
 In many cases, like the default Eclipse Leda, one may rely on the upstream VSS model, but some scenarios require further signals, e.g., by applying an overlay.</p>
+<p>You can configure the used VSS model in the <code>app/AppManifest.json</code> file. This file includes an interface definition with the entry for the default <code>vehicle_signal_interface</code>.
+The DevContainer generates the respective Eclipse Velocitas SDK based on this configuration.
+For more details see the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator">Eclipse Velocitas Model Generator for more</a>.</p>
 <p>At this point, you may wonder how the application actually knows to which MQTT broker to connect and where to find the correct instance of the KUKSA Databroker.
 This service discovery is abstracted within the Velocitas SDK and involves the usage of so-called middleware to find and call the other components.
 As of writing this page, Eclipse Velocitas supports DAPR as middleware or uses the <code>native</code> approach to configure the correct address directly.
@@ -5935,11 +5937,12 @@ we use the <a href="https://github.com/eclipse-velocitas/cli">Eclipse Velocitas 
 </span></span><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> deployment-kanto deploy-vehicleapp
 </span></span></code></pre></div><p>You can now check the behavior of the application by interacting with it through the MQTT-broker in the VSMQTT plugin available
 in the left side of the VSCode instance connected to the DevContainer.
-We will not get into details here since we will test the application in Eclipse Leda again later in this guide.</p>
+We do not get into details here since we will run the application in Eclipse Leda again later in this guide.</p>
 <p>Once you finish the application testing and development, you can shutdown the runtime with:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> runtime-kanto down
 </span></span></code></pre></div><h2 id="commit-and-release-application">Commit and Release Application</h2>
-<p>When we are confident about the application, we want to be able to distribute it. Here, pre-configured workflows from Eclipse Velocitas for GitHub Actions are helpful.</p>
+<p>When you are confident about the application, you want to be able to distribute it.
+Here, pre-configured workflows from Eclipse Velocitas for GitHub Actions are helpful.</p>
 <p>You now commit your changes and push them to your copy of the Eclipse Velocitas template repository in GitHub.
 Before you create the commit, we recommend running the pre-commit task, which performs similar checks and linting as the CI workflow from Eclipse Velocitas.
 You can trigger the pre-commit as a task in VSCode:</p>
@@ -5961,118 +5964,7 @@ The subsequent release workflow will make the application available as a built c
 To do the release in GitHub, go to the <code>Code</code> tab and click <code>Releases</code> on the right side of the page.
 Then you can <code>Draft a new release</code>, create a new tag and title for the release, and click <code>Publish Release</code>, which triggers the <code>Release workflow</code>.</p>
 <p>The next step is to <a href="../deploy-seat-adjuster">deploy the seat adjuster in Eclipse Leda</a></p>
-<h2 id="the-example-application">The example application</h2>
-<p>main.py:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;&#34;&#34;The launcher for starting a Vehicle App.&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">asyncio</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">logging</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">signal</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">vapp</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">SeatAdjusterApp</span>  <span style="color:#8f5902;font-style:italic"># type: ignore # noqa: E402</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">vehicle</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">vehicle</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.util.log</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_factory</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_format</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">setLogRecordFactory</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">get_opentelemetry_log_factory</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">basicConfig</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">format</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">get_opentelemetry_log_format</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getLogger</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">setLevel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;DEBUG&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getLogger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">__name__</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;&#34;&#34;Main function&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Starting seat adjuster app...&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">seat_adjuster_app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#000">seat_adjuster_app</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">asyncio</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_event_loop</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_signal_handler</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">signal</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">SIGTERM</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">stop</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run_until_complete</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">main</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span>
-</span></span></code></pre></div><p>vapp.py:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;&#34;&#34;A sample Velocitas vehicle app for adjusting seat position.&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">json</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">logging</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">vehicle</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Vehicle</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.util.log</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_factory</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_format</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.vdb.reply</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">DataPointReply</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.vehicle_app</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">subscribe_topic</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">setLogRecordFactory</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">get_opentelemetry_log_factory</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">basicConfig</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">format</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">get_opentelemetry_log_format</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getLogger</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">setLevel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;DEBUG&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getLogger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">__name__</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    Sample Velocitas Vehicle App.
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle_client</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle_client</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;&#34;&#34;Run when the vehicle app starts&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">),</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/setPosition/response&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{}}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">())</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">try</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Set Seat position to: </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">ValueError</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">error</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Failed to set the position </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">, error: </span><span style="color:#4e9a06">{</span><span style="color:#000">error</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#c00;font-weight:bold">Exception</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Exception on set Seat position&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">error_msg</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;&#34;&#34;Not allowed to move seat because vehicle speed
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                is </span><span style="color:#4e9a06">{</span><span style="color:#000">vehicle_speed</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> and not 0&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">error_msg</span><span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div>
+
 	
 </div>
 
