@@ -6,7 +6,8 @@ weight: 1
 
 The **seat adjuster** is an example to showcase how to create a vehicle application which senses and actuates signals in the vehicle
 for Eclipse Leda with help of Eclipse Velocitas and Eclipse Kuksa
-.
+. The aim is not to build the best available seat adjuster application possible but to show how one can use the applied technologies
+to build a companion app for the interaction with a vehicle.
 If you are new to the concepts around Eclipse SDV and the mentioned projects
 we recommend to read the [SDV Tutorial](/leda/docs/general-usage/sdv-introduction/) first.
 
