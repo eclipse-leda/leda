@@ -6,16 +6,18 @@ weight: 4
 
 We now want to deploy the application to a target device.
 You may follow the remainder of this guide on a separate device like a RaspberryPi, but you can emulate such a device on your development machine too.
-Either way, we use Eclipse Leda as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
-or Eclipse Kanto for container management. For more details on how to download and run Eclipse Leda, follow the respective guides:
+Either way, we use Eclipse Leda in version 0.1.0-M2 as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
+and Eclipse Kanto for container management.
+For more details on how to download and run Eclipse Leda, follow the respective guides:
 
 - [QEMU]({{< ref "/docs/general-usage/running-qemu" >}})
 - [Docker]({{< ref "/docs/general-usage/docker-setup" >}})
 - [RaspberryPi]({{< ref "/docs/general-usage/raspberry-pi" >}})
 - [Linux]({{< ref "/docs/general-usage/linux-setup" >}})
 
-In any case, we now need to configure Eclipse Kanto to execute our application.
-For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command
+We recommend to get started with the QEMU setup.
+In any case, you now need to configure Eclipse Kanto to execute the application.
+For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command:
 
 ```bash
 kantui
@@ -27,12 +29,38 @@ or
 kanto-cm list
 ```
 
-From this list, ensure that at least the KUKSA Databroker and the seatservice are already running, which should be the case since both are pre-configured
+From this list, ensure that at least the KUKSA Databroker runs, which should be the case since it is are pre-configured
 with the Eclipse Leda release.
 
-In Eclipse Kanto, you can manage a container with the command line application `kanto-cm` or container manifest files.
+In Eclipse Kanto, you can manage a container with the command line application `kanto-cm` or container manifest files describing a desired container execution.
 The advantage of using the container manifests is that the configuration is persisted across a reboot of the system and is easier to use
 to describe a desired software state for the overall vehicle.
+
+Eclipse Leda has the `kanto-auto-deployer` systemd service, which applies any changes to the manifests in `/data/var/containers/manifests` to Eclipse Kanto.
+Thus, the typical way to add or adapt containers is to modify the corresponding container manifest.
+
+## Disable other containers
+
+The release 0.1.0-M2 of Eclipse Leda comes with a number of pre-configured and automatically executed containers.
+One of these containers is the `feedercan` that feeds changing values from a recording for signals such as `Vehicle.Speed` to the KUKSA Databroker.
+These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero.
+Another interfering container is the `seatservice-example` which reacts to changes in the signal `Vehicle.Cabin.Seat.Row1.Pos1.Position`
+and which we replace later with the `mock service`.
+
+Therefore, we need to stop the `feedercan` and the `seatservice-example` container.
+This is possible in `kantui` by selecting the respective entry and pressing `R`.
+In addition, you need to remove the corresponding container manifests in `/data/var/containers/manifests` to avoid that the Eclipse Kanto
+auto-deployer re-deploys these containers. Another approach is to change the ending of the not-needed manifests to something other than `.json`.
+
+If the `feedercan` container still runs, the seat adjuster application app will later respond with the following error message:
+
+```json
+seatadjuster/setPosition/response
+ {"requestId": "12345", "result": {"status": 1, "message": "Not allowed to move seat because vehicle speed is 9.0 and not 0"}}
+```
+
+Since they consume resources and are not needed for the seat adjustment, you may remove the containers and manifests for `cloudconnector`,
+`hvacservice-example`, `sua`, or `vum` as well.
 
 ## Starting of container
 
@@ -52,28 +80,28 @@ kanto-cm start --name seatadjuster-app
 kanto-cm logs --name seatadjuster-app
 ```
 
-### Add manifest file
+### Add manifest for seat adjuster
 
-As an alternative to using `kanto-cm`, Eclipse Kanto comes with an auto-deploy feature where it watches a folder in the file system and applies any changes
-to the container manifests in that location.
-
-By default, the container manifests in Eclipse Leda are in `data/var/containers/manifests`.
+As an alternative to using `kanto-cm`, you can add a container manifest to the directoy watched by the `kanto-auto-deployer` (`data/var/containers/manifests`).
 
 To add the container manifest, create a new file inside this folder.
 
 ```bash
+touch seat-adjuster.json
 nano seat-adjuster.json
 ```
 
 and copy the [manifest from below](#seat-applicationjson). You can save the file with `strg+s` and close the window with `strg+q`.
-Alternatively, one can create the file on the development machine and copy it via scp (`scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/`)
+You can create the file on the development machine and copy it via scp too:
+
+`scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/`
 
 The example deployment descriptor below is available in
 [meta-leda-components](https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled)
 too.
 An interesting aspect of the snippet is the `config.env` section at the bottom of the container manifest.
 There, we define a number of environment variables for the container
-which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the Kuksa.Val Databroker to use.
+which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the KUKSA Databroker to use.
 We did the same in `kanto-cm` call behind the parameter `--e=`.
 
 More details on the general deployment approach can be found in [Leda Vehicle Applications](/leda/docs/app-deployment/velocitas/)
@@ -83,8 +111,8 @@ You can create a personal access token in the `Developer Settings` of your GitHu
 and `generate a new token` that at least has the `read:packages` permission. Copy the generated token to a secure location or to Eclipse Kanto
 because GitHub will not show it again.
 You can now configure Eclipse Kanto in Eclipse Leda to use the token by executing:
-`sdv-kanto-ctl add-registry -h <registryhostname> -u <your_username> -p <your_password>`. In the case of GitHub, the `registryhostname` is ghcr.io
-, the username your GitHub handle, and the password is the generated token.
+`sdv-kanto-ctl add-registry -h <registryhostname> -u <your_username> -p <your_password>`. In the case of GitHub, the `registryhostname` is `ghcr.io`
+, the username is your GitHub handle, and the password is the generated token.
 See [Container Registries]({{< ref "/docs/device-provisioning/container-management" >}}) for more details.
 
 To make sure that Eclipse Kanto detects the changes in the `manifests` folder, you can restart the respective system services:
@@ -93,41 +121,27 @@ To make sure that Eclipse Kanto detects the changes in the `manifests` folder, y
 systemctl restart kanto-auto-deployer
 ```
 
-## Disable other containers
+## Mock Service
 
-The default Eclipse Leda release already comes with a number of container manifests and, therefore, containers pre-installed.
-One of these containers is the `feedercan` that feeds changing values from a recording for signals such as `Vehicle.Speed` to the KUKSA Databroker.
-These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero. Therefore, we need to stop the `feedercan` container.
-Again, we can either use the `kanto-cm` application:
+As explained in the description of the code, the seat adjuster application sets the target value for the seat positions in the KUSKSA Datbroker
+and waits for the current position to update.
 
-```bash
-kanto-cm stop -n feedercan
-```
+For this to function, there needs to be a component that reacts to this change by moving the seat and updating the current value accordingly.
+Because we cannot assume that you have an actual ECU availabe for running this guide, we mock the vehicle behavior
+with the [vehicle mock service](https://github.com/eclipse/kuksa.val.services/tree/main/mock_service) from the Eclipse Kuksa project.
 
-or rename the container manifest in the `manifest` folder
+The mock service allows the definition of custom interaction sequences with the KUKSA Databroker. For instance, one can react to changes to specific signals
+or update signals with a time trigger. You can define the sequences in a Python file like the example [`mock.py`](#mockpy) below.
+The snippet shows how to use a change to the target value for the seat position signal as a trigger to update the current value to the target value step-wise
+over a duration of 10 seconds.
 
-```bash
-mv feedercan.json feedercan.json.disabled
-```
+For the deployment, you create another container manifest in `/data/var/containers/manifest` with the content from [below](#mockservicejson).
+The container manifest also mounts a custom `mock.py` into the container to replace the configuration of the [default mock.py](https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py).
+With the container manifest below, Eclipse Kanto instead mounts from `/data/var/mock/mock.py`.
+Therefore, you need to create this directory and the file with the content from below.
 
-If the feedercan container still runs, the seat adjuster application app will later respond with the following error message:
-
-```json
-seatadjuster/setPosition/response
- {"requestId": "12345", "result": {"status": 1, "message": "Not allowed to move seat because vehicle speed is 9.0 and not 0"}}
-```
-
-## Seat Service
-
-Another pre-installed container is the `seat service` acting as the connection between the KUKSA Databroker and the underlying hardware.
-The `seat service` thus acts as a provider for the KUKSA Databroker.
-More specifically, it subscribes to the target value of the `Vehicle.Cabin.Seat.Row1.Pos1.Position` signal and updates the current value of the signal
-in small steps until it is equal to the target value.
-For more details, visit the [Kuksa.val.services](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service) repository,
-which hosts the code for the `seat service`. In a real world scenario the seat service would interact with the seat ECU to move the seat
-but for simplicity we abstract this part in this guide. You can check the [CAN setup for seat adjuster](../can-seat-adjuster) on how to add a CAN connection.
-
-After all required components should run now, the next step is to [interact with the seat adjuster](../interact-seat-adjuster).
+You may now check with `kantui` or `kanto-cm list` whether all components (`databroker`, `seatadjuster-app`, and `mock-service`) are running well.
+The next step is to [interact with the seat adjuster](../interact-seat-adjuster).
 
 ## seat-application.json
 
@@ -188,6 +202,91 @@ This is the Eclipse Kanto container manifest for the seat adjuster application.
            "vehicle_data_broker=info"
         ],
         "cmd": []
+    }
+}
+```
+
+## mock.py
+
+This is the example `mock.py` for mocking a seat provider:
+
+```python
+from lib.animator import RepeatMode
+from lib.dsl import (
+    create_animation_action,
+    create_behavior,
+    create_event_trigger,
+    create_set_action,
+    get_datapoint_value,
+    mock_datapoint,
+)
+
+from lib.trigger import ClockTrigger, EventType
+
+mock_datapoint(
+    path="Vehicle.Cabin.Seat.Row1.Pos1.Position",
+    initial_value=0,
+    behaviors=[
+        create_behavior(
+            trigger=create_event_trigger(EventType.ACTUATOR_TARGET),
+            action=create_animation_action(
+                duration=10.0,
+                values=["$self", "$event.value"],
+            ),
+        )
+    ],
+)
+
+```
+
+## mockservice.json
+
+The container manifest for the mockservice may look like the following snippet. Note, that the files referenced in the `source` of the `mount_points`
+needs to be present in the file system of your Eclipse Leda instance.
+
+```json
+{
+    "container_id": "mockservice",
+    "container_name": "mockservice",
+    "image": {
+        "name": "ghcr.io/eclipse/kuksa.val.services/mock_service:latest"
+    },
+    "mount_points": [
+        {
+            "source": "/data/var/mock/mock.py",
+            "destination": "/mock.py",
+            "propagation_mode": "rprivate"
+        }
+    ],
+    "host_config": {
+        "network_mode": "bridge",
+        "privileged": false,
+        "restart_policy": {
+            "maximum_retry_count": 0,
+            "retry_timeout": 0,
+            "type": "unless-stopped"
+        },
+        "runtime": "io.containerd.runc.v2",
+        "extra_hosts": [
+            "databroker:container_databroker-host"
+        ],
+        "log_config": {
+            "driver_config": {
+                "type": "json-file",
+                "max_files": 2,
+                "max_size": "1M",
+                "root_dir": ""
+            },
+            "mode_config": {
+                "mode": "blocking",
+                "max_buffer_size": ""
+            }
+        }
+    },
+    "config": {
+        "env": [
+           "VDB_ADDRESS=databroker:55555"
+        ]
     }
 }
 ```

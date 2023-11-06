@@ -4,7 +4,7 @@ date: 2022-05-09T14:24:56+05:30
 weight: 3
 ---
 
-The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:
+The following pages show how to execute the explained setup using Eclipse Velocitas and Eclipse Leda 0.1.0-M2:
 
 On a high level, you need to perform the following steps described in more detail in this guide:
 
@@ -51,12 +51,13 @@ Because of the DevContainer, we do not need to make further modifications to the
 
 In the next step, we work on the actual application. You find the skeleton code in `/app/src/main.py` of the Eclipse Velocitas template and thus the DevContainer.
 
-Eclipse Velocitas provides you with the code
+Eclipse Velocitas provides the code
 to realize the described seat adjuster application.
-One way, to get the code is to use pre-configured task in VSCode by pressing 'F1' and then typing "Run Task".
+One way to get the code is to use a pre-configured task in VSCode by pressing 'F1' and then typing 'Run Task'.
 
 As an alternative, you can check the latest version of the seat adjuster example code
-in the [Eclipse Velocitas SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src) in the example directory.
+in the [Eclipse Velocitas SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src)
+in the Velocitas SDK directory.
 
 > There is a chance that the latest code for the seat-adjuster example in the main-branch of the Eclipse Velocitas SDK
 is a bit different compared to the code snippets below.
@@ -109,15 +110,14 @@ The `get()` and `set()` functions are created based on a VSS model, and we assum
 In many cases, like the default Eclipse Leda, one may rely on the upstream VSS model, but some scenarios require further signals, e.g., by applying an overlay.
 
 You can configure the used VSS model in the `app/AppManifest.json` file. This file includes an interface definition with the entry for the default `vehicle_signal_interface`.
-The DevContainer generates the respective Eclipse Velocitas SDK based on this configuration. 
-For more details see the [Eclipse Velocitas Model Generator for more](https://github.com/eclipse-velocitas/vehicle-model-generator).
+The VSS signals in this guide are part of VSS in version 3.0.0.
+The DevContainer generates the respective Eclipse Velocitas SDK based on this configuration.
+For more details see the [Eclipse Velocitas Model Generator](https://github.com/eclipse-velocitas/vehicle-model-generator).
 
 At this point, you may wonder how the application actually knows to which MQTT broker to connect and where to find the correct instance of the KUKSA Databroker.
 This service discovery is abstracted within the Velocitas SDK and involves the usage of so-called middleware to find and call the other components.
 As of writing this page, Eclipse Velocitas supports DAPR as middleware or uses the `native` approach to configure the correct address directly.
 The details of how to set and configure the used middleware are part of the [deployment](../deploy-seat-adjuster).
-
-
 
 > *Signal Description:* The signal indicates the seat position on the vehicle x-axis, where the value 0 is the frontmost position supported by the seat.
 
@@ -154,15 +154,19 @@ velocitas exec deployment-kanto build-vehicleapp
 velocitas exec deployment-kanto deploy-vehicleapp
 ```
 
-You can now check the behavior of the application by interacting with it through the MQTT-broker in the VSMQTT plugin available
+You can now test the application by interacting with it through the local MQTT broker.
+To send and receive MQTT messages, use the VSMQTT plugin with a cloud icon
 in the left side of the VSCode instance connected to the DevContainer.
-We do not get into details here since we will run the application in Eclipse Leda again later in this guide.
+We do not get into details for the topics and messages here since we will run the application in Eclipse Leda again later in this guide.
 
 Once you finish the application testing and development, you can shutdown the runtime with:
 
 ```bash
 velocitas exec runtime-kanto down
 ```
+
+> Eclipse Velocitas provides Tasks to abstract the mentioned calls of the `velocitas` CLI. As an alternative you can thus press `F1` -> `Run Task`
+and scroll for the respective task like `Kanto runtime Up`.
 
 ## Commit and Release Application
 
