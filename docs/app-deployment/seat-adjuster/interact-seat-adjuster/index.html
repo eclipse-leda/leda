@@ -19,34 +19,34 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
 <title>Interact with Seat Adjuster | Eclipse Leda Documentation</title>
-<meta name="description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.
+<meta name="description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.
 mosquitto_sub -t &amp;#39;seatadjuster/#&amp;#39; -v To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to 1000 (which is the equivalent of 100%):
 mosquitto_pub -t seatadjuster/setPosition/request -m &amp;#39;{&amp;#34;position&amp;#34;: 1000, &amp;#34;requestId&amp;#34;: &amp;#34;12345&amp;#34;}&amp;#39; You may need to open a second terminal session to send the message.">
 <meta property="og:title" content="Interact with Seat Adjuster" />
-<meta property="og:description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.
+<meta property="og:description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.
 mosquitto_sub -t &#39;seatadjuster/#&#39; -v To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to 1000 (which is the equivalent of 100%):
 mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39; You may need to open a second terminal session to send the message." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-10-30T08:12:56+01:00" />
+<meta property="article:modified_time" content="2023-11-15T09:39:15+01:00" />
 <meta itemprop="name" content="Interact with Seat Adjuster">
-<meta itemprop="description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.
+<meta itemprop="description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.
 mosquitto_sub -t &#39;seatadjuster/#&#39; -v To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to 1000 (which is the equivalent of 100%):
 mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39; You may need to open a second terminal session to send the message."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-10-30T08:12:56+01:00" />
-<meta itemprop="wordCount" content="353">
+<meta itemprop="dateModified" content="2023-11-15T09:39:15+01:00" />
+<meta itemprop="wordCount" content="310">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Interact with Seat Adjuster"/>
-<meta name="twitter:description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.
+<meta name="twitter:description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.
 mosquitto_sub -t &#39;seatadjuster/#&#39; -v To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to 1000 (which is the equivalent of 100%):
 mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39; You may need to open a second terminal session to send the message."/>
 
 
 
 
-<link rel="preload" href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" as="style">
-<link href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" as="style">
+<link href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -80,7 +80,7 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -104,7 +104,7 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5774,13 +5774,14 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="/leda/docs/app-deployment/seat-adjuster/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
+    <li><a href="#run-kuksa-client">Run Kuksa Client</a></li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
@@ -5796,11 +5797,11 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a></li>
+    <a href="/leda/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/">Vehicle Applications</a></li>
+    <a href="/leda/docs/app-deployment/">Vehicle Applications</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/">Seat Adjuster</a></li>
+    <a href="/leda/docs/app-deployment/seat-adjuster/">Seat Adjuster</a></li>
   <li class="breadcrumb-item active" aria-current="page">
     Interact with Seat Adjuster</li>
   </ol>
@@ -5813,7 +5814,7 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
 		
   </header>
 	<p>We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.
-To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.</p>
+To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -t <span style="color:#4e9a06">&#39;seatadjuster/#&#39;</span> -v
 </span></span></code></pre></div><p>To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to <code>1000</code> (which is the equivalent of 100%):</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_pub -t seatadjuster/setPosition/request -m <span style="color:#4e9a06">&#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39;</span>
@@ -5831,11 +5832,7 @@ In the QEMU setup, you can do this through an SSH connection from the host machi
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><p>If you encounter an issue or want to look deeper into the state of the container, you can check the logs by executing:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm --name &lt;container-name&gt; logs
-</span></span></code></pre></div><p>To ensure that the seatservice and the KUKSA Databroker are running well, you can use a simple client in the Leda image
-instead of the seat application to set the target seat position:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client &lt;position&gt;
-</span></span></code></pre></div><p>The <a href="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/"><code>sdv-ctr-exec</code></a> here acts as a wrapper around the <code>ctr</code> command
-from containerd used by Eclipse Kanto.</p>
+</span></span></code></pre></div><h2 id="run-kuksa-client">Run Kuksa Client</h2>
 <p>Besides trusting the log information and the MQTT messages that the seat position in the KUKSA Databroker has changed you can read the values
 directly from the KUKSA Databroker with the KUKSA Client.
 Through the <code>sdv-ctr-exec</code> it becomes possible to interact with the CLI of the Eclipse KUKSA Client:</p>
@@ -5843,6 +5840,7 @@ Through the <code>sdv-ctr-exec</code> it becomes possible to interact with the C
 </span></span><span style="display:flex;"><span>kanto-cm start --name<span style="color:#ce5c00;font-weight:bold">=</span>kuksa-client
 </span></span><span style="display:flex;"><span>sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port <span style="color:#0000cf;font-weight:bold">30555</span> --protocol grpc --insecure
 </span></span></code></pre></div><p>Congratulations, you have reached the end of the seat adjuster guide. Based on the used code, you can now continue to realize other applications by using other signals.
+You may need to adapt your <code>mock.py</code> accordingly.
 In addition, you can <a href="../can-seat-adjuster">connect the seat service to a CAN-environment</a>.</p>
 <h2 id="references">References</h2>
 <ul>
@@ -5854,7 +5852,63 @@ In addition, you can <a href="../can-seat-adjuster">connect the seat service to 
 <li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json</a></li>
 </ul>
 
-	
+	<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div class="d-print-none">
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'page_helpful', {
+      'event_category': 'Helpful',
+      'event_label': window.location.pathname,
+      'value': value
+    });
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback( 100 );
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+<br />
+
 </div>
 
 

@@ -1866,28 +1866,24 @@ which uses the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specifica
 to express the current value and in case of actuators also the desired state of the vehicle signal.
 By developing against the abstraction layer, the application becomes independent from the actual physical seat.&lt;/p&gt;
 &lt;p&gt;To control the position of the driver seat, the seat adjuster sets the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal in the KUKSA Databroker.&lt;/p&gt;
-&lt;p&gt;In addition, we have the seat service that subscribes to this signal and is responsible for realizing this target state in the physical world
-by interacting with the responsible ECUs, e.g., through CAN.
-Once the seat has moved, the seat service updates the current value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal.
-For our initial setup, the seat service emulates the hardware interaction and updates the current value based on the target value.
-In the diagrams, we still include the communication over CAN to show the whole interaction from an actual vehicle.&lt;/p&gt;
+&lt;p&gt;The architecture assumes so-called actuation providers that apply the changes to the actual vehicle as indicated in the target value, e.g.,
+through interaction with the responsible ECUs.
+For this tutorial, we do not expect you to interface with an actual vehicle and thus abstract the vehicle by using the Kuksa.Val vehicle mock service.
+This vehicle mock service allows the definition of behavior toward the KUKSA Databroker like we would expect from the vehicle, for example,
+setting the current value after reacting to changes to the target value of a signal.&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;flowchart TB
     client[Client]
     anotherClient[Another Client]
     seatadjuster[Seat Adjuster]
     databroker[(KUKSA&lt;br&gt;Databroker)]
     mqttRequest[[MQTT topic&lt;br&gt;seatadjuster/setPosition/request]]
-    %% mqttResponse[[MQTT topic&lt;br&gt;seatadjuster/setPosition/response]]
-    %% mqttCurrent[[MQTT topic&lt;br&gt;seatadjuster/currentPosition]]
-    seatservice[Seat Service]
-    canbus[CAN-Bus and Seat ECU]
+    mockservice[Provider: Mock Service]
 
     client -- &#34;JSON Request: position, requestId&#34; --&gt; mqttRequest
     anotherClient -.-&gt; mqttRequest
     mqttRequest --&gt; seatadjuster
     seatadjuster -- &#34;Set Target&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;gRPC&#34; --&gt; databroker
-    databroker &lt;-- &#34;Set Current&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;&lt;br&gt;Notify subscriber of changed target&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34; --&gt; seatservice
-    seatservice -- &#34;CAN Frame: SECU1_CMD1&lt;br&gt;CAN-ID 0x705&#34; --&gt; canbus
+    databroker &lt;-- &#34;Set Current&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;&lt;br&gt;Notify subscriber of changed target&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34; --&gt; mockservice
   &lt;/div&gt;
   
   &lt;p&gt;As interface to the user, we assume a &lt;strong&gt;client&lt;/strong&gt; that can, for example, be a local app in the infotainment domain with a user interface
@@ -1898,8 +1894,9 @@ Either way, the client controls our seat adjuster application through a JSON enc
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;position&amp;#34;: 1000, &amp;#34;requestId&amp;#34;: &amp;#34;12345&amp;#34;}&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The position parameter can be any value between 0 and 1000.&lt;/p&gt;
 &lt;h3 id=&#34;getting-seat-position&#34;&gt;Getting Seat Position&lt;/h3&gt;
-&lt;p&gt;When the seat moves, the seat service gets this information, for example, from the seat ECU over the CAN-bus.
-For each update the seat service sets the current value for the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal in the KUKSA Databroker.&lt;/p&gt;
+&lt;p&gt;When the seat moves, the provider gets this information, for example, from the seat ECU over the CAN-bus.
+We use the mock service as a provider and configure it to set the current value for the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal in the KUKSA Databroker
+after the target value for the signal changes.&lt;/p&gt;
 &lt;p&gt;To receive the changes to the seat position, the seat adjuster application already subscribed to the current value of the signals and thus gets notified.
 As a result, the seat adjuster constructs a JSON message and sends the new seat position to the MQTT-topic &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt;
 where any client can consume it.&lt;/p&gt;
@@ -1910,21 +1907,19 @@ indicating whether it accepted the incoming request and set the target value or 
     anotherClient[Another Client]
     seatadjuster[Seat Adjuster]
     databroker[(KUKSA&lt;br&gt;Databroker)]
-%%    mqttRequest[[MQTT topic&lt;br&gt;seatadjuster/setPosition/request]]
     mqttResponse[[MQTT topic&lt;br&gt;seatadjuster/setPosition/response]]
     mqttCurrent[[MQTT topic&lt;br&gt;seatadjuster/currentPosition]]
-    seatservice[Seat Service]
-    canbus[CAN-Bus and Seat ECU]
+    mockservice[Provider: Mock Service]
 
-    canbus -- &#34;CAN Frame: SECU1_STAT&lt;br&gt;CAN-ID 0x712&#34; --&gt; seatservice
-    seatservice -- &#34;Feed/Set&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;(Sensor)&#34; --&gt; databroker
+    mockservice -- &#34;Feed/Set&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;(Sensor)&#34; --&gt; databroker
     databroker -- &#34;Notify Subscriber&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34; --&gt; seatadjuster
-    seatadjuster -- &#34;Once after receiving&lt;br&gt;/setPosition/request&lt;br&gt;message&#34; --&gt; mqttResponse
+    seatadjuster -- &#34;Once after processing&lt;br&gt;/setPosition/request&lt;br&gt;message&#34; --&gt; mqttResponse
     seatadjuster -- &#34;While seat is moving&#34; --&gt; mqttCurrent
     mqttResponse -- &#34;SetPosition Response&lt;br&gt;(Accepted / Error)&#34; --&gt; client
     mqttCurrent --&gt; client
 
     mqttCurrent -.-&gt; anotherClient
+    mqttResponse -.-&gt; anotherClient
   &lt;/div&gt;
   
   &lt;p&gt;The next step is to &lt;a href=&#34;../develop-seat-adjuster&#34;&gt;develop the seat adjuster with the help of Eclipse Velocitas&lt;/a&gt;.&lt;/p&gt;
@@ -2633,7 +2628,7 @@ or via ssh port &lt;code&gt;22&lt;/code&gt; on the IP address &lt;code&gt;192.16
       <description>
         
         
-        &lt;p&gt;The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:&lt;/p&gt;
+        &lt;p&gt;The following pages show how to execute the explained setup using Eclipse Velocitas and Eclipse Leda 0.1.0-M2:&lt;/p&gt;
 &lt;p&gt;On a high level, you need to perform the following steps described in more detail in this guide:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -2675,11 +2670,12 @@ In either case, VSCode should reopen and then connect to the DevContainer.
 Because of the DevContainer, we do not need to make further modifications to the developer machine.&lt;/p&gt;
 &lt;h2 id=&#34;develop-the-application&#34;&gt;Develop the application&lt;/h2&gt;
 &lt;p&gt;In the next step, we work on the actual application. You find the skeleton code in &lt;code&gt;/app/src/main.py&lt;/code&gt; of the Eclipse Velocitas template and thus the DevContainer.&lt;/p&gt;
-&lt;p&gt;Eclipse Velocitas provides you with the code
+&lt;p&gt;Eclipse Velocitas provides the code
 to realize the described seat adjuster application.
-One way, to get the code is to use pre-configured task in VSCode by pressing &amp;lsquo;F1&amp;rsquo; and then typing &amp;ldquo;Run Task&amp;rdquo;.&lt;/p&gt;
+One way to get the code is to use a pre-configured task in VSCode by pressing &amp;lsquo;F1&amp;rsquo; and then typing &amp;lsquo;Run Task&amp;rsquo;.&lt;/p&gt;
 &lt;p&gt;As an alternative, you can check the latest version of the seat adjuster example code
-in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src&#34;&gt;Eclipse Velocitas SDK repository&lt;/a&gt; in the example directory.&lt;/p&gt;
+in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src&#34;&gt;Eclipse Velocitas SDK repository&lt;/a&gt;
+in the Velocitas SDK directory.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;There is a chance that the latest code for the seat-adjuster example in the main-branch of the Eclipse Velocitas SDK
 is a bit different compared to the code snippets below.&lt;/p&gt;
@@ -2717,8 +2713,9 @@ to the value requested in the incoming MQTT message.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;get()&lt;/code&gt; and &lt;code&gt;set()&lt;/code&gt; functions are created based on a VSS model, and we assume that the KUKSA Databroker instance uses the same VSS model.
 In many cases, like the default Eclipse Leda, one may rely on the upstream VSS model, but some scenarios require further signals, e.g., by applying an overlay.&lt;/p&gt;
 &lt;p&gt;You can configure the used VSS model in the &lt;code&gt;app/AppManifest.json&lt;/code&gt; file. This file includes an interface definition with the entry for the default &lt;code&gt;vehicle_signal_interface&lt;/code&gt;.
+The VSS signals in this guide are part of VSS in version 3.0.0.
 The DevContainer generates the respective Eclipse Velocitas SDK based on this configuration.
-For more details see the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;Eclipse Velocitas Model Generator for more&lt;/a&gt;.&lt;/p&gt;
+For more details see the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;Eclipse Velocitas Model Generator&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;At this point, you may wonder how the application actually knows to which MQTT broker to connect and where to find the correct instance of the KUKSA Databroker.
 This service discovery is abstracted within the Velocitas SDK and involves the usage of so-called middleware to find and call the other components.
 As of writing this page, Eclipse Velocitas supports DAPR as middleware or uses the &lt;code&gt;native&lt;/code&gt; approach to configure the correct address directly.
@@ -2748,12 +2745,17 @@ we use the &lt;a href=&#34;https://github.com/eclipse-velocitas/cli&#34;&gt;Ecli
 &lt;p&gt;Once the runtime is available, we add our application by executing:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; deployment-kanto build-vehicleapp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; deployment-kanto deploy-vehicleapp
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can now check the behavior of the application by interacting with it through the MQTT-broker in the VSMQTT plugin available
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can now test the application by interacting with it through the local MQTT broker.
+To send and receive MQTT messages, use the VSMQTT plugin with a cloud icon
 in the left side of the VSCode instance connected to the DevContainer.
-We do not get into details here since we will run the application in Eclipse Leda again later in this guide.&lt;/p&gt;
+We do not get into details for the topics and messages here since we will run the application in Eclipse Leda again later in this guide.&lt;/p&gt;
 &lt;p&gt;Once you finish the application testing and development, you can shutdown the runtime with:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-kanto down
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;commit-and-release-application&#34;&gt;Commit and Release Application&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Eclipse Velocitas provides Tasks to abstract the mentioned calls of the &lt;code&gt;velocitas&lt;/code&gt; CLI. As an alternative you can thus press &lt;code&gt;F1&lt;/code&gt; -&amp;gt; &lt;code&gt;Run Task&lt;/code&gt;
+and scroll for the respective task like &lt;code&gt;Kanto runtime Up&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;commit-and-release-application&#34;&gt;Commit and Release Application&lt;/h2&gt;
 &lt;p&gt;When you are confident about the application, you want to be able to distribute it.
 Here, pre-configured workflows from Eclipse Velocitas for GitHub Actions are helpful.&lt;/p&gt;
 &lt;p&gt;You now commit your changes and push them to your copy of the Eclipse Velocitas template repository in GitHub.
@@ -3258,24 +3260,43 @@ This is done by sending a request to the topic &lt;code&gt;command//&amp;lt;name
         
         &lt;p&gt;We now want to deploy the application to a target device.
 You may follow the remainder of this guide on a separate device like a RaspberryPi, but you can emulate such a device on your development machine too.
-Either way, we use Eclipse Leda as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
-or Eclipse Kanto for container management. For more details on how to download and run Eclipse Leda, follow the respective guides:&lt;/p&gt;
+Either way, we use Eclipse Leda in version 0.1.0-M2 as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
+and Eclipse Kanto for container management.
+For more details on how to download and run Eclipse Leda, follow the respective guides:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;QEMU&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/docker-setup/&#34;&gt;Docker&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;RaspberryPi&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/linux-setup/&#34;&gt;Linux&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In any case, we now need to configure Eclipse Kanto to execute our application.
-For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command&lt;/p&gt;
+&lt;p&gt;We recommend to get started with the QEMU setup.
+In any case, you now need to configure Eclipse Kanto to execute the application.
+For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kantui
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From this list, ensure that at least the KUKSA Databroker and the seatservice are already running, which should be the case since both are pre-configured
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;From this list, ensure that at least the KUKSA Databroker runs, which should be the case since it is are pre-configured
 with the Eclipse Leda release.&lt;/p&gt;
-&lt;p&gt;In Eclipse Kanto, you can manage a container with the command line application &lt;code&gt;kanto-cm&lt;/code&gt; or container manifest files.
+&lt;p&gt;In Eclipse Kanto, you can manage a container with the command line application &lt;code&gt;kanto-cm&lt;/code&gt; or container manifest files describing a desired container execution.
 The advantage of using the container manifests is that the configuration is persisted across a reboot of the system and is easier to use
 to describe a desired software state for the overall vehicle.&lt;/p&gt;
+&lt;p&gt;Eclipse Leda has the &lt;code&gt;kanto-auto-deployer&lt;/code&gt; systemd service, which applies any changes to the manifests in &lt;code&gt;/data/var/containers/manifests&lt;/code&gt; to Eclipse Kanto.
+Thus, the typical way to add or adapt containers is to modify the corresponding container manifest.&lt;/p&gt;
+&lt;h2 id=&#34;disable-other-containers&#34;&gt;Disable other containers&lt;/h2&gt;
+&lt;p&gt;The release 0.1.0-M2 of Eclipse Leda comes with a number of pre-configured and automatically executed containers.
+One of these containers is the &lt;code&gt;feedercan&lt;/code&gt; that feeds changing values from a recording for signals such as &lt;code&gt;Vehicle.Speed&lt;/code&gt; to the KUKSA Databroker.
+These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero.
+Another interfering container is the &lt;code&gt;seatservice-example&lt;/code&gt; which reacts to changes in the signal &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt;
+and which we replace later with the &lt;code&gt;mock service&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Therefore, we need to stop the &lt;code&gt;feedercan&lt;/code&gt; and the &lt;code&gt;seatservice-example&lt;/code&gt; container.
+This is possible in &lt;code&gt;kantui&lt;/code&gt; by selecting the respective entry and pressing &lt;code&gt;R&lt;/code&gt;.
+In addition, you need to remove the corresponding container manifests in &lt;code&gt;/data/var/containers/manifests&lt;/code&gt; to avoid that the Eclipse Kanto
+auto-deployer re-deploys these containers. Another approach is to change the ending of the not-needed manifests to something other than &lt;code&gt;.json&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If the &lt;code&gt;feedercan&lt;/code&gt; container still runs, the seat adjuster application app will later respond with the following error message:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;seatadjuster/setPosition/response&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;12345&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;result&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Not allowed to move seat because vehicle speed is 9.0 and not 0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Since they consume resources and are not needed for the seat adjustment, you may remove the containers and manifests for &lt;code&gt;cloudconnector&lt;/code&gt;,
+&lt;code&gt;hvacservice-example&lt;/code&gt;, &lt;code&gt;sua&lt;/code&gt;, or &lt;code&gt;vum&lt;/code&gt; as well.&lt;/p&gt;
 &lt;h2 id=&#34;starting-of-container&#34;&gt;Starting of container&lt;/h2&gt;
 &lt;h3 id=&#34;use-kanto-cm&#34;&gt;Use &lt;code&gt;kanto-cm&lt;/code&gt;&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm create &lt;span style=&#34;color:#4e9a06&#34;&gt;\
@@ -3289,20 +3310,20 @@ to describe a desired software state for the overall vehicle.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm start --name seatadjuster-app
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm logs --name seatadjuster-app
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;add-manifest-file&#34;&gt;Add manifest file&lt;/h3&gt;
-&lt;p&gt;As an alternative to using &lt;code&gt;kanto-cm&lt;/code&gt;, Eclipse Kanto comes with an auto-deploy feature where it watches a folder in the file system and applies any changes
-to the container manifests in that location.&lt;/p&gt;
-&lt;p&gt;By default, the container manifests in Eclipse Leda are in &lt;code&gt;data/var/containers/manifests&lt;/code&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;add-manifest-for-seat-adjuster&#34;&gt;Add manifest for seat adjuster&lt;/h3&gt;
+&lt;p&gt;As an alternative to using &lt;code&gt;kanto-cm&lt;/code&gt;, you can add a container manifest to the directoy watched by the &lt;code&gt;kanto-auto-deployer&lt;/code&gt; (&lt;code&gt;data/var/containers/manifests&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;To add the container manifest, create a new file inside this folder.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano seat-adjuster.json
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch seat-adjuster.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano seat-adjuster.json
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and copy the &lt;a href=&#34;#seat-applicationjson&#34;&gt;manifest from below&lt;/a&gt;. You can save the file with &lt;code&gt;strg+s&lt;/code&gt; and close the window with &lt;code&gt;strg+q&lt;/code&gt;.
-Alternatively, one can create the file on the development machine and copy it via scp (&lt;code&gt;scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/&lt;/code&gt;)&lt;/p&gt;
+You can create the file on the development machine and copy it via scp too:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The example deployment descriptor below is available in
 &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled&#34;&gt;meta-leda-components&lt;/a&gt;
 too.
 An interesting aspect of the snippet is the &lt;code&gt;config.env&lt;/code&gt; section at the bottom of the container manifest.
 There, we define a number of environment variables for the container
-which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the Kuksa.Val Databroker to use.
+which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the KUKSA Databroker to use.
 We did the same in &lt;code&gt;kanto-cm&lt;/code&gt; call behind the parameter &lt;code&gt;--e=&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;More details on the general deployment approach can be found in &lt;a href=&#34;https://eclipse-leda.github.io/leda/leda/docs/app-deployment/velocitas/&#34;&gt;Leda Vehicle Applications&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3311,32 +3332,28 @@ You can create a personal access token in the &lt;code&gt;Developer Settings&lt;
 and &lt;code&gt;generate a new token&lt;/code&gt; that at least has the &lt;code&gt;read:packages&lt;/code&gt; permission. Copy the generated token to a secure location or to Eclipse Kanto
 because GitHub will not show it again.
 You can now configure Eclipse Kanto in Eclipse Leda to use the token by executing:
-&lt;code&gt;sdv-kanto-ctl add-registry -h &amp;lt;registryhostname&amp;gt; -u &amp;lt;your_username&amp;gt; -p &amp;lt;your_password&amp;gt;&lt;/code&gt;. In the case of GitHub, the &lt;code&gt;registryhostname&lt;/code&gt; is ghcr.io
-, the username your GitHub handle, and the password is the generated token.
+&lt;code&gt;sdv-kanto-ctl add-registry -h &amp;lt;registryhostname&amp;gt; -u &amp;lt;your_username&amp;gt; -p &amp;lt;your_password&amp;gt;&lt;/code&gt;. In the case of GitHub, the &lt;code&gt;registryhostname&lt;/code&gt; is &lt;code&gt;ghcr.io&lt;/code&gt;
+, the username is your GitHub handle, and the password is the generated token.
 See &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/container-management/&#34;&gt;Container Registries&lt;/a&gt; for more details.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;To make sure that Eclipse Kanto detects the changes in the &lt;code&gt;manifests&lt;/code&gt; folder, you can restart the respective system services:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;systemctl restart kanto-auto-deployer
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;disable-other-containers&#34;&gt;Disable other containers&lt;/h2&gt;
-&lt;p&gt;The default Eclipse Leda release already comes with a number of container manifests and, therefore, containers pre-installed.
-One of these containers is the &lt;code&gt;feedercan&lt;/code&gt; that feeds changing values from a recording for signals such as &lt;code&gt;Vehicle.Speed&lt;/code&gt; to the KUKSA Databroker.
-These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero. Therefore, we need to stop the &lt;code&gt;feedercan&lt;/code&gt; container.
-Again, we can either use the &lt;code&gt;kanto-cm&lt;/code&gt; application:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm stop -n feedercan
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or rename the container manifest in the &lt;code&gt;manifest&lt;/code&gt; folder&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mv feedercan.json feedercan.json.disabled
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the feedercan container still runs, the seat adjuster application app will later respond with the following error message:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;seatadjuster/setPosition/response&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;12345&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;result&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Not allowed to move seat because vehicle speed is 9.0 and not 0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;seat-service&#34;&gt;Seat Service&lt;/h2&gt;
-&lt;p&gt;Another pre-installed container is the &lt;code&gt;seat service&lt;/code&gt; acting as the connection between the KUKSA Databroker and the underlying hardware.
-The &lt;code&gt;seat service&lt;/code&gt; thus acts as a provider for the KUKSA Databroker.
-More specifically, it subscribes to the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal and updates the current value of the signal
-in small steps until it is equal to the target value.
-For more details, visit the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34;&gt;Kuksa.val.services&lt;/a&gt; repository,
-which hosts the code for the &lt;code&gt;seat service&lt;/code&gt;. In a real world scenario the seat service would interact with the seat ECU to move the seat
-but for simplicity we abstract this part in this guide. You can check the &lt;a href=&#34;../can-seat-adjuster&#34;&gt;CAN setup for seat adjuster&lt;/a&gt; on how to add a CAN connection.&lt;/p&gt;
-&lt;p&gt;After all required components should run now, the next step is to &lt;a href=&#34;../interact-seat-adjuster&#34;&gt;interact with the seat adjuster&lt;/a&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mock-service&#34;&gt;Mock Service&lt;/h2&gt;
+&lt;p&gt;As explained in the description of the code, the seat adjuster application sets the target value for the seat positions in the KUSKSA Datbroker
+and waits for the current position to update.&lt;/p&gt;
+&lt;p&gt;For this to function, there needs to be a component that reacts to this change by moving the seat and updating the current value accordingly.
+Because we cannot assume that you have an actual ECU availabe for running this guide, we mock the vehicle behavior
+with the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/mock_service&#34;&gt;vehicle mock service&lt;/a&gt; from the Eclipse Kuksa project.&lt;/p&gt;
+&lt;p&gt;The mock service allows the definition of custom interaction sequences with the KUKSA Databroker. For instance, one can react to changes to specific signals
+or update signals with a time trigger. You can define the sequences in a Python file like the example &lt;a href=&#34;#mockpy&#34;&gt;&lt;code&gt;mock.py&lt;/code&gt;&lt;/a&gt; below.
+The snippet shows how to use a change to the target value for the seat position signal as a trigger to update the current value to the target value step-wise
+over a duration of 10 seconds.&lt;/p&gt;
+&lt;p&gt;For the deployment, you create another container manifest in &lt;code&gt;/data/var/containers/manifest&lt;/code&gt; with the content from &lt;a href=&#34;#mockservicejson&#34;&gt;below&lt;/a&gt;.
+The container manifest also mounts a custom &lt;code&gt;mock.py&lt;/code&gt; into the container to replace the configuration of the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py&#34;&gt;default mock.py&lt;/a&gt;.
+With the container manifest below, Eclipse Kanto instead mounts from &lt;code&gt;/data/var/mock/mock.py&lt;/code&gt;.
+Therefore, you need to create this directory and the file with the content from below.&lt;/p&gt;
+&lt;p&gt;You may now check with &lt;code&gt;kantui&lt;/code&gt; or &lt;code&gt;kanto-cm list&lt;/code&gt; whether all components (&lt;code&gt;databroker&lt;/code&gt;, &lt;code&gt;seatadjuster-app&lt;/code&gt;, and &lt;code&gt;mock-service&lt;/code&gt;) are running well.
+The next step is to &lt;a href=&#34;../interact-seat-adjuster&#34;&gt;interact with the seat adjuster&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;seat-applicationjson&#34;&gt;seat-application.json&lt;/h2&gt;
 &lt;p&gt;This is the Eclipse Kanto container manifest for the seat adjuster application.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -3393,6 +3410,80 @@ but for simplicity we abstract this part in this guide. You can check the &lt;a 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicle_data_broker=info&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mockpy&#34;&gt;mock.py&lt;/h2&gt;
+&lt;p&gt;This is the example &lt;code&gt;mock.py&lt;/code&gt; for mocking a seat provider:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lib.animator&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;RepeatMode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lib.dsl&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;create_animation_action&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;create_behavior&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;create_event_trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;create_set_action&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;get_datapoint_value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;mock_datapoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lib.trigger&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ClockTrigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;EventType&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;mock_datapoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;initial_value&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;behaviors&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000&#34;&gt;create_behavior&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000&#34;&gt;trigger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_event_trigger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;EventType&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ACTUATOR_TARGET&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000&#34;&gt;action&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;create_animation_action&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#000&#34;&gt;duration&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10.0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#000&#34;&gt;values&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;$self&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;$event.value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;mockservicejson&#34;&gt;mockservice.json&lt;/h2&gt;
+&lt;p&gt;The container manifest for the mockservice may look like the following snippet. Note, that the files referenced in the &lt;code&gt;source&lt;/code&gt; of the &lt;code&gt;mount_points&lt;/code&gt;
+needs to be present in the file system of your Eclipse Leda instance.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;container_id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mockservice&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;container_name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mockservice&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;image&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ghcr.io/eclipse/kuksa.val.services/mock_service:latest&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mount_points&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;source&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/data/var/mock/mock.py&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;destination&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/mock.py&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;propagation_mode&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;rprivate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;host_config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;network_mode&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bridge&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;privileged&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;restart_policy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;maximum_retry_count&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;retry_timeout&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;unless-stopped&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;io.containerd.runc.v2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;extra_hosts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;databroker:container_databroker-host&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;log_config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;driver_config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;json-file&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;max_files&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;max_size&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1M&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;root_dir&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mode_config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mode&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;blocking&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;max_buffer_size&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;env&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VDB_ADDRESS=databroker:55555&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -3942,7 +4033,7 @@ easy way to find your device&amp;rsquo;s ip. More information on connecting via 
         
         
         &lt;p&gt;We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.
-To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.&lt;/p&gt;
+To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_sub -t &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;seatadjuster/#&amp;#39;&lt;/span&gt; -v
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to &lt;code&gt;1000&lt;/code&gt; (which is the equivalent of 100%):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_pub -t seatadjuster/setPosition/request -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;position&amp;#34;: 1000, &amp;#34;requestId&amp;#34;: &amp;#34;12345&amp;#34;}&amp;#39;&lt;/span&gt;
@@ -3960,11 +4051,7 @@ In the QEMU setup, you can do this through an SSH connection from the host machi
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you encounter an issue or want to look deeper into the state of the container, you can check the logs by executing:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm --name &amp;lt;container-name&amp;gt; logs
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To ensure that the seatservice and the KUKSA Databroker are running well, you can use a simple client in the Leda image
-instead of the seat application to set the target seat position:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client &amp;lt;position&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/&#34;&gt;&lt;code&gt;sdv-ctr-exec&lt;/code&gt;&lt;/a&gt; here acts as a wrapper around the &lt;code&gt;ctr&lt;/code&gt; command
-from containerd used by Eclipse Kanto.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-kuksa-client&#34;&gt;Run Kuksa Client&lt;/h2&gt;
 &lt;p&gt;Besides trusting the log information and the MQTT messages that the seat position in the KUKSA Databroker has changed you can read the values
 directly from the KUKSA Databroker with the KUKSA Client.
 Through the &lt;code&gt;sdv-ctr-exec&lt;/code&gt; it becomes possible to interact with the CLI of the Eclipse KUKSA Client:&lt;/p&gt;
@@ -3972,6 +4059,7 @@ Through the &lt;code&gt;sdv-ctr-exec&lt;/code&gt; it becomes possible to interac
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kanto-cm start --name&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;kuksa-client
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; --protocol grpc --insecure
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congratulations, you have reached the end of the seat adjuster guide. Based on the used code, you can now continue to realize other applications by using other signals.
+You may need to adapt your &lt;code&gt;mock.py&lt;/code&gt; accordingly.
 In addition, you can &lt;a href=&#34;../can-seat-adjuster&#34;&gt;connect the seat service to a CAN-environment&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
@@ -4187,7 +4275,40 @@ This is especially useful for non-service-containers, or containers which have a
       <description>
         
         
-        &lt;h2 id=&#34;virtual-can-bus&#34;&gt;Virtual CAN-Bus&lt;/h2&gt;
+        &lt;p&gt;Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.
+In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.&lt;/p&gt;
+&lt;p&gt;Instead of the &lt;code&gt;mock service&lt;/code&gt; you use the &lt;code&gt;seat service&lt;/code&gt; as a provider, which is another pre-installed container
+acting as the connection between the KUKSA Databroker and the underlying hardware.
+More specifically, it subscribes to the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal,
+can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.
+For more details, visit the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34;&gt;Kuksa.val.services&lt;/a&gt; repository,
+which hosts the code for the &lt;code&gt;seat service&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With a new installation of Eclipse Leda, the &lt;code&gt;seat adjuster&lt;/code&gt; comes by default.
+If you performed the steps from the &lt;a href=&#34;../deploy-seat-adjuster&#34;&gt;deploy the seat adjuster in Eclipse Leda&lt;/a&gt; guide,
+you need to re-add the &lt;code&gt;seatadjuster&lt;/code&gt; container manifest and remove the &lt;code&gt;mockservice&lt;/code&gt;.
+More details on how to do this are available in that guide.&lt;/p&gt;
+&lt;p&gt;The setup then looks as follows:&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA&lt;br&gt;Databroker)]
+    mqttRequest[[MQTT topic&lt;br&gt;seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic&lt;br&gt;seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic&lt;br&gt;seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- &#34;JSON Request: position, requestId&#34; --&gt; mqttRequest
+    anotherClient -.-&gt; mqttRequest
+    mqttRequest --&gt; seatadjuster
+    seatadjuster -- &#34;Set Target&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;gRPC&#34; --&gt; databroker
+    databroker &lt;-- &#34;Set Current&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;br&gt;&lt;br&gt;Notify subscriber of changed target&lt;br&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34; --&gt; seatservice
+    seatservice -- &#34;CAN Frame: SECU1_CMD1&lt;br&gt;CAN-ID 0x705&#34; --&gt; canbus
+  &lt;/div&gt;
+  
+  &lt;h2 id=&#34;virtual-can-bus&#34;&gt;Virtual CAN-Bus&lt;/h2&gt;
+&lt;p&gt;To set upa virtual CAN-Bus&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;You will have to generate initial CAN frames that will emulate the car ECU responding to the service:&lt;/p&gt;

@@ -38,7 +38,7 @@ in a driver profile hosted by a third-party web service.&lt;/p&gt;
 &lt;li&gt;Cloud or mobile trigger: not part of the Leda image, but we simulate it by issuing MQTT messages&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Seat Adjuster&lt;/strong&gt; : Developed with Eclipse Velocitas to be deployed by user&lt;/li&gt;
 &lt;li&gt;Eclipse Kuksa.val - &lt;strong&gt;KUKSA Databroker&lt;/strong&gt; (pre-installed with Eclipse Leda)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Seat Service&lt;/strong&gt;: Example provider for Eclipse Kuksa.VAL (pre-installed with Eclipse Leda)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mock Service&lt;/strong&gt;: Example provider for Eclipse Kuksa.VAL which mocks the behavior of the vehicle.&lt;/li&gt;
 &lt;li&gt;Seat ECU and the separate Seat Motor hardware can be emulated using a virtual CAN-Bus, which is beyond the scope of this guide.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In the following paragraphs, we next introduce the &lt;a href=&#34;architecture-seat-adjuster&#34;&gt;architecture and the assumed data flow&lt;/a&gt;

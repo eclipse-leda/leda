@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" as="style">
-<link href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" as="style">
+<link href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -173,7 +173,7 @@ in a driver profile hosted by a third-party web service.</p>
 <li>Cloud or mobile trigger: not part of the Leda image, but we simulate it by issuing MQTT messages</li>
 <li><strong>Seat Adjuster</strong> : Developed with Eclipse Velocitas to be deployed by user</li>
 <li>Eclipse Kuksa.val - <strong>KUKSA Databroker</strong> (pre-installed with Eclipse Leda)</li>
-<li><strong>Seat Service</strong>: Example provider for Eclipse Kuksa.VAL (pre-installed with Eclipse Leda)</li>
+<li><strong>Mock Service</strong>: Example provider for Eclipse Kuksa.VAL which mocks the behavior of the vehicle.</li>
 <li>Seat ECU and the separate Seat Motor hardware can be emulated using a virtual CAN-Bus, which is beyond the scope of this guide.</li>
 </ul>
 <p>In the following paragraphs, we next introduce the <a href="architecture-seat-adjuster">architecture and the assumed data flow</a>
@@ -207,28 +207,24 @@ which uses the <a href="https://covesa.github.io/vehicle_signal_specification/">
 to express the current value and in case of actuators also the desired state of the vehicle signal.
 By developing against the abstraction layer, the application becomes independent from the actual physical seat.</p>
 <p>To control the position of the driver seat, the seat adjuster sets the target value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal in the KUKSA Databroker.</p>
-<p>In addition, we have the seat service that subscribes to this signal and is responsible for realizing this target state in the physical world
-by interacting with the responsible ECUs, e.g., through CAN.
-Once the seat has moved, the seat service updates the current value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal.
-For our initial setup, the seat service emulates the hardware interaction and updates the current value based on the target value.
-In the diagrams, we still include the communication over CAN to show the whole interaction from an actual vehicle.</p>
+<p>The architecture assumes so-called actuation providers that apply the changes to the actual vehicle as indicated in the target value, e.g.,
+through interaction with the responsible ECUs.
+For this tutorial, we do not expect you to interface with an actual vehicle and thus abstract the vehicle by using the Kuksa.Val vehicle mock service.
+This vehicle mock service allows the definition of behavior toward the KUKSA Databroker like we would expect from the vehicle, for example,
+setting the current value after reacting to changes to the target value of a signal.</p>
 <div class="mermaid">flowchart TB
     client[Client]
     anotherClient[Another Client]
     seatadjuster[Seat Adjuster]
     databroker[(KUKSA<br>Databroker)]
     mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
-    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
-    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
-    seatservice[Seat Service]
-    canbus[CAN-Bus and Seat ECU]
+    mockservice[Provider: Mock Service]
 
     client -- "JSON Request: position, requestId" --> mqttRequest
     anotherClient -.-> mqttRequest
     mqttRequest --> seatadjuster
     seatadjuster -- "Set Target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
-    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatservice
-    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> mockservice
   </div>
   
   <p>As interface to the user, we assume a <strong>client</strong> that can, for example, be a local app in the infotainment domain with a user interface
@@ -239,8 +235,9 @@ Either way, the client controls our seat adjuster application through a JSON enc
 </span></span><span style="display:flex;"><span>    -m <span style="color:#4e9a06">&#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39;</span>
 </span></span></code></pre></div><p>The position parameter can be any value between 0 and 1000.</p>
 <h3 id="getting-seat-position">Getting Seat Position</h3>
-<p>When the seat moves, the seat service gets this information, for example, from the seat ECU over the CAN-bus.
-For each update the seat service sets the current value for the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal in the KUKSA Databroker.</p>
+<p>When the seat moves, the provider gets this information, for example, from the seat ECU over the CAN-bus.
+We use the mock service as a provider and configure it to set the current value for the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal in the KUKSA Databroker
+after the target value for the signal changes.</p>
 <p>To receive the changes to the seat position, the seat adjuster application already subscribed to the current value of the signals and thus gets notified.
 As a result, the seat adjuster constructs a JSON message and sends the new seat position to the MQTT-topic <code>seatadjuster/currentPosition</code>
 where any client can consume it.</p>
@@ -251,21 +248,19 @@ indicating whether it accepted the incoming request and set the target value or 
     anotherClient[Another Client]
     seatadjuster[Seat Adjuster]
     databroker[(KUKSA<br>Databroker)]
-%%    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
     mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
     mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
-    seatservice[Seat Service]
-    canbus[CAN-Bus and Seat ECU]
+    mockservice[Provider: Mock Service]
 
-    canbus -- "CAN Frame: SECU1_STAT<br>CAN-ID 0x712" --> seatservice
-    seatservice -- "Feed/Set<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Sensor)" --> databroker
+    mockservice -- "Feed/Set<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Sensor)" --> databroker
     databroker -- "Notify Subscriber<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatadjuster
-    seatadjuster -- "Once after receiving<br>/setPosition/request<br>message" --> mqttResponse
+    seatadjuster -- "Once after processing<br>/setPosition/request<br>message" --> mqttResponse
     seatadjuster -- "While seat is moving" --> mqttCurrent
     mqttResponse -- "SetPosition Response<br>(Accepted / Error)" --> client
     mqttCurrent --> client
 
     mqttCurrent -.-> anotherClient
+    mqttResponse -.-> anotherClient
   </div>
   
   <p>The next step is to <a href="../develop-seat-adjuster">develop the seat adjuster with the help of Eclipse Velocitas</a>.</p>
@@ -286,7 +281,7 @@ indicating whether it accepted the incoming request and set the target value or 
     
 	<h1 id="pg-649320937be8a133f0d7193aa9634953">2 - Develop Seat Adjuster</h1>
     
-	<p>The following pages show how to execute the explained setup using Eclipse Velocitas 0.9.0 and Eclipse Leda 0.1.0:</p>
+	<p>The following pages show how to execute the explained setup using Eclipse Velocitas and Eclipse Leda 0.1.0-M2:</p>
 <p>On a high level, you need to perform the following steps described in more detail in this guide:</p>
 <ol>
 <li>
@@ -328,11 +323,12 @@ In either case, VSCode should reopen and then connect to the DevContainer.
 Because of the DevContainer, we do not need to make further modifications to the developer machine.</p>
 <h2 id="develop-the-application">Develop the application</h2>
 <p>In the next step, we work on the actual application. You find the skeleton code in <code>/app/src/main.py</code> of the Eclipse Velocitas template and thus the DevContainer.</p>
-<p>Eclipse Velocitas provides you with the code
+<p>Eclipse Velocitas provides the code
 to realize the described seat adjuster application.
-One way, to get the code is to use pre-configured task in VSCode by pressing &lsquo;F1&rsquo; and then typing &ldquo;Run Task&rdquo;.</p>
+One way to get the code is to use a pre-configured task in VSCode by pressing &lsquo;F1&rsquo; and then typing &lsquo;Run Task&rsquo;.</p>
 <p>As an alternative, you can check the latest version of the seat adjuster example code
-in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src">Eclipse Velocitas SDK repository</a> in the example directory.</p>
+in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src">Eclipse Velocitas SDK repository</a>
+in the Velocitas SDK directory.</p>
 <blockquote>
 <p>There is a chance that the latest code for the seat-adjuster example in the main-branch of the Eclipse Velocitas SDK
 is a bit different compared to the code snippets below.</p>
@@ -370,8 +366,9 @@ to the value requested in the incoming MQTT message.</p>
 <p>The <code>get()</code> and <code>set()</code> functions are created based on a VSS model, and we assume that the KUKSA Databroker instance uses the same VSS model.
 In many cases, like the default Eclipse Leda, one may rely on the upstream VSS model, but some scenarios require further signals, e.g., by applying an overlay.</p>
 <p>You can configure the used VSS model in the <code>app/AppManifest.json</code> file. This file includes an interface definition with the entry for the default <code>vehicle_signal_interface</code>.
+The VSS signals in this guide are part of VSS in version 3.0.0.
 The DevContainer generates the respective Eclipse Velocitas SDK based on this configuration.
-For more details see the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator">Eclipse Velocitas Model Generator for more</a>.</p>
+For more details see the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator">Eclipse Velocitas Model Generator</a>.</p>
 <p>At this point, you may wonder how the application actually knows to which MQTT broker to connect and where to find the correct instance of the KUKSA Databroker.
 This service discovery is abstracted within the Velocitas SDK and involves the usage of so-called middleware to find and call the other components.
 As of writing this page, Eclipse Velocitas supports DAPR as middleware or uses the <code>native</code> approach to configure the correct address directly.
@@ -401,12 +398,17 @@ we use the <a href="https://github.com/eclipse-velocitas/cli">Eclipse Velocitas 
 <p>Once the runtime is available, we add our application by executing:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> deployment-kanto build-vehicleapp
 </span></span><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> deployment-kanto deploy-vehicleapp
-</span></span></code></pre></div><p>You can now check the behavior of the application by interacting with it through the MQTT-broker in the VSMQTT plugin available
+</span></span></code></pre></div><p>You can now test the application by interacting with it through the local MQTT broker.
+To send and receive MQTT messages, use the VSMQTT plugin with a cloud icon
 in the left side of the VSCode instance connected to the DevContainer.
-We do not get into details here since we will run the application in Eclipse Leda again later in this guide.</p>
+We do not get into details for the topics and messages here since we will run the application in Eclipse Leda again later in this guide.</p>
 <p>Once you finish the application testing and development, you can shutdown the runtime with:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> runtime-kanto down
-</span></span></code></pre></div><h2 id="commit-and-release-application">Commit and Release Application</h2>
+</span></span></code></pre></div><blockquote>
+<p>Eclipse Velocitas provides Tasks to abstract the mentioned calls of the <code>velocitas</code> CLI. As an alternative you can thus press <code>F1</code> -&gt; <code>Run Task</code>
+and scroll for the respective task like <code>Kanto runtime Up</code>.</p>
+</blockquote>
+<h2 id="commit-and-release-application">Commit and Release Application</h2>
 <p>When you are confident about the application, you want to be able to distribute it.
 Here, pre-configured workflows from Eclipse Velocitas for GitHub Actions are helpful.</p>
 <p>You now commit your changes and push them to your copy of the Eclipse Velocitas template repository in GitHub.
@@ -449,24 +451,43 @@ Then you can <code>Draft a new release</code>, create a new tag and title for th
     
 	<p>We now want to deploy the application to a target device.
 You may follow the remainder of this guide on a separate device like a RaspberryPi, but you can emulate such a device on your development machine too.
-Either way, we use Eclipse Leda as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
-or Eclipse Kanto for container management. For more details on how to download and run Eclipse Leda, follow the respective guides:</p>
+Either way, we use Eclipse Leda in version 0.1.0-M2 as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
+and Eclipse Kanto for container management.
+For more details on how to download and run Eclipse Leda, follow the respective guides:</p>
 <ul>
 <li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/">QEMU</a></li>
 <li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/docker-setup/">Docker</a></li>
 <li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/">RaspberryPi</a></li>
 <li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/linux-setup/">Linux</a></li>
 </ul>
-<p>In any case, we now need to configure Eclipse Kanto to execute our application.
-For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command</p>
+<p>We recommend to get started with the QEMU setup.
+In any case, you now need to configure Eclipse Kanto to execute the application.
+For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kantui
 </span></span></code></pre></div><p>or</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm list
-</span></span></code></pre></div><p>From this list, ensure that at least the KUKSA Databroker and the seatservice are already running, which should be the case since both are pre-configured
+</span></span></code></pre></div><p>From this list, ensure that at least the KUKSA Databroker runs, which should be the case since it is are pre-configured
 with the Eclipse Leda release.</p>
-<p>In Eclipse Kanto, you can manage a container with the command line application <code>kanto-cm</code> or container manifest files.
+<p>In Eclipse Kanto, you can manage a container with the command line application <code>kanto-cm</code> or container manifest files describing a desired container execution.
 The advantage of using the container manifests is that the configuration is persisted across a reboot of the system and is easier to use
 to describe a desired software state for the overall vehicle.</p>
+<p>Eclipse Leda has the <code>kanto-auto-deployer</code> systemd service, which applies any changes to the manifests in <code>/data/var/containers/manifests</code> to Eclipse Kanto.
+Thus, the typical way to add or adapt containers is to modify the corresponding container manifest.</p>
+<h2 id="disable-other-containers">Disable other containers</h2>
+<p>The release 0.1.0-M2 of Eclipse Leda comes with a number of pre-configured and automatically executed containers.
+One of these containers is the <code>feedercan</code> that feeds changing values from a recording for signals such as <code>Vehicle.Speed</code> to the KUKSA Databroker.
+These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero.
+Another interfering container is the <code>seatservice-example</code> which reacts to changes in the signal <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>
+and which we replace later with the <code>mock service</code>.</p>
+<p>Therefore, we need to stop the <code>feedercan</code> and the <code>seatservice-example</code> container.
+This is possible in <code>kantui</code> by selecting the respective entry and pressing <code>R</code>.
+In addition, you need to remove the corresponding container manifests in <code>/data/var/containers/manifests</code> to avoid that the Eclipse Kanto
+auto-deployer re-deploys these containers. Another approach is to change the ending of the not-needed manifests to something other than <code>.json</code>.</p>
+<p>If the <code>feedercan</code> container still runs, the seat adjuster application app will later respond with the following error message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a40000">seatadjuster/setPosition/response</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;12345&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Not allowed to move seat because vehicle speed is 9.0 and not 0&#34;</span><span style="color:#000;font-weight:bold">}}</span>
+</span></span></code></pre></div><p>Since they consume resources and are not needed for the seat adjustment, you may remove the containers and manifests for <code>cloudconnector</code>,
+<code>hvacservice-example</code>, <code>sua</code>, or <code>vum</code> as well.</p>
 <h2 id="starting-of-container">Starting of container</h2>
 <h3 id="use-kanto-cm">Use <code>kanto-cm</code></h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm create <span style="color:#4e9a06">\
@@ -480,20 +501,20 @@ to describe a desired software state for the overall vehicle.</p>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>kanto-cm start --name seatadjuster-app
 </span></span><span style="display:flex;"><span>kanto-cm logs --name seatadjuster-app
-</span></span></code></pre></div><h3 id="add-manifest-file">Add manifest file</h3>
-<p>As an alternative to using <code>kanto-cm</code>, Eclipse Kanto comes with an auto-deploy feature where it watches a folder in the file system and applies any changes
-to the container manifests in that location.</p>
-<p>By default, the container manifests in Eclipse Leda are in <code>data/var/containers/manifests</code>.</p>
+</span></span></code></pre></div><h3 id="add-manifest-for-seat-adjuster">Add manifest for seat adjuster</h3>
+<p>As an alternative to using <code>kanto-cm</code>, you can add a container manifest to the directoy watched by the <code>kanto-auto-deployer</code> (<code>data/var/containers/manifests</code>).</p>
 <p>To add the container manifest, create a new file inside this folder.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano seat-adjuster.json
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch seat-adjuster.json
+</span></span><span style="display:flex;"><span>nano seat-adjuster.json
 </span></span></code></pre></div><p>and copy the <a href="#seat-applicationjson">manifest from below</a>. You can save the file with <code>strg+s</code> and close the window with <code>strg+q</code>.
-Alternatively, one can create the file on the development machine and copy it via scp (<code>scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/</code>)</p>
+You can create the file on the development machine and copy it via scp too:</p>
+<p><code>scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/</code></p>
 <p>The example deployment descriptor below is available in
 <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled">meta-leda-components</a>
 too.
 An interesting aspect of the snippet is the <code>config.env</code> section at the bottom of the container manifest.
 There, we define a number of environment variables for the container
-which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the Kuksa.Val Databroker to use.
+which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the KUKSA Databroker to use.
 We did the same in <code>kanto-cm</code> call behind the parameter <code>--e=</code>.</p>
 <p>More details on the general deployment approach can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
 <blockquote>
@@ -502,32 +523,28 @@ You can create a personal access token in the <code>Developer Settings</code> of
 and <code>generate a new token</code> that at least has the <code>read:packages</code> permission. Copy the generated token to a secure location or to Eclipse Kanto
 because GitHub will not show it again.
 You can now configure Eclipse Kanto in Eclipse Leda to use the token by executing:
-<code>sdv-kanto-ctl add-registry -h &lt;registryhostname&gt; -u &lt;your_username&gt; -p &lt;your_password&gt;</code>. In the case of GitHub, the <code>registryhostname</code> is ghcr.io
-, the username your GitHub handle, and the password is the generated token.
+<code>sdv-kanto-ctl add-registry -h &lt;registryhostname&gt; -u &lt;your_username&gt; -p &lt;your_password&gt;</code>. In the case of GitHub, the <code>registryhostname</code> is <code>ghcr.io</code>
+, the username is your GitHub handle, and the password is the generated token.
 See <a href="https://eclipse-leda.github.io/leda/docs/device-provisioning/container-management/">Container Registries</a> for more details.</p>
 </blockquote>
 <p>To make sure that Eclipse Kanto detects the changes in the <code>manifests</code> folder, you can restart the respective system services:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart kanto-auto-deployer
-</span></span></code></pre></div><h2 id="disable-other-containers">Disable other containers</h2>
-<p>The default Eclipse Leda release already comes with a number of container manifests and, therefore, containers pre-installed.
-One of these containers is the <code>feedercan</code> that feeds changing values from a recording for signals such as <code>Vehicle.Speed</code> to the KUKSA Databroker.
-These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero. Therefore, we need to stop the <code>feedercan</code> container.
-Again, we can either use the <code>kanto-cm</code> application:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm stop -n feedercan
-</span></span></code></pre></div><p>or rename the container manifest in the <code>manifest</code> folder</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv feedercan.json feedercan.json.disabled
-</span></span></code></pre></div><p>If the feedercan container still runs, the seat adjuster application app will later respond with the following error message:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a40000">seatadjuster/setPosition/response</span>
-</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;12345&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Not allowed to move seat because vehicle speed is 9.0 and not 0&#34;</span><span style="color:#000;font-weight:bold">}}</span>
-</span></span></code></pre></div><h2 id="seat-service">Seat Service</h2>
-<p>Another pre-installed container is the <code>seat service</code> acting as the connection between the KUKSA Databroker and the underlying hardware.
-The <code>seat service</code> thus acts as a provider for the KUKSA Databroker.
-More specifically, it subscribes to the target value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal and updates the current value of the signal
-in small steps until it is equal to the target value.
-For more details, visit the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Kuksa.val.services</a> repository,
-which hosts the code for the <code>seat service</code>. In a real world scenario the seat service would interact with the seat ECU to move the seat
-but for simplicity we abstract this part in this guide. You can check the <a href="../can-seat-adjuster">CAN setup for seat adjuster</a> on how to add a CAN connection.</p>
-<p>After all required components should run now, the next step is to <a href="../interact-seat-adjuster">interact with the seat adjuster</a>.</p>
+</span></span></code></pre></div><h2 id="mock-service">Mock Service</h2>
+<p>As explained in the description of the code, the seat adjuster application sets the target value for the seat positions in the KUSKSA Datbroker
+and waits for the current position to update.</p>
+<p>For this to function, there needs to be a component that reacts to this change by moving the seat and updating the current value accordingly.
+Because we cannot assume that you have an actual ECU availabe for running this guide, we mock the vehicle behavior
+with the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/mock_service">vehicle mock service</a> from the Eclipse Kuksa project.</p>
+<p>The mock service allows the definition of custom interaction sequences with the KUKSA Databroker. For instance, one can react to changes to specific signals
+or update signals with a time trigger. You can define the sequences in a Python file like the example <a href="#mockpy"><code>mock.py</code></a> below.
+The snippet shows how to use a change to the target value for the seat position signal as a trigger to update the current value to the target value step-wise
+over a duration of 10 seconds.</p>
+<p>For the deployment, you create another container manifest in <code>/data/var/containers/manifest</code> with the content from <a href="#mockservicejson">below</a>.
+The container manifest also mounts a custom <code>mock.py</code> into the container to replace the configuration of the <a href="https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py">default mock.py</a>.
+With the container manifest below, Eclipse Kanto instead mounts from <code>/data/var/mock/mock.py</code>.
+Therefore, you need to create this directory and the file with the content from below.</p>
+<p>You may now check with <code>kantui</code> or <code>kanto-cm list</code> whether all components (<code>databroker</code>, <code>seatadjuster-app</code>, and <code>mock-service</code>) are running well.
+The next step is to <a href="../interact-seat-adjuster">interact with the seat adjuster</a>.</p>
 <h2 id="seat-applicationjson">seat-application.json</h2>
 <p>This is the Eclipse Kanto container manifest for the seat adjuster application.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
@@ -586,6 +603,80 @@ but for simplicity we abstract this part in this guide. You can check the <a hre
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="mockpy">mock.py</h2>
+<p>This is the example <code>mock.py</code> for mocking a seat provider:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">lib.animator</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">RepeatMode</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">lib.dsl</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_animation_action</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_behavior</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_event_trigger</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_set_action</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">get_datapoint_value</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">mock_datapoint</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">lib.trigger</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">ClockTrigger</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">EventType</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">mock_datapoint</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">path</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">initial_value</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">behaviors</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">create_behavior</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">trigger</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">create_event_trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">EventType</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">ACTUATOR_TARGET</span><span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">action</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">create_animation_action</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">duration</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">10.0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">values</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;$self&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;$event.value&#34;</span><span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h2 id="mockservicejson">mockservice.json</h2>
+<p>The container manifest for the mockservice may look like the following snippet. Note, that the files referenced in the <code>source</code> of the <code>mount_points</code>
+needs to be present in the file system of your Eclipse Leda instance.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;container_id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;mockservice&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;container_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;mockservice&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/mock_service:latest&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;mount_points&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;source&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/data/var/mock/mock.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;destination&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/mock.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;propagation_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;rprivate&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bridge&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restart_policy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;maximum_retry_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;retry_timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;unless-stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;blocking&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_buffer_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;VDB_ADDRESS=databroker:55555&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div>
 </div>
 
@@ -604,7 +695,7 @@ but for simplicity we abstract this part in this guide. You can check the <a hre
 	<h1 id="pg-068a053582e592056de47a4fec45723d">4 - Interact with Seat Adjuster</h1>
     
 	<p>We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.
-To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.</p>
+To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -t <span style="color:#4e9a06">&#39;seatadjuster/#&#39;</span> -v
 </span></span></code></pre></div><p>To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to <code>1000</code> (which is the equivalent of 100%):</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_pub -t seatadjuster/setPosition/request -m <span style="color:#4e9a06">&#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39;</span>
@@ -622,11 +713,7 @@ In the QEMU setup, you can do this through an SSH connection from the host machi
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><p>If you encounter an issue or want to look deeper into the state of the container, you can check the logs by executing:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm --name &lt;container-name&gt; logs
-</span></span></code></pre></div><p>To ensure that the seatservice and the KUKSA Databroker are running well, you can use a simple client in the Leda image
-instead of the seat application to set the target seat position:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client &lt;position&gt;
-</span></span></code></pre></div><p>The <a href="https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/"><code>sdv-ctr-exec</code></a> here acts as a wrapper around the <code>ctr</code> command
-from containerd used by Eclipse Kanto.</p>
+</span></span></code></pre></div><h2 id="run-kuksa-client">Run Kuksa Client</h2>
 <p>Besides trusting the log information and the MQTT messages that the seat position in the KUKSA Databroker has changed you can read the values
 directly from the KUKSA Databroker with the KUKSA Client.
 Through the <code>sdv-ctr-exec</code> it becomes possible to interact with the CLI of the Eclipse KUKSA Client:</p>
@@ -634,6 +721,7 @@ Through the <code>sdv-ctr-exec</code> it becomes possible to interact with the C
 </span></span><span style="display:flex;"><span>kanto-cm start --name<span style="color:#ce5c00;font-weight:bold">=</span>kuksa-client
 </span></span><span style="display:flex;"><span>sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port <span style="color:#0000cf;font-weight:bold">30555</span> --protocol grpc --insecure
 </span></span></code></pre></div><p>Congratulations, you have reached the end of the seat adjuster guide. Based on the used code, you can now continue to realize other applications by using other signals.
+You may need to adapt your <code>mock.py</code> accordingly.
 In addition, you can <a href="../can-seat-adjuster">connect the seat service to a CAN-environment</a>.</p>
 <h2 id="references">References</h2>
 <ul>
@@ -661,7 +749,40 @@ In addition, you can <a href="../can-seat-adjuster">connect the seat service to 
     
 	<h1 id="pg-c8f393fe219e3f0a3c5cb5aac7ac15d3">5 - CAN Setup for Seat Adjuster</h1>
     
-	<h2 id="virtual-can-bus">Virtual CAN-Bus</h2>
+	<p>Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.
+In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.</p>
+<p>Instead of the <code>mock service</code> you use the <code>seat service</code> as a provider, which is another pre-installed container
+acting as the connection between the KUKSA Databroker and the underlying hardware.
+More specifically, it subscribes to the target value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal,
+can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.
+For more details, visit the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Kuksa.val.services</a> repository,
+which hosts the code for the <code>seat service</code>.</p>
+<p>With a new installation of Eclipse Leda, the <code>seat adjuster</code> comes by default.
+If you performed the steps from the <a href="../deploy-seat-adjuster">deploy the seat adjuster in Eclipse Leda</a> guide,
+you need to re-add the <code>seatadjuster</code> container manifest and remove the <code>mockservice</code>.
+More details on how to do this are available in that guide.</p>
+<p>The setup then looks as follows:</p>
+<div class="mermaid">flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA<br>Databroker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatservice
+    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+  </div>
+  
+  <h2 id="virtual-can-bus">Virtual CAN-Bus</h2>
+<p>To set upa virtual CAN-Bus</p>
 <ol>
 <li>
 <p>You will have to generate initial CAN frames that will emulate the car ECU responding to the service:</p>

@@ -34,8 +34,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" as="style">
-<link href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" as="style">
+<link href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +69,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5763,7 +5763,7 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/tractionbattery/charging/maximumchargingcurrent/dc/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="/leda/docs/vss/vehicle/powertrain/tractionbattery/charging/maximumchargingcurrent/dc/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
@@ -5793,19 +5793,19 @@
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a></li>
+    <a href="/leda/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/vss/">Vehicle Signals</a></li>
+    <a href="/leda/docs/vss/">Vehicle Signals</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/">Vehicle</a></li>
+    <a href="/leda/docs/vss/vehicle/">Vehicle</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/">Powertrain</a></li>
+    <a href="/leda/docs/vss/vehicle/powertrain/">Powertrain</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/tractionbattery/">TractionBattery</a></li>
+    <a href="/leda/docs/vss/vehicle/powertrain/tractionbattery/">TractionBattery</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/tractionbattery/charging/">Charging</a></li>
+    <a href="/leda/docs/vss/vehicle/powertrain/tractionbattery/charging/">Charging</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/powertrain/tractionbattery/charging/maximumchargingcurrent/">MaximumChargingCurrent</a></li>
+    <a href="/leda/docs/vss/vehicle/powertrain/tractionbattery/charging/maximumchargingcurrent/">MaximumChargingCurrent</a></li>
   <li class="breadcrumb-item active" aria-current="page">
     DC</li>
   </ol>
@@ -6059,6 +6059,62 @@ The source code and releases can be found in the <a href="https://github.com/COV
     
     
 </div>
+<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div class="d-print-none">
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'page_helpful', {
+      'event_category': 'Helpful',
+      'event_label': window.location.pathname,
+      'value': value
+    });
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback( 100 );
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+<br />
 </div>
 
           </main>

@@ -19,34 +19,30 @@
 <link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
 
 <title>CAN Setup for Seat Adjuster | Eclipse Leda Documentation</title>
-<meta name="description" content="Virtual CAN-Bus You will have to generate initial CAN frames that will emulate the car ECU responding to the service:
-$ cangen -v can0 -L 8 -I 712 -D r -n 5 can0 712#4F.BF.B0.6B.5F.2D.54.09 can0 712#13.2E.98.7E.77.11.99.5B can0 712#15.70.87.07.73.24.3A.7A can0 712#99.7F.F5.3F.FB.99.00.04 can0 712#FE.1C.D5.55.22.86.3A.1F You can now start tracing CAN frames written to the bus with candump can0
-From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace.">
+<meta name="description" content="Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle. In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.
+Instead of the mock service you use the seat service as a provider, which is another pre-installed container acting as the connection between the KUKSA Databroker and the underlying hardware. More specifically, it subscribes to the target value of the Vehicle.">
 <meta property="og:title" content="CAN Setup for Seat Adjuster" />
-<meta property="og:description" content="Virtual CAN-Bus You will have to generate initial CAN frames that will emulate the car ECU responding to the service:
-$ cangen -v can0 -L 8 -I 712 -D r -n 5 can0 712#4F.BF.B0.6B.5F.2D.54.09 can0 712#13.2E.98.7E.77.11.99.5B can0 712#15.70.87.07.73.24.3A.7A can0 712#99.7F.F5.3F.FB.99.00.04 can0 712#FE.1C.D5.55.22.86.3A.1F You can now start tracing CAN frames written to the bus with candump can0
-From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace." />
+<meta property="og:description" content="Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle. In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.
+Instead of the mock service you use the seat service as a provider, which is another pre-installed container acting as the connection between the KUKSA Databroker and the underlying hardware. More specifically, it subscribes to the target value of the Vehicle." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/can-seat-adjuster/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2023-10-30T08:12:56+01:00" />
+<meta property="article:modified_time" content="2023-11-15T09:39:15+01:00" />
 <meta itemprop="name" content="CAN Setup for Seat Adjuster">
-<meta itemprop="description" content="Virtual CAN-Bus You will have to generate initial CAN frames that will emulate the car ECU responding to the service:
-$ cangen -v can0 -L 8 -I 712 -D r -n 5 can0 712#4F.BF.B0.6B.5F.2D.54.09 can0 712#13.2E.98.7E.77.11.99.5B can0 712#15.70.87.07.73.24.3A.7A can0 712#99.7F.F5.3F.FB.99.00.04 can0 712#FE.1C.D5.55.22.86.3A.1F You can now start tracing CAN frames written to the bus with candump can0
-From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2023-10-30T08:12:56+01:00" />
-<meta itemprop="wordCount" content="578">
+<meta itemprop="description" content="Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle. In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.
+Instead of the mock service you use the seat service as a provider, which is another pre-installed container acting as the connection between the KUKSA Databroker and the underlying hardware. More specifically, it subscribes to the target value of the Vehicle."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
+<meta itemprop="dateModified" content="2023-11-15T09:39:15+01:00" />
+<meta itemprop="wordCount" content="830">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CAN Setup for Seat Adjuster"/>
-<meta name="twitter:description" content="Virtual CAN-Bus You will have to generate initial CAN frames that will emulate the car ECU responding to the service:
-$ cangen -v can0 -L 8 -I 712 -D r -n 5 can0 712#4F.BF.B0.6B.5F.2D.54.09 can0 712#13.2E.98.7E.77.11.99.5B can0 712#15.70.87.07.73.24.3A.7A can0 712#99.7F.F5.3F.FB.99.00.04 can0 712#FE.1C.D5.55.22.86.3A.1F You can now start tracing CAN frames written to the bus with candump can0
-From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace."/>
+<meta name="twitter:description" content="Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle. In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.
+Instead of the mock service you use the seat service as a provider, which is another pre-installed container acting as the connection between the KUKSA Databroker and the underlying hardware. More specifically, it subscribes to the target value of the Vehicle."/>
 
 
 
 
-<link rel="preload" href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" as="style">
-<link href="/leda/scss/main.min.efaf0dc38675ce09f0ad6d5a94f95c45c40d2545a433a157a46e6b21786f9429.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" as="style">
+<link href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -80,7 +76,7 @@ From now on when a request to change the seat position is issued you will be abl
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -104,7 +100,7 @@ From now on when a request to change the seat position is issued you will be abl
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.16d9565ae7cfc5dd6fa5a75349b587aa.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5774,7 +5770,7 @@ From now on when a request to change the seat position is issued you will be abl
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
-<a id="print" href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+<a id="print" href="/leda/docs/app-deployment/seat-adjuster/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
@@ -5801,11 +5797,11 @@ From now on when a request to change the seat position is issued you will be abl
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/">Documentation</a></li>
+    <a href="/leda/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/">Vehicle Applications</a></li>
+    <a href="/leda/docs/app-deployment/">Vehicle Applications</a></li>
   <li class="breadcrumb-item">
-    <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/">Seat Adjuster</a></li>
+    <a href="/leda/docs/app-deployment/seat-adjuster/">Seat Adjuster</a></li>
   <li class="breadcrumb-item active" aria-current="page">
     CAN Setup for Seat Adjuster</li>
   </ol>
@@ -5817,7 +5813,40 @@ From now on when a request to change the seat position is issued you will be abl
 	<header class="article-meta">
 		
   </header>
-	<h2 id="virtual-can-bus">Virtual CAN-Bus</h2>
+	<p>Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.
+In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.</p>
+<p>Instead of the <code>mock service</code> you use the <code>seat service</code> as a provider, which is another pre-installed container
+acting as the connection between the KUKSA Databroker and the underlying hardware.
+More specifically, it subscribes to the target value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal,
+can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.
+For more details, visit the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Kuksa.val.services</a> repository,
+which hosts the code for the <code>seat service</code>.</p>
+<p>With a new installation of Eclipse Leda, the <code>seat adjuster</code> comes by default.
+If you performed the steps from the <a href="../deploy-seat-adjuster">deploy the seat adjuster in Eclipse Leda</a> guide,
+you need to re-add the <code>seatadjuster</code> container manifest and remove the <code>mockservice</code>.
+More details on how to do this are available in that guide.</p>
+<p>The setup then looks as follows:</p>
+<div class="mermaid">flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA<br>Databroker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatservice
+    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+  </div>
+  
+  <h2 id="virtual-can-bus">Virtual CAN-Bus</h2>
+<p>To set upa virtual CAN-Bus</p>
 <ol>
 <li>
 <p>You will have to generate initial CAN frames that will emulate the car ECU responding to the service:</p>
@@ -5939,7 +5968,63 @@ You need to disable the <code>feedercan</code> container (see step 7 of Getting 
 <em>will decline the request and not move the seat</em>.</p>
 </blockquote>
 
-	
+	<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<div class="d-print-none">
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-yes">Yes</button>
+<button class="btn btn-primary mb-4 feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/eclipse-leda/leda/issues/new">tell us how we can improve</a>.
+</p>
+</div>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'page_helpful', {
+      'event_category': 'Helpful',
+      'event_label': window.location.pathname,
+      'value': value
+    });
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback( 100 );
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+<br />
+
 </div>
 
 
@@ -5947,6 +6032,11 @@ You need to disable the <code>feedercan</code> container (see step 7 of Getting 
         </div>
       </div>
       
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+
 
 
 <footer class="bg-dark py-5 row d-print-none">
