@@ -5,7 +5,7 @@ weight: 6
 ---
 
 We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.
-To see the responses from the seat adjuster app, subscribe to MQTT topics `seatadjuster/#``.
+To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.
 
 ```bash
 mosquitto_sub -t 'seatadjuster/#' -v
@@ -40,15 +40,7 @@ If you encounter an issue or want to look deeper into the state of the container
 kanto-cm --name <container-name> logs
 ```
 
-To ensure that the seatservice and the KUKSA Databroker are running well, you can use a simple client in the Leda image
-instead of the seat application to set the target seat position:
-
-```bash
-sdv-ctr-exec -n seatservice-example /app/bin/seat_svc_client <position>
-```
-
-The [`sdv-ctr-exec`](https://eclipse-leda.github.io/leda/docs/general-usage/utilities/sdv-ctr-exec/) here acts as a wrapper around the `ctr` command
-from containerd used by Eclipse Kanto.
+## Run Kuksa Client
 
 Besides trusting the log information and the MQTT messages that the seat position in the KUKSA Databroker has changed you can read the values
 directly from the KUKSA Databroker with the KUKSA Client.
@@ -61,6 +53,7 @@ sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port 30555 --proto
 ```
 
 Congratulations, you have reached the end of the seat adjuster guide. Based on the used code, you can now continue to realize other applications by using other signals.
+You may need to adapt your `mock.py` accordingly.
 In addition, you can [connect the seat service to a CAN-environment](../can-seat-adjuster).
 
 ## References

@@ -4,7 +4,46 @@ date: 2022-05-09T14:24:56+05:30
 weight: 10
 ---
 
+Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.
+In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.
+
+Instead of the `mock service` you use the `seat service` as a provider, which is another pre-installed container
+acting as the connection between the KUKSA Databroker and the underlying hardware.
+More specifically, it subscribes to the target value of the `Vehicle.Cabin.Seat.Row1.Pos1.Position` signal,
+can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.
+For more details, visit the [Kuksa.val.services](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service) repository,
+which hosts the code for the `seat service`.
+
+With a new installation of Eclipse Leda, the `seat adjuster` comes by default.
+If you performed the steps from the [deploy the seat adjuster in Eclipse Leda](../deploy-seat-adjuster) guide,
+you need to re-add the `seatadjuster` container manifest and remove the `mockservice`.
+More details on how to do this are available in that guide.
+
+The setup then looks as follows:
+
+```mermaid
+flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA<br>Databroker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatservice
+    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+```
+
 ## Virtual CAN-Bus
+
+To set upa virtual CAN-Bus
 
 1. You will have to generate initial CAN frames that will emulate the car ECU responding to the service:
 

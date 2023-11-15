@@ -23,7 +23,7 @@ The setup contains the following components:
 - Cloud or mobile trigger: not part of the Leda image, but we simulate it by issuing MQTT messages
 - **Seat Adjuster** : Developed with Eclipse Velocitas to be deployed by user
 - Eclipse Kuksa.val - **KUKSA Databroker** (pre-installed with Eclipse Leda)
-- **Seat Service**: Example provider for Eclipse Kuksa.VAL (pre-installed with Eclipse Leda)
+- **Mock Service**: Example provider for Eclipse Kuksa.VAL which mocks the behavior of the vehicle.
 - Seat ECU and the separate Seat Motor hardware can be emulated using a virtual CAN-Bus, which is beyond the scope of this guide.
 
 In the following paragraphs, we next introduce the [architecture and the assumed data flow](architecture-seat-adjuster)
