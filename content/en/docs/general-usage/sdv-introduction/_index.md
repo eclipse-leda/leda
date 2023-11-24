@@ -76,18 +76,18 @@ A good starting point to figure out what signals are available is the website of
 
 ![digital.auto Vehicle API](digitalauto-vehicle-api.png)
 
-In the next step, we can ideate on new applications, start coding, and get fast feedback using the prototyping feature of the playground.
-Once we are confident with the initial version, we can continue the development journey with the help of [Eclipse Velocitas](https://eclipse.dev/velocitas/), 
+In the next step, you can ideate on new applications, start coding, and get fast feedback using the prototyping feature of the playground.
+Once you are confident with the initial version, you can continue the development journey with the help of [Eclipse Velocitas](https://eclipse.dev/velocitas/), 
 which comes with several features making the life of vehicle application developers easier.
 
 ![digital.auto Prototyping](digitalauto-prototype.png)
 
 ### Eclipse Velocitas
-[Eclipse Velocitas™](https://eclipse.dev/velocitas/docs/about/#product) is an open source project providing an end-to-end, scalable and modular development tool chain to create containerized Vehicle Apps, offering a comfortable, fast and efficient development experience to increase the speed of a development team (velocity).
+[Eclipse Velocitas™](https://eclipse.dev/velocitas/docs/about/#product) is an open source project providing a development tool chain to create containerized Vehicle Apps, offering a development experience to increase the speed of a development team (velocity).
 
 Among other things, Eclipse Velocitas provides a [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template).
-To kick-start the development of a new application, we can create an individual repository from this template.
-As an alternative, Eclipse Velocitas provides a CLI application with which we can configure the creation of a tailored vehicle application repository.
+To kick-start the development of a new application, you can create an individual repository from this template.
+As an alternative, Eclipse Velocitas provides a CLI application with which you can configure the creation of a tailored vehicle application repository.
 Either way, the resulting repository contains [skeleton code for the actual application](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/src/main.py)
 and comes with pre-defined [GitHub Actions workflows](https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/.github) to automate
 the testing and releasing of applications as containers.
