@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.110.0">
 <link rel="alternate" type="text/html" href="https://eclipse-leda.github.io/leda/docs/general-usage/sdv-introduction/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/general-usage/sdv-introduction/index.xml">
 <meta name="robots" content="index, follow">
@@ -34,8 +33,8 @@
 
 
 
-<link rel="preload" href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" as="style">
-<link href="/leda/scss/main.min.66eb937ad37fec07780efad5e1d636bcf184d4f4564fc29749e24a254badb6ca.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/leda/scss/main.min.0d205ed5924b2103ef9ac29d27a1c3f405f9097f48955c03ae38c541c760b92a.css" as="style">
+<link href="/leda/scss/main.min.0d205ed5924b2103ef9ac29d27a1c3f405f9097f48955c03ae38c541c760b92a.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -69,7 +68,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.b035aa74d64668111001664984f36dbe.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -93,7 +92,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.99d03c2498de4366dfb7c62a17adeb3d.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.b035aa74d64668111001664984f36dbe.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5842,14 +5841,14 @@ from the more deeply embedded soft- and hardware layers.</p>
 the Connected Vehicle Systems Alliance (COVESA) for this.</p>
 <p><img src="vss-tree.png" alt="VSS Tree"></p>
 <p>VSS essentially defines a <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/">rule set</a> of how to express the definition of signals in a vehicle.
-This definition bases a tree structure where each domain, like body control gets an individual sub-tree.
-The authors of VSS further provide a <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec">default tree</a> of signals to expect in a vehicle.
+This definition bases a tree structure where each domain, like body control, gets an individual sub-tree.
+The authors of VSS further provide a <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec">default tree</a> of signals to be expected in a vehicle.
 However, it is common practice to tailor the default tree for a specific vehicle model by adding overlays.</p>
 <p>VSS allows modeling and structuring of the data from a vehicle but does not define interfaces for the interaction with this data since this depends on the used
 communication technology and further circumstances like whether VSS data gets processed inside the vehicle or off-board.</p>
-<h3 id="eclipse-kuksaval-databroker">Eclipse KUKSA.val databroker</h3>
 <p>For our architecture, we therefore add the <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker">Eclipse Kuksa.val databroker</a>
 from the <a href="https://eclipse-kuksa.github.io/kuksa-website/">Eclipse Kuksa</a> project.</p>
+<h3 id="eclipse-kuksaval-databroker">Eclipse KUKSA.val databroker</h3>
 <p>The Eclipse Kuksa.val databroker acts as a vehicle abstraction layer by brokering VSS signals between vehicle applications
 and deeply embedded systems in the vehicle. Enabling this abstraction requires a vehicle-specific component to translate between the Kuksa.val databroker and
 the underlying transport systems and ECUs.<br>
@@ -5864,20 +5863,21 @@ To get notified of any changes, applications, and providers can subscribe to spe
 When developing with other languages, you may have to generate client code yourself with the <a href="https://grpc.io/docs/languages/">gRPC tooling</a>.
 Either way, these clients allow the development of vehicle applications and providers.</p>
 <h2 id="vehicle-application-development">Vehicle Application Development</h2>
-<p>When developing an application to interact with the abstraction layer, there are a couple of aspects to cover which are not specific to a single application.
+<p>When developing an application to interact with the abstraction layer, there are a couple of aspects to cover, which are not specific to a single application.
 Because of that, some projects are evolving around the application development phase.</p>
 <h3 id="eclipse-autowrx-and-digitalauto-playground">Eclipse Autowrx and digital.auto Playground</h3>
 <p>A good starting point to figure out what signals are available is the website of the <a href="https://digitalauto.netlify.app">digital.auto playground</a> based on Eclipse Autowrx.</p>
 <p><img src="digitalauto-vehicle-api.png" alt="digital.auto Vehicle API"></p>
-<p>In the next step, one can ideate on new applications, start coding, and get fast feedback using the prototyping feature of the playground.
-Once one is confident with the initial version, one can continue the development journey with the help of <a href="https://eclipse.dev/velocitas/">Eclipse Velocitas</a>,
+<p>In the next step, you can ideate on new applications, start coding, and get fast feedback using the prototyping feature of the playground.
+Once you are confident with the initial version, you can continue the development journey with the help of <a href="https://eclipse.dev/velocitas/">Eclipse Velocitas</a>,
 which comes with several features making the life of vehicle application developers easier.</p>
 <p><img src="digitalauto-prototype.png" alt="digital.auto Prototyping"></p>
 <h3 id="eclipse-velocitas">Eclipse Velocitas</h3>
-<p>As a starting point, Eclipse Velocitas provides a <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">template repository</a>.
-To kick-start the development of a new application, one can create an individual repository from this template.
-As an alternative, Eclipse Velocitas provides a CLI application with which one can configure the creation of a tailored vehicle application repository.
-Either way, the resulting repository containers <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/src/main.py">skeleton code for the actual application</a>
+<p><a href="https://eclipse.dev/velocitas/docs/about/#product">Eclipse Velocitas™</a> is an open source project providing a development tool chain to create containerized Vehicle Apps, offering a development experience to increase the speed of a development team (velocity).</p>
+<p>Among other things, Eclipse Velocitas provides a <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">template repository</a>.
+To kick-start the development of a new application, you can create an individual repository from this template.
+As an alternative, Eclipse Velocitas provides a CLI application with which you can configure the creation of a tailored vehicle application repository.
+Either way, the resulting repository contains <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/src/main.py">skeleton code for the actual application</a>
 and comes with pre-defined <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/.github">GitHub Actions workflows</a> to automate
 the testing and releasing of applications as containers.
 The repository further contains the Dockerfile for a dev container that setups a development and vehicle environment on the developer machine.
@@ -5885,10 +5885,10 @@ It is then possible to interact with this container through VSCode.</p>
 <p>Another aspect of Eclipse Velocitas is the so-called vehicle model. Here it becomes possible to take a custom vehicle model expressed in
 VSS and <a href="https://github.com/eclipse-velocitas/vehicle-model-generator">generate a tailored SDK</a> with specific domain classes to interact
 with a Kuksa.val databroker using the same model.
-This way, one can directly develop against the used vehicle model.</p>
+This way, we can directly develop against the used vehicle model.</p>
 <p><img src="velocitas-flow.png" alt="Velocitas Flow"></p>
 <!-- TODO make this text describing the picture -->
-<p>A typical Eclipse Velocitas application development flow then may contain the following steps:</p>
+<p><a href="https://eclipse.dev/velocitas/docs/tutorials/quickstart/">A typical Eclipse Velocitas application development flow</a> then may contain the following steps:</p>
 <ul>
 <li>create Repository</li>
 <li>build and run Dev Container locally from VSCode</li>
