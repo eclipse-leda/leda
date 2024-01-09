@@ -37,18 +37,17 @@ the Connected Vehicle Systems Alliance (COVESA) for this.
 ![VSS Tree](vss-tree.png)
 
 VSS essentially defines a [rule set](https://covesa.github.io/vehicle_signal_specification/rule_set/) of how to express the definition of signals in a vehicle.
-This definition bases a tree structure where each domain, like body control gets an individual sub-tree.
-The authors of VSS further provide a [default tree](https://github.com/COVESA/vehicle_signal_specification/tree/master/spec) of signals to expect in a vehicle.
+This definition bases a tree structure where each domain, like body control, gets an individual sub-tree.
+The authors of VSS further provide a [default tree](https://github.com/COVESA/vehicle_signal_specification/tree/master/spec) of signals to be expected in a vehicle.
 However, it is common practice to tailor the default tree for a specific vehicle model by adding overlays.
 
 VSS allows modeling and structuring of the data from a vehicle but does not define interfaces for the interaction with this data since this depends on the used
 communication technology and further circumstances like whether VSS data gets processed inside the vehicle or off-board.
 
-### Eclipse KUKSA.val databroker
-
 For our architecture, we therefore add the [Eclipse Kuksa.val databroker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker)
 from the [Eclipse Kuksa](https://eclipse-kuksa.github.io/kuksa-website/) project.
 
+### Eclipse KUKSA.val databroker
 The Eclipse Kuksa.val databroker acts as a vehicle abstraction layer by brokering VSS signals between vehicle applications
 and deeply embedded systems in the vehicle. Enabling this abstraction requires a vehicle-specific component to translate between the Kuksa.val databroker and
 the underlying transport systems and ECUs.  
@@ -68,7 +67,7 @@ Either way, these clients allow the development of vehicle applications and prov
 
 ## Vehicle Application Development
 
-When developing an application to interact with the abstraction layer, there are a couple of aspects to cover which are not specific to a single application.
+When developing an application to interact with the abstraction layer, there are a couple of aspects to cover, which are not specific to a single application.
 Because of that, some projects are evolving around the application development phase.
 
 ### Eclipse Autowrx and digital.auto Playground
@@ -77,18 +76,19 @@ A good starting point to figure out what signals are available is the website of
 
 ![digital.auto Vehicle API](digitalauto-vehicle-api.png)
 
-In the next step, one can ideate on new applications, start coding, and get fast feedback using the prototyping feature of the playground.
-Once one is confident with the initial version, one can continue the development journey with the help of [Eclipse Velocitas](https://eclipse.dev/velocitas/), 
+In the next step, you can ideate on new applications, start coding, and get fast feedback using the prototyping feature of the playground.
+Once you are confident with the initial version, you can continue the development journey with the help of [Eclipse Velocitas](https://eclipse.dev/velocitas/), 
 which comes with several features making the life of vehicle application developers easier.
 
 ![digital.auto Prototyping](digitalauto-prototype.png)
 
 ### Eclipse Velocitas
+[Eclipse Velocitas™](https://eclipse.dev/velocitas/docs/about/#product) is an open source project providing a development tool chain to create containerized Vehicle Apps, offering a development experience to increase the speed of a development team (velocity).
 
-As a starting point, Eclipse Velocitas provides a [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template).
-To kick-start the development of a new application, one can create an individual repository from this template.
-As an alternative, Eclipse Velocitas provides a CLI application with which one can configure the creation of a tailored vehicle application repository.
-Either way, the resulting repository containers [skeleton code for the actual application](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/src/main.py)
+Among other things, Eclipse Velocitas provides a [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template).
+To kick-start the development of a new application, you can create an individual repository from this template.
+As an alternative, Eclipse Velocitas provides a CLI application with which you can configure the creation of a tailored vehicle application repository.
+Either way, the resulting repository contains [skeleton code for the actual application](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/src/main.py)
 and comes with pre-defined [GitHub Actions workflows](https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/.github) to automate
 the testing and releasing of applications as containers.
 The repository further contains the Dockerfile for a dev container that setups a development and vehicle environment on the developer machine.
@@ -97,12 +97,12 @@ It is then possible to interact with this container through VSCode.
 Another aspect of Eclipse Velocitas is the so-called vehicle model. Here it becomes possible to take a custom vehicle model expressed in
 VSS and [generate a tailored SDK](https://github.com/eclipse-velocitas/vehicle-model-generator) with specific domain classes to interact
 with a Kuksa.val databroker using the same model.
-This way, one can directly develop against the used vehicle model.
+This way, we can directly develop against the used vehicle model.
 
 ![Velocitas Flow](velocitas-flow.png)
 
 <!-- TODO make this text describing the picture -->
-A typical Eclipse Velocitas application development flow then may contain the following steps:
+[A typical Eclipse Velocitas application development flow](https://eclipse.dev/velocitas/docs/tutorials/quickstart/) then may contain the following steps:
 
 * create Repository
 * build and run Dev Container locally from VSCode
