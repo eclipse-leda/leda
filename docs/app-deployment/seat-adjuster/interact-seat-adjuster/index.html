@@ -32,14 +32,14 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2022-05-09T14:24:56+05:30">
-    <meta property="article:modified_time" content="2026-03-08T11:22:39+01:00">
+    <meta property="article:modified_time" content="2026-03-08T11:31:58+01:00">
 
   <meta itemprop="name" content="Interact with Seat Adjuster">
   <meta itemprop="description" content="We interact with the seat application through MQTT messages to emulate the behavior of an offboard application. To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.
 mosquitto_sub -t &#39;seatadjuster/#&#39; -v To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to 1000 (which is the equivalent of 100%):
 mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39; You may need to open a second terminal session to send the message. In the QEMU setup, you can do this through an SSH connection from the host machine by running ssh -p 2222 root@localhost.">
   <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
-  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="dateModified" content="2026-03-08T11:31:58+01:00">
   <meta itemprop="wordCount" content="310">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Interact with Seat Adjuster">
@@ -83,7 +83,7 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -108,7 +108,7 @@ mosquitto_pub -t seatadjuster/setPosition/request -m &#39;{&#34;position&#34;: 1
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >

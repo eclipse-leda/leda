@@ -30,13 +30,13 @@ Container Management responds with a list of containers in the topic e/&lt;tenan
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2022-05-09T14:24:56+05:30">
-    <meta property="article:modified_time" content="2026-03-08T11:22:39+01:00">
+    <meta property="article:modified_time" content="2026-03-08T11:31:58+01:00">
 
   <meta itemprop="name" content="Orchestration">
   <meta itemprop="description" content="Container Management The container management will respond to the cloud connectivity status message by initially sending a list of containers:
 Container Management responds with a list of containers in the topic e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers { &#34;topic&#34;: &#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;, &#34;headers&#34;: { &#34;response-required&#34;: false }, &#34;path&#34;: &#34;/features/SoftwareUpdatable&#34;, &#34;value&#34;: { &#34;definition&#34;: [ &#34;org.eclipse.hawkbit.swupdatable:SoftwareUpdatable:2.0.0&#34; ], &#34;properties&#34;: { &#34;status&#34;: { &#34;softwareModuleType&#34;: &#34;oci:container&#34;, &#34;installedDependencies&#34;: { &#34;ghcr.io%2Feclipse%2Fkuksa.val%2Fdatabroker.&lt;uuid&gt;:0.2.5&#34;: { &#34;group&#34;: &#34;ghcr.io/eclipse/kuksa.val/databroker&#34;, &#34;name&#34;: &#34;&lt;uuid&gt;&#34;, &#34;version&#34;: &#34;0.2.5&#34; }, &#34;ghcr.io%2Feclipse%2Fkuksa.val.services%2Fseat_service.&lt;uuid&gt;:v0.1.0&#34;: { &#34;group&#34;: &#34;ghcr.io/eclipse/kuksa.val.services/seat_service&#34;, &#34;name&#34;: &#34;&lt;uuid&gt;&#34;, &#34;version&#34;: &#34;v0.1.0&#34; }, &#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-cloud-connector%2Fcloudconnector.&lt;uuid&gt;:latest&#34;: { &#34;group&#34;: &#34;ghcr.io/eclipse-leda/leda-contrib-cloud-connector/cloudconnector&#34;, &#34;name&#34;: &#34;&lt;uuid&gt;&#34;, &#34;version&#34;: &#34;latest&#34; }, &#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-self-update-agent%2Fself-update-agent.&lt;uuid&gt;:build-20&#34;: { &#34;group&#34;: &#34;ghcr.io/eclipse-leda/leda-contrib-self-update-agent/self-update-agent&#34;, &#34;name&#34;: &#34;&lt;uuid&gt;&#34;, &#34;version&#34;: &#34;build-20&#34; }, &#34;ghcr.io%2Feclipse-leda%2Fleda-contrib-vehicle-update-manager%2Fvehicleupdatemanager.&lt;uuid&gt;:latest&#34;: { &#34;group&#34;: &#34;ghcr.io/eclipse-leda/leda-contrib-vehicle-update-manager/vehicleupdatemanager&#34;, &#34;name&#34;: &#34;&lt;uuid&gt;&#34;, &#34;version&#34;: &#34;latest&#34; } } } } } } Container Management answers with an additional message for each container in the topic e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers { &#34;topic&#34;: &#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;, &#34;headers&#34;: { &#34;response-required&#34;: false }, &#34;path&#34;: &#34;/features/Container:&lt;uuid&gt;&#34;, &#34;value&#34;: { &#34;definition&#34;: [ &#34;com.bosch.iot.suite.edge.containers:Container:1.5.0&#34; ], &#34;properties&#34;: { &#34;status&#34;: { &#34;name&#34;: &#34;seatservice-example&#34;, &#34;imageRef&#34;: &#34;ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0&#34;, &#34;config&#34;: { &#34;domainName&#34;: &#34;seatservice-example-domain&#34;, &#34;hostName&#34;: &#34;seatservice-example-host&#34;, &#34;env&#34;: [ &#34;VEHICLEDATABROKER_DAPR_APP_ID=databroker&#34;, &#34;BROKER_ADDR=databroker-host:30555&#34;, &#34;RUST_LOG=info&#34;, &#34;vehicle_data_broker=info&#34; ], &#34;restartPolicy&#34;: { &#34;type&#34;: &#34;UNLESS_STOPPED&#34; }, &#34;extraHosts&#34;: [ &#34;databroker-host:host_ip&#34; ], &#34;portMappings&#34;: [ { &#34;proto&#34;: &#34;tcp&#34;, &#34;hostPort&#34;: 30051, &#34;hostPortEnd&#34;: 30051, &#34;containerPort&#34;: 50051, &#34;hostIP&#34;: &#34;localhost&#34; } ], &#34;networkMode&#34;: &#34;BRIDGE&#34;, &#34;log&#34;: { &#34;type&#34;: &#34;JSON_FILE&#34;, &#34;maxFiles&#34;: 2, &#34;maxSize&#34;: &#34;1M&#34;, &#34;mode&#34;: &#34;BLOCKING&#34; } }, &#34;createdAt&#34;: &#34;2023-02-02T08:46:33.792687313Z&#34;, &#34;state&#34;: { &#34;status&#34;: &#34;RUNNING&#34;, &#34;pid&#34;: 13627, &#34;startedAt&#34;: &#34;2023-02-02T09:51:08.049572297Z&#34;, &#34;finishedAt&#34;: &#34;2023-02-02T09:50:51.752255799Z&#34; } } } } }">
   <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
-  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="dateModified" content="2026-03-08T11:31:58+01:00">
   <meta itemprop="wordCount" content="212">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Orchestration">
@@ -79,7 +79,7 @@ Container Management responds with a list of containers in the topic e/&lt;tenan
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -104,7 +104,7 @@ Container Management responds with a list of containers in the topic e/&lt;tenan
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >

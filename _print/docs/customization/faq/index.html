@@ -35,7 +35,7 @@ On virtual setup (QEMU): Typical reasons for slow performance are software emula
   <meta itemprop="description" content="Frequently Asked Questions Why is the performance very slow? The performance of a system heavily relies on the infrastructure and the general setup.
 On virtual setup (QEMU): Typical reasons for slow performance are software emulation, e.g. when you run an ARM-based image on an x86-based host machine. This requires QEMU to emulate the execution, which is very slow. When you run an x86-based image on an x86-based host machine, QEMU can leverage acceleration, such as KVM, which greatly improves the performance. For network performance issues, try to use TAP networking instead of SLIRP networking for QEMU. That requires more setup on the host though. On hardware, such as Raspberry Pi, it should be fast. If the system startup takes very long, you may have an outdated image, please update to the latest version. Another cause of performance loss can be networking issues, especially if the system does not have transparent internet access, network requests (e.g. DNS) may time out and slowing down the startup. On startup, the container runtime may download newer versions of containers and unpack them, which takes a considerable amount of time depending on the size of the container images. Why is my Bluetooth/Wifi driver missing? Please check the latest release, as we’re continously adding features. If your driver is still missing, please open a new GitHub Issue. We can add Kernel Modules for supported hardware. If you hardware is not supported out of the box by the Eclipse Leda project, you need to build your own image and customize the Linux Kernel configuration. Please see the Yocto Project documentation on how to do that.">
   <meta itemprop="datePublished" content="2023-01-03T17:24:56+05:30">
-  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="dateModified" content="2026-03-08T11:31:58+01:00">
   <meta itemprop="wordCount" content="594">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="FAQ">
@@ -78,7 +78,7 @@ On virtual setup (QEMU): Typical reasons for slow performance are software emula
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >

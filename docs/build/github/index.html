@@ -28,12 +28,12 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2022-05-09T14:24:56+05:30">
-    <meta property="article:modified_time" content="2026-03-08T11:22:39+01:00">
+    <meta property="article:modified_time" content="2026-03-08T11:31:58+01:00">
 
   <meta itemprop="name" content="GitHub Workflow">
   <meta itemprop="description" content="Manually creating a Release triggers the release workflow. The release workflow calls the build workflow. The build workflow indirectly depends on the sstate cache being prebuilt manually (see optimizations below) The build workflow runs a full build of the SDV-Image-All disk image for all target machines. A separate job is used for each target machine, to ensure an image build for a target machine can finish within 6 hours. Each build contains the creation of SBOM artifacts and the check for CVEs. The SBOM artifacts are in SPDX JSON format and packaged per target machine’s disk image (SDV-Image-Full to include all packages). The OSS License Scanning (using the OSS Review Toolkit) is done asynchronously on a separate fork, as it currently uses a proprietary infrastructure. The ORT-based infrastructure of Eclipse is planned to be used in the future. The web report is attached as a build artifact on the internal fork and not accessible by public currently. Once the build workflow’s jobs are finished, the release workflow will finalize by attaching the release artifacts as assets to the release. Note: While the build workflow and release workflows are in progress, the GitHub release page of that release does not show any other assets besides the source archives. The release artifacts (eclipse-leda-.tar.xz) will only be visible once all workflows have finished.">
   <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
-  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="dateModified" content="2026-03-08T11:31:58+01:00">
   <meta itemprop="wordCount" content="838">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="GitHub Workflow">
@@ -75,7 +75,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -100,7 +100,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >

@@ -32,14 +32,14 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
     <meta property="article:published_time" content="2022-05-09T14:24:56+05:30">
-    <meta property="article:modified_time" content="2026-03-08T11:22:39+01:00">
+    <meta property="article:modified_time" content="2026-03-08T11:31:58+01:00">
 
   <meta itemprop="name" content="Container Metrics">
   <meta itemprop="description" content="Container Metrics Container-level metrics, such as CPU utilization or memory usage, can be retrieved on-demand and continuously by enabling the container metrics events. This is done by sending a request to the topic command//&lt;namespaceId&gt;:&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/req/&lt;correlationId&gt;/request:
 Enable Container Metrics with a frequency of 5s: { &#34;topic&#34;: &#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;, &#34;headers&#34;: { &#34;timeout&#34;: &#34;10&#34;, &#34;response-required&#34;: true, &#34;content-type&#34;: &#34;application/json&#34;, &#34;correlation-id&#34;: &#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34; }, &#34;path&#34;: &#34;/features/Metrics/inbox/messages/request&#34;, &#34;value&#34;: { &#34;frequency&#34;: &#34;5s&#34; } } Example command line:
 mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:containers/req/3fdc463c-293c-4f39-ab19-24aef7944550/request -m &#39;{&#34;topic&#34;:&#34;dummy-namespace/dummy-gateway:dummy-device-id:edge:containers/things/live/messages/request&#34;,&#34;headers&#34;:{&#34;timeout&#34;:&#34;10&#34;,&#34;response-required&#34;:true,&#34;content-type&#34;:&#34;application/json&#34;,&#34;correlation-id&#34;:&#34;3fdc463c-293c-4f39-ab19-24aef7944550&#34;},&#34;path&#34;:&#34;/features/Metrics/inbox/messages/request&#34;,&#34;value&#34;:{&#34;frequency&#34;:&#34;5s&#34;}}&#39; Container Metrics answers with an additional message for each container in the topic e/&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers { &#34;topic&#34;: &#34;&lt;tenantId&gt;/&lt;gatewayId&gt;:&lt;deviceId&gt;:edge:containers/things/twin/commands/modify&#34;, &#34;headers&#34;: { &#34;response-required&#34;: false }, &#34;path&#34;: &#34;/features/Container:&lt;uuid&gt;&#34;, &#34;value&#34;: { &#34;definition&#34;: [ &#34;com.bosch.iot.suite.edge.containers:Container:1.5.0&#34; ], &#34;properties&#34;: { &#34;status&#34;: { &#34;name&#34;: &#34;seatservice-example&#34;, &#34;imageRef&#34;: &#34;ghcr.io/eclipse/kuksa.val.services/seat_service:v0.1.0&#34;, &#34;config&#34;: { &#34;domainName&#34;: &#34;seatservice-example-domain&#34;, &#34;hostName&#34;: &#34;seatservice-example-host&#34;, &#34;env&#34;: [ &#34;VEHICLEDATABROKER_DAPR_APP_ID=databroker&#34;, &#34;BROKER_ADDR=databroker-host:30555&#34;, &#34;RUST_LOG=info&#34;, &#34;vehicle_data_broker=info&#34; ], &#34;restartPolicy&#34;: { &#34;type&#34;: &#34;UNLESS_STOPPED&#34; }, &#34;extraHosts&#34;: [ &#34;databroker-host:host_ip&#34; ], &#34;portMappings&#34;: [ { &#34;proto&#34;: &#34;tcp&#34;, &#34;hostPort&#34;: 30051, &#34;hostPortEnd&#34;: 30051, &#34;containerPort&#34;: 50051, &#34;hostIP&#34;: &#34;localhost&#34; } ], &#34;networkMode&#34;: &#34;BRIDGE&#34;, &#34;log&#34;: { &#34;type&#34;: &#34;JSON_FILE&#34;, &#34;maxFiles&#34;: 2, &#34;maxSize&#34;: &#34;1M&#34;, &#34;mode&#34;: &#34;BLOCKING&#34; } }, &#34;createdAt&#34;: &#34;2023-02-02T08:46:33.792687313Z&#34;, &#34;state&#34;: { &#34;status&#34;: &#34;RUNNING&#34;, &#34;pid&#34;: 13627, &#34;startedAt&#34;: &#34;2023-02-02T09:51:08.049572297Z&#34;, &#34;finishedAt&#34;: &#34;2023-02-02T09:50:51.752255799Z&#34; } } } } } To disable Container Metrics, send a request with frequency of 0s:">
   <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
-  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="dateModified" content="2026-03-08T11:31:58+01:00">
   <meta itemprop="wordCount" content="194">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Container Metrics">
@@ -83,7 +83,7 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -108,7 +108,7 @@ mosquitto_pub -t command//dummy-namespace:dummy-gateway:dummy-device-id:edge:con
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >

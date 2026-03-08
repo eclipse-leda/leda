@@ -41,7 +41,7 @@ Following sequence diagram shows the happy path example of communication between
 Process Overview sequenceDiagram participant m as MQTT Broker participant s as SUA participant r as RAUC s --&gt;&gt; m: connect loop Wait for OTA trigger Note left of s: Initial start s -&gt;&gt; m: Current state (installed version from booted partition) Note left of s: Trigger for OTA m -&gt;&gt; s: Desired state request (new version and url to bundle) s -&gt;&gt; m: Feedback (update actions are identified) Note left of s: Command for Download m -&gt;&gt; s: Download command s -&gt;&gt; s: Download bundle s -&gt;&gt; m: Feedback (downloading/downloaded/failed) Note left of s: Command for Update m -&gt;&gt; s: Update command s -&gt;&gt; r: Flash image to partition r -&gt;&gt; r: Flashing... s -&gt;&gt; m: Feedback (updating with percentage) r -&gt;&gt; s: Flash completed/failed s -&gt;&gt; m: Feedback (updated/failed) Note left of s: Command for Activate m -&gt;&gt; s: Activate command s -&gt;&gt; r: Switch partitions (booted &lt;-&gt; other) r -&gt;&gt; s: Switch completed/failed s -&gt;&gt; m: Feedback (activated/failed) Note left of s: Command for Cleanup m -&gt;&gt; s: Cleanup command s -&gt;&gt; s: Remove temporary files s -&gt;&gt; m: Cleanup completed &#43; status from previously failed state
 (completed/failed) end stateDiagram Uninitialized --&gt; Connected: Connected Connected --&gt; Identified: Start (OTA trigger) Identified --&gt; Downloading: Command download Identified --&gt; Failed: If OTA trigger is invalid Downloading --&gt; Updating: Command update Downloading --&gt; Failed: If download has failed Updating --&gt; Activate: Command activate Updating --&gt; Failed: If update has failed Activate --&gt; Cleanup: Command cleanup Activate --&gt; Failed: If activate has failed Failed --&gt; Cleanup: Command cleanup Cleanup --&gt; Idle Important: Uninitialized state is the default entry state or state in case connection is lost. To simplify reading of the diagram arrows from other states to Unitialized have been removed.">
   <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
-  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="dateModified" content="2026-03-08T11:31:58+01:00">
   <meta itemprop="wordCount" content="532">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="API Reference">
@@ -86,7 +86,7 @@ Process Overview sequenceDiagram participant m as MQTT Broker participant s as S
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-index-json-src="/leda/offline-search-index.198725d4294ede39b782e69066485d2c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
