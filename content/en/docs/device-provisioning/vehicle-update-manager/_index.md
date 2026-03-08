@@ -1,6 +1,6 @@
 ---
 title: "Vehicle Update Manager"
-date: 2022-072109T14:24:56+05:30
+date: 2022-07-21T09:14:24+05:30
 weight: 7
 ---
 

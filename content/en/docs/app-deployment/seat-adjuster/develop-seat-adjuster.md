@@ -13,9 +13,9 @@ version of the [seat adjuster example](https://github.com/eclipse-velocitas/vehi
 
 2. Run Eclipse Leda, for example, [as container](../../../general-usage/docker-setup) or with other options like [QEMU, physical hardware, etc.](../../../general-usage).
 
-3. [Manage the Eclipse Kanto container runtime]({{< ref "/deploy-seat-adjuster" >}}) to deploy your seat adjuster application.
+3. [Manage the Eclipse Kanto container runtime]({{< ref "deploy-seat-adjuster" >}}) to deploy your seat adjuster application.
 
-4. [Test the deployed setup]({{< ref "/interact-seat-adjuster" >}}) by interacting with the seat adjuster to change the seat position.
+4. [Test the deployed setup]({{< ref "interact-seat-adjuster" >}}) by interacting with the seat adjuster to change the seat position.
 
 ## Setup Eclipse Velocitas from template repository
 
