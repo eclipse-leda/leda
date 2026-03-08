@@ -1,7 +1,7 @@
 ---
 title: TorqueDistribution
 
-date: 2023-06-05T12:38:38.791007
+date: 2026-03-08T08:02:46.105184
 no_list: true
 ---
 

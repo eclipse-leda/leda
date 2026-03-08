@@ -1,7 +1,7 @@
 ---
 title: HMI
 
-date: 2023-06-05T12:38:47.292203
+date: 2026-03-08T08:02:49.831612
 no_list: true
 ---
 
@@ -61,10 +61,16 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Cabin.Infotainment.HMI.CurrentLanguage](currentlanguage/) (ISO 639-1 standard language code for the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.DateFormat](dateformat/) (Date format used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.DayNightMode](daynightmode/) (Current display theme)
+- [Vehicle.Cabin.Infotainment.HMI.DisplayOffDuration](displayoffduration/) (Duration in seconds before the display is turned off. Value shall be 0 if screen never shall turn off.)
 - [Vehicle.Cabin.Infotainment.HMI.DistanceUnit](distanceunit/) (Distance unit used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.EVEconomyUnits](eveconomyunits/) (EV fuel economy unit used in the current HMI)
+- [Vehicle.Cabin.Infotainment.HMI.EVEnergyUnits](evenergyunits/) (EV energy unit used in the current HMI)
+- [Vehicle.Cabin.Infotainment.HMI.FontSize](fontsize/) (Font size used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.FuelEconomyUnits](fueleconomyunits/) (Fuel economy unit used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.FuelVolumeUnit](fuelvolumeunit/) (Fuel volume unit used in the current HMI)
+- [Vehicle.Cabin.Infotainment.HMI.IsScreenAlwaysOn](isscreenalwayson/) (Used to prevent the screen going black if no action placed.)
+- [Vehicle.Cabin.Infotainment.HMI.LastActionTime](lastactiontime/) (Time for last hmi action, formatted according to ISO 8601 with UTC time zone.)
+- [Vehicle.Cabin.Infotainment.HMI.SpeedUnit](speedunit/) (Speed unit used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.TemperatureUnit](temperatureunit/) (Temperature unit used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.TimeFormat](timeformat/) (Time format used in the current HMI)
 - [Vehicle.Cabin.Infotainment.HMI.TirePressureUnit](tirepressureunit/) (Tire pressure unit used in the current HMI)

@@ -1,7 +1,7 @@
 ---
 title: Major
 
-date: 2023-06-05T12:38:34.155447
+date: 2026-03-08T08:02:44.605710
 no_list: true
 ---
 
@@ -37,7 +37,7 @@ sdv.databroker.v1 > connect
 sdv.databroker.v1 > get Vehicle.VersionVSS.Major
 [get]  OK
 Vehicle.VersionVSS.Major: ( NotAvailable )
-sdv.databroker.v1 > set Vehicle.VersionVSS.Major 3
+sdv.databroker.v1 > set Vehicle.VersionVSS.Major 6
 [set]  OK
 ```
 
@@ -55,7 +55,7 @@ sdv.databroker.v1 > set Vehicle.VersionVSS.Major 3
 |---|---|---|
 | Path | `Vehicle.VersionVSS.Major` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Default value | `3` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Default value | `6` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 
 

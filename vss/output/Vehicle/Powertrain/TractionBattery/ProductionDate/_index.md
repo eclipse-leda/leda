@@ -1,7 +1,7 @@
 ---
 title: ProductionDate
 
-date: 2023-06-05T12:38:39.229158
+date: 2026-03-08T08:02:46.298612
 no_list: true
 ---
 
@@ -57,6 +57,10 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.ProductionDate Foo
 |---|---|---|
 | Path | `Vehicle.Powertrain.TractionBattery.ProductionDate` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `string` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `iso8601` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | ISO 8601 | |
+| Description | Date and Time expressed as a string according to ISO 8601 | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | datetime | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

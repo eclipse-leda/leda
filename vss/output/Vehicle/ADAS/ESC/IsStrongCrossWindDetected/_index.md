@@ -1,7 +1,7 @@
 ---
 title: IsStrongCrossWindDetected
 
-date: 2023-06-05T12:39:02.148600
+date: 2026-03-08T08:02:56.260454
 no_list: true
 ---
 

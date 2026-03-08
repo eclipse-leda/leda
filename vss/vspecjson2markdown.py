@@ -18,9 +18,7 @@
 import argparse
 import json
 import os
-import json_stream
-from enum import Enum
-from vspec.model.vsstree import VSSNode, Unit
+from vspec.model.vsstree import VSSNode, VSSUnit, VSSUnitCollection
 from vspec.model.constants import VSSTreeType
 from vspec.loggingconfig import initLogging
 from anytree import Node, RenderTree, AsciiStyle
@@ -59,6 +57,14 @@ parser.add_argument('-u', '--units',
                     required=False,
                     help='The Vehicle Signal Specification units.yaml file')
 
+parser.add_argument('-q', '--quantities',
+                    action='append',
+                    metavar='quantities_file',
+                    type=str,
+                    default=[],
+                    required=False,
+                    help='The Vehicle Signal Specification quantities.yaml file')
+
 parser.add_argument('-o', '--output',
                     required=True,
                     help='The output directory where to store the generated Markdown files')
@@ -72,19 +78,22 @@ print("Verbose: %s" % args.verbose)
 print("VSpec Include Directory: %s" % args.include)
 print("VSpec Input file: %s" % args.input)
 print("VSpec Units file: %s" % args.units)
+print("VSpec Quantities file: %s" % args.quantities)
 print("Output directory: %s" % args.output)
 
 vspec_dir = os.path.dirname(os.path.realpath(args.input))
 print("VSpec Directory: %s" % vspec_dir)
 
-vspec.load_units(args.input,args.units)
+vspec.load_units(args.input, args.units)
+if args.quantities:
+    vspec.load_quantities(args.input, args.quantities)
 
 data_type_tree = None
 tree = vspec.load_tree(args.input, args.include, VSSTreeType.SIGNAL_TREE)
 vspec.check_type_usage(tree, VSSTreeType.SIGNAL_TREE, data_type_tree)
 vspec.expand_tree_instances(tree)
 vspec.clean_metadata(tree)
-vspec.verify_mandatory_attributes(tree, abort_on_unknown_attribute=True)
+vspec.verify_mandatory_attributes(tree, abort_on_unknown_attribute=False)
 
 outputdir=os.path.realpath(args.output)
 print("Absolute output directory: %s" % outputdir)
@@ -102,7 +111,7 @@ def export_node(node : VSSNode):
     
     unit=""
     if node.has_unit():
-        unit = Unit.from_str(node.get_unit())
+        unit = VSSUnitCollection.get_unit(node.get_unit()) or node.get_unit()
     ctx = Context(buf, node=node, unit=unit)
     
     mytemplate.render_context(ctx)

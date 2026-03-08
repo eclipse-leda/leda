@@ -1,7 +1,7 @@
 ---
 title: Patch
 
-date: 2023-06-05T12:38:34.210369
+date: 2026-03-08T08:02:44.625983
 no_list: true
 ---
 
@@ -37,7 +37,7 @@ sdv.databroker.v1 > connect
 sdv.databroker.v1 > get Vehicle.VersionVSS.Patch
 [get]  OK
 Vehicle.VersionVSS.Patch: ( NotAvailable )
-sdv.databroker.v1 > set Vehicle.VersionVSS.Patch 1
+sdv.databroker.v1 > set Vehicle.VersionVSS.Patch 0
 [set]  OK
 ```
 
@@ -55,7 +55,7 @@ sdv.databroker.v1 > set Vehicle.VersionVSS.Patch 1
 |---|---|---|
 | Path | `Vehicle.VersionVSS.Patch` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Default value | `1` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Default value | `0` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 
 

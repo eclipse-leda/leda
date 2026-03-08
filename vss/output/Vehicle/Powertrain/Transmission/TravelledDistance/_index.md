@@ -1,7 +1,7 @@
 ---
 title: TravelledDistance
 
-date: 2023-06-05T12:38:38.250393
+date: 2026-03-08T08:02:45.973365
 no_list: true
 ---
 
@@ -59,8 +59,8 @@ sdv.databroker.v1 > set Vehicle.Powertrain.Transmission.TravelledDistance 0
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `km` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | kilometer | |
-| Description | Distance measured in kilometers | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Length measured in kilometers | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

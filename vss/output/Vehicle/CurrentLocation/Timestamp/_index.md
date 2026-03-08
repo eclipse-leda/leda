@@ -1,7 +1,7 @@
 ---
 title: Timestamp
 
-date: 2023-06-05T12:38:36.131788
+date: 2026-03-08T08:02:45.275563
 no_list: true
 ---
 
@@ -55,6 +55,10 @@ sdv.databroker.v1 > set Vehicle.CurrentLocation.Timestamp Foo
 |---|---|---|
 | Path | `Vehicle.CurrentLocation.Timestamp` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `string` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `iso8601` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | ISO 8601 | |
+| Description | Date and Time expressed as a string according to ISO 8601 | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | datetime | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

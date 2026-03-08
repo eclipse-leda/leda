@@ -1,7 +1,7 @@
 ---
 title: VehicleIdentification
 
-date: 2023-06-05T12:38:34.276800
+date: 2026-03-08T08:02:44.646418
 no_list: true
 ---
 
@@ -58,6 +58,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.VehicleIdentification.Brand](brand/) (Vehicle brand or manufacturer.)
 - [Vehicle.VehicleIdentification.DateVehicleFirstRegistered](datevehiclefirstregistered/) (The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities.)
 - [Vehicle.VehicleIdentification.KnownVehicleDamages](knownvehicledamages/) (A textual description of known damages, both repaired and unrepaired.)
+- [Vehicle.VehicleIdentification.LicensePlate](licenseplate/) (The license plate of the vehicle.)
 - [Vehicle.VehicleIdentification.MeetsEmissionStandard](meetsemissionstandard/) (Indicates that the vehicle meets the respective emission standard.)
 - [Vehicle.VehicleIdentification.Model](model/) (Vehicle model.)
 - [Vehicle.VehicleIdentification.OptionalExtras](optionalextras/) (Optional extras refers to all car equipment options that are not installed as standard by the manufacturer.)
@@ -65,6 +66,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.VehicleIdentification.PurchaseDate](purchasedate/) (The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner.)
 - [Vehicle.VehicleIdentification.VIN](vin/) (17-character Vehicle Identification Number (VIN) as defined by ISO 3779.)
 - [Vehicle.VehicleIdentification.VehicleConfiguration](vehicleconfiguration/) (A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.)
+- [Vehicle.VehicleIdentification.VehicleExteriorColor](vehicleexteriorcolor/) (The main color of the exterior within the basic color palette (eg. red, blue, black, white, ...).)
 - [Vehicle.VehicleIdentification.VehicleInteriorColor](vehicleinteriorcolor/) (The color or color combination of the interior of the vehicle.)
 - [Vehicle.VehicleIdentification.VehicleInteriorType](vehicleinteriortype/) (The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.).)
 - [Vehicle.VehicleIdentification.VehicleModelDate](vehiclemodeldate/) (The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model).)

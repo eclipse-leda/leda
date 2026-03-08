@@ -1,7 +1,7 @@
 ---
 title: Position
 
-date: 2023-06-05T12:38:47.886958
+date: 2026-03-08T08:02:50.116606
 no_list: true
 ---
 
@@ -57,6 +57,10 @@ sdv.databroker.v1 > set Vehicle.Cabin.Sunroof.Position 0
 |---|---|---|
 | Path | `Vehicle.Cabin.Sunroof.Position` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `int8` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `percent` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | percent | |
+| Description | Relation measured in percent | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | relation | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Minimum value | `-100` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 | Maximum value | `100` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 

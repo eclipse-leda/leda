@@ -1,7 +1,7 @@
 ---
 title: AccumulatedBrakingEnergy
 
-date: 2023-06-05T12:38:36.695801
+date: 2026-03-08T08:02:45.438942
 no_list: true
 ---
 
@@ -58,7 +58,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.AccumulatedBrakingEnergy 0
 | Unit | `kWh` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | kilowatt hours | |
 | Description | Energy consumption measured in kilowatt hours | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | energy consumption | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | work | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Min
 
-date: 2023-06-05T12:38:39.413138
+date: 2026-03-08T08:02:46.360148
 no_list: true
 ---
 
@@ -59,9 +59,9 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Temperature.Min 0
 |---|---|---|
 | Path | `Vehicle.Powertrain.TractionBattery.Temperature.Min` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Unit | `celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree celsius | |
-| Description | Temperature measured in degree celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | degree Celsius | |
+| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 | Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 

@@ -1,7 +1,7 @@
 ---
 title: Brightness
 
-date: 2023-06-05T12:38:47.621051
+date: 2026-03-08T08:02:49.963755
 no_list: true
 ---
 

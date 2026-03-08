@@ -1,7 +1,7 @@
 ---
 title: Raindetection
 
-date: 2023-06-05T12:38:42.087766
+date: 2026-03-08T08:02:47.988286
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Raindetection` |
-| Description: | Rainsensor signals. |
+| Description: | Rain sensor signals. |
 
 ## Navigation
 

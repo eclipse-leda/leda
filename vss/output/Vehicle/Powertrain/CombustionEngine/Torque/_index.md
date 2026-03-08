@@ -1,7 +1,7 @@
 ---
 title: Torque
 
-date: 2023-06-05T12:38:37.750849
+date: 2026-03-08T08:02:45.822760
 no_list: true
 ---
 
@@ -9,8 +9,8 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Powertrain.CombustionEngine.Torque` |
-| Description: | Current engine torque. Shall be reported as 0 during engine breaking. |
-| Comment: | During engine breaking the engine delivers a negative torque to the transmission. This negative torque shall be ignored, instead 0 shall be reported. |
+| Description: | Current engine torque. Shall be reported as a negative number during engine breaking. |
+| Comment: | During engine breaking the engine delivers a negative torque to the transmission. |
 
 ## Navigation
 
@@ -57,7 +57,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.Torque 0
 | | | |
 |---|---|---|
 | Path | `Vehicle.Powertrain.CombustionEngine.Torque` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
-| Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Data type | `int16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Nm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | newton meter | |
 | Description | Torque measured in newton meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
@@ -65,8 +65,8 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.Torque 0
 
 
 
-**Note:** The `uint16` datatype is an *unsigned 16-bit integer* which technically allows values between 0 and 65535 (inclusive).
 
+**Note:** The `int16` datatype is a *signed 16-bit integer* which technically allows values between -32768 and 32767 (inclusive).
 
 
 

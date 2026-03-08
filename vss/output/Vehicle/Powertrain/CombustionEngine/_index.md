@@ -1,7 +1,7 @@
 ---
 title: CombustionEngine
 
-date: 2023-06-05T12:38:36.832766
+date: 2026-03-08T08:02:45.500944
 no_list: true
 ---
 
@@ -62,14 +62,11 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid](dieselexhaustfluid/) (Signals related to Diesel Exhaust Fluid (DEF). DEF is called AUS32 in ISO 22241.)
 - [Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter](dieselparticulatefilter/) (Diesel Particulate Filter signals.)
 - [Vehicle.Powertrain.CombustionEngine.Displacement](displacement/) (Displacement in cubic centimetres.)
-- [Vehicle.Powertrain.CombustionEngine.ECT](ect/) (Engine coolant temperature.)
 - [Vehicle.Powertrain.CombustionEngine.EOP](eop/) (Engine oil pressure.)
-- [Vehicle.Powertrain.CombustionEngine.EOT](eot/) (Engine oil temperature.)
 - [Vehicle.Powertrain.CombustionEngine.EngineCode](enginecode/) (Engine code designation, as specified by vehicle manufacturer.)
-- [Vehicle.Powertrain.CombustionEngine.EngineCoolantCapacity](enginecoolantcapacity/) (Engine coolant capacity in liters.)
+- [Vehicle.Powertrain.CombustionEngine.EngineCoolant](enginecoolant/) (Signals related to the engine coolant)
 - [Vehicle.Powertrain.CombustionEngine.EngineHours](enginehours/) (Accumulated time during engine lifetime with 'engine speed (rpm) > 0'.)
-- [Vehicle.Powertrain.CombustionEngine.EngineOilCapacity](engineoilcapacity/) (Engine oil capacity in liters.)
-- [Vehicle.Powertrain.CombustionEngine.EngineOilLevel](engineoillevel/) (Engine oil level.)
+- [Vehicle.Powertrain.CombustionEngine.EngineOil](engineoil/) (Signals related to the engine oil)
 - [Vehicle.Powertrain.CombustionEngine.IdleHours](idlehours/) (Accumulated idling time during engine lifetime. Definition of idling is not standardized.)
 - [Vehicle.Powertrain.CombustionEngine.IsRunning](isrunning/) (Engine Running. True if engine is rotating (Speed > 0).)
 - [Vehicle.Powertrain.CombustionEngine.MAF](maf/) (Grams of air drawn into engine per second.)
@@ -78,12 +75,11 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.CombustionEngine.MaxTorque](maxtorque/) (Peak torque, in newton meter, that the engine can generate.)
 - [Vehicle.Powertrain.CombustionEngine.NumberOfCylinders](numberofcylinders/) (Number of cylinders.)
 - [Vehicle.Powertrain.CombustionEngine.NumberOfValvesPerCylinder](numberofvalvespercylinder/) (Number of valves per cylinder.)
-- [Vehicle.Powertrain.CombustionEngine.OilLifeRemaining](oilliferemaining/) (Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.)
 - [Vehicle.Powertrain.CombustionEngine.Power](power/) (Current engine power output. Shall be reported as 0 during engine breaking.)
 - [Vehicle.Powertrain.CombustionEngine.Speed](speed/) (Engine speed measured as rotations per minute.)
 - [Vehicle.Powertrain.CombustionEngine.StrokeLength](strokelength/) (Stroke length in millimetres.)
 - [Vehicle.Powertrain.CombustionEngine.TPS](tps/) (Current throttle position.)
-- [Vehicle.Powertrain.CombustionEngine.Torque](torque/) (Current engine torque. Shall be reported as 0 during engine breaking.)
+- [Vehicle.Powertrain.CombustionEngine.Torque](torque/) (Current engine torque. Shall be reported as a negative number during engine breaking.)
 
 
 ## Feedback

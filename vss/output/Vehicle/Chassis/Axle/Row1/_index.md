@@ -1,7 +1,7 @@
 ---
 title: Row1
 
-date: 2023-06-05T12:39:03.019429
+date: 2026-03-08T08:02:56.483241
 no_list: true
 ---
 
@@ -57,10 +57,13 @@ The UUID for `Vehicle.Chassis.Axle.Row1` is `d7e93a94af0752aaab36819f6be4f67a`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.Chassis.Axle.Row1.AxleWidth](axlewidth/) (The lateral distance between the wheel mounting faces, measured along the spindle axis.)
 - [Vehicle.Chassis.Axle.Row1.SteeringAngle](steeringangle/) (Single track two-axle model steering angle. Angle according to ISO 8855. Positive = degrees to the left. Negative = degrees to the right.)
 - [Vehicle.Chassis.Axle.Row1.TireAspectRatio](tireaspectratio/) (Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.)
 - [Vehicle.Chassis.Axle.Row1.TireDiameter](tirediameter/) (Outer diameter of tires, in inches, as per ETRTO / TRA standard.)
 - [Vehicle.Chassis.Axle.Row1.TireWidth](tirewidth/) (Nominal section width of tires, in mm, as per ETRTO / TRA standard.)
+- [Vehicle.Chassis.Axle.Row1.TrackWidth](trackwidth/) (The lateral distance between the centers of the wheels, measured along the spindle, or axle axis. If there are dual rear wheels, measure from the midway points between the inner and outer tires.)
+- [Vehicle.Chassis.Axle.Row1.TreadWidth](treadwidth/) (The lateral distance between the centerlines of the base tires at ground, including camber angle. If there are dual rear wheels, measure from the midway points between the inner and outer tires.)
 - [Vehicle.Chassis.Axle.Row1.Wheel](wheel/) (Wheel signals for axle)
 - [Vehicle.Chassis.Axle.Row1.WheelCount](wheelcount/) (Number of wheels on the axle)
 - [Vehicle.Chassis.Axle.Row1.WheelDiameter](wheeldiameter/) (Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard.)

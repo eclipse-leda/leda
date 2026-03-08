@@ -1,7 +1,7 @@
 ---
 title: DimmingLevel
 
-date: 2023-06-05T12:38:48.087742
+date: 2026-03-08T08:02:50.188779
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.RearviewMirror.DimmingLevel` |
-| Description: | Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed. |
+| Description: | Dimming level of rear-view mirror. 0 = Undimmed. 100 = Fully dimmed. |
 
 ## Navigation
 

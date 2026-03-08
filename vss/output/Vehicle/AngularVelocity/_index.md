@@ -1,7 +1,7 @@
 ---
 title: AngularVelocity
 
-date: 2023-06-05T12:38:35.554181
+date: 2026-03-08T08:02:45.062112
 no_list: true
 ---
 

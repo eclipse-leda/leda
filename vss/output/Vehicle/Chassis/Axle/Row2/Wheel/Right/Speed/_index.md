@@ -1,7 +1,7 @@
 ---
 title: Speed
 
-date: 2023-06-05T12:39:04.599465
+date: 2026-03-08T08:02:57.277178
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Chassis.Axle.Row2.Wheel.Right.Speed` |
-| Description: | Rotational speed of a vehicle's wheel. |
+| Description: | Linear speed of a vehicle's wheel. |
 
 ## Navigation
 
@@ -65,8 +65,8 @@ sdv.databroker.v1 > set Vehicle.Chassis.Axle.Row2.Wheel.Right.Speed 0
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `km/h` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | kilometer per hour | |
-| Description | Speed measured in kilometers per hours | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Velocity measured in kilometers per hours | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | velocity | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

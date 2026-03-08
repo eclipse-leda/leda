@@ -1,7 +1,7 @@
 ---
 title: TireWidth
 
-date: 2023-06-05T12:39:03.863796
+date: 2026-03-08T08:02:56.981004
 no_list: true
 ---
 
@@ -61,8 +61,8 @@ sdv.databroker.v1 > set Vehicle.Chassis.Axle.Row2.TireWidth 0
 | Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `mm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | millimeter | |
-| Description | Distance measured in millimeters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Length measured in millimeters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

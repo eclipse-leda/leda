@@ -1,7 +1,7 @@
 ---
 title: MaxPower
 
-date: 2023-06-05T12:38:37.146500
+date: 2026-03-08T08:02:45.594194
 no_list: true
 ---
 

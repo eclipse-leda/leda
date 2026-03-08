@@ -1,7 +1,7 @@
 ---
 title: Phase2
 
-date: 2023-06-05T12:38:40.796623
+date: 2026-03-08T08:02:47.191289
 no_list: true
 ---
 
@@ -64,7 +64,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltag
 | Unit | `V` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | volt | |
 | Description | Electric potential measured in volts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric potential | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | voltage | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

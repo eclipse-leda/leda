@@ -1,7 +1,7 @@
 ---
 title: TireDiameter
 
-date: 2023-06-05T12:39:03.842944
+date: 2026-03-08T08:02:56.970876
 no_list: true
 ---
 
@@ -62,7 +62,7 @@ sdv.databroker.v1 > set Vehicle.Chassis.Axle.Row2.TireDiameter 0
 | Unit | `inch` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | inch | |
 | Description | Distance measured in inches | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

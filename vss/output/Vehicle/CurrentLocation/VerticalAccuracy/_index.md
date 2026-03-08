@@ -1,7 +1,7 @@
 ---
 title: VerticalAccuracy
 
-date: 2023-06-05T12:38:36.327913
+date: 2026-03-08T08:02:45.336574
 no_list: true
 ---
 
@@ -57,8 +57,8 @@ sdv.databroker.v1 > set Vehicle.CurrentLocation.VerticalAccuracy 0
 | Data type | `double` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `m` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | meter | |
-| Description | Distance measured in meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Length measured in meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: ElectricMotor
 
-date: 2023-06-05T12:38:38.826638
+date: 2026-03-08T08:02:46.115512
 no_list: true
 ---
 
@@ -55,8 +55,8 @@ The UUID for `Vehicle.Powertrain.ElectricMotor` is `1ade64f6b0d05f6c9340e7a66755
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Powertrain.ElectricMotor.CoolantTemperature](coolanttemperature/) (Motor coolant temperature (if applicable).)
 - [Vehicle.Powertrain.ElectricMotor.EngineCode](enginecode/) (Engine code designation, as specified by vehicle manufacturer.)
+- [Vehicle.Powertrain.ElectricMotor.EngineCoolant](enginecoolant/) (Signals related to the engine coolant (if applicable).)
 - [Vehicle.Powertrain.ElectricMotor.MaxPower](maxpower/) (Peak power, in kilowatts, that motor(s) can generate.)
 - [Vehicle.Powertrain.ElectricMotor.MaxRegenPower](maxregenpower/) (Peak regen/brake power, in kilowatts, that motor(s) can generate.)
 - [Vehicle.Powertrain.ElectricMotor.MaxRegenTorque](maxregentorque/) (Peak regen/brake torque, in newton meter, that the motor(s) can generate.)
@@ -64,6 +64,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.ElectricMotor.Power](power/) (Current motor power output. Negative values indicate regen mode.)
 - [Vehicle.Powertrain.ElectricMotor.Speed](speed/) (Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.)
 - [Vehicle.Powertrain.ElectricMotor.Temperature](temperature/) (Motor temperature.)
+- [Vehicle.Powertrain.ElectricMotor.TimeInUse](timeinuse/) (Accumulated time during engine lifetime when the vehicule state's is 'READY'.)
 - [Vehicle.Powertrain.ElectricMotor.Torque](torque/) (Current motor torque. Negative values indicate regen mode.)
 
 

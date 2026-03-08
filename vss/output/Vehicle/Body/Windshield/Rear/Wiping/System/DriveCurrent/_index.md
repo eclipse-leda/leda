@@ -1,7 +1,7 @@
 ---
 title: DriveCurrent
 
-date: 2023-06-05T12:38:43.433166
+date: 2026-03-08T08:02:48.334707
 no_list: true
 ---
 
@@ -67,7 +67,7 @@ sdv.databroker.v1 > set Vehicle.Body.Windshield.Rear.Wiping.System.DriveCurrent 
 | Unit | `A` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | ampere | |
 | Description | Electric current measured in amperes | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric current | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | electric-current | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

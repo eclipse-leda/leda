@@ -1,7 +1,7 @@
 ---
 title: Row1
 
-date: 2023-06-05T12:38:48.985374
+date: 2026-03-08T08:02:50.878063
 no_list: true
 ---
 
@@ -57,8 +57,8 @@ The UUID for `Vehicle.Cabin.Door.Row1` is `fd3fcb481cb953dc9a853125c6ca0453`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Cabin.Door.Row1.Left](left/) (All doors, including windows and switches.)
-- [Vehicle.Cabin.Door.Row1.Right](right/) (All doors, including windows and switches.)
+- [Vehicle.Cabin.Door.Row1.DriverSide](driverside/) (All doors, including windows and switches.)
+- [Vehicle.Cabin.Door.Row1.PassengerSide](passengerside/) (All doors, including windows and switches.)
 
 
 ## Feedback

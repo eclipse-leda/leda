@@ -1,7 +1,7 @@
 ---
 title: Position
 
-date: 2023-06-05T12:38:48.009013
+date: 2026-03-08T08:02:50.157601
 no_list: true
 ---
 
@@ -9,7 +9,8 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.Sunroof.Shade.Position` |
-| Description: | Position of window blind. 0 = Fully retracted. 100 = Fully deployed. |
+| Description: | Item position. 0 = Start position 100 = End position. |
+| Comment: | Relationship between Open/Close and Start/End position is item dependent. |
 
 ## Navigation
 

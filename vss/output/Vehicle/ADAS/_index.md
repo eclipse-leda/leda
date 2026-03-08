@@ -1,7 +1,7 @@
 ---
 title: ADAS
 
-date: 2023-06-05T12:39:01.348327
+date: 2026-03-08T08:02:55.521493
 no_list: true
 ---
 
@@ -54,15 +54,17 @@ The UUID for `Vehicle.ADAS` is `14c2b2e1297b513197d320a5ce58f42e`
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.ADAS.ABS](abs/) (Antilock Braking System signals.)
-- [Vehicle.ADAS.ActiveAutonomyLevel](activeautonomylevel/) (Indicates the currently active level of autonomy according to SAE J3016 taxonomy.)
+- [Vehicle.ADAS.ActiveAutonomyLevel](activeautonomylevel/) (Indicates the currently active level of driving automation according to the SAE J3016 (Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles).)
 - [Vehicle.ADAS.CruiseControl](cruisecontrol/) (Signals from Cruise Control system.)
+- [Vehicle.ADAS.DMS](dms/) (Driver Monitoring System signals.)
 - [Vehicle.ADAS.EBA](eba/) (Emergency Brake Assist (EBA) System signals.)
 - [Vehicle.ADAS.EBD](ebd/) (Electronic Brakeforce Distribution (EBD) System signals.)
 - [Vehicle.ADAS.ESC](esc/) (Electronic Stability Control System signals.)
+- [Vehicle.ADAS.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
 - [Vehicle.ADAS.LaneDepartureDetection](lanedeparturedetection/) (Signals from Lane Departure Detection System.)
 - [Vehicle.ADAS.ObstacleDetection](obstacledetection/) (Signals form Obstacle Sensor System.)
 - [Vehicle.ADAS.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
-- [Vehicle.ADAS.SupportedAutonomyLevel](supportedautonomylevel/) (Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of.)
+- [Vehicle.ADAS.SupportedAutonomyLevel](supportedautonomylevel/) (Indicates the highest level of driving automation according to the SAE J3016 taxonomy the vehicle is capable of.)
 - [Vehicle.ADAS.TCS](tcs/) (Traction Control System signals.)
 
 

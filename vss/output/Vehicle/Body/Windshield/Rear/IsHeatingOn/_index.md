@@ -1,7 +1,7 @@
 ---
 title: IsHeatingOn
 
-date: 2023-06-05T12:38:43.726197
+date: 2026-03-08T08:02:48.426252
 no_list: true
 ---
 

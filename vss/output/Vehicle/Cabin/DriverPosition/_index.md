@@ -1,7 +1,7 @@
 ---
 title: DriverPosition
 
-date: 2023-06-05T12:39:01.225073
+date: 2026-03-08T08:02:55.450142
 no_list: true
 ---
 
@@ -10,7 +10,7 @@ no_list: true
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.DriverPosition` |
 | Description: | The position of the driver seat in row 1. |
-| Comment: | Default value is position 1, i.e. a typical LHD vehicle. |
+| Comment: | Some signals use DriverSide and PassengerSide as instances. If this signal specifies that DriverPosition is LEFT or MIDDLE, then DriverSide refers to left side and PassengerSide to right side. If this signal specifies that DriverPosition is RIGHT, then DriverSide refers to right side and PassengerSide to left side. |
 
 ## Navigation
 
@@ -38,7 +38,7 @@ sdv.databroker.v1 > connect
 sdv.databroker.v1 > get Vehicle.Cabin.DriverPosition
 [get]  OK
 Vehicle.Cabin.DriverPosition: ( NotAvailable )
-sdv.databroker.v1 > set Vehicle.Cabin.DriverPosition 1
+sdv.databroker.v1 > set Vehicle.Cabin.DriverPosition Foo
 [set]  OK
 ```
 
@@ -55,10 +55,8 @@ sdv.databroker.v1 > set Vehicle.Cabin.DriverPosition 1
 | | | |
 |---|---|---|
 | Path | `Vehicle.Cabin.DriverPosition` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
-| Data type | `uint8` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Default value | `1` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-
-**Note:** The `uint8` datatype is an *unsigned 8-bit integer* which technically allows values between 0 and 255 (inclusive).
+| Data type | `string` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Allowed values | `['LEFT', 'MIDDLE', 'RIGHT']` | [VSS: Specifying allowed values](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/allowed/) |
 
 
 
@@ -70,6 +68,8 @@ sdv.databroker.v1 > set Vehicle.Cabin.DriverPosition 1
 
 
 
+
+**Note:** The `string` datatype is a *character string*.
 
 
 ## Signal Information

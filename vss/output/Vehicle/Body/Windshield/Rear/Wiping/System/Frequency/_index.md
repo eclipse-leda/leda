@@ -1,7 +1,7 @@
 ---
 title: Frequency
 
-date: 2023-06-05T12:38:43.274985
+date: 2026-03-08T08:02:48.303363
 no_list: true
 ---
 
@@ -64,6 +64,10 @@ sdv.databroker.v1 > set Vehicle.Body.Windshield.Rear.Wiping.System.Frequency 0
 |---|---|---|
 | Path | `Vehicle.Body.Windshield.Rear.Wiping.System.Frequency` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint8` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `cpm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | cycles per minute | |
+| Description | Number of cycles per minute | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | frequency | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 **Note:** The `uint8` datatype is an *unsigned 8-bit integer* which technically allows values between 0 and 255 (inclusive).
 

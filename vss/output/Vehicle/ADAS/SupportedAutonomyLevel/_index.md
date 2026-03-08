@@ -1,7 +1,7 @@
 ---
 title: SupportedAutonomyLevel
 
-date: 2023-06-05T12:39:01.389229
+date: 2026-03-08T08:02:55.541864
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.ADAS.SupportedAutonomyLevel` |
-| Description: | Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of. |
+| Description: | Indicates the highest level of driving automation according to the SAE J3016 taxonomy the vehicle is capable of. |
 
 ## Navigation
 

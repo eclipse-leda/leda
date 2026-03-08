@@ -1,7 +1,7 @@
 ---
 title: Chassis
 
-date: 2023-06-05T12:39:02.890424
+date: 2026-03-08T08:02:56.452999
 no_list: true
 ---
 
@@ -59,8 +59,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Chassis.Brake](brake/) (Brake system signals)
 - [Vehicle.Chassis.ParkingBrake](parkingbrake/) (Parking brake signals)
 - [Vehicle.Chassis.SteeringWheel](steeringwheel/) (Steering wheel signals)
-- [Vehicle.Chassis.Track](track/) (Overall wheel tracking, in mm.)
-- [Vehicle.Chassis.Wheelbase](wheelbase/) (Overall wheel base, in mm.)
+- [Vehicle.Chassis.Wheelbase](wheelbase/) (Overall wheelbase, in mm.)
 
 
 ## Feedback

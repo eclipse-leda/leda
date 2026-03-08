@@ -1,7 +1,7 @@
 ---
 title: ParkingBrake
 
-date: 2023-06-05T12:39:04.661581
+date: 2026-03-08T08:02:57.308120
 no_list: true
 ---
 
@@ -55,6 +55,7 @@ The UUID for `Vehicle.Chassis.ParkingBrake` is `3849d42292f4551590fa4bf716fc90f7
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.Chassis.ParkingBrake.IsAutoApplyEnabled](isautoapplyenabled/) (Indicates if parking brake will be automatically engaged when the vehicle engine is turned off.)
 - [Vehicle.Chassis.ParkingBrake.IsEngaged](isengaged/) (Parking brake status. True = Parking Brake is Engaged. False = Parking Brake is not Engaged.)
 
 

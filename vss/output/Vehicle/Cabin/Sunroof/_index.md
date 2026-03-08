@@ -1,7 +1,7 @@
 ---
 title: Sunroof
 
-date: 2023-06-05T12:38:47.863089
+date: 2026-03-08T08:02:50.106030
 no_list: true
 ---
 
@@ -56,7 +56,7 @@ The UUID for `Vehicle.Cabin.Sunroof` is `8ff70db05c065e3eb530082a0b6983cf`
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Cabin.Sunroof.Position](position/) (Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted.)
-- [Vehicle.Cabin.Sunroof.Shade](shade/) (Sun roof shade status.)
+- [Vehicle.Cabin.Sunroof.Shade](shade/) (Sun roof shade status. Open = Retracted, Closed = Deployed. Start position for Sunroof.Shade is Open/Retracted.)
 - [Vehicle.Cabin.Sunroof.Switch](switch/) (Switch controlling sliding action such as window, sunroof, or shade.)
 
 

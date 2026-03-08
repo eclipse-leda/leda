@@ -1,7 +1,7 @@
 ---
 title: StateOfCharge
 
-date: 2023-06-05T12:38:39.608880
+date: 2026-03-08T08:02:46.482179
 no_list: true
 ---
 
@@ -58,6 +58,7 @@ The UUID for `Vehicle.Powertrain.TractionBattery.StateOfCharge` is `26bae2ce7c4d
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Powertrain.TractionBattery.StateOfCharge.Current](current/) (Physical state of charge of the high voltage battery, relative to net capacity. This is not necessarily the state of charge being displayed to the customer.)
+- [Vehicle.Powertrain.TractionBattery.StateOfCharge.CurrentEnergy](currentenergy/) (Physical state of charge of high voltage battery expressed in kWh.)
 - [Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed](displayed/) (State of charge displayed to the customer.)
 
 

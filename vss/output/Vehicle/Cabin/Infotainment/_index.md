@@ -1,7 +1,7 @@
 ---
 title: Infotainment
 
-date: 2023-06-05T12:38:46.783109
+date: 2026-03-08T08:02:49.596872
 no_list: true
 ---
 
@@ -56,10 +56,12 @@ The UUID for `Vehicle.Cabin.Infotainment` is `d88f92fbdda35012a2443b5e130d5eff`
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Cabin.Infotainment.HMI](hmi/) (HMI related signals)
+- [Vehicle.Cabin.Infotainment.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
 - [Vehicle.Cabin.Infotainment.Media](media/) (All Media actions)
 - [Vehicle.Cabin.Infotainment.Navigation](navigation/) (All navigation actions)
 - [Vehicle.Cabin.Infotainment.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
 - [Vehicle.Cabin.Infotainment.SmartphoneProjection](smartphoneprojection/) (All smartphone projection actions.)
+- [Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring](smartphonescreenmirroring/) (All smartphone screen mirroring actions.)
 
 
 ## Feedback

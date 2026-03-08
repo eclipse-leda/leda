@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2023-06-05T12:38:39.056636
+date: 2026-03-08T08:02:46.197042
 no_list: true
 ---
 
@@ -56,22 +56,22 @@ sdv.databroker.v1 > set Vehicle.Powertrain.ElectricMotor.Temperature 0
 | | | |
 |---|---|---|
 | Path | `Vehicle.Powertrain.ElectricMotor.Temperature` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
-| Data type | `int16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Unit | `celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree celsius | |
-| Description | Temperature measured in degree celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | degree Celsius | |
+| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 | Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
 
-**Note:** The `int16` datatype is a *signed 16-bit integer* which technically allows values between -32768 and 32767 (inclusive).
 
 
 
 
 
 
+**Note:** The `float` datatype is a *floating point number* which technically allows values between -3.4e ^ -38 and 3.4e ^ 38
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: IsOpen
 
-date: 2023-06-05T12:38:41.972475
+date: 2026-03-08T08:02:47.926991
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Trunk.Rear.IsOpen` |
-| Description: | Trunk open or closed. True = Open. False = Closed. |
+| Description: | Is item open or closed? True = Fully or partially open. False = Fully closed. |
 
 ## Navigation
 

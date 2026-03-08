@@ -1,7 +1,7 @@
 ---
 title: Connectivity
 
-date: 2023-06-05T12:39:09.457411
+date: 2026-03-08T08:02:58.491869
 no_list: true
 ---
 

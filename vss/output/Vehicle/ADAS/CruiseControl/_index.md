@@ -1,7 +1,7 @@
 ---
 title: CruiseControl
 
-date: 2023-06-05T12:39:01.428842
+date: 2026-03-08T08:02:55.552003
 no_list: true
 ---
 
@@ -55,7 +55,10 @@ The UUID for `Vehicle.ADAS.CruiseControl` is `c4d751cf74f9576dbba3cc820991c1fb`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.ADAS.CruiseControl.AdaptiveDistanceSet](adaptivedistanceset/) (Distance in meters to keep from lead vehicle)
+- [Vehicle.ADAS.CruiseControl.AdaptiveIntervalSet](adaptiveintervalset/) (Follow distance setting, commonly 1-5 with 1 being closest.)
 - [Vehicle.ADAS.CruiseControl.IsActive](isactive/) (Indicates if cruise control system is active (i.e. actively controls speed). True = Active. False = Inactive.)
+- [Vehicle.ADAS.CruiseControl.IsAdaptive](isadaptive/) (Indicates if cruise control system is adaptive (i.e. actively controls speed).)
 - [Vehicle.ADAS.CruiseControl.IsEnabled](isenabled/) (Indicates if cruise control system is enabled (e.g. ready to receive configurations and settings) True = Enabled. False = Disabled.)
 - [Vehicle.ADAS.CruiseControl.IsError](iserror/) (Indicates if cruise control system incurred an error condition. True = Error. False = No Error.)
 - [Vehicle.ADAS.CruiseControl.SpeedSet](speedset/) (Set cruise control speed in kilometers per hour.)

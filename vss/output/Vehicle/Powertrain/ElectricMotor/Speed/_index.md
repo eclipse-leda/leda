@@ -1,7 +1,7 @@
 ---
 title: Speed
 
-date: 2023-06-05T12:38:39.027790
+date: 2026-03-08T08:02:46.176862
 no_list: true
 ---
 
@@ -56,22 +56,22 @@ sdv.databroker.v1 > set Vehicle.Powertrain.ElectricMotor.Speed 0
 | | | |
 |---|---|---|
 | Path | `Vehicle.Powertrain.ElectricMotor.Speed` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
-| Data type | `int32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `rpm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | revolutions per minute | |
 | Description | Rotational speed measured in revolutions per minute | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | rotational speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | rotational-speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
 
 
 
-**Note:** The `int32` datatype is a *signed 32-bit integer* which technically allows values between -2147483648 and 2147483647 (inclusive).
 
 
 
 
+**Note:** The `float` datatype is a *floating point number* which technically allows values between -3.4e ^ -38 and 3.4e ^ 38
 
 
 

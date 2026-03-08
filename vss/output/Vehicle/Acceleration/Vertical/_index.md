@@ -1,7 +1,7 @@
 ---
 title: Vertical
 
-date: 2023-06-05T12:38:35.529014
+date: 2026-03-08T08:02:45.051858
 no_list: true
 ---
 

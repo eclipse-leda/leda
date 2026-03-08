@@ -1,7 +1,7 @@
 ---
 title: IsOpen
 
-date: 2023-06-05T12:38:41.823858
+date: 2026-03-08T08:02:47.804565
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Hood.IsOpen` |
-| Description: | Hood open or closed. True = Open. False = Closed. |
+| Description: | Is item open or closed? True = Fully or partially open. False = Fully closed. |
 
 ## Navigation
 

@@ -1,7 +1,7 @@
 ---
 title: AccumulatedChargedThroughput
 
-date: 2023-06-05T12:38:39.944926
+date: 2026-03-08T08:02:46.593213
 no_list: true
 ---
 
@@ -60,7 +60,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.AccumulatedChargedThr
 | Unit | `Ah` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | ampere hours | |
 | Description | Electric charge measured in ampere hours | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric charge | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | electric-charge | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

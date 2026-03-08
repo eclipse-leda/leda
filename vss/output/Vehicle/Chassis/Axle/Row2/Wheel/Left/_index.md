@@ -1,7 +1,7 @@
 ---
 title: Left
 
-date: 2023-06-05T12:39:03.925603
+date: 2026-03-08T08:02:57.011628
 no_list: true
 ---
 
@@ -61,8 +61,9 @@ The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Left` is `4c32a1c722a45ea09a52c389
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.Chassis.Axle.Row2.Wheel.Left.AngularSpeed](angularspeed/) (Angular (Rotational) speed of a vehicle's wheel.)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake](brake/) (Brake signals for wheel)
-- [Vehicle.Chassis.Axle.Row2.Wheel.Left.Speed](speed/) (Rotational speed of a vehicle's wheel.)
+- [Vehicle.Chassis.Axle.Row2.Wheel.Left.Speed](speed/) (Linear speed of a vehicle's wheel.)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire](tire/) (Tire signals for wheel.)
 
 

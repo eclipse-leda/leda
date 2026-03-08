@@ -1,7 +1,7 @@
 ---
 title: Range
 
-date: 2023-06-05T12:38:41.401473
+date: 2026-03-08T08:02:47.529335
 no_list: true
 ---
 
@@ -59,8 +59,8 @@ sdv.databroker.v1 > set Vehicle.Powertrain.FuelSystem.Range 0
 | Data type | `uint32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `m` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | meter | |
-| Description | Distance measured in meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Length measured in meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

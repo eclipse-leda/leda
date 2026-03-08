@@ -1,7 +1,7 @@
 ---
 title: Speed
 
-date: 2023-06-05T12:38:37.369818
+date: 2026-03-08T08:02:45.635980
 no_list: true
 ---
 
@@ -56,15 +56,11 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.Speed 0
 | | | |
 |---|---|---|
 | Path | `Vehicle.Powertrain.CombustionEngine.Speed` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
-| Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `rpm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | revolutions per minute | |
 | Description | Rotational speed measured in revolutions per minute | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | rotational speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-
-
-
-**Note:** The `uint16` datatype is an *unsigned 16-bit integer* which technically allows values between 0 and 65535 (inclusive).
+| Domain | rotational-speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -72,6 +68,10 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.Speed 0
 
 
 
+
+
+
+**Note:** The `float` datatype is a *floating point number* which technically allows values between -3.4e ^ -38 and 3.4e ^ 38
 
 
 

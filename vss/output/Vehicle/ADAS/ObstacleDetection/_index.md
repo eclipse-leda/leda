@@ -1,7 +1,7 @@
 ---
 title: ObstacleDetection
 
-date: 2023-06-05T12:39:01.751236
+date: 2026-03-08T08:02:55.680343
 no_list: true
 ---
 
@@ -55,9 +55,8 @@ The UUID for `Vehicle.ADAS.ObstacleDetection` is `e7b6d81631cc5ac584d027d4c1a66c
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.ADAS.ObstacleDetection.IsEnabled](isenabled/) (Indicates if obstacle sensor system is enabled (i.e. monitoring for obstacles). True = Enabled. False = Disabled.)
-- [Vehicle.ADAS.ObstacleDetection.IsError](iserror/) (Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error.)
-- [Vehicle.ADAS.ObstacleDetection.IsWarning](iswarning/) (Indicates if obstacle sensor system registered an obstacle.)
+- [Vehicle.ADAS.ObstacleDetection.Front](front/) (Signals form Obstacle Sensor System.)
+- [Vehicle.ADAS.ObstacleDetection.Rear](rear/) (Signals form Obstacle Sensor System.)
 
 
 ## Feedback
