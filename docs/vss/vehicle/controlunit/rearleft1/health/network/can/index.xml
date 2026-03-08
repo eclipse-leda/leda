@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CAN on Eclipse Leda Documentation</title>
+    <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/controlunit/rearleft1/health/network/can/</link>
+    <description>Recent content in CAN on Eclipse Leda Documentation</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/controlunit/rearleft1/health/network/can/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

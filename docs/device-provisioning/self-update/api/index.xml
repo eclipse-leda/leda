@@ -1,18 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse Leda Documentation – API Reference</title>
+    <title>API Reference on Eclipse Leda Documentation</title>
     <link>https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/api/</link>
     <description>Recent content in API Reference on Eclipse Leda Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
-    
-	  <atom:link href="https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/api/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://eclipse-leda.github.io/leda/docs/device-provisioning/self-update/api/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

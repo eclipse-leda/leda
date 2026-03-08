@@ -1,0 +1,2097 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/app-deployment/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/app-deployment/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/leda/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/leda/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/leda/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/leda/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/leda/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/leda/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
+
+<title>Vehicle Applications | Eclipse Leda Documentation</title>
+<meta name="description" content="This chapter contains use cases and examples for SDV applications.
+Some of these example are taken from the following sources:
+Digital.Auto and its playground Eclipse Velocitas tutorials Eclipse Kuksa.VAL examples Eclipse SDV Blueprints Eclipse Chariott examples">
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/app-deployment/">
+  <meta property="og:site_name" content="Eclipse Leda Documentation">
+  <meta property="og:title" content="Vehicle Applications">
+  <meta property="og:description" content="This chapter contains use cases and examples for SDV applications.
+Some of these example are taken from the following sources:
+Digital.Auto and its playground Eclipse Velocitas tutorials Eclipse Kuksa.VAL examples Eclipse SDV Blueprints Eclipse Chariott examples">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Vehicle Applications">
+  <meta itemprop="description" content="This chapter contains use cases and examples for SDV applications.
+Some of these example are taken from the following sources:
+Digital.Auto and its playground Eclipse Velocitas tutorials Eclipse Kuksa.VAL examples Eclipse SDV Blueprints Eclipse Chariott examples">
+  <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
+  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="wordCount" content="36">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vehicle Applications">
+  <meta name="twitter:description" content="This chapter contains use cases and examples for SDV applications.
+Some of these example are taken from the following sources:
+Digital.Auto and its playground Eclipse Velocitas tutorials Eclipse Kuksa.VAL examples Eclipse SDV Blueprints Eclipse Chariott examples">
+<link rel="preload" href="/leda/scss/main.min.18e1d2e25e2896c6bbc496045fde272740c689da30433a3c71658c1218370201.css" as="style" integrity="sha256-GOHS4l4olsa7xJYEX94nJ0DGidowQzo8cWWMEhg3AgE=" crossorigin="anonymous">
+<link href="/leda/scss/main.min.18e1d2e25e2896c6bbc496045fde272740c689da30433a3c71658c1218370201.css" rel="stylesheet" integrity="sha256-GOHS4l4olsa7xJYEX94nJ0DGidowQzo8cWWMEhg3AgE=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/leda/"><span class="navbar-brand__logo navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="30 270 300 300" id="svg2"><defs id="defs6"><clipPath id="clipPath24" clipPathUnits="userSpaceOnUse"><path id="path22" d="m5116.71 2737.03v81.36c0 51.02 13.61 71.72 55.28 74.55h288.29v-182.27c-4.26-34.29-16.73-48.19-55.28-48.19h-226.21c-47.05.0-62.08 20.69-62.08 74.55zm-139.46 17.86c0-128.41 84.19-198.71 222.24-198.71h42.8c107.43.0 184.82 2.84 217.99 84.19v-84.19h137.76v534.05c0 128.13-97.8 198.71-235.85 198.71H5051.8v-106.3h360c36 0 48.48-23.52 48.48-60.66v-122.74h-260.79c-138.05.0-222.24-70.59-222.24-198.71zm-332.5-44.22c-3.97-34.29-16.44-48.19-55-48.19h-225.07c-46.76.0-62.08 20.69-62.08 74.55v371.06c0 51.03 13.9 71.71 55.28 74.55h231.87c41.39-2.84 55-23.52 55-74.55zm139.46 854.08h-138.04v-360c-33.17 81.36-110.28 84.19-217.99 84.19h-42.8c-137.77.0-221.96-70.58-221.96-198.71v-335.34c0-128.41 84.19-198.71 221.96-198.71h42.8c107.71.0 184.82 2.84 217.99 84.19v-84.19h138.04zm-925.8-587.62h-362.83v144.85c0 28.91 12.47 60.66 48.2 60.66h266.45c35.71.0 48.18-31.75 48.18-60.66zm139.47-106.3v219.4c0 128.13-98.08 198.71-236.13 198.71h-169.51c-138.04.0-235.84-70.58-235.84-198.71v-335.34c0-128.41 97.8-198.71 235.84-198.71h405.64v106.3h-454.1c-35.73.0-48.2 23.54-48.2 60.66v147.69zM2642.92 2556.18h630.71v117.36h-483.02v794.55h-147.69z"/></clipPath><linearGradient id="linearGradient34" spreadMethod="pad" gradientTransform="matrix(2955.12,0,0,-2955.12,2642.92,3060.47)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop26" offset="0" style="stop-opacity:1;stop-color:#77add1"/><stop id="stop28" offset=".189014" style="stop-opacity:1;stop-color:#64c6ee"/><stop id="stop30" offset=".994475" style="stop-opacity:1;stop-color:#7b3199"/><stop id="stop32" offset="1" style="stop-opacity:1;stop-color:#7b3199"/></linearGradient><linearGradient id="linearGradient44" spreadMethod="pad" gradientTransform="matrix(1875.15,0,0,-1875.15,364.686,2981.28)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop38" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop40" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop42" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient><clipPath id="clipPath54" clipPathUnits="userSpaceOnUse"><path id="path52" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31z"/></clipPath><linearGradient id="linearGradient70" spreadMethod="pad" gradientTransform="matrix(1417.96,0,0,-1417.96,477.178,2901.88)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop56" offset="0" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop58" offset=".11811164" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop60" offset=".509456" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop62" offset=".76356415" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop64" offset=".994475" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop66" offset=".99510668" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop68" offset="1" style="stop-opacity:1;stop-color:#4e9133"/></linearGradient><linearGradient id="linearGradient80" spreadMethod="pad" gradientTransform="matrix(942.78,0,0,-942.78,720.659,3019.8)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop74" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop76" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop78" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,795.04)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path46" style="fill:url(#linearGradient44);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m462.512 2989.03c1.133-223.65 47.902-452.13 142.867-685.13 24.66-60.94 67.465-109.13 120.187-139.47 52.727-30.61 115.657-43.93 180.852-35.14 236.122 32.03 453.262 104.03 650.552 218.55 193.89 112.53 368.79 266.17 523.27 463.18 41.11 52.15 61.8 113.67 61.8 174.9.28 61.51-20.13 123.02-60.95 175.18-145.7 186.8-317.19 337.89-515.62 450.99-194.74 110.83-415.84 185.1-665.005 220.82-65.481 9.36-128.692-3.4-181.699-33.74C665.758 3768.85 622.672 3720.94 597.441 3660c-90.14-219.4-136.062-443.06-134.929-670.97zm51.875-721.98c-99.5 244.06-148.535 484.73-149.668 721.42-1.418 241.23 47.054 477.63 142.297 708.66 33.73 81.92 91.843 146.27 163.273 187.08 71.719 40.82 156.473 58.11 244.066 45.64 261.355-37.13 494.075-115.65 699.595-232.72 209.76-119.34 390.61-278.65 544.25-475.66 54.71-70.01 81.92-152.78 81.63-235.55.0-83.06-27.49-165.83-82.2-235.56-162.42-206.65-346.68-368.5-551.62-487.27-208.35-121.05-437.67-197.02-686.549-230.75-87.313-11.9-171.785 5.95-242.934 47.05-71.433 41.39-128.976 106.02-162.14 187.66v0"/><g id="g48"><g clip-path="url(#clipPath54)" id="g50"><path id="path72" style="fill:url(#linearGradient70);fill-opacity:1;fill-rule:nonzero;stroke:none" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31v0"/></g></g><path id="path82" style="fill:url(#linearGradient80);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m935.898 3147.21c-54.71-85.89-93.543-185.38-115.085-298.77-4.821-24.94-1.418-49.33 9.07-69.74 10.207-20.69 27.496-37.98 49.605-48.75 97.508-46.78 197.292-73.42 300.192-78.81 101.19-5.1 205.51 9.92 312.94 46.78 23.81 8.21 42.81 23.53 55.56 42.8 12.48 19.56 18.71 43.37 16.44 68.88-9.07 108.28-36.57 208.92-83.9 301.61-46.49 91.28-111.97 175.18-197.58 251.15-18.71 16.44-41.1 25.51-63.78 26.93-22.67 1.13-45.92-5.11-66.33-19.28-88.72-61.51-161.292-135.78-217.132-222.8zM724.434 2866.87c24.093 125.28 67.461 236.12 128.976 332.78 63.211 98.93 144.563 182.27 243.5 250.87 38.83 27.21 83.9 39.11 128.12 36.56 44.22-2.55 87.31-19.84 123.03-51.59 95.24-84.47 168.37-178.01 220.25-279.78 53-104.31 84.19-217.14 94.39-337.89 3.97-47.61-8.22-92.98-32.6-130.39-24.09-37.42-60.66-66.9-105.45-82.21-119.34-41.1-236.12-57.83-349.79-51.87-115.94 6.24-228.473 36-337.325 88.44-42.805 20.41-75.398 53.29-95.242 92.98-19.848 39.68-26.648 85.6-17.859 132.1v0"/></g></g></svg></span><span class="navbar-brand__name">Eclipse Leda Documentation</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse-leda" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/leda/docs/app-deployment/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Vehicle Applications</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-10a0e990614b64cb6bbaff75a319ebb7">Seat Adjuster</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-84fbe0f38971579d30176e56ae7627df">Architecture of Seat Adjuster</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.2: <a href="#pg-649320937be8a133f0d7193aa9634953">Develop Seat Adjuster</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.3: <a href="#pg-ccb85072e62badb828d1cc999a52e931">Deploy Seat Adjuster</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.4: <a href="#pg-068a053582e592056de47a4fec45723d">Interact with Seat Adjuster</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.5: <a href="#pg-c8f393fe219e3f0a3c5cb5aac7ac15d3">CAN Setup for Seat Adjuster</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-5505f58168fbe80d37b842b17c307c91">Dog Mode</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-3883f410544279ff57519024d0f51858">VSS &amp; Kuksa.VAL</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-dbbddc97bd5f17bd1da0e1904dfc0feb">Custom Vehicle Signals</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-b17a47275ec6859512c169cb02d9ee24">CarSim</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-7f8e31fb834452efdebda21d1bf86969">Velocitas VApps</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-03ddd8c0f79b13ee47ac2332bd2c2a23">Cloud2Device Messages</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>This chapter contains use cases and examples for SDV applications.</p>
+<p>Some of these example are taken from the following sources:</p>
+<ul>
+<li><a href="https://digital.auto">Digital.Auto</a> and its <a href="https://digitalauto.netlify.app/">playground</a></li>
+<li><a href="https://eclipse.dev/velocitas/docs/tutorials/">Eclipse Velocitas tutorials</a></li>
+<li><a href="https://github.com/eclipse/kuksa.val.services">Eclipse Kuksa.VAL examples</a></li>
+<li><a href="https://projects.eclipse.org/projects/automotive.sdv-blueprints">Eclipse SDV Blueprints</a></li>
+<li><a href="https://github.com/eclipse-chariott/chariott/tree/main/examples/applications">Eclipse Chariott examples</a></li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-10a0e990614b64cb6bbaff75a319ebb7">1 - Seat Adjuster</h1>
+    
+	<p>The <strong>seat adjuster</strong> is an example to showcase how to create a vehicle application which senses and actuates signals in the vehicle
+for Eclipse Leda with help of Eclipse Velocitas and Eclipse Kuksa
+. The aim is not to build the best available seat adjuster application possible but to show how one can use the applied technologies
+to build a companion app for the interaction with a vehicle.
+If you are new to the concepts around Eclipse SDV and the mentioned projects
+we recommend to read the <a href="/leda/docs/general-usage/sdv-introduction/">SDV Tutorial</a> first.</p>
+<h2 id="description">Description</h2>
+<p>The idea of the seat adjuster application is to have a custom application to move the driver seat to positions defined
+in a driver profile hosted by a third-party web service.</p>
+<p><img src="./seatadjuster.png" alt="Leda Seat Adjuster Use Case"></p>
+<p>The setup contains the following components:</p>
+<ul>
+<li>Cloud or mobile trigger: not part of the Leda image, but we simulate it by issuing MQTT messages</li>
+<li><strong>Seat Adjuster</strong> : Developed with Eclipse Velocitas to be deployed by user</li>
+<li>Eclipse Kuksa.val - <strong>KUKSA Databroker</strong> (pre-installed with Eclipse Leda)</li>
+<li><strong>Mock Service</strong>: Example provider for Eclipse Kuksa.VAL which mocks the behavior of the vehicle.</li>
+<li>Seat ECU and the separate Seat Motor hardware can be emulated using a virtual CAN-Bus, which is beyond the scope of this guide.</li>
+</ul>
+<p>In the following paragraphs, we next introduce the <a href="architecture-seat-adjuster">architecture and the assumed data flow</a>
+before we explain the <a href="develop-seat-adjuster">development</a> and <a href="deploy-seat-adjuster">deployment</a> steps.
+If you are more interested in the general development steps, you may directly jump to the <a href="develop-seat-adjuster">develop seat adjuster</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-84fbe0f38971579d30176e56ae7627df">1.1 - Architecture of Seat Adjuster</h1>
+    
+	<p>The seat adjuster application interacts with the vehicle through a <em>Vehicle Abstraction Layer</em> created by the KUKSA Databroker,
+which uses the <a href="https://covesa.github.io/vehicle_signal_specification/">Vehicle Signal Specification (VSS)</a>
+to express the current value and in case of actuators also the desired state of the vehicle signal.
+By developing against the abstraction layer, the application becomes independent from the actual physical seat.</p>
+<p>To control the position of the driver seat, the seat adjuster sets the target value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal in the KUKSA Databroker.</p>
+<p>The architecture assumes so-called actuation providers that apply the changes to the actual vehicle as indicated in the target value, e.g.,
+through interaction with the responsible ECUs.
+For this tutorial, we do not expect you to interface with an actual vehicle and thus abstract the vehicle by using the Kuksa.Val vehicle mock service.
+This vehicle mock service allows the definition of behavior toward the KUKSA Databroker like we would expect from the vehicle, for example,
+setting the current value after reacting to changes to the target value of a signal.</p>
+<div class="mermaid">flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA<br>Databroker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    mockservice[Provider: Mock Service]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> mockservice
+  </div>
+  
+  <p>As interface to the user, we assume a <strong>client</strong> that can, for example, be a local app in the infotainment domain with a user interface
+or an off-board application sending the request from a backend.
+Either way, the client controls our seat adjuster application through a JSON encoded message over MQTT using the topic <code>setPosition/request</code>.</p>
+<p>An example request looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_pub -t seatadjuster/setPosition/request 
+</span></span><span style="display:flex;"><span>    -m <span style="color:#4e9a06">&#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39;</span>
+</span></span></code></pre></div><p>The position parameter can be any value between 0 and 1000.</p>
+<h3 id="getting-seat-position">Getting Seat Position</h3>
+<p>When the seat moves, the provider gets this information, for example, from the seat ECU over the CAN-bus.
+We use the mock service as a provider and configure it to set the current value for the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal in the KUKSA Databroker
+after the target value for the signal changes.</p>
+<p>To receive the changes to the seat position, the seat adjuster application already subscribed to the current value of the signals and thus gets notified.
+As a result, the seat adjuster constructs a JSON message and sends the new seat position to the MQTT-topic <code>seatadjuster/currentPosition</code>
+where any client can consume it.</p>
+<p>The seat adjuster also sends responses to each request received at the MQTT-topic <code>seatadjuster/request</code> with a message to the MQTT-topic <code>seatadjuster/response</code>
+indicating whether it accepted the incoming request and set the target value or whether there was an error like the vehicle currently moving.</p>
+<div class="mermaid">flowchart TD
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA<br>Databroker)]
+    mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    mockservice[Provider: Mock Service]
+
+    mockservice -- "Feed/Set<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>(Sensor)" --> databroker
+    databroker -- "Notify Subscriber<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatadjuster
+    seatadjuster -- "Once after processing<br>/setPosition/request<br>message" --> mqttResponse
+    seatadjuster -- "While seat is moving" --> mqttCurrent
+    mqttResponse -- "SetPosition Response<br>(Accepted / Error)" --> client
+    mqttCurrent --> client
+
+    mqttCurrent -.-> anotherClient
+    mqttResponse -.-> anotherClient
+  </div>
+  
+  <p>The next step is to <a href="../develop-seat-adjuster">develop the seat adjuster with the help of Eclipse Velocitas</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-649320937be8a133f0d7193aa9634953">1.2 - Develop Seat Adjuster</h1>
+    
+	<p>The following pages show how to execute the explained setup using Eclipse Velocitas and Eclipse Leda 0.1.0-M2:</p>
+<p>On a high level, you need to perform the following steps described in more detail in this guide:</p>
+<ol>
+<li>
+<p>Use the Eclipse Velocitas template repository to develop, build and deploy your
+version of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster">seat adjuster example</a>.</p>
+</li>
+<li>
+<p>Run Eclipse Leda, for example, <a href="../../../general-usage/docker-setup">as container</a> or with other options like <a href="../../../general-usage">QEMU, physical hardware, etc.</a>.</p>
+</li>
+<li>
+<p><a href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/">Manage the Eclipse Kanto container runtime</a> to deploy your seat adjuster application.</p>
+</li>
+<li>
+<p><a href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/">Test the deployed setup</a> by interacting with the seat adjuster to change the seat position.</p>
+</li>
+</ol>
+<h2 id="setup-eclipse-velocitas-from-template-repository">Setup Eclipse Velocitas from template repository</h2>
+<p>We use Eclipse Velocitas to develop the seat application against the API of the Kuksa.val Databroker:</p>
+<p>In the first step, you create a copy of the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main">Eclipse Velocitas template repository</a>.
+You create the copy by opening the repository in GitHub and selecting:  <code>Use this template</code> -&gt; <code>Create a new repository</code>.
+In the next step, you choose under which organization to place the created repository and whether it should be public.
+If you set the repository to private, you have to perform additional configuration steps mentioned below.</p>
+<p>The template repository <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/app">contains skeleton code for the application</a>,
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/.github/workflows">test and release workflows for GitHub actions</a>,
+and the configuration of a <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/tree/main/.devcontainer">development environment in a container</a>.</p>
+<p>In addition to the Python template used in this guide, there is a <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template">C++ template</a> available.</p>
+<h2 id="execute-development-container-in-vscode">Execute Development Container in VSCode</h2>
+<p>You then checkout the repository on your development machine and open it in VSCode. From VSCode
+you can execute the development container (DevContainer) configured in the repository.
+For this to function, you need to install the following tools on your computer:</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/install/#desktop">Docker Engine</a> (e.g. through <a href="https://www.docker.com">Docker Desktop</a> or <a href="https://rancherdesktop.io">Rancher Desktop</a>)</li>
+<li><a href="https://code.visualstudio.com">VSCode</a> with the
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a> plugin installed.</li>
+</ul>
+<p>In the best case, VSCode may detect that the repository contains a DevContainer configuration and ask you whether to execute it.
+Alternatively, you can press <code>F1</code> in VSCode and then enter <code>DevContainers: Reopen in container</code> to start the DevContainer.
+In either case, VSCode should reopen and then connect to the DevContainer.
+Because of the DevContainer, we do not need to make further modifications to the developer machine.</p>
+<h2 id="develop-the-application">Develop the application</h2>
+<p>In the next step, we work on the actual application. You find the skeleton code in <code>/app/src/main.py</code> of the Eclipse Velocitas template and thus the DevContainer.</p>
+<p>Eclipse Velocitas provides the code
+to realize the described seat adjuster application.
+One way to get the code is to use a pre-configured task in VSCode by pressing &lsquo;F1&rsquo; and then typing &lsquo;Run Task&rsquo;.</p>
+<p>As an alternative, you can check the latest version of the seat adjuster example code
+in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster/src">Eclipse Velocitas SDK repository</a>
+in the Velocitas SDK directory.</p>
+<blockquote>
+<p>There is a chance that the latest code for the seat-adjuster example in the main-branch of the Eclipse Velocitas SDK
+is a bit different compared to the code snippets below.</p>
+</blockquote>
+<p>Let us walk through some lines of the code where the logic is in the <code>vapp.py</code> while the entry point is in <code>main.py</code>.</p>
+<p>In the <code>on_start(self)</code> function we subscribe to any changes of the current value of the VSS signal <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> in the KUKSA Databroker.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;&#34;&#34;Run when the vehicle app starts&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>When the seat position changes, the <code>on_seat_position_changed</code> function is triggered and publishes the new seat position value as MQTT-message to the topic <code>seatadjuster/currentPosition</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>In addition, we have the function <code>on_set_position_request_received</code> which is triggered for every MQTT-message to the topic <code>seatadjuster/setPosition/request</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> <span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">...</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">())</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">try</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">...</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>If the vehicle speed is zero, meaning that the vehicle does not move, we set the target value in the KUKSA Databroker for the position signal of the seat
+to the value requested in the incoming MQTT message.</p>
+<p>The <code>get()</code> and <code>set()</code> functions are created based on a VSS model, and we assume that the KUKSA Databroker instance uses the same VSS model.
+In many cases, like the default Eclipse Leda, one may rely on the upstream VSS model, but some scenarios require further signals, e.g., by applying an overlay.</p>
+<p>You can configure the used VSS model in the <code>app/AppManifest.json</code> file. This file includes an interface definition with the entry for the default <code>vehicle_signal_interface</code>.
+The VSS signals in this guide are part of VSS in version 3.0.0.
+The DevContainer generates the respective Eclipse Velocitas SDK based on this configuration.
+For more details see the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator">Eclipse Velocitas Model Generator</a>.</p>
+<p>At this point, you may wonder how the application actually knows to which MQTT broker to connect and where to find the correct instance of the KUKSA Databroker.
+This service discovery is abstracted within the Velocitas SDK and involves the usage of so-called middleware to find and call the other components.
+As of writing this page, Eclipse Velocitas supports DAPR as middleware or uses the <code>native</code> approach to configure the correct address directly.
+The details of how to set and configure the used middleware are part of the <a href="../deploy-seat-adjuster">deployment</a>.</p>
+<blockquote>
+<p><em>Signal Description:</em> The signal indicates the seat position on the vehicle x-axis, where the value 0 is the frontmost position supported by the seat.</p>
+</blockquote>
+<p>The value is the <em>distance measured in millimeters</em>.</p>
+<p>The example implementation supports values between <code>0</code> and <code>1000</code> millimeters.</p>
+<blockquote>
+<p><em>Note:</em> This range of valid values is not reflected in the standard Vehicle Signal Specification. OEMs would overlay the VSS tree with actual Min/Max values,
+depending on the seat hardware available in the vehicle model.</p>
+</blockquote>
+<h2 id="start-runtime-in-devcontainer-to-test-application">Start Runtime in DevContainer to test application</h2>
+<blockquote>
+<p>You may skip the application testing since we already provide the example code.
+But it still makes sense to get a general idea of how to test and debug the code with the tooling in the DevContainer.</p>
+</blockquote>
+<p>As mentioned before, the execution and, thus, the testing of the application requires a set of other components to be available
+like the KUKSA Databroker or an MQTT-broker.
+Furthermore, the deployment, the configuration, and the behavior of the application may change depending on the used (container) management solution.
+Therefore, Eclipse Velocitas allows the deployment of the required components and the application with the container management approach of choice inside the DevContainer.</p>
+<p>The different runtimes are maintained in <a href="https://github.com/eclipse-velocitas/devenv-runtimes">a separate Eclipse Velocitas repository</a>. To start a runtime,
+we use the <a href="https://github.com/eclipse-velocitas/cli">Eclipse Velocitas CLI</a>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> runtime-kanto up
+</span></span></code></pre></div><p>We use the Eclipse Kanto runtime here since we later deploy the seat adjuster application to Eclipse Leda, which uses Eclipse Kanto for container management.</p>
+<p>Once the runtime is available, we add our application by executing:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> deployment-kanto build-vehicleapp
+</span></span><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> deployment-kanto deploy-vehicleapp
+</span></span></code></pre></div><p>You can now test the application by interacting with it through the local MQTT broker.
+To send and receive MQTT messages, use the VSMQTT plugin with a cloud icon
+in the left side of the VSCode instance connected to the DevContainer.
+We do not get into details for the topics and messages here since we will run the application in Eclipse Leda again later in this guide.</p>
+<p>Once you finish the application testing and development, you can shutdown the runtime with:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>velocitas <span style="color:#204a87">exec</span> runtime-kanto down
+</span></span></code></pre></div><blockquote>
+<p>Eclipse Velocitas provides Tasks to abstract the mentioned calls of the <code>velocitas</code> CLI. As an alternative you can thus press <code>F1</code> -&gt; <code>Run Task</code>
+and scroll for the respective task like <code>Kanto runtime Up</code>.</p>
+</blockquote>
+<h2 id="commit-and-release-application">Commit and Release Application</h2>
+<p>When you are confident about the application, you want to be able to distribute it.
+Here, pre-configured workflows from Eclipse Velocitas for GitHub Actions are helpful.</p>
+<p>You now commit your changes and push them to your copy of the Eclipse Velocitas template repository in GitHub.
+Before you create the commit, we recommend running the pre-commit task, which performs similar checks and linting as the CI workflow from Eclipse Velocitas.
+You can trigger the pre-commit as a task in VSCode:</p>
+<ol>
+<li>Press F1</li>
+<li>Write <code>Tasks: Run Task</code> and press enter</li>
+<li>Write <code>Pre Commit Action</code> and press enter</li>
+</ol>
+<p>The pre commit action should start in a terminal inside VSCode.</p>
+<p>You can check the available tasks configured by Eclipse Velocitas in <code>.vscode/tasks.json</code>.</p>
+<p>If the pre-commit was successful, you may push your changes and open the repository in the browser.
+In the meantime, the push should trigger the <code>CI workflow</code> and the <code>Build multiarch image</code> workflow, which you can track in the <code>Actions</code> tab.</p>
+<blockquote>
+<p>If you set your copy of the template repository to private, the <code>CI workflow</code> may fail due to missing permissions to write container images to GitHub packages.
+You can grant more <code>Workflow permissions</code> in the <code>Settings</code> tab of the repository under <code>Actions</code>-&gt; <code>General</code>.</p>
+</blockquote>
+<p>To deploy your application to a target and if the two workflows have finished successfully, you can perform a release in GitHub.
+The subsequent release workflow will make the application available as a built container in the container registry of GitHub (<code>Code</code> -&gt; <code>Packages</code>).
+To do the release in GitHub, go to the <code>Code</code> tab and click <code>Releases</code> on the right side of the page.
+Then you can <code>Draft a new release</code>, create a new tag and title for the release, and click <code>Publish Release</code>, which triggers the <code>Release workflow</code>.</p>
+<p>The next step is to <a href="../deploy-seat-adjuster">deploy the seat adjuster in Eclipse Leda</a></p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ccb85072e62badb828d1cc999a52e931">1.3 - Deploy Seat Adjuster</h1>
+    
+	<p>We now want to deploy the application to a target device.
+You may follow the remainder of this guide on a separate device like a RaspberryPi, but you can emulate such a device on your development machine too.
+Either way, we use Eclipse Leda in version 0.1.0-M2 as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker
+and Eclipse Kanto for container management.
+For more details on how to download and run Eclipse Leda, follow the respective guides:</p>
+<ul>
+<li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/">QEMU</a></li>
+<li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/docker-setup/">Docker</a></li>
+<li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/">RaspberryPi</a></li>
+<li><a href="https://eclipse-leda.github.io/leda/docs/general-usage/linux-setup/">Linux</a></li>
+</ul>
+<p>We recommend to get started with the QEMU setup.
+In any case, you now need to configure Eclipse Kanto to execute the application.
+For this, it helps to get an overview of which containers are currently running in Eclipse Kanto. You can get this either through the command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kantui
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm list
+</span></span></code></pre></div><p>From this list, ensure that at least the KUKSA Databroker runs, which should be the case since it is are pre-configured
+with the Eclipse Leda release.</p>
+<p>In Eclipse Kanto, you can manage a container with the command line application <code>kanto-cm</code> or container manifest files describing a desired container execution.
+The advantage of using the container manifests is that the configuration is persisted across a reboot of the system and is easier to use
+to describe a desired software state for the overall vehicle.</p>
+<p>Eclipse Leda has the <code>kanto-auto-deployer</code> systemd service, which applies any changes to the manifests in <code>/data/var/containers/manifests</code> to Eclipse Kanto.
+Thus, the typical way to add or adapt containers is to modify the corresponding container manifest.</p>
+<h2 id="disable-other-containers">Disable other containers</h2>
+<p>The release 0.1.0-M2 of Eclipse Leda comes with a number of pre-configured and automatically executed containers.
+One of these containers is the <code>feedercan</code> that feeds changing values from a recording for signals such as <code>Vehicle.Speed</code> to the KUKSA Databroker.
+These values interfere with the seat adjuster application, which only moves the seat if the vehicle speed is zero.
+Another interfering container is the <code>seatservice-example</code> which reacts to changes in the signal <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>
+and which we replace later with the <code>mock service</code>.</p>
+<p>Therefore, we need to stop the <code>feedercan</code> and the <code>seatservice-example</code> container.
+This is possible in <code>kantui</code> by selecting the respective entry and pressing <code>R</code>.
+In addition, you need to remove the corresponding container manifests in <code>/data/var/containers/manifests</code> to avoid that the Eclipse Kanto
+auto-deployer re-deploys these containers. Another approach is to change the ending of the not-needed manifests to something other than <code>.json</code>.</p>
+<p>If the <code>feedercan</code> container still runs, the seat adjuster application app will later respond with the following error message:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#a40000">seatadjuster/setPosition/response</span>
+</span></span><span style="display:flex;"><span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;12345&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Not allowed to move seat because vehicle speed is 9.0 and not 0&#34;</span><span style="color:#000;font-weight:bold">}}</span>
+</span></span></code></pre></div><p>Since they consume resources and are not needed for the seat adjustment, you may remove the containers and manifests for <code>cloudconnector</code>,
+<code>hvacservice-example</code>, <code>sua</code>, or <code>vum</code> as well.</p>
+<h2 id="starting-of-container">Starting of container</h2>
+<h3 id="use-kanto-cm">Use <code>kanto-cm</code></h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm create <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --name seatadjuster-app <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_SEATSERVICE_ADDRESS=grpc://seatservice-example:50051&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_MQTT_ADDRESS=mqtt://mosquitto:1883&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;SDV_MIDDLEWARE_TYPE=native&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --hosts<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:container_databroker-host, mosquitto:host_ip, seatservice-example:container_seatservice-example-host&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    ghcr.io/&lt;YOUR_ORG&gt;/seat-adjuster-app:latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kanto-cm start --name seatadjuster-app
+</span></span><span style="display:flex;"><span>kanto-cm logs --name seatadjuster-app
+</span></span></code></pre></div><h3 id="add-manifest-for-seat-adjuster">Add manifest for seat adjuster</h3>
+<p>As an alternative to using <code>kanto-cm</code>, you can add a container manifest to the directoy watched by the <code>kanto-auto-deployer</code> (<code>data/var/containers/manifests</code>).</p>
+<p>To add the container manifest, create a new file inside this folder.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch seat-adjuster.json
+</span></span><span style="display:flex;"><span>nano seat-adjuster.json
+</span></span></code></pre></div><p>and copy the <a href="#seat-applicationjson">manifest from below</a>. You can save the file with <code>strg+s</code> and close the window with <code>strg+q</code>.
+You can create the file on the development machine and copy it via scp too:</p>
+<p><code>scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/</code></p>
+<p>The example deployment descriptor below is available in
+<a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled">meta-leda-components</a>
+too.
+An interesting aspect of the snippet is the <code>config.env</code> section at the bottom of the container manifest.
+There, we define a number of environment variables for the container
+which configures the Eclipse Velocitas SDK to use the native middleware and where to find the MQTT-broker and the KUKSA Databroker to use.
+We did the same in <code>kanto-cm</code> call behind the parameter <code>--e=</code>.</p>
+<p>More details on the general deployment approach can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
+<blockquote>
+<p>If the GitHub packages in which you stored the container image are private, Eclipse Kanto needs a valid access token to download the container image.
+You can create a personal access token in the <code>Developer Settings</code> of your GitHub account. Select <code>Personal access token</code> -&gt; <code>Tokens (classic)</code>
+and <code>generate a new token</code> that at least has the <code>read:packages</code> permission. Copy the generated token to a secure location or to Eclipse Kanto
+because GitHub will not show it again.
+You can now configure Eclipse Kanto in Eclipse Leda to use the token by executing:
+<code>sdv-kanto-ctl add-registry -h &lt;registryhostname&gt; -u &lt;your_username&gt; -p &lt;your_password&gt;</code>. In the case of GitHub, the <code>registryhostname</code> is <code>ghcr.io</code>
+, the username is your GitHub handle, and the password is the generated token.
+See <a href="https://eclipse-leda.github.io/leda/docs/device-provisioning/container-management/">Container Registries</a> for more details.</p>
+</blockquote>
+<p>To make sure that Eclipse Kanto detects the changes in the <code>manifests</code> folder, you can restart the respective system services:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart kanto-auto-deployer
+</span></span></code></pre></div><h2 id="mock-service">Mock Service</h2>
+<p>As explained in the description of the code, the seat adjuster application sets the target value for the seat positions in the KUSKSA Datbroker
+and waits for the current position to update.</p>
+<p>For this to function, there needs to be a component that reacts to this change by moving the seat and updating the current value accordingly.
+Because we cannot assume that you have an actual ECU availabe for running this guide, we mock the vehicle behavior
+with the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/mock_service">vehicle mock service</a> from the Eclipse Kuksa project.</p>
+<p>The mock service allows the definition of custom interaction sequences with the KUKSA Databroker. For instance, one can react to changes to specific signals
+or update signals with a time trigger. You can define the sequences in a Python file like the example <a href="#mockpy"><code>mock.py</code></a> below.
+The snippet shows how to use a change to the target value for the seat position signal as a trigger to update the current value to the target value step-wise
+over a duration of 10 seconds.</p>
+<p>For the deployment, you create another container manifest in <code>/data/var/containers/manifest</code> with the content from <a href="#mockservicejson">below</a>.
+The container manifest also mounts a custom <code>mock.py</code> into the container to replace the configuration of the <a href="https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py">default mock.py</a>.
+With the container manifest below, Eclipse Kanto instead mounts from <code>/data/var/mock/mock.py</code>.
+Therefore, you need to create this directory and the file with the content from below.</p>
+<p>You may now check with <code>kantui</code> or <code>kanto-cm list</code> whether all components (<code>databroker</code>, <code>seatadjuster-app</code>, and <code>mock-service</code>) are running well.
+The next step is to <a href="../interact-seat-adjuster">interact with the seat adjuster</a>.</p>
+<h2 id="seat-applicationjson">seat-application.json</h2>
+<p>This is the Eclipse Kanto container manifest for the seat adjuster application.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;container_id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatadjuster-app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;container_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;seatadjuster-app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/&lt;identifier-for-container&gt;:&lt;tag-for-container&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;devices&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bridge&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restart_policy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;maximum_retry_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;retry_timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;unless-stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>        
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;mosquitto:host_ip&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;seatservice-example:container_seatservice-example-host&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;protocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;container_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30151</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_ip&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50151</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port_end&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50151</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;blocking&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_buffer_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;resources&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_SEATSERVICE_ADDRESS=grpc://seatservice-example:50051&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_VEHICLEDATABROKER_ADDRESS=grpc://databroker:55555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_MQTT_ADDRESS=mqtt://mosquitto:1883&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_MIDDLEWARE_TYPE=native&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;RUST_LOG=info&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;vehicle_data_broker=info&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="mockpy">mock.py</h2>
+<p>This is the example <code>mock.py</code> for mocking a seat provider:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">lib.animator</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">RepeatMode</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">lib.dsl</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_animation_action</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_behavior</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_event_trigger</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">create_set_action</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">get_datapoint_value</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">mock_datapoint</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">lib.trigger</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">ClockTrigger</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">EventType</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">mock_datapoint</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">path</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">initial_value</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">behaviors</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">create_behavior</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">trigger</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">create_event_trigger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">EventType</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">ACTUATOR_TARGET</span><span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">action</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">create_animation_action</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">duration</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">10.0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">values</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;$self&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;$event.value&#34;</span><span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h2 id="mockservicejson">mockservice.json</h2>
+<p>The container manifest for the mockservice may look like the following snippet. Note, that the files referenced in the <code>source</code> of the <code>mount_points</code>
+needs to be present in the file system of your Eclipse Leda instance.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;container_id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;mockservice&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;container_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;mockservice&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/eclipse/kuksa.val.services/mock_service:latest&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;mount_points&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;source&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/data/var/mock/mock.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;destination&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;/mock.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;propagation_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;rprivate&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bridge&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restart_policy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;maximum_retry_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;retry_timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;unless-stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;1M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;blocking&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_buffer_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;VDB_ADDRESS=databroker:55555&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-068a053582e592056de47a4fec45723d">1.4 - Interact with Seat Adjuster</h1>
+    
+	<p>We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.
+To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -t <span style="color:#4e9a06">&#39;seatadjuster/#&#39;</span> -v
+</span></span></code></pre></div><p>To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to <code>1000</code> (which is the equivalent of 100%):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_pub -t seatadjuster/setPosition/request -m <span style="color:#4e9a06">&#39;{&#34;position&#34;: 1000, &#34;requestId&#34;: &#34;12345&#34;}&#39;</span>
+</span></span></code></pre></div><p>You may need to open a second terminal session to send the message.
+In the QEMU setup, you can do this through an SSH connection from the host machine by running <code>ssh -p 2222 root@localhost</code>.</p>
+<p>After publishing the setPosition-message, the expected output for the <code>seatadjuster/#</code> subscription should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>seatadjuster/setPosition/request <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 1000, <span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;12345&#34;</span><span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/setPosition/response <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;12345&#34;</span>, <span style="color:#4e9a06">&#34;result&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;status&#34;</span>: 0, <span style="color:#4e9a06">&#34;message&#34;</span>: <span style="color:#4e9a06">&#34;Set Seat position to: 1000&#34;</span><span style="color:#ce5c00;font-weight:bold">}}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 00<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 10<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 20<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 30<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 40<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>seatadjuster/currentPosition <span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 50<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>If you encounter an issue or want to look deeper into the state of the container, you can check the logs by executing:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm --name &lt;container-name&gt; logs
+</span></span></code></pre></div><h2 id="run-kuksa-client">Run Kuksa Client</h2>
+<p>Besides trusting the log information and the MQTT messages that the seat position in the KUKSA Databroker has changed you can read the values
+directly from the KUKSA Databroker with the KUKSA Client.
+Through the <code>sdv-ctr-exec</code> it becomes possible to interact with the CLI of the Eclipse KUKSA Client:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kanto-cm create --i --t --network<span style="color:#ce5c00;font-weight:bold">=</span>host --name<span style="color:#ce5c00;font-weight:bold">=</span>kuksa-client ghcr.io/eclipse/kuksa.val/kuksa-client:master
+</span></span><span style="display:flex;"><span>kanto-cm start --name<span style="color:#ce5c00;font-weight:bold">=</span>kuksa-client
+</span></span><span style="display:flex;"><span>sdv-ctr-exec -n kuksa-client /kuksa-client/bin/kuksa-client --port <span style="color:#0000cf;font-weight:bold">30555</span> --protocol grpc --insecure
+</span></span></code></pre></div><p>Congratulations, you have reached the end of the seat adjuster guide. Based on the used code, you can now continue to realize other applications by using other signals.
+You may need to adapt your <code>mock.py</code> accordingly.
+In addition, you can <a href="../can-seat-adjuster">connect the seat service to a CAN-environment</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Cabin/SingleSeat.vspec">https://github.com/COVESA/vehicle_signal_specification/blob/master/spec/Cabin/SingleSeat.vspec</a></li>
+<li><a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">https://github.com/eclipse/kuksa.val.services/tree/main/seat_service</a></li>
+<li><a href="https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/">https://eclipse.dev/velocitas/docs/about/use_cases/seat_adjuster/</a></li>
+<li><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster">https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/v0.9.0/examples/seat-adjuster</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled">https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatadjuster-app.json.disabled</a></li>
+<li><a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c8f393fe219e3f0a3c5cb5aac7ac15d3">1.5 - CAN Setup for Seat Adjuster</h1>
+    
+	<p>Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.
+In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.</p>
+<p>Instead of the <code>mock service</code> you use the <code>seat service</code> as a provider, which is another pre-installed container
+acting as the connection between the KUKSA Databroker and the underlying hardware.
+More specifically, it subscribes to the target value of the <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> signal,
+can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.
+For more details, visit the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service">Kuksa.val.services</a> repository,
+which hosts the code for the <code>seat service</code>.</p>
+<p>With a new installation of Eclipse Leda, the <code>seat adjuster</code> comes by default.
+If you performed the steps from the <a href="../deploy-seat-adjuster">deploy the seat adjuster in Eclipse Leda</a> guide,
+you need to re-add the <code>seatadjuster</code> container manifest and remove the <code>mockservice</code>.
+More details on how to do this are available in that guide.</p>
+<p>The setup then looks as follows:</p>
+<div class="mermaid">flowchart TB
+    client[Client]
+    anotherClient[Another Client]
+    seatadjuster[Seat Adjuster]
+    databroker[(KUKSA<br>Databroker)]
+    mqttRequest[[MQTT topic<br>seatadjuster/setPosition/request]]
+    %% mqttResponse[[MQTT topic<br>seatadjuster/setPosition/response]]
+    %% mqttCurrent[[MQTT topic<br>seatadjuster/currentPosition]]
+    seatservice[Seat Service]
+    canbus[CAN-Bus and Seat ECU]
+
+    client -- "JSON Request: position, requestId" --> mqttRequest
+    anotherClient -.-> mqttRequest
+    mqttRequest --> seatadjuster
+    seatadjuster -- "Set Target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br>gRPC" --> databroker
+    databroker <-- "Set Current<br>Vehicle.Cabin.Seat.Row1.Pos1.Position<br><br>Notify subscriber of changed target<br>Vehicle.Cabin.Seat.Row1.Pos1.Position" --> seatservice
+    seatservice -- "CAN Frame: SECU1_CMD1<br>CAN-ID 0x705" --> canbus
+  </div>
+  
+  <h2 id="virtual-can-bus">Virtual CAN-Bus</h2>
+<p>To set upa virtual CAN-Bus</p>
+<ol>
+<li>
+<p>You will have to generate initial CAN frames that will emulate the car ECU responding to the service:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cangen -v can0 -L <span style="color:#0000cf;font-weight:bold">8</span> -I <span style="color:#0000cf;font-weight:bold">712</span> -D r -n <span style="color:#0000cf;font-weight:bold">5</span>
+</span></span><span style="display:flex;"><span>can0  712#4F.BF.B0.6B.5F.2D.54.09
+</span></span><span style="display:flex;"><span>can0  712#13.2E.98.7E.77.11.99.5B
+</span></span><span style="display:flex;"><span>can0  712#15.70.87.07.73.24.3A.7A
+</span></span><span style="display:flex;"><span>can0  712#99.7F.F5.3F.FB.99.00.04
+</span></span><span style="display:flex;"><span>can0  712#FE.1C.D5.55.22.86.3A.1F
+</span></span></code></pre></div></li>
+<li>
+<p>You can now start tracing CAN frames written to the bus with <code>candump can0</code></p>
+</li>
+<li>
+<p>From now on when a request to change the seat position is issued you will be able to see the corresponding CAN frames in the trace.</p>
+</li>
+</ol>
+<p><em>Note</em>: On QEMU you can tunnel the host CAN bus to the guest: <a href="/leda/docs/general-usage/running-qemu/canbus/#enabling-can-bus-interfaces-can">Tunneling a CAN Interface from the Host</a>.</p>
+<h2 id="hardware-can-bus">Hardware CAN-Bus</h2>
+<p>The default configuration of the <strong>Seat Service</strong> is using simulated VCAN. If you want to switch to a physical CAN-Bus interface,
+the container needs to have access to the CAN-Bus hardware.</p>
+<p>Such a CAN-Bus device might be a Raspberry Pi setup with an MCP251x-based CAN-Hat extension or a QEMU image with an emulated <strong>kvaser_pci</strong> device
+(enabled on the Leda QEMU Quickstart images by default).</p>
+<p>This setup would require some adjustments to the container manifest in order for the container to have access to the physical CAN-Bus.</p>
+<ol>
+<li>
+<p>Make Seat Service container privileged and run on the host network interface:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;host_config&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;host&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Remove all port mappings and extra hosts (set <code>&quot;extra_hosts&quot;: []</code> and <code>&quot;port_mappings&quot;: []</code>) for the container as it&rsquo;s now running in host-networking mode
+(host_ip variable no longer available) and all ports are directly exposed.</p>
+</li>
+<li>
+<p>Set the address to the databroker to <code>localhost:30555</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;config&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;BROKER_ADDR=127.0.0.1:30555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a40000">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Reconfigure the seat controller application to use the physical CAN interface,please see Eclipse Kuksa.VAL
+<a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md">seat_controller/README.md</a> for details:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#000">SC_CAN</span><span style="color:#ce5c00;font-weight:bold">=</span>can0
+</span></span><span style="display:flex;"><span><span style="color:#000">CAN</span><span style="color:#ce5c00;font-weight:bold">=</span>can0
+</span></span></code></pre></div><p>All the necessary changes combined for clarity as a single diff can be found below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-diff" data-lang="diff"><span style="display:flex;"><span><span style="color:#a40000">--- ../meta-leda-fork/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example_dev/seatservice.json	2023-03-06 11:32:00.771754434 +0200
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+++ seatservice-new.json	2023-03-06 11:37:12.967182044 +0200
+</span></span></span><span style="display:flex;"><span><span style="color:#800080;font-weight:bold">@@ -14,26 +14,16 @@
+</span></span></span><span style="display:flex;"><span>    &#34;hooks&#34;: [],
+</span></span><span style="display:flex;"><span>    &#34;host_config&#34;: {
+</span></span><span style="display:flex;"><span>        &#34;devices&#34;: [],
+</span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;network_mode&#34;: &#34;bridge&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;privileged&#34;: false,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+        &#34;network_mode&#34;: &#34;host&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+        &#34;privileged&#34;: true,
+</span></span></span><span style="display:flex;"><span>        &#34;restart_policy&#34;: {
+</span></span><span style="display:flex;"><span>            &#34;maximum_retry_count&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;retry_timeout&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;type&#34;: &#34;unless-stopped&#34;
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        &#34;runtime&#34;: &#34;io.containerd.runc.v2&#34;,
+</span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;extra_hosts&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-            &#34;databroker-host:host_ip&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        &#34;port_mappings&#34;: [
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-            {
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;protocol&#34;: &#34;tcp&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;container_port&#34;: 50051,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;host_ip&#34;: &#34;localhost&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;host_port&#34;: 30051,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-              &#34;host_port_end&#34;: 30051
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-            }
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-        ],
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+        &#34;extra_hosts&#34;: [],
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+        &#34;port_mappings&#34;: [],
+</span></span></span><span style="display:flex;"><span>        &#34;log_config&#34;: {
+</span></span><span style="display:flex;"><span>            &#34;driver_config&#34;: {
+</span></span><span style="display:flex;"><span>                &#34;type&#34;: &#34;json-file&#34;,
+</span></span><span style="display:flex;"><span><span style="color:#800080;font-weight:bold">@@ -58,9 +48,11 @@
+</span></span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    &#34;config&#34;: {
+</span></span><span style="display:flex;"><span>        &#34;env&#34;: [
+</span></span><span style="display:flex;"><span><span style="color:#a40000">-           &#34;BROKER_ADDR=databroker-host:30555&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-           &#34;RUST_LOG=info&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#a40000">-           &#34;vehicle_data_broker=info&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;CAN=can0&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;SC_CAN=can0&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;BROKER_ADDR=127.0.0.1:30555&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;RUST_LOG=info&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#00a000">+            &#34;vehicle_data_broker=info&#34;
+</span></span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        &#34;cmd&#34;: []
+</span></span><span style="display:flex;"><span>    },
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="safety-considerations">Safety Considerations</h3>
+<blockquote>
+<p><strong>Attention:</strong> Safety considerations are not in scope for this example tutorial. This example is for demonstrating the general approach.
+Actual safety requirements must be handled within the Seat ECU as the lowest level component to guard against non-safe use of the seat motors.
+Non-ASIL domains are not certified for safety requirements. <strong>Please pay attention when following the physical CAN tutorial and attaching physical actuators to
+not harm anybody by accidental movements of seat motors or any other actuator.</strong></p>
+</blockquote>
+<p>However, the Seat Adjuster example application contains a rudimentary &ldquo;Safe State&rdquo; condition check: it will only allow to move the seat
+when the vehicle is not moving.</p>
+<p>The condition is using VSS path notation: <code>Vehicle.Speed == 0</code> (see <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/v0.9.0/examples/seat-adjuster/src/main.py#L82">main.py#L82 in v0.9.0</a>)</p>
+<blockquote>
+<p>Note: The Kuksa.VAL CAN Feeder, which is deployed <em>by default on Eclipse Leda</em> is constantly updating the <a href="/leda/docs/vss/vehicle/speed/"><code>Vehicle.Speed</code></a>
+You need to disable the <code>feedercan</code> container (see step 7 of Getting started), otherwise the Seat Adjuster application
+<em>will decline the request and not move the seat</em>.</p>
+</blockquote>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5505f58168fbe80d37b842b17c307c91">2 - Dog Mode</h1>
+    
+	<p>The <strong>Dog Mode</strong> use case has been derived from the <a href="https://eclipse.dev/velocitas/docs/about/use_cases/dog_mode/">Eclipse Velocitas Dog Mode example</a> and the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/hvac_service">Eclipse Kuksa.VAL HVAC Service example</a>.</p>
+<h2 id="description">Description</h2>
+<p>In the <strong>Dog Mode</strong> use case, an existing vehicle service (such as HVAC for Heating, Ventilation and Air Conditioning) is used for another use case.
+When a driver enables the dog mode, the vehicle will keep the climate in a status to accomodates the pet while the driver is gone for a few minutes.</p>
+<p>The focus on this example is to show how an additional application can reuse existing functionality for new use cases. The vehicle service being used does not need to be adapted for the new use case. The new use case is deployed as an additional functionality, separated from the rest of the existing system.</p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><img src="dogmode.png" alt="Leda Dog Mode Use Case"></p>
+<ul>
+<li>Cloud or mobile trigger: not part of the Leda image, but can be simulated by issueing MQTT messages</li>
+<li>Eclipse Velocitas - Vehicle Application: <strong>Dog Mode</strong> (to be deployed by user as part of the Velocitas tutorial)</li>
+<li>Eclipse Kuksa.VAL - Example Service: <strong>HVAC Service</strong> (pre-installed)</li>
+<li>Eclipse Kuksa.VAL - <strong>Data Broker</strong> (pre-installed)</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>
+<p>Follow the Velocitas tutorial: build and deploy your clone of the <a href="https://eclipse.dev/velocitas/docs/about/use_cases/dog_mode/">dog mode example</a></p>
+</li>
+<li>
+<p>Download and run the Leda quickstart image</p>
+</li>
+<li>
+<p>Deploy the application to the container runtime, either manually by using <code>kanto-cm create</code> or by providing a deployment descriptor in <code>/var/containers/manifests</code>. An example deployment descriptor can be found in <a href="https://github.com/eclipse-leda/meta-leda/blob/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers/example/seatservice.json">meta-leda-components</a>. Details on the deployment can be found in <a href="/leda/docs/app-deployment/velocitas/">Leda Vehicle Applications</a></p>
+</li>
+<li>
+<p>Ensure the databroker and the service containers are running and you know how to check their log files</p>
+</li>
+<li>
+<p>Monitor vehicle data: <code>mosquitto_sub -t dogmode/display</code></p>
+</li>
+<li>
+<p>Enable dog mode by using the <code>databroker-cli</code></p>
+<pre><code> connect
+ set Vehicle.Cabin.DogMode 1
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3883f410544279ff57519024d0f51858">3 - VSS &amp; Kuksa.VAL</h1>
+    
+	<p>To generically interact with the Vehicle Signals which are managed in the Eclipse Kuksa.VAL Databroker,
+you can either use the natively installed <code>databroker-cli</code> command line tool, or use the CLI tool from an updated and released containerized image.</p>
+<h2 id="kuksa-databroker-cli">Kuksa Databroker CLI</h2>
+<p>To install a new version of the Kuksa Databroker CLI container, follow these steps:</p>
+<ol>
+<li>
+<p>Create the container in Kanto:</p>
+<pre><code> kanto-cm create --i --t --network=host --name=databroker-cli ghcr.io/eclipse/kuksa.val/databroker-cli:master
+</code></pre>
+</li>
+<li>
+<p>Start the command line tool within a container in interactive mode:</p>
+<pre><code> kanto-cm start --a --i --name databroker-cli
+</code></pre>
+</li>
+<li>
+<p>In the databroker shell, connect to the databroker via the URL <code>http://127.0.0.1:30555/</code>:</p>
+<pre><code> connect http://127.0.0.1:30555/
+</code></pre>
+</li>
+</ol>
+<p><img src="kuksa-databroker-cli.png" alt="Kuksa Databroker CLI Container"></p>
+<h2 id="kuksa-client">Kuksa Client</h2>
+<p>To install a new version of the Kuksa Client container, follow these steps:</p>
+<ol>
+<li>
+<p>Pull the container image</p>
+<pre><code> ctr --namespace kanto-cm image pull ghcr.io/eclipse/kuksa.val/kuksa-client:master
+</code></pre>
+</li>
+<li>
+<p>Create the container in Kanto Namespace:</p>
+<pre><code> ctr --namespace kanto-cm container create --net-host --tty ghcr.io/eclipse/kuksa.val/kuksa-client:master kuksa-client
+</code></pre>
+</li>
+<li>
+<p>Start the container in detached mode:</p>
+<pre><code> ctr --namespace kanto-cm tasks start --detach kuksa-client
+</code></pre>
+</li>
+<li>
+<p>Start the command line tool with additional command line options:</p>
+<pre><code> ctr --namespace kanto-cm tasks exec --tty --exec-id sometask kuksa-client /kuksa-client/bin/kuksa-client --port 30555 --protocol grpc --insecure
+</code></pre>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dbbddc97bd5f17bd1da0e1904dfc0feb">3.1 - Custom Vehicle Signals</h1>
+    
+	<p>The <a href="https://github.com/COVESA/vehicle_signal_specification">Vehicle Signal Specification</a> has a lot of standard Vehicle Signals already defined.</p>
+<p>However, if you want to add additional custom signals or mappings from CAN-Bus for the
+Kuksa.VAL <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val">dbc2val feeder</a>,
+the VSS data model needs to be customized and regenerated.</p>
+<p>The following steps can be performed on a development machine to regenerate VSS data model with custom a <em>vspec</em> mapping.</p>
+<ol>
+<li>Concepts</li>
+<li>Setup workspace</li>
+<li>Defining the VSS Overlay</li>
+<li>Regenerate VSpec JSON</li>
+<li>Generate a candump</li>
+<li>Databroker and dbc2val containers</li>
+<li>Testing with data</li>
+</ol>
+<h2 id="concepts">Concepts</h2>
+<h3 id="vss-overlay">VSS Overlay</h3>
+<p>The <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/">VSS Overlay concept</a> allows to override the
+standard signals in the specification with custom signals. It defines metadata attributes like signal name, datatype, description etc.</p>
+<p>In addition, the vspec file allows to add custom metadata, such as the <code>dbc</code> node in the following example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Vehicle.Speed</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">sensor</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">datatype</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">float</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">dbc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">message</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">Kombi_01</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">signal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">KBI_angez_Geschw</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">interval_ms</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#f8f8f8">
+</span></span></span></code></pre></div><p>See Eclipse Kuksa documentation about <a href="https://github.com/eclipse/kuksa.val.feeders/blob/main/dbc2val/mapping/mapping.md">dbc2val mapping</a> for details.</p>
+<p>There are also ways to automatically transform the CAN-Bus signal values into VSS values:</p>
+<ul>
+<li>Mapping of literal values, such as enums and booleans</li>
+<li>Mathematical transformations</li>
+<li>Full and partial transformations</li>
+</ul>
+<h2 id="setup-workspace">Setup workspace</h2>
+<h3 id="required-tools">Required tools</h3>
+<ul>
+<li>Git</li>
+<li>Docker</li>
+<li>Python 3</li>
+<li>can-utils</li>
+<li>a YAML/JSON text editor</li>
+</ul>
+<p>Depending on your host OS, you may need to install the packages first:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install can-utils git docker python3
+</span></span></code></pre></div><h3 id="workspace-structure">Workspace structure</h3>
+<p>You need the following files in your workspace folder:</p>
+<ul>
+<li><code>./custom.dbc</code> - The vehicle-specific DBC file.
+You can use the <a href="https://github.com/joshwardell/model3dbc">Tesla Model 3 example</a>
+or check out the <a href="https://github.com/commaai/opendbc">opendbc</a> project.</li>
+<li><code>./custom.vspec</code> - The VSS overlay from the previous step</li>
+</ul>
+<h2 id="defining-the-vss-overlay">Defining the VSS Overlay</h2>
+<p>The definition of an VSS overlay is a manual process.
+It requires research, browsing the existing VSS catalog and deep knowledge of the vehicle signals.
+Especially knowing the semantic of a signal and how to map it between DBC and VSS is a complex task.</p>
+<blockquote>
+<p>Note: The Leda team is not aware of any advanced tooling to support the automation of this task.</p>
+</blockquote>
+<ol>
+<li>Create a new file <code>custom.vspec</code>. Use YAML format</li>
+<li>For each identified signal:
+<ol>
+<li>Look up if there already is a corresponding signal in VSS. You may use the <a href="https://digital.auto">Digital.Auto Playground</a> or the spec directly.</li>
+<li>Add a new top-level entry to the custom.vspec file. The key is the full VSS path name in dot notation.</li>
+<li>Add the corresponding <code>dbc</code> node</li>
+<li>Add the <code>signal</code> attribute and enter the name of the CAN-Bus signal name in the DBC</li>
+<li>Add additional attributes such as <code>interval_ms</code>, <code>message</code> or <code>transform</code>.
+<blockquote>
+<p>Note: The attributes <code>signal</code>, <code>interval_ms</code> and <code>transform</code> are evaluated by dbc2val.
+The attribute <code>message</code> is only evaluated by the below demo script and is optional.</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># CAN Message: Kombi_01</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Vehicle.Speed</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">sensor</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">datatype</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">float</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">dbc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">message</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">Kombi_01</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">signal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">KBI_angez_Geschw</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">interval_ms</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># CAN Message: FS_Position_01</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Vehicle.Cabin.Seat.Row1.Pos1.Position</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">sensor</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">datatype</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">float</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">dbc</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">message</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">FS_Position_01</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">signal</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">FSS_Laenge_Pos</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">    </span><span style="color:#204a87;font-weight:bold">interval_ms</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#f8f8f8">
+</span></span></span></code></pre></div><p>These two extensions will be added to the combined VSS tree:</p>
+<p><img src="vss-overlay.png" alt="VSS Overlay with custom CAN-Bus metadata"></p>
+<h3 id="regenerating-vspec">Regenerating VSpec</h3>
+<p>The script <code>vspec2json.py</code> from <a href="https://github.com/covesa/vss-tools">COVESA VSS Tools</a> can then be used to merge the overlay file with the standard specification.</p>
+<p>For Leda devices, you can use <code>kanto-cm</code> to run the tool as a container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Copy custom.dbc and custom.vspec to /home/root</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Run in /home/root</span>
+</span></span><span style="display:flex;"><span>kanto-cm create --name vspec2json --rp no --mp<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/home/root:/data&#34;</span> ghcr.io/eclipse-leda/leda-vss-vspec2json:main
+</span></span><span style="display:flex;"><span>kanto-cm start --a --i --name vspec2json
+</span></span></code></pre></div><p>For developer workstations, there is a convenient pre-built Docker container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name vspec2json --rm -v <span style="color:#4e9a06">`</span><span style="color:#204a87">pwd</span><span style="color:#4e9a06">`</span>:/data ghcr.io/eclipse-leda/leda-vss-vspec2json:main
+</span></span></code></pre></div><p>Or, if you want to run vspec2json from the sources, clone the repository and invoke it like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --recurse-submodules <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --branch v3.1 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --single-branch <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --depth <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    https://github.com/COVESA/vehicle_signal_specification
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>python3 vehicle_signal_specification/vss-tools/vspec2json.py <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    -e dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    -o custom.vspec <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --uuid <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --json-pretty <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --json-all-extended-attributes <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    ../vehicle_signal_specification/spec/VehicleSignalSpecification.vspec <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    custom_vss_dbc.json
+</span></span></code></pre></div><p>With the resulting file <code>custom_vss_dbc.json</code> and the corresponding DBC file, the dbc2val feeder can relay the signals to the databroker.
+dbc2val can either read from a CAN-Dump file (generated by <code>candump</code> from can-utils) in an endless loop, or can listen on actual virtual or physical CAN interfaces.</p>
+<p>The output should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>custom.dbc  custom.vspec
+</span></span><span style="display:flex;"><span>$ docker run --name vspec2json --rm -v <span style="color:#4e9a06">`</span><span style="color:#204a87">pwd</span><span style="color:#4e9a06">`</span>:/data ghcr.io/eclipse-leda/leda-vss-vspec2json:main
+</span></span><span style="display:flex;"><span>INFO     Output to json format
+</span></span><span style="display:flex;"><span>INFO     Known extended attributes: dbc
+</span></span><span style="display:flex;"><span>INFO     Added <span style="color:#0000cf;font-weight:bold">54</span> units from /vss/spec/units.yaml
+</span></span><span style="display:flex;"><span>INFO     Loading vspec from /vss/spec/VehicleSignalSpecification.vspec...
+</span></span><span style="display:flex;"><span>INFO     Applying VSS overlay from /data/custom.vspec...
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Vehicle
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Cabin
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Seat
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Row1
+</span></span><span style="display:flex;"><span>INFO     Autocreating implicit branch Pos1
+</span></span><span style="display:flex;"><span>INFO     Calling exporter...
+</span></span><span style="display:flex;"><span>INFO     Generating JSON output...
+</span></span><span style="display:flex;"><span>INFO     Serializing pretty JSON...
+</span></span><span style="display:flex;"><span>INFO     All <span style="color:#204a87;font-weight:bold">done</span>.
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>custom.dbc  custom.vspec  custom_vss_dbc.json
+</span></span></code></pre></div><h2 id="databroker-container">Databroker Container</h2>
+<p>Ensure the databroker container is up and running:</p>
+<p>On developer workstation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name databroker --detach --rm -p 55555:55555/tcp ghcr.io/eclipse/kuksa.val/databroker:0.3.1
+</span></span></code></pre></div><p>On Leda device (if not already running)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm start --name databroker
+</span></span></code></pre></div><h2 id="testing-with-data">Testing with data</h2>
+<p>To see actual data, we need to use the candump or another CAN source and feed that data into the databroker.
+After that is running, we can use the databroker-cli tool to subscribe to the example VSS signals.</p>
+<h3 id="generate-a-candump">Generate a candump</h3>
+<p>To generate a candump for testing purposes, start the candump tool and listen for some packets.</p>
+<p>In the following example, the first 20 CAN frames are being recorded and the command will exit.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>candump -L -n <span style="color:#0000cf;font-weight:bold">20</span> vcan0 &gt; candump.log
+</span></span></code></pre></div><p>If you do not have an external CAN source, you may want to simulate CAN frames.
+There is a Python library for parsing DBC files, which also let&rsquo;s you encode and send the actual CAN messages.</p>
+<p>An example script could look like this:</p>
+<blockquote>
+<p>Note: Due to GPL-3 licensing, the Leda quickstart image does not contain some Python standard libraries. This script will not run on a Leda quickstart image.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>import random
+</span></span><span style="display:flex;"><span>import <span style="color:#204a87">time</span>
+</span></span><span style="display:flex;"><span>from pprint import pprint
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>import yaml
+</span></span><span style="display:flex;"><span>import cantools
+</span></span><span style="display:flex;"><span>import can
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">can_bus</span> <span style="color:#ce5c00;font-weight:bold">=</span> can.interface.Bus<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;vcan0&#39;</span>, <span style="color:#000">bustype</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;socketcan&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">db</span> <span style="color:#ce5c00;font-weight:bold">=</span> cantools.database.load_file<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;custom.dbc&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>with open<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;custom.vspec&#34;</span>, <span style="color:#4e9a06">&#34;r&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span> as stream:
+</span></span><span style="display:flex;"><span>    try:
+</span></span><span style="display:flex;"><span>        <span style="color:#000">vspec</span> <span style="color:#ce5c00;font-weight:bold">=</span> yaml.safe_load<span style="color:#ce5c00;font-weight:bold">(</span>stream<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">for</span> key in vspec:
+</span></span><span style="display:flex;"><span>            <span style="color:#000">message_name</span><span style="color:#ce5c00;font-weight:bold">=</span>vspec<span style="color:#ce5c00;font-weight:bold">[</span>key<span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;dbc&#39;</span><span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;message&#39;</span><span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">signal_name</span><span style="color:#ce5c00;font-weight:bold">=</span>vspec<span style="color:#ce5c00;font-weight:bold">[</span>key<span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;dbc&#39;</span><span style="color:#ce5c00;font-weight:bold">][</span><span style="color:#4e9a06">&#39;signal&#39;</span><span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">example_message</span> <span style="color:#ce5c00;font-weight:bold">=</span> db.get_message_by_name<span style="color:#ce5c00;font-weight:bold">(</span>message_name<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Initialize an empty message</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">for</span> signal in example_message.signals:
+</span></span><span style="display:flex;"><span>                data<span style="color:#ce5c00;font-weight:bold">[</span>signal.name<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> False
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            pprint<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Message: %s&#34;</span> % example_message<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Send 10 frames with random data</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">for</span> x in range<span style="color:#ce5c00;font-weight:bold">(</span>10<span style="color:#ce5c00;font-weight:bold">)</span>:
+</span></span><span style="display:flex;"><span>                data<span style="color:#ce5c00;font-weight:bold">[</span>signal_name<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> random.uniform<span style="color:#ce5c00;font-weight:bold">(</span>0,100<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">encoded_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> example_message.encode<span style="color:#ce5c00;font-weight:bold">(</span>data<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">message</span> <span style="color:#ce5c00;font-weight:bold">=</span> can.Message<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#000">arbitration_id</span><span style="color:#ce5c00;font-weight:bold">=</span>example_message.frame_id, <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">=</span>encoded_data<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                pprint<span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#34;CAN Frame: %s&#34;</span> % message<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                can_bus.send<span style="color:#ce5c00;font-weight:bold">(</span>message<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8f5902;font-style:italic"># Wait up to 1 second</span>
+</span></span><span style="display:flex;"><span>                time.sleep<span style="color:#ce5c00;font-weight:bold">(</span>random.random<span style="color:#ce5c00;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    except yaml.YAMLError as exc:
+</span></span><span style="display:flex;"><span>        print<span style="color:#ce5c00;font-weight:bold">(</span>exc<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Example output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;Message: message(&#39;Kombi_01&#39;, 0x30b, False, 8, {None: &#39;MQB&#39;})&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 b9 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 16 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 ca 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 ad 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 b0 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 79 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 1b 01&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 19 01&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 0a 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 0000030b    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    00 00 00 00 00 00 b0 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#34;Message: message(&#39;FS_Position_01&#39;, 0x6be, False, 8, None)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    59 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    31 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    29 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    07 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    40 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    55 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    54 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    07 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    62 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">(</span><span style="color:#4e9a06">&#39;CAN Frame: Timestamp:        0.000000    ID: 000006be    X Rx                &#39;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#4e9a06">&#39;DL:  8    59 00 00 00 00 00 00 00&#39;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="dbc2val-on-workstation">dbc2val on workstation</h3>
+<p>Get the latest sources:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/eclipse/kuksa.val.feeders
+</span></span></code></pre></div><p>Looping a CAN dump recording:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kuksa.val.feeders/dbc2val/dbcfeeder.py <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --dumpfile candump.log <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --canport vcan0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --server-type kuksa_databroker <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --dbcfile custom.dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --mapping custom_vss_dbc.json
+</span></span></code></pre></div><p>Listening on CAN interface:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># CAN must be set up up front, e.g.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># modprobe vcan</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ip link add dev vcan0 type vcan</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># ip link set vcan0 up</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kuksa.val.feeders/dbc2val/dbcfeeder.py <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --canport vcan0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --use-socketcan <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --server-type kuksa_databroker <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --dbcfile /custom/custom.dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --mapping /custom/custom_vss_dbc.json
+</span></span></code></pre></div><h3 id="dbc2val-on-leda-device">dbc2val on Leda device</h3>
+<p>To run the dbc2val feeder on Leda, you can use <code>kanto-cm</code> (instead of <code>docker</code>) to create the respective containers.</p>
+<blockquote>
+<p>Note: Due to <a href="https://github.com/eclipse/kuksa.val.feeders/issues/73">Issue #73</a>,
+the container <code>ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1</code> cannot be used with SocketCAN.
+Please use a later release or build the container from the sources after fixing the bug.
+Alternatively, use the candump file instead of SocketCAN.</p>
+</blockquote>
+<ol>
+<li>
+<p>Remove any existing <code>dbc2val</code> container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm remove --force --name dbc2val
+</span></span></code></pre></div></li>
+<li>
+<p>Create the new container in Kanto Container Management:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm create <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --name dbc2val <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --mp<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/home/root:/data&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">VDB_ADDRESS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:30555&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">USECASE</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker&#34;</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --network<span style="color:#ce5c00;font-weight:bold">=</span>host <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --privileged <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    ghcr.io/eclipse/kuksa.val.feeders/dbc2val:v0.1.1 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    /dist/dbcfeeder-exe <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --canport vcan0 <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --use-socketcan <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --usecase databroker <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --dbcfile /data/custom.dbc <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span>    --mapping /data/custom_vss_dbc.json
+</span></span></code></pre></div><blockquote>
+<p>Note: The <em>host networking</em> and <em>privileged</em> is used to allow the container access to the CAN sockets.</p>
+</blockquote>
+</li>
+<li>
+<p>Start the container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm start --a --i --name dbc2val
+</span></span></code></pre></div></li>
+<li>
+<p>Check the logs to verify container is running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm logs --name dbc2val
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="querying-via-cli">Querying via CLI</h3>
+<p>To be able to see the changes, you may want to use the Kuksa Databroker CLI:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --rm -it --network host ghcr.io/eclipse/kuksa.val/databroker-cli:0.3.1
+</span></span></code></pre></div><p>Now, depending on the way how the dbc2val feeder has been started (candump vs. socketcan), you will either already see data from the candump loop.</p>
+<p><img src="kuksa-databroker-cli.png" alt="Eclipse Kuksa.VAL Databroker CLI"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b17a47275ec6859512c169cb02d9ee24">4 - CarSim</h1>
+    
+	<p>The <strong>CarSim</strong> example provides basic Vehicle Signals based on a physical model simulation and feeds them to the databroker.</p>
+<p><a href="./kinetic.svg"><img src="./kinetic.png" alt="Eclipse Leda CarSim Kinetics"></a></p>
+<h2 id="architecture-overview">Architecture Overview</h2>
+<p><a href="./carsim-arch-overview.svg"><img src="./carsim-arch-overview.png" alt="Eclipse Leda CarSim DriverSim Architecture Overview"></a></p>
+<h2 id="description">Description</h2>
+<p>CarSim is a simple physical model implementation, based on the <a href="https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/">kinematic bicycle model</a>.
+It can be used as a <em>mock implementation</em> in development, testing and simulation scenarios.</p>
+<p>It takes three external inputs:</p>
+<ul>
+<li>accelerator position</li>
+<li>brake position</li>
+<li>steering wheel angle</li>
+</ul>
+<p>It propagates the physical model in time with a pre-defined step interval (10ms), recalculates the acceleration components,
+speed and position, and finally publishes the numeric values as standard VSS datapoints to the databroker.</p>
+<p>To simulate the input from a human driver, the optional <strong>DriverSim</strong> component can be run in parallel.
+DriverSim toggles between two different types of driver style in a pre-defined time interval:</p>
+<ul>
+<li><strong>Good driver</strong> - slowly accelerates and moves the steering angle accordingly and then slowly brakes.</li>
+<li><strong>Bad driver</strong> - accelerates hard (full throttle), moves the steering wheel randomly in both directions, brakes hard.</li>
+</ul>
+<h2 id="background">Background</h2>
+<div class="pageinfo pageinfo-primary">
+<p><strong>Decoupled Design</strong></p>
+<p>CarSim and DriverSim <strong>only communicate through the databroker</strong> by using standardized Vehicle Signals.</p>
+</div>
+<p>Each component can be replaced individually <strong>at runtime</strong>, e.g. by more advanced or real implementations.
+There is no need to adapt, recompile or redeploy any of the other applications.</p>
+<p>This is <strong>important</strong> for decoupling and <a href="https://fosdem.org/2023/schedule/event/kuksa/">standardizing vehicle signals</a>,
+to enable future vehicle application platforms to evolve.
+Loose coupling and standardizing of vehicle signal interfaces enable thirdparty applications to use signals
+in higher-level applications or value-add services.</p>
+<p>Both implementors (imagine separate organizations), can agree to use the Vehicle Signal Specification
+to decouple the development lifecycle for vehicle applications and vehicle services. This decoupling approach
+reduces the time and effort for proprietary design specifications processes tremendously.</p>
+<h2 id="vehicle-signals">Vehicle Signals</h2>
+<p>The CarSim application reads the following input signals from the databroker:</p>
+<h3 id="input">Input</h3>
+<table>
+  <thead>
+      <tr>
+          <th>&ldquo;Human&rdquo; driver input</th>
+          <th>Python variable</th>
+          <th>VSS subscription path</th>
+          <th>VSS datatype</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Brake pedal position</td>
+          <td>DP_BRAKE_POS</td>
+          <td><a href="/leda/docs/vss/vehicle/chassis/brake/pedalposition/"><code>Vehicle.Chassis.Brake.PedalPosition</code></a></td>
+          <td>uint8</td>
+      </tr>
+      <tr>
+          <td>Accelerator pedal position</td>
+          <td>DP_ACCELR_POS</td>
+          <td><a href="/leda/docs/vss/vehicle/chassis/accelerator/pedalposition/"><code>Vehicle.Chassis.Accelerator.PedalPosition</code></a></td>
+          <td>uint8</td>
+      </tr>
+      <tr>
+          <td>Steering wheel angle</td>
+          <td>DP_STEER_ANGLE</td>
+          <td><a href="/leda/docs/vss/vehicle/chassis/steeringwheel/angle/"><code>Vehicle.Chassis.SteeringWheel.Angle</code></a></td>
+          <td>int16</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>Note: You can either provide these signals externally on your own, or use <code>DriverSim</code> to simulate them.</em></p>
+<h3 id="output">Output</h3>
+<p>The CarSim application feeds the following output signals to the databroker:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Python variable</th>
+          <th>VSS feeding path</th>
+          <th>VSS datatype</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DP_SPEED</td>
+          <td><a href="/leda/docs/vss/vehicle/speed/"><code>Vehicle.Speed</code></a></td>
+          <td>float</td>
+      </tr>
+      <tr>
+          <td>DP_ACCEL_LAT</td>
+          <td><a href="/leda/docs/vss/vehicle/acceleration/lateral/"><code>Vehicle.Acceleration.Lateral</code></a></td>
+          <td>float</td>
+      </tr>
+      <tr>
+          <td>DP_ACCEL_LONG</td>
+          <td><a href="/leda/docs/vss/vehicle/acceleration/longitudinal/"><code>Vehicle.Acceleration.Longitudinal</code></a></td>
+          <td>float</td>
+      </tr>
+      <tr>
+          <td>DP_ACCEL_VERT</td>
+          <td><a href="/leda/docs/vss/vehicle/acceleration/vertical/"><code>Vehicle.Acceleration.Vertical</code></a></td>
+          <td>float</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>
+<p>Start up Leda and wait for the runtime to be available. For other deployment options, see <a href="/leda/docs/general-usage/">Getting Started</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -it ghcr.io/eclipse-leda/leda-distro/leda-quickstart-x86
+</span></span></code></pre></div></li>
+<li>
+<p>Deploy the <a href="https://github.com/eclipse-leda/leda-example-applications/pkgs/container/leda-example-applications%2Fleda-example-carsim"><code>CarSim</code></a>
+container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm create --name carsim --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">DATABROKER_ADDRESS</span><span style="color:#ce5c00;font-weight:bold">=</span>databroker:55555 --hosts<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span> ghcr.io/eclipse-leda/leda-example-applications/leda-example-carsim:v0.0.1
+</span></span><span style="display:flex;"><span>kanto-cm start --name carsim
+</span></span></code></pre></div></li>
+<li>
+<p>Deploy <a href="https://github.com/eclipse-leda/leda-example-applications/pkgs/container/leda-example-applications%2Fleda-example-driversim"><code>DriverSim</code></a>
+container:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kanto-cm create --name driversim --e<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">DATABROKER_ADDRESS</span><span style="color:#ce5c00;font-weight:bold">=</span>databroker:55555 --hosts<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;databroker:container_databroker-host&#34;</span> ghcr.io/eclipse-leda/leda-example-applications/leda-example-driversim:v0.0.1
+</span></span><span style="display:flex;"><span>kanto-cm start --name driversim
+</span></span></code></pre></div></li>
+<li>
+<p>Use <code>kantui</code> or <code>kanto-cm logs --name &lt;carsim|driversim&gt;</code> to view log files:</p>
+<p><img src="./kantui_carsim.png" alt="Eclipse Leda KantUI CarSim Logs"></p>
+<p><img src="./kantui_driversim.png" alt="Eclipse Leda KantUI DriverSim Logs"></p>
+</li>
+<li>
+<p>Use the <code>databroker-cli</code> to subscribe to the following VSS signals.</p>
+<blockquote>
+<p><em>Note:</em> Separate multiple signals by commas. Use <code>&lt;TAB&gt;</code> to auto-complete signal names.
+See <a href="https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/doc/QUERY.md">QUERY.md</a> for the query syntax.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ databroker-cli
+</span></span><span style="display:flex;"><span>connect localhost:30555
+</span></span><span style="display:flex;"><span>subscribe
+</span></span><span style="display:flex;"><span>    SELECT
+</span></span><span style="display:flex;"><span>     Vehicle.Speed,
+</span></span><span style="display:flex;"><span>     Vehicle.Acceleration.Vertical,
+</span></span><span style="display:flex;"><span>     Vehicle.Acceleration.Longitudinal,
+</span></span><span style="display:flex;"><span>     Vehicle.Acceleration.Lateral
+</span></span><span style="display:flex;"><span>    WHERE
+</span></span><span style="display:flex;"><span>     Vehicle.Speed &gt; <span style="color:#0000cf;font-weight:bold">50</span>
+</span></span></code></pre></div><p><img src="./carsim-databroker-cli2.png" alt="Eclipse Leda CarSim Databroker-CLI"></p>
+</li>
+<li>
+<p>Happy hacking!</p>
+<p>Need ideas? How about implementing your own driver simulation and integrate with existing open source simulation technologies from <em>Autonomous Driving</em>?</p>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<ul>
+<li>Sources: <a href="https://github.com/eclipse-leda/leda-example-applications/tree/main/kuksa-carsim">https://github.com/eclipse-leda/leda-example-applications/tree/main/kuksa-carsim</a></li>
+<li>Kinetic Bicycle Model: <a href="https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/">https://thef1clan.com/2020/09/21/vehicle-dynamics-the-kinematic-bicycle-model/</a></li>
+<li>Kuksa.VAL: <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker">https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker</a></li>
+<li>COVESA Vehicle Signal Specification: <a href="https://github.com/COVESA/vehicle_signal_specification">https://github.com/COVESA/vehicle_signal_specification</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f8e31fb834452efdebda21d1bf86969">5 - Velocitas VApps</h1>
+    
+	<p>For local deployment without a cloud backend, deployment specifications for <a href="https://projects.eclipse.org/projects/automotive.velocitas">Eclipse Velocitas</a> Vehicle Apps may be put directly onto the device.</p>
+<ul>
+<li>Create a Kanto deployment specification for your vehicle app. You may copy one of the existing JSON files in <code>/data/var/containers/manifests</code> as a template</li>
+<li>Copy the specification file to the device, e.g. <code>scp -P 2222 myapp.json root@localhost:/data/var/containers/manifests/</code></li>
+<li>Apply the specification: <code>systemctl restart kanto-auto-deployer</code></li>
+</ul>
+<p>To update an existing container when the configuration has changed, delete the container and restart kanto-auto-deployer:</p>
+<pre><code>kanto-cm remove -n myapp-example
+# Edit /data/var/containers/manifests/myapp.json
+kanto-auto-deployer
+</code></pre>
+<h2 id="configuration-of-velocitas-middleware-type">Configuration of Velocitas Middleware Type</h2>
+<p>The following Velocitas environment variables need to be set to configure the proper middleware type and hostnames of services:</p>
+<pre tabindex="0"><code>SDV_MQTT_ADDRESS=mosquitto:1883
+SDV_VEHICLEDATABROKER_ADDRESS=databroker:55555
+SDV_MIDDLEWARE_TYPE=native
+</code></pre><h2 id="example-deployment-specification">Example Deployment Specification</h2>
+<blockquote>
+<p>Attention: The current implementation requires all fields to be present in the JSON, even if the values are not set or used. Do not remove any fields, as it may break the functionality.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;myapp-example&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;ghcr.io/my-org/my-repo/my-app:latest&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;decrypt_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;domain_name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;resolv_conf_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hosts_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hostname_path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;mounts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hooks&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;host_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;devices&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;network_mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bridge&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;privileged&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restart_policy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;maximum_retry_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;retry_timeout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;unless-stopped&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;io.containerd.runc.v2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;extra_hosts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;port_mappings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;protocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;tcp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;container_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">30151</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_ip&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;localhost&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50151</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">&#34;host_port_end&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50151</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;log_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;driver_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;json-file&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_files&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;100M&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;root_dir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;mode_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;mode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;blocking&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;max_buffer_size&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;resources&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;io_config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stderr&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stdin&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;attach_stdout&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;open_stdin&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;stdin_once&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;tty&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID=vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_MQTT_ADDRESS=mosquitto:1883&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_VEHICLEDATABROKER_ADDRESS=databroker:55555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#4e9a06">&#34;SDV_MIDDLEWARE_TYPE=native&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cmd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;network_settings&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;state&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;pid&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">-1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;started_at&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;error&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;exit_code&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;finished_at&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;exited&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;dead&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;restarting&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;paused&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;running&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;oom_killed&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;created&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;manually_stopped&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;restart_count&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-03ddd8c0f79b13ee47ac2332bd2c2a23">6 - Cloud2Device Messages</h1>
+    
+	<p><img src="c2d-architecture-overview.png" alt="c2d-overview"></p>
+<p>In order to verify that the device and the cloud connector can successfully receive messages sent by the cloud backend, we will send a dummy message to the device.</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<ul>
+<li>Device is up and running, e.g by <a href="/leda/docs/general-usage/running-qemu/">running in qemu</a></li>
+<li>Eclipse Leda has successfully booted</li>
+<li>The device has been provisioned and configured, see <a href="/leda/docs/device-provisioning/">Device Provisioning</a></li>
+</ul>
+<h2 id="validating-configuration">Validating configuration</h2>
+<p>First, let&rsquo;s check that the cloud connection is active.</p>
+<ul>
+<li>
+<p>Login as <code>root</code></p>
+</li>
+<li>
+<p>Run sdv-health and check for the <em>SDV Connectivity</em> section:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdv-health
+</span></span></code></pre></div><p><img src="sdv-health-connectivity.png" alt="sdv-health-connectivity"></p>
+</li>
+<li>
+<p>Start watching the output of the cloud connector:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kantui
+</span></span></code></pre></div></li>
+<li>
+<p>Select the <code>cloud-connector</code> container and press <code>L</code> to watch the logs</p>
+<blockquote>
+<p><em>Note:</em> When an unknown type of message is received, the cloud connector will log an error:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>2022/04/13 16:04:41.911727  [agent]  ERROR  Handler returned error err=&#34;cannot deserialize cloud message: invalid character &#39;H&#39; looking for beginning of value
+</span></span></code></pre></div></blockquote>
+</li>
+<li>
+<p>Start watching on the MQTT message broker:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mosquitto_sub -h localhost -t <span style="color:#4e9a06">&#39;#&#39;</span> --pretty -v
+</span></span></code></pre></div><blockquote>
+<p><em>Note:</em> When a known type of message is received, the cloud connector will forward the message to the MQTT broker into the corresponding topic <code>$appId/$cmdName</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="sending-a-device-message">Sending a Device Message</h2>
+<ul>
+<li>Go to the Web Console of Azure IoT Hub</li>
+<li>Select the device</li>
+<li>Click on &ldquo;Send Message&rdquo;</li>
+<li>Enter a C2D payload and click &ldquo;Send&rdquo;</li>
+</ul>
+<p>Alternatively, on command line, use the Azure CLI client. Replace <code>DeviceId</code> and <code>IotHubName</code> with the appropriate names of your IoT Hub and device.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az iot device c2d-message send <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span> --device-id <span style="color:#4e9a06">${</span><span style="color:#000">DeviceID</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span> --hub-name <span style="color:#4e9a06">${</span><span style="color:#000">IotHubName</span><span style="color:#4e9a06">}</span> <span style="color:#4e9a06">\
+</span></span></span><span style="display:flex;"><span> --data <span style="color:#4e9a06">&#39;Hello World&#39;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+
+
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-bs-toggle="tooltip" data-bs-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-leda" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+        
+          <p class="mt-2"><a href="/leda/docs/about/">About Leda</a></p>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="/leda/js/main.min.b2eb65bca134aef6649d6cc95be369c5c8ee38a4300849e647082d87f0a480a8.js" integrity="sha256-sutlvKE0rvZknWzJW&#43;NpxcjuOKQwCEnmRwgth/CkgKg=" crossorigin="anonymous"></script>
+<script defer src="/leda/js/click-to-copy.min.24576ff9fe9f85bb1948ecae52ce227cafce53757a3ad52301f2a79260f6b97d.js" integrity="sha256-JFdv&#43;f6fhbsZSOyuUs4ifK/OU3V6OtUjAfKnkmD2uX0=" crossorigin="anonymous"></script>
+<script src='/leda/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

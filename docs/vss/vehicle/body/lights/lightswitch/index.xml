@@ -1,18 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse Leda Documentation – LightSwitch</title>
+    <title>LightSwitch on Eclipse Leda Documentation</title>
     <link>https://eclipse-leda.github.io/leda/docs/vss/vehicle/body/lights/lightswitch/</link>
     <description>Recent content in LightSwitch on Eclipse Leda Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 05 Jun 2023 12:38:43 +0000</lastBuildDate>
-    
-	  <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/body/lights/lightswitch/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://eclipse-leda.github.io/leda/docs/vss/vehicle/body/lights/lightswitch/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,0 +1,765 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="canonical" type="text/html" href="https://eclipse-leda.github.io/leda/docs/build/devenv/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://eclipse-leda.github.io/leda/docs/build/devenv/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/leda/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/leda/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/leda/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/leda/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/leda/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/leda/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/leda/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/leda/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/leda/favicons/android-192x192.png" sizes="192x192">
+
+<title>Setup development environment | Eclipse Leda Documentation</title>
+<meta name="description" content="There are multiple variants on how to set up a build environment:
+with GitHub Codespaces - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts with VSCode DevContainer - recommended for Linux hosts Custom setup - for teams">
+<meta property="og:url" content="https://eclipse-leda.github.io/leda/docs/build/devenv/">
+  <meta property="og:site_name" content="Eclipse Leda Documentation">
+  <meta property="og:title" content="Setup development environment">
+  <meta property="og:description" content="There are multiple variants on how to set up a build environment:
+with GitHub Codespaces - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts with VSCode DevContainer - recommended for Linux hosts Custom setup - for teams">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Setup development environment">
+  <meta itemprop="description" content="There are multiple variants on how to set up a build environment:
+with GitHub Codespaces - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts with VSCode DevContainer - recommended for Linux hosts Custom setup - for teams">
+  <meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30">
+  <meta itemprop="dateModified" content="2026-03-08T11:22:39+01:00">
+  <meta itemprop="wordCount" content="44">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Setup development environment">
+  <meta name="twitter:description" content="There are multiple variants on how to set up a build environment:
+with GitHub Codespaces - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts with VSCode DevContainer - recommended for Linux hosts Custom setup - for teams">
+<link rel="preload" href="/leda/scss/main.min.18e1d2e25e2896c6bbc496045fde272740c689da30433a3c71658c1218370201.css" as="style" integrity="sha256-GOHS4l4olsa7xJYEX94nJ0DGidowQzo8cWWMEhg3AgE=" crossorigin="anonymous">
+<link href="/leda/scss/main.min.18e1d2e25e2896c6bbc496045fde272740c689da30433a3c71658c1218370201.css" rel="stylesheet" integrity="sha256-GOHS4l4olsa7xJYEX94nJ0DGidowQzo8cWWMEhg3AgE=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/leda/"><span class="navbar-brand__logo navbar-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="30 270 300 300" id="svg2"><defs id="defs6"><clipPath id="clipPath24" clipPathUnits="userSpaceOnUse"><path id="path22" d="m5116.71 2737.03v81.36c0 51.02 13.61 71.72 55.28 74.55h288.29v-182.27c-4.26-34.29-16.73-48.19-55.28-48.19h-226.21c-47.05.0-62.08 20.69-62.08 74.55zm-139.46 17.86c0-128.41 84.19-198.71 222.24-198.71h42.8c107.43.0 184.82 2.84 217.99 84.19v-84.19h137.76v534.05c0 128.13-97.8 198.71-235.85 198.71H5051.8v-106.3h360c36 0 48.48-23.52 48.48-60.66v-122.74h-260.79c-138.05.0-222.24-70.59-222.24-198.71zm-332.5-44.22c-3.97-34.29-16.44-48.19-55-48.19h-225.07c-46.76.0-62.08 20.69-62.08 74.55v371.06c0 51.03 13.9 71.71 55.28 74.55h231.87c41.39-2.84 55-23.52 55-74.55zm139.46 854.08h-138.04v-360c-33.17 81.36-110.28 84.19-217.99 84.19h-42.8c-137.77.0-221.96-70.58-221.96-198.71v-335.34c0-128.41 84.19-198.71 221.96-198.71h42.8c107.71.0 184.82 2.84 217.99 84.19v-84.19h138.04zm-925.8-587.62h-362.83v144.85c0 28.91 12.47 60.66 48.2 60.66h266.45c35.71.0 48.18-31.75 48.18-60.66zm139.47-106.3v219.4c0 128.13-98.08 198.71-236.13 198.71h-169.51c-138.04.0-235.84-70.58-235.84-198.71v-335.34c0-128.41 97.8-198.71 235.84-198.71h405.64v106.3h-454.1c-35.73.0-48.2 23.54-48.2 60.66v147.69zM2642.92 2556.18h630.71v117.36h-483.02v794.55h-147.69z"/></clipPath><linearGradient id="linearGradient34" spreadMethod="pad" gradientTransform="matrix(2955.12,0,0,-2955.12,2642.92,3060.47)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop26" offset="0" style="stop-opacity:1;stop-color:#77add1"/><stop id="stop28" offset=".189014" style="stop-opacity:1;stop-color:#64c6ee"/><stop id="stop30" offset=".994475" style="stop-opacity:1;stop-color:#7b3199"/><stop id="stop32" offset="1" style="stop-opacity:1;stop-color:#7b3199"/></linearGradient><linearGradient id="linearGradient44" spreadMethod="pad" gradientTransform="matrix(1875.15,0,0,-1875.15,364.686,2981.28)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop38" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop40" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop42" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient><clipPath id="clipPath54" clipPathUnits="userSpaceOnUse"><path id="path52" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31z"/></clipPath><linearGradient id="linearGradient70" spreadMethod="pad" gradientTransform="matrix(1417.96,0,0,-1417.96,477.178,2901.88)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop56" offset="0" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop58" offset=".11811164" style="stop-opacity:1;stop-color:#bce263"/><stop id="stop60" offset=".509456" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop62" offset=".76356415" style="stop-opacity:1;stop-color:#7ab43c"/><stop id="stop64" offset=".994475" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop66" offset=".99510668" style="stop-opacity:1;stop-color:#4e9133"/><stop id="stop68" offset="1" style="stop-opacity:1;stop-color:#4e9133"/></linearGradient><linearGradient id="linearGradient80" spreadMethod="pad" gradientTransform="matrix(942.78,0,0,-942.78,720.659,3019.8)" gradientUnits="userSpaceOnUse" y2="0" x2="1" y1="0" x1="0"><stop id="stop74" offset="0" style="stop-opacity:1;stop-color:#7cd3c9"/><stop id="stop76" offset=".994475" style="stop-opacity:1;stop-color:#912d99"/><stop id="stop78" offset="1" style="stop-opacity:1;stop-color:#912d99"/></linearGradient></defs><g transform="matrix(1.3333333,0,0,-1.3333333,0,795.04)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path46" style="fill:url(#linearGradient44);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m462.512 2989.03c1.133-223.65 47.902-452.13 142.867-685.13 24.66-60.94 67.465-109.13 120.187-139.47 52.727-30.61 115.657-43.93 180.852-35.14 236.122 32.03 453.262 104.03 650.552 218.55 193.89 112.53 368.79 266.17 523.27 463.18 41.11 52.15 61.8 113.67 61.8 174.9.28 61.51-20.13 123.02-60.95 175.18-145.7 186.8-317.19 337.89-515.62 450.99-194.74 110.83-415.84 185.1-665.005 220.82-65.481 9.36-128.692-3.4-181.699-33.74C665.758 3768.85 622.672 3720.94 597.441 3660c-90.14-219.4-136.062-443.06-134.929-670.97zm51.875-721.98c-99.5 244.06-148.535 484.73-149.668 721.42-1.418 241.23 47.054 477.63 142.297 708.66 33.73 81.92 91.843 146.27 163.273 187.08 71.719 40.82 156.473 58.11 244.066 45.64 261.355-37.13 494.075-115.65 699.595-232.72 209.76-119.34 390.61-278.65 544.25-475.66 54.71-70.01 81.92-152.78 81.63-235.55.0-83.06-27.49-165.83-82.2-235.56-162.42-206.65-346.68-368.5-551.62-487.27-208.35-121.05-437.67-197.02-686.549-230.75-87.313-11.9-171.785 5.95-242.934 47.05-71.433 41.39-128.976 106.02-162.14 187.66v0"/><g id="g48"><g clip-path="url(#clipPath54)" id="g50"><path id="path72" style="fill:url(#linearGradient70);fill-opacity:1;fill-rule:nonzero;stroke:none" d="m760.719 2701.88c88.719-132.65 206.929-250.3 356.031-352.34 37.13-25.23 79.65-36.85 121.32-34.58 41.39 1.98 82.49 17.85 116.79 46.77 130.11 110.26 233.01 236.97 307.27 381.26 73.14 142.01 118.49 300.76 134.36 477.63 3.97 43.66-7.65 85.61-30.89 120.2-23.81 35.43-59.53 63.49-102.9 77.95-160.16 54.42-320.88 77.38-482.74 68.03-162.43-9.35-326.269-51.31-492.659-127.28-40.821-18.7-72.285-48.75-91.281-85.04-18.704-36.28-25.508-78.52-17.29-121.89 31.75-165.26 91.848-316.06 181.989-450.71zm300.751-433.41c-159.306 109.13-286.298 235.84-382.111 378.99-97.793 145.99-162.992 308.69-197.004 486.71-12.472 65.48-1.984 130.11 26.926 185.39 28.918 55.27 76.25 101.19 137.481 128.97 177.734 81.36 353.478 126.14 527.818 136.35 174.61 9.92 347.52-14.74 519.59-73.14 64.06-21.82 117.07-63.49 152.78-116.5 35.15-52.73 53.01-116.79 47.06-183.4-17.3-189.92-66.05-360.85-144.85-513.64-79.94-155.91-191.06-292.82-331.09-411.31-51.02-43.08-112.54-66.61-175.18-69.73-62.65-3.4-126.14 13.61-181.42 51.31v0"/></g></g><path id="path82" style="fill:url(#linearGradient80);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m935.898 3147.21c-54.71-85.89-93.543-185.38-115.085-298.77-4.821-24.94-1.418-49.33 9.07-69.74 10.207-20.69 27.496-37.98 49.605-48.75 97.508-46.78 197.292-73.42 300.192-78.81 101.19-5.1 205.51 9.92 312.94 46.78 23.81 8.21 42.81 23.53 55.56 42.8 12.48 19.56 18.71 43.37 16.44 68.88-9.07 108.28-36.57 208.92-83.9 301.61-46.49 91.28-111.97 175.18-197.58 251.15-18.71 16.44-41.1 25.51-63.78 26.93-22.67 1.13-45.92-5.11-66.33-19.28-88.72-61.51-161.292-135.78-217.132-222.8zM724.434 2866.87c24.093 125.28 67.461 236.12 128.976 332.78 63.211 98.93 144.563 182.27 243.5 250.87 38.83 27.21 83.9 39.11 128.12 36.56 44.22-2.55 87.31-19.84 123.03-51.59 95.24-84.47 168.37-178.01 220.25-279.78 53-104.31 84.19-217.14 94.39-337.89 3.97-47.61-8.22-92.98-32.6-130.39-24.09-37.42-60.66-66.9-105.45-82.21-119.34-41.1-236.12-57.83-349.79-51.87-115.94 6.24-228.473 36-337.325 88.44-42.805 20.41-75.398 53.29-95.242 92.98-19.848 39.68-26.648 85.6-17.859 132.1v0"/></g></g></svg></span><span class="navbar-brand__name">Eclipse Leda Documentation</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/eclipse-leda" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/leda/offline-search-index.8fb5ec8e210672c785e7a0ade6ac59af.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/leda/docs/build/devenv/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Setup development environment</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-f489e253846ca9247a8d639e81213fab">Codespaces</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-71f44dd882af01efbed1f4ad8361d98b">Advanced topics</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-c93bbe2b4afa4f696fe56387e16376bc">GitHub Runner</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-dd5aea642d95644a121fa3b9232f771f">VSCode DevContainer</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-a56f201c9d821bac8e46a01e6750e56c">Building with kas/manually</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-822d5ff07addcb0f23c0a0fab1f42fbd">Restricted Internet</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>There are multiple variants on how to set up a build environment:</p>
+<ul>
+<li>with <a href="/leda/docs/build/devenv/github-codespaces/">GitHub Codespaces</a> - recommended for developers with restricted internet access, such as corporate proxies, or with Windows hosts</li>
+<li>with <a href="/leda/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> - recommended for Linux hosts</li>
+<li>Custom setup - for teams</li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f489e253846ca9247a8d639e81213fab">1 - Codespaces</h1>
+    
+	<h1 id="setting-up-development-environment-in-github-codespaces">Setting up Development Environment in GitHub Codespaces</h1>
+<h2 id="install-the-github-codespaces-extension">Install the GitHub Codespaces Extension</h2>
+<p><em>Note:</em> When using our DevContainer, the <em>GitHub Codespaces</em> extension is pre-installed.</p>
+<ul>
+<li>Start VSCode</li>
+<li>Go to <em>Extensions</em></li>
+<li>Search for &ldquo;GitHub Codespaces&rdquo;</li>
+<li>Click <em>Install</em></li>
+</ul>
+<p>Alternatively, create a new codespace via the GitHub web interface:</p>
+<p><img src="github-code-new-codespace.png" alt=""></p>
+<p>Select a big enough machine type for Yocto/BitBake, e.g. 16 CPU. You need at leasst 50GB disk space.</p>
+<p><img src="github-codespaces-remote-explorer.png" alt=""></p>
+<h2 id="building-leda-in-a-github-codespace">Building Leda in a Github Codespace</h2>
+<p>After successfully obtaining and connecting to a codespace you can build Leda either with kas or manually:</p>
+<ul>
+<li>
+<p>To build with kas follow the instructions at: <a href="/leda/docs/build/devenv/build-kas-manually/#building-with-kas">Building with kas</a></p>
+</li>
+<li>
+<p>To build manually: <a href="/leda/docs/build/devenv/build-kas-manually/#building-manually">Building manually</a></p>
+</li>
+</ul>
+<h2 id="private-repositories">Private Repositories</h2>
+<p>When using GitHub Codespaces with submodules and private repositories,
+a separate tool for git authentication is required (see <a href="https://github.com/microsoft/vscode/issues/109050">VSCode issue #109050</a>), as the authentication token provided to the GitHub Codespaces virtual machine only allows access to the main repository.</p>
+<p>Git Credential Manager:
+<a href="https://aka.ms/gcm">https://aka.ms/gcm</a></p>
+<p>Installation:</p>
+<pre tabindex="0"><code>curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &amp;&amp;
+sh ./install-from-source.sh &amp;&amp;
+git-credential-manager-core configure
+</code></pre>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-71f44dd882af01efbed1f4ad8361d98b">1.1 - Advanced topics</h1>
+    
+	<h2 id="git-authentication">Git Authentication</h2>
+<p>For private repositories, we need to separately authenticate against the submodule repositories, as
+GitHub Codespaces will only inject a token with access rights to the current repository.</p>
+<ol>
+<li>
+<p>Change to the users home directory</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> ~
+</span></span></code></pre></div></li>
+<li>
+<p>Install <a href="https://github.com/GitCredentialManager/git-credential-manager">Git Credential Manager</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>sh ./install-from-source.sh <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>git-credential-manager-core configure
+</span></span></code></pre></div></li>
+<li>
+<p>Configure a credential store typ, e.g. <code>git config --global credential.credentialStore plaintext</code></p>
+</li>
+<li>
+<p>Verify with <code>git config --global -l</code>, it should show git-credential-manager-core as the credential helper.</p>
+</li>
+</ol>
+<h2 id="update-the-submodules">Update the submodules</h2>
+<p>Run <code>git submodule update --recursive</code></p>
+<p>See <a href="https://github.com/microsoft/vscode/issues/109050">VSCode Issue #109050</a> for details.</p>
+<h2 id="setup-skopeo">Setup skopeo</h2>
+<p>Skopeo is needed to download various files during the build:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /run/containers/1000
+</span></span><span style="display:flex;"><span>sudo chmod a+w /run/containers/1000
+</span></span><span style="display:flex;"><span>skopeo login ghcr.io --authfile ~/auth.json --username &lt;your GitHub User&gt; 
+</span></span></code></pre></div><p>Enter your token when asked for the password.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c93bbe2b4afa4f696fe56387e16376bc">2 - GitHub Runner</h1>
+    
+	<h1 id="create-a-new-github-runner-for-this-repo">Create a new GitHub Runner for this repo</h1>
+<p>Start with creating a new azure VM:</p>
+<ul>
+<li>Ubuntu Server Latest, currently 20.04</li>
+<li>Size Standard D16ds v5</li>
+<li>The admin user should be called &ldquo;runner&rdquo;</li>
+</ul>
+<p>Once the VM is ready:</p>
+<ol>
+<li>Stop the VM</li>
+<li>Go to &ldquo;Disk&rdquo; and resize the OS disk to 512 GB</li>
+<li>Start the VM again</li>
+</ol>
+<h1 id="run-the-script-to-setup-the-runner">Run the script to setup the runner</h1>
+<p>Log on to the VM as runner. Either copy the <code>scripts/PrepVMasGHRunner.sh</code> onto the VM or create a new script:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano prep.sh
+</span></span></code></pre></div><p>Copy the content of the PrepVMasGHRunner.sh from this repo into the new file, save it and make it executable:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#0000cf;font-weight:bold">755</span> prep.sh
+</span></span></code></pre></div><p>Call it with the token and the next available nummer, see below how to get this items:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./prep.sh <span style="color:#4e9a06">&#34;ASYVOMU........DTCFCMBA&#34;</span> <span style="color:#0000cf;font-weight:bold">3</span>
+</span></span></code></pre></div><p>In the Azure portal go the VM, go to the &ldquo;network&rdquo; section and delete the rule opening port 22.
+Congratulation, you are done!</p>
+<h1 id="how-to-get-the-token-and-the-number-to-call-the-script">How to get the token and the number to call the script</h1>
+<p>In the repo, go to &ldquo;Settings&rdquo; -&gt; &ldquo;Actions&rdquo;. You see the currently provisioned runners:</p>
+<p><img src="nextnumber.png" alt="Alt text" title="Find next number"></p>
+<p>Pick the next number and pass it to the script.</p>
+<p>To get the token press the green button in the above screenshot. The token is in the command:</p>
+<p><img src="token.png" alt="Alt text" title="Get the token"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dd5aea642d95644a121fa3b9232f771f">3 - VSCode DevContainer</h1>
+    
+	<h2 id="preparation">Preparation</h2>
+<ul>
+<li>Obtain the <a href="https://docs.docker.com/engine/install/">Docker Engine</a> for your distribution and add your non-privileged user to the docker group (<code>sudo usermod -aG docker $USER</code> )</li>
+<li>Install <a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+</ul>
+<h2 id="visual-studio-code-development-containers">Visual Studio Code: Development Containers</h2>
+<ul>
+<li>Open Visual Studio Code</li>
+<li>Open Command Palette (<code>F1</code>) and select <code>Clone repository in Container Volume</code></li>
+<li>Select <code>eclipse-leda/meta-leda</code> and the main branch.</li>
+<li>Adapt proxy configurations if necessary (<code>.devcontainer/proxy.sh</code>)</li>
+</ul>
+<p><em>For a clean remote build machine, you may want to <a href="/leda/docs/build/devenv/github-codespaces/">set up a development environment on GitHub CodeSpaces</a></em></p>
+<h2 id="building-leda-in-a-vscode-devcontainer">Building Leda in a VSCode DevContainer:</h2>
+<p>After successfully setting up your DevContainer you can build Leda either with kas or manually:</p>
+<ul>
+<li>
+<p>To build with kas follow the instructions at: <a href="/leda/docs/build/devenv/build-kas-manually/#building-with-kas">Building with kas</a></p>
+</li>
+<li>
+<p>To build manually: <a href="/leda/docs/build/devenv/build-kas-manually/#building-manually">Building manually</a></p>
+</li>
+</ul>
+<h2 id="authentication">Authentication</h2>
+<p>The build process requires online connection and you must be authenticated to access private repositories.</p>
+<ol>
+<li>Create a GitHub Personal Access Token (PAT) at <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and grant <code>read:packages</code> permission</li>
+<li>Use <code>Configure SSO</code> and authorize your PAT for the organization</li>
+<li>On the build host, authenticate to ghcr.io: <code>skopeo login ghcr.io --authfile ~/auth.json --username &lt;username&gt;</code> and enter the PAT as password
+<ul>
+<li>You may need to create the folder where skopeo is storing authentication information beforehand:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir -p /run/containers/1000
+</span></span><span style="display:flex;"><span>sudo chmod a+w /run/containers/1000
+</span></span></code></pre></div></li>
+<li>Start the bitbake build process</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a56f201c9d821bac8e46a01e6750e56c">4 - Building with kas/manually</h1>
+    
+	<p>After setting up your <a href="/leda/docs/build/devenv/vscode-devcontainer/">VSCode DevContainer</a> or <a href="/leda/docs/build/devenv/github-codespaces/">GitHub Codespace</a> you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.</p>
+<h2 id="building-with-kas">Building with kas</h2>
+<p>This is the easiest way to build leda semi-automatically</p>
+<ul>
+<li><code>cd /workspaces/meta-leda-fork/</code></li>
+<li>Open the VSCode terminal and run <code>kas build</code></li>
+<li><strong>Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository</strong></li>
+</ul>
+<h2 id="building-manually">Building manually</h2>
+<p>You can also build Leda manually if more customization of the build process is required.</p>
+<ul>
+<li>
+<p><code>export LEDA_WORKDIR=/workspaces/meta-leda-fork/</code></p>
+</li>
+<li>
+<p><code>cd ${LEDA_WORKDIR}</code></p>
+</li>
+<li>
+<p>Clone the Poky repository with the required release, e.g. <code>kirkstone</code> and pull updates if necessary:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git://git.yoctoproject.org/poky
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> poky
+</span></span><span style="display:flex;"><span>git checkout -t origin/kirkstone -b kirkstone
+</span></span><span style="display:flex;"><span>git config pull.rebase <span style="color:#204a87">false</span>
+</span></span><span style="display:flex;"><span>git pull
+</span></span></code></pre></div></li>
+<li>
+<p>Prepare the build environment:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">source</span> oe-init-build-env
+</span></span></code></pre></div></li>
+<li>
+<p>Dry-run a build of the Linux Kernel recipe using BitBake:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bitbake --dry-run linux-yocto
+</span></span></code></pre></div></li>
+<li>
+<p>Checkout the meta-layer dependencies for Leda:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">cd</span> <span style="color:#000">$LEDA_WORKDIR</span>
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://github.com/rauc/meta-rauc.git meta-rauc
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://github.com/rauc/meta-rauc-community.git meta-rauc-community
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://git.yoctoproject.org/meta-virtualization meta-virtualization
+</span></span><span style="display:flex;"><span>git clone -b kirkstone https://git.openembedded.org/meta-openembedded meta-openembedded
+</span></span></code></pre></div></li>
+<li>
+<p>Change to the <code>poky/build</code> directory (generated from the <code>oe-init-build-env</code> script automatically)</p>
+</li>
+<li>
+<p>Add all the necessary meta-layers:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-rauc
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-rauc-community/meta-rauc-qemux86
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-oe
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-filesystems
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-python
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-openembedded/meta-networking
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-virtualization
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-leda-components
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-leda-bsp
+</span></span><span style="display:flex;"><span>bitbake-layers add-layer <span style="color:#4e9a06">${</span><span style="color:#000">LEDA_WORKDIR</span><span style="color:#4e9a06">}</span>/meta-leda-distro
+</span></span></code></pre></div></li>
+<li>
+<p>Dry run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span>leda bitbake --dry-run sdv-image-all
+</span></span></code></pre></div></li>
+<li>
+<p>Real build:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span>leda bitbake sdv-image-all
+</span></span></code></pre></div></li>
+<li>
+<p>You can also build one of the target recipies this way:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DISTRO</span><span style="color:#ce5c00;font-weight:bold">=</span>leda bitbake kanto-container-management
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Note: in this case you can set the target architecture and other build options in the build/local.conf file</strong></p>
+</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-822d5ff07addcb0f23c0a0fab1f42fbd">5 - Restricted Internet</h1>
+    
+	<p>Developers working in a corporate environment may face challenges when building Leda-based images, pulling SDV containers, etc.,
+usually due to a restrictive corporate proxy. Thus the objective of this page is to collect helpful guides for mitigating such problems.</p>
+<h2 id="https-proxy">HTTP(S) proxy</h2>
+<p>First you might need to configure your http(s) SOCKS proxy such that the BitBake shell uses it for <code>do_fetch</code> recipe tasks. By default, <code>http_proxy</code> and <code>https_proxy</code>
+environment variables are part of the <code>BB_ENV_PASSTHROUGH</code> list and are directly passed from the current environment to BitBake. If you are still facing <code>http(s)_proxy</code>
+issues during <code>do_fetch</code> tasks, you might want to check the <a href="https://wiki.yoctoproject.org/wiki/Working_Behind_a_Network_Proxy">Working Behind a Network Proxy @ Yocto Project Wiki</a>.</p>
+<h2 id="goproxy">GOPROXY</h2>
+<p>GOPROXY is a golang-specific mechanism for fetching dependencies during build-time. What is more, <em>gomod-type</em> BitBake recipes pull their external dependencies during
+the <code>do_compile</code> task, instead of the <code>do_fetch</code> task leading to further issues. The simplest workaround is to set-up a local (caching) goproxy container on
+the build host and make BitBake use that. The following steps assume that the build host has docker installed and working, with access to the docker hub registry.</p>
+<h3 id="hosting-a-local-goproxy-server">Hosting a local goproxy server</h3>
+<p>Start by setting up the goproxy container in host networking mode.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run -d --env <span style="color:#000">HTTP_PROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;http://&lt;PROXY_IP&gt;:&lt;PROXY_PORT&gt;&#34;</span> --env <span style="color:#000">HTTPS_PROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;http://&lt;PROXY_IP&gt;:&lt;PROXY_PORT&gt;&#34;</span> -v cacheDir:/go --network host goproxy/goproxy
+</span></span></code></pre></div><p><em>NOTE:</em> Don&rsquo;t forget to substitute <code>&lt;PROXY_IP&gt;</code> and <code>&lt;PROXY_PORT&gt;</code> with the appropriate address of your HTTP(S) proxy.</p>
+<p>This will start a local caching goproxy on port <code>8081</code> with a volume named <code>cacheDir</code> for caching the downloaded Go packages. The goproxy container can be configured
+further to provide access to private Go-package registries. For more information on its configuration take a look at <a href="https://github.com/goproxyio/goproxy">goproxyio/goproxy on GitHub</a>.</p>
+<h3 id="using-the-local-goproxy-server-for-bitbake-builds">Using the local goproxy server for BitBake builds</h3>
+<p>Since the main objective of BitBake/kas is to facilitate reproducible builds, only certain variables from the host environment are used for the build. Go, however,
+looks at the <code>GOPROXY</code> environmental variable to decide on which proxy to use. That&rsquo;s why you should first start by exporting the GOPROXY variable in the terminal
+from which you will later run the build:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#204a87">export</span> <span style="color:#000">GOPROXY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;http://127.0.0.1:8081&#34;</span>
+</span></span></code></pre></div><p>To make BitBake use the value of the variable you just exported for the build, you should add it to its &ldquo;environment passtrough&rdquo; list:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#204a87">export</span> <span style="color:#000">BB_ENV_PASSTHROUGH_ADDITIONS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">${</span><span style="color:#000">BB_ENV_PASSTHROUGH_ADDITIONS</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> GOPROXY&#34;</span>
+</span></span></code></pre></div><h3 id="kas">Kas</h3>
+<p>If you are using kas as a top-level build tool, to set the value of the GOPROXY variable for builds, all you need to do is to add it the <em>env</em>-section of your
+kas-config yaml. For example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">header</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#0000cf;font-weight:bold">12</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">machine</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#000">qemux86-64</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">env</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8">  </span><span style="color:#204a87;font-weight:bold">GOPROXY</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8"> </span><span style="color:#4e9a06">&#34;http://127.0.0.1:8081&#34;</span><span style="color:#f8f8f8">
+</span></span></span></code></pre></div><p>Kas will handle the exporting of the variable and adding it to BitBake&rsquo;s passtrough list automatically from there.</p>
+<h2 id="airgapped-container-installation">Airgapped container installation</h2>
+<p>Sometimes devices might not have internet access on first boot and therefore the SDV containers that are needed for provisioning and updating a SDV-image
+will not be available.</p>
+<h3 id="build-time">Build-Time</h3>
+<p>The meta-leda layer provides an opitional distro feature that pre-downloads and injects a minimal set of SDV container images in Kanto&rsquo;s local container registry
+on first boot.</p>
+<p><strong>IMPORTANT</strong>: <strong>This will lead to a significant increase of the image size since all containers are downloaded as self-contained tarballs and therefore &ldquo;layer reuse&rdquo;
+is not possible.</strong></p>
+<p>To enable this distro feature, add to your <code>local.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  <span style="color:#000">DISTRO_FEATURES</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34; airgap-containers&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">PREINSTALLED_CTR_IMAGES_DIR</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/path/to/container/images&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">IMAGE_INSTALL</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34;packagegroup-sdv-airgap-containers&#34;</span>
+</span></span></code></pre></div><p>If you are using the <code>sdv-image-data</code> image recipe <code>packagegroup-sdv-airgap-containers</code> will be automatically installed when the distro-feature is enabled.
+Therefore all you need to add to your <code>local.conf</code> will be:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  <span style="color:#000">DISTRO_FEATURES</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34; airgap-containers&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">PREINSTALLED_CTR_IMAGES_DIR</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;/data/var/containers/images&#34;</span>
+</span></span></code></pre></div><p><em>Note</em>: <em>Here we have assumed that the partition where sdv-image-data is installed is mounted as <code>/data</code> on the rootfs</em>.</p>
+<h3 id="manual">Manual</h3>
+<p>If you do not wish to use the <em>airgap-containers</em> distro-feature, you can manually download inject the container images in the kanto namespace with ctr.</p>
+<ol>
+<li>
+<p>Start on a machine with internet access and docker/ctr installed:</p>
+<p>Pull the container image in your machine&rsquo;s local registry:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ctr -n kanto-cm image pull &lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; --platform linux/&lt;ARCH&gt;
+</span></span></code></pre></div><p>Where if you would like to download the Kuksa Databroker container for an arm64 device you would change the following:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; -&gt; ghcr.io/eclipse/kuksa.val/databroker:0.3.0 
+</span></span><span style="display:flex;"><span>&lt;ARCH&gt; -&gt; arm64
+</span></span></code></pre></div><p>After the pull was successful, export the image as a tarball:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ctr -n kanto-cm images <span style="color:#204a87">export</span> &lt;tarbal_name&gt;.tar &lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; --platform --platform linux/&lt;ARCH&gt;
+</span></span></code></pre></div><p><code>&lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt;</code> and <code>&lt;ARCH&gt;</code> <strong>should</strong> be the same as in the <code>pull</code> command, while <code>&lt;tarball_name&gt;</code> can be any name you would like.</p>
+</li>
+<li>
+<p>Transfer the exported <code>&lt;tarball_name&gt;.tar</code> to your device to a folder of your choosing, e.g. <code>/data/var/containers/images</code></p>
+</li>
+<li>
+<p>Obtain a terminal connection to this device and go to the directory where you transferred the container image tarball.</p>
+</li>
+<li>
+<p>Import the image to the kanto-cm registry by running:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ctr --namespace kanto-cm image import &lt;tarball_name&gt;.tar
+</span></span></code></pre></div><p><em>Note</em>: If you see a message from ctr that the &ldquo;image might be filtered out&rdquo; this means that you might have pulled an image for an architecture that
+does not match the one of your device.</p>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+
+
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-bs-toggle="tooltip" data-bs-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-leda" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        
+        
+        
+          <p class="mt-2"><a href="/leda/docs/about/">About Leda</a></p>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="/leda/js/main.min.b2eb65bca134aef6649d6cc95be369c5c8ee38a4300849e647082d87f0a480a8.js" integrity="sha256-sutlvKE0rvZknWzJW&#43;NpxcjuOKQwCEnmRwgth/CkgKg=" crossorigin="anonymous"></script>
+<script defer src="/leda/js/click-to-copy.min.24576ff9fe9f85bb1948ecae52ce227cafce53757a3ad52301f2a79260f6b97d.js" integrity="sha256-JFdv&#43;f6fhbsZSOyuUs4ifK/OU3V6OtUjAfKnkmD2uX0=" crossorigin="anonymous"></script>
+<script src='/leda/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

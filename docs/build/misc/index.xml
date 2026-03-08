@@ -1,115 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse Leda Documentation – Miscellaneous</title>
+    <title>Miscellaneous on Eclipse Leda Documentation</title>
     <link>https://eclipse-leda.github.io/leda/docs/build/misc/</link>
     <description>Recent content in Miscellaneous on Eclipse Leda Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
-    
-	  <atom:link href="https://eclipse-leda.github.io/leda/docs/build/misc/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 08 Mar 2026 11:22:39 +0100</lastBuildDate>
+    <atom:link href="https://eclipse-leda.github.io/leda/docs/build/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docs: Resource Consumptions</title>
+      <title>Resource Consumptions</title>
       <link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
       <guid>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;baseline-no-apps-installed&#34;&gt;Baseline (no apps installed)&lt;/h2&gt;
-&lt;p&gt;Baseline: 400 MB&lt;/p&gt;
-&lt;p&gt;Installed components:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Container Management: runc, containerd, container-management&lt;/li&gt;
-&lt;li&gt;System Services: systemd, openssh, mosquitto, mosquitto-clients&lt;/li&gt;
-&lt;li&gt;No cloud connector or edgecontainerd yet.&lt;/li&gt;
-&lt;li&gt;No self update agent&lt;/li&gt;
-&lt;li&gt;No containers, no vehicle apps etc.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/bin# df -h
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Filesystem      Size  Used Avail Use% Mounted on
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/root       2.5G  506M  1.8G  22% /
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Memory Usage: 200MB&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/# free
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            total        used        free      shared  buff/cache   available
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Swap:    
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;component-details&#34;&gt;Component Details&lt;/h2&gt;
-&lt;p&gt;Dependencies&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;cni (container networking): 51 MB&lt;/li&gt;
-&lt;li&gt;containerd-ctr: 26 MB&lt;/li&gt;
-&lt;li&gt;containerd: 46 MB&lt;/li&gt;
-&lt;li&gt;dapr cli: 38 MB&lt;/li&gt;
-&lt;li&gt;helm cli: 43 MB&lt;/li&gt;
-&lt;li&gt;runc: 10 MB&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;SDV Components&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;vehicle-data-cli: 2.3 MB (dynamic)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Medium:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux Kernel (Poky minimal / Leda distro kernel): 8 MB / 21 MB&lt;/li&gt;
-&lt;li&gt;oci-image-tool: 9 MB&lt;/li&gt;
-&lt;li&gt;oci-runtime-tool: 7 MB&lt;/li&gt;
-&lt;li&gt;sshd: 1 MB&lt;/li&gt;
-&lt;li&gt;libstdc++: 2 MB&lt;/li&gt;
-&lt;li&gt;lic: 2 MB&lt;/li&gt;
-&lt;li&gt;libcrypto: 3 MB&lt;/li&gt;
-&lt;li&gt;containerd-shim: 7 MB&lt;/li&gt;
-&lt;li&gt;containerd-shim-runc-v1: 9 MB&lt;/li&gt;
-&lt;li&gt;containred-shim-runc-v2: 9 MB&lt;/li&gt;
-&lt;li&gt;libsystemd: 1 MB&lt;/li&gt;
-&lt;li&gt;busybox: 1 MB&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
+      <description>&lt;h2 id=&#34;baseline-no-apps-installed&#34;&gt;Baseline (no apps installed)&lt;/h2&gt;&#xA;&lt;p&gt;Baseline: 400 MB&lt;/p&gt;&#xA;&lt;p&gt;Installed components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Container Management: runc, containerd, container-management&lt;/li&gt;&#xA;&lt;li&gt;System Services: systemd, openssh, mosquitto, mosquitto-clients&lt;/li&gt;&#xA;&lt;li&gt;No cloud connector or edgecontainerd yet.&lt;/li&gt;&#xA;&lt;li&gt;No self update agent&lt;/li&gt;&#xA;&lt;li&gt;No containers, no vehicle apps etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/bin# df -h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Filesystem      Size  Used Avail Use% Mounted on&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/root       2.5G  506M  1.8G  22% /&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;Memory Usage: 200MB&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/# free&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            total        used        free      shared  buff/cache   available&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Swap:    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;component-details&#34;&gt;Component Details&lt;/h2&gt;&#xA;&lt;p&gt;Dependencies&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>Docs: Partition Layout</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/misc/partitioning/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/partitioning/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The bootable Leda Quickstart images are disk image with multiple partitions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Two bootloader partitions, to enable A/B update process&lt;/li&gt;
-&lt;li&gt;A separate partition to hold bootloader status information&lt;/li&gt;
-&lt;li&gt;An optional rescue partition with basic operating system and tooling&lt;/li&gt;
-&lt;li&gt;Two rootfs partitions with a full installation of the operating system, to enable A/B update process&lt;/li&gt;
-&lt;li&gt;A data partition for storing container runtime data&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;partition-layout-for-qemu-x86-64&#34;&gt;Partition Layout for QEMU x86-64&lt;/h2&gt;
-&lt;p&gt;The x86_64 image uses GRUB as a bootloader and the partition layout is as follows:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;leda-disk-layout-qemux86-64.png&#34; alt=&#34;Leda Disk Layout for QEMU x86-64&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;partition-layout-for-qemu-arm-64&#34;&gt;Partition Layout for QEMU ARM-64&lt;/h2&gt;
-&lt;p&gt;The partition layout for QEMU ARM-based images are comparable, except:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Bootloader is replaced with U-Boot&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;partition-layout-for-raspberry-pi&#34;&gt;Partition Layout for Raspberry Pi&lt;/h2&gt;
-&lt;p&gt;The partition layout for Raspberry Pi images are comparable, except:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Bootloader is replaced with U-Boot&lt;/li&gt;
-&lt;li&gt;The last partition (the data partition) is marked as growable, to allow the use of the larger SD-Card capacities for container runtime data&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
   </channel>
 </rss>
