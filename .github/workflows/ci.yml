@@ -45,7 +45,7 @@ jobs:
       - name: Install theme dependencies
         working-directory: ./themes/docsy
         run: |
-          npm ci
+          npm install
 
       - name: Install build dependencies
         run: |
