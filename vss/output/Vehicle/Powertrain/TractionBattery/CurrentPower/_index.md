@@ -1,7 +1,7 @@
 ---
 title: CurrentPower
 
-date: 2023-06-05T12:38:39.854737
+date: 2026-03-08T08:02:46.562578
 no_list: true
 ---
 

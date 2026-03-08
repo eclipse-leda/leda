@@ -1,7 +1,7 @@
 ---
 title: VehicleSeatingCapacity
 
-date: 2023-06-05T12:38:34.771660
+date: 2026-03-08T08:02:44.798941
 no_list: true
 ---
 

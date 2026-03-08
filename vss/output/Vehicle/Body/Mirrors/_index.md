@@ -1,7 +1,7 @@
 ---
 title: Mirrors
 
-date: 2023-06-05T12:38:44.960044
+date: 2026-03-08T08:02:48.899720
 no_list: true
 ---
 
@@ -55,8 +55,8 @@ The UUID for `Vehicle.Body.Mirrors` is `a4ea618914885a239ef5fa62c671a800`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Body.Mirrors.Left](left/) (All mirrors.)
-- [Vehicle.Body.Mirrors.Right](right/) (All mirrors.)
+- [Vehicle.Body.Mirrors.DriverSide](driverside/) (All mirrors.)
+- [Vehicle.Body.Mirrors.PassengerSide](passengerside/) (All mirrors.)
 
 
 ## Feedback

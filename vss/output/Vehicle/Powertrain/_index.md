@@ -1,7 +1,7 @@
 ---
 title: Powertrain
 
-date: 2023-06-05T12:38:36.649890
+date: 2026-03-08T08:02:45.428382
 no_list: true
 ---
 
@@ -57,8 +57,11 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.CombustionEngine](combustionengine/) (Engine-specific data, stopping at the bell housing.)
 - [Vehicle.Powertrain.ElectricMotor](electricmotor/) (Electric Motor specific data.)
 - [Vehicle.Powertrain.FuelSystem](fuelsystem/) (Fuel system data.)
+- [Vehicle.Powertrain.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
 - [Vehicle.Powertrain.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
 - [Vehicle.Powertrain.Range](range/) (Remaining range in meters using all energy sources available in the vehicle.)
+- [Vehicle.Powertrain.RangeExtender](rangeextender/) (Extended Range Electric Vehicle (EREV) specific data.)
+- [Vehicle.Powertrain.TimeRemaining](timeremaining/) (Time remaining in seconds before all energy sources available in the vehicle are empty.)
 - [Vehicle.Powertrain.TractionBattery](tractionbattery/) (Battery Management data.)
 - [Vehicle.Powertrain.Transmission](transmission/) (Transmission-specific data, stopping at the drive shafts.)
 - [Vehicle.Powertrain.Type](type/) (Defines the powertrain type of the vehicle.)

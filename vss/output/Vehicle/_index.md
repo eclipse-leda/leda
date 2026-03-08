@@ -1,7 +1,7 @@
 ---
 title: Vehicle
 
-date: 2023-06-05T12:38:34.113327
+date: 2026-03-08T08:02:44.584810
 no_list: true
 ---
 
@@ -59,14 +59,17 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.CargoVolume](cargovolume/) (The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.)
 - [Vehicle.Chassis](chassis/) (All data concerning steering, suspension, wheels, and brakes.)
 - [Vehicle.Connectivity](connectivity/) (Connectivity data.)
+- [Vehicle.ControlUnit](controlunit/) (Root of the control unit branch)
 - [Vehicle.CurbWeight](curbweight/) (Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers.)
 - [Vehicle.CurrentLocation](currentlocation/) (The current latitude and longitude of the vehicle.)
 - [Vehicle.CurrentOverallWeight](currentoverallweight/) (Current overall Vehicle weight. Including passengers, cargo and other load inside the car.)
+- [Vehicle.Diagnostics](diagnostics/) (Diagnostics data.)
 - [Vehicle.Driver](driver/) (Driver data.)
 - [Vehicle.EmissionsCO2](emissionsco2/) (The CO2 emissions.)
 - [Vehicle.Exterior](exterior/) (Information about exterior measured by vehicle.)
 - [Vehicle.GrossWeight](grossweight/) (Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers.)
 - [Vehicle.Height](height/) (Overall vehicle height.)
+- [Vehicle.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
 - [Vehicle.IsBrokenDown](isbrokendown/) (Vehicle breakdown or any similar event causing vehicle to stop on the road, that might pose a risk to other road users. True = Vehicle broken down on the road, due to e.g. engine problems, flat tire, out of gas, brake problems. False = Vehicle not broken down.)
 - [Vehicle.IsMoving](ismoving/) (Indicates whether the vehicle is stationary or moving.)
 - [Vehicle.Length](length/) (Overall vehicle length.)
@@ -74,7 +77,8 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.LowVoltageSystemState](lowvoltagesystemstate/) (State of the supply voltage of the control units (usually 12V).)
 - [Vehicle.MaxTowBallWeight](maxtowballweight/) (Maximum vertical weight on the tow ball of a trailer.)
 - [Vehicle.MaxTowWeight](maxtowweight/) (Maximum weight of trailer.)
-- [Vehicle.OBD](obd/) (OBD data.)
+- [Vehicle.MotionManagement](motionmanagement/) (Motion Management Information.)
+- [Vehicle.Occupant](occupant/) (Occupant (Driver or Passenger) data.)
 - [Vehicle.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
 - [Vehicle.Powertrain](powertrain/) (Powertrain data for battery management, etc.)
 - [Vehicle.RoofLoad](roofload/) (The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.)
@@ -84,12 +88,14 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Trailer](trailer/) (Trailer signals.)
 - [Vehicle.TraveledDistance](traveleddistance/) (Odometer reading, total distance traveled during the lifetime of the vehicle.)
 - [Vehicle.TraveledDistanceSinceStart](traveleddistancesincestart/) (Distance traveled since start of current trip.)
-- [Vehicle.TravelledDistance](travelleddistance/) (Odometer reading, total distance traveled during the lifetime of the vehicle.)
 - [Vehicle.TripDuration](tripduration/) (Duration of latest trip.)
 - [Vehicle.TripMeterReading](tripmeterreading/) (Trip meter reading.)
+- [Vehicle.TurningDiameter](turningdiameter/) (Minimum turning diameter, Wall-to-Wall, as defined by SAE J1100-2009 D102.)
 - [Vehicle.VehicleIdentification](vehicleidentification/) (Attributes that identify a vehicle.)
 - [Vehicle.VersionVSS](versionvss/) (Supported Version of VSS.)
-- [Vehicle.Width](width/) (Overall vehicle width.)
+- [Vehicle.WidthExcludingMirrors](widthexcludingmirrors/) (Overall vehicle width excluding mirrors, as defined by SAE J1100-2009 W103.)
+- [Vehicle.WidthFoldedMirrors](widthfoldedmirrors/) (Overall vehicle width with mirrors folded, as defined by SAE J1100-2009 W145.)
+- [Vehicle.WidthIncludingMirrors](widthincludingmirrors/) (Overall vehicle width including mirrors, as defined by SAE J1100-2009 W144.)
 
 
 ## Feedback

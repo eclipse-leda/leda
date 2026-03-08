@@ -1,7 +1,7 @@
 ---
 title: FatigueLevel
 
-date: 2023-06-05T12:39:09.149245
+date: 2026-03-08T08:02:57.491777
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Driver.FatigueLevel` |
-| Description: | Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status. |
+| Description: | Fatigue level of the driver, which can be evaluated by multiple factors e.g. trip time, behaviour of steering, eye status. |
 
 ## Navigation
 

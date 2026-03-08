@@ -1,7 +1,7 @@
 ---
 title: TraveledDistanceSinceStart
 
-date: 2023-06-05T12:38:35.244508
+date: 2026-03-08T08:02:44.950665
 no_list: true
 ---
 
@@ -53,22 +53,22 @@ sdv.databroker.v1 > set Vehicle.TraveledDistanceSinceStart 0
 | | | |
 |---|---|---|
 | Path | `Vehicle.TraveledDistanceSinceStart` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
-| Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Unit | `km` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | kilometer | |
-| Description | Distance measured in kilometers | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Data type | `uint32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `m` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | meter | |
+| Description | Length measured in meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
 
 
+**Note:** The `uint32` datatype is an *unsigned 32-bit integer* which technically allows values between 0 and 4294967295 (inclusive).
 
 
 
 
 
-**Note:** The `float` datatype is a *floating point number* which technically allows values between -3.4e ^ -38 and 3.4e ^ 38
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: RearShade
 
-date: 2023-06-05T12:38:45.331397
+date: 2026-03-08T08:02:49.091297
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.RearShade` |
-| Description: | Rear window shade. |
+| Description: | Rear window shade. Open = Retracted, Closed = Deployed. Start position for RearShade is Open/Retracted. |
 
 ## Navigation
 
@@ -55,7 +55,8 @@ The UUID for `Vehicle.Cabin.RearShade` is `8a0c86f4fc6f5ea8ac8cf8f327969dcc`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Cabin.RearShade.Position](position/) (Position of window blind. 0 = Fully retracted. 100 = Fully deployed.)
+- [Vehicle.Cabin.RearShade.IsOpen](isopen/) (Is item open or closed? True = Fully or partially open. False = Fully closed.)
+- [Vehicle.Cabin.RearShade.Position](position/) (Item position. 0 = Start position 100 = End position.)
 - [Vehicle.Cabin.RearShade.Switch](switch/) (Switch controlling sliding action such as window, sunroof, or blind.)
 
 

@@ -1,7 +1,7 @@
 ---
 title: InstantConsumption
 
-date: 2023-06-05T12:38:41.433332
+date: 2026-03-08T08:02:47.549767
 no_list: true
 ---
 
@@ -60,7 +60,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.FuelSystem.InstantConsumption 0
 | Unit | `l/100km` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | liter per 100 kilometers | |
 | Description | Volume per distance measured in liters per 100 kilometers | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | volume per distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | volume-per-distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Minimum value | `0` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 

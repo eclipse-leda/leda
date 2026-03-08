@@ -1,7 +1,7 @@
 ---
 title: Running
 
-date: 2023-06-05T12:38:44.106268
+date: 2026-03-08T08:02:48.574799
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Lights.Running` |
-| Description: | Running lights. |
+| Description: | Daytime running lights (DRL). |
 
 ## Navigation
 

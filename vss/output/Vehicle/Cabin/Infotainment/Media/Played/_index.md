@@ -1,7 +1,7 @@
 ---
 title: Played
 
-date: 2023-06-05T12:38:46.868246
+date: 2026-03-08T08:02:49.627614
 no_list: true
 ---
 
@@ -61,6 +61,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Cabin.Infotainment.Media.Played.Album](album/) (Name of album being played)
 - [Vehicle.Cabin.Infotainment.Media.Played.Artist](artist/) (Name of artist being played)
+- [Vehicle.Cabin.Infotainment.Media.Played.Genre](genre/) (Name of genre being played)
 - [Vehicle.Cabin.Infotainment.Media.Played.PlaybackRate](playbackrate/) (Current playback rate of media being played.)
 - [Vehicle.Cabin.Infotainment.Media.Played.Source](source/) (Media selected for playback)
 - [Vehicle.Cabin.Infotainment.Media.Played.Track](track/) (Name of track being played)

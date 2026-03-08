@@ -1,7 +1,7 @@
 ---
 title: HVAC
 
-date: 2023-06-05T12:38:45.409927
+date: 2026-03-08T08:02:49.131545
 no_list: true
 ---
 
@@ -57,6 +57,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Cabin.HVAC.AmbientAirTemperature](ambientairtemperature/) (Ambient air temperature inside the vehicle.)
 - [Vehicle.Cabin.HVAC.IsAirConditioningActive](isairconditioningactive/) (Is Air conditioning active.)
+- [Vehicle.Cabin.HVAC.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
 - [Vehicle.Cabin.HVAC.IsFrontDefrosterActive](isfrontdefrosteractive/) (Is front defroster active.)
 - [Vehicle.Cabin.HVAC.IsRearDefrosterActive](isreardefrosteractive/) (Is rear defroster active.)
 - [Vehicle.Cabin.HVAC.IsRecirculationActive](isrecirculationactive/) (Is recirculation active.)

@@ -1,7 +1,7 @@
 ---
 title: Front
 
-date: 2023-06-05T12:38:41.881664
+date: 2026-03-08T08:02:47.845183
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Trunk.Front` |
-| Description: | Trunk status. |
+| Description: | Trunk status. Start position for Trunk is Closed. |
 | Comment: | A trunk is a luggage compartment in a vehicle. Depending on vehicle, it can be either in the front or back of the vehicle. Some vehicles may have trunks both at the front and at the rear of the vehicle. |
 
 ## Navigation
@@ -58,8 +58,11 @@ The UUID for `Vehicle.Body.Trunk.Front` is `a455aca5bae55c22b7949fd31a765a6c`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Body.Trunk.Front.IsLocked](islocked/) (Is trunk locked or unlocked. True = Locked. False = Unlocked.)
-- [Vehicle.Body.Trunk.Front.IsOpen](isopen/) (Trunk open or closed. True = Open. False = Closed.)
+- [Vehicle.Body.Trunk.Front.IsLightOn](islighton/) (Is trunk light on)
+- [Vehicle.Body.Trunk.Front.IsLocked](islocked/) (Is item locked or unlocked. True = Locked. False = Unlocked.)
+- [Vehicle.Body.Trunk.Front.IsOpen](isopen/) (Is item open or closed? True = Fully or partially open. False = Fully closed.)
+- [Vehicle.Body.Trunk.Front.Position](position/) (Item position. 0 = Start position 100 = End position.)
+- [Vehicle.Body.Trunk.Front.Switch](switch/) (Switch controlling sliding action such as window, sunroof, or blind.)
 
 
 ## Feedback

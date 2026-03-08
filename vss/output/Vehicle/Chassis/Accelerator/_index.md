@@ -1,7 +1,7 @@
 ---
 title: Accelerator
 
-date: 2023-06-05T12:39:04.862923
+date: 2026-03-08T08:02:57.389838
 no_list: true
 ---
 

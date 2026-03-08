@@ -1,7 +1,7 @@
 ---
 title: Lights
 
-date: 2023-06-05T12:38:43.841843
+date: 2026-03-08T08:02:48.466864
 no_list: true
 ---
 
@@ -65,7 +65,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Body.Lights.LicensePlate](licenseplate/) (License plate lights.)
 - [Vehicle.Body.Lights.LightSwitch](lightswitch/) (Status of the vehicle main light switch.)
 - [Vehicle.Body.Lights.Parking](parking/) (Parking lights.)
-- [Vehicle.Body.Lights.Running](running/) (Running lights.)
+- [Vehicle.Body.Lights.Running](running/) (Daytime running lights (DRL).)
 
 
 ## Feedback

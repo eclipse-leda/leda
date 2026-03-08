@@ -1,7 +1,7 @@
 ---
 title: Navigation
 
-date: 2023-06-05T12:38:47.133456
+date: 2026-03-08T08:02:49.740142
 no_list: true
 ---
 
@@ -58,6 +58,8 @@ The UUID for `Vehicle.Cabin.Infotainment.Navigation` is `79bb0cc4acae5d1eb34fb21
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Cabin.Infotainment.Navigation.DestinationSet](destinationset/) (A navigation has been selected.)
+- [Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice](guidancevoice/) (Navigation guidance state that was selected.)
+- [Vehicle.Cabin.Infotainment.Navigation.Map](map/) (All map actions)
 - [Vehicle.Cabin.Infotainment.Navigation.Mute](mute/) (Navigation mute state that was selected.)
 - [Vehicle.Cabin.Infotainment.Navigation.Volume](volume/) (Current navigation volume)
 

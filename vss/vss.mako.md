@@ -103,9 +103,15 @@ ${'##'} Data Type & Unit
 | Data type | `${node.data_type_str}` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 % if node.has_unit():
 | Unit | `${node.get_unit()}` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | ${unit.label} | |
-| Description | ${unit.description} | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | ${unit.domain} | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+% if hasattr(unit, 'unit') and unit.unit:
+| Label | ${unit.unit} | |
+% endif
+% if hasattr(unit, 'definition') and unit.definition:
+| Description | ${unit.definition} | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+% endif
+% if hasattr(unit, 'quantity') and unit.quantity:
+| Domain | ${unit.quantity} | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+% endif
 % endif
 % if node.min != "":
 | Minimum value | `${node.min}` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |

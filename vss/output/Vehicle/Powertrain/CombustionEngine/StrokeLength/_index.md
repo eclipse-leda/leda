@@ -1,7 +1,7 @@
 ---
 title: StrokeLength
 
-date: 2023-06-05T12:38:36.912600
+date: 2026-03-08T08:02:45.531275
 no_list: true
 ---
 
@@ -59,8 +59,8 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.StrokeLength 0
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `mm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | millimeter | |
-| Description | Distance measured in millimeters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Length measured in millimeters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | length | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Driver
 
-date: 2023-06-05T12:39:08.973191
+date: 2026-03-08T08:02:57.441138
 no_list: true
 ---
 
@@ -54,11 +54,11 @@ The UUID for `Vehicle.Driver` is `1cac57e7b7e756dc8a154eaacbce6426`
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Driver.AttentiveProbability](attentiveprobability/) (Probability of attentiveness of the driver.)
-- [Vehicle.Driver.DistractionLevel](distractionlevel/) (Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls.)
-- [Vehicle.Driver.FatigueLevel](fatiguelevel/) (Fatigueness level of driver. Evaluated by multiple factors like trip time, behaviour of steering, eye status.)
+- [Vehicle.Driver.DistractionLevel](distractionlevel/) (Distraction level of the driver, which can be evaluated by multiple factors e.g. driving situation, acoustical or optical signals inside the cockpit, ongoing phone calls.)
+- [Vehicle.Driver.FatigueLevel](fatiguelevel/) (Fatigue level of the driver, which can be evaluated by multiple factors e.g. trip time, behaviour of steering, eye status.)
 - [Vehicle.Driver.HeartRate](heartrate/) (Heart rate of the driver.)
-- [Vehicle.Driver.Identifier](identifier/) (Identifier attributes based on OAuth 2.0.)
 - [Vehicle.Driver.IsEyesOnRoad](iseyesonroad/) (Has driver the eyes on road or not?)
+- [Vehicle.Driver.IsHandsOnWheel](ishandsonwheel/) (Are the driver's hands on the steering wheel or not?)
 
 
 ## Feedback

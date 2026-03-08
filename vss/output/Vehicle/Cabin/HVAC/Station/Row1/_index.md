@@ -1,7 +1,7 @@
 ---
 title: Row1
 
-date: 2023-06-05T12:38:45.462818
+date: 2026-03-08T08:02:49.151744
 no_list: true
 ---
 
@@ -59,8 +59,8 @@ The UUID for `Vehicle.Cabin.HVAC.Station.Row1` is `80860491fba75babaf3c439d1d471
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Cabin.HVAC.Station.Row1.Left](left/) (HVAC for single station in the vehicle)
-- [Vehicle.Cabin.HVAC.Station.Row1.Right](right/) (HVAC for single station in the vehicle)
+- [Vehicle.Cabin.HVAC.Station.Row1.Driver](driver/) (HVAC for single station in the vehicle)
+- [Vehicle.Cabin.HVAC.Station.Row1.Passenger](passenger/) (HVAC for single station in the vehicle)
 
 
 ## Feedback

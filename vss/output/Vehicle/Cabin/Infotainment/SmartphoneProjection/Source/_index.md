@@ -1,7 +1,7 @@
 ---
 title: Source
 
-date: 2023-06-05T12:38:47.774518
+date: 2026-03-08T08:02:50.034784
 no_list: true
 ---
 
@@ -10,6 +10,7 @@ no_list: true
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.Infotainment.SmartphoneProjection.Source` |
 | Description: | Connectivity source selected for projection. |
+| Comment: | Smartphone projection exposes or controls specific applications on the Smartphone on the vehicle infotainment system. |
 
 ## Navigation
 

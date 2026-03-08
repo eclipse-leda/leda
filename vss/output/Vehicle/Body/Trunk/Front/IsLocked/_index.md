@@ -1,7 +1,7 @@
 ---
 title: IsLocked
 
-date: 2023-06-05T12:38:41.932461
+date: 2026-03-08T08:02:47.855310
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Trunk.Front.IsLocked` |
-| Description: | Is trunk locked or unlocked. True = Locked. False = Unlocked. |
+| Description: | Is item locked or unlocked. True = Locked. False = Unlocked. |
 
 ## Navigation
 

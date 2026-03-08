@@ -1,7 +1,7 @@
 ---
 title: Cabin
 
-date: 2023-06-05T12:38:45.309376
+date: 2026-03-08T08:02:49.081252
 no_list: true
 ---
 
@@ -59,10 +59,12 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Cabin.DriverPosition](driverposition/) (The position of the driver seat in row 1.)
 - [Vehicle.Cabin.HVAC](hvac/) (Climate control)
 - [Vehicle.Cabin.Infotainment](infotainment/) (Infotainment system.)
-- [Vehicle.Cabin.Lights](lights/) (Interior lights signals and sensors.)
+- [Vehicle.Cabin.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
+- [Vehicle.Cabin.IsWindowChildLockEngaged](iswindowchildlockengaged/) (Is window child lock engaged. True = Engaged. False = Disengaged.)
+- [Vehicle.Cabin.Light](light/) (Light that is part of the Cabin.)
 - [Vehicle.Cabin.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
-- [Vehicle.Cabin.RearShade](rearshade/) (Rear window shade.)
-- [Vehicle.Cabin.RearviewMirror](rearviewmirror/) (Rearview mirror.)
+- [Vehicle.Cabin.RearShade](rearshade/) (Rear window shade. Open = Retracted, Closed = Deployed. Start position for RearShade is Open/Retracted.)
+- [Vehicle.Cabin.RearviewMirror](rearviewmirror/) (Rear-view mirror.)
 - [Vehicle.Cabin.Seat](seat/) (All seats.)
 - [Vehicle.Cabin.SeatPosCount](seatposcount/) (Number of seats across each row from the front to the rear.)
 - [Vehicle.Cabin.SeatRowCount](seatrowcount/) (Number of seat rows in vehicle.)

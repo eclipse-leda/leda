@@ -1,7 +1,7 @@
 ---
 title: Trunk
 
-date: 2023-06-05T12:38:41.843258
+date: 2026-03-08T08:02:47.835141
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Trunk` |
-| Description: | Trunk status. |
+| Description: | Trunk status. Start position for Trunk is Closed. |
 | Comment: | A trunk is a luggage compartment in a vehicle. Depending on vehicle, it can be either in the front or back of the vehicle. Some vehicles may have trunks both at the front and at the rear of the vehicle. |
 
 ## Navigation
@@ -56,8 +56,8 @@ The UUID for `Vehicle.Body.Trunk` is `a584c6a5aa235cb88ac686f8d72a1dff`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Body.Trunk.Front](front/) (Trunk status.)
-- [Vehicle.Body.Trunk.Rear](rear/) (Trunk status.)
+- [Vehicle.Body.Trunk.Front](front/) (Trunk status. Start position for Trunk is Closed.)
+- [Vehicle.Body.Trunk.Rear](rear/) (Trunk status. Start position for Trunk is Closed.)
 
 
 ## Feedback

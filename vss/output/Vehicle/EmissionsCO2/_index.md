@@ -1,7 +1,7 @@
 ---
 title: EmissionsCO2
 
-date: 2023-06-05T12:38:35.754326
+date: 2026-03-08T08:02:45.123237
 no_list: true
 ---
 
@@ -56,7 +56,7 @@ sdv.databroker.v1 > set Vehicle.EmissionsCO2 0
 | Unit | `g/km` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | grams per kilometer | |
 | Description | Mass per distance measured in grams per kilometers | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | mass per distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | mass-per-distance | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: ChargeLimit
 
-date: 2023-06-05T12:38:40.089971
+date: 2026-03-08T08:02:47.019384
 no_list: true
 ---
 
@@ -41,7 +41,7 @@ sdv.databroker.v1 > connect
 sdv.databroker.v1 > get Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit
 [get]  OK
 Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit: ( NotAvailable )
-sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit 0
+sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit 100
 [set]  OK
 ```
 
@@ -65,6 +65,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit 
 | Domain | relation | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Minimum value | `0` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 | Maximum value | `100` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Default value | `100` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 **Note:** The `uint8` datatype is an *unsigned 8-bit integer* which technically allows values between 0 and 255 (inclusive).
 

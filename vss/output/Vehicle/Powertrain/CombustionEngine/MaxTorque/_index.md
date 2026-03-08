@@ -1,7 +1,7 @@
 ---
 title: MaxTorque
 
-date: 2023-06-05T12:38:37.173766
+date: 2026-03-08T08:02:45.604883
 no_list: true
 ---
 

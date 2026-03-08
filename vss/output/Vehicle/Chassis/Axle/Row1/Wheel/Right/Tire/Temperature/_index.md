@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2023-06-05T12:39:03.695095
+date: 2026-03-08T08:02:56.838431
 no_list: true
 ---
 
@@ -10,6 +10,7 @@ no_list: true
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature` |
 | Description: | Tire temperature in Celsius. |
+| Deprecation | v6.0 - use RubberTemperature or AirTemperature instead. |
 
 ## Navigation
 
@@ -65,9 +66,9 @@ sdv.databroker.v1 > set Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature 0
 |---|---|---|
 | Path | `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Unit | `celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree celsius | |
-| Description | Temperature measured in degree celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | degree Celsius | |
+| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 | Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 

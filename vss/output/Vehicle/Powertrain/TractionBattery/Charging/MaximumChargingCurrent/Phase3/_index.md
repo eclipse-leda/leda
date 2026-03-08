@@ -1,7 +1,7 @@
 ---
 title: Phase3
 
-date: 2023-06-05T12:38:40.254767
+date: 2026-03-08T08:02:47.069852
 no_list: true
 ---
 
@@ -64,7 +64,7 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.MaximumCharg
 | Unit | `A` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | ampere | |
 | Description | Electric current measured in amperes | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric current | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | electric-current | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

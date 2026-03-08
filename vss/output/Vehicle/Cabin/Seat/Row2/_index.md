@@ -1,7 +1,7 @@
 ---
 title: Row2
 
-date: 2023-06-05T12:38:55.981296
+date: 2026-03-08T08:02:53.480465
 no_list: true
 ---
 
@@ -57,9 +57,9 @@ The UUID for `Vehicle.Cabin.Seat.Row2` is `8c3aaf015ef8595cb45d9461a9c1195f`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Cabin.Seat.Row2.Pos1](pos1/) (All seats.)
-- [Vehicle.Cabin.Seat.Row2.Pos2](pos2/) (All seats.)
-- [Vehicle.Cabin.Seat.Row2.Pos3](pos3/) (All seats.)
+- [Vehicle.Cabin.Seat.Row2.DriverSide](driverside/) (All seats.)
+- [Vehicle.Cabin.Seat.Row2.Middle](middle/) (All seats.)
+- [Vehicle.Cabin.Seat.Row2.PassengerSide](passengerside/) (All seats.)
 
 
 ## Feedback

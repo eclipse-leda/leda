@@ -1,7 +1,7 @@
 ---
 title: Shade
 
-date: 2023-06-05T12:38:47.933226
+date: 2026-03-08T08:02:50.137250
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.Sunroof.Shade` |
-| Description: | Sun roof shade status. |
+| Description: | Sun roof shade status. Open = Retracted, Closed = Deployed. Start position for Sunroof.Shade is Open/Retracted. |
 
 ## Navigation
 
@@ -57,7 +57,8 @@ The UUID for `Vehicle.Cabin.Sunroof.Shade` is `eeaae5977adb5683b16f405993405b2e`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Cabin.Sunroof.Shade.Position](position/) (Position of window blind. 0 = Fully retracted. 100 = Fully deployed.)
+- [Vehicle.Cabin.Sunroof.Shade.IsOpen](isopen/) (Is item open or closed? True = Fully or partially open. False = Fully closed.)
+- [Vehicle.Cabin.Sunroof.Shade.Position](position/) (Item position. 0 = Start position 100 = End position.)
 - [Vehicle.Cabin.Sunroof.Shade.Switch](switch/) (Switch controlling sliding action such as window, sunroof, or blind.)
 
 

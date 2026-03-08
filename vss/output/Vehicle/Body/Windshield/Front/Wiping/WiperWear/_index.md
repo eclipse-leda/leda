@@ -1,7 +1,7 @@
 ---
 title: WiperWear
 
-date: 2023-06-05T12:38:42.589568
+date: 2026-03-08T08:02:48.180880
 no_list: true
 ---
 
@@ -61,6 +61,10 @@ sdv.databroker.v1 > set Vehicle.Body.Windshield.Front.Wiping.WiperWear 0
 |---|---|---|
 | Path | `Vehicle.Body.Windshield.Front.Wiping.WiperWear` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint8` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
+| Unit | `percent` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Label | percent | |
+| Description | Relation measured in percent | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | relation | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Maximum value | `100` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 **Note:** The `uint8` datatype is an *unsigned 8-bit integer* which technically allows values between 0 and 255 (inclusive).

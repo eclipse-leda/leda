@@ -1,7 +1,7 @@
 ---
 title: DistractionLevel
 
-date: 2023-06-05T12:39:09.075045
+date: 2026-03-08T08:02:57.451157
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Driver.DistractionLevel` |
-| Description: | Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls. |
+| Description: | Distraction level of the driver, which can be evaluated by multiple factors e.g. driving situation, acoustical or optical signals inside the cockpit, ongoing phone calls. |
 
 ## Navigation
 

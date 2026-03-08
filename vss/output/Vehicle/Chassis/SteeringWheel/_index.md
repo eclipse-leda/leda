@@ -1,7 +1,7 @@
 ---
 title: SteeringWheel
 
-date: 2023-06-05T12:39:04.730990
+date: 2026-03-08T08:02:57.338696
 no_list: true
 ---
 
@@ -57,7 +57,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Chassis.SteeringWheel.Angle](angle/) (Steering wheel angle. Positive = degrees to the left. Negative = degrees to the right.)
 - [Vehicle.Chassis.SteeringWheel.Extension](extension/) (Steering wheel column extension from dashboard. 0 = Closest to dashboard. 100 = Furthest from dashboard.)
-- [Vehicle.Chassis.SteeringWheel.Position](position/) (Position of the steering wheel on the left or right side of the vehicle.)
+- [Vehicle.Chassis.SteeringWheel.HeatingCooling](heatingcooling/) (Heating or Cooling requsted for the Item. -100 = Maximum cooling, 0 = Heating/cooling deactivated, 100 = Maximum heating.)
 - [Vehicle.Chassis.SteeringWheel.Tilt](tilt/) (Steering wheel column tilt. 0 = Lowest position. 100 = Highest position.)
 
 

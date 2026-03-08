@@ -1,7 +1,7 @@
 ---
 title: RearviewMirror
 
-date: 2023-06-05T12:38:48.065514
+date: 2026-03-08T08:02:50.178648
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Cabin.RearviewMirror` |
-| Description: | Rearview mirror. |
+| Description: | Rear-view mirror. |
 
 ## Navigation
 
@@ -55,7 +55,7 @@ The UUID for `Vehicle.Cabin.RearviewMirror` is `e655b654ab9f55bbb04952a99755efae
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Cabin.RearviewMirror.DimmingLevel](dimminglevel/) (Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed.)
+- [Vehicle.Cabin.RearviewMirror.DimmingLevel](dimminglevel/) (Dimming level of rear-view mirror. 0 = Undimmed. 100 = Fully dimmed.)
 
 
 ## Feedback

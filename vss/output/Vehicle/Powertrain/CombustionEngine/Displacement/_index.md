@@ -1,7 +1,7 @@
 ---
 title: Displacement
 
-date: 2023-06-05T12:38:36.878932
+date: 2026-03-08T08:02:45.521127
 no_list: true
 ---
 

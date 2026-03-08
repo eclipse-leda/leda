@@ -1,7 +1,7 @@
 ---
 title: TripDuration
 
-date: 2023-06-05T12:38:35.304151
+date: 2026-03-08T08:02:44.970709
 no_list: true
 ---
 
@@ -10,7 +10,7 @@ no_list: true
 |---|---|
 | Full qualified VSS Path: | `Vehicle.TripDuration` |
 | Description: | Duration of latest trip. |
-| Comment: | This signal is not assumed to be continuously updated, but instead set to 0 when a trip starts and set to the the actual duration of the trip when a trip ends. A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode). A trip is considered to end when engine is no longer enabled. |
+| Comment: | This signal is not assumed to be continuously updated, but instead set to 0 when a trip starts and set to the actual duration of the trip when a trip ends. A new trip is considered to start when engine gets enabled (e.g. LowVoltageSystemState in ON or START mode). A trip is considered to end when engine is no longer enabled. |
 
 ## Navigation
 
@@ -56,8 +56,8 @@ sdv.databroker.v1 > set Vehicle.TripDuration 0
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `s` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | second | |
-| Description | Time measured in seconds | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | time | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Description | Duration measured in seconds | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Domain | duration | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

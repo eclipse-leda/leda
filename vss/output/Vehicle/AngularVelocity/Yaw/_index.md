@@ -1,7 +1,7 @@
 ---
 title: Yaw
 
-date: 2023-06-05T12:38:35.644696
+date: 2026-03-08T08:02:45.092536
 no_list: true
 ---
 
@@ -58,7 +58,7 @@ sdv.databroker.v1 > set Vehicle.AngularVelocity.Yaw 0
 | Unit | `degrees/s` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Label | degree per second | |
 | Description | Angular speed measured in degrees per second | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | angular speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
+| Domain | angular-speed | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Tire
 
-date: 2023-06-05T12:39:04.486769
+date: 2026-03-08T08:02:57.216169
 no_list: true
 ---
 
@@ -63,8 +63,10 @@ The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire` is `d855fe9ffb4e52be83
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.AirTemperature](airtemperature/) (Air temperature inside the tire in Celsius.)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.IsPressureLow](ispressurelow/) (Tire Pressure Status. True = Low tire pressure. False = Good tire pressure.)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.Pressure](pressure/) (Tire pressure in kilo-Pascal.)
+- [Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.RubberTemperature](rubbertemperature/) (Rubber temperature of the tire in Celsius.)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.Temperature](temperature/) (Tire temperature in Celsius.)
 
 

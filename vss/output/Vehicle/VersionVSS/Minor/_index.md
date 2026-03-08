@@ -1,7 +1,7 @@
 ---
 title: Minor
 
-date: 2023-06-05T12:38:34.176616
+date: 2026-03-08T08:02:44.615820
 no_list: true
 ---
 
@@ -37,7 +37,7 @@ sdv.databroker.v1 > connect
 sdv.databroker.v1 > get Vehicle.VersionVSS.Minor
 [get]  OK
 Vehicle.VersionVSS.Minor: ( NotAvailable )
-sdv.databroker.v1 > set Vehicle.VersionVSS.Minor 1
+sdv.databroker.v1 > set Vehicle.VersionVSS.Minor 0
 [set]  OK
 ```
 
@@ -55,7 +55,7 @@ sdv.databroker.v1 > set Vehicle.VersionVSS.Minor 1
 |---|---|---|
 | Path | `Vehicle.VersionVSS.Minor` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Default value | `1` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Default value | `0` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 
 

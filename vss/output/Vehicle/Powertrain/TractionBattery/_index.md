@@ -1,7 +1,7 @@
 ---
 title: TractionBattery
 
-date: 2023-06-05T12:38:39.164992
+date: 2026-03-08T08:02:46.278356
 no_list: true
 ---
 
@@ -59,11 +59,14 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.TractionBattery.AccumulatedChargedThroughput](accumulatedchargedthroughput/) (The accumulated charge throughput delivered to the battery during charging over lifetime of the battery.)
 - [Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy](accumulatedconsumedenergy/) (The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.)
 - [Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroughput](accumulatedconsumedthroughput/) (The accumulated charge throughput leaving HV battery for propulsion and auxiliary loads over lifetime of the battery.)
+- [Vehicle.Powertrain.TractionBattery.BatteryConditioning](batteryconditioning/) (Properties related to preparing the vehicle battery for charging or driving.)
+- [Vehicle.Powertrain.TractionBattery.CellVoltage](cellvoltage/) (Voltage information for cells in the battery pack.)
 - [Vehicle.Powertrain.TractionBattery.Charging](charging/) (Properties related to battery charging.)
 - [Vehicle.Powertrain.TractionBattery.CurrentCurrent](currentcurrent/) (Current current flowing in/out of battery. Positive = Current flowing in to battery, e.g. during charging. Negative = Current flowing out of battery, e.g. during driving.)
 - [Vehicle.Powertrain.TractionBattery.CurrentPower](currentpower/) (Current electrical energy flowing in/out of battery. Positive = Energy flowing in to battery, e.g. during charging. Negative = Energy flowing out of battery, e.g. during driving.)
 - [Vehicle.Powertrain.TractionBattery.CurrentVoltage](currentvoltage/) (Current Voltage of the battery.)
 - [Vehicle.Powertrain.TractionBattery.DCDC](dcdc/) (Properties related to DC/DC converter converting high voltage (from high voltage battery) to vehicle low voltage (supply voltage, typically 12 Volts).)
+- [Vehicle.Powertrain.TractionBattery.ErrorCodes](errorcodes/) (Current error codes related to the battery, if any.)
 - [Vehicle.Powertrain.TractionBattery.GrossCapacity](grosscapacity/) (Gross capacity of the battery.)
 - [Vehicle.Powertrain.TractionBattery.Id](id/) (Battery Identification Number as assigned by OEM.)
 - [Vehicle.Powertrain.TractionBattery.IsGroundConnected](isgroundconnected/) (Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.)
@@ -77,6 +80,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.TractionBattery.StateOfCharge](stateofcharge/) (Information on the state of charge of the vehicle's high voltage battery.)
 - [Vehicle.Powertrain.TractionBattery.StateOfHealth](stateofhealth/) (Calculated battery state of health at standard conditions.)
 - [Vehicle.Powertrain.TractionBattery.Temperature](temperature/) (Temperature Information for the battery pack.)
+- [Vehicle.Powertrain.TractionBattery.TimeRemaining](timeremaining/) (Time remaining in seconds before the battery is empty.)
 
 
 ## Feedback

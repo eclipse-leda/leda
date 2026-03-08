@@ -1,7 +1,7 @@
 ---
 title: Hood
 
-date: 2023-06-05T12:38:41.804555
+date: 2026-03-08T08:02:47.794660
 no_list: true
 ---
 
@@ -9,7 +9,7 @@ no_list: true
 | | |
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Body.Hood` |
-| Description: | Hood status. |
+| Description: | Hood status. Start position for Hood is Closed. |
 | Comment: | The hood is the hinged cover over the engine compartment of a motor vehicles. Depending on vehicle, it can be either in the front or back of the vehicle. Luggage compartments are in VSS called trunks, even if they are located at the front of the vehicle. |
 
 ## Navigation
@@ -56,7 +56,9 @@ The UUID for `Vehicle.Body.Hood` is `84510652bf915bbe8bf5f477aab2b44a`
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Body.Hood.IsOpen](isopen/) (Hood open or closed. True = Open. False = Closed.)
+- [Vehicle.Body.Hood.IsOpen](isopen/) (Is item open or closed? True = Fully or partially open. False = Fully closed.)
+- [Vehicle.Body.Hood.Position](position/) (Item position. 0 = Start position 100 = End position.)
+- [Vehicle.Body.Hood.Switch](switch/) (Switch controlling sliding action such as window, sunroof, or blind.)
 
 
 ## Feedback

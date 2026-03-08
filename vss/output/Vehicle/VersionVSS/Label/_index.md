@@ -1,7 +1,7 @@
 ---
 title: Label
 
-date: 2023-06-05T12:38:34.241976
+date: 2026-03-08T08:02:44.636105
 no_list: true
 ---
 
@@ -10,6 +10,7 @@ no_list: true
 |---|---|
 | Full qualified VSS Path: | `Vehicle.VersionVSS.Label` |
 | Description: | Label to further describe the version. |
+| Comment: | COVESA VSS project typically use dev for latest master, and empty string for released versions. |
 
 ## Navigation
 

@@ -1,7 +1,7 @@
 ---
 title: Body
 
-date: 2023-06-05T12:38:41.688156
+date: 2026-03-08T08:02:47.774310
 no_list: true
 ---
 
@@ -54,15 +54,15 @@ The UUID for `Vehicle.Body` is `bd2854e6a9165c5698ce8dd9f0438ecc`
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Body.BodyType](bodytype/) (Body type code as defined by ISO 3779.)
-- [Vehicle.Body.Hood](hood/) (Hood status.)
+- [Vehicle.Body.Hood](hood/) (Hood status. Start position for Hood is Closed.)
 - [Vehicle.Body.Horn](horn/) (Horn signals.)
+- [Vehicle.Body.IsAutoPowerOptimize](isautopoweroptimize/) (Auto Power Optimization Flag When set to 'true', the system enables automatic power optimization, dynamically adjusting the power optimization level based on runtime conditions or features managed by the OEM. When set to 'false', manual control of the power optimization level is allowed.)
 - [Vehicle.Body.Lights](lights/) (Exterior lights.)
 - [Vehicle.Body.Mirrors](mirrors/) (All mirrors.)
 - [Vehicle.Body.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
-- [Vehicle.Body.Raindetection](raindetection/) (Rainsensor signals.)
+- [Vehicle.Body.Raindetection](raindetection/) (Rain sensor signals.)
 - [Vehicle.Body.RearMainSpoilerPosition](rearmainspoilerposition/) (Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed.)
-- [Vehicle.Body.RefuelPosition](refuelposition/) (Location of the fuel cap or charge port.)
-- [Vehicle.Body.Trunk](trunk/) (Trunk status.)
+- [Vehicle.Body.Trunk](trunk/) (Trunk status. Start position for Trunk is Closed.)
 - [Vehicle.Body.Windshield](windshield/) (Windshield signals.)
 
 

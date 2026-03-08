@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2023-06-05T12:38:39.321942
+date: 2026-03-08T08:02:46.339870
 no_list: true
 ---
 
@@ -58,6 +58,7 @@ The UUID for `Vehicle.Powertrain.TractionBattery.Temperature` is `1cfbcf8c152959
 This vehicle signal is a branch or structure and thus has sub-pages:
 
 - [Vehicle.Powertrain.TractionBattery.Temperature.Average](average/) (Current average temperature of the battery cells.)
+- [Vehicle.Powertrain.TractionBattery.Temperature.CellTemperature](celltemperature/) (Array of cell temperatures. Length or array shall correspond to number of cells in vehicle.)
 - [Vehicle.Powertrain.TractionBattery.Temperature.Max](max/) (Current maximum temperature of the battery cells, i.e. temperature of the hottest cell.)
 - [Vehicle.Powertrain.TractionBattery.Temperature.Min](min/) (Current minimum temperature of the battery cells, i.e. temperature of the coldest cell.)
 
