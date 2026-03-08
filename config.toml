@@ -54,12 +54,7 @@ pygmentsStyle = "tango"
 blog = "/:section/:year/:month/:day/:slug/"
 
 ## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-plainIDAnchors = true
-hrefTargetBlank = true
-angledQuotes = false
-latexDashes = true
-
+# [blackfriday] is deprecated since Hugo 0.60 and removed in favor of Goldmark (see [markup] section)
 # Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
@@ -229,19 +224,13 @@ permalinkable = false
 [module]
 [module.hugoVersion]
 extended = true
-min = "0.73.0"
+min = "0.146.0"
   [[module.mounts]]
     source = 'content/en'
     target = 'content'
   [[module.mounts]]
     source = 'assets'
     target = 'assets'
-  [[module.mounts]]
-    source = 'node_modules/bootstrap'
-    target = 'assets/vendor/bootstrap'
-  [[module.mounts]]
-    source = 'node_modules/@fortawesome/fontawesome-free'
-    target = 'assets/vendor/Font-Awesome'
   [[module.mounts]]
     source = "i18n"
     target = "i18n"
@@ -255,7 +244,6 @@ min = "0.73.0"
     source = 'vss/output/Vehicle'
     lang = 'en'
     target = 'content/docs/vss/Vehicle'
-  
 
 # https://www.docsy.dev/docs/adding-content/search/#algolia-docsearch
 #[params.search]
