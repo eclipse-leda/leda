@@ -54,7 +54,7 @@ jobs:
       - name: Build
         run: |
           echo "Build documentation for GitHub Pages"
-          hugo
+          PATH="$PWD/node_modules/.bin:$PATH" hugo
 
 # only publish pages if it's the upstream
       - name: Publish to GH Pages
