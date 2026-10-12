@@ -43,9 +43,8 @@ jobs:
           git clone --branch theme/v0.18.0 --depth 1 https://github.com/docsy/docsy.git themes/docsy
 
       - name: Install theme dependencies
-        working-directory: ./themes/docsy/theme
         run: |
-          npm ci --ignore-scripts --omit=dev --omit=peer --no-audit --no-fund
+          npm ci --prefix themes/docsy/theme --workspaces=false --ignore-scripts --omit=dev --omit=peer --no-audit --no-fund
 
       - name: Install build dependencies
         run: |
