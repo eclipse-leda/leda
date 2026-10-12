@@ -1,7 +1,7 @@
 ---
 title: Powertrain
 
-date: 2026-03-08T08:02:45.428382
+date: 2026-10-12T19:51:21.248865
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.Powertrain` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain` is `12f35ec7bd1c58d1a329565ce3d053d5`
 
 ## Children
 

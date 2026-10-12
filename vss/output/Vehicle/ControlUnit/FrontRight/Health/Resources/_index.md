@@ -1,7 +1,7 @@
 ---
 title: Resources
 
-date: 2026-03-08T08:03:00.323612
+date: 2026-10-12T19:51:35.576470
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontRight.Health.Resources` is a **Bran
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontRight.Health.Resources` is `9adc304dcef250b183d37e85193a0226`
 
 ## Children
 

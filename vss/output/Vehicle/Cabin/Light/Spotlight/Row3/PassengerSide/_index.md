@@ -1,7 +1,7 @@
 ---
 title: PassengerSide
 
-date: 2026-03-08T08:02:50.485543
+date: 2026-10-12T19:51:26.517828
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Light.Spotlight.Row3.PassengerSide` is a **Bra
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.Spotlight.Row3.PassengerSide` is `69b6df651e9b5154b46c5709ce167fb6`
 
 ## Children
 

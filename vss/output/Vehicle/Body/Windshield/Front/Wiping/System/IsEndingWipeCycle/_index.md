@@ -1,7 +1,7 @@
 ---
 title: IsEndingWipeCycle
 
-date: 2026-03-08T08:02:48.129935
+date: 2026-10-12T19:51:24.491715
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System.IsEndingWipeCycl
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System.IsEndingWipeCycle` is `5000f7f0c39e5fed9a95413ae4166482`
 
 
 ## Feedback

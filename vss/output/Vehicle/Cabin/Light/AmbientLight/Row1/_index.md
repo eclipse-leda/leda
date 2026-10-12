@@ -1,7 +1,7 @@
 ---
 title: Row1
 
-date: 2026-03-08T08:02:50.627153
+date: 2026-10-12T19:51:26.637088
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Cabin.Light.AmbientLight.Row1` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.AmbientLight.Row1` is `b3447dca710f51e39ed1af3d240f8851`
 
 ## Children
 

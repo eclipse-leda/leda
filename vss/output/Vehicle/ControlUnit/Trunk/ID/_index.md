@@ -1,7 +1,7 @@
 ---
 title: ID
 
-date: 2026-03-08T08:03:01.020544
+date: 2026-10-12T19:51:36.152897
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.ID` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.ID` is `32b57a30dc905320b2bad520e89a92cc`
 
 
 ## Feedback

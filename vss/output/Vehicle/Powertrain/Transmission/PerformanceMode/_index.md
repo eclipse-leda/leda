@@ -1,7 +1,7 @@
 ---
 title: PerformanceMode
 
-date: 2026-03-08T08:02:46.034364
+date: 2026-10-12T19:51:21.692423
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.PerformanceMode` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.PerformanceMode` is `6b5cfd85cb595e559503ccf993be04dd`
 
 
 ## Feedback

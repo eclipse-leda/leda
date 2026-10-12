@@ -1,7 +1,7 @@
 ---
 title: Id
 
-date: 2026-03-08T08:02:46.288570
+date: 2026-10-12T19:51:22.847459
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Id` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Id` is `c8279874660c55b38c7ac64a8503a519`
 
 
 ## Feedback

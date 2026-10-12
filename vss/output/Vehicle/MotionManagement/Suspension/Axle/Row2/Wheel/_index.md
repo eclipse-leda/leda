@@ -1,7 +1,7 @@
 ---
 title: Wheel
 
-date: 2026-03-08T08:02:59.731996
+date: 2026-10-12T19:51:35.096560
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.Axle.Row2.Wheel` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.Axle.Row2.Wheel` is `dc4736439ef35ceeba1d0b42138b92c5`
 
 ## Children
 

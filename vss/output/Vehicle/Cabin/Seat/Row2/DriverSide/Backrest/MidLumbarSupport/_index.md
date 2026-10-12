@@ -1,7 +1,7 @@
 ---
 title: MidLumbarSupport
 
-date: 2026-03-08T08:02:53.685758
+date: 2026-10-12T19:51:29.094682
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.DriverSide.Backrest.MidLumbarSupport
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.DriverSide.Backrest.MidLumbarSupport` is `56e8e6e9b30b5d22865bbfbf2cbac2b5`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsChargingCableLocked
 
-date: 2026-03-08T08:02:46.908539
+date: 2026-10-12T19:51:23.381886
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.Rea
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.RearMiddle.IsChargingCableLocked` is `5f5f0bf7734d576f92b4e26e51b2f381`
 
 
 ## Feedback

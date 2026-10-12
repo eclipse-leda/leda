@@ -1,7 +1,7 @@
 ---
 title: Major
 
-date: 2026-03-08T08:02:44.605710
+date: 2026-10-12T19:51:33.303614
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.VersionVSS.Major` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VersionVSS.Major` is `5edf1a338c975cbb84d4ce3cfe1aa4b4`
 
 
 ## Feedback

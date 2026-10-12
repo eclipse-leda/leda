@@ -1,7 +1,7 @@
 ---
 title: RollTorqueTarget
 
-date: 2026-03-08T08:02:59.527907
+date: 2026-10-12T19:51:34.930738
 no_list: true
 ---
 
@@ -58,9 +58,6 @@ sdv.databroker.v1 > set Vehicle.MotionManagement.Suspension.RollTorqueTarget 0
 | Path | `Vehicle.MotionManagement.Suspension.RollTorqueTarget` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `int16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Nm` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | newton meter | |
-| Description | Torque measured in newton meters | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | torque | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -88,11 +85,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.RollTorqueTarget` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.RollTorqueTarget` is `e1aee15e51d35a6fb8969b6dc7cfd1fd`
 
 
 ## Feedback

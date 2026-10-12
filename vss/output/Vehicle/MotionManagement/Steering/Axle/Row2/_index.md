@@ -1,7 +1,7 @@
 ---
 title: Row2
 
-date: 2026-03-08T08:02:59.467117
+date: 2026-10-12T19:51:34.879680
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.Axle.Row2` is a **Branch**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.Axle.Row2` is `0382036275a0528f806d0c511be3cb3b`
 
 ## Children
 

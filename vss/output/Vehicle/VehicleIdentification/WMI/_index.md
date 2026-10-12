@@ -1,7 +1,7 @@
 ---
 title: WMI
 
-date: 2026-03-08T08:02:44.666769
+date: 2026-10-12T19:51:33.356081
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.WMI` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.WMI` is `e7c86defbcd554a79f90ba85de58e133`
 
 
 ## Feedback

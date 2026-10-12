@@ -1,7 +1,7 @@
 ---
 title: Diagnostics
 
-date: 2026-03-08T08:02:58.512489
+date: 2026-10-12T19:51:34.032007
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.Diagnostics` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Diagnostics` is `26ac66b7dd5e5cbea0295843e2a2a09d`
 
 ## Children
 

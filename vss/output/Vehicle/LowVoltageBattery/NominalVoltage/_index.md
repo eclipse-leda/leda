@@ -1,7 +1,7 @@
 ---
 title: NominalVoltage
 
-date: 2026-03-08T08:02:44.890179
+date: 2026-10-12T19:51:33.546603
 no_list: true
 ---
 
@@ -57,9 +57,6 @@ sdv.databroker.v1 > set Vehicle.LowVoltageBattery.NominalVoltage 0
 | Path | `Vehicle.LowVoltageBattery.NominalVoltage` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `V` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | volt | |
-| Description | Electric potential measured in volts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | voltage | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -87,11 +84,6 @@ The vehicle signal `Vehicle.LowVoltageBattery.NominalVoltage` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.LowVoltageBattery.NominalVoltage` is `bd5d4b6ee33f507fb49782505c3040e0`
 
 
 ## Feedback

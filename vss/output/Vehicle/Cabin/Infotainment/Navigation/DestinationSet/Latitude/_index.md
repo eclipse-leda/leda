@@ -1,7 +1,7 @@
 ---
 title: Latitude
 
-date: 2026-03-08T08:02:49.760156
+date: 2026-10-12T19:51:25.927335
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitud
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude` is `3e33f3252934565d86de5409c761262b`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Switch
 
-date: 2026-03-08T08:02:47.886165
+date: 2026-10-12T19:51:24.259309
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Body.Trunk.Front.Switch` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Trunk.Front.Switch` is `63a651cd414652aba970a937af0b3621`
 
 
 ## Feedback

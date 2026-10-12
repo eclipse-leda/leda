@@ -1,7 +1,7 @@
 ---
 title: Color
 
-date: 2026-03-08T08:02:50.566247
+date: 2026-10-12T19:51:26.580035
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Light.Spotlight.Row4.DriverSide.Color` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.Spotlight.Row4.DriverSide.Color` is `6cc3fc21887c593a90d799209dcc40c0`
 
 
 ## Feedback

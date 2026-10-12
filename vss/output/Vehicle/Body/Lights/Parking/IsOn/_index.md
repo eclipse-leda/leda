@@ -1,7 +1,7 @@
 ---
 title: IsOn
 
-date: 2026-03-08T08:02:48.645754
+date: 2026-10-12T19:51:24.920719
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Lights.Parking.IsOn` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Parking.IsOn` is `6ba0825427335408ad7d0f148d6250ea`
 
 
 ## Feedback

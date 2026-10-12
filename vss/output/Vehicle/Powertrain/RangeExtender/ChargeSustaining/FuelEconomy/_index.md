@@ -1,7 +1,7 @@
 ---
 title: FuelEconomy
 
-date: 2026-03-08T08:02:47.743738
+date: 2026-10-12T19:51:24.042347
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.RangeExtender.ChargeSustaining.FuelEconom
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.RangeExtender.ChargeSustaining.FuelEconomy` is `b1cca487316a507faf2dbc371ca295ff`
 
 
 ## Feedback

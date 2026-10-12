@@ -1,7 +1,7 @@
 ---
 title: IsDeadlineTriggered
 
-date: 2026-03-08T08:03:00.211265
+date: 2026-10-12T19:51:35.477774
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontLeft.Health.SWSupervision.IsDeadlin
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontLeft.Health.SWSupervision.IsDeadlineTriggered` is `105d3a325b7d55dcb4ad5f8bf3266f05`
 
 
 ## Feedback

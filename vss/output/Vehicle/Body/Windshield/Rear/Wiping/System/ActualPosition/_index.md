@@ -1,7 +1,7 @@
 ---
 title: ActualPosition
 
-date: 2026-03-08T08:02:48.324259
+date: 2026-10-12T19:51:24.645470
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Body.Windshield.Rear.Wiping.System.ActualPosition` i
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Rear.Wiping.System.ActualPosition` is `eddee2607a135582bbcf3d3afc845892`
 
 
 ## Feedback

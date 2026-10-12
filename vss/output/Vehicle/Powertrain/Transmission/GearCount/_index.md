@@ -1,7 +1,7 @@
 ---
 title: GearCount
 
-date: 2026-03-08T08:02:45.953212
+date: 2026-10-12T19:51:21.630570
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.GearCount` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.GearCount` is `84293f40d3ed57f1a08992d97b1a9ccd`
 
 
 ## Feedback

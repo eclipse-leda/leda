@@ -1,7 +1,7 @@
 ---
 title: PedalPosition
 
-date: 2026-03-08T08:02:57.420627
+date: 2026-10-12T19:51:32.142306
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.Brake.PedalPosition` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Brake.PedalPosition` is `0477d3a4a831564ea473976cf34374f2`
 
 
 ## Feedback

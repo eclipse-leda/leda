@@ -1,7 +1,7 @@
 ---
 title: TrackWidth
 
-date: 2026-03-08T08:02:56.909980
+date: 2026-10-12T19:51:31.655393
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.TrackWidth` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.TrackWidth` is `b6c5ba52f1985f179c9346edbabe2f9b`
 
 
 ## Feedback

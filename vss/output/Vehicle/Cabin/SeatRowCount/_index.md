@@ -1,7 +1,7 @@
 ---
 title: SeatRowCount
 
-date: 2026-03-08T08:02:55.460464
+date: 2026-10-12T19:51:30.496689
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Cabin.SeatRowCount` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.SeatRowCount` is `1002a7a4a954581b9cbc72fa438c5292`
 
 
 ## Feedback

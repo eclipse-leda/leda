@@ -1,7 +1,7 @@
 ---
 title: IsLightOn
 
-date: 2026-03-08T08:02:47.957370
+date: 2026-10-12T19:51:24.271210
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Body.Trunk.Rear.IsLightOn` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Trunk.Rear.IsLightOn` is `a1065214515c5f7aa86f51eb7bf36664`
 
 
 ## Feedback

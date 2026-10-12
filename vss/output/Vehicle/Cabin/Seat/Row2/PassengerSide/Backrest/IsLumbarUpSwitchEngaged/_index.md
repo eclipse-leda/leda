@@ -1,7 +1,7 @@
 ---
 title: IsLumbarUpSwitchEngaged
 
-date: 2026-03-08T08:02:55.105874
+date: 2026-10-12T19:51:30.230264
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.IsLumbarUpSwi
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.IsLumbarUpSwitchEngaged` is `2d2f3ae194275e4a956206c610d36505`
 
 
 ## Feedback

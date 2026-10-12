@@ -1,7 +1,7 @@
 ---
 title: IsParkLockEngaged
 
-date: 2026-03-08T08:02:46.003586
+date: 2026-10-12T19:51:21.666615
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.IsParkLockEngaged` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.IsParkLockEngaged` is `1578da3f925e54ac9df978abd0195408`
 
 
 ## Feedback

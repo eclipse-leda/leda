@@ -1,7 +1,7 @@
 ---
 title: LowVoltageBattery
 
-date: 2026-03-08T08:02:44.880213
+date: 2026-10-12T19:51:33.538360
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.LowVoltageBattery` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.LowVoltageBattery` is `ab8c5816d44f55b68f6e1d6d9e5acb0b`
 
 ## Children
 

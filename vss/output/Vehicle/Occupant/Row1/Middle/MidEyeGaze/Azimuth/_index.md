@@ -1,7 +1,7 @@
 ---
 title: Azimuth
 
-date: 2026-03-08T08:02:57.797815
+date: 2026-10-12T19:51:32.511483
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Occupant.Row1.Middle.MidEyeGaze.Azimuth` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row1.Middle.MidEyeGaze.Azimuth` is `e0dc657083845a33b8e327612c6d833b`
 
 
 ## Feedback

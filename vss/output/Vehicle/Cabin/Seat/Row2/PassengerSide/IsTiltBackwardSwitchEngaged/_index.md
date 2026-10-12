@@ -1,7 +1,7 @@
 ---
 title: IsTiltBackwardSwitchEngaged
 
-date: 2026-03-08T08:02:55.419922
+date: 2026-10-12T19:51:30.460658
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.IsTiltBackwardSwitchEn
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.IsTiltBackwardSwitchEngaged` is `c39848a520535ad08b528affec046627`
 
 
 ## Feedback

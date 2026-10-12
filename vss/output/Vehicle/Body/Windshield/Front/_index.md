@@ -1,7 +1,7 @@
 ---
 title: Front
 
-date: 2026-03-08T08:02:48.018862
+date: 2026-10-12T19:51:24.378466
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front` is `8f0c61e4e4f557d98729210fc3c74f72`
 
 ## Children
 

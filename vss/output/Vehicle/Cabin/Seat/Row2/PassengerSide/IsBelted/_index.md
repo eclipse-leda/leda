@@ -1,7 +1,7 @@
 ---
 title: IsBelted
 
-date: 2026-03-08T08:02:54.820586
+date: 2026-10-12T19:51:30.031513
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.IsBelted` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.IsBelted` is `c7d63d6c97845df5b602791f700968f7`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: HeatingCooling
 
-date: 2026-03-08T08:02:52.208115
+date: 2026-10-12T19:51:28.442595
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.HeatingCooling` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.HeatingCooling` is `fa7d96abfc2351fbbac29047c3bb46cd`
 
 
 ## Feedback

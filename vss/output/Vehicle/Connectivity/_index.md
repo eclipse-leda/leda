@@ -1,7 +1,7 @@
 ---
 title: Connectivity
 
-date: 2026-03-08T08:02:58.491869
+date: 2026-10-12T19:51:33.275541
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.Connectivity` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Connectivity` is `89c267fccea35f3da9871cca2b4dc4df`
 
 ## Children
 

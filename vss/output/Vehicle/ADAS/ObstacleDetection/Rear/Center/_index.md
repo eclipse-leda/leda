@@ -1,7 +1,7 @@
 ---
 title: Center
 
-date: 2026-03-08T08:02:55.992846
+date: 2026-10-12T19:51:30.893114
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Center` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Center` is `f960a037787b5d5886af910b392f81a0`
 
 ## Children
 

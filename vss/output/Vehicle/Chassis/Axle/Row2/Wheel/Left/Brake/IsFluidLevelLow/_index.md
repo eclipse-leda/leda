@@ -1,7 +1,7 @@
 ---
 title: IsFluidLevelLow
 
-date: 2026-03-08T08:02:57.042059
+date: 2026-10-12T19:51:31.780400
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsFluidLevelLow` 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsFluidLevelLow` is `01f57161b0bf539fad1d2bfa9d9a9fc4`
 
 
 ## Feedback

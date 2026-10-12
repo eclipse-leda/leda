@@ -1,7 +1,7 @@
 ---
 title: IsError
 
-date: 2026-03-08T08:02:56.199900
+date: 2026-10-12T19:51:31.040857
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.TCS.IsError` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.TCS.IsError` is `08f88723ba63558b8c804b8fe8e3f149`
 
 
 ## Feedback

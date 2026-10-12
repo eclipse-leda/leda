@@ -1,7 +1,7 @@
 ---
 title: IsAutoPowerOptimize
 
-date: 2026-03-08T08:02:55.511350
+date: 2026-10-12T19:51:30.538577
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.Cabin.IsAutoPowerOptimize` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.IsAutoPowerOptimize` is `b1fa47b39a275bea8606460005de2b33`
 
 
 ## Feedback

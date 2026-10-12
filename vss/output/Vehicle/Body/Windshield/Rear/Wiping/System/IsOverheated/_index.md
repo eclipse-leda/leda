@@ -1,7 +1,7 @@
 ---
 title: IsOverheated
 
-date: 2026-03-08T08:02:48.395565
+date: 2026-10-12T19:51:24.707036
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Body.Windshield.Rear.Wiping.System.IsOverheated` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Rear.Wiping.System.IsOverheated` is `d30bc6f33b995ef491c252980a559ee2`
 
 
 ## Feedback

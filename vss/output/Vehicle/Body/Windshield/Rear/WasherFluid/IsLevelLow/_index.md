@@ -1,7 +1,7 @@
 ---
 title: IsLevelLow
 
-date: 2026-03-08T08:02:48.446383
+date: 2026-10-12T19:51:24.751349
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Body.Windshield.Rear.WasherFluid.IsLevelLow` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Rear.WasherFluid.IsLevelLow` is `8ca0356548ae54e8af3aeace49e5ed71`
 
 
 ## Feedback

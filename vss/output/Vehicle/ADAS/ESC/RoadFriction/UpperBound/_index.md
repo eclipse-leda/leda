@@ -1,7 +1,7 @@
 ---
 title: UpperBound
 
-date: 2026-03-08T08:02:56.301099
+date: 2026-10-12T19:51:31.105168
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.ADAS.ESC.RoadFriction.UpperBound` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ESC.RoadFriction.UpperBound` is `ad0415a799575fcd8d1f49bed9a2baeb`
 
 
 ## Feedback

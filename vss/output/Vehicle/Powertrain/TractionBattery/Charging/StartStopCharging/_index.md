@@ -1,7 +1,7 @@
 ---
 title: StartStopCharging
 
-date: 2026-03-08T08:02:47.100370
+date: 2026-10-12T19:51:23.526883
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.StartStopChargin
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging` is `80506d3e9a2557c2b52f74a50d89593f`
 
 
 ## Feedback

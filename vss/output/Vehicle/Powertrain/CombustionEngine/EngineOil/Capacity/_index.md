@@ -1,7 +1,7 @@
 ---
 title: Capacity
 
-date: 2026-03-08T08:02:45.677244
+date: 2026-10-12T19:51:21.407674
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.EngineOil.Capacity` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.EngineOil.Capacity` is `4994d5d3b6135a96b5be175d9e6581b0`
 
 
 ## Feedback

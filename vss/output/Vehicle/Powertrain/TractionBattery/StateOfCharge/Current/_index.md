@@ -1,7 +1,7 @@
 ---
 title: Current
 
-date: 2026-03-08T08:02:46.492194
+date: 2026-10-12T19:51:23.015778
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.StateOfCharge.Current` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.StateOfCharge.Current` is `2e647ca3a1ff5e52af137aab240642da`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: AngularSpeed
 
-date: 2026-03-08T08:02:57.144203
+date: 2026-10-12T19:51:31.881586
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Left.AngularSpeed` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Left.AngularSpeed` is `b2eab35705f257e3958bc96fec8bde01`
 
 
 ## Feedback

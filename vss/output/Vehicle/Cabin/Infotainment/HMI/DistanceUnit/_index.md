@@ -1,7 +1,7 @@
 ---
 title: DistanceUnit
 
-date: 2026-03-08T08:02:49.882136
+date: 2026-10-12T19:51:26.026680
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.HMI.DistanceUnit` is a **Signal**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.HMI.DistanceUnit` is `4b40e8bdb1a053ee9ee35338d8804e7b`
 
 
 ## Feedback

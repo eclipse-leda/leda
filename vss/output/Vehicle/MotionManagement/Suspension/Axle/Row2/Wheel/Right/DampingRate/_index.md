@@ -1,7 +1,7 @@
 ---
 title: DampingRate
 
-date: 2026-03-08T08:02:59.814044
+date: 2026-10-12T19:51:35.162128
 no_list: true
 ---
 
@@ -99,11 +99,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.Axle.Row2.Wheel.Right.Da
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.Axle.Row2.Wheel.Right.DampingRate` is `7467db21c7c85b149dc00cb9e264b429`
 
 
 ## Feedback

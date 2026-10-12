@@ -1,7 +1,7 @@
 ---
 title: IsCoolerSwitchEngaged
 
-date: 2026-03-08T08:02:52.074619
+date: 2026-10-12T19:51:27.825374
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.IsCoolerSwitchEngaged` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.IsCoolerSwitchEngaged` is `eef66b5a7b8953a5969bb6cf12c35f9a`
 
 
 ## Feedback

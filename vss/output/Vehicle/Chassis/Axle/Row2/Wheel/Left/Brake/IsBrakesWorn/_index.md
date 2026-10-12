@@ -1,7 +1,7 @@
 ---
 title: IsBrakesWorn
 
-date: 2026-03-08T08:02:57.062293
+date: 2026-10-12T19:51:31.798489
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsBrakesWorn` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsBrakesWorn` is `3d9bae5bf0705de99789ecea26b99a5c`
 
 
 ## Feedback

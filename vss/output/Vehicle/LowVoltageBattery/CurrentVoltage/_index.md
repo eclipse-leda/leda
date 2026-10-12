@@ -1,7 +1,7 @@
 ---
 title: CurrentVoltage
 
-date: 2026-03-08T08:02:44.910252
+date: 2026-10-12T19:51:33.563492
 no_list: true
 ---
 
@@ -56,9 +56,6 @@ sdv.databroker.v1 > set Vehicle.LowVoltageBattery.CurrentVoltage 0
 | Path | `Vehicle.LowVoltageBattery.CurrentVoltage` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `V` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | volt | |
-| Description | Electric potential measured in volts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | voltage | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -86,11 +83,6 @@ The vehicle signal `Vehicle.LowVoltageBattery.CurrentVoltage` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.LowVoltageBattery.CurrentVoltage` is `1394234e8b975a279959ae82e03df786`
 
 
 ## Feedback

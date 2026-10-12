@@ -1,7 +1,7 @@
 ---
 title: Subject
 
-date: 2026-03-08T08:02:57.991446
+date: 2026-10-12T19:51:32.682688
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Occupant.Row2.DriverSide.Identifier.Subject` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row2.DriverSide.Identifier.Subject` is `4c6821a6567c5b2c9d59310006a21ab7`
 
 
 ## Feedback

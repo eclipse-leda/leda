@@ -1,7 +1,7 @@
 ---
 title: ActiveAutonomyLevel
 
-date: 2026-03-08T08:02:55.531773
+date: 2026-10-12T19:51:30.555209
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.ActiveAutonomyLevel` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ActiveAutonomyLevel` is `b101c6928fc55948b1cc485e568ecd8d`
 
 
 ## Feedback

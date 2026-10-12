@@ -1,7 +1,7 @@
 ---
 title: Rear
 
-date: 2026-03-08T08:02:47.906482
+date: 2026-10-12T19:51:24.265382
 no_list: true
 ---
 
@@ -48,11 +48,6 @@ The vehicle signal `Vehicle.Body.Trunk.Rear` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Trunk.Rear` is `a6170ff5e4325f38b5d57402e1d95e5a`
 
 ## Children
 

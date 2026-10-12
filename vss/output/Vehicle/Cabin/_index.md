@@ -1,7 +1,7 @@
 ---
 title: Cabin
 
-date: 2026-03-08T08:02:49.081252
+date: 2026-10-12T19:51:25.309749
 no_list: true
 ---
 
@@ -43,16 +43,12 @@ The vehicle signal `Vehicle.Cabin` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin` is `1a94457b237f5e8eb3c77c0532ac88d7`
 
 ## Children
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.Cabin.AirQuality](airquality/) (Signals describing the composition of the air inside the vehicle cabin.)
 - [Vehicle.Cabin.Convertible](convertible/) (Convertible roof.)
 - [Vehicle.Cabin.Door](door/) (All doors, including windows and switches.)
 - [Vehicle.Cabin.DoorCount](doorcount/) (Number of doors in vehicle.)

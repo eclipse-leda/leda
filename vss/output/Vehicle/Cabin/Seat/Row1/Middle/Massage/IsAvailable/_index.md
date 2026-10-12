@@ -1,7 +1,7 @@
 ---
 title: IsAvailable
 
-date: 2026-03-08T08:02:52.228923
+date: 2026-10-12T19:51:27.951908
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.Massage.IsAvailable` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.Massage.IsAvailable` is `f7cedbf5663656928b614ef0f52b7aa6`
 
 
 ## Feedback

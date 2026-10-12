@@ -1,7 +1,7 @@
 ---
 title: LowerBound
 
-date: 2026-03-08T08:02:56.290865
+date: 2026-10-12T19:51:31.095907
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.ADAS.ESC.RoadFriction.LowerBound` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ESC.RoadFriction.LowerBound` is `634289f58b5d511ea9979f04a9d0f2ab`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Row1
 
-date: 2026-03-08T08:02:58.858390
+date: 2026-10-12T19:51:34.349831
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.MotionManagement.Brake.Axle.Row1` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Brake.Axle.Row1` is `2a8510bfc2de5c14ae2f4797a9d3a4c1`
 
 ## Children
 

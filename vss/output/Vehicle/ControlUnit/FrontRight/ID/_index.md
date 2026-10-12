@@ -1,7 +1,7 @@
 ---
 title: ID
 
-date: 2026-03-08T08:03:00.436002
+date: 2026-10-12T19:51:35.675250
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontRight.ID` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontRight.ID` is `4da6f9cee7395cd4be5830eb3b8c0e3f`
 
 
 ## Feedback

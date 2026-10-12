@@ -1,7 +1,7 @@
 ---
 title: DampingForceTarget
 
-date: 2026-03-08T08:02:59.640376
+date: 2026-10-12T19:51:35.019540
 no_list: true
 ---
 
@@ -67,9 +67,6 @@ sdv.databroker.v1 > set Vehicle.MotionManagement.Suspension.Axle.Row1.Wheel.Left
 | Path | `Vehicle.MotionManagement.Suspension.Axle.Row1.Wheel.Left.DampingForceTarget` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `int16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `N` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | newton | |
-| Description | Force measured in newton | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | force | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -97,11 +94,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.Axle.Row1.Wheel.Left.Dam
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.Axle.Row1.Wheel.Left.DampingForceTarget` is `dea80d4c5b1154bda0fce9d24952393a`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: RequestedMode
 
-date: 2026-03-08T08:02:47.417907
+date: 2026-10-12T19:51:23.757588
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.BatteryConditioning.Reque
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.BatteryConditioning.RequestedMode` is `2cce7f31c670560d89502a20f2abb8f3`
 
 
 ## Feedback

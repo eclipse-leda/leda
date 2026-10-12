@@ -1,7 +1,7 @@
 ---
 title: Row2
 
-date: 2026-03-08T08:02:49.243297
+date: 2026-10-12T19:51:25.443695
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.Station.Row2` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.Station.Row2` is `d98e8f5f94da5acfbf428c635a8bcc0c`
 
 ## Children
 

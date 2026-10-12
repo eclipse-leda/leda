@@ -1,7 +1,7 @@
 ---
 title: EmissionsCO2
 
-date: 2026-03-08T08:02:45.123237
+date: 2026-10-12T19:51:33.773707
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.EmissionsCO2` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.EmissionsCO2` is `b73e8f1ed17d584fad3f088c666dc2a5`
 
 
 ## Feedback

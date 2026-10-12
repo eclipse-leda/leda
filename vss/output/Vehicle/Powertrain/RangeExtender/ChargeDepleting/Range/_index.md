@@ -1,7 +1,7 @@
 ---
 title: Range
 
-date: 2026-03-08T08:02:47.723472
+date: 2026-10-12T19:51:24.023191
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.RangeExtender.ChargeDepleting.Range` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.RangeExtender.ChargeDepleting.Range` is `ce970150781f51699673cfce2ebea639`
 
 
 ## Feedback

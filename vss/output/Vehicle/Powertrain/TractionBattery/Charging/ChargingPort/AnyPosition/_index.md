@@ -1,7 +1,7 @@
 ---
 title: AnyPosition
 
-date: 2026-03-08T08:02:46.969051
+date: 2026-10-12T19:51:23.430025
 no_list: true
 ---
 
@@ -52,11 +52,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.Any
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.AnyPosition` is `4be233c9affa582b807eedc10aa844f7`
 
 ## Children
 

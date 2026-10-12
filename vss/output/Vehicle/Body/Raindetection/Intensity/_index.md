@@ -1,7 +1,7 @@
 ---
 title: Intensity
 
-date: 2026-03-08T08:02:47.998423
+date: 2026-10-12T19:51:24.341204
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Body.Raindetection.Intensity` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Raindetection.Intensity` is `1ee0a2f22e8257d299425a4ff2652555`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: HVAC
 
-date: 2026-03-08T08:02:49.131545
+date: 2026-10-12T19:51:25.352891
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Cabin.HVAC` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC` is `f8ff34337cdf568e91ab406a365c3249`
 
 ## Children
 

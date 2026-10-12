@@ -1,7 +1,7 @@
 ---
 title: Steering
 
-date: 2026-03-08T08:02:59.265003
+date: 2026-10-12T19:51:34.706613
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering` is `6eb2d5f15cf951429d61e28eb6e4f3f0`
 
 ## Children
 

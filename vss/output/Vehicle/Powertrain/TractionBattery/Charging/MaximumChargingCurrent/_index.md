@@ -1,7 +1,7 @@
 ---
 title: MaximumChargingCurrent
 
-date: 2026-03-08T08:02:47.029506
+date: 2026-10-12T19:51:23.479022
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingC
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent` is `e3f2e57e7a395d9ca9931d429e540a34`
 
 ## Children
 

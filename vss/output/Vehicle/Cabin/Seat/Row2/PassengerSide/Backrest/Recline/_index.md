@@ -1,7 +1,7 @@
 ---
 title: Recline
 
-date: 2026-03-08T08:02:54.963624
+date: 2026-10-12T19:51:30.118866
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.Recline` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.Recline` is `6e3669fe31425539a49a2235c11bd5b5`
 
 
 ## Feedback

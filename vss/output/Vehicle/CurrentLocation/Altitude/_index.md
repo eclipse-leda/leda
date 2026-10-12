@@ -1,7 +1,7 @@
 ---
 title: Altitude
 
-date: 2026-03-08T08:02:45.326406
+date: 2026-10-12T19:51:33.954285
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.CurrentLocation.Altitude` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.Altitude` is `d3ead98ab0b751c1a5b5dd5bc0e5e216`
 
 
 ## Feedback

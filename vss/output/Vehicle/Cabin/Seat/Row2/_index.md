@@ -1,7 +1,7 @@
 ---
 title: Row2
 
-date: 2026-03-08T08:02:53.480465
+date: 2026-10-12T19:51:28.937444
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2` is `8c3aaf015ef8595cb45d9461a9c1195f`
 
 ## Children
 

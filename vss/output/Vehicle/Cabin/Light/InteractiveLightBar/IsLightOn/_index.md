@@ -1,7 +1,7 @@
 ---
 title: IsLightOn
 
-date: 2026-03-08T08:02:50.819600
+date: 2026-10-12T19:51:26.817823
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Cabin.Light.InteractiveLightBar.IsLightOn` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.InteractiveLightBar.IsLightOn` is `7c858ba899585fd6bb65a981db056fd7`
 
 
 ## Feedback

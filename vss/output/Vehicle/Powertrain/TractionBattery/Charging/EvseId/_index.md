@@ -1,7 +1,7 @@
 ---
 title: EvseId
 
-date: 2026-03-08T08:02:47.232592
+date: 2026-10-12T19:51:23.625800
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.EvseId` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.EvseId` is `5cd32296574a5f0db05434ecb24ea778`
 
 
 ## Feedback

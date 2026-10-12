@@ -1,7 +1,7 @@
 ---
 title: Height
 
-date: 2026-03-08T08:02:51.939900
+date: 2026-10-12T19:51:27.713426
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Headrest.Height` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Headrest.Height` is `51de4b90534a5f089a9d81d53a663704`
 
 
 ## Feedback

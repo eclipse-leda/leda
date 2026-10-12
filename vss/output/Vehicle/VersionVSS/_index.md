@@ -1,7 +1,7 @@
 ---
 title: VersionVSS
 
-date: 2026-03-08T08:02:44.595470
+date: 2026-10-12T19:51:33.294342
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.VersionVSS` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VersionVSS` is `9a687e56f1305eedb20f6a021ea58f48`
 
 ## Children
 

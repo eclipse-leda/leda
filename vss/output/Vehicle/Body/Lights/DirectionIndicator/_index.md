@@ -1,7 +1,7 @@
 ---
 title: DirectionIndicator
 
-date: 2026-03-08T08:02:48.829321
+date: 2026-10-12T19:51:25.078073
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.DirectionIndicator` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.DirectionIndicator` is `0566cb97d05c554eb88a07142f2475ac`
 
 ## Children
 

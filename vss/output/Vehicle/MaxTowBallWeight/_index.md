@@ -1,7 +1,7 @@
 ---
 title: MaxTowBallWeight
 
-date: 2026-03-08T08:02:45.173406
+date: 2026-10-12T19:51:33.816884
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.MaxTowBallWeight` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MaxTowBallWeight` is `fec550f2064750e8b65b54fbf1368d68`
 
 
 ## Feedback

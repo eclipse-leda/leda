@@ -1,7 +1,7 @@
 ---
 title: DampingPrioTarget
 
-date: 2026-03-08T08:02:59.517738
+date: 2026-10-12T19:51:34.922589
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.DampingPrioTarget` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.DampingPrioTarget` is `a59b894978a15b7a95397d2e5c2acd29`
 
 
 ## Feedback

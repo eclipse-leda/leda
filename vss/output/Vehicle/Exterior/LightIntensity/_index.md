@@ -1,7 +1,7 @@
 ---
 title: LightIntensity
 
-date: 2026-03-08T08:02:58.441096
+date: 2026-10-12T19:51:33.070131
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Exterior.LightIntensity` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Exterior.LightIntensity` is `9b46b70490f853e891e1cc35dd08dddc`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: TopLumbarSupport
 
-date: 2026-03-08T08:02:51.694580
+date: 2026-10-12T19:51:27.495182
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest.TopLumbarSupport
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest.TopLumbarSupport` is `73bcc076ae3b50169c8acf778e138e64`
 
 
 ## Feedback

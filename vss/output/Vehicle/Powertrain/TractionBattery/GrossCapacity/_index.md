@@ -1,7 +1,7 @@
 ---
 title: GrossCapacity
 
-date: 2026-03-08T08:02:46.451700
+date: 2026-10-12T19:51:22.982070
 no_list: true
 ---
 
@@ -58,9 +58,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.GrossCapacity 0
 | Path | `Vehicle.Powertrain.TractionBattery.GrossCapacity` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `kWh` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | kilowatt hours | |
-| Description | Energy consumption measured in kilowatt hours | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | work | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -88,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.GrossCapacity` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.GrossCapacity` is `5460530488435dc8bfa1298bf47a993d`
 
 
 ## Feedback

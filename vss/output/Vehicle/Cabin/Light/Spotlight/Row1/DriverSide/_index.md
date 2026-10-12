@@ -1,7 +1,7 @@
 ---
 title: DriverSide
 
-date: 2026-03-08T08:02:50.259429
+date: 2026-10-12T19:51:26.343702
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Light.Spotlight.Row1.DriverSide` is a **Branch
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.Spotlight.Row1.DriverSide` is `39ac4414f40754e2ab28a6bb10b397bb`
 
 ## Children
 

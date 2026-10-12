@@ -1,7 +1,7 @@
 ---
 title: IsStrongCrossWindDetected
 
-date: 2026-03-08T08:02:56.260454
+date: 2026-10-12T19:51:31.073358
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.ESC.IsStrongCrossWindDetected` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ESC.IsStrongCrossWindDetected` is `ebfd609531345c37914b89e553df80cb`
 
 
 ## Feedback

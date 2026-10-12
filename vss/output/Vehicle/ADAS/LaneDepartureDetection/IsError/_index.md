@@ -1,7 +1,7 @@
 ---
 title: IsError
 
-date: 2026-03-08T08:02:55.670131
+date: 2026-10-12T19:51:30.644786
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.LaneDepartureDetection.IsError` is a **Signal**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.LaneDepartureDetection.IsError` is `73b2fc4f6a4952e4b7886671450e7798`
 
 
 ## Feedback

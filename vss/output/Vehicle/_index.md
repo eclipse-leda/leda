@@ -1,7 +1,7 @@
 ---
 title: Vehicle
 
-date: 2026-03-08T08:02:44.584810
+date: 2026-10-12T19:51:21.234209
 no_list: true
 ---
 
@@ -40,11 +40,6 @@ The vehicle signal `Vehicle` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle` is `ccc825f94139544dbb5f4bfd033bece6`
 
 ## Children
 
@@ -79,9 +74,11 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.MaxTowWeight](maxtowweight/) (Maximum weight of trailer.)
 - [Vehicle.MotionManagement](motionmanagement/) (Motion Management Information.)
 - [Vehicle.Occupant](occupant/) (Occupant (Driver or Passenger) data.)
+- [Vehicle.Orientation](orientation/) (Spatial orientation. Axis definitions according to ISO 8855.)
 - [Vehicle.PowerOptimizeLevel](poweroptimizelevel/) (Power optimization level for this branch/subsystem. A higher number indicates more aggressive power optimization. Level 0 indicates that all functionality is enabled, no power optimization enabled. Level 10 indicates most aggressive power optimization mode, only essential functionality enabled.)
 - [Vehicle.Powertrain](powertrain/) (Powertrain data for battery management, etc.)
 - [Vehicle.RoofLoad](roofload/) (The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.)
+- [Vehicle.Safety](safety/) (Safety-related derived signals for crash detection and emergency response.)
 - [Vehicle.Service](service/) (Service data.)
 - [Vehicle.Speed](speed/) (Vehicle speed.)
 - [Vehicle.StartTime](starttime/) (Start time of current or latest trip, formatted according to ISO 8601 with UTC time zone.)

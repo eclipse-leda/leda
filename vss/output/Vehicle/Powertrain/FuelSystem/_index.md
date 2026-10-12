@@ -1,7 +1,7 @@
 ---
 title: FuelSystem
 
-date: 2026-03-08T08:02:47.458325
+date: 2026-10-12T19:51:23.787872
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem` is `dbc194a7f97d5a56bc8942c17c2db22e`
 
 ## Children
 
@@ -64,6 +59,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.FuelSystem.DriveFuelEconomy](drivefueleconomy/) (Average fuel economy for the current drive cycle, calculated from engine start to current time.)
 - [Vehicle.Powertrain.FuelSystem.HybridType](hybridtype/) (Defines the hybrid type of the vehicle.)
 - [Vehicle.Powertrain.FuelSystem.InstantConsumption](instantconsumption/) (Current consumption in liters per 100 km.)
+- [Vehicle.Powertrain.FuelSystem.InstantFuelEconomy](instantfueleconomy/) (Real-time instantaneous fuel economy calculated over a short time window.)
 - [Vehicle.Powertrain.FuelSystem.InstantantFuelEconomy](instantantfueleconomy/) (Real-time instantaneous fuel economy calculated over a short time window.)
 - [Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled](isenginestopstartenabled/) (Indicates whether eco start stop is currently enabled.)
 - [Vehicle.Powertrain.FuelSystem.IsFuelLevelEmpty](isfuellevelempty/) (Indicates that the fuel gauge on the instrument cluster displays empty (0).)

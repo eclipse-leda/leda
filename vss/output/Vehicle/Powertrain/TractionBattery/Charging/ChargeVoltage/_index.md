@@ -1,7 +1,7 @@
 ---
 title: ChargeVoltage
 
-date: 2026-03-08T08:02:47.161065
+date: 2026-10-12T19:51:23.569681
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage` i
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage` is `7170151d653b52c6bb5e75cb0a14d1c5`
 
 ## Children
 

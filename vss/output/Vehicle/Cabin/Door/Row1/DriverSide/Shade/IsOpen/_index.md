@@ -1,7 +1,7 @@
 ---
 title: IsOpen
 
-date: 2026-03-08T08:02:51.000772
+date: 2026-10-12T19:51:26.916656
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Door.Row1.DriverSide.Shade.IsOpen` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door.Row1.DriverSide.Shade.IsOpen` is `112a180977c956aab6c5422cb6cc46e7`
 
 
 ## Feedback

@@ -1,6 +1,6 @@
 # Update the NODE_VERSION arg in docker-compose.yml to pick a Node version: 18, 16, 14
-ARG NODE_VERSION=16
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${NODE_VERSION}
+ARG NODE_VERSION=26
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${NODE_VERSION}
 
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
 ARG VARIANT=hugo
@@ -8,7 +8,7 @@ ARG VARIANT=hugo
 ARG VERSION=latest
 
 # Download Hugo
-RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
+RUN apt-get update && apt-get install -y ca-certificates openssl git curl python3-pip && \
     rm -rf /var/lib/apt/lists/* && \
     case ${VERSION} in \
     latest) \
@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     wget -O ${VERSION}.tar.gz https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${VARIANT}_${VERSION}_Linux-${ARCH}.tar.gz && \
     tar xf ${VERSION}.tar.gz && \
     mv hugo /usr/bin/hugo
+RUN pip install vss-tools mako --break-system-packages
 
 # Hugo dev server port
 EXPOSE 1313

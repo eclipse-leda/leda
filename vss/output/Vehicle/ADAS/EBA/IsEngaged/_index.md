@@ -1,7 +1,7 @@
 ---
 title: IsEngaged
 
-date: 2026-03-08T08:02:56.382333
+date: 2026-10-12T19:51:31.172942
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.EBA.IsEngaged` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.EBA.IsEngaged` is `86360c44ead354d18af7ff14176151f6`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsMoreLumbarSupportSwitchEngaged
 
-date: 2026-03-08T08:02:54.433187
+date: 2026-10-12T19:51:29.718171
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.Middle.Backrest.IsMoreLumbarSupportS
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.Middle.Backrest.IsMoreLumbarSupportSwitchEngaged` is `b482182275465841bca69b86f9a1e537`
 
 
 ## Feedback

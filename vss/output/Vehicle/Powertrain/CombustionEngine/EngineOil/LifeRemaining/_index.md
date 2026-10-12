@@ -1,7 +1,7 @@
 ---
 title: LifeRemaining
 
-date: 2026-03-08T08:02:45.698312
+date: 2026-10-12T19:51:21.425265
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.EngineOil.LifeRemaining`
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.EngineOil.LifeRemaining` is `5acb9268489850acb2eee1b7f663aea3`
 
 
 ## Feedback

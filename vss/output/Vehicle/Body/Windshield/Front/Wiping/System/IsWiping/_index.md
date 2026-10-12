@@ -1,7 +1,7 @@
 ---
 title: IsWiping
 
-date: 2026-03-08T08:02:48.119799
+date: 2026-10-12T19:51:24.482443
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System.IsWiping` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System.IsWiping` is `2015a4610d7a5fbdbb63b260640838e6`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Switch
 
-date: 2026-03-08T08:02:47.824811
+date: 2026-10-12T19:51:24.187241
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Body.Hood.Switch` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Hood.Switch` is `256f856f00725f1fbd733b78f864c10d`
 
 
 ## Feedback

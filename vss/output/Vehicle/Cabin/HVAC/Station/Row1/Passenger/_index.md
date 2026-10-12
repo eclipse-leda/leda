@@ -1,7 +1,7 @@
 ---
 title: Passenger
 
-date: 2026-03-08T08:02:49.202529
+date: 2026-10-12T19:51:25.412327
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.Station.Row1.Passenger` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.Station.Row1.Passenger` is `e536a7f5f6a05ff48f26f96ef5772455`
 
 ## Children
 

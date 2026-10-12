@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2026-03-08T08:02:46.339870
+date: 2026-10-12T19:51:22.889241
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Temperature` is a **Branc
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Temperature` is `1cfbcf8c152959dcb3eb2c54fc42e623`
 
 ## Children
 

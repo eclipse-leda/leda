@@ -1,7 +1,7 @@
 ---
 title: Brand
 
-date: 2026-03-08T08:02:44.677072
+date: 2026-10-12T19:51:33.364137
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.Brand` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.Brand` is `19fd645ff5385767bcdbf5dd4313483f`
 
 
 ## Feedback

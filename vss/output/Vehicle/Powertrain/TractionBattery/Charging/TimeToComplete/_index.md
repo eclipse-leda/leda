@@ -1,7 +1,7 @@
 ---
 title: TimeToComplete
 
-date: 2026-03-08T08:02:47.314741
+date: 2026-10-12T19:51:23.683479
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete` 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete` is `c6439c2e068652b08383b9654e2e784a`
 
 
 ## Feedback

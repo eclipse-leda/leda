@@ -1,7 +1,7 @@
 ---
 title: IsEnabled
 
-date: 2026-03-08T08:02:56.078334
+date: 2026-10-12T19:51:30.958534
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Right.IsEnabled` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Right.IsEnabled` is `53f04539ba5a53358488f9879b8d4fdc`
 
 
 ## Feedback

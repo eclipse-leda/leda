@@ -1,7 +1,7 @@
 ---
 title: Yaw
 
-date: 2026-03-08T08:02:45.092536
+date: 2026-10-12T19:51:33.716769
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.AngularVelocity.Yaw` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.AngularVelocity.Yaw` is `4114c41552565c1f9035670cabe2a611`
 
 
 ## Feedback

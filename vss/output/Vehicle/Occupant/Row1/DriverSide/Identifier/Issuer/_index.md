@@ -1,7 +1,7 @@
 ---
 title: Issuer
 
-date: 2026-03-08T08:02:57.562310
+date: 2026-10-12T19:51:32.271414
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Occupant.Row1.DriverSide.Identifier.Issuer` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row1.DriverSide.Identifier.Issuer` is `f97f70d1be805fad801b925df888d638`
 
 
 ## Feedback

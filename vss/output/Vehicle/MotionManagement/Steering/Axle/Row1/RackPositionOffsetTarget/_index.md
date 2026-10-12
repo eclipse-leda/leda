@@ -1,7 +1,7 @@
 ---
 title: RackPositionOffsetTarget
 
-date: 2026-03-08T08:02:59.426443
+date: 2026-10-12T19:51:34.849412
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.Axle.Row1.RackPositionOffs
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.Axle.Row1.RackPositionOffsetTarget` is `6d217376af7f5c36a1cb156f8ea94f68`
 
 
 ## Feedback

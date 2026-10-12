@@ -1,7 +1,7 @@
 ---
 title: Accelerator
 
-date: 2026-03-08T08:02:57.389838
+date: 2026-10-12T19:51:32.114955
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Chassis.Accelerator` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Accelerator` is `3b2b562086a45eb29c55186f3b710621`
 
 ## Children
 

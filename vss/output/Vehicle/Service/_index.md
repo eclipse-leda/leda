@@ -1,7 +1,7 @@
 ---
 title: Service
 
-date: 2026-03-08T08:02:58.451362
+date: 2026-10-12T19:51:33.236579
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.Service` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Service` is `b6463772705b56a7a993e23601bd3d47`
 
 ## Children
 

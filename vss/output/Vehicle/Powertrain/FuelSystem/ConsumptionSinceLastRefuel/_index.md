@@ -1,7 +1,7 @@
 ---
 title: ConsumptionSinceLastRefuel
 
-date: 2026-03-08T08:02:47.580212
+date: 2026-10-12T19:51:23.895628
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.ConsumptionSinceLastRefuel` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.ConsumptionSinceLastRefuel` is `79d18a88c39757aba435444a8c1c0079`
 
 
 ## Feedback

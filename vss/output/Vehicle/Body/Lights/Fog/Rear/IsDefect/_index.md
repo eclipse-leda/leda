@@ -1,7 +1,7 @@
 ---
 title: IsDefect
 
-date: 2026-03-08T08:02:48.697385
+date: 2026-10-12T19:51:24.963954
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Body.Lights.Fog.Rear.IsDefect` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Fog.Rear.IsDefect` is `1d44e594ffa35d73a6f620f479eeef4c`
 
 
 ## Feedback

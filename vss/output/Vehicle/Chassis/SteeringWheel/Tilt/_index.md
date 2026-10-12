@@ -1,7 +1,7 @@
 ---
 title: Tilt
 
-date: 2026-03-08T08:02:57.359299
+date: 2026-10-12T19:51:32.087436
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.SteeringWheel.Tilt` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.SteeringWheel.Tilt` is `33e979769f91521d8080384447d06c00`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: WheelWidth
 
-date: 2026-03-08T08:02:56.544096
+date: 2026-10-12T19:51:31.336777
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1.WheelWidth` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1.WheelWidth` is `5b92bdab1e035ff4ba000330e20f826b`
 
 
 ## Feedback

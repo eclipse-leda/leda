@@ -1,7 +1,7 @@
 ---
 title: SeatBeltHeight
 
-date: 2026-03-08T08:02:53.521258
+date: 2026-10-12T19:51:28.977473
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.DriverSide.SeatBeltHeight` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.DriverSide.SeatBeltHeight` is `6a6313644782587d84fb04eb2c6397d8`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: SupportedMode
 
-date: 2026-03-08T08:02:50.045195
+date: 2026-10-12T19:51:26.164057
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.SmartphoneProjection.SupportedMod
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.SmartphoneProjection.SupportedMode` is `80fa132703655d989386bc6711afed49`
 
 
 ## Feedback

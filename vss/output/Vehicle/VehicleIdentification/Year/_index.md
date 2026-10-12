@@ -1,7 +1,7 @@
 ---
 title: Year
 
-date: 2026-03-08T08:02:44.697286
+date: 2026-10-12T19:51:33.380970
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.Year` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.Year` is `9a76b0aca8e45f6fb33dbaf5b976b8b5`
 
 
 ## Feedback

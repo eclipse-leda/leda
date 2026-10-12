@@ -1,7 +1,7 @@
 ---
 title: VehicleInteriorType
 
-date: 2026-03-08T08:02:44.839826
+date: 2026-10-12T19:51:33.508447
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.VehicleInteriorType` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.VehicleInteriorType` is `4c4eed302b2e51daa9b6f5f398987a77`
 
 
 ## Feedback

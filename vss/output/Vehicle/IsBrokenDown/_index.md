@@ -1,7 +1,7 @@
 ---
 title: IsBrokenDown
 
-date: 2026-03-08T08:02:44.990746
+date: 2026-10-12T19:51:33.628189
 no_list: true
 ---
 
@@ -81,11 +81,6 @@ The vehicle signal `Vehicle.IsBrokenDown` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.IsBrokenDown` is `469ebd2a76b45e5b97b799262a085330`
 
 
 ## Feedback

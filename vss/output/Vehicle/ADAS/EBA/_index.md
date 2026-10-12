@@ -1,7 +1,7 @@
 ---
 title: EBA
 
-date: 2026-03-08T08:02:56.352090
+date: 2026-10-12T19:51:31.148636
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.ADAS.EBA` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.EBA` is `51ec0930d0af5b91b84a0775c6e87a97`
 
 ## Children
 

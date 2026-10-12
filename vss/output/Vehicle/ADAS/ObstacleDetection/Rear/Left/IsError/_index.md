@@ -1,7 +1,7 @@
 ---
 title: IsError
 
-date: 2026-03-08T08:02:55.952599
+date: 2026-10-12T19:51:30.866042
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Left.IsError` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Left.IsError` is `fc24f9d56fc85ca6bf3452b301337213`
 
 
 ## Feedback

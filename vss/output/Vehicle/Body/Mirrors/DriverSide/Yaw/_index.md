@@ -1,7 +1,7 @@
 ---
 title: Yaw
 
-date: 2026-03-08T08:02:48.939467
+date: 2026-10-12T19:51:25.183916
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.Body.Mirrors.DriverSide.Yaw` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Mirrors.DriverSide.Yaw` is `06c33affa559550b955bd0afde37f2a7`
 
 
 ## Feedback

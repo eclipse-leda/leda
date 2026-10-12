@@ -1,7 +1,7 @@
 ---
 title: Z
 
-date: 2026-03-08T08:02:57.603705
+date: 2026-10-12T19:51:32.313543
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Occupant.Row1.DriverSide.HeadPosition.Z` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row1.DriverSide.HeadPosition.Z` is `21be15e24b225c4c825d3c14443107bc`
 
 
 ## Feedback

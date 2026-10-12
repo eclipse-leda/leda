@@ -1,7 +1,7 @@
 ---
 title: Configuration
 
-date: 2026-03-08T08:02:45.552313
+date: 2026-10-12T19:51:21.299728
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.Configuration` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.Configuration` is `586be4567fe059ee9e6cf42901c2e773`
 
 
 ## Feedback

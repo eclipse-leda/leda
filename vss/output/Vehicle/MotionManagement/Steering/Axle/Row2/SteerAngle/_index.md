@@ -1,7 +1,7 @@
 ---
 title: SteerAngle
 
-date: 2026-03-08T08:02:59.477205
+date: 2026-10-12T19:51:34.887598
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngle` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngle` is `b3edde725e3459daa290588b2bcaa866`
 
 
 ## Feedback

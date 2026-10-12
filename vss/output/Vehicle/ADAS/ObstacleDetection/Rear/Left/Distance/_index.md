@@ -1,7 +1,7 @@
 ---
 title: Distance
 
-date: 2026-03-08T08:02:55.962665
+date: 2026-10-12T19:51:30.873250
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Left.Distance` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Left.Distance` is `a36abc74b63a5a85af4ee2255d6abbc6`
 
 
 ## Feedback

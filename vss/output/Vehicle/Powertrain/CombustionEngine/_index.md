@@ -1,7 +1,7 @@
 ---
 title: CombustionEngine
 
-date: 2026-03-08T08:02:45.500944
+date: 2026-10-12T19:51:21.257493
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine` is `159e2e3e75f0590f95b4d2f6cfae54b5`
 
 ## Children
 

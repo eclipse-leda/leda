@@ -1,7 +1,7 @@
 ---
 title: IsChargingCableConnected
 
-date: 2026-03-08T08:02:46.745727
+date: 2026-10-12T19:51:23.233704
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.Fro
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.FrontMiddle.IsChargingCableConnected` is `6c1c71bf0be25246a98bdc80ebcb2446`
 
 
 ## Feedback

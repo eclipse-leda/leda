@@ -1,7 +1,7 @@
 ---
 title: Min
 
-date: 2026-03-08T08:02:46.360148
+date: 2026-10-12T19:51:22.906165
 no_list: true
 ---
 
@@ -60,9 +60,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Temperature.Min 0
 | Path | `Vehicle.Powertrain.TractionBattery.Temperature.Min` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree Celsius | |
-| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -90,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Temperature.Min` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Temperature.Min` is `4e3f630fefa7558fa302b175bc7eb5c7`
 
 
 ## Feedback

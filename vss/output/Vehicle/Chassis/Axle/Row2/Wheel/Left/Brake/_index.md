@@ -1,7 +1,7 @@
 ---
 title: Brake
 
-date: 2026-03-08T08:02:57.021725
+date: 2026-10-12T19:51:31.759780
 no_list: true
 ---
 
@@ -53,11 +53,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake` is `774d0a5771d35975872870cf71ea1487`
 
 ## Children
 

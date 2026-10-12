@@ -1,7 +1,7 @@
 ---
 title: RollTorqueDistributionFrontMinimum
 
-date: 2026-03-08T08:02:59.558241
+date: 2026-10-12T19:51:34.955611
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.RollTorqueDistributionFr
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.RollTorqueDistributionFrontMinimum` is `c174a64379ab57bcaf82b1c66650be8c`
 
 
 ## Feedback

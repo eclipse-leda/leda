@@ -1,7 +1,7 @@
 ---
 title: IsAirConditioningActive
 
-date: 2026-03-08T08:02:49.555788
+date: 2026-10-12T19:51:25.688312
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.IsAirConditioningActive` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.IsAirConditioningActive` is `dc4f79e4211c54a6b4eed0236aae84a6`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: System
 
-date: 2026-03-08T08:02:48.059249
+date: 2026-10-12T19:51:24.424550
 no_list: true
 ---
 
@@ -52,11 +52,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System` is a **Branch**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System` is `9002ff76166950e0aa3b7c9df3b53468`
 
 ## Children
 

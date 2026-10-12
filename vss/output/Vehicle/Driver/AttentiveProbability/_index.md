@@ -1,7 +1,7 @@
 ---
 title: AttentiveProbability
 
-date: 2026-03-08T08:02:57.481573
+date: 2026-10-12T19:51:32.194394
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Driver.AttentiveProbability` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Driver.AttentiveProbability` is `fcd202467afb533fbbf9e7da89cc1cee`
 
 
 ## Feedback

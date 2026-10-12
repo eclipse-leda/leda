@@ -1,7 +1,7 @@
 ---
 title: SupportedTypes
 
-date: 2026-03-08T08:02:54.892329
+date: 2026-10-12T19:51:30.069620
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Massage.SupportedTypes
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Massage.SupportedTypes` is `6a6d17b542275f0d9dd8ae64e048a7e1`
 
 
 ## Feedback

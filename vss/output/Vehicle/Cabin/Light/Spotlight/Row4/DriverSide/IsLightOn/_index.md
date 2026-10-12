@@ -1,7 +1,7 @@
 ---
 title: IsLightOn
 
-date: 2026-03-08T08:02:50.546153
+date: 2026-10-12T19:51:26.562298
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Light.Spotlight.Row4.DriverSide.IsLightOn` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.Spotlight.Row4.DriverSide.IsLightOn` is `ca9e9652c52757ce98744209c0d2344f`
 
 
 ## Feedback

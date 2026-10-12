@@ -1,7 +1,7 @@
 ---
 title: IsWarmerSwitchEngaged
 
-date: 2026-03-08T08:02:53.378680
+date: 2026-10-12T19:51:28.844463
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.PassengerSide.IsWarmerSwitchEngaged`
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.PassengerSide.IsWarmerSwitchEngaged` is `52b913da165958238365f0a80f02c779`
 
 
 ## Feedback

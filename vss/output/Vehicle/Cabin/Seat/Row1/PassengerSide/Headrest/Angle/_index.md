@@ -1,7 +1,7 @@
 ---
 title: Angle
 
-date: 2026-03-08T08:02:53.266206
+date: 2026-10-12T19:51:28.750099
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.PassengerSide.Headrest.Angle` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.PassengerSide.Headrest.Angle` is `5456d8e86ecb5cdf91b2bc08fe696d19`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: MotionManagement
 
-date: 2026-03-08T08:02:58.542890
+date: 2026-10-12T19:51:34.051718
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.MotionManagement` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement` is `4e254d1020e35bf18f1ba6c252ee035b`
 
 ## Children
 

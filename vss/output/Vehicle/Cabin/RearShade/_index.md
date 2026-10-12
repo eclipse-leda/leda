@@ -1,7 +1,7 @@
 ---
 title: RearShade
 
-date: 2026-03-08T08:02:49.091297
+date: 2026-10-12T19:51:25.317841
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Cabin.RearShade` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.RearShade` is `8a0c86f4fc6f5ea8ac8cf8f327969dcc`
 
 ## Children
 

@@ -1,7 +1,7 @@
 ---
 title: Power
 
-date: 2026-03-08T08:02:59.944077
+date: 2026-10-12T19:51:35.267344
 no_list: true
 ---
 
@@ -62,9 +62,6 @@ sdv.databroker.v1 > set Vehicle.ControlUnit.Central.Health.Resources.Power 0
 | Path | `Vehicle.ControlUnit.Central.Health.Resources.Power` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `W` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | watt | |
-| Description | Power measured in watts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | power | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -92,11 +89,6 @@ The vehicle signal `Vehicle.ControlUnit.Central.Health.Resources.Power` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Central.Health.Resources.Power` is `f442b72312445fe5b4a93730bdb1292b`
 
 
 ## Feedback

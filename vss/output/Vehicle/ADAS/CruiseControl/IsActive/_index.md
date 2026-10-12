@@ -1,7 +1,7 @@
 ---
 title: IsActive
 
-date: 2026-03-08T08:02:55.572146
+date: 2026-10-12T19:51:30.580934
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.CruiseControl.IsActive` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.CruiseControl.IsActive` is `78ab5ce923dc5aa1a6622bcb948e1561`
 
 
 ## Feedback

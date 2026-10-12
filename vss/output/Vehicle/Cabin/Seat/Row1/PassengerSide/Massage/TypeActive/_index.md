@@ -1,7 +1,7 @@
 ---
 title: TypeActive
 
-date: 2026-03-08T08:02:52.920669
+date: 2026-10-12T19:51:28.526480
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.PassengerSide.Massage.TypeActive` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.PassengerSide.Massage.TypeActive` is `664fd3e490085e389b7a805b5500f91e`
 
 
 ## Feedback

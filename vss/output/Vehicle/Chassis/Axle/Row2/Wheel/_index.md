@@ -1,7 +1,7 @@
 ---
 title: Wheel
 
-date: 2026-03-08T08:02:57.001288
+date: 2026-10-12T19:51:31.742857
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel` is `87b119ed6de254159877b24047fd3026`
 
 ## Children
 

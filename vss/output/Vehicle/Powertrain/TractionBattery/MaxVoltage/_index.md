@@ -1,7 +1,7 @@
 ---
 title: MaxVoltage
 
-date: 2026-03-08T08:02:46.532609
+date: 2026-10-12T19:51:23.049398
 no_list: true
 ---
 
@@ -58,9 +58,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.MaxVoltage 0
 | Path | `Vehicle.Powertrain.TractionBattery.MaxVoltage` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `V` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | volt | |
-| Description | Electric potential measured in volts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | voltage | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -88,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.MaxVoltage` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.MaxVoltage` is `a81264a0ef0c55d288671cfc62c4add5`
 
 
 ## Feedback

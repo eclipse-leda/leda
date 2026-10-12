@@ -1,7 +1,7 @@
 ---
 title: Played
 
-date: 2026-03-08T08:02:49.627614
+date: 2026-10-12T19:51:25.823917
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media.Played` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media.Played` is `6585e9d3b6ff596da72a5f8c98d2d47a`
 
 ## Children
 

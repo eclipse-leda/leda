@@ -1,7 +1,7 @@
 ---
 title: Distance
 
-date: 2026-03-08T08:02:55.811325
+date: 2026-10-12T19:51:30.764994
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Front.Center.Distance` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Front.Center.Distance` is `6920005265e65b978acb23f9fff67a6b`
 
 
 ## Feedback

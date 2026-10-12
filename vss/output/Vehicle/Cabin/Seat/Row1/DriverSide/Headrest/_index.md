@@ -1,7 +1,7 @@
 ---
 title: Headrest
 
-date: 2026-03-08T08:02:51.929707
+date: 2026-10-12T19:51:27.705635
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Headrest` is a **Branch**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Headrest` is `4b193a02bffe52819b69d422d5e50042`
 
 ## Children
 

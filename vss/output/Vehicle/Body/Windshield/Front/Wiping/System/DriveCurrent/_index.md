@@ -1,7 +1,7 @@
 ---
 title: DriveCurrent
 
-date: 2026-03-08T08:02:48.109675
+date: 2026-10-12T19:51:24.473474
 no_list: true
 ---
 
@@ -65,9 +65,6 @@ sdv.databroker.v1 > set Vehicle.Body.Windshield.Front.Wiping.System.DriveCurrent
 | Path | `Vehicle.Body.Windshield.Front.Wiping.System.DriveCurrent` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `A` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | ampere | |
-| Description | Electric current measured in amperes | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric-current | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -95,11 +92,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System.DriveCurrent` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System.DriveCurrent` is `251e695821b758e7b7d459d5e2ab6ca4`
 
 
 ## Feedback

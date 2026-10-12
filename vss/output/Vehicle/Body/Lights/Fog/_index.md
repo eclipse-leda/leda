@@ -1,7 +1,7 @@
 ---
 title: Fog
 
-date: 2026-03-08T08:02:48.666736
+date: 2026-10-12T19:51:24.938444
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.Fog` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Fog` is `1e90cf42bb825217b283c7285a606953`
 
 ## Children
 

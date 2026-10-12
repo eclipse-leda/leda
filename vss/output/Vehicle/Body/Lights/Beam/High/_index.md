@@ -1,7 +1,7 @@
 ---
 title: High
 
-date: 2026-03-08T08:02:48.544530
+date: 2026-10-12T19:51:24.827546
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Body.Lights.Beam.High` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Beam.High` is `306b51d2e1ec572fa80172aad6727da0`
 
 ## Children
 

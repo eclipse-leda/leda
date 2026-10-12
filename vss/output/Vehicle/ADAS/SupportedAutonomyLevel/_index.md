@@ -1,7 +1,7 @@
 ---
 title: SupportedAutonomyLevel
 
-date: 2026-03-08T08:02:55.541864
+date: 2026-10-12T19:51:30.561435
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.ADAS.SupportedAutonomyLevel` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.SupportedAutonomyLevel` is `020410189ab4517cb85ceda268b40f51`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsReclineBackwardSwitchEngaged
 
-date: 2026-03-08T08:02:52.443096
+date: 2026-10-12T19:51:28.095629
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.Backrest.IsReclineBackwardSwi
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.Backrest.IsReclineBackwardSwitchEngaged` is `48e5b3114caa5409bf317942db7c8f44`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Color
 
-date: 2026-03-08T08:02:50.329999
+date: 2026-10-12T19:51:26.400598
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Light.Spotlight.Row1.PassengerSide.Color` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.Spotlight.Row1.PassengerSide.Color` is `7643021f0af15edeba9e35f7e87a7bd5`
 
 
 ## Feedback

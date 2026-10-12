@@ -1,7 +1,7 @@
 ---
 title: Front
 
-date: 2026-03-08T08:02:55.690304
+date: 2026-10-12T19:51:30.660021
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Front` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Front` is `fa721ddec90f5c95bc125c7fc3ec2e82`
 
 ## Children
 

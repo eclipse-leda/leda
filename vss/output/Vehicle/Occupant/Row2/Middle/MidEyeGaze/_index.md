@@ -1,7 +1,7 @@
 ---
 title: MidEyeGaze
 
-date: 2026-03-08T08:02:58.236661
+date: 2026-10-12T19:51:32.896929
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Occupant.Row2.Middle.MidEyeGaze` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row2.Middle.MidEyeGaze` is `5794864972575c048b0f8262e88729f5`
 
 ## Children
 

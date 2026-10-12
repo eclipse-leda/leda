@@ -1,7 +1,7 @@
 ---
 title: ETH
 
-date: 2026-03-08T08:03:00.888740
+date: 2026-10-12T19:51:36.043673
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.Health.Network.ETH` is a **Branch*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.Health.Network.ETH` is `da00d7bb705c5566ad7befbd48a687cf`
 
 ## Children
 

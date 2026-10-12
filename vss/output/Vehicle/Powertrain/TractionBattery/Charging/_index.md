@@ -1,7 +1,7 @@
 ---
 title: Charging
 
-date: 2026-03-08T08:02:46.643733
+date: 2026-10-12T19:51:23.144285
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging` is a **Branch**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging` is `49b9ef0c8b145a36afdf17d0cb44131b`
 
 ## Children
 

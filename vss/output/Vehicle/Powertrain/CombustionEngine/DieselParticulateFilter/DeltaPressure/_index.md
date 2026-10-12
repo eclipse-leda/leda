@@ -1,7 +1,7 @@
 ---
 title: DeltaPressure
 
-date: 2026-03-08T08:02:45.922641
+date: 2026-10-12T19:51:21.610531
 no_list: true
 ---
 
@@ -60,9 +60,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.DieselParticulateFil
 | Path | `Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.DeltaPressure` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Pa` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | pascal | |
-| Description | Pressure measured in pascal | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | pressure | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -90,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter.DeltaPressure` is `a6f476775c60531b93acb835e0bc6ab6`
 
 
 ## Feedback

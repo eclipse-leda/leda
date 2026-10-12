@@ -1,7 +1,7 @@
 ---
 title: Rear
 
-date: 2026-03-08T08:02:48.242215
+date: 2026-10-12T19:51:24.583812
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Windshield.Rear` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Rear` is `095ff58459b854aaa742e56447fe7a93`
 
 ## Children
 

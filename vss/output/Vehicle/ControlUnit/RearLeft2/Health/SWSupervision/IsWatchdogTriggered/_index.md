@@ -1,7 +1,7 @@
 ---
 title: IsWatchdogTriggered
 
-date: 2026-03-08T08:03:00.817551
+date: 2026-10-12T19:51:35.991382
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ControlUnit.RearLeft2.Health.SWSupervision.IsWatchdo
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.RearLeft2.Health.SWSupervision.IsWatchdogTriggered` is `657fd8f2e1835a80847ed6e144454725`
 
 
 ## Feedback

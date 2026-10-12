@@ -1,7 +1,7 @@
 ---
 title: AirDistribution
 
-date: 2026-03-08T08:02:49.192320
+date: 2026-10-12T19:51:25.405056
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.Station.Row1.Driver.AirDistribution` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.Station.Row1.Driver.AirDistribution` is `8b7412018a6f5c0a8467bdddb53e76f7`
 
 
 ## Feedback

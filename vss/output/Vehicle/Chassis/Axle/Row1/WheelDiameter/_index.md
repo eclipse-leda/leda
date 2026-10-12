@@ -1,7 +1,7 @@
 ---
 title: WheelDiameter
 
-date: 2026-03-08T08:02:56.533868
+date: 2026-10-12T19:51:31.331260
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1.WheelDiameter` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1.WheelDiameter` is `60d4b948ae8a5485bd77c45e1f648c13`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Driver
 
-date: 2026-03-08T08:02:57.441138
+date: 2026-10-12T19:51:32.159873
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.Driver` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Driver` is `1cac57e7b7e756dc8a154eaacbce6426`
 
 ## Children
 

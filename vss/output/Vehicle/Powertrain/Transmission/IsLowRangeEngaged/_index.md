@@ -1,7 +1,7 @@
 ---
 title: IsLowRangeEngaged
 
-date: 2026-03-08T08:02:46.013691
+date: 2026-10-12T19:51:21.674714
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.IsLowRangeEngaged` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.IsLowRangeEngaged` is `63ba7593926b574ebbe4f90b28557e78`
 
 
 ## Feedback

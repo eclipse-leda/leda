@@ -1,7 +1,7 @@
 ---
 title: DistanceToService
 
-date: 2026-03-08T08:02:58.471655
+date: 2026-10-12T19:51:33.253902
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Service.DistanceToService` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Service.DistanceToService` is `6f4347ce149759819572c8c3a17e8d93`
 
 
 ## Feedback

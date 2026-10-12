@@ -1,7 +1,7 @@
 ---
 title: RearviewMirror
 
-date: 2026-03-08T08:02:50.178648
+date: 2026-10-12T19:51:26.272631
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Cabin.RearviewMirror` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.RearviewMirror` is `e655b654ab9f55bbb04952a99755efae`
 
 ## Children
 

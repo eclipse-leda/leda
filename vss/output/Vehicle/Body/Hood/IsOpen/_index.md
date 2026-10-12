@@ -1,7 +1,7 @@
 ---
 title: IsOpen
 
-date: 2026-03-08T08:02:47.804565
+date: 2026-10-12T19:51:24.165551
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Body.Hood.IsOpen` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Hood.IsOpen` is `890aa3359e1a579288af1cf8e6b5b71f`
 
 
 ## Feedback

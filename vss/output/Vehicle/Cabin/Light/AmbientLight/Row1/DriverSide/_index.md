@@ -1,7 +1,7 @@
 ---
 title: DriverSide
 
-date: 2026-03-08T08:02:50.637380
+date: 2026-10-12T19:51:26.646234
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Light.AmbientLight.Row1.DriverSide` is a **Bra
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.AmbientLight.Row1.DriverSide` is `e42bfc0abac857f0a40f579cc0ced424`
 
 ## Children
 

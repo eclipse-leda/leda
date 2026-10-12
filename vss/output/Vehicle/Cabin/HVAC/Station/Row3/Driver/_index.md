@@ -1,7 +1,7 @@
 ---
 title: Driver
 
-date: 2026-03-08T08:02:49.345925
+date: 2026-10-12T19:51:25.527065
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.Station.Row3.Driver` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.Station.Row3.Driver` is `299b787af2fe56ab9721086824692e10`
 
 ## Children
 

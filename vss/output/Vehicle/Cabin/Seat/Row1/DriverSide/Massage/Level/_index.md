@@ -1,7 +1,7 @@
 ---
 title: Level
 
-date: 2026-03-08T08:02:51.581653
+date: 2026-10-12T19:51:27.405211
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Massage.Level` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Massage.Level` is `335631b18559570f8137677fcde6eb13`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: CompressionRatio
 
-date: 2026-03-08T08:02:45.583628
+date: 2026-10-12T19:51:21.325097
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.CompressionRatio` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.CompressionRatio` is `ead42922511051a0a0a1b634781f3c09`
 
 
 ## Feedback

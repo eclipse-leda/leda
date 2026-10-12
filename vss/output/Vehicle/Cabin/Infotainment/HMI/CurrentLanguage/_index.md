@@ -1,7 +1,7 @@
 ---
 title: CurrentLanguage
 
-date: 2026-03-08T08:02:49.841900
+date: 2026-10-12T19:51:25.992753
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.HMI.CurrentLanguage` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.HMI.CurrentLanguage` is `dc29ee5b7f7154b4ab05a9771fe930b3`
 
 
 ## Feedback

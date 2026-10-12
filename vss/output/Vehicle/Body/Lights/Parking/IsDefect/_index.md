@@ -1,7 +1,7 @@
 ---
 title: IsDefect
 
-date: 2026-03-08T08:02:48.656062
+date: 2026-10-12T19:51:24.929338
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Lights.Parking.IsDefect` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Parking.IsDefect` is `56761305eae559c7931f6ff5fee0dfa8`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Left
 
-date: 2026-03-08T08:02:48.839373
+date: 2026-10-12T19:51:25.087492
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Body.Lights.DirectionIndicator.Left` is a **Branch**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.DirectionIndicator.Left` is `446dea42b8e95d87b45e5e51c881bf98`
 
 ## Children
 

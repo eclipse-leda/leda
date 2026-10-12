@@ -1,7 +1,7 @@
 ---
 title: LaneDepartureDetection
 
-date: 2026-03-08T08:02:55.632997
+date: 2026-10-12T19:51:30.624104
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.ADAS.LaneDepartureDetection` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.LaneDepartureDetection` is `e45f33fdcf245f11981b2f201ee8281a`
 
 ## Children
 

@@ -1,7 +1,7 @@
 ---
 title: Heading
 
-date: 2026-03-08T08:02:45.306266
+date: 2026-10-12T19:51:33.937135
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.CurrentLocation.Heading` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.Heading` is `2a8f0afa2b315943aa001278875ce012`
 
 
 ## Feedback

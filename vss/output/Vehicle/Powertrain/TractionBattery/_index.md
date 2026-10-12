@@ -1,7 +1,7 @@
 ---
 title: TractionBattery
 
-date: 2026-03-08T08:02:46.278356
+date: 2026-10-12T19:51:22.838460
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery` is `1a2515d1a8875d86873431194ade2b50`
 
 ## Children
 

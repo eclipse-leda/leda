@@ -1,7 +1,7 @@
 ---
 title: IsLocked
 
-date: 2026-03-08T08:02:51.041536
+date: 2026-10-12T19:51:27.053073
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Door.Row1.PassengerSide.IsLocked` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door.Row1.PassengerSide.IsLocked` is `48d4388ec67b519ab500ee424ce4b6cb`
 
 
 ## Feedback

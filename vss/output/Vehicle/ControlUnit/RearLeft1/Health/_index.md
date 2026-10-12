@@ -1,7 +1,7 @@
 ---
 title: Health
 
-date: 2026-03-08T08:03:00.456413
+date: 2026-10-12T19:51:35.691591
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.ControlUnit.RearLeft1.Health` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.RearLeft1.Health` is `aa6b70eb9ceb55268482aa08e75cafa2`
 
 ## Children
 

@@ -1,7 +1,7 @@
 ---
 title: Color
 
-date: 2026-03-08T08:02:50.846835
+date: 2026-10-12T19:51:26.837404
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Light.InteractiveLightBar.Color` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.InteractiveLightBar.Color` is `099955ec87a0528ba1a89cc3e439c806`
 
 
 ## Feedback

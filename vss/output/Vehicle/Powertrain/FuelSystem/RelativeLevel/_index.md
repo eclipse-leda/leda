@@ -1,7 +1,7 @@
 ---
 title: RelativeLevel
 
-date: 2026-03-08T08:02:47.518959
+date: 2026-10-12T19:51:23.842894
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.RelativeLevel` is a **Signal**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.RelativeLevel` is `e90e3daa1dcd5165a9d78b09e890fb22`
 
 
 ## Feedback

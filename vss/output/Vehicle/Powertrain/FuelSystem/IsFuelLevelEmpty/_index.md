@@ -1,7 +1,7 @@
 ---
 title: IsFuelLevelEmpty
 
-date: 2026-03-08T08:02:47.611189
+date: 2026-10-12T19:51:23.921235
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.IsFuelLevelEmpty` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.IsFuelLevelEmpty` is `bccdab633d305dc4b054ce6089fbfcf5`
 
 
 ## Feedback

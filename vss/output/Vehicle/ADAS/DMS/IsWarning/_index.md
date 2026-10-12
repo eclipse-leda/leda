@@ -1,7 +1,7 @@
 ---
 title: IsWarning
 
-date: 2026-03-08T08:02:56.412646
+date: 2026-10-12T19:51:31.196148
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.DMS.IsWarning` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.DMS.IsWarning` is `2c86cd0363cd55ffb175a9e07cc32e4d`
 
 
 ## Feedback

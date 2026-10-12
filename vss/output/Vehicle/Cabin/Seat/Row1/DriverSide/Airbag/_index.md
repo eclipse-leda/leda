@@ -1,7 +1,7 @@
 ---
 title: Airbag
 
-date: 2026-03-08T08:02:52.002195
+date: 2026-10-12T19:51:27.761635
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Airbag` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Airbag` is `cf3eca19b11e5e3ea66a078bed805968`
 
 ## Children
 

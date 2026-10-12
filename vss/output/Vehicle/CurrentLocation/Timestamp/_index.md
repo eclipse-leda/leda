@@ -1,7 +1,7 @@
 ---
 title: Timestamp
 
-date: 2026-03-08T08:02:45.275563
+date: 2026-10-12T19:51:33.910878
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.CurrentLocation.Timestamp` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.Timestamp` is `094aeff73be05c08905690be0e82a438`
 
 
 ## Feedback

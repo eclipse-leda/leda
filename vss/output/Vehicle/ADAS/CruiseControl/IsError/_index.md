@@ -1,7 +1,7 @@
 ---
 title: IsError
 
-date: 2026-03-08T08:02:55.592377
+date: 2026-10-12T19:51:30.594954
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.CruiseControl.IsError` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.CruiseControl.IsError` is `22923d4a36bc5192a08e40fe9e5ed458`
 
 
 ## Feedback

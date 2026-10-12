@@ -1,7 +1,7 @@
 ---
 title: SmartphoneProjection
 
-date: 2026-03-08T08:02:50.014537
+date: 2026-10-12T19:51:26.135878
 no_list: true
 ---
 
@@ -48,11 +48,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.SmartphoneProjection` is a **Bran
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.SmartphoneProjection` is `fd47f73b4d6b51679f4bed75f6d63518`
 
 ## Children
 

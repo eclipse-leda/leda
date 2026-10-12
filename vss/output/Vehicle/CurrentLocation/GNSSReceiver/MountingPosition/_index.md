@@ -1,7 +1,7 @@
 ---
 title: MountingPosition
 
-date: 2026-03-08T08:02:45.367048
+date: 2026-10-12T19:51:33.985627
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.CurrentLocation.GNSSReceiver.MountingPosition` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.GNSSReceiver.MountingPosition` is `5c0887bce6fb5eb79402baaccb203e61`
 
 ## Children
 

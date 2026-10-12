@@ -1,7 +1,7 @@
 ---
 title: AbsoluteLevel
 
-date: 2026-03-08T08:02:47.508848
+date: 2026-10-12T19:51:23.834641
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.AbsoluteLevel` is a **Signal**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.AbsoluteLevel` is `00a1399655ee5d9188022f3d55d8f05e`
 
 
 ## Feedback

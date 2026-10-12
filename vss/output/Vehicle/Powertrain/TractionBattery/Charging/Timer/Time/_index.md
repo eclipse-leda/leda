@@ -1,7 +1,7 @@
 ---
 title: Time
 
-date: 2026-03-08T08:02:47.345793
+date: 2026-10-12T19:51:23.708461
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.Timer.Time` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.Timer.Time` is `c08dcaeda02b5e26aacd7e2542f0fc90`
 
 
 ## Feedback

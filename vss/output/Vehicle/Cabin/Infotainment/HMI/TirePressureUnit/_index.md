@@ -1,7 +1,7 @@
 ---
 title: TirePressureUnit
 
-date: 2026-03-08T08:02:49.933191
+date: 2026-10-12T19:51:26.076344
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.HMI.TirePressureUnit` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.HMI.TirePressureUnit` is `e5ffaf58cc10523fa0858deafb61a8ce`
 
 
 ## Feedback

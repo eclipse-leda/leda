@@ -1,7 +1,7 @@
 ---
 title: IsWarning
 
-date: 2026-03-08T08:02:56.088424
+date: 2026-10-12T19:51:30.964257
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Right.IsWarning` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Right.IsWarning` is `28a9bbf296d352d987a61cd51129c73a`
 
 
 ## Feedback

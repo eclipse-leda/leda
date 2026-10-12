@@ -1,7 +1,7 @@
 ---
 title: Model
 
-date: 2026-03-08T08:02:44.687093
+date: 2026-10-12T19:51:33.372810
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.Model` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.Model` is `dd3d3b72e6a85b3695ba25f829255403`
 
 
 ## Feedback

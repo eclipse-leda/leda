@@ -1,7 +1,7 @@
 ---
 title: Backrest
 
-date: 2026-03-08T08:02:51.653712
+date: 2026-10-12T19:51:27.467206
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest` is a **Branch**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest` is `876fb7f9209155749108c95bb268836b`
 
 ## Children
 

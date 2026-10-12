@@ -1,7 +1,7 @@
 ---
 title: CellVoltage
 
-date: 2026-03-08T08:02:46.390499
+date: 2026-10-12T19:51:22.932097
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.CellVoltage` is a **Branc
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.CellVoltage` is `0070210b80125f1a8e9473f8875fe3d1`
 
 ## Children
 

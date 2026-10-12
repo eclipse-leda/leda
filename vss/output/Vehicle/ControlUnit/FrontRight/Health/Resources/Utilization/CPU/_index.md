@@ -1,7 +1,7 @@
 ---
 title: CPU
 
-date: 2026-03-08T08:03:00.364543
+date: 2026-10-12T19:51:35.612834
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontRight.Health.Resources.Utilization.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontRight.Health.Resources.Utilization.CPU` is `acfa8acd4ba75f099b043a402721da10`
 
 
 ## Feedback

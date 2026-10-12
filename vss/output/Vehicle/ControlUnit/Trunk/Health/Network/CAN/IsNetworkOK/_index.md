@@ -1,7 +1,7 @@
 ---
 title: IsNetworkOK
 
-date: 2026-03-08T08:03:00.878581
+date: 2026-10-12T19:51:36.038081
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.Health.Network.CAN.IsNetworkOK` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.Health.Network.CAN.IsNetworkOK` is `8541713d26e35cf99ced2687c7f03103`
 
 
 ## Feedback

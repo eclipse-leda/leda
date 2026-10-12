@@ -1,7 +1,7 @@
 ---
 title: Mode
 
-date: 2026-03-08T08:02:48.069315
+date: 2026-10-12T19:51:24.436042
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System.Mode` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System.Mode` is `d15518f5d1bc54a38718f43ef749dd34`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Right
 
-date: 2026-03-08T08:02:57.154371
+date: 2026-10-12T19:51:31.899371
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Right` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Right` is `f59f6ce66b1454498f5dc71be581732a`
 
 ## Children
 
@@ -65,6 +60,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake](brake/) (Brake signals for wheel)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Right.Speed](speed/) (Linear speed of a vehicle's wheel.)
 - [Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire](tire/) (Tire signals for wheel.)
+- [Vehicle.Chassis.Axle.Row2.Wheel.Right.Torque](torque/) (Torque provided by drivetrain, excluding torque provided by friction brakes. Negative values indicate regen mode.)
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Horn
 
-date: 2026-03-08T08:02:47.967859
+date: 2026-10-12T19:51:24.313755
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Body.Horn` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Horn` is `09c76633887f52268b960740eb969c89`
 
 ## Children
 

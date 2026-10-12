@@ -1,7 +1,7 @@
 ---
 title: IsHeatingOn
 
-date: 2026-03-08T08:02:48.201192
+date: 2026-10-12T19:51:24.550822
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.IsHeatingOn` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.IsHeatingOn` is `26e6a3b7e9bb58bebba29258faa6e300`
 
 
 ## Feedback

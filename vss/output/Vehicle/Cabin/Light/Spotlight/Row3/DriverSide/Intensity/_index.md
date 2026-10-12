@@ -1,7 +1,7 @@
 ---
 title: Intensity
 
-date: 2026-03-08T08:02:50.461370
+date: 2026-10-12T19:51:26.501917
 no_list: true
 ---
 
@@ -97,11 +97,6 @@ The vehicle signal `Vehicle.Cabin.Light.Spotlight.Row3.DriverSide.Intensity` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.Spotlight.Row3.DriverSide.Intensity` is `50376cb5f02750d599f3ae5932520952`
 
 
 ## Feedback

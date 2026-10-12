@@ -1,7 +1,7 @@
 ---
 title: TargetPosition
 
-date: 2026-03-08T08:02:48.089556
+date: 2026-10-12T19:51:24.456490
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition` 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition` is `7a4a3fdd2947596dbada6980c142f090`
 
 
 ## Feedback

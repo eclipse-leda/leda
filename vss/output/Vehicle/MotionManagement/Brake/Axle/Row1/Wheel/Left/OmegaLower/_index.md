@@ -1,7 +1,7 @@
 ---
 title: OmegaLower
 
-date: 2026-03-08T08:02:58.980802
+date: 2026-10-12T19:51:34.446094
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.MotionManagement.Brake.Axle.Row1.Wheel.Left.OmegaLow
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Brake.Axle.Row1.Wheel.Left.OmegaLower` is `fac6dea617d25770830d4aa82a049be4`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsDeployed
 
-date: 2026-03-08T08:02:54.003062
+date: 2026-10-12T19:51:29.395816
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.DriverSide.Airbag.IsDeployed` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.DriverSide.Airbag.IsDeployed` is `1ec1956a54ae5107a802b9ec2b215b41`
 
 
 ## Feedback

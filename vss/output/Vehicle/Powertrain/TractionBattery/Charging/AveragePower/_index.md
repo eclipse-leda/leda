@@ -1,7 +1,7 @@
 ---
 title: AveragePower
 
-date: 2026-03-08T08:02:47.211559
+date: 2026-10-12T19:51:23.608644
 no_list: true
 ---
 
@@ -60,9 +60,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.AveragePower
 | Path | `Vehicle.Powertrain.TractionBattery.Charging.AveragePower` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `kW` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | kilowatt | |
-| Description | Power measured in kilowatts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | power | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -90,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.AveragePower` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.AveragePower` is `acc1728f1839516287d86975f679ec33`
 
 
 ## Feedback

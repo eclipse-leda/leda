@@ -1,7 +1,7 @@
 ---
 title: Wheel
 
-date: 2026-03-08T08:02:58.909477
+date: 2026-10-12T19:51:34.390302
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.MotionManagement.Brake.Axle.Row1.Wheel` is a **Branc
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Brake.Axle.Row1.Wheel` is `19054cb58875518d8a3aa1fa92468663`
 
 ## Children
 

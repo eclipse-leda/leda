@@ -1,7 +1,7 @@
 ---
 title: SteerAngleTarget
 
-date: 2026-03-08T08:02:59.487253
+date: 2026-10-12T19:51:34.896622
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngleTarget
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.Axle.Row2.SteerAngleTarget` is `9d838b667a3553848bf599e8b399e615`
 
 
 ## Feedback

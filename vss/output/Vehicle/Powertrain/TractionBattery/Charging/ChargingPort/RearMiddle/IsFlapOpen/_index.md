@@ -1,7 +1,7 @@
 ---
 title: IsFlapOpen
 
-date: 2026-03-08T08:02:46.888300
+date: 2026-10-12T19:51:23.364671
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.Rea
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.RearMiddle.IsFlapOpen` is `23cd37d0d75c5cddb92ac128b2f035c3`
 
 
 ## Feedback

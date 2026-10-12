@@ -1,7 +1,7 @@
 ---
 title: FrontMiddle
 
-date: 2026-03-08T08:02:46.715197
+date: 2026-10-12T19:51:23.207621
 no_list: true
 ---
 
@@ -52,11 +52,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.Fro
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.FrontMiddle` is `d5b0b57da3fa57eb847f5f9a828688f5`
 
 ## Children
 

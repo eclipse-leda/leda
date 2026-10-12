@@ -1,7 +1,7 @@
 ---
 title: IsEngaged
 
-date: 2026-03-08T08:02:56.210110
+date: 2026-10-12T19:51:31.046209
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.TCS.IsEngaged` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.TCS.IsEngaged` is `b33d70009ad5589fbffe17fa7e827242`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Active
 
-date: 2026-03-08T08:02:50.065283
+date: 2026-10-12T19:51:26.179465
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active`
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring.Active` is `faba26b6494b507eae5c087400b181ab`
 
 
 ## Feedback

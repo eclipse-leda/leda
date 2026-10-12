@@ -1,7 +1,7 @@
 ---
 title: HeadPosition
 
-date: 2026-03-08T08:02:58.164531
+date: 2026-10-12T19:51:32.830024
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Occupant.Row2.Middle.HeadPosition` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row2.Middle.HeadPosition` is `6ee8230f930254f49886427d884a1cc0`
 
 ## Children
 

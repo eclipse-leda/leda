@@ -1,7 +1,7 @@
 ---
 title: AxleCount
 
-date: 2026-03-08T08:02:57.297773
+date: 2026-10-12T19:51:32.035506
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.Chassis.AxleCount` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.AxleCount` is `86d084c9148d5f22b5402a030413ed79`
 
 
 ## Feedback

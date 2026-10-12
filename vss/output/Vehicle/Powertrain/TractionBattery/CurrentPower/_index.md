@@ -1,7 +1,7 @@
 ---
 title: CurrentPower
 
-date: 2026-03-08T08:02:46.562578
+date: 2026-10-12T19:51:23.072105
 no_list: true
 ---
 
@@ -58,9 +58,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.CurrentPower 0
 | Path | `Vehicle.Powertrain.TractionBattery.CurrentPower` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `W` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | watt | |
-| Description | Power measured in watts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | power | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -88,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.CurrentPower` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.CurrentPower` is `8859e1b0386a5eda880a9c30cd0dfa8e`
 
 
 ## Feedback

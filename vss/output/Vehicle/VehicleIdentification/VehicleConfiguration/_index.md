@@ -1,7 +1,7 @@
 ---
 title: VehicleConfiguration
 
-date: 2026-03-08T08:02:44.788684
+date: 2026-10-12T19:51:33.459404
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.VehicleConfiguration` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.VehicleConfiguration` is `2526c7ba4c8458c78000a9e5f2fe89d5`
 
 
 ## Feedback

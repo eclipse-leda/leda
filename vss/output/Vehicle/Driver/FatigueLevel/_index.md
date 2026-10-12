@@ -1,7 +1,7 @@
 ---
 title: FatigueLevel
 
-date: 2026-03-08T08:02:57.491777
+date: 2026-10-12T19:51:32.200745
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Driver.FatigueLevel` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Driver.FatigueLevel` is `49b1626295705a79ae20d8a270c48b6b`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Switch
 
-date: 2026-03-08T08:02:51.071994
+date: 2026-10-12T19:51:27.071901
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Door.Row1.PassengerSide.Switch` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door.Row1.PassengerSide.Switch` is `c1244ebb7ef35c2a9e0f6ebf47710536`
 
 
 ## Feedback

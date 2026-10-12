@@ -1,7 +1,7 @@
 ---
 title: Album
 
-date: 2026-03-08T08:02:49.668750
+date: 2026-10-12T19:51:25.856584
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media.Played.Album` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media.Played.Album` is `1d80b1e2c1085def92b3548b5db2786e`
 
 
 ## Feedback

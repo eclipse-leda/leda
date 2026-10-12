@@ -1,7 +1,7 @@
 ---
 title: ElectricAxle
 
-date: 2026-03-08T08:02:58.553173
+date: 2026-10-12T19:51:34.060804
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.MotionManagement.ElectricAxle` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.ElectricAxle` is `8e68b27f815759fdaf80c6190ebf8847`
 
 ## Children
 
