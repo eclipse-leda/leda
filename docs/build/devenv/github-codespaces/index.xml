@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Codespaces on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/</link>
-    <description>Recent content in Codespaces on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Advanced topics</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/</guid>
-      <description>&lt;h2 id=&#34;git-authentication&#34;&gt;Git Authentication&lt;/h2&gt;&#xA;&lt;p&gt;For private repositories, we need to separately authenticate against the submodule repositories, as&#xA;GitHub Codespaces will only inject a token with access rights to the current repository.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Change to the users home directory&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; ~&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install &lt;a href=&#34;https://github.com/GitCredentialManager/git-credential-manager&#34;&gt;Git Credential Manager&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sh ./install-from-source.sh &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git-credential-manager-core configure&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Configure a credential store typ, e.g. &lt;code&gt;git config --global credential.credentialStore plaintext&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Verify with &lt;code&gt;git config --global -l&lt;/code&gt;, it should show git-credential-manager-core as the credential helper.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Codespaces on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/</link>
+		<description>Recent content in Codespaces on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Advanced topics</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/github-codespaces-advanced/</guid>
+				<description>&lt;h2 id=&#34;git-authentication&#34;&gt;Git Authentication&lt;/h2&gt;&#xA;&lt;p&gt;For private repositories, we need to separately authenticate against the submodule repositories, as&#xA;GitHub Codespaces will only inject a token with access rights to the current repository.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Change to the users home directory&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; ~&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install &lt;a href=&#34;https://github.com/GitCredentialManager/git-credential-manager&#34;&gt;Git Credential Manager&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -LO https://raw.githubusercontent.com/GitCredentialManager/git-credential-manager/main/src/linux/Packaging.Linux/install-from-source.sh &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sh ./install-from-source.sh &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git-credential-manager-core configure&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Configure a credential store typ, e.g. &lt;code&gt;git config --global credential.credentialStore plaintext&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Verify with &lt;code&gt;git config --global -l&lt;/code&gt;, it should show git-credential-manager-core as the credential helper.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+			</item>
+	</channel>
 </rss>

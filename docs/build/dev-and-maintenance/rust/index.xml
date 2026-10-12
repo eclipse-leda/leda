@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Rust Utils on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/</link>
-    <description>Recent content in Rust Utils on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Communicating with Кanto-CM via gRPC</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/</guid>
-      <description>&lt;p&gt;Kanto container management binds to a unix socket (default: &lt;code&gt;/run/container-management/container-management.sock&lt;/code&gt;) and exposes a gRPC interface which can be used to obtain all the functionality of the &lt;code&gt;kanto-cm&lt;/code&gt; cli programatically.&lt;/p&gt;&#xA;&lt;p&gt;The easiest way to access this API through Rust is by creating a new Rust crate:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo new talk-to-kanto&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;&#xA;&lt;p&gt;The most feature-rich gRPC library for Rust right now is tonic. Add the following to your &lt;code&gt;Cargo.toml&lt;/code&gt; to make tonic and the tokio async runtime available to your crate. Tower and hyper are needed to be able to bind to the unix socket.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kanto Auto deployer (KAD)</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers&#34;&gt;kanto-containers&lt;/a&gt; directory and re-build.&lt;/p&gt;&#xA;&lt;p&gt;Kanto-CM does not provide (currently) a &lt;em&gt;stable&lt;/em&gt; feature that allows for the automatic deployment of containers through manifest files similar to k3s&amp;rsquo; automated deployment of k8s-manifests found in the &lt;code&gt;/var/lib/rancher/k3s/server/manifests&lt;/code&gt; directory.&lt;/p&gt;&#xA;&lt;p&gt;This can be worked around via a bash script for each container that runs on boot and makes sure it&amp;rsquo;s deployed. Even though this approach is functional it is not very structured and would require a lot repeating code.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Kantui</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kantui/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kantui/</guid>
-      <description>&lt;p&gt;The k8s ecosystem comes with a lot of utilies that allow for the easier management of containers (such as k9s). The &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-tui&#34;&gt;kantui util&lt;/a&gt; aims to be a &amp;ldquo;nice&amp;rdquo; text user interface that lets the user start/stop/remove/get logs of deployed containers in kanto-cm.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse-leda/leda-utils/blob/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png?raw=true&#34; alt=&#34;kantui screenshot&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;development-notes&#34;&gt;Development notes&lt;/h2&gt;&#xA;&lt;p&gt;This tool is again based on the ideas in &lt;a href=&#34;../notes-on-kanto-grpc&#34;&gt;Communicating with Кanto-CM via gRPC&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It spins up two threads - an UI thread (drawing/updating UI) and an IO thread (communicating with kanto-cm via gRPC). The communication between these two threads happens over an &lt;a href=&#34;https://crates.io/crates/async-priority-channel&#34;&gt;async-priority-channel&lt;/a&gt; with &lt;code&gt;ListContainers&lt;/code&gt; request having a lower priority than &lt;code&gt;Start/Stop/Remove/Get Logs&lt;/code&gt; (&amp;ldquo;user interaction&amp;rdquo;) requests.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Rust Utils on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/</link>
+		<description>Recent content in Rust Utils on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 03 Jan 2023 17:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Communicating with Кanto-CM via gRPC</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/</link>
+				<pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/notes-on-kanto-grpc/</guid>
+				<description>&lt;p&gt;Kanto container management binds to a unix socket (default: &lt;code&gt;/run/container-management/container-management.sock&lt;/code&gt;) and exposes a gRPC interface which can be used to obtain all the functionality of the &lt;code&gt;kanto-cm&lt;/code&gt; cli programatically.&lt;/p&gt;&#xA;&lt;p&gt;The easiest way to access this API through Rust is by creating a new Rust crate:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cargo new talk-to-kanto&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h2&gt;&#xA;&lt;p&gt;The most feature-rich gRPC library for Rust right now is tonic. Add the following to your &lt;code&gt;Cargo.toml&lt;/code&gt; to make tonic and the tokio async runtime available to your crate. Tower and hyper are needed to be able to bind to the unix socket.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kanto Auto deployer (KAD)</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/</link>
+				<pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kanto-auto-deployer/</guid>
+				<description>&lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt;: To deploy a container in the final Leda image, all you generally need to do is add the manifest in the &lt;a href=&#34;https://github.com/eclipse-leda/meta-leda/tree/main/meta-leda-components/recipes-sdv/eclipse-leda/kanto-containers&#34;&gt;kanto-containers&lt;/a&gt; directory and re-build.&lt;/p&gt;&#xA;&lt;p&gt;Kanto-CM does not provide (currently) a &lt;em&gt;stable&lt;/em&gt; feature that allows for the automatic deployment of containers through manifest files similar to k3s&amp;rsquo; automated deployment of k8s-manifests found in the &lt;code&gt;/var/lib/rancher/k3s/server/manifests&lt;/code&gt; directory.&lt;/p&gt;&#xA;&lt;p&gt;This can be worked around via a bash script for each container that runs on boot and makes sure it&amp;rsquo;s deployed. Even though this approach is functional it is not very structured and would require a lot repeating code.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Kantui</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kantui/</link>
+				<pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/dev-and-maintenance/rust/kantui/</guid>
+				<description>&lt;p&gt;The k8s ecosystem comes with a lot of utilies that allow for the easier management of containers (such as k9s). The &lt;a href=&#34;https://github.com/eclipse-leda/leda-utils/tree/main/src/rust/kanto-tui&#34;&gt;kantui util&lt;/a&gt; aims to be a &amp;ldquo;nice&amp;rdquo; text user interface that lets the user start/stop/remove/get logs of deployed containers in kanto-cm.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://github.com/eclipse-leda/leda-utils/blob/main/src/rust/kanto-tui/misc/kantocmcurses-ss.png?raw=true&#34; alt=&#34;kantui screenshot&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;development-notes&#34;&gt;Development notes&lt;/h2&gt;&#xA;&lt;p&gt;This tool is again based on the ideas in &lt;a href=&#34;../notes-on-kanto-grpc&#34;&gt;Communicating with Кanto-CM via gRPC&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It spins up two threads - an UI thread (drawing/updating UI) and an IO thread (communicating with kanto-cm via gRPC). The communication between these two threads happens over an &lt;a href=&#34;https://crates.io/crates/async-priority-channel&#34;&gt;async-priority-channel&lt;/a&gt; with &lt;code&gt;ListContainers&lt;/code&gt; request having a lower priority than &lt;code&gt;Start/Stop/Remove/Get Logs&lt;/code&gt; (&amp;ldquo;user interaction&amp;rdquo;) requests.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

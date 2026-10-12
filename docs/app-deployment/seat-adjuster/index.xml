@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Seat Adjuster on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/</link>
-    <description>Recent content in Seat Adjuster on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Architecture of Seat Adjuster</title>
-      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/architecture-seat-adjuster/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/architecture-seat-adjuster/</guid>
-      <description>&lt;p&gt;The seat adjuster application interacts with the vehicle through a &lt;em&gt;Vehicle Abstraction Layer&lt;/em&gt; created by the KUKSA Databroker,&#xA;which uses the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;&#xA;to express the current value and in case of actuators also the desired state of the vehicle signal.&#xA;By developing against the abstraction layer, the application becomes independent from the actual physical seat.&lt;/p&gt;&#xA;&lt;p&gt;To control the position of the driver seat, the seat adjuster sets the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal in the KUKSA Databroker.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Develop Seat Adjuster</title>
-      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/develop-seat-adjuster/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/develop-seat-adjuster/</guid>
-      <description>&lt;p&gt;The following pages show how to execute the explained setup using Eclipse Velocitas and Eclipse Leda 0.1.0-M2:&lt;/p&gt;&#xA;&lt;p&gt;On a high level, you need to perform the following steps described in more detail in this guide:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Use the Eclipse Velocitas template repository to develop, build and deploy your&#xA;version of the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34;&gt;seat adjuster example&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Run Eclipse Leda, for example, &lt;a href=&#34;../../../general-usage/docker-setup&#34;&gt;as container&lt;/a&gt; or with other options like &lt;a href=&#34;../../../general-usage&#34;&gt;QEMU, physical hardware, etc.&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/&#34;&gt;Manage the Eclipse Kanto container runtime&lt;/a&gt; to deploy your seat adjuster application.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Deploy Seat Adjuster</title>
-      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/</guid>
-      <description>&lt;p&gt;We now want to deploy the application to a target device.&#xA;You may follow the remainder of this guide on a separate device like a RaspberryPi, but you can emulate such a device on your development machine too.&#xA;Either way, we use Eclipse Leda in version 0.1.0-M2 as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker&#xA;and Eclipse Kanto for container management.&#xA;For more details on how to download and run Eclipse Leda, follow the respective guides:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Interact with Seat Adjuster</title>
-      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/</guid>
-      <description>&lt;p&gt;We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.&#xA;To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_sub -t &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;seatadjuster/#&amp;#39;&lt;/span&gt; -v&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to &lt;code&gt;1000&lt;/code&gt; (which is the equivalent of 100%):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_pub -t seatadjuster/setPosition/request -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;position&amp;#34;: 1000, &amp;#34;requestId&amp;#34;: &amp;#34;12345&amp;#34;}&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You may need to open a second terminal session to send the message.&#xA;In the QEMU setup, you can do this through an SSH connection from the host machine by running &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>CAN Setup for Seat Adjuster</title>
-      <link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/can-seat-adjuster/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/can-seat-adjuster/</guid>
-      <description>&lt;p&gt;Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.&#xA;In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.&lt;/p&gt;&#xA;&lt;p&gt;Instead of the &lt;code&gt;mock service&lt;/code&gt; you use the &lt;code&gt;seat service&lt;/code&gt; as a provider, which is another pre-installed container&#xA;acting as the connection between the KUKSA Databroker and the underlying hardware.&#xA;More specifically, it subscribes to the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal,&#xA;can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.&#xA;For more details, visit the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34;&gt;Kuksa.val.services&lt;/a&gt; repository,&#xA;which hosts the code for the &lt;code&gt;seat service&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Seat Adjuster on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/</link>
+		<description>Recent content in Seat Adjuster on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Architecture of Seat Adjuster</title>
+				<link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/architecture-seat-adjuster/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/architecture-seat-adjuster/</guid>
+				<description>&lt;p&gt;The seat adjuster application interacts with the vehicle through a &lt;em&gt;Vehicle Abstraction Layer&lt;/em&gt; created by the KUKSA Databroker,&#xA;which uses the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;&#xA;to express the current value and in case of actuators also the desired state of the vehicle signal.&#xA;By developing against the abstraction layer, the application becomes independent from the actual physical seat.&lt;/p&gt;&#xA;&lt;p&gt;To control the position of the driver seat, the seat adjuster sets the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal in the KUKSA Databroker.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Develop Seat Adjuster</title>
+				<link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/develop-seat-adjuster/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/develop-seat-adjuster/</guid>
+				<description>&lt;p&gt;The following pages show how to execute the explained setup using Eclipse Velocitas and Eclipse Leda 0.1.0-M2:&lt;/p&gt;&#xA;&lt;p&gt;On a high level, you need to perform the following steps described in more detail in this guide:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Use the Eclipse Velocitas template repository to develop, build and deploy your&#xA;version of the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34;&gt;seat adjuster example&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Run Eclipse Leda, for example, &lt;a href=&#34;../../../general-usage/docker-setup&#34;&gt;as container&lt;/a&gt; or with other options like &lt;a href=&#34;../../../general-usage&#34;&gt;QEMU, physical hardware, etc.&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/&#34;&gt;Manage the Eclipse Kanto container runtime&lt;/a&gt; to deploy your seat adjuster application.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/&#34;&gt;Test the deployed setup&lt;/a&gt; by interacting with the seat adjuster to change the seat position.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+			</item>
+			<item>
+				<title>Deploy Seat Adjuster</title>
+				<link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/deploy-seat-adjuster/</guid>
+				<description>&lt;p&gt;We now want to deploy the application to a target device.&#xA;You may follow the remainder of this guide on a separate device like a RaspberryPi, but you can emulate such a device on your development machine too.&#xA;Either way, we use Eclipse Leda in version 0.1.0-M2 as the target system, which is a Linux-based distribution with pre-installed SDV components like the KUKSA Databroker&#xA;and Eclipse Kanto for container management.&#xA;For more details on how to download and run Eclipse Leda, follow the respective guides:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Interact with Seat Adjuster</title>
+				<link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/interact-seat-adjuster/</guid>
+				<description>&lt;p&gt;We interact with the seat application through MQTT messages to emulate the behavior of an offboard application.&#xA;To see the responses from the seat adjuster app, subscribe to the MQTT topic `seatadjuster/#``.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_sub -t &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;seatadjuster/#&amp;#39;&lt;/span&gt; -v&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To initiate the moving of the seat, publish an MQTT message for the seat adjuster application to set the position to &lt;code&gt;1000&lt;/code&gt; (which is the equivalent of 100%):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mosquitto_pub -t seatadjuster/setPosition/request -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;{&amp;#34;position&amp;#34;: 1000, &amp;#34;requestId&amp;#34;: &amp;#34;12345&amp;#34;}&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You may need to open a second terminal session to send the message.&#xA;In the QEMU setup, you can do this through an SSH connection from the host machine by running &lt;code&gt;ssh -p 2222 root@localhost&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CAN Setup for Seat Adjuster</title>
+				<link>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/can-seat-adjuster/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/app-deployment/seat-adjuster/can-seat-adjuster/</guid>
+				<description>&lt;p&gt;Within the seat adjuster guide, we so far mocked the behavior of the actual vehicle.&#xA;In the following, we give an overview of how to create a virtual CAN-bus and interact with it to send CAN-frames for moving a seat.&lt;/p&gt;&#xA;&lt;p&gt;Instead of the &lt;code&gt;mock service&lt;/code&gt; you use the &lt;code&gt;seat service&lt;/code&gt; as a provider, which is another pre-installed container&#xA;acting as the connection between the KUKSA Databroker and the underlying hardware.&#xA;More specifically, it subscribes to the target value of the &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; signal,&#xA;can send CAN-frames, and updates the current value of the signal in small steps until it is equal to the target value.&#xA;For more details, visit the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34;&gt;Kuksa.val.services&lt;/a&gt; repository,&#xA;which hosts the code for the &lt;code&gt;seat service&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

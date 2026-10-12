@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Documentation on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/</link>
-    <description>Recent content in Documentation on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>https://eclipse-leda.github.io/leda/docs/__shared/usage-overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/__shared/usage-overview/</guid>
-      <description>&lt;ol&gt;&#xA;&lt;li&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Run Eclipse Leda&#xA;&lt;ul&gt;&#xA;&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;emulated Qemu devices&lt;/a&gt; or&lt;/li&gt;&#xA;&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Configure device, e.g. &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;provision the device&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Explore the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/misc/tools/&#34;&gt;device tools&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Develop your first Vehicle App using &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Eclipse Velocitas template&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploy a Vehicle App to the device&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Documentation on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/</link>
+		<description>Recent content in Documentation on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://eclipse-leda.github.io/leda/docs/__shared/usage-overview/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/__shared/usage-overview/</guid>
+				<description>&lt;ol&gt;&#xA;&lt;li&gt;Download &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/download-releases/&#34;&gt;latest Eclipse Leda release&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Run Eclipse Leda&#xA;&lt;ul&gt;&#xA;&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/&#34;&gt;emulated Qemu devices&lt;/a&gt; or&lt;/li&gt;&#xA;&lt;li&gt;on &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/raspberry-pi/&#34;&gt;Raspberry Pi 4&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Configure device, e.g. &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/device-provisioning/&#34;&gt;provision the device&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Explore the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/misc/tools/&#34;&gt;device tools&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Develop your first Vehicle App using &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Eclipse Velocitas template&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/&#34;&gt;Deploy a Vehicle App to the device&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+			</item>
+	</channel>
 </rss>

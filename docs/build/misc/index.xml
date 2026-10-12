@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Miscellaneous on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/build/misc/</link>
-    <description>Recent content in Miscellaneous on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/build/misc/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Resource Consumptions</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</guid>
-      <description>&lt;h2 id=&#34;baseline-no-apps-installed&#34;&gt;Baseline (no apps installed)&lt;/h2&gt;&#xA;&lt;p&gt;Baseline: 400 MB&lt;/p&gt;&#xA;&lt;p&gt;Installed components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Container Management: runc, containerd, container-management&lt;/li&gt;&#xA;&lt;li&gt;System Services: systemd, openssh, mosquitto, mosquitto-clients&lt;/li&gt;&#xA;&lt;li&gt;No cloud connector or edgecontainerd yet.&lt;/li&gt;&#xA;&lt;li&gt;No self update agent&lt;/li&gt;&#xA;&lt;li&gt;No containers, no vehicle apps etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/bin# df -h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Filesystem      Size  Used Avail Use% Mounted on&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/root       2.5G  506M  1.8G  22% /&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;Memory Usage: 200MB&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/# free&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            total        used        free      shared  buff/cache   available&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Swap:    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;component-details&#34;&gt;Component Details&lt;/h2&gt;&#xA;&lt;p&gt;Dependencies&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Miscellaneous on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/build/misc/</link>
+		<description>Recent content in Miscellaneous on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/build/misc/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Resource Consumptions</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/misc/diskusage/</guid>
+				<description>&lt;h2 id=&#34;baseline-no-apps-installed&#34;&gt;Baseline (no apps installed)&lt;/h2&gt;&#xA;&lt;p&gt;Baseline: 400 MB&lt;/p&gt;&#xA;&lt;p&gt;Installed components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Container Management: runc, containerd, container-management&lt;/li&gt;&#xA;&lt;li&gt;System Services: systemd, openssh, mosquitto, mosquitto-clients&lt;/li&gt;&#xA;&lt;li&gt;No cloud connector or edgecontainerd yet.&lt;/li&gt;&#xA;&lt;li&gt;No self update agent&lt;/li&gt;&#xA;&lt;li&gt;No containers, no vehicle apps etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/bin# df -h&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Filesystem      Size  Used Avail Use% Mounted on&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/dev/root       2.5G  506M  1.8G  22% /&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;Memory Usage: 200MB&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;root@qemux86-64:/# free&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            total        used        free      shared  buff/cache   available&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Mem:           1.9G      329.6M        1.4G       16.6M      222.2M        1.6G&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Swap:    &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;component-details&#34;&gt;Component Details&lt;/h2&gt;&#xA;&lt;p&gt;Dependencies&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

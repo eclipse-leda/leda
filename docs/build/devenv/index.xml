@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Setup development environment on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/build/devenv/</link>
-    <description>Recent content in Setup development environment on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/build/devenv/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>VSCode DevContainer</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</guid>
-      <description>&lt;h2 id=&#34;preparation&#34;&gt;Preparation&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Obtain the &lt;a href=&#34;https://docs.docker.com/engine/install/&#34;&gt;Docker Engine&lt;/a&gt; for your distribution and add your non-privileged user to the docker group (&lt;code&gt;sudo usermod -aG docker $USER&lt;/code&gt; )&lt;/li&gt;&#xA;&lt;li&gt;Install &lt;a href=&#34;https://code.visualstudio.com/download&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;visual-studio-code-development-containers&#34;&gt;Visual Studio Code: Development Containers&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Open Visual Studio Code&lt;/li&gt;&#xA;&lt;li&gt;Open Command Palette (&lt;code&gt;F1&lt;/code&gt;) and select &lt;code&gt;Clone repository in Container Volume&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Select &lt;code&gt;eclipse-leda/meta-leda&lt;/code&gt; and the main branch.&lt;/li&gt;&#xA;&lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;em&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up a development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Building with kas/manually</title>
-      <link>https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/</guid>
-      <description>&lt;p&gt;After setting up your &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespace&lt;/a&gt; you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.&lt;/p&gt;&#xA;&lt;h2 id=&#34;building-with-kas&#34;&gt;Building with kas&lt;/h2&gt;&#xA;&lt;p&gt;This is the easiest way to build leda semi-automatically&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;cd /workspaces/meta-leda-fork/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Open the VSCode terminal and run &lt;code&gt;kas build&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;building-manually&#34;&gt;Building manually&lt;/h2&gt;&#xA;&lt;p&gt;You can also build Leda manually if more customization of the build process is required.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Setup development environment on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/build/devenv/</link>
+		<description>Recent content in Setup development environment on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/build/devenv/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>VSCode DevContainer</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/</guid>
+				<description>&lt;h2 id=&#34;preparation&#34;&gt;Preparation&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Obtain the &lt;a href=&#34;https://docs.docker.com/engine/install/&#34;&gt;Docker Engine&lt;/a&gt; for your distribution and add your non-privileged user to the docker group (&lt;code&gt;sudo usermod -aG docker $USER&lt;/code&gt; )&lt;/li&gt;&#xA;&lt;li&gt;Install &lt;a href=&#34;https://code.visualstudio.com/download&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;visual-studio-code-development-containers&#34;&gt;Visual Studio Code: Development Containers&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Open Visual Studio Code&lt;/li&gt;&#xA;&lt;li&gt;Open Command Palette (&lt;code&gt;F1&lt;/code&gt;) and select &lt;code&gt;Clone repository in Container Volume&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Select &lt;code&gt;eclipse-leda/meta-leda&lt;/code&gt; and the main branch.&lt;/li&gt;&#xA;&lt;li&gt;Adapt proxy configurations if necessary (&lt;code&gt;.devcontainer/proxy.sh&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;em&gt;For a clean remote build machine, you may want to &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;set up a development environment on GitHub CodeSpaces&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Building with kas/manually</title>
+				<link>https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/build/devenv/build-kas-manually/</guid>
+				<description>&lt;p&gt;After setting up your &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/vscode-devcontainer/&#34;&gt;VSCode DevContainer&lt;/a&gt; or &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/build/devenv/github-codespaces/&#34;&gt;GitHub Codespace&lt;/a&gt; you can proceed with the actual build process. Here you have two choices - either using the kas-build system or setting up the build manually.&lt;/p&gt;&#xA;&lt;h2 id=&#34;building-with-kas&#34;&gt;Building with kas&lt;/h2&gt;&#xA;&lt;p&gt;This is the easiest way to build leda semi-automatically&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;cd /workspaces/meta-leda-fork/&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Open the VSCode terminal and run &lt;code&gt;kas build&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Note: you can alter the build options by modifying the .config.yaml file in the trunk of the repository&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;building-manually&#34;&gt;Building manually&lt;/h2&gt;&#xA;&lt;p&gt;You can also build Leda manually if more customization of the build process is required.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

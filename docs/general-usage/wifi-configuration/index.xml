@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Wifi Configuration on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</link>
-    <description>Recent content in Wifi Configuration on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Connecting to Wi-Fi networks</title>
-      <link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/</link>
-      <pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/</guid>
-      <description>&lt;p&gt;Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.&lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-steps-identifying-wlan-interfaces&#34;&gt;Initial steps (identifying wlan interfaces)&lt;/h2&gt;&#xA;&lt;p&gt;Start by running:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip a&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3: wlan0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN group default qlen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    link/ether &amp;lt;MAC&amp;gt; brd ff:ff:ff:ff:ff:ff&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Usually the name of the interface would be &lt;code&gt;wlan0&lt;/code&gt;. It might however follow the newer &amp;ldquo;predictable interface names&amp;rdquo; standart.&#xA;Then the interface name would start with &lt;code&gt;wl*&lt;/code&gt; with the remaining characters identifying a physical bus/chip/number/etc&#xA;corresponding to the interface. For simplicity we will &lt;code&gt;wlan0&lt;/code&gt; in all examples below.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Wifi Configuration on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/</link>
+		<description>Recent content in Wifi Configuration on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 03 Jan 2023 17:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Connecting to Wi-Fi networks</title>
+				<link>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/</link>
+				<pubDate>Tue, 03 Jan 2023 17:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/general-usage/wifi-configuration/connecting-to-wifi/</guid>
+				<description>&lt;p&gt;Here we will describe the basic steps on how to identify and connect to a WiFi network in interactive or headless mode.&lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-steps-identifying-wlan-interfaces&#34;&gt;Initial steps (identifying wlan interfaces)&lt;/h2&gt;&#xA;&lt;p&gt;Start by running:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ip a&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3: wlan0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN group default qlen &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1000&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    link/ether &amp;lt;MAC&amp;gt; brd ff:ff:ff:ff:ff:ff&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Usually the name of the interface would be &lt;code&gt;wlan0&lt;/code&gt;. It might however follow the newer &amp;ldquo;predictable interface names&amp;rdquo; standart.&#xA;Then the interface name would start with &lt;code&gt;wl*&lt;/code&gt; with the remaining characters identifying a physical bus/chip/number/etc&#xA;corresponding to the interface. For simplicity we will &lt;code&gt;wlan0&lt;/code&gt; in all examples below.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

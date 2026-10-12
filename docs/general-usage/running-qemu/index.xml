@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Running on QEMU on Eclipse Leda Documentation</title>
-    <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/</link>
-    <description>Recent content in Running on QEMU on Eclipse Leda Documentation</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 08 Mar 2026 11:31:58 +0100</lastBuildDate>
-    <atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CAN Bus</title>
-      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Note: The configuration mentioned in this chapter is already enabled in the &lt;code&gt;run-leda.sh&lt;/code&gt; script.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;qemu&#34;&gt;QEMU&lt;/h2&gt;&#xA;&lt;p&gt;General documentation about using CAN-Bus in Qemu: &lt;a href=&#34;https://www.qemu.org/docs/master/system/devices/can.html&#34;&gt;https://www.qemu.org/docs/master/system/devices/can.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;enabling-virtual-can-bus-interfaces-vcan&#34;&gt;Enabling Virtual CAN Bus interfaces (vcan)&lt;/h3&gt;&#xA;&lt;p&gt;No special parameters are necessary for qemu, as vcan is virtual:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;#34;-m 2048&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Bring interface up:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ip link add dev vcan0 type vcan&#xA;ip link set vcan0 up&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;enabling-can-bus-interfaces-can&#34;&gt;Enabling CAN Bus interfaces (can)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;standalone-can-within-qemu&#34;&gt;Standalone CAN within Qemu&lt;/h4&gt;&#xA;&lt;p&gt;To run a standalone CAN setup, qemu must be instructed to emulate a specific CAN hardware device. We will be using the &lt;code&gt;kvaser_pci&lt;/code&gt; device in this example:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Transferring Files</title>
-      <link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      <guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</guid>
-      <description>&lt;h1 id=&#34;sharing-a-directory-with-the-guest&#34;&gt;Sharing a directory with the guest&lt;/h1&gt;&#xA;&lt;p&gt;When you want to copy files between the host and the guest, an easy way is to use an SFTP tunnel.&#xA;With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote directory via SSH.&lt;/p&gt;&#xA;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;&#xA;&lt;p&gt;Installation of needed packages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Run &lt;code&gt;apt-get install sshfs&lt;/code&gt; on your host&lt;/li&gt;&#xA;&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image (e.g. in the local_conf_header section in your kas file)&lt;/li&gt;&#xA;&lt;li&gt;Verify SFTP connection working with &lt;code&gt;sftp -P 2222 root@localhost&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;transfering-files-from-host-to-guest&#34;&gt;Transfering files from host to guest&lt;/h2&gt;&#xA;&lt;p&gt;When you want to copy files from the host to the guest, an easy way is to use an SFTP tunnel.&#xA;With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote directory via SSH.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Running on QEMU on Eclipse Leda Documentation</title>
+		<link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/</link>
+		<description>Recent content in Running on QEMU on Eclipse Leda Documentation</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+		
+			<atom:link href="https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>CAN Bus</title>
+				<link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/canbus/</guid>
+				<description>&lt;p&gt;&lt;em&gt;Note: The configuration mentioned in this chapter is already enabled in the &lt;code&gt;run-leda.sh&lt;/code&gt; script.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;qemu&#34;&gt;QEMU&lt;/h2&gt;&#xA;&lt;p&gt;General documentation about using CAN-Bus in Qemu: &lt;a href=&#34;https://www.qemu.org/docs/master/system/devices/can.html&#34;&gt;https://www.qemu.org/docs/master/system/devices/can.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;enabling-virtual-can-bus-interfaces-vcan&#34;&gt;Enabling Virtual CAN Bus interfaces (vcan)&lt;/h3&gt;&#xA;&lt;p&gt;No special parameters are necessary for qemu, as vcan is virtual:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;runqemu qemux86-64 nographic slirp qemuparams=&amp;#34;-m 2048&amp;#34;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Bring interface up:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ip link add dev vcan0 type vcan&#xA;ip link set vcan0 up&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;enabling-can-bus-interfaces-can&#34;&gt;Enabling CAN Bus interfaces (can)&lt;/h3&gt;&#xA;&lt;h4 id=&#34;standalone-can-within-qemu&#34;&gt;Standalone CAN within Qemu&lt;/h4&gt;&#xA;&lt;p&gt;To run a standalone CAN setup, qemu must be instructed to emulate a specific CAN hardware device. We will be using the &lt;code&gt;kvaser_pci&lt;/code&gt; device in this example:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Transferring Files</title>
+				<link>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</link>
+				<pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+				<guid>https://eclipse-leda.github.io/leda/docs/general-usage/running-qemu/filetransfer/</guid>
+				<description>&lt;h1 id=&#34;sharing-a-directory-with-the-guest&#34;&gt;Sharing a directory with the guest&lt;/h1&gt;&#xA;&lt;p&gt;When you want to copy files between the host and the guest, an easy way is to use an SFTP tunnel.&#xA;With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote directory via SSH.&lt;/p&gt;&#xA;&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;&#xA;&lt;p&gt;Installation of needed packages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Run &lt;code&gt;apt-get install sshfs&lt;/code&gt; on your host&lt;/li&gt;&#xA;&lt;li&gt;Enable &lt;code&gt;CORE_IMAGE_EXTRA_INSTALL += &amp;quot; openssh-sftp-server&amp;quot;&lt;/code&gt; in &lt;code&gt;local.conf&lt;/code&gt; of your image (e.g. in the local_conf_header section in your kas file)&lt;/li&gt;&#xA;&lt;li&gt;Verify SFTP connection working with &lt;code&gt;sftp -P 2222 root@localhost&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;transfering-files-from-host-to-guest&#34;&gt;Transfering files from host to guest&lt;/h2&gt;&#xA;&lt;p&gt;When you want to copy files from the host to the guest, an easy way is to use an SFTP tunnel.&#xA;With &lt;code&gt;sshfs&lt;/code&gt;, you can mount a local directory to a remote directory via SSH.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
