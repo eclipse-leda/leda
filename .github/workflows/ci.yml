@@ -25,27 +25,27 @@ jobs:
     name: Building documentation
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '24'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.157.0"
+          hugo-version: "0.167.0"
           extended: true
 
       - name: Download theme
         run: |
-          git clone --branch v0.14.3 --depth 1 https://github.com/google/docsy.git themes/docsy
+          git clone --branch theme/v0.18.0 --depth 1 https://github.com/docsy/docsy.git themes/docsy
 
       - name: Install theme dependencies
-        working-directory: ./themes/docsy
+        working-directory: ./themes/docsy/theme
         run: |
-          npm install
+          npm ci --ignore-scripts --omit=dev --omit=peer --no-audit --no-fund
 
       - name: Install build dependencies
         run: |
