@@ -1,7 +1,7 @@
 ---
 title: PadWear
 
-date: 2026-03-08T08:02:57.195784
+date: 2026-10-12T19:51:31.933999
 no_list: true
 ---
 
@@ -97,11 +97,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.PadWear` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.PadWear` is `63a564bca18a5b1fabd7d3cff1af0e6d`
 
 
 ## Feedback

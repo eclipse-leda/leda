@@ -1,7 +1,7 @@
 ---
 title: RollPrioTarget
 
-date: 2026-03-08T08:02:59.538075
+date: 2026-10-12T19:51:34.939379
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.RollPrioTarget` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.RollPrioTarget` is `b2d96461e5c350c68ed555864c848d71`
 
 
 ## Feedback

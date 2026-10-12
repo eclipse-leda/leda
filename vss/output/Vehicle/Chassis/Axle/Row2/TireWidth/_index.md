@@ -1,7 +1,7 @@
 ---
 title: TireWidth
 
-date: 2026-03-08T08:02:56.981004
+date: 2026-10-12T19:51:31.713991
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.TireWidth` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.TireWidth` is `76a9071697b25fb8ab42393dfb77f0ef`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Axle
 
-date: 2026-03-08T08:02:59.568389
+date: 2026-10-12T19:51:34.963394
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension.Axle` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension.Axle` is `a428e831a26b51258b55ab26032ac78f`
 
 ## Children
 

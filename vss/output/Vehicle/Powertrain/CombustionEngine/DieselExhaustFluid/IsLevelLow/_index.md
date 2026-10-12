@@ -1,7 +1,7 @@
 ---
 title: IsLevelLow
 
-date: 2026-03-08T08:02:45.881823
+date: 2026-10-12T19:51:21.574894
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.IsLev
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.IsLevelLow` is `811af3fe4f7f5270b4119bb66cff8759`
 
 
 ## Feedback

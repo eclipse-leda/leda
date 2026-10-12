@@ -1,7 +1,7 @@
 ---
 title: IsFuelLevelLow
 
-date: 2026-03-08T08:02:47.601042
+date: 2026-10-12T19:51:23.912890
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.IsFuelLevelLow` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.IsFuelLevelLow` is `65f18ee3b04f5d4c8bb76083227dd9fe`
 
 
 ## Feedback

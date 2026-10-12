@@ -1,7 +1,7 @@
 ---
 title: WasherFluid
 
-date: 2026-03-08T08:02:48.436358
+date: 2026-10-12T19:51:24.743240
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Body.Windshield.Rear.WasherFluid` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Rear.WasherFluid` is `1ea4ac2370e1567b9b812c1e3020ddfb`
 
 ## Children
 

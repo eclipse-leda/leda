@@ -1,7 +1,7 @@
 ---
 title: Range
 
-date: 2026-03-08T08:02:46.623539
+date: 2026-10-12T19:51:23.125657
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Range` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Range` is `c0376a425e5d578d9d86ae0dc2ad9778`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: OptionalExtras
 
-date: 2026-03-08T08:02:44.860200
+date: 2026-10-12T19:51:33.525584
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.OptionalExtras` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.OptionalExtras` is `d9ecc64b0c995595967e05009d6fc1b9`
 
 
 ## Feedback

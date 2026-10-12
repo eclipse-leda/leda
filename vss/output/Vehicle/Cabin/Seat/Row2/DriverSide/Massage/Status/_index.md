@@ -1,7 +1,7 @@
 ---
 title: Status
 
-date: 2026-03-08T08:02:53.572678
+date: 2026-10-12T19:51:29.013154
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.DriverSide.Massage.Status` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.DriverSide.Massage.Status` is `a30cc0c4da2c5439b1a69ad98f568a66`
 
 
 ## Feedback

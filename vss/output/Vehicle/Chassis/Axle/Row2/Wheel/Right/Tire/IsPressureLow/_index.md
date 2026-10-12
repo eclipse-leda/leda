@@ -1,7 +1,7 @@
 ---
 title: IsPressureLow
 
-date: 2026-03-08T08:02:57.236479
+date: 2026-10-12T19:51:31.968912
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.IsPressureLow` is
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.IsPressureLow` is `da2f63312a455d92abd5edc405f01903`
 
 
 ## Feedback

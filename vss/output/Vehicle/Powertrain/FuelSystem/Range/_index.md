@@ -1,7 +1,7 @@
 ---
 title: Range
 
-date: 2026-03-08T08:02:47.529335
+date: 2026-10-12T19:51:23.852442
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.Range` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.Range` is `c5a0dbe5e754553897f0aed0069af57a`
 
 
 ## Feedback

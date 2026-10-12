@@ -1,7 +1,7 @@
 ---
 title: IsHighBeamSwitchOn
 
-date: 2026-03-08T08:02:48.487253
+date: 2026-10-12T19:51:24.783847
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Body.Lights.IsHighBeamSwitchOn` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.IsHighBeamSwitchOn` is `ac7db3cd30f55650bc6939df504f1a79`
 
 
 ## Feedback

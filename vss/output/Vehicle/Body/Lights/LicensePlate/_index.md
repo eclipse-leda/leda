@@ -1,7 +1,7 @@
 ---
 title: LicensePlate
 
-date: 2026-03-08T08:02:48.737870
+date: 2026-10-12T19:51:24.998177
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.LicensePlate` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.LicensePlate` is `7bb12e42a8c45c198f83bf41b19131fa`
 
 ## Children
 

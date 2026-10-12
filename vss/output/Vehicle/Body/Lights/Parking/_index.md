@@ -1,7 +1,7 @@
 ---
 title: Parking
 
-date: 2026-03-08T08:02:48.635646
+date: 2026-10-12T19:51:24.911581
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.Parking` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Parking` is `dfb819be5cec5be09b9fb743829301c3`
 
 ## Children
 

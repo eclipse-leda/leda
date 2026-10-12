@@ -1,7 +1,7 @@
 ---
 title: WarningType
 
-date: 2026-03-08T08:02:56.058195
+date: 2026-10-12T19:51:30.941820
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Center.WarningType` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Center.WarningType` is `3962ce21fff65998b293e02a4e1e144d`
 
 
 ## Feedback

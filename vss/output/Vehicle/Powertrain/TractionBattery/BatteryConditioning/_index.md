@@ -1,7 +1,7 @@
 ---
 title: BatteryConditioning
 
-date: 2026-03-08T08:02:47.387357
+date: 2026-10-12T19:51:23.736513
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.BatteryConditioning` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.BatteryConditioning` is `3da3ed2e9690563da6000ca209af4a79`
 
 ## Children
 

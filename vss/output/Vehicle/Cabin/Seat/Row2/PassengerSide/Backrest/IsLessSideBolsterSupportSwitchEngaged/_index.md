@@ -1,7 +1,7 @@
 ---
 title: IsLessSideBolsterSupportSwitchEngaged
 
-date: 2026-03-08T08:02:55.136176
+date: 2026-10-12T19:51:30.250023
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.IsLessSideBol
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.IsLessSideBolsterSupportSwitchEngaged` is `b817fee4bc0e58ec85f0a38a98472077`
 
 
 ## Feedback

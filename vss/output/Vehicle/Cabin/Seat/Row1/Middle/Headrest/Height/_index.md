@@ -1,7 +1,7 @@
 ---
 title: Height
 
-date: 2026-03-08T08:02:52.595257
+date: 2026-10-12T19:51:28.221636
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.Headrest.Height` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.Headrest.Height` is `520ec12b50515918a664ae6f2ac6b702`
 
 
 ## Feedback

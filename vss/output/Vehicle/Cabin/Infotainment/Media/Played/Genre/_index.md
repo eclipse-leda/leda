@@ -1,7 +1,7 @@
 ---
 title: Genre
 
-date: 2026-03-08T08:02:49.648250
+date: 2026-10-12T19:51:25.838890
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media.Played.Genre` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media.Played.Genre` is `f0af5668cc1059c2b03b2d3878ba9259`
 
 
 ## Feedback

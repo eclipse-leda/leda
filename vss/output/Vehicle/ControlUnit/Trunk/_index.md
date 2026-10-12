@@ -1,7 +1,7 @@
 ---
 title: Trunk
 
-date: 2026-03-08T08:03:00.838085
+date: 2026-10-12T19:51:36.004571
 no_list: true
 ---
 
@@ -46,11 +46,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk` is `9e4e48d8cc6c58b7a7168095c8572956`
 
 ## Children
 

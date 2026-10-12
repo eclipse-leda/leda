@@ -1,7 +1,7 @@
 ---
 title: IsChildLockActive
 
-date: 2026-03-08T08:02:51.122772
+date: 2026-10-12T19:51:27.008641
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Door.Row1.PassengerSide.IsChildLockActive` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door.Row1.PassengerSide.IsChildLockActive` is `74a842786a73553ba3491975c2077ac7`
 
 
 ## Feedback

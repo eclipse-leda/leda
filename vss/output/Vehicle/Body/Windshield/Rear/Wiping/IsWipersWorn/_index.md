@@ -1,7 +1,7 @@
 ---
 title: IsWipersWorn
 
-date: 2026-03-08T08:02:48.415937
+date: 2026-10-12T19:51:24.724881
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Body.Windshield.Rear.Wiping.IsWipersWorn` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Rear.Wiping.IsWipersWorn` is `0e8d5f7cb6295b908be3a03e8792cca8`
 
 
 ## Feedback

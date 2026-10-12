@@ -1,7 +1,7 @@
 ---
 title: Label
 
-date: 2026-03-08T08:02:44.636105
+date: 2026-10-12T19:51:33.330922
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.VersionVSS.Label` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VersionVSS.Label` is `7c92cd50d24b5662922b27cb9a327e53`
 
 
 ## Feedback

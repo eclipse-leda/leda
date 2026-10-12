@@ -1,7 +1,7 @@
 ---
 title: Latitude
 
-date: 2026-03-08T08:02:47.252965
+date: 2026-10-12T19:51:23.642963
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.Location.Latitud
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.Location.Latitude` is `33fc44c112735cc2bc0ee02f1786d948`
 
 
 ## Feedback

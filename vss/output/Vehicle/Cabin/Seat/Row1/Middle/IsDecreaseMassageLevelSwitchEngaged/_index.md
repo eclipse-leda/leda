@@ -1,7 +1,7 @@
 ---
 title: IsDecreaseMassageLevelSwitchEngaged
 
-date: 2026-03-08T08:02:52.808686
+date: 2026-10-12T19:51:28.432945
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.IsDecreaseMassageLevelSwitchE
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.IsDecreaseMassageLevelSwitchEngaged` is `e544c4af3ade59bdb8900ad0e7ff3763`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: FixType
 
-date: 2026-03-08T08:02:45.357036
+date: 2026-10-12T19:51:33.979409
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.CurrentLocation.GNSSReceiver.FixType` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.GNSSReceiver.FixType` is `52853b33d4605608bd0ae50595c69309`
 
 
 ## Feedback

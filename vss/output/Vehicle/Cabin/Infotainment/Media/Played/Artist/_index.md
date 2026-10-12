@@ -1,7 +1,7 @@
 ---
 title: Artist
 
-date: 2026-03-08T08:02:49.658417
+date: 2026-10-12T19:51:25.848343
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media.Played.Artist` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media.Played.Artist` is `076af7ad8aff5110ab5a64d1f58ccdcb`
 
 
 ## Feedback

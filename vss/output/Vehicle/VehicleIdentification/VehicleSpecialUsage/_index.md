@@ -1,7 +1,7 @@
 ---
 title: VehicleSpecialUsage
 
-date: 2026-03-08T08:02:44.809056
+date: 2026-10-12T19:51:33.475762
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.VehicleSpecialUsage` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.VehicleSpecialUsage` is `7e6e8a48f54a5549a8f6af8f1dc5eb8d`
 
 
 ## Feedback

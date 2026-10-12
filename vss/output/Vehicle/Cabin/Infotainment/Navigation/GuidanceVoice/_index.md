@@ -1,7 +1,7 @@
 ---
 title: GuidanceVoice
 
-date: 2026-03-08T08:02:49.800616
+date: 2026-10-12T19:51:25.957360
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Navigation.GuidanceVoice` is `f5404f515db05e518d7b74460cf83eee`
 
 
 ## Feedback

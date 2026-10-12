@@ -1,7 +1,7 @@
 ---
 title: IsEnabled
 
-date: 2026-03-08T08:02:56.002869
+date: 2026-10-12T19:51:30.900331
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Center.IsEnabled` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Center.IsEnabled` is `735866601f675640ae0f300c655055f2`
 
 
 ## Feedback

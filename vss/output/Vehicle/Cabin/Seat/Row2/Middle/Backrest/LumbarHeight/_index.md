@@ -1,7 +1,7 @@
 ---
 title: LumbarHeight
 
-date: 2026-03-08T08:02:54.361805
+date: 2026-10-12T19:51:29.664786
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.Middle.Backrest.LumbarHeight` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.Middle.Backrest.LumbarHeight` is `287dc2e74c7f51e8b1a80e0d2082de5d`
 
 
 ## Feedback

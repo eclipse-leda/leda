@@ -1,7 +1,7 @@
 ---
 title: Extension
 
-date: 2026-03-08T08:02:57.369463
+date: 2026-10-12T19:51:32.096863
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.SteeringWheel.Extension` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.SteeringWheel.Extension` is `6a84cc3604fc5960a1fb384fe63fae72`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsFolded
 
-date: 2026-03-08T08:02:48.969491
+date: 2026-10-12T19:51:25.213248
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Mirrors.DriverSide.IsFolded` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Mirrors.DriverSide.IsFolded` is `0ade6b89326052829a49da918aacf0b7`
 
 
 ## Feedback

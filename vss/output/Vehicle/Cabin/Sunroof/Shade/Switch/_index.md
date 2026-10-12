@@ -1,7 +1,7 @@
 ---
 title: Switch
 
-date: 2026-03-08T08:02:50.168099
+date: 2026-10-12T19:51:26.264552
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Sunroof.Shade.Switch` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Sunroof.Shade.Switch` is `3836077128c65381b01e74a1a8be1c40`
 
 
 ## Feedback

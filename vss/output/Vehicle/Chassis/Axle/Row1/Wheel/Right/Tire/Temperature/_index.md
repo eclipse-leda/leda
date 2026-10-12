@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2026-03-08T08:02:56.838431
+date: 2026-10-12T19:51:31.588739
 no_list: true
 ---
 
@@ -67,9 +67,6 @@ sdv.databroker.v1 > set Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature 0
 | Path | `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree Celsius | |
-| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -97,11 +94,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature` is `58d4cee188d353d7996e855d48bb92df`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: TripMeterReading
 
-date: 2026-03-08T08:02:44.980815
+date: 2026-10-12T19:51:33.619775
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.TripMeterReading` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.TripMeterReading` is `81f51ebfe29c591190171d7b96e1c948`
 
 
 ## Feedback

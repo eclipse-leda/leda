@@ -1,7 +1,7 @@
 ---
 title: Massage
 
-date: 2026-03-08T08:02:52.218416
+date: 2026-10-12T19:51:27.943340
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.Massage` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.Massage` is `17936943738e57888f4c11a38570f25c`
 
 ## Children
 

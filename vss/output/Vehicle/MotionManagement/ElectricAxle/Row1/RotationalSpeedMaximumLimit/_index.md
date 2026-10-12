@@ -1,7 +1,7 @@
 ---
 title: RotationalSpeedMaximumLimit
 
-date: 2026-03-08T08:02:58.654623
+date: 2026-10-12T19:51:34.147099
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.ElectricAxle.Row1.RotationalSpeedMa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.ElectricAxle.Row1.RotationalSpeedMaximumLimit` is `0e0a05d4f4355e919d9a920b08b07943`
 
 
 ## Feedback

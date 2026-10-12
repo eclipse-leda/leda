@@ -1,7 +1,7 @@
 ---
 title: Backup
 
-date: 2026-03-08T08:02:48.605113
+date: 2026-10-12T19:51:24.884407
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.Backup` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Backup` is `4fe2cb68fc77506686eced7225aeff9a`
 
 ## Children
 

@@ -1,7 +1,7 @@
 ---
 title: IsConnectivityAvailable
 
-date: 2026-03-08T08:02:58.502164
+date: 2026-10-12T19:51:33.284658
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.Connectivity.IsConnectivityAvailable` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Connectivity.IsConnectivityAvailable` is `b6d11be2a6565996b68ffb07a96595a7`
 
 
 ## Feedback

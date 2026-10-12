@@ -1,7 +1,7 @@
 ---
 title: IsError
 
-date: 2026-03-08T08:02:56.240343
+date: 2026-10-12T19:51:31.061500
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.ESC.IsError` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ESC.IsError` is `6c237535654b5bc7a70f6a70c760b9d4`
 
 
 ## Feedback

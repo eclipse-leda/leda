@@ -1,7 +1,7 @@
 ---
 title: Central
 
-date: 2026-03-08T08:02:59.855750
+date: 2026-10-12T19:51:35.196396
 no_list: true
 ---
 
@@ -46,11 +46,6 @@ The vehicle signal `Vehicle.ControlUnit.Central` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Central` is `3e7abc37a1e951f8b6f70ccf6394eb87`
 
 ## Children
 

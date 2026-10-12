@@ -1,7 +1,7 @@
 ---
 title: Yaw
 
-date: 2026-03-08T08:02:58.205423
+date: 2026-10-12T19:51:32.867856
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Occupant.Row2.Middle.HeadPosition.Yaw` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row2.Middle.HeadPosition.Yaw` is `3deb3674741554b7a3ad9646b8233532`
 
 
 ## Feedback

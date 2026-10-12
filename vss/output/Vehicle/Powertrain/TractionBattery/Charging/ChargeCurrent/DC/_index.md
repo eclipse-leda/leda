@@ -1,7 +1,7 @@
 ---
 title: DC
 
-date: 2026-03-08T08:02:47.120554
+date: 2026-10-12T19:51:23.542861
 no_list: true
 ---
 
@@ -62,9 +62,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.Charging.ChargeCurren
 | Path | `Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.DC` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `A` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | ampere | |
-| Description | Electric current measured in amperes | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric-current | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -92,11 +89,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.DC
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent.DC` is `44204d7ae6fd5f8e954d0670a739bdf2`
 
 
 ## Feedback

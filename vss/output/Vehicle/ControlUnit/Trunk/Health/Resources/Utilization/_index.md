@@ -1,7 +1,7 @@
 ---
 title: Utilization
 
-date: 2026-03-08T08:03:00.939672
+date: 2026-10-12T19:51:36.083548
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.Health.Resources.Utilization` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.Health.Resources.Utilization` is `be8ef2441bfc509e87f073290c2a2ec4`
 
 ## Children
 

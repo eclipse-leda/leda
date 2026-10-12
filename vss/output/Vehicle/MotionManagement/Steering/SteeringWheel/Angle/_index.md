@@ -1,7 +1,7 @@
 ---
 title: Angle
 
-date: 2026-03-08T08:02:59.285149
+date: 2026-10-12T19:51:34.724464
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.SteeringWheel.Angle` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.SteeringWheel.Angle` is `98030b8cca965107bcebf4266ef797fa`
 
 
 ## Feedback

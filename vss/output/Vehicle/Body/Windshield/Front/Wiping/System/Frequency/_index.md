@@ -1,7 +1,7 @@
 ---
 title: Frequency
 
-date: 2026-03-08T08:02:48.079532
+date: 2026-10-12T19:51:24.447628
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.System.Frequency` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.System.Frequency` is `7394c8b8d20d52638881161ec1b41fc0`
 
 
 ## Feedback

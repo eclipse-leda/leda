@@ -1,7 +1,7 @@
 ---
 title: DiffLockFrontEngagement
 
-date: 2026-03-08T08:02:46.084957
+date: 2026-10-12T19:51:21.731243
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.DiffLockFrontEngagement` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.DiffLockFrontEngagement` is `5149afe37fbd5c24847b5820821abc02`
 
 
 ## Feedback

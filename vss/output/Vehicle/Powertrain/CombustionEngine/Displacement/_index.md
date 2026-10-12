@@ -1,7 +1,7 @@
 ---
 title: Displacement
 
-date: 2026-03-08T08:02:45.521127
+date: 2026-10-12T19:51:21.274412
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.Displacement` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.Displacement` is `94dbd928847150ab842c00fa5caaf272`
 
 
 ## Feedback

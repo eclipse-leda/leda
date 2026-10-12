@@ -1,7 +1,7 @@
 ---
 title: PositionTargetMode
 
-date: 2026-03-08T08:02:59.386412
+date: 2026-10-12T19:51:34.808112
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.Axle.Row1.PositionTargetMo
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.Axle.Row1.PositionTargetMode` is `7be07512f5ed5906ac11b61f6ac1d02d`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Pitch
 
-date: 2026-03-08T08:02:58.359684
+date: 2026-10-12T19:51:33.006881
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Occupant.Row2.PassengerSide.HeadPosition.Pitch` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row2.PassengerSide.HeadPosition.Pitch` is `1621e4d2e83c5228a8a8186993a8721f`
 
 
 ## Feedback

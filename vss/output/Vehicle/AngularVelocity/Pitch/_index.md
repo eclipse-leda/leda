@@ -1,7 +1,7 @@
 ---
 title: Pitch
 
-date: 2026-03-08T08:02:45.082306
+date: 2026-10-12T19:51:33.707054
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.AngularVelocity.Pitch` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.AngularVelocity.Pitch` is `42236f4a01f45313a97fdd9b6848ce4f`
 
 
 ## Feedback

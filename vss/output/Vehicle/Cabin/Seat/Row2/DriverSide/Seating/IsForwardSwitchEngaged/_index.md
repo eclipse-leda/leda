@@ -1,7 +1,7 @@
 ---
 title: IsForwardSwitchEngaged
 
-date: 2026-03-08T08:02:53.890783
+date: 2026-10-12T19:51:29.298532
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.DriverSide.Seating.IsForwardSwitchEn
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.DriverSide.Seating.IsForwardSwitchEngaged` is `4c3648f3b92955ea8b7b3ef12188356b`
 
 
 ## Feedback

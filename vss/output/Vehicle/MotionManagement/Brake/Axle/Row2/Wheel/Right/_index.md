@@ -1,7 +1,7 @@
 ---
 title: Right
 
-date: 2026-03-08T08:02:59.193587
+date: 2026-10-12T19:51:34.639444
 no_list: true
 ---
 
@@ -53,11 +53,6 @@ The vehicle signal `Vehicle.MotionManagement.Brake.Axle.Row2.Wheel.Right` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Brake.Axle.Row2.Wheel.Right` is `20621c745e7b5139a14608e814e64a6f`
 
 ## Children
 

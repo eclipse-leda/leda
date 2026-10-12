@@ -1,7 +1,7 @@
 ---
 title: Mirrors
 
-date: 2026-03-08T08:02:48.899720
+date: 2026-10-12T19:51:25.143979
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Body.Mirrors` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Mirrors` is `a4ea618914885a239ef5fa62c671a800`
 
 ## Children
 

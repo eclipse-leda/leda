@@ -1,7 +1,7 @@
 ---
 title: BottomLumbarSupport
 
-date: 2026-03-08T08:02:51.715155
+date: 2026-10-12T19:51:27.510387
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest.BottomLumbarSupp
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest.BottomLumbarSupport` is `12e04cffaaa3501e8c1491156efe8551`
 
 
 ## Feedback

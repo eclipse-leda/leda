@@ -1,7 +1,7 @@
 ---
 title: WiperWear
 
-date: 2026-03-08T08:02:48.180880
+date: 2026-10-12T19:51:24.534009
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.Body.Windshield.Front.Wiping.WiperWear` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Windshield.Front.Wiping.WiperWear` is `92c879c11bc65e6da30d582a3928caac`
 
 
 ## Feedback

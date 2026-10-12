@@ -1,7 +1,7 @@
 ---
 title: EngineOil
 
-date: 2026-03-08T08:02:45.667085
+date: 2026-10-12T19:51:21.399496
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.EngineOil` is a **Branch
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.EngineOil` is `2f8c5bd3204c500cb71244bd69a8c463`
 
 ## Children
 
@@ -60,6 +55,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Powertrain.CombustionEngine.EngineOil.Capacity](capacity/) (Engine oil capacity in liters.)
 - [Vehicle.Powertrain.CombustionEngine.EngineOil.Level](level/) (Engine oil level.)
 - [Vehicle.Powertrain.CombustionEngine.EngineOil.LifeRemaining](liferemaining/) (Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded.)
+- [Vehicle.Powertrain.CombustionEngine.EngineOil.PressureStatus](pressurestatus/) (Engine oil pressure status.)
 - [Vehicle.Powertrain.CombustionEngine.EngineOil.Temperature](temperature/) (EOT, Engine oil temperature.)
 
 

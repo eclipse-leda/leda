@@ -1,7 +1,7 @@
 ---
 title: IsHeatingOn
 
-date: 2026-03-08T08:02:49.019971
+date: 2026-10-12T19:51:25.252644
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Mirrors.PassengerSide.IsHeatingOn` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Mirrors.PassengerSide.IsHeatingOn` is `9d64ad38532658298e5f59a2f999ef57`
 
 
 ## Feedback

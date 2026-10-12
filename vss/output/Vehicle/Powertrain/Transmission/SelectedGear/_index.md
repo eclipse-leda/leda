@@ -1,7 +1,7 @@
 ---
 title: SelectedGear
 
-date: 2026-03-08T08:02:45.993346
+date: 2026-10-12T19:51:21.658881
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.SelectedGear` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.SelectedGear` is `490fd99b9d5f562eb180c19e8cef5e12`
 
 
 ## Feedback

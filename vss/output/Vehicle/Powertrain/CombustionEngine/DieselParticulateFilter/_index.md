@@ -1,7 +1,7 @@
 ---
 title: DieselParticulateFilter
 
-date: 2026-03-08T08:02:45.891964
+date: 2026-10-12T19:51:21.583463
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter`
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.DieselParticulateFilter` is `eeddd99ad6475b1a92b9ec7bd7cefdbd`
 
 ## Children
 

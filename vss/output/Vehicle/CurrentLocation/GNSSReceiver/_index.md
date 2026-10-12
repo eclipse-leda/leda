@@ -1,7 +1,7 @@
 ---
 title: GNSSReceiver
 
-date: 2026-03-08T08:02:45.346641
+date: 2026-10-12T19:51:33.972023
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.CurrentLocation.GNSSReceiver` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.GNSSReceiver` is `b1bea5d88662539a8cff6f8fe4974740`
 
 ## Children
 

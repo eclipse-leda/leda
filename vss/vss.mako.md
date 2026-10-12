@@ -1,5 +1,5 @@
 ## /********************************************************************************
-## * Copyright (c) 2023 Contributors to the Eclipse Foundation
+## * Copyright (c) 2023-2026 Contributors to the Eclipse Foundation
 ## *
 ## * See the NOTICE file(s) distributed with this work for additional
 ## * information regarding copyright ownership.
@@ -60,9 +60,9 @@ curr = nxt
 ```
 
 % if node.is_signal():
-${'##'} Eclipse Leda: Usage Example
+${'##'} Databroker usage example
 
-In [Eclipse Kuksa.VAL Databroker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker) CLI:
+In [Eclipse Kuksa Databroker](https://github.com/eclipse-kuksa/kuksa-databroker) CLI:
 
 <%
 example_value="0"

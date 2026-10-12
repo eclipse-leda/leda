@@ -1,7 +1,7 @@
 ---
 title: Identifier
 
-date: 2026-03-08T08:02:58.133596
+date: 2026-10-12T19:51:32.802330
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Occupant.Row2.Middle.Identifier` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row2.Middle.Identifier` is `9fdb1309f85e5d5e8f4a89b71819f472`
 
 ## Children
 

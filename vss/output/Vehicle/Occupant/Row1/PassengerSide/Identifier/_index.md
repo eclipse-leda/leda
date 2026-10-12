@@ -1,7 +1,7 @@
 ---
 title: Identifier
 
-date: 2026-03-08T08:02:57.828235
+date: 2026-10-12T19:51:32.537206
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Occupant.Row1.PassengerSide.Identifier` is a **Branc
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row1.PassengerSide.Identifier` is `99bd20324b7a52dc9d5a0d928842e891`
 
 ## Children
 

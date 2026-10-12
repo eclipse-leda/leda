@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2026-03-08T08:02:49.223068
+date: 2026-10-12T19:51:25.428358
 no_list: true
 ---
 
@@ -64,9 +64,6 @@ sdv.databroker.v1 > set Vehicle.Cabin.HVAC.Station.Row1.Passenger.Temperature 0
 | Path | `Vehicle.Cabin.HVAC.Station.Row1.Passenger.Temperature` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree Celsius | |
-| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -94,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.Station.Row1.Passenger.Temperature` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.Station.Row1.Passenger.Temperature` is `3a7a6b5f8c4756d4bcf540ee41c781e1`
 
 
 ## Feedback

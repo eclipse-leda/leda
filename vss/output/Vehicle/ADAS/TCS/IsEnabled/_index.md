@@ -1,7 +1,7 @@
 ---
 title: IsEnabled
 
-date: 2026-03-08T08:02:56.189768
+date: 2026-10-12T19:51:31.034594
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.ADAS.TCS.IsEnabled` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.TCS.IsEnabled` is `1d2dda19b11758a19ba7c1d5cd2d7956`
 
 
 ## Feedback

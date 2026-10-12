@@ -1,7 +1,7 @@
 ---
 title: BodyType
 
-date: 2026-03-08T08:02:47.784487
+date: 2026-10-12T19:51:24.140509
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.Body.BodyType` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.BodyType` is `6253412513105deea63b1d424117fd88`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: FanSpeed
 
-date: 2026-03-08T08:02:52.707387
+date: 2026-10-12T19:51:28.348639
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.NeckScarf.FanSpeed` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.NeckScarf.FanSpeed` is `84aac3fd05f75521af1acc731d251b17`
 
 
 ## Feedback

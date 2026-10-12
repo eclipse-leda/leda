@@ -6,7 +6,10 @@ title = "Eclipse Leda Documentation"
 enableRobotsTXT = true
 
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
+theme = ["docsy/theme"]
+
+[security]
+allowContent = ['! ^text/org$']
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
@@ -58,7 +61,6 @@ blog = "/:section/:year/:month/:day/:slug/"
 # Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
-quality = 75
 anchor = "smart"
 
 [services]
@@ -223,8 +225,6 @@ permalinkable = false
 
 [module]
 [module.hugoVersion]
-extended = true
-min = "0.146.0"
   [[module.mounts]]
     source = 'content/en'
     target = 'content'
@@ -242,7 +242,6 @@ min = "0.146.0"
     target = 'static'
   [[module.mounts]]
     source = 'vss/output/Vehicle'
-    lang = 'en'
     target = 'content/docs/vss/Vehicle'
 
 # https://www.docsy.dev/docs/adding-content/search/#algolia-docsearch

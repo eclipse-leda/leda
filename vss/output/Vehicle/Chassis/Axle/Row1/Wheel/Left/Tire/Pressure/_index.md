@@ -1,7 +1,7 @@
 ---
 title: Pressure
 
-date: 2026-03-08T08:02:56.675866
+date: 2026-10-12T19:51:31.435893
 no_list: true
 ---
 
@@ -66,9 +66,6 @@ sdv.databroker.v1 > set Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure 0
 | Path | `Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `kPa` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | kilopascal | |
-| Description | Pressure measured in kilopascal | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | pressure | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -96,11 +93,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure` is `9fa3f176fd975d28a68f70c7d72e370f`
 
 
 ## Feedback

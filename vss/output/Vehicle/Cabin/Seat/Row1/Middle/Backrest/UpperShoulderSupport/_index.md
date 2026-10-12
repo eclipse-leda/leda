@@ -1,7 +1,7 @@
 ---
 title: UpperShoulderSupport
 
-date: 2026-03-08T08:02:52.422829
+date: 2026-10-12T19:51:28.078807
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.Backrest.UpperShoulderSupport
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.Backrest.UpperShoulderSupport` is `1f1248a8455d581da5eafd1828a2dfb4`
 
 
 ## Feedback

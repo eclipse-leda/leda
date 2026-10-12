@@ -1,7 +1,7 @@
 ---
 title: ObstacleDetection
 
-date: 2026-03-08T08:02:55.680343
+date: 2026-10-12T19:51:30.651710
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection` is `e7b6d81631cc5ac584d027d4c1a66cb5`
 
 ## Children
 

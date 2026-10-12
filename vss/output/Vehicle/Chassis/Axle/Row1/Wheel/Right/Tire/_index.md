@@ -1,7 +1,7 @@
 ---
 title: Tire
 
-date: 2026-03-08T08:02:56.807718
+date: 2026-10-12T19:51:31.563919
 no_list: true
 ---
 
@@ -53,11 +53,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire` is `660f90ae8f14594cb6e97d000c1985a1`
 
 ## Children
 
@@ -68,6 +63,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Pressure](pressure/) (Tire pressure in kilo-Pascal.)
 - [Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.RubberTemperature](rubbertemperature/) (Rubber temperature of the tire in Celsius.)
 - [Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Temperature](temperature/) (Tire temperature in Celsius.)
+- [Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.WinterStatus](winterstatus/) (Winter (cold-weather / snow) capability class of the tire currently fitted to this wheel.)
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsActive
 
-date: 2026-03-08T08:02:47.397523
+date: 2026-10-12T19:51:23.744939
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.BatteryConditioning.IsAct
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.BatteryConditioning.IsActive` is `4961a0339cb35bedaa2fe94dc9e02080`
 
 
 ## Feedback

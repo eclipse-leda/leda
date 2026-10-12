@@ -1,7 +1,7 @@
 ---
 title: Effect
 
-date: 2026-03-08T08:02:50.857263
+date: 2026-10-12T19:51:26.807515
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Light.InteractiveLightBar.Effect` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.InteractiveLightBar.Effect` is `c0167026c1575ec8a2de0901a71d0d8d`
 
 
 ## Feedback

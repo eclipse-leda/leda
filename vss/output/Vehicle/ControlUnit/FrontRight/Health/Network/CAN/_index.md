@@ -1,7 +1,7 @@
 ---
 title: CAN
 
-date: 2026-03-08T08:03:00.282747
+date: 2026-10-12T19:51:35.546272
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontRight.Health.Network.CAN` is a **Br
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontRight.Health.Network.CAN` is `00895a76400c5cb3b197754ba55611e5`
 
 ## Children
 

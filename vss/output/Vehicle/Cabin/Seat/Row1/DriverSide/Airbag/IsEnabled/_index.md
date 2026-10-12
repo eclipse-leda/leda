@@ -1,7 +1,7 @@
 ---
 title: IsEnabled
 
-date: 2026-03-08T08:02:52.012622
+date: 2026-10-12T19:51:27.770072
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Airbag.IsEnabled` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Airbag.IsEnabled` is `f57c76e234ae55e9934b6c26379166c5`
 
 
 ## Feedback

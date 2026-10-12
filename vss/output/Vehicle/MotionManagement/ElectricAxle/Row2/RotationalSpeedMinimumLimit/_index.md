@@ -1,7 +1,7 @@
 ---
 title: RotationalSpeedMinimumLimit
 
-date: 2026-03-08T08:02:58.776171
+date: 2026-10-12T19:51:34.287214
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.ElectricAxle.Row2.RotationalSpeedMi
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.ElectricAxle.Row2.RotationalSpeedMinimumLimit` is `75c5fa81e67655b0aeb8be4e13c5639d`
 
 
 ## Feedback

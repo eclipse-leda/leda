@@ -1,7 +1,7 @@
 ---
 title: Humidity
 
-date: 2026-03-08T08:02:58.430799
+date: 2026-10-12T19:51:33.062493
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Exterior.Humidity` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Exterior.Humidity` is `6c785ec5d9a5534f98be7ce198d25d6b`
 
 
 ## Feedback

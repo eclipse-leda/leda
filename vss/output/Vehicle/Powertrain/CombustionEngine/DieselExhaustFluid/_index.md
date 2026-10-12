@@ -1,7 +1,7 @@
 ---
 title: DieselExhaustFluid
 
-date: 2026-03-08T08:02:45.833076
+date: 2026-10-12T19:51:21.539336
 no_list: true
 ---
 
@@ -48,11 +48,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid` is `81d8eec46d9357a3b1064bfb5d070fa2`
 
 ## Children
 

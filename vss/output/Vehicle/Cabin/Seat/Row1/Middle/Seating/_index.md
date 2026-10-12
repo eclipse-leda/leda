@@ -1,7 +1,7 @@
 ---
 title: Seating
 
-date: 2026-03-08T08:02:52.514091
+date: 2026-10-12T19:51:28.163363
 no_list: true
 ---
 
@@ -52,11 +52,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.Seating` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.Seating` is `46a99e1f2b3553099fbb046a6b7dd86d`
 
 ## Children
 

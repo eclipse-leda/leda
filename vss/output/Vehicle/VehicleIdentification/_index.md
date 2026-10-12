@@ -1,7 +1,7 @@
 ---
 title: VehicleIdentification
 
-date: 2026-03-08T08:02:44.646418
+date: 2026-10-12T19:51:33.339342
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.VehicleIdentification` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification` is `c33861c3e9125208b05f23fe922bf08e`
 
 ## Children
 

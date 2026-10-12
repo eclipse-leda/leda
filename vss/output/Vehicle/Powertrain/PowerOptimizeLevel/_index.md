@@ -1,7 +1,7 @@
 ---
 title: PowerOptimizeLevel
 
-date: 2026-03-08T08:02:45.480530
+date: 2026-10-12T19:51:24.111339
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.PowerOptimizeLevel` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.PowerOptimizeLevel` is `d740b02e2fb35c07bf88a6e5ebe2f6e4`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsAliveTriggered
 
-date: 2026-03-08T08:03:00.979953
+date: 2026-10-12T19:51:36.117352
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.Health.SWSupervision.IsAliveTrigge
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.Health.SWSupervision.IsAliveTriggered` is `b5135e9da8c55d12888acd7e58b26fd3`
 
 
 ## Feedback

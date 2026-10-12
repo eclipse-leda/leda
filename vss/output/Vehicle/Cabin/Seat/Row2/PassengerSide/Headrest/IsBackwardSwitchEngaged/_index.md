@@ -1,7 +1,7 @@
 ---
 title: IsBackwardSwitchEngaged
 
-date: 2026-03-08T08:02:55.277668
+date: 2026-10-12T19:51:30.361805
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Headrest.IsBackwardSwi
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Headrest.IsBackwardSwitchEngaged` is `8d152489e3225782ad2660c4dafc08f5`
 
 
 ## Feedback

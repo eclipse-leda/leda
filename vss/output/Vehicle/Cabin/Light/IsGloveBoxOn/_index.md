@@ -1,7 +1,7 @@
 ---
 title: IsGloveBoxOn
 
-date: 2026-03-08T08:02:50.208925
+date: 2026-10-12T19:51:26.297339
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Cabin.Light.IsGloveBoxOn` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.IsGloveBoxOn` is `9b4db6bf8cc95c7a855442b95e1e0e18`
 
 
 ## Feedback

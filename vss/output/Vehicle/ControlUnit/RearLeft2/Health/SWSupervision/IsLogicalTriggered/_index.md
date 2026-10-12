@@ -1,7 +1,7 @@
 ---
 title: IsLogicalTriggered
 
-date: 2026-03-08T08:03:00.807288
+date: 2026-10-12T19:51:35.981748
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.ControlUnit.RearLeft2.Health.SWSupervision.IsLogical
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.RearLeft2.Health.SWSupervision.IsLogicalTriggered` is `e617141cf6075bd6b7db114636847875`
 
 
 ## Feedback

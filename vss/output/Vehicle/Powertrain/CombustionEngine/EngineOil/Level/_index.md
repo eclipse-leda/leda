@@ -1,7 +1,7 @@
 ---
 title: Level
 
-date: 2026-03-08T08:02:45.687843
+date: 2026-10-12T19:51:21.416947
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.EngineOil.Level` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.EngineOil.Level` is `3200804bd8ad5741bbd8a393b9fa8e44`
 
 
 ## Feedback

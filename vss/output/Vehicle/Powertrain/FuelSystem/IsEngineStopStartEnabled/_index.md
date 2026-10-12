@@ -1,7 +1,7 @@
 ---
 title: IsEngineStopStartEnabled
 
-date: 2026-03-08T08:02:47.590522
+date: 2026-10-12T19:51:23.904953
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled` is `176eed5bb0da582a9ee56f1c70e12075`
 
 
 ## Feedback

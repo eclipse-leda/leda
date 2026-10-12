@@ -1,7 +1,7 @@
 ---
 title: VIN
 
-date: 2026-03-08T08:02:44.656537
+date: 2026-10-12T19:51:33.347220
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.VIN` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.VIN` is `6f0b6fa8c34f589baa92e565bc9df5bd`
 
 
 ## Feedback

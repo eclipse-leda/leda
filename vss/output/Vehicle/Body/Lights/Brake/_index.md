@@ -1,7 +1,7 @@
 ---
 title: Brake
 
-date: 2026-03-08T08:02:48.767954
+date: 2026-10-12T19:51:25.024739
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.Brake` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Brake` is `30eabe704102501cb299d03696fad92a`
 
 ## Children
 

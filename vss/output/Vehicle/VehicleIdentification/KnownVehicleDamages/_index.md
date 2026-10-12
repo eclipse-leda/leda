@@ -1,7 +1,7 @@
 ---
 title: KnownVehicleDamages
 
-date: 2026-03-08T08:02:44.850114
+date: 2026-10-12T19:51:33.517759
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.KnownVehicleDamages` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.KnownVehicleDamages` is `e87f352cddb15e94b340506b17207586`
 
 
 ## Feedback

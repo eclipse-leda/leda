@@ -1,7 +1,7 @@
 ---
 title: SWSupervision
 
-date: 2026-03-08T08:03:00.969878
+date: 2026-10-12T19:51:36.108859
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.Health.SWSupervision` is a **Branc
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.Health.SWSupervision` is `d0dff7e023ba5ca5aef7f81bf7c0a8e4`
 
 ## Children
 

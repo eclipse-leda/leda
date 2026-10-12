@@ -1,7 +1,7 @@
 ---
 title: IsFuelPortFlapOpen
 
-date: 2026-03-08T08:02:47.631554
+date: 2026-10-12T19:51:23.938351
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.IsFuelPortFlapOpen` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.IsFuelPortFlapOpen` is `fded7edb113c5894a21722085834f3ae`
 
 
 ## Feedback

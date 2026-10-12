@@ -1,7 +1,7 @@
 ---
 title: Window
 
-date: 2026-03-08T08:02:51.082202
+date: 2026-10-12T19:51:26.980476
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Door.Row1.PassengerSide.Window` is a **Branch*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door.Row1.PassengerSide.Window` is `c588ac43d3945dc0a45994c4d298d9b0`
 
 ## Children
 

@@ -1,7 +1,7 @@
 ---
 title: VehicleSeatingCapacity
 
-date: 2026-03-08T08:02:44.798941
+date: 2026-10-12T19:51:33.467646
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.VehicleSeatingCapacity` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.VehicleSeatingCapacity` is `7ae5db0e0482555686b9be71dd8a0c38`
 
 
 ## Feedback

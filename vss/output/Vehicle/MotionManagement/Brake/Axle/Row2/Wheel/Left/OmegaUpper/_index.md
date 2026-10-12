@@ -1,7 +1,7 @@
 ---
 title: OmegaUpper
 
-date: 2026-03-08T08:02:59.173188
+date: 2026-10-12T19:51:34.620287
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.MotionManagement.Brake.Axle.Row2.Wheel.Left.OmegaUpp
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Brake.Axle.Row2.Wheel.Left.OmegaUpper` is `69f94ef7f6e557cc8ecdb92c1a1d4f86`
 
 
 ## Feedback

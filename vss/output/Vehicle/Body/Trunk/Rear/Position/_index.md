@@ -1,7 +1,7 @@
 ---
 title: Position
 
-date: 2026-03-08T08:02:47.937097
+date: 2026-10-12T19:51:24.295245
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.Body.Trunk.Rear.Position` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Trunk.Rear.Position` is `574ae721a062565b9c057d813782909e`
 
 
 ## Feedback

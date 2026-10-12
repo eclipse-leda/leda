@@ -8,4 +8,3 @@ The Eclipse Leda project follows the Eclipse Release process.
 Please see [Eclipse Project handbook](https://www.eclipse.org/projects/handbook/#release) for details about the process.
 
 The release plans overview for Eclipse Leda is available at [https://projects.eclipse.org/projects/automotive.leda/governance](https://projects.eclipse.org/projects/automotive.leda/governance)
-

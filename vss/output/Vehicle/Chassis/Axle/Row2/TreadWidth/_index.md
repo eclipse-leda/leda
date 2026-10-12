@@ -1,7 +1,7 @@
 ---
 title: TreadWidth
 
-date: 2026-03-08T08:02:56.899817
+date: 2026-10-12T19:51:31.648113
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.TreadWidth` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.TreadWidth` is `bdfd2fb7c3b25091a48f873462466f84`
 
 
 ## Feedback

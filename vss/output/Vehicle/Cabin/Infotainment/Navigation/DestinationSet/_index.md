@@ -1,7 +1,7 @@
 ---
 title: DestinationSet
 
-date: 2026-03-08T08:02:49.750269
+date: 2026-10-12T19:51:25.918387
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Navigation.DestinationSet` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Navigation.DestinationSet` is `f51ce253dc5b58168ecca99297139455`
 
 ## Children
 

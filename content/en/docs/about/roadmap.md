@@ -4,15 +4,7 @@ date: 2022-05-09T14:24:56+05:30
 weight: 4
 ---
 
-- Initial Open Source contribution expected by Q2 2022 (Done)
-- A first milestone build is expected end of 2022 (Done)
-- Plan for the first release cycle to be created in Q1/2023 (In Progress - Q2/2023)
-- Release cycles are planned every 3-6 months
-- Release planning will be conducted together with corresponding Eclipse projects
-
-## Backlog
-
-The Leda team maintains a backlog roadmap using GitHub projects at [https://github.com/orgs/eclipse-leda/projects/1/views/1](https://github.com/orgs/eclipse-leda/projects/1/views/1)
+The Leda project maintains a backlog roadmap using GitHub projects at [https://github.com/orgs/eclipse-leda/projects/1/views/1](https://github.com/orgs/eclipse-leda/projects/1/views/1)
 
 ## Future Work
 
@@ -29,6 +21,7 @@ Exemplary future work:
   - Eclipse Muto
   - Eclipse Backend function Bindings (BfB)
   - Eclipse SDV Blueprints
+  - Eclipse S-Core
 - Include and showcase more features regarding development, operation and monitoring of Vehicle Services and Vehicle Applications
 
 If you have feedback, please use [GitHub Issues](https://github.com/eclipse-leda/)

@@ -1,7 +1,7 @@
 ---
 title: Roll
 
-date: 2026-03-08T08:02:57.920137
+date: 2026-10-12T19:51:32.618296
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Occupant.Row1.PassengerSide.HeadPosition.Roll` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row1.PassengerSide.HeadPosition.Roll` is `68d83b45e15c5e8581f445fa42698e7d`
 
 
 ## Feedback

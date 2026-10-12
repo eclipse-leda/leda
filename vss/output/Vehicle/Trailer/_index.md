@@ -1,7 +1,7 @@
 ---
 title: Trailer
 
-date: 2026-03-08T08:02:45.244866
+date: 2026-10-12T19:51:33.885544
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.Trailer` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Trailer` is `66206ee5c25a5817bef214c0c8ae8013`
 
 ## Children
 

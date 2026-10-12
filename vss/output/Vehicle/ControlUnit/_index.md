@@ -1,7 +1,7 @@
 ---
 title: ControlUnit
 
-date: 2026-03-08T08:02:59.845279
+date: 2026-10-12T19:51:35.188907
 no_list: true
 ---
 
@@ -44,11 +44,6 @@ The vehicle signal `Vehicle.ControlUnit` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit` is `6c9e99457e2355ecb9e808c93cc2d408`
 
 ## Children
 

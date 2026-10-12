@@ -1,7 +1,7 @@
 ---
 title: Mute
 
-date: 2026-03-08T08:02:49.780312
+date: 2026-10-12T19:51:25.942618
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Navigation.Mute` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Navigation.Mute` is `d7ab68ec65aa5bafa95f042a60c91639`
 
 
 ## Feedback

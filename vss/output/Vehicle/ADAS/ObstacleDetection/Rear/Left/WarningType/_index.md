@@ -1,7 +1,7 @@
 ---
 title: WarningType
 
-date: 2026-03-08T08:02:55.982719
+date: 2026-10-12T19:51:30.887322
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Left.WarningType` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Left.WarningType` is `b41c0effa41a51fa8d479e4ba3a2c7f9`
 
 
 ## Feedback

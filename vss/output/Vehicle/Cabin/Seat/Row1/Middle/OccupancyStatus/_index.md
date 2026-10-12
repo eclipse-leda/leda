@@ -1,7 +1,7 @@
 ---
 title: OccupancyStatus
 
-date: 2026-03-08T08:02:52.177475
+date: 2026-10-12T19:51:27.917343
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.Middle.OccupancyStatus` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.Middle.OccupancyStatus` is `383d96c670785b3ea3267673b18745dc`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Level
 
-date: 2026-03-08T08:02:45.861701
+date: 2026-10-12T19:51:21.557082
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Level
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Level` is `f5b0269b58ff5a8e8399f6d96963a3b6`
 
 
 ## Feedback

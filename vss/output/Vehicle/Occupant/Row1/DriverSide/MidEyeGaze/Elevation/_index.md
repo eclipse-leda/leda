@@ -1,7 +1,7 @@
 ---
 title: Elevation
 
-date: 2026-03-08T08:02:57.665121
+date: 2026-10-12T19:51:32.382395
 no_list: true
 ---
 
@@ -94,11 +94,6 @@ The vehicle signal `Vehicle.Occupant.Row1.DriverSide.MidEyeGaze.Elevation` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Occupant.Row1.DriverSide.MidEyeGaze.Elevation` is `a0989b2d4f06510cbe1220d3f5d34e9d`
 
 
 ## Feedback

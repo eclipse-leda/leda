@@ -1,7 +1,7 @@
 ---
 title: SideBolsterSupportRight
 
-date: 2026-03-08T08:02:55.044929
+date: 2026-10-12T19:51:30.186940
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.SideBolsterSu
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Backrest.SideBolsterSupportRight` is `7dcbf31cd9225f72b042e27bb77760e5`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Tilt
 
-date: 2026-03-08T08:02:54.933257
+date: 2026-10-12T19:51:30.101781
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Tilt` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Tilt` is `646c179da57a59c39ca9777a4808980b`
 
 
 ## Feedback

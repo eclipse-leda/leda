@@ -1,7 +1,7 @@
 ---
 title: IsEngaged
 
-date: 2026-03-08T08:02:57.318188
+date: 2026-10-12T19:51:32.053862
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Chassis.ParkingBrake.IsEngaged` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.ParkingBrake.IsEngaged` is `faa7f94e6a5555c6b2d62e3328520ce0`
 
 
 ## Feedback

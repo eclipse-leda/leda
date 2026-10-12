@@ -1,7 +1,7 @@
 ---
 title: SmartphoneScreenMirroring
 
-date: 2026-03-08T08:02:50.055354
+date: 2026-10-12T19:51:26.173641
 no_list: true
 ---
 
@@ -48,11 +48,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring` is a *
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.SmartphoneScreenMirroring` is `03426166496458baa0f424babf147002`
 
 ## Children
 

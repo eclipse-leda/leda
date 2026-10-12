@@ -1,7 +1,7 @@
 ---
 title: IsLocked
 
-date: 2026-03-08T08:02:48.959497
+date: 2026-10-12T19:51:25.203746
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Mirrors.DriverSide.IsLocked` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Mirrors.DriverSide.IsLocked` is `d267fc64959e59ce8335911faa87980f`
 
 
 ## Feedback

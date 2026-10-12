@@ -1,7 +1,7 @@
 ---
 title: IsServiceDue
 
-date: 2026-03-08T08:02:58.461629
+date: 2026-10-12T19:51:33.244776
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.Service.IsServiceDue` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Service.IsServiceDue` is `3e28f85ccccd5702b9adbe9a761ea1b4`
 
 
 ## Feedback

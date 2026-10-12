@@ -1,7 +1,7 @@
 ---
 title: Temperature
 
-date: 2026-03-08T08:03:00.929492
+date: 2026-10-12T19:51:36.074583
 no_list: true
 ---
 
@@ -62,9 +62,6 @@ sdv.databroker.v1 > set Vehicle.ControlUnit.Trunk.Health.Resources.Temperature 0
 | Path | `Vehicle.ControlUnit.Trunk.Health.Resources.Temperature` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Celsius` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | degree Celsius | |
-| Description | Temperature measured in degree Celsius | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | temperature | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -92,11 +89,6 @@ The vehicle signal `Vehicle.ControlUnit.Trunk.Health.Resources.Temperature` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Trunk.Health.Resources.Temperature` is `ad13d2b9102a5a6d80bf5d37bdf34397`
 
 
 ## Feedback

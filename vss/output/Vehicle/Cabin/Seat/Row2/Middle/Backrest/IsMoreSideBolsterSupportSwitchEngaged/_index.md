@@ -1,7 +1,7 @@
 ---
 title: IsMoreSideBolsterSupportSwitchEngaged
 
-date: 2026-03-08T08:02:54.473956
+date: 2026-10-12T19:51:29.747078
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.Middle.Backrest.IsMoreSideBolsterSup
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.Middle.Backrest.IsMoreSideBolsterSupportSwitchEngaged` is `dba443f0645e5a50b24bb10535157d8d`
 
 
 ## Feedback

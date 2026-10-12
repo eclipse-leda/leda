@@ -1,7 +1,7 @@
 ---
 title: RearMainSpoilerPosition
 
-date: 2026-03-08T08:02:49.050659
+date: 2026-10-12T19:51:25.280642
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Body.RearMainSpoilerPosition` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.RearMainSpoilerPosition` is `6209a82390585b869cc3d00d069eade2`
 
 
 ## Feedback

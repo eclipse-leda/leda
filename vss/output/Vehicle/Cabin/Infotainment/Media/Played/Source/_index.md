@@ -1,7 +1,7 @@
 ---
 title: Source
 
-date: 2026-03-08T08:02:49.638075
+date: 2026-10-12T19:51:25.831539
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media.Played.Source` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media.Played.Source` is `54fb88a7d7cf5e3aab63e8f52415c187`
 
 
 ## Feedback

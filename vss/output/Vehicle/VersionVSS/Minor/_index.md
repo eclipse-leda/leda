@@ -1,7 +1,7 @@
 ---
 title: Minor
 
-date: 2026-03-08T08:02:44.615820
+date: 2026-10-12T19:51:33.312647
 no_list: true
 ---
 
@@ -37,7 +37,7 @@ sdv.databroker.v1 > connect
 sdv.databroker.v1 > get Vehicle.VersionVSS.Minor
 [get]  OK
 Vehicle.VersionVSS.Minor: ( NotAvailable )
-sdv.databroker.v1 > set Vehicle.VersionVSS.Minor 0
+sdv.databroker.v1 > set Vehicle.VersionVSS.Minor 1
 [set]  OK
 ```
 
@@ -55,7 +55,7 @@ sdv.databroker.v1 > set Vehicle.VersionVSS.Minor 0
 |---|---|---|
 | Path | `Vehicle.VersionVSS.Minor` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint32` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
-| Default value | `0` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
+| Default value | `1` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.VersionVSS.Minor` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VersionVSS.Minor` is `6e70a598dbc7534c96c58c18e9888cfd`
 
 
 ## Feedback

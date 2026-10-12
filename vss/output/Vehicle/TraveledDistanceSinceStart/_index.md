@@ -1,7 +1,7 @@
 ---
 title: TraveledDistanceSinceStart
 
-date: 2026-03-08T08:02:44.950665
+date: 2026-10-12T19:51:33.594847
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.TraveledDistanceSinceStart` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.TraveledDistanceSinceStart` is `cfc6efd2793152e487f9fe3f4e03fd5d`
 
 
 ## Feedback

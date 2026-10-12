@@ -1,7 +1,7 @@
 ---
 title: Brightness
 
-date: 2026-03-08T08:02:49.963755
+date: 2026-10-12T19:51:26.097890
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.HMI.Brightness` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.HMI.Brightness` is `44147980dabd56b883ae4d2491383a17`
 
 
 ## Feedback

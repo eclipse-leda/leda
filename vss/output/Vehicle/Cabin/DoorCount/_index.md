@@ -1,7 +1,7 @@
 ---
 title: DoorCount
 
-date: 2026-03-08T08:02:51.469557
+date: 2026-10-12T19:51:27.322465
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.Cabin.DoorCount` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.DoorCount` is `c293fbef75725c57a9918dd5a34055c4`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsDriverEmergencyBrakingDetected
 
-date: 2026-03-08T08:02:57.430729
+date: 2026-10-12T19:51:32.151280
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Chassis.Brake.IsDriverEmergencyBrakingDetected` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Brake.IsDriverEmergencyBrakingDetected` is `0d462892aeac5062a62ee7d07306f6a6`
 
 
 ## Feedback

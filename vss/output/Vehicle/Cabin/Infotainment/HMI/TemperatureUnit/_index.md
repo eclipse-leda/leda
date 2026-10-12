@@ -1,7 +1,7 @@
 ---
 title: TemperatureUnit
 
-date: 2026-03-08T08:02:49.922844
+date: 2026-10-12T19:51:26.066602
 no_list: true
 ---
 
@@ -87,11 +87,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.HMI.TemperatureUnit` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.HMI.TemperatureUnit` is `a7d1533490bb52b6b4f650280e72543d`
 
 
 ## Feedback

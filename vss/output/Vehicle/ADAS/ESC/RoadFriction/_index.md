@@ -1,7 +1,7 @@
 ---
 title: RoadFriction
 
-date: 2026-03-08T08:02:56.270614
+date: 2026-10-12T19:51:31.079071
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.ADAS.ESC.RoadFriction` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ESC.RoadFriction` is `71a32e4eb131532c82195508d93807ed`
 
 ## Children
 

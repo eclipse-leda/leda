@@ -1,7 +1,7 @@
 ---
 title: Memory
 
-date: 2026-03-08T08:03:00.180044
+date: 2026-10-12T19:51:35.451782
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontLeft.Health.Resources.Utilization.M
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontLeft.Health.Resources.Utilization.Memory` is `ec4e69c8307151009b0cab6a03d1d49b`
 
 
 ## Feedback

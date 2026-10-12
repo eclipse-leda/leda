@@ -1,7 +1,7 @@
 ---
 title: Position
 
-date: 2026-03-08T08:02:51.398135
+date: 2026-10-12T19:51:27.236053
 no_list: true
 ---
 
@@ -97,11 +97,6 @@ The vehicle signal `Vehicle.Cabin.Door.Row2.PassengerSide.Window.Position` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door.Row2.PassengerSide.Window.Position` is `e3e3fa03f4e357ae8ac8f43799a99350`
 
 
 ## Feedback

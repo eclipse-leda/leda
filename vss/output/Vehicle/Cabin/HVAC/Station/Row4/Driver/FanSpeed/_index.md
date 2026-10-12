@@ -1,7 +1,7 @@
 ---
 title: FanSpeed
 
-date: 2026-03-08T08:02:49.447835
+date: 2026-10-12T19:51:25.617803
 no_list: true
 ---
 
@@ -96,11 +96,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.Station.Row4.Driver.FanSpeed` is a **Sign
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.Station.Row4.Driver.FanSpeed` is `fbd6ca78cdc557078f91b3d649866ec2`
 
 
 ## Feedback

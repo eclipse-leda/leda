@@ -1,7 +1,7 @@
 ---
 title: ElectricMotor
 
-date: 2026-03-08T08:02:46.115512
+date: 2026-10-12T19:51:21.759849
 no_list: true
 ---
 
@@ -10,6 +10,7 @@ no_list: true
 |---|---|
 | Full qualified VSS Path: | `Vehicle.Powertrain.ElectricMotor` |
 | Description: | Electric Motor specific data. |
+| Comment: | Instance Front to be used if the vehicle has a motor located at the front of the vehicle, serving front and possibly also rear axle. Instance Rear to be used if the vehicle has a motor located at the rear of the vehicle, serving rear and possiblsy also front axle. Instances with Left/Right intended to be used if vehicle has separate motors for left and right side. |
 
 ## Navigation
 
@@ -45,27 +46,17 @@ The vehicle signal `Vehicle.Powertrain.ElectricMotor` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.ElectricMotor` is `1ade64f6b0d05f6c9340e7a667555ae2`
 
 ## Children
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
-- [Vehicle.Powertrain.ElectricMotor.EngineCode](enginecode/) (Engine code designation, as specified by vehicle manufacturer.)
-- [Vehicle.Powertrain.ElectricMotor.EngineCoolant](enginecoolant/) (Signals related to the engine coolant (if applicable).)
-- [Vehicle.Powertrain.ElectricMotor.MaxPower](maxpower/) (Peak power, in kilowatts, that motor(s) can generate.)
-- [Vehicle.Powertrain.ElectricMotor.MaxRegenPower](maxregenpower/) (Peak regen/brake power, in kilowatts, that motor(s) can generate.)
-- [Vehicle.Powertrain.ElectricMotor.MaxRegenTorque](maxregentorque/) (Peak regen/brake torque, in newton meter, that the motor(s) can generate.)
-- [Vehicle.Powertrain.ElectricMotor.MaxTorque](maxtorque/) (Peak power, in newton meter, that the motor(s) can generate.)
-- [Vehicle.Powertrain.ElectricMotor.Power](power/) (Current motor power output. Negative values indicate regen mode.)
-- [Vehicle.Powertrain.ElectricMotor.Speed](speed/) (Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.)
-- [Vehicle.Powertrain.ElectricMotor.Temperature](temperature/) (Motor temperature.)
-- [Vehicle.Powertrain.ElectricMotor.TimeInUse](timeinuse/) (Accumulated time during engine lifetime when the vehicule state's is 'READY'.)
-- [Vehicle.Powertrain.ElectricMotor.Torque](torque/) (Current motor torque. Negative values indicate regen mode.)
+- [Vehicle.Powertrain.ElectricMotor.Front](front/) (Electric Motor specific data.)
+- [Vehicle.Powertrain.ElectricMotor.FrontLeft](frontleft/) (Electric Motor specific data.)
+- [Vehicle.Powertrain.ElectricMotor.FrontRight](frontright/) (Electric Motor specific data.)
+- [Vehicle.Powertrain.ElectricMotor.Rear](rear/) (Electric Motor specific data.)
+- [Vehicle.Powertrain.ElectricMotor.RearLeft](rearleft/) (Electric Motor specific data.)
+- [Vehicle.Powertrain.ElectricMotor.RearRight](rearright/) (Electric Motor specific data.)
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: IsDownSwitchEngaged
 
-date: 2026-03-08T08:02:55.399873
+date: 2026-10-12T19:51:30.447296
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.IsDownSwitchEngaged` i
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.IsDownSwitchEngaged` is `fd81aa4745765a9ba2e4620b050b5424`
 
 
 ## Feedback

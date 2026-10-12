@@ -1,7 +1,7 @@
 ---
 title: Right
 
-date: 2026-03-08T08:02:48.869379
+date: 2026-10-12T19:51:25.114372
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Body.Lights.DirectionIndicator.Right` is a **Branch*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.DirectionIndicator.Right` is `9922f6b417e95f1c945ef9f414bcdf78`
 
 ## Children
 

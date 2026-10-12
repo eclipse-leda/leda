@@ -1,7 +1,7 @@
 ---
 title: CurrentOverallWeight
 
-date: 2026-03-08T08:02:45.133204
+date: 2026-10-12T19:51:33.782301
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.CurrentOverallWeight` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentOverallWeight` is `75599d7628bb5f35839055269d3ad205`
 
 
 ## Feedback

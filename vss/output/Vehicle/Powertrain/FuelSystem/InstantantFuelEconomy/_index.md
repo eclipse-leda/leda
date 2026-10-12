@@ -1,7 +1,7 @@
 ---
 title: InstantantFuelEconomy
 
-date: 2026-03-08T08:02:47.641648
+date: 2026-10-12T19:51:23.947202
 no_list: true
 ---
 
@@ -11,6 +11,7 @@ no_list: true
 | Full qualified VSS Path: | `Vehicle.Powertrain.FuelSystem.InstantantFuelEconomy` |
 | Description: | Real-time instantaneous fuel economy calculated over a short time window. |
 | Comment: | This value represents the current fuel efficiency at any given moment during vehicle operation. It is calculated based on the distance traveled and fuel consumed over a brief sampling period (typically around 500ms). The calculation compares the vehicle state before and after the sampling window to determine instantaneous efficiency. This metric refreshes frequently and can fluctuate significantly based on driving conditions, acceleration, and terrain. Unlike average fuel economy measurements, this provides immediate feedback on current driving efficiency. |
+| Deprecation | v6.1 - spelling correction fixed, replaced with InstantFuelEconomy |
 
 ## Navigation
 
@@ -89,11 +90,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.InstantantFuelEconomy` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.InstantantFuelEconomy` is `209ef58ef2be561c98d19e3e92982223`
 
 
 ## Feedback

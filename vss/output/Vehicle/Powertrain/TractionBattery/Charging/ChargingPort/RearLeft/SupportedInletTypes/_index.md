@@ -1,7 +1,7 @@
 ---
 title: SupportedInletTypes
 
-date: 2026-03-08T08:02:46.827453
+date: 2026-10-12T19:51:23.315616
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.Rea
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.ChargingPort.RearLeft.SupportedInletTypes` is `9375b2c93d7852cf928cad9adba47331`
 
 
 ## Feedback

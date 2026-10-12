@@ -1,7 +1,7 @@
 ---
 title: CurrentGear
 
-date: 2026-03-08T08:02:45.983425
+date: 2026-10-12T19:51:21.650885
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.Transmission.CurrentGear` is a **Signal**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.Transmission.CurrentGear` is `cd0ba1d772565e16bff46cbd5c9361da`
 
 
 ## Feedback

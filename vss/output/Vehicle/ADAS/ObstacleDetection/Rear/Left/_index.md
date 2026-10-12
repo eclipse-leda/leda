@@ -1,7 +1,7 @@
 ---
 title: Left
 
-date: 2026-03-08T08:02:55.922320
+date: 2026-10-12T19:51:30.843263
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Rear.Left` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Rear.Left` is `2f6bd6744d5d5b52a01e10aab86d6c72`
 
 ## Children
 

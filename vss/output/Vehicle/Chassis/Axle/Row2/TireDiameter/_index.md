@@ -1,7 +1,7 @@
 ---
 title: TireDiameter
 
-date: 2026-03-08T08:02:56.970876
+date: 2026-10-12T19:51:31.704778
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row2.TireDiameter` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row2.TireDiameter` is `4dc46ee7fe0a5240a6eb67f9bf43a1ea`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: StartTime
 
-date: 2026-03-08T08:02:44.960643
+date: 2026-10-12T19:51:33.603611
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.StartTime` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.StartTime` is `3790b5f4513c5a3d90a0503a965bbbe0`
 
 
 ## Feedback

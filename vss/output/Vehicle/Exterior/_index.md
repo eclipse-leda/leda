@@ -1,7 +1,7 @@
 ---
 title: Exterior
 
-date: 2026-03-08T08:02:58.410446
+date: 2026-10-12T19:51:33.046448
 no_list: true
 ---
 
@@ -43,19 +43,26 @@ The vehicle signal `Vehicle.Exterior` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Exterior` is `06c5def549f3580e8cdaffa3e0f5d25c`
 
 ## Children
 
 This vehicle signal is a branch or structure and thus has sub-pages:
 
+- [Vehicle.Exterior.AirPressure](airpressure/) (Atmospheric air pressure outside the vehicle.)
+- [Vehicle.Exterior.AirQuality](airquality/) (Signals describing the composition of the ambient air outside the vehicle.)
 - [Vehicle.Exterior.AirTemperature](airtemperature/) (Air temperature outside the vehicle.)
 - [Vehicle.Exterior.Humidity](humidity/) (Relative humidity outside the vehicle. 0 = Dry, 100 = Air fully saturated.)
 - [Vehicle.Exterior.LightIntensity](lightintensity/) (Light intensity outside the vehicle. 0 = No light detected, 100 = Fully lit.)
+- [Vehicle.Exterior.PrecipitationIntensity](precipitationintensity/) (Precipitation intensity in millimeters per hour.)
+- [Vehicle.Exterior.PrecipitationType](precipitationtype/) (Type of precipitation currently detected outside the vehicle.)
+- [Vehicle.Exterior.RoadObstruction](roadobstruction/) (Type of road obstruction detected ahead of the vehicle.)
+- [Vehicle.Exterior.RoadSurfaceCondition](roadsurfacecondition/) (Assessed condition of the road surface beneath or ahead of the vehicle.)
+- [Vehicle.Exterior.RoadSurfaceContaminant](roadsurfacecontaminant/) (Detected non-weather surface contaminant on the road beneath or ahead of the vehicle.)
+- [Vehicle.Exterior.RoadSurfaceTemperature](roadsurfacetemperature/) (Temperature of the road surface beneath or ahead of the vehicle.)
+- [Vehicle.Exterior.VisibilityCondition](visibilitycondition/) (Assessed visibility condition outside the vehicle.)
+- [Vehicle.Exterior.VisibilityDistance](visibilitydistance/) (Estimated visible distance ahead of the vehicle in current conditions.)
+- [Vehicle.Exterior.WindDirection](winddirection/) (Wind direction in degrees (meteorological convention, 0 = North, 90 = East).)
+- [Vehicle.Exterior.WindSpeed](windspeed/) (Surface wind speed outside the vehicle.)
 
 
 ## Feedback

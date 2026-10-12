@@ -1,7 +1,7 @@
 ---
 title: RefuelPortPosition
 
-date: 2026-03-08T08:02:47.621269
+date: 2026-10-12T19:51:23.930051
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.RefuelPortPosition` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.RefuelPortPosition` is `a7b5eb269b345ef7b18602b66517f952`
 
 
 ## Feedback

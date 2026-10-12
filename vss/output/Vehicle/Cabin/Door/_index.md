@@ -1,7 +1,7 @@
 ---
 title: Door
 
-date: 2026-03-08T08:02:50.867621
+date: 2026-10-12T19:51:26.845738
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.Cabin.Door` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Door` is `fd7f4d16f8965419a9a69fd66b40c1d7`
 
 ## Children
 

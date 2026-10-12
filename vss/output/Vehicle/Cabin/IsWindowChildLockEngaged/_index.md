@@ -1,7 +1,7 @@
 ---
 title: IsWindowChildLockEngaged
 
-date: 2026-03-08T08:02:51.479628
+date: 2026-10-12T19:51:27.331019
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.Cabin.IsWindowChildLockEngaged` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.IsWindowChildLockEngaged` is `23d94405d1035201ae2866f911f02063`
 
 
 ## Feedback

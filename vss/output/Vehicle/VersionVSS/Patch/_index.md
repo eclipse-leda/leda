@@ -1,7 +1,7 @@
 ---
 title: Patch
 
-date: 2026-03-08T08:02:44.625983
+date: 2026-10-12T19:51:33.321758
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.VersionVSS.Patch` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VersionVSS.Patch` is `69858f224af459338b9bfbff436dda45`
 
 
 ## Feedback

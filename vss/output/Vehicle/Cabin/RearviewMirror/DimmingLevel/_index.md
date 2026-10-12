@@ -1,7 +1,7 @@
 ---
 title: DimmingLevel
 
-date: 2026-03-08T08:02:50.188779
+date: 2026-10-12T19:51:26.281646
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Cabin.RearviewMirror.DimmingLevel` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.RearviewMirror.DimmingLevel` is `4e2bcbaa6dc1586d8282324b475e5dee`
 
 
 ## Feedback

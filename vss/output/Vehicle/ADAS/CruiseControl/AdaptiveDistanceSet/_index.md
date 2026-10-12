@@ -1,7 +1,7 @@
 ---
 title: AdaptiveDistanceSet
 
-date: 2026-03-08T08:02:55.612772
+date: 2026-10-12T19:51:30.612949
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.ADAS.CruiseControl.AdaptiveDistanceSet` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.CruiseControl.AdaptiveDistanceSet` is `72b605a1903750219d50732b4c92084c`
 
 
 ## Feedback

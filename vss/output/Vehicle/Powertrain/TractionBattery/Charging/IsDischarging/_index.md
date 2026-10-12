@@ -1,7 +1,7 @@
 ---
 title: IsDischarging
 
-date: 2026-03-08T08:02:47.090171
+date: 2026-10-12T19:51:23.521486
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.IsDischarging` i
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.IsDischarging` is `534d884fb36652688535543b52419529`
 
 
 ## Feedback

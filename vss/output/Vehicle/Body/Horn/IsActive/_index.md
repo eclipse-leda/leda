@@ -1,7 +1,7 @@
 ---
 title: IsActive
 
-date: 2026-03-08T08:02:47.977928
+date: 2026-10-12T19:51:24.323047
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Body.Horn.IsActive` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Horn.IsActive` is `ba20deed9314525bb9d552a2b787fb20`
 
 
 ## Feedback

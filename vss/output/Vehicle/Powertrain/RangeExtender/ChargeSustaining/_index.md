@@ -1,7 +1,7 @@
 ---
 title: ChargeSustaining
 
-date: 2026-03-08T08:02:47.733673
+date: 2026-10-12T19:51:24.032484
 no_list: true
 ---
 
@@ -48,11 +48,6 @@ The vehicle signal `Vehicle.Powertrain.RangeExtender.ChargeSustaining` is a **Br
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.RangeExtender.ChargeSustaining` is `b5d8945c8f8c54fbb15a1aca578ad70a`
 
 ## Children
 

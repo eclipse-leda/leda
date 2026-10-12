@@ -1,7 +1,7 @@
 ---
 title: PurchaseDate
 
-date: 2026-03-08T08:02:44.768390
+date: 2026-10-12T19:51:33.444644
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.VehicleIdentification.PurchaseDate` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.PurchaseDate` is `31302f8b57e85c4197afda3e3201fce8`
 
 
 ## Feedback

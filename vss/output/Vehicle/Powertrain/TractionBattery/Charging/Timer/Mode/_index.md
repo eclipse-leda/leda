@@ -1,7 +1,7 @@
 ---
 title: Mode
 
-date: 2026-03-08T08:02:47.335718
+date: 2026-10-12T19:51:23.701402
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode` is a
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode` is `b09fb52261735977af275dda1904a7a1`
 
 
 ## Feedback

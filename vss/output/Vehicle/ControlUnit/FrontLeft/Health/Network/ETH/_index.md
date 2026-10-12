@@ -1,7 +1,7 @@
 ---
 title: ETH
 
-date: 2026-03-08T08:03:00.108538
+date: 2026-10-12T19:51:35.394617
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontLeft.Health.Network.ETH` is a **Bra
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontLeft.Health.Network.ETH` is `ad544ec581d955e7bcf564680db01113`
 
 ## Children
 

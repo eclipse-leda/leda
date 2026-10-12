@@ -1,7 +1,7 @@
 ---
 title: AccumulatedConsumedThroughput
 
-date: 2026-03-08T08:02:46.603530
+date: 2026-10-12T19:51:23.107759
 no_list: true
 ---
 
@@ -58,9 +58,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.TractionBattery.AccumulatedConsumedTh
 | Path | `Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroughput` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `float` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `Ah` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | ampere hours | |
-| Description | Electric charge measured in ampere hours | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | electric-charge | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 
 
 
@@ -88,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroug
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.AccumulatedConsumedThroughput` is `f3e2ca21f3b550288d494827c9a172dd`
 
 
 ## Feedback

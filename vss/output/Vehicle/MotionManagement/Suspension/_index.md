@@ -1,7 +1,7 @@
 ---
 title: Suspension
 
-date: 2026-03-08T08:02:59.507659
+date: 2026-10-12T19:51:34.913703
 no_list: true
 ---
 
@@ -45,11 +45,6 @@ The vehicle signal `Vehicle.MotionManagement.Suspension` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Suspension` is `e25dbc8776465914b1e87a15ffdf6df0`
 
 ## Children
 

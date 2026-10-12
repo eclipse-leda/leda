@@ -1,7 +1,7 @@
 ---
 title: NeckScarf
 
-date: 2026-03-08T08:02:53.348087
+date: 2026-10-12T19:51:28.821508
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.PassengerSide.NeckScarf` is a **Bran
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.PassengerSide.NeckScarf` is `44e4609666ac5e6ab25ce1cefecc4642`
 
 ## Children
 

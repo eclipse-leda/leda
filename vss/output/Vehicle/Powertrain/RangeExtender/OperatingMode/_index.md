@@ -1,7 +1,7 @@
 ---
 title: OperatingMode
 
-date: 2026-03-08T08:02:47.692732
+date: 2026-10-12T19:51:23.997116
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Powertrain.RangeExtender.OperatingMode` is a **Signa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.RangeExtender.OperatingMode` is `107067e6a3405a6484adeca2651211f1`
 
 
 ## Feedback

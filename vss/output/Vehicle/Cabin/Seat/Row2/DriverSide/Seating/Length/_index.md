@@ -1,7 +1,7 @@
 ---
 title: Length
 
-date: 2026-03-08T08:02:53.860289
+date: 2026-10-12T19:51:29.226159
 no_list: true
 ---
 
@@ -95,11 +95,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.DriverSide.Seating.Length` is a **Si
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.DriverSide.Seating.Length` is `4a5bd16967c65dd88eacf3e4ef8c071f`
 
 
 ## Feedback

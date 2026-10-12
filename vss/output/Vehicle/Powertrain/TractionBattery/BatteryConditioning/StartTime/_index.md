@@ -1,7 +1,7 @@
 ---
 title: StartTime
 
-date: 2026-03-08T08:02:47.428028
+date: 2026-10-12T19:51:23.764504
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Powertrain.TractionBattery.BatteryConditioning.Start
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.TractionBattery.BatteryConditioning.StartTime` is `72049c2761f3515080014ab719709395`
 
 
 ## Feedback

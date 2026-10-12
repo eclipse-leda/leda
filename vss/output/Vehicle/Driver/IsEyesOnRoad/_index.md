@@ -1,7 +1,7 @@
 ---
 title: IsEyesOnRoad
 
-date: 2026-03-08T08:02:57.461344
+date: 2026-10-12T19:51:32.177670
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.Driver.IsEyesOnRoad` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Driver.IsEyesOnRoad` is `625e5009f1145aa0b797ee6c335ca2fe`
 
 
 ## Feedback

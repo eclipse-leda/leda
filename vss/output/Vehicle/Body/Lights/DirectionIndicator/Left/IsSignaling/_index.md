@@ -1,7 +1,7 @@
 ---
 title: IsSignaling
 
-date: 2026-03-08T08:02:48.849317
+date: 2026-10-12T19:51:25.096706
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Body.Lights.DirectionIndicator.Left.IsSignaling` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.DirectionIndicator.Left.IsSignaling` is `33ac6ec5e4d9550aac6ae0ce97dae259`
 
 
 ## Feedback

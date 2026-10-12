@@ -1,7 +1,7 @@
 ---
 title: LicensePlate
 
-date: 2026-03-08T08:02:44.738156
+date: 2026-10-12T19:51:33.416110
 no_list: true
 ---
 
@@ -83,11 +83,6 @@ The vehicle signal `Vehicle.VehicleIdentification.LicensePlate` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.LicensePlate` is `81ddd35883995a61a5fb71e26d31adaa`
 
 
 ## Feedback

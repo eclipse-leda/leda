@@ -1,7 +1,7 @@
 ---
 title: CurrentLocation
 
-date: 2026-03-08T08:02:45.265310
+date: 2026-10-12T19:51:33.902493
 no_list: true
 ---
 
@@ -43,11 +43,6 @@ The vehicle signal `Vehicle.CurrentLocation` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation` is `24777bd485f15fb69550ae0520c40ad5`
 
 ## Children
 

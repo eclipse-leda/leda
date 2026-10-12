@@ -1,7 +1,7 @@
 ---
 title: AverageConsumption
 
-date: 2026-03-08T08:02:47.559925
+date: 2026-10-12T19:51:23.878713
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.AverageConsumption` is a **Sig
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.AverageConsumption` is `e2252108125a54dcab34e1bad0fe8bdc`
 
 
 ## Feedback

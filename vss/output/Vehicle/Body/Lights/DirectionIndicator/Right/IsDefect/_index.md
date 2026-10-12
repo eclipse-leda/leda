@@ -1,7 +1,7 @@
 ---
 title: IsDefect
 
-date: 2026-03-08T08:02:48.889590
+date: 2026-10-12T19:51:25.135077
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Body.Lights.DirectionIndicator.Right.IsDefect` is a 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.DirectionIndicator.Right.IsDefect` is `db70c2d885725583a7ed95b215a8ec6c`
 
 
 ## Feedback

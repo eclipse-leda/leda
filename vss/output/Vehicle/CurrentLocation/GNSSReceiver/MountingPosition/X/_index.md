@@ -1,7 +1,7 @@
 ---
 title: X
 
-date: 2026-03-08T08:02:45.377200
+date: 2026-10-12T19:51:33.992489
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.X` is 
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.CurrentLocation.GNSSReceiver.MountingPosition.X` is `f23d40f3556b5676a0d1e3def037197f`
 
 
 ## Feedback

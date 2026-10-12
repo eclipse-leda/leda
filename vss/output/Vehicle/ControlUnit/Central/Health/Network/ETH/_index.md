@@ -1,7 +1,7 @@
 ---
 title: ETH
 
-date: 2026-03-08T08:02:59.913635
+date: 2026-10-12T19:51:35.241791
 no_list: true
 ---
 
@@ -51,11 +51,6 @@ The vehicle signal `Vehicle.ControlUnit.Central.Health.Network.ETH` is a **Branc
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.Central.Health.Network.ETH` is `68be7a4537fd51f19faa773e25912112`
 
 ## Children
 

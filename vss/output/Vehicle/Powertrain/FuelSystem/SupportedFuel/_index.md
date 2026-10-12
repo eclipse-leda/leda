@@ -1,7 +1,7 @@
 ---
 title: SupportedFuel
 
-date: 2026-03-08T08:02:47.478500
+date: 2026-10-12T19:51:23.806719
 no_list: true
 ---
 
@@ -85,11 +85,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.SupportedFuel` is a **Signal**
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.SupportedFuel` is `7fd3bf2ef0c650e69ff2037875ec59ee`
 
 
 ## Feedback

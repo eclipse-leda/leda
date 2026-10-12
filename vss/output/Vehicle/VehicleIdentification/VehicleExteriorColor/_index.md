@@ -1,7 +1,7 @@
 ---
 title: VehicleExteriorColor
 
-date: 2026-03-08T08:02:44.819138
+date: 2026-10-12T19:51:33.483939
 no_list: true
 ---
 
@@ -82,11 +82,6 @@ The vehicle signal `Vehicle.VehicleIdentification.VehicleExteriorColor` is a **S
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.VehicleIdentification.VehicleExteriorColor` is `07c48d164c615369b87ccc2920edf802`
 
 
 ## Feedback

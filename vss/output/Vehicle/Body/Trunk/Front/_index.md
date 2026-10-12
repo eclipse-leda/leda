@@ -1,7 +1,7 @@
 ---
 title: Front
 
-date: 2026-03-08T08:02:47.845183
+date: 2026-10-12T19:51:24.210677
 no_list: true
 ---
 
@@ -48,11 +48,6 @@ The vehicle signal `Vehicle.Body.Trunk.Front` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Trunk.Front` is `a455aca5bae55c22b7949fd31a765a6c`
 
 ## Children
 

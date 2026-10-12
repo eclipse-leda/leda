@@ -1,7 +1,7 @@
 ---
 title: Volume
 
-date: 2026-03-08T08:02:49.790349
+date: 2026-10-12T19:51:25.948340
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Navigation.Volume` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Navigation.Volume` is `3609ff09d29d54d596068f978cbc0777`
 
 
 ## Feedback

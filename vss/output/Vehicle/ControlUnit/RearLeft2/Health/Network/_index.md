@@ -1,7 +1,7 @@
 ---
 title: Network
 
-date: 2026-03-08T08:03:00.663959
+date: 2026-10-12T19:51:35.850576
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.ControlUnit.RearLeft2.Health.Network` is a **Branch*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.RearLeft2.Health.Network` is `e70e7d4ba989506a9d7c9cb53f1e0681`
 
 ## Children
 

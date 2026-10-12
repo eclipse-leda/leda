@@ -1,7 +1,7 @@
 ---
 title: Tilt
 
-date: 2026-03-08T08:02:48.989858
+date: 2026-10-12T19:51:25.228251
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.Body.Mirrors.PassengerSide.Tilt` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Mirrors.PassengerSide.Tilt` is `0f3734b090065873a7feb40931c72a28`
 
 
 ## Feedback

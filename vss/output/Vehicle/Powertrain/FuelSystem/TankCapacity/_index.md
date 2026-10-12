@@ -1,7 +1,7 @@
 ---
 title: TankCapacity
 
-date: 2026-03-08T08:02:47.498693
+date: 2026-10-12T19:51:23.825456
 no_list: true
 ---
 
@@ -88,11 +88,6 @@ The vehicle signal `Vehicle.Powertrain.FuelSystem.TankCapacity` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.FuelSystem.TankCapacity` is `362643b866c55d5386fdbdf383464e90`
 
 
 ## Feedback

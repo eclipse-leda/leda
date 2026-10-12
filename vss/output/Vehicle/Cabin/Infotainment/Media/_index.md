@@ -1,7 +1,7 @@
 ---
 title: Media
 
-date: 2026-03-08T08:02:49.607104
+date: 2026-10-12T19:51:25.804138
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media` is `3f324d13873e501a84daf2cfade24d0f`
 
 ## Children
 

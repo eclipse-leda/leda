@@ -1,7 +1,7 @@
 ---
 title: IsLumbarDownSwitchEngaged
 
-date: 2026-03-08T08:02:51.827929
+date: 2026-10-12T19:51:27.615434
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest.IsLumbarDownSwit
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row1.DriverSide.Backrest.IsLumbarDownSwitchEngaged` is `b15e43c1e33b5e4babd1c99fc4507c08`
 
 
 ## Feedback

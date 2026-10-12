@@ -1,7 +1,7 @@
 ---
 title: Position
 
-date: 2026-03-08T08:02:50.116606
+date: 2026-10-12T19:51:26.223199
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Cabin.Sunroof.Position` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Sunroof.Position` is `ab598697f1c852eda4df9ed62a956d17`
 
 
 ## Feedback

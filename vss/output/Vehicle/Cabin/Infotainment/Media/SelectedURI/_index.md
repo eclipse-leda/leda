@@ -1,7 +1,7 @@
 ---
 title: SelectedURI
 
-date: 2026-03-08T08:02:49.719718
+date: 2026-10-12T19:51:25.895737
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Cabin.Infotainment.Media.SelectedURI` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Infotainment.Media.SelectedURI` is `4820f7a961c25e91af12d3417a145d32`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Position
 
-date: 2026-03-08T08:02:54.259229
+date: 2026-10-12T19:51:29.589874
 no_list: true
 ---
 
@@ -93,11 +93,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.Middle.Position` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.Middle.Position` is `c7e61a5fe6f35d0fb50a4cbb3c5d15e8`
 
 
 ## Feedback

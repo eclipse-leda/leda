@@ -1,7 +1,7 @@
 ---
 title: IdleHours
 
-date: 2026-03-08T08:02:45.656711
+date: 2026-10-12T19:51:21.389171
 no_list: true
 ---
 
@@ -89,11 +89,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.IdleHours` is a **Signal
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.IdleHours` is `6caa3d7e669c5cc6aecd4a6be9a302d4`
 
 
 ## Feedback

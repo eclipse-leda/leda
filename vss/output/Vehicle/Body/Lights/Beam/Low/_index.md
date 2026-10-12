@@ -1,7 +1,7 @@
 ---
 title: Low
 
-date: 2026-03-08T08:02:48.507486
+date: 2026-10-12T19:51:24.800373
 no_list: true
 ---
 
@@ -49,11 +49,6 @@ The vehicle signal `Vehicle.Body.Lights.Beam.Low` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Beam.Low` is `f6f21ea5b263545297f4411b2e15037f`
 
 ## Children
 

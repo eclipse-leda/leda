@@ -1,7 +1,7 @@
 ---
 title: RotationalSpeedTarget
 
-date: 2026-03-08T08:02:58.644671
+date: 2026-10-12T19:51:34.141362
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.MotionManagement.ElectricAxle.Row1.RotationalSpeedTa
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.ElectricAxle.Row1.RotationalSpeedTarget` is `64815a9bf8ab546282fea1c8c46d7be8`
 
 
 ## Feedback

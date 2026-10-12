@@ -1,7 +1,7 @@
 ---
 title: IsLocked
 
-date: 2026-03-08T08:02:47.855310
+date: 2026-10-12T19:51:24.238019
 no_list: true
 ---
 
@@ -86,11 +86,6 @@ The vehicle signal `Vehicle.Body.Trunk.Front.IsLocked` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Trunk.Front.IsLocked` is `e0eabc210f07505fa1b66b67729d681b`
 
 
 ## Feedback

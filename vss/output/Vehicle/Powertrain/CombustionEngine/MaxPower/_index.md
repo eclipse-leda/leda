@@ -1,7 +1,7 @@
 ---
 title: MaxPower
 
-date: 2026-03-08T08:02:45.594194
+date: 2026-10-12T19:51:21.333516
 no_list: true
 ---
 
@@ -58,9 +58,6 @@ sdv.databroker.v1 > set Vehicle.Powertrain.CombustionEngine.MaxPower 0
 | Path | `Vehicle.Powertrain.CombustionEngine.MaxPower` | [VSS: Addressing nodes](https://covesa.github.io/vehicle_signal_specification/rule_set/basics/) |
 | Data type | `uint16` | [VSS: Datatypes](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/) |
 | Unit | `kW` | [VSS: Units](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
-| Label | kilowatt | |
-| Description | Power measured in kilowatts | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
-| Domain | power | [](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/) |
 | Default value | `0` | [VSS: Sensors & Actuators](https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/) |
 
 
@@ -89,11 +86,6 @@ The vehicle signal `Vehicle.Powertrain.CombustionEngine.MaxPower` is a **Signal*
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Powertrain.CombustionEngine.MaxPower` is `81fbdd5e90f557a38b96578a38dc137d`
 
 
 ## Feedback

@@ -1,7 +1,7 @@
 ---
 title: Hazard
 
-date: 2026-03-08T08:02:48.798324
+date: 2026-10-12T19:51:25.050955
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Body.Lights.Hazard` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Body.Lights.Hazard` is `803498c3be6253dfb074c0e0294be758`
 
 ## Children
 

@@ -1,7 +1,7 @@
 ---
 title: TimeGap
 
-date: 2026-03-08T08:02:55.821461
+date: 2026-10-12T19:51:30.773646
 no_list: true
 ---
 
@@ -92,11 +92,6 @@ The vehicle signal `Vehicle.ADAS.ObstacleDetection.Front.Center.TimeGap` is a **
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ADAS.ObstacleDetection.Front.Center.TimeGap` is `a0b8a90b5e9f5f34a862ed8ad50c7b89`
 
 
 ## Feedback

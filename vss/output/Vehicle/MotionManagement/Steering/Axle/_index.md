@@ -1,7 +1,7 @@
 ---
 title: Axle
 
-date: 2026-03-08T08:02:59.366339
+date: 2026-10-12T19:51:34.789787
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.MotionManagement.Steering.Axle` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.MotionManagement.Steering.Axle` is `440ce4d999b25fb8b52e9906b46454fd`
 
 ## Children
 

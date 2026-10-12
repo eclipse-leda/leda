@@ -1,7 +1,7 @@
 ---
 title: IsUpSwitchEngaged
 
-date: 2026-03-08T08:02:55.247381
+date: 2026-10-12T19:51:30.335794
 no_list: true
 ---
 
@@ -91,11 +91,6 @@ The vehicle signal `Vehicle.Cabin.Seat.Row2.PassengerSide.Headrest.IsUpSwitchEng
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Seat.Row2.PassengerSide.Headrest.IsUpSwitchEngaged` is `d059ad5f4c8c51d4a8242cd45ffcb532`
 
 
 ## Feedback

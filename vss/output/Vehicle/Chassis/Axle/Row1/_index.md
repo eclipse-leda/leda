@@ -1,7 +1,7 @@
 ---
 title: Row1
 
-date: 2026-03-08T08:02:56.483241
+date: 2026-10-12T19:51:31.294621
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1` is `d7e93a94af0752aaab36819f6be4f67a`
 
 ## Children
 
@@ -62,6 +57,7 @@ This vehicle signal is a branch or structure and thus has sub-pages:
 - [Vehicle.Chassis.Axle.Row1.TireAspectRatio](tireaspectratio/) (Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard.)
 - [Vehicle.Chassis.Axle.Row1.TireDiameter](tirediameter/) (Outer diameter of tires, in inches, as per ETRTO / TRA standard.)
 - [Vehicle.Chassis.Axle.Row1.TireWidth](tirewidth/) (Nominal section width of tires, in mm, as per ETRTO / TRA standard.)
+- [Vehicle.Chassis.Axle.Row1.Torque](torque/) (Incoming axle torque to differential. Negative values indicate regen mode.)
 - [Vehicle.Chassis.Axle.Row1.TrackWidth](trackwidth/) (The lateral distance between the centers of the wheels, measured along the spindle, or axle axis. If there are dual rear wheels, measure from the midway points between the inner and outer tires.)
 - [Vehicle.Chassis.Axle.Row1.TreadWidth](treadwidth/) (The lateral distance between the centerlines of the base tires at ground, including camber angle. If there are dual rear wheels, measure from the midway points between the inner and outer tires.)
 - [Vehicle.Chassis.Axle.Row1.Wheel](wheel/) (Wheel signals for axle)

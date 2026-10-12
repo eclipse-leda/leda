@@ -1,7 +1,7 @@
 ---
 title: Light
 
-date: 2026-03-08T08:02:50.198845
+date: 2026-10-12T19:51:26.288362
 no_list: true
 ---
 
@@ -46,11 +46,6 @@ The vehicle signal `Vehicle.Cabin.Light` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light` is `2fc2ad48d5315cc4aa1e4638a6985585`
 
 ## Children
 

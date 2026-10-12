@@ -1,7 +1,7 @@
 ---
 title: LowVoltageSystemState
 
-date: 2026-03-08T08:02:44.870181
+date: 2026-10-12T19:51:33.531203
 no_list: true
 ---
 
@@ -81,11 +81,6 @@ The vehicle signal `Vehicle.LowVoltageSystemState` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.LowVoltageSystemState` is `d7391ceb132e5519b02d4c13d5513d99`
 
 
 ## Feedback

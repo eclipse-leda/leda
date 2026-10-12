@@ -1,7 +1,7 @@
 ---
 title: TireAspectRatio
 
-date: 2026-03-08T08:02:56.584665
+date: 2026-10-12T19:51:31.371176
 no_list: true
 ---
 
@@ -90,11 +90,6 @@ The vehicle signal `Vehicle.Chassis.Axle.Row1.TireAspectRatio` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Chassis.Axle.Row1.TireAspectRatio` is `716fec24167e5c36b2b97daaf091f911`
 
 
 ## Feedback

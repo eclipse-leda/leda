@@ -1,7 +1,7 @@
 ---
 title: FrontLeft
 
-date: 2026-03-08T08:03:00.056868
+date: 2026-10-12T19:51:35.357765
 no_list: true
 ---
 
@@ -46,11 +46,6 @@ The vehicle signal `Vehicle.ControlUnit.FrontLeft` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.ControlUnit.FrontLeft` is `95bba655772452219e5189cac7a7a21b`
 
 ## Children
 

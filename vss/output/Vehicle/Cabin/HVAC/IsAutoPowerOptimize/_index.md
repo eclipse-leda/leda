@@ -1,7 +1,7 @@
 ---
 title: IsAutoPowerOptimize
 
-date: 2026-03-08T08:02:49.586380
+date: 2026-10-12T19:51:25.715585
 no_list: true
 ---
 
@@ -84,11 +84,6 @@ The vehicle signal `Vehicle.Cabin.HVAC.IsAutoPowerOptimize` is a **Signal**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.HVAC.IsAutoPowerOptimize` is `83abc4d9c05f557d83482f2d4347eb32`
 
 
 ## Feedback

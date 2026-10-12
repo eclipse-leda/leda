@@ -1,7 +1,7 @@
 ---
 title: InteractiveLightBar
 
-date: 2026-03-08T08:02:50.809229
+date: 2026-10-12T19:51:26.796042
 no_list: true
 ---
 
@@ -47,11 +47,6 @@ The vehicle signal `Vehicle.Cabin.Light.InteractiveLightBar` is a **Branch**.
 
 
 
-## UUID
-
-Each vehicle signal is identified by a [Universally Unique Identifier (UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier))
-
-The UUID for `Vehicle.Cabin.Light.InteractiveLightBar` is `de6062a1a9c05ff687128f748307e331`
 
 ## Children
 
